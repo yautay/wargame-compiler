@@ -1,9 +1,8 @@
 # Stage 1.5 fixture: Drill Skirmish digitalization slice. Input = logic.minigame.yaml only.
 # Traceability example (docs/DIGITALIZATION.md#sledzenie-regul):
 #   SEG-dsk.3.4 → R-3.4 → LEG-move.routed_adjacent → ACT-move → TST-001 (reason_code move.routed_adjacent)
-# NOTE: this is a SLICE. It references records outside the fixtures (R-3.1, CON-ma, ACT-rally…).
-# Schema validation passes; referential integrity is checked from milestone M1 on, when the full
-# gold model of the mini-game (bench/minigame/gold/) makes the fixture set closed.
+# This is a SLICE of the digitalization, but the fixture set contracts/fixtures/valid/ is CLOSED: every reference
+# checked by `wgc validate` (M1) resolves within it. The full gold model comes in M3 and M17–M21.
 schema: wgc/digital@0
 records:
   # ---- Game State Schema ----------------------------------------------------------------------
@@ -25,15 +24,15 @@ records:
     status: proposed
   - kind: entity
     id: ENT-game
-    concept: CON-scn.ford
+    concept: CON-game
     cardinality: singleton
     fields:
       - {name: game_turn, type: int, range: [1, 6]}
       - {name: active_player, type: enum, values: [first, second]}
       - {name: phase, type: ref, ref_to: SEQ-turn}
       - {name: scenario, type: ref, ref_to: CON-scn.ford, nullable: true}
-      - {name: rally_attempted, type: bool, stored_reason: "Limit 'one rally attempt per Rally Phase' (5.1)."}
-    realizes: [CON-scn.ford]
+      - {name: rally_attempted, type: bool, stored_reason: "Limit 'one rally attempt per Rally Phase' (5.1).", realizes: [R-5.1]}
+    realizes: [CON-game, R-2.1]
     status: proposed
   - kind: derived
     id: DRV-mp_left
@@ -72,6 +71,20 @@ records:
     decisions: [DP-movement]
     realizes: [R-3.1, R-3.2, CON-move]
     status: proposed
+  - kind: action
+    id: ACT-rally
+    actor: active_player
+    params:
+      - {name: unit, type: ref, ref_to: ENT-unit}
+    timing: [SEQ-rally]
+    random: [RNG-rally]
+    effects:
+      - {op: random, source: CON-d6, spec: "1d6", bind: $roll}
+      - {op: leave_state, of: $unit, state: CON-routed, when: {cmp: [$roll, "<=", {val: DRV-rally_threshold, of: $unit}]}}
+    emits: [EVT-DieRolled, EVT-UnitRallied]
+    realizes: [R-5.1, R-5.2, CON-rally]
+    status: proposed
+    notes: "Legality of 5.1 (Routed, not adjacent, one attempt per phase) is not modelled in this slice."
   - kind: legality
     id: LEG-move.routed_adjacent
     applies_to: [ACT-move]
@@ -102,6 +115,8 @@ records:
     status: proposed
   - {kind: event, id: EVT-UnitStopped, name: UnitStopped, payload: [{name: unit, type: ref, ref_to: ENT-unit}, {name: rule, type: string}],
      visibility: public, realizes: [R-3.3], status: proposed}
+  - {kind: event, id: EVT-UnitRallied, name: UnitRallied, payload: [{name: unit, type: ref, ref_to: ENT-unit}],
+     visibility: public, realizes: [R-5.2], status: proposed, notes: "Emitted only when the rally succeeds."}
   - {kind: event, id: EVT-DieRolled, name: DieRolled, payload: [{name: source, type: string}, {name: result, type: int}],
      visibility: public, realizes: [CON-d6], status: proposed}
 

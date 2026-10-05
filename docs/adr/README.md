@@ -24,3 +24,4 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0016](ADR-0016-inference-gateway-i-protokol.md) | Inference Gateway (`igw`) i protokół `igw/api@0` | przyjęty |
 | [ADR-0017](ADR-0017-niedostepnosc-wezla-bez-premium-fallback.md) | Niedostępność węzła nie eskaluje do premium; self-hosted jako zasób obfity | przyjęty |
 | [ADR-0018](ADR-0018-runtime-mvp-llama-cpp-windows.md) | Runtime MVP: llama.cpp natywnie na Windows; vLLM w WSL2 po benchmarku | przyjęty |
+| [ADR-0019](ADR-0019-wiele-dokumentow-w-pliku-yaml.md) | Plik YAML może zawierać wiele dokumentów, każdy z własnym kontraktem | przyjęty |

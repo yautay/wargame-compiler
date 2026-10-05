@@ -40,6 +40,31 @@ records:
      prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "1d6"}]}}
   - {kind: concept, id: CON-scn.ford, category: scenario, name: "The Ford", status: accepted,
      prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:0000000000007001", quote: "In this scenario"}]}}
+  - {kind: concept, id: CON-game, category: entity_type, name: game, status: accepted,
+     definition: {lang: en, text: "One play of Drill Skirmish: six Game Turns, optionally in a scenario."},
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0000000000002001", quote: "A game lasts six Game Turns"}]}}
+  - {kind: concept, id: CON-game_turn, category: state_var, of: CON-game, name: Game Turn, value_type: int, range: [1, 6], status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0000000000002001", quote: "six Game Turns"}]}}
+  - {kind: concept, id: CON-ma, category: state_var, of: CON-unit, name: Movement Allowance, source_terms: [Movement Allowance, MA], value_type: int, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.1.1, seg_hash: "sha256:0000000000001001", quote: "Movement Allowance (MA)"}]}}
+  - {kind: concept, id: CON-mp_spent, category: state_var, of: CON-unit, name: Movement Points spent, source_terms: [Movement Points, MP], value_type: int, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:0000000000003001", quote: "spend up to its MA in Movement Points (MP)"}]}}
+  - {kind: concept, id: CON-moved_this_phase, category: state_var, of: CON-unit, name: has moved this phase, value_type: bool, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.2, seg_hash: "sha256:0000000000003002", quote: "has not yet moved this phase"}]}}
+  - kind: concept
+    id: CON-owned_by_active
+    category: predicate
+    name: owned by the active player
+    params: [CON-unit]
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_fast, prompt: "logic.concept.extract@0"},
+           anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:0000000000003001", quote: "any or all of his units"}]}
+  - {kind: concept, id: CON-at, category: predicate, name: unit is in hex, params: [CON-hex], status: accepted,
+     definition: {lang: en, text: "True for a unit whose location is the given hex."},
+     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.concept.extract@0"}, derived_from: [R-3.6]}}
+  - {kind: concept, id: CON-occupied, category: predicate, name: hex is occupied, params: [CON-hex], status: accepted,
+     definition: {lang: en, text: "True for a hex that contains a unit."},
+     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.concept.extract@0"}, derived_from: [R-3.6]}}
 
   # ---- rules ----------------------------------------------------------------------------------
   - kind: rule
@@ -140,6 +165,88 @@ records:
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
            anchors: [{seg: SEG-dsk.6.2, seg_hash: "sha256:0000000000006002", quote: "moves adjacent to it"}]}
+
+  # ---- further rules realized by the Stage 1.5 fixture (kept small: closure, not gold) ---------
+  - {kind: rule, id: R-1.1, label: "1.1", nature: definition, modality: is, formalization: partial,
+     statement: {lang: en, text: "Each unit has a Strength from 1 to 4 and a Movement Allowance: 4 for infantry, 6 for Light units."},
+     unformalized: "The MA per unit type is not structured yet.", refs: [CON-unit, CON-strength, CON-ma], status: accepted,
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+            anchors: [{seg: SEG-dsk.1.1, seg_hash: "sha256:0000000000001001", quote: "a Strength (1 to 4)"}]}}
+  - {kind: rule, id: R-1.3, label: "1.3", nature: constraint, modality: is, formalization: none,
+     statement: {lang: en, text: "Reserve markers are placed face-down; only their owner may look at them."}, status: accepted,
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+            anchors: [{seg: SEG-dsk.1.3, seg_hash: "sha256:0000000000001003", quote: "Only the owning player may look"}]}}
+  - {kind: rule, id: R-2.1, label: "2.1", nature: sequence, modality: is, formalization: none,
+     statement: {lang: en, text: "A game has six Game Turns; each has a First Player Turn and then a Second Player Turn."},
+     refs: [CON-game, CON-game_turn], status: accepted,
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+            anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0000000000002001", quote: "A game lasts six Game Turns"}]}}
+  - {kind: rule, id: R-2.2, label: "2.2", nature: sequence, modality: is, formalization: none,
+     statement: {lang: en, text: "A Player Turn has a Rally, Movement, Combat and End Phase, in this order."}, status: accepted,
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+            anchors: [{seg: SEG-dsk.2.2, seg_hash: "sha256:0000000000002002", quote: "in this order"}]}}
+  - kind: rule
+    id: R-3.1
+    label: "3.1"
+    nature: permission
+    modality: may
+    statement: {lang: en, text: "In his Movement Phase the active player may move his units one at a time, each spending up to its MA in MP."}
+    bind: {$unit: CON-unit}
+    actor: $unit
+    action: CON-move
+    conditions: {pred: CON-owned_by_active, args: [$unit]}
+    limits: [{quantity: {val: CON-mp_spent, of: $unit}, op: "<=", value: {val: CON-ma, of: $unit}, per: phase}]
+    formalization: partial
+    unformalized: "The Movement Phase window and 'one at a time' are not structured."
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:0000000000003001", quote: "may move any or all of his units"}]}
+  - kind: rule
+    id: R-3.2
+    label: "3.2"
+    nature: constraint
+    modality: must_not
+    statement: {lang: en, text: "Clear costs 1 MP, woods 2 MP; a unit without enough MP left may not enter, except that a unit that has not moved this phase may always move one hex."}
+    bind: {$unit: CON-unit}
+    formalization: partial
+    unformalized: "Terrain costs and the first-hex exception are not structured yet (the exception becomes a relation in the gold model, M3)."
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.3.2, seg_hash: "sha256:0000000000003002", quote: "may always move one hex"}]}
+  - kind: rule
+    id: R-3.6
+    label: "3.6"
+    nature: constraint
+    modality: is
+    statement: {lang: en, text: "A hex never holds more than one unit."}
+    bind: {$hex: CON-hex}
+    limits: [{quantity: {count: CON-unit, where: {pred: CON-at, args: [$hex]}}, op: "<=", value: 1, per: hex}]
+    formalization: full
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.3.6, seg_hash: "sha256:0000000000003006", quote: "more than one unit"}]}
+  - {kind: rule, id: R-4.5, label: "4.5", nature: automatic_effect, modality: is, bind: {$unit: CON-unit},
+     statement: {lang: en, text: "An eliminated unit is removed from the map."},
+     effects: [{op: remove, of: $unit, when: {text: "the unit is eliminated"}}], formalization: partial,
+     unformalized: "'Eliminated' is not a concept yet.", status: accepted,
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+            anchors: [{seg: SEG-dsk.4.5, seg_hash: "sha256:0000000000004005", quote: "removed from the map"}]}}
+  - kind: rule
+    id: R-5.1
+    label: "5.1"
+    nature: permission
+    modality: may
+    statement: {lang: en, text: "In his Rally Phase the active player may try to rally one Routed unit not adjacent to an enemy unit; one attempt per Rally Phase."}
+    bind: {$unit: CON-unit}
+    actor: $unit
+    action: CON-rally
+    conditions: {all: [{is: [$unit, CON-routed]}, {pred: CON-owned_by_active, args: [$unit]}, {not: {text: "the unit is adjacent to an enemy unit"}}]}
+    limits: [{quantity: {text: "rally attempts"}, op: "<=", value: 1, per: phase}]
+    formalization: partial
+    unformalized: "Adjacency of a unit (the predicate takes a hex) is a text leaf."
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.5.1, seg_hash: "sha256:0000000000005001", quote: "Only one rally attempt"}]}
 
   # ---- relations (the only home of exceptions and overrides) ----------------------------------
   - {kind: relation, id: REL-001, type: exception_to, from: R-3.5, to: R-3.3, priority_basis: exception_over_rule,

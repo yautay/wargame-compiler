@@ -18,8 +18,15 @@
 | `wgc/state@0` | (M17) | kanoniczny snapshot stanu gry | planowany |
 | `wgc/engine-kit@0` | (M20) | pakiet dla silnika + format wyników testów | planowany |
 
-Fixture'y: `contracts/fixtures/valid/*` (muszą przechodzić) i `contracts/fixtures/invalid/*` (muszą odpadać).
-Test: `tests/test_contracts.py`. Ładowanie: `wgc/contracts.py` (rejestr `referencing`, bez sieci).
+Fixture'y:
+- `contracts/fixtures/valid/*`: przechodzą schemat i `wgc validate` bez diagnostyk; razem tworzą **zbiór zamknięty**
+  (każda referencja sprawdzana przez walidator rozwiązuje się w obrębie katalogu);
+- `contracts/fixtures/invalid/*`: odpadają na schemacie (L0);
+- `contracts/fixtures/invalid/semantic/*`: przechodzą schemat, a `wgc validate` daje **dokładnie** jeden kod błędu,
+  zapisany w linii `# EXPECT: <kod>` (co najmniej jeden plik na każdy kod L1 i provenance, [§8](#walidator)).
+
+Testy: `tests/test_contracts.py` (schematy), `tests/test_validate.py` (walidator). Ładowanie: `wgc/contracts.py`
+(rejestr `referencing`, bez sieci).
 
 **Przestrzenie nazw:**
 - `wgc/*` to domena;
@@ -49,7 +56,9 @@ schema: wgc/logic@0
 records:
   - {kind: rule, id: R-3.4, ...}
 ```
-Rekordy różnych rodzajów mogą być w jednym pliku. Układ plików w repo gry ([ARCHITECTURE.md](ARCHITECTURE.md#4-repozytoria))
+Rekordy różnych rodzajów mogą być w jednym pliku. Plik YAML może zawierać **kilka dokumentów** oddzielonych `---`,
+każdy z własnym polem `schema` (np. segment `wgc/source@0` i kotwiczący go rekord `wgc/logic@0`), ADR-0019.
+Walidator traktuje rekordy domenowe ze wszystkich dokumentów i plików jako jeden zbiór. Układ plików w repo gry ([ARCHITECTURE.md](ARCHITECTURE.md#4-repozytoria))
 służy czytelności, a nie semantyce.
 
 <a id="identyfikatory"></a>
@@ -76,17 +85,37 @@ ID są **stabilne**: nigdy nie są przenumerowywane ani używane ponownie. Usuni
 | `ENT-`, `DRV-`, `ACT-`, `LEG-`, `EVT-`, `TRG-`, `SEQ-`, `DP-`, `RNG-`, `MOD-`, `HID-`, `INV-`, `PRI-`, `BLK-`, `TST-` | elementy Stage 1.5 | 1.5 | `snake_case` / kropki; `EVT-` = nazwa zdarzenia |
 | `build_`, `job_`, `att_`, `rd_`, `pkg_` | stan wykonania GLU | — | ULID / losowy, poza KB |
 
-Prefiks jednoznacznie określa rodzaj rekordu, więc walidator (M1) sprawdza zgodność `kind` ↔ prefiks.
+Prefiks jednoznacznie określa rodzaj rekordu, więc walidator (M1) sprawdza zgodność `kind` ↔ prefiks
+(`kind_prefix_mismatch`). Rejestr prefiks → rodzaje jest danymi w `wgc/ids.py` (`PREFIX_KINDS`). `SEC-` jest znanym
+prefiksem bez własnego rodzaju rekordu. Węzły `sequence.nodes[].id` (`SEQ-`) są zdefiniowanymi ID: można je wskazywać
+i podlegają kontroli duplikatów.
 `DP-` (punkt decyzji gracza) i `HD-` (decyzja człowieka) są rozdzielone celowo.
 
 ## 5. Kanoniczna serializacja i hashe
-- **Kanoniczny JSON:** UTF-8, NFC dla napisów, klucze posortowane, bez zbędnych spacji, liczby całkowite bez `.0`,
-  bez pól o wartości `null` (opuszczane). `sha256:` + hex.
-- **Hash segmentu (`text_hash`):** sha256 znormalizowanego tekstu (NFC, zwinięte białe znaki, złączone przeniesienia wyrazów).
-- **Projekcja semantyczna:** dla każdej pary (rodzaj rekordu, konsument) WGC definiuje listę pól wchodzących do hasha
-  (np. reguła dla Stage 1.5: `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`,
-  `effects`, `limits`, `triggers`, `layer`, `applies_in`, `formalization`. Bez `statement`, `notes`, `risk`).
-  Projekcje są wersjonowane razem z kontraktem.
+Implementacja: `wgc/canonical.py`.
+- **Kanoniczny JSON (`canonical_json`):** UTF-8 bez escapowania, NFC dla napisów **i kluczy**, klucze posortowane
+  według punktów kodowych Unicode, separatory bez spacji. Liczba zmiennoprzecinkowa o wartości całkowitej jest
+  zapisywana jako całkowita (`1.0` → `1`), pozostałe w najkrótszej postaci odtwarzającej wartość (`repr` Pythona),
+  wartości logiczne bez zmian. Pola słownika o wartości `null` są opuszczane, ale `null` **w liście** zostaje (komórki
+  tabel). `NaN`, `Infinity`, klucze niebędące napisami i typy spoza JSON (np. daty YAML bez cudzysłowu) są błędem.
+- **`content_hash`:** `sha256:` + hex kanonicznego JSON-a.
+- **Hash segmentu (`text_hash`):** sha256 znormalizowanego tekstu (`normalize_text`): NFC, CRLF → LF, usunięte miękkie
+  łączniki (U+00AD) razem z następującym białym znakiem, przeniesienia (łącznik na końcu wiersza między dwoma
+  niebiałymi znakami): między literą a małą literą łącznik i złamanie znikają (`move-⏎ment` → `movement`), w pozostałych
+  przypadkach znika tylko złamanie (`First-⏎Player` → `First-Player`, `3-⏎step` → `3-step`), zwinięte białe znaki,
+  obcięte końce.
+- **Projekcja semantyczna (`projection(record, consumer)`):** dla każdej pary (rodzaj rekordu, konsument) WGC definiuje
+  listę pól wchodzących do hasha. Projekcja zawiera zawsze `kind` i `id` oraz te pola z listy, które rekord ma.
+  `statement`, `notes`, `risk`, `status` i `prov` nigdy do niej nie wchodzą. Listy są danymi (`PROJECTIONS`),
+  wersja `wgc/projection@0`, zmieniana razem z kontraktem. Konsumenci: `logic` (joby Stage 1 czytające rekord jako
+  wejście lub kontekst), `digital` (Stage 1.5), `publication` (przekład segmentu, Stage 3).
+
+  | Rodzaj | `logic` | `digital` | `publication` |
+  |---|---|---|---|
+  | `segment` | `doc`, `label`, `segment_type`, `text_hash` | — | `segment_type`, `text_hash` |
+  | `rule` | `label`, `section`, `layer`, `applies_in`, `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`, `effects`, `limits`, `triggers`, `formalization`, `ambiguities` | `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`, `effects`, `limits`, `triggers`, `layer`, `applies_in`, `formalization` | `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`, `effects`, `limits`, `triggers` |
+  | `concept` | `category`, `name`, `source_terms`, `definition`, `of`, `params`, `parent`, `value_type`, `range`, `values`, `defined_by` | `category`, `name`, `of`, `params`, `value_type`, `range`, `values`, `parent` | `category`, `name`, `source_terms`, `definition` |
+  | `relation` | `type`, `from`, `to`, `when`, `priority_basis` | `type`, `from`, `to`, `when`, `priority_basis` | `type`, `from`, `to` |
 - `prov.inputs_hash` = hash projekcji wejść (kotwic i `derived_from`) w chwili akceptacji.
 
 ## 6. Konwencje YAML
@@ -101,3 +130,33 @@ Prefiks jednoznacznie określa rodzaj rekordu, więc walidator (M1) sprawdza zgo
 `engine-kit.json`: `{format: wgc/engine-kit@0, game, ruleset_hash, generated, source_rev, records (Stage 1.5),
 tables (Stage 1), tests, fixtures, trace}`. Wyniki: `engine-results.json`: `{format, ruleset_hash, engine, results:
 [{test, passed, reason_code?, events?}]}`. Niezgodność `ruleset_hash` jest błędem.
+
+<a id="walidator"></a>
+## 8. Walidator i diagnostyki (M1)
+`python -m wgc validate <ścieżki…> [--json]` (po instalacji: `wgc validate`), implementacja `wgc/validate.py`.
+Katalog jest przeszukiwany rekurencyjnie (`*.yaml`, `*.yml`). Kod wyjścia 1, gdy jest choć jeden błąd.
+
+**Diagnostyka:** `{code, severity: error|warning, subject, message, affected: [ID…], location}`. `subject` to ID
+rekordu, a dla błędów na poziomie pliku ścieżka. `message` jest po polsku. `location` to plik (z `#n` dla n-tego
+dokumentu pliku wielodokumentowego). Raport JSON: `{ok, files, records, errors, warnings, diagnostics}`.
+To podstawa późniejszych `wgc diagnose` i `wgc explain` (M13).
+
+**Zakres:** L0 dotyczy każdego dokumentu. L1 i provenance dotyczą tylko rekordów kontraktów domenowych
+(`wgc/source`, `wgc/logic`, `wgc/digital`), bo dokumenty `wgc/gate`, `glu/exec` i `igw/api` mają ID spoza KB.
+
+| Kod | Poziom | Znaczenie |
+|---|---|---|
+| `load_error` | L0 | plik nie istnieje, nie jest poprawnym YAML-em albo nie ma dokumentu |
+| `schema_error` | L0 | `contracts.errors` (brak `schema`, nieznany kontrakt, niezgodność ze schematem) |
+| `duplicate_id` | L1 | to samo ID zdefiniowane więcej niż raz (w całym zbiorze, także w węzłach `sequence`) |
+| `kind_prefix_mismatch` | L1 | prefiks ID nie odpowiada `kind` (§4) |
+| `unresolved_ref` | L1 | referencja wskazuje nieistniejący rekord |
+| `anchor_hash_mismatch` | provenance | `anchors[].seg_hash` ≠ `text_hash` wskazanego segmentu (kotwica nieaktualna) |
+| `missing_decision` | provenance | `prov.kind: human_decision` albo zaakceptowana interpretacja bez `prov.decision` wskazującego istniejący rekord `HD-` |
+
+**Pozycje referencji sprawdzane przez `unresolved_ref`** (tabela `REF_FIELDS`): `refs`, `prov.derived_from`,
+`realizes` (także `entity.fields[].realizes`), `covers`, `applies_to`, `from_case`, `relation.from`/`to`,
+`interpretation.ambiguity`, `blocker.cause`/`affects`, `segment.doc` oraz `anchors[].seg` (w `prov.anchors`
+i `review_request.evidence`). Referencje w wyrażeniach, `ref_to`, `timing`, `emits`, `fires_on`, `legality`, `chain`,
+`ambiguities` i krokach testów nie są jeszcze sprawdzane. Walidator nie sprawdza też rodzaju celu referencji (np. czy
+`interpretation.ambiguity` wskazuje `AMB-`).

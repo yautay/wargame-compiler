@@ -61,16 +61,18 @@ pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 
   logicznych od modeli fizycznych w INFERENCE-ROUTING. Brak zmian kontraktów i kodu.
 
 ### M1: Tożsamość, hashowanie i walidator referencji
-- **Status:** next · **Rola:** IMPL · **Zależy od:** M0
+- **Status:** done · **Rola:** IMPL · **Zależy od:** M0
 - **Zakres:** `wgc/ids.py` (gramatyka, rejestr prefiksów, `kind` ↔ prefiks), `wgc/canonical.py` (kanoniczny JSON,
   sha256, projekcje semantyczne v0 dla `rule`, `concept`, `relation`, `segment`), `wgc/validate.py` (L0 + L1 + reguły
   provenance spoza schematu: istnienie segmentu kotwicy, zgodność `seg_hash`, `HD-` dla `human_decision` i accepted
   `INT-`), CLI `wgc validate`, domknięcie fixture'ów (zbiór bez wiszących referencji). Raport walidatora to lista
   **diagnostyk** `{code, severity, subject, message, affected}` (podstawa `wgc diagnose` i `wgc explain`).
-- **Szczegóły:** [STATUS.md](STATUS.md#nastepny-milestone).
+- **Wynik:** moduły i CLI jak w zakresie (`python -m wgc validate`, skrypt `wgc`), fixture'y `valid/` zamknięte,
+  `invalid/semantic/` z kodem w `# EXPECT:`, pliki YAML wielodokumentowe (ADR-0019), DATA-CONTRACTS §5 i §8.
+  Handoff: [handoff/2026-10-05-M1.md](handoff/2026-10-05-M1.md).
 
 ### M2: Stage 0: inwentarz i ingest źródeł
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M1
+- **Status:** next · **Rola:** IMPL · **Zależy od:** M1
 - **Zakres:** `wgc source init/scan/extract/verify`; ingest Markdown (gra benchmarkowa) i PDF (PyMuPDF): segmentacja
   po numerach reguł, typy segmentów, `text_hash`, flagi wizualne (kolor zmian, przekreślenie), render strony do
   weryfikacji; tekst w `.glu/source/`, inwentarz commitowany. Kontrakt `source_document`: role `living_rules`,

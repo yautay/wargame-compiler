@@ -1,0 +1,10 @@
+# EXPECT: unresolved_ref
+# MUST FAIL (L1): a relation points to a rule that does not exist (dangling reference).
+schema: wgc/logic@0
+records:
+  - {kind: human_decision, id: HD-001, question: "Do rules 1 and 2 relate?", answer: "See also.", by: owner, at: "2026-10-05T12:00:00Z"}
+  - {kind: rule, id: R-1, nature: prohibition, modality: must_not, formalization: none,
+     statement: {lang: en, text: "Units may not attack across rivers."},
+     prov: {kind: human_decision, by: {tier: human, person: owner}, decision: HD-001}}
+  - {kind: relation, id: REL-001, type: see, from: R-1, to: R-2,
+     prov: {kind: human_decision, by: {tier: human, person: owner}, decision: HD-001}}
