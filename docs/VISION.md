@@ -21,7 +21,7 @@ Stage 3: TRANSLATION / PUBLICATION MODEL → LaTeX, PDF, pomoce do gry
 2. **Każdy fakt ma pochodzenie.** Inferencja nigdy nie udaje treści instrukcji.
 3. **Niepewność jest wynikiem, nie błędem.** `requires_human_interpretation` to poprawny stan końcowy automatu.
 4. **Model nie jest pamięcią projektu.** Stan żyje w plikach: `INPUT → EXECUTOR → PROPOSED → VALIDATOR → ACCEPTED`.
-5. **Najpierw deterministycznie, potem lokalnie, premium selektywnie, człowiek tam, gdzie zgadywanie jest
+5. **Najpierw deterministycznie, potem self-hosted, premium selektywnie, człowiek tam, gdzie zgadywanie jest
    niedopuszczalne.**
 6. **Niezmienione wejście = zero wywołań modelu.** Zmiana jednej reguły przelicza tylko to, co od niej zależy.
 7. **Śledzenie w obie strony:** od segmentu źródła do testu silnika i od nieudanego testu z powrotem do źródła.
@@ -31,8 +31,10 @@ Stage 3: TRANSLATION / PUBLICATION MODEL → LaTeX, PDF, pomoce do gry
 - **WGC** (pakiet `wgc`, rola „WGU”) to domena: kontrakty, KB, walidatory, narzędzia deterministyczne, zadania.
 - **GLU** (pakiet `glu`) to wykonanie: joby, routing, providerzy, cache, przyrostowość, interfejsy CLI i MCP.
 - **Knowledge Base** w repo gry jest źródłem prawdy.
-- **Lokalny LLM** wykonuje większość pracy. **Premium LLM** jest selektywnym, bezstanowym recenzentem.
-  **Człowiek** rozstrzyga to, czego system nie powinien zgadywać.
+- **Self-hosted LLM** („local”: nasza infrastruktura, dedykowany węzeł RTX 3090 w LAN za Inference Gateway, nie
+  localhost) wykonuje większość pracy. To zasób obfity, a węzeł jest wymienialnym workerem bez wiedzy domenowej.
+  **Premium LLM** jest drogim, selektywnym, bezstanowym recenzentem. **Człowiek** rozstrzyga to, czego system nie
+  powinien zgadywać.
 
 ## Poza zakresem (na teraz)
 Pełny silnik gry, edytor wizualny, wiele gier naraz w jednym repo, baza wektorowa jako źródło prawdy.

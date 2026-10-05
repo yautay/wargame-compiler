@@ -38,7 +38,18 @@ end_phase) **nie są szablonem**. Katalog powstaje z `CON-` kategorii `action` i
   `timing`, `cost`), **`reason_code`** zwracany przy odrzuceniu i sprawdzany w testach nielegalnych akcji,
   `unless` dla wyjątków (z `REL-… exception_to`).
 - Akcja jest legalna, gdy wszystkie jej `LEG-` są spełnione (z uwzględnieniem `unless`). Legalność da się testować
-  niezależnie od efektów: `can_perform(state, action) → ok | reason_code` nie zmienia stanu.
+  niezależnie od efektów: `can_perform(state, action) → verdict` nie zmienia stanu.
+- **Werdykt legalności (kierunek dla M18):** wynik nie jest booleanem. Brak wiedzy nie jest `false`:
+  ```yaml
+  verdict: illegal            # legal | illegal | blocked | unresolved
+  reasons: [WRONG_PHASE, INSUFFICIENT_MP]   # reason_code z LEG-
+  evidence: [R-031, LEG-014]                # rekordy, z których wynika werdykt
+  ```
+  - `blocked` oznacza, że odpowiedź zależy od otwartego `BLK-` lub niejasności;
+  - `unresolved` oznacza, że specyfikacja nie pozwala rozstrzygnąć.
+
+  Kontrakt `wgc/digital@0` ma dziś w testach `then.accepted: boolean`. Zamiana na `then.verdict` z `reasons`
+  i `evidence` następuje w M18, razem z fixture'ami.
 - Reguły zakazu (`nature: prohibition`) przekładają się na `LEG-` deterministycznie (szablon, zadanie Tier 0).
 - Silnik generuje listę legalnych opcji dla `DecisionRequest` z tych samych predykatów. AI adapter i UI dostają tę samą listę.
 
@@ -183,3 +194,18 @@ Metryki liczone deterministycznie (`wgc gate stage1_5`), raportowane w `metrics`
 ## Engine kit (eksport)
 `wgc export engine-kit` (M20) tworzy pakiet: rekordy Stage 1.5, tabele Stage 1 w postaci danych, testy, fixture'y
 stanu, mapę śledzenia i hash modelu (`ruleset_hash`). Repo silnika przypina wersję pakietu. Pakiet się regeneruje, nie edytuje.
+
+<a id="self-hosted-stage-1-5"></a>
+## Self-hosted compute w Stage 1.5
+Stage 1.5 to dobry kandydat do intensywnej pracy self-hosted (ADR-0017). Węzeł nie zna domeny: dostaje generyczne
+requesty z promptem i schematem dekodowania od TaskSpec WGC.
+
+| Zadanie | Wykonawca (domyślnie) | Premium tylko gdy |
+|---|---|---|
+| ekstrakcja stanu (`ENT-`, `DER-`) | Tier 0 (szablony) → `local_semantic` | — |
+| generowanie akcji i kandydatów legalności | Tier 0 dla zakazów → `local_semantic` (druga ekstrakcja `local_fast`) | spór nierozstrzygnięty przez `local_deep` |
+| triggery i zdarzenia | `local_semantic` | ryzyko `high`/`critical` |
+| scenariusze i generowanie testów | `local_semantic`, weryfikacja `local_fast` | — |
+| kontrole krzyżowe (spec ↔ IR, pokrycie) | Tier 0 + `local_deep` wsadowo | rozbieżność semantyczna |
+| niejednoznaczna semantyka, konflikt źródeł, interpretacja wysokiego ryzyka | — | **zawsze premium lub człowiek** |
+

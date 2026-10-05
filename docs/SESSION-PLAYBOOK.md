@@ -10,7 +10,8 @@ Dotyczy sesji AI, które **rozwijają to narzędzie**. Pracę nad konkretną gr�
 3. **Milestone:** znajdź bieżący milestone w [ROADMAP.md](ROADMAP.md). Przeczytaj tylko dokumenty wskazane w jego
    zakresie i w handoffie (dyscyplina kontekstu).
 4. **Jeden slice:** wykonaj zakres milestone'u, nic ponad. Rzeczy spoza zakresu zapisz jako kwestie w STATUS.
-   Jeśli zakres jest za duży, podziel milestone (`Mn.a`/`Mn.b`) w ROADMAP **przed** pracą.
+   Jeśli zakres jest za duży, podziel milestone (`Mna`/`Mnb`, bez kropki, bo test ciągłości przyjmuje tylko `M[\w-]+`)
+   w ROADMAP **przed** pracą.
 5. **Testy akceptacyjne:** `python -m pytest`. Testy milestone'u muszą przechodzić. Nie zostawiaj czerwonych testów.
    Jeśli coś się nie udało, zapisz to w handoffie z wynikiem testu.
 6. **Decyzje:** każda decyzja architektoniczna to nowy ADR w `docs/adr/` + wpis w `docs/adr/README.md`. Decyzja
@@ -45,7 +46,7 @@ Proces nie jest związany z nazwą modelu. Role:
 |---|---|---|
 | **Architecture Model** | najmocniejszy dostępny model | Session 0, kontrakty, prompty zadań, złote modele, ADR o dużym zasięgu |
 | **Implementation Model** | szybki model dobry w kodowaniu | milestone'y IMPL według ROADMAP |
-| **Local Worker** | model lokalny (profile `local_*`) | joby GLU w buildach (nie rozwój narzędzia) |
+| **Local Worker** | model self-hosted na węźle w LAN (profile `local_*`, ADR-0015) | joby GLU w buildach (nie rozwój narzędzia) |
 | **Premium Reviewer** | mocny model przez API lub Claude Desktop | pakiety review w buildach, przegląd kontraktów na prośbę |
 | **Human Reviewer** | właściciel | decyzje domenowe, interpretacje, terminy, akceptacja ADR o kosztach |
 

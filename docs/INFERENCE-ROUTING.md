@@ -1,15 +1,21 @@
-# Routing, providerzy i lokalna inferencja
+# Routing, providerzy i self-hosted inference
+
+**Local = self-hosted.** Tier `local` i profile `local_*` oznaczają modele na naszej infrastrukturze za Inference
+Gateway (docelowo osobny węzeł w LAN), a nie model na localhost ([ADR-0015](adr/ADR-0015-self-hosted-inference-wezel-lan.md),
+[inference/NODE.md](inference/NODE.md#definicja)).
 
 ## 1. Tiery wykonania
 | Tier | Wykonawca | Do czego | Przykłady zadań |
 |---|---|---|---|
 | **0 deterministyczny** | kod WGC | wszystko, co da się zrobić bez modelu | ingest, segmentacja, hashe, parsowanie tabel, harvest terminów, odsyłacze, relacje warstwy scenariusza, `LEG-` z zakazów, sygnały ryzyka, walidacja, gate, widoki, LaTeX |
-| **1 lokalny szybki** | `local_fast` | szkice i ekstrakcja przy dobrze określonym wyjściu | szkic reguł z segmentu, klasyfikacja segmentów, propozycje pojęć |
-| **2 lokalny semantyczny** | `local_semantic` | niezależna druga ekstrakcja, weryfikacja, wsteczna ekstrakcja IR z przekładu | weryfikacja szkicu, relacje, przypadki kontrolne, przekład |
+| **1 self-hosted szybki** | `local_fast` | szkice i ekstrakcja przy dobrze określonym wyjściu | szkic reguł z segmentu, klasyfikacja segmentów, propozycje pojęć |
+| **2 self-hosted semantyczny** | `local_semantic`, `local_translate` | niezależna druga ekstrakcja, weryfikacja, wsteczna ekstrakcja IR z przekładu | weryfikacja szkicu, relacje, przypadki kontrolne, przekład |
+| **2+ self-hosted głęboki** | `local_deep` (tylko wsadowo) | rozjemca sporów, pass naprawczy, przygotowanie pakietu review | spór `medium`, wyczerpane próby walidacji przed premium |
 | **3 premium** | `premium_semantic` | **starszy recenzent semantyczny**: tylko trudne przypadki, rozbieżności, audyt | rekordy `high`/`critical`, spory lokalne, niejasności, próbka audytowa |
 | **4 człowiek** | właściciel | to, czego system nie powinien zgadywać | interpretacje, terminy, polityki, przekroczony budżet |
 
 Schemat nie jest sztywny. Polityka routingu jest daną (`routing@N`), a zadanie może deklarować własną drabinę tierów.
+`local_deep` to profil tieru `local` (ten sam tier w kontrakcie), a nie osobny tier.
 
 ## 2. Polityka routingu `routing@0` (do implementacji w M12)
 Wejście: klasa ryzyka i twarde reguły z `wgc/risk@N`, wynik walidacji, zgodność wykonań lokalnych, historia prób, budżet.
@@ -26,6 +32,14 @@ Wejście: klasa ryzyka i twarde reguły z `wgc/risk@N`, wynik walidacji, zgodno�
 | 8 | wynik `requires_human_interpretation` albo niejasność z `impact.semantic` bez źródła rozstrzygającego | Tier 4 (pytanie `HD-` w kolejce) |
 | 9 | audyt: losowe p% (domyślnie 10%, potem z kalibracji) akceptacji lokalnych | kopia do Tier 3. Niezgodność zwiększa szacowany odsetek FN i wymusza rekalibrację |
 | 10 | budżet premium wyczerpany | job czeka (`waiting_review`). **Nigdy** nie spada do akceptacji lokalnej |
+| 11 | ryzyko `medium`, spór Tier 1 vs Tier 2, albo wyczerpane próby na Tier 2 | najpierw `local_deep` (rozjemca lub pass naprawczy). Zgoda z jednym z kandydatów + walidacja OK + brak reguły `forced` → akceptacja lokalna z podwyższonym audytem (reguła 9). W przeciwnym razie Tier 3 z pakietem zawierającym diff kandydatów |
+| 12 | provider self-hosted niedostępny (`error_class` dostępności) | job `waiting_inference` zgodnie z `fallback.self_hosted_unavailable` (domyślnie `queue`). Nie zużywa prób jakościowych. Premium **tylko** przy `allow_premium_fallback: true` (`premium_reason: self_hosted_unavailable`) |
+| 13 | brak profilu lub capability na węźle | czekanie albo `failed` (`capability_missing`). Nigdy cicha podmiana profilu |
+
+Każda decyzja wybierająca premium zapisuje `premium_reason` (`glu/exec@0`): `risk_class`, `forced_rule`,
+`local_disagreement`, `validation_exhausted`, `audit_sample`, `capability_missing`, `self_hosted_unavailable` albo
+`human_request`. Dzięki temu fallback dostępności nie miesza się z eskalacją semantyczną
+([ADR-0017](adr/ADR-0017-niedostepnosc-wezla-bez-premium-fallback.md)).
 
 Asymetria (ADR-0010): niepotrzebna eskalacja kosztuje pieniądze, a fałszywie negatywny wynik kosztuje poprawność
 całego łańcucha (logika → silnik → przekład). Każda decyzja zapisuje `routing_decision` z sygnałami i powodami.
@@ -33,62 +47,83 @@ całego łańcucha (logika → silnik → przekład). Każda decyzja zapisuje `r
 ## 3. Abstrakcja providera
 ```text
 Provider.generate(GenerationRequest) -> GenerationResult
-  request: profile, messages, output_schema (JSON Schema), max_tokens, temperature, seed, timeout, metadata(job)
-  result:  text/json, parsed?, finish_reason, tokens_in/out, latency, model_id, cost_usd?, gpu_seconds?
-Provider.capabilities -> {structured_output: json_schema|grammar|json_mode|none, max_context, batching, concurrency}
-Provider.health() -> ok | reason
+  request: profile (logiczny), messages, output (mode + decoding_schema), max_tokens, temperature, seed,
+           deadline, priority (interactive|batch), idempotency_key (hash klucza L1), client_ref (id joba, nieprzezroczysty)
+  result:  text/json, finish_reason, tokens_in/out, timing (queue, load, infer), model_fingerprint, node_id?,
+           cost_usd? (premium), gpu_seconds? (self-hosted, raportowane przez węzeł)
+Provider.embed(EmbedRequest) -> EmbedResult              (opcjonalnie)
+Provider.health() -> ok | degraded | unavailable(reason)
+Provider.capabilities() -> {structured_output, json_schema_subset, embeddings, vision, max_context, async_jobs}
+Provider.models() -> [{profile, model_fingerprint, state, max_concurrency, max_context}]
+errors:  ProviderUnavailable (network, tls, timeout, runtime, model_loading) · ProviderAuthError ·
+         ProviderOverloaded · CapabilityMissing · BadOutput (→ pętla jakości, nie dostępność)
 ```
-Implementacje: `fake` (reguły → odpowiedzi, deterministyczny), `replay` (nagrania L1), `openai_compat` (vLLM,
-llama.cpp server, Ollama, LM Studio), `anthropic`. Brak natywnego structured output → JSON mode + walidacja + retry.
-Core nie zależy od żadnego serwera ani modelu (ADR-0009).
+Implementacje:
+
+| Provider | Do czego | Milestone |
+|---|---|---|
+| `fake` | reguły → odpowiedzi, deterministyczny (testy) | M10 |
+| `replay` | nagrania L1 (testy bez GPU; nagrania z prawdziwego węzła z M-E2E) | M10 |
+| `self_hosted` | klient protokołu `igw/api@0` (Inference Gateway) przez HTTPS z przypiętym certyfikatem i tokenem | M10 |
+| `anthropic` | premium przez API | M15 |
+| `desktop_pull` | premium przez kolejkę i Claude Desktop (ADR-0013) | M15 |
+
+- **GLU nie rozmawia z runtime'em** (llama.cpp, Ollama, vLLM). Robi to bramka przez adapter OpenAI-compatible
+  ([ADR-0016](adr/ADR-0016-inference-gateway-i-protokol.md)). Bramkę można uruchomić także na localhost, a GLU tego
+  nie odróżnia.
+- Core nie zależy od żadnego serwera ani modelu. Schemat dekodowania (`decoding_schema` z TaskSpec) mieści się w
+  `capabilities.json_schema_subset` (np. bez `if/then/else`). Brak structured output oznacza JSON mode + walidację
+  + retry.
+- **Tożsamość modelu pochodzi z węzła** (`model_fingerprint` z `/v1/models` i z każdego wyniku). GLU nie zgaduje jej
+  z własnej konfiguracji. Do klucza cache wchodzi `profile_fingerprint` = hash(`model_fingerprint` raportowany przez węzeł, `node_profile`, parametry próbkowania i wyjścia z `profiles.yaml`) ([inference/NODE.md §6](inference/NODE.md#cache)).
 
 ## 4. Profile modeli
-Domena zna tylko nazwy profili. Mapowanie żyje u użytkownika (`~/.config/glu/profiles.yaml`, poza repo):
+Domena zna tylko nazwy profili logicznych. Mapowanie ma dwa poziomy:
+- GLU: profil logiczny → endpoint i profil węzła, w `~/.config/glu/profiles.yaml` na dev machine, poza repo;
+- węzeł: profil węzła → model, w `node.yaml`, poza repo.
+
+Przykłady obu plików i klasy profili `fast`, `semantic`, `deep`, `translate`, `embed`:
+[inference/NODE.md §4](inference/NODE.md#profile). Skrót konfiguracji GLU:
 ```yaml
+endpoints:
+  ai-node: {provider: self_hosted, url: https://ai-node:8443, ca_file: ~/.config/glu/ai-node.pem, token_env: GLU_AI_NODE_TOKEN}
 profiles:
-  local_fast:
-    provider: openai_compat
-    base_url: http://127.0.0.1:8000/v1        # tylko adresy z allowlisty endpointów
-    model: <model klasy 7–14B, instrukcyjny>
-    quant: <np. Q5/AWQ>
-    context: 16384
-    concurrency: 8
-    temperature: 0
-  local_semantic:
-    provider: openai_compat
-    base_url: http://127.0.0.1:8001/v1
-    model: <model klasy ~30B (gęsty albo MoE), instrukcyjny>
-    quant: <np. Q4/AWQ>
-    context: 16384
-    concurrency: 2
-    temperature: 0
-  premium_semantic:
-    provider: anthropic                       # albo desktop_pull
-    model: <najmocniejszy dostępny model Claude>
-    api_key_env: ANTHROPIC_API_KEY
+  local_fast:       {endpoint: ai-node, node_profile: fast,     temperature: 0, seed: 0}
+  local_semantic:   {endpoint: ai-node, node_profile: semantic, temperature: 0, seed: 0}
+  local_deep:       {endpoint: ai-node, node_profile: deep,     temperature: 0, seed: 0, priority: batch}
+  premium_semantic: {provider: anthropic, model: <najmocniejszy dostępny model Claude>, api_key_env: ANTHROPIC_API_KEY}
+fallback: {self_hosted_unavailable: queue, allow_premium_fallback: false}
 ```
-`profile_fingerprint` = hash z (provider, model, plik i kwantyzacja wag, kontekst, parametry próbkowania) wchodzi do
-klucza cache. Zmiana modelu nie może zwrócić starego wyniku.
+Profile pozostają wymienialne: zmiana modelu to zmiana `node.yaml` i nowy fingerprint, a zmiana węzła to zmiana `url`.
+Stage 1, 1.5, 2 i 3 mogą mapować profile na różne modele (logika ≠ przekład ≠ redakcja).
 
-## 5. Lokalna inferencja: RTX 3090 (24 GB), WSL2
-**Strategia:** maksymalnie dużo pracy lokalnie, ale tylko tam, gdzie benchmark potwierdza jakość. Konkretne modele
-i serwer wybiera milestone **M-INF** na podstawie benchmarku logiki z `bench/`. Ten dokument nie zaszywa nazw modeli.
+<a id="self-hosted"></a>
+## 5. Self-hosted inference: węzeł RTX 3090 w LAN
+**Strategia:** self-hosted compute to **zasób obfity**, więc używamy go agresywnie: wiele passów, druga ekstrakcja,
+weryfikatory, rozjemca `local_deep`. Warunek: benchmark potwierdza jakość, a każdy pass ma cel w polityce routingu.
+Konkretne modele wybiera **M-INF** (benchmark przez bramkę na węźle).
 
-- **Serwer:** jeden z vLLM (guided JSON, ciągłe batchowanie, AWQ/GPTQ), llama.cpp server (GGUF, `json_schema` /
-  gramatyki, mały narzut) albo Ollama (najprostszy start, `format` ze schematem). Wszystkie przez `openai_compat`.
-  Uruchamiane w WSL2 z CUDA (sterownik NVIDIA po stronie Windows, toolkit CUDA dla WSL po stronie Linuksa).
-- **Budżet VRAM:** wagi + KV cache + narzut. Orientacyjnie (do weryfikacji pomiarem): model ~30B w 4 bitach zajmuje
-  ok. 17–20 GB i zostawia kilka GB na KV cache, czyli kontekst rzędu 8–16k przy małej równoległości. Model 7–14B
-  w 4–8 bitach mieści długi kontekst i wysoką równoległość. **Dwa profile zwykle nie zmieszczą się jednocześnie.**
-- **Ładowanie modeli:** scheduler GLU grupuje joby w **fale według profilu** (najpierw wszystkie `local_fast`
-  z poziomu, potem przełączenie na `local_semantic`) i mierzy koszt przełączenia (czas ładowania wliczany do `gpu_seconds`).
-- **Kontekst:** zadania Stage 1 pracują na segmencie i jego sąsiedztwie (zwykle < 4k tokenów wejścia). Długi kontekst
-  nie jest potrzebny, bo kontekst buduje `context_builder` z grafu, a nie z całej instrukcji.
-- **Batching i równoległość:** limit `concurrency` na profil. Retry z backoffem przy przeciążeniu. Joby są niezależne
-  (wejście = segment + kontekst), więc dobrze się batchują.
-- **WSL2:** repo gier w systemie plików Linuksa (szybkie I/O). Serwer modelu nasłuchuje na `127.0.0.1`. Claude Desktop
-  łączy się z GLU przez `wsl.exe` (MCP stdio). Pamięć WSL ustawiona w `.wslconfig` (RAM hosta jest duży).
-- **Bez GPU** (laptop deweloperski, CI): `fake`/`replay`. Testy nigdy nie wołają prawdziwego modelu.
+- **Topologia:** dev machine (Claude Desktop, MCP, GLU, repo gier) → HTTPS → `ai-node` (Windows 11 Pro, RTX 3090
+  24 GB, 128 GB RAM) z Inference Gateway (`igw`) i llama.cpp server natywnie na Windows
+  ([ADR-0018](adr/ADR-0018-runtime-mvp-llama-cpp-windows.md)). vLLM w WSL2 tylko po benchmarku (M-VLLM).
+- **VRAM:** wagi + KV cache + narzut. Orientacyjnie (do weryfikacji pomiarem):
+  - model ~30B w 4 bitach zajmuje ok. 17–20 GB, co daje kontekst 8–16k przy małej równoległości;
+  - model 7–14B mieści długi kontekst i wysoką równoległość;
+  - **dwa duże profile zwykle nie zmieszczą się jednocześnie**.
+- **RAM 128 GB:** page cache plików modeli (tańsze przeładowania), offload ekspertów MoE dla `deep`, profile CPU.
+  Model częściowo w RAM jest wolny, więc służy tylko do trybu wsadowego.
+- **Cykl życia modeli** należy do bramki: afinicja profilu, minimalny czas rezydencji, limit oczekiwania i LRU w budżecie
+  VRAM ([inference/NODE.md §5](inference/NODE.md#scheduler)). GLU porządkuje joby według profilu (fale), ale to tylko
+  wskazówka.
+- **Kontekst:** zadania Stage 1 pracują na segmencie i jego sąsiedztwie (zwykle < 4k tokenów wejścia). Kontekst buduje
+  `context_builder` z grafu, a nie z całej instrukcji.
+- **Równoległość:** GLU wysyła równolegle najwyżej `max_concurrency` profilu z `/v1/models`. Przy 429 lub 503 robi
+  backoff z jitterem.
+- **Niedostępność węzła:** `waiting_inference`, bez automatycznego premium (reguła 12, ADR-0017). Cache L2 działa
+  offline.
+- **Sieć i bezpieczeństwo:** nazwa hosta, HTTPS, token, firewall, allowlista
+  ([inference/NODE.md §7](inference/NODE.md#zrodlo-prawdy), [inference/DEPLOYMENT.md](inference/DEPLOYMENT.md#siec)).
+- **Bez węzła** (laptop deweloperski, CI): `fake` i `replay`. Testy nigdy nie wołają prawdziwego modelu ani sieci.
 
 ## 6. Premium jako starszy recenzent
 Premium nie wykonuje masowej ekstrakcji. Dostaje pakiety (`review_package`) dla rekordów, w których lokalna praca

@@ -1,6 +1,6 @@
 # ADR-0009: Jeden adapter lokalny (OpenAI-compatible) i profile modeli
 
-- **Status:** przyjęty
+- **Status:** zastąpiony przez ADR-0016
 - **Data:** 2026-10-05
 - **Milestone:** M0
 

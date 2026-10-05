@@ -6,7 +6,7 @@
 | **L0 schemat** | zgodność z `wgc/*@N` | `wgc.contracts` | zawsze |
 | **L1 referencje** | unikalność ID, zgodność `kind` ↔ prefiks, rozwiązywanie `refs`, `derived_from`, `realizes`, końców relacji, `anchors.seg` | `wgc.validate` (M1) | zawsze |
 | **L2 domena** | provenance (cytat dosłowny w segmencie, zgodny `seg_hash`, rola dokumentu), sygnały źródło↔IR (zakaz → `must_not` lub negacja, operator graniczny → `cmp` z właściwym operatorem, liczby ze źródła obecne w IR), markery wyjątków → relacje, `partial` → `unformalized` | `wgc.validate` (M5) | błędy zawsze, ostrzeżenia podnoszą ryzyko |
-| **L3 zgodność** | dwie niezależne ekstrakcje lokalne zgodne po normalizacji | GLU + WGC (normalizacja IR) | dla `medium` |
+| **L3 zgodność** | dwie niezależne ekstrakcje self-hosted zgodne po normalizacji; spór rozstrzyga najpierw `local_deep` (bez prawa do akceptacji `forced`/`high`) | GLU + WGC (normalizacja IR) | dla `medium` |
 | **L4 odpowiadalność** | każdy `case` da się odpowiedzieć wyłącznie z KB (łańcuch istnieje, werdykt zgodny) | WGC + lokalny model | gate Stage 1 |
 | **L5 przegląd premium** | znaczenie, kompletność wyjątków, granice | premium | `high`/`critical`, spory, audyt |
 | **L6 człowiek** | interpretacje, terminy, polityki | właściciel | `requires_human_interpretation` |
@@ -38,6 +38,20 @@ Heurystyki i walidatory testujemy parami: poprawny artefakt i ten sam artefakt z
 
 Mutacje stosuje się do: IR (test walidatorów L2 i modelu ryzyka), tekstu przekładu (test kroków 1–3 weryfikacji
 przekładu) i specyfikacji 1.5 (test interpretera testów). Wynik: tabela wykrycia per operator i per warstwa.
+
+<a id="property-based"></a>
+## 3a. Testy właściwości (property-based)
+Złote przykłady to za mało. Od pierwszego użycia dochodzi **Hypothesis** (zależność deweloperska, dopisywana do
+`requirements.txt` w milestonie, który jej użyje):
+
+| Właściwość | Gdzie | Milestone |
+|---|---|---|
+| `content_hash` nie zależy od kolejności kluczy ani formy NFC; `text_hash` nie zależy od zawijania wierszy | `wgc.canonical` | M1 (opcjonalnie), M2 |
+| build przyrostowy = build od zera (te same rekordy i hashe) dla losowych zmian segmentów | `glu.graph` | M13 |
+| generowane stany gry spełniają inwarianty; snapshot round-trip zachowuje hash | `wgc/state@0` | M17 |
+| akcja nielegalna nie zmienia stanu; `can_perform` jest czysty; granice `cmp` (≤/<) zachowują się na wartościach brzegowych | interpreter testów | M18, M21 |
+| pierwszeństwo nadpisań: `REL overrides` wygrywa niezależnie od kolejności rekordów | interpreter testów | M19 |
+| scheduler węzła: brak zagłodzenia profilu, liczba przełączeń ograniczona, budżet VRAM nieprzekroczony | `igw` | M-GW2 |
 
 ## 4. Korpus benchmarkowy
 Teksty w repo narzędzia są **wyłącznie własne** (ADR-0012). Benchmarki na grach komercyjnych żyją w `private/bench/`.
@@ -84,7 +98,8 @@ consistency (odsetek wystąpień `CON-` w zatwierdzonej formie), style preservat
 ## 5. Progi akceptacji (do kalibracji)
 | Obszar | Wstępny próg | Kiedy rewidować |
 |---|---|---|
-| Ekstrakcja lokalna, pola krytyczne IR | ≥ 95% zgodności z gold przed akceptacją lokalną `low` | M-INF |
+| Ekstrakcja self-hosted, pola krytyczne IR | ≥ 95% zgodności z gold przed akceptacją lokalną `low` | M-INF |
+| Rozstrzygnięcia `local_deep` (spory `medium`) | audyt premium 2× wyższy niż reguła 9, dopóki niezgodność ≤ 2% | M-INF, pilot |
 | Mutacje krytyczne, wykrycie przez L2 + ryzyko | 100% | każda zmiana `wgc/risk@N` |
 | Audyt premium akceptacji lokalnych | niezgodność ≤ 2%, inaczej podnieść próg ryzyka | co build pilotażowy |
 | Złote testy 1.5 na interpreterze | 100% | M21 |

@@ -2,14 +2,25 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://wargame-compiler.local/schemas/glu.schema.json",
   "title": "glu/exec@0: execution state (Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey)",
-  "description": "DRAFT @0. Execution state, NOT domain knowledge. Lives in .glu/ (SQLite + JSON blobs), gitignored. Only accepted outputs reach kb/, through WGC validators.",
+  "description": "DRAFT @0. Execution state, NOT domain knowledge. Lives in .glu/ (SQLite + JSON blobs), gitignored. Only accepted outputs reach kb/, through WGC validators. The GLU job store is the only durable queue; the inference node (igw/api@0) keeps no durable state.",
   "type": "object",
   "required": ["schema", "records"],
   "properties": {"schema": {"const": "glu/exec@0"}, "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}},
   "additionalProperties": false,
   "$defs": {
     "xid": {"type": "string", "pattern": "^(build|job|att|rd|pkg)_[0-9A-Za-z]{6,32}$"},
-    "tier": {"enum": ["deterministic", "local", "premium", "human"]},
+    "tier": {"enum": ["deterministic", "local", "premium", "human"], "description": "local = SELF-HOSTED inference on own infrastructure (an inference node in the LAN or any host behind igw), not localhost (ADR-0015)"},
+    "premium_reason": {"enum": ["risk_class", "forced_rule", "local_disagreement", "validation_exhausted", "audit_sample", "capability_missing", "self_hosted_unavailable", "human_request"], "description": "why premium was used; self_hosted_unavailable only with fallback.allow_premium_fallback=true (ADR-0017)"},
+    "fallback_policy": {
+      "type": "object",
+      "description": "What happens when self-hosted inference is unavailable (ADR-0017). Default: queue, no premium fallback.",
+      "properties": {
+        "self_hosted_unavailable": {"enum": ["queue", "block", "fail"], "default": "queue"},
+        "allow_premium_fallback": {"type": "boolean", "default": false},
+        "max_wait_seconds": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
     "record": {
       "type": "object", "required": ["kind", "id"],
       "properties": {"kind": {"enum": ["build", "job", "attempt", "routing_decision", "review_package"]}},
@@ -28,7 +39,7 @@
       "properties": {
         "task": {"type": "string"}, "task_version": {"type": "string"}, "prompt_version": {"type": "string"},
         "output_schema": {"type": "string"},
-        "profile": {"type": "string"}, "profile_fingerprint": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of resolved model id + quantization + sampling params"},
+        "profile": {"type": "string"}, "profile_fingerprint": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of (node-reported model_fingerprint, node profile, GLU-side sampling/output params from profiles.yaml); never host or node id"},
         "input_hash": {"$ref": "common.schema.json#/$defs/hash"},
         "context_hash": {"$ref": "common.schema.json#/$defs/hash"},
         "dependency_state": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of the semantic projections of upstream accepted records"}
@@ -43,8 +54,9 @@
         "kind": {"const": "build"}, "id": {"$ref": "#/$defs/xid"},
         "project": {"type": "string"}, "project_rev": {"type": "string"},
         "target": {"type": "object", "required": ["stage"], "properties": {"stage": {"type": "string"}, "scope": {"type": "string"}}, "additionalProperties": false},
-        "policy": {"type": "object", "properties": {"routing": {"type": "string"}, "budget_premium_usd": {"type": "number"}, "max_human_questions": {"type": "integer"}}, "additionalProperties": false},
-        "state": {"enum": ["planning", "running", "waiting_review", "waiting_human", "done", "failed", "cancelled"]},
+        "policy": {"type": "object", "properties": {"routing": {"type": "string"}, "budget_premium_usd": {"type": "number"}, "max_human_questions": {"type": "integer"}, "fallback": {"$ref": "#/$defs/fallback_policy"}}, "additionalProperties": false},
+        "state": {"enum": ["planning", "running", "waiting_inference", "waiting_review", "waiting_human", "done", "failed", "cancelled"]},
+        "inference_snapshot": {"type": "object", "description": "profile → model_fingerprint reported by the node(s) at build start", "additionalProperties": {"$ref": "common.schema.json#/$defs/hash"}},
         "started_at": {"type": "string", "format": "date-time"}, "finished_at": {"type": "string", "format": "date-time"},
         "metrics": {"type": "object", "additionalProperties": {"type": "number"}}
       },
@@ -59,7 +71,7 @@
         "task": {"type": "string", "description": "WGC task id, e.g. logic.rule.extract"},
         "inputs": {"$ref": "common.schema.json#/$defs/ids"},
         "depends_on": {"type": "array", "items": {"$ref": "#/$defs/xid"}},
-        "state": {"enum": ["pending", "ready", "running", "proposed", "validating", "accepted", "rejected", "retry", "escalated", "waiting_review", "waiting_human", "done", "failed", "cancelled", "stale"]},
+        "state": {"enum": ["pending", "ready", "running", "waiting_inference", "proposed", "validating", "accepted", "rejected", "retry", "escalated", "waiting_review", "waiting_human", "done", "failed", "cancelled", "stale"], "description": "waiting_inference = self-hosted provider unavailable; does not consume quality retries"},
         "tier": {"$ref": "#/$defs/tier"},
         "cache_key": {"$ref": "#/$defs/cache_key"},
         "cache_hit": {"type": "boolean"},
@@ -79,7 +91,12 @@
         "output_blob": {"$ref": "common.schema.json#/$defs/hash"},
         "schema_valid": {"type": "boolean"}, "domain_valid": {"type": "boolean"},
         "validation_errors": {"type": "array", "items": {"type": "string"}},
-        "outcome": {"enum": ["accepted", "retry", "escalate", "rejected", "requires_human_interpretation", "error"]},
+        "outcome": {"enum": ["accepted", "retry", "escalate", "rejected", "requires_human_interpretation", "error", "unavailable"]},
+        "error_class": {"enum": ["network", "tls", "auth", "timeout", "overloaded", "model_loading", "runtime", "capability_missing", "bad_output"], "description": "provider error class; availability classes lead to waiting_inference, bad_output to the quality loop"},
+        "endpoint": {"type": "string", "description": "logical endpoint name from the GLU profile config (e.g. ai-node), never in kb/"},
+        "node_id": {"type": "string", "description": "node that served the attempt, as reported by igw; execution state only"},
+        "model_fingerprint": {"$ref": "common.schema.json#/$defs/hash", "description": "reported by the node in infer_result"},
+        "queue_seconds": {"type": "number"}, "load_seconds": {"type": "number"},
         "tokens_in": {"type": "integer"}, "tokens_out": {"type": "integer"},
         "cost_usd": {"type": "number"}, "gpu_seconds": {"type": "number"}, "wall_seconds": {"type": "number"}
       },
@@ -93,9 +110,11 @@
         "kind": {"const": "routing_decision"}, "id": {"$ref": "#/$defs/xid"}, "job": {"$ref": "#/$defs/xid"},
         "policy": {"type": "string", "description": "e.g. routing@0"},
         "chosen": {"$ref": "#/$defs/tier"},
+        "premium_reason": {"$ref": "#/$defs/premium_reason"},
         "signals": {"type": "object", "additionalProperties": {"type": ["number", "string", "boolean"]}},
         "reasons": {"type": "array", "items": {"type": "string"}}
       },
+      "allOf": [{"if": {"properties": {"chosen": {"const": "premium"}}}, "then": {"required": ["premium_reason"]}}],
       "additionalProperties": false
     },
     "review_package": {

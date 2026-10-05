@@ -17,7 +17,7 @@ i kotwica) istnieje.
 | 10 | istnieje traceability source → engine test | [Rule Traceability](DIGITALIZATION.md#sledzenie-regul), [PIPELINE §3](PIPELINE.md#3-śledzenie-traceability) |
 | 11 | znana jest granica WGU ↔ GLU | [ARCHITECTURE §2](ARCHITECTURE.md#2-granica-wgc--glu), [ADR-0002](adr/ADR-0002-nazwy-i-pakiety.md) |
 | 12 | MCP jest adapterem, nie core | [MCP: rola](MCP.md#rola), [ADR-0013](adr/ADR-0013-mcp-adapter-premium-dwie-drogi.md) |
-| 13 | istnieje local inference strategy | [INFERENCE-ROUTING §5](INFERENCE-ROUTING.md#5-lokalna-inferencja-rtx-3090-24-gb-wsl2), [ADR-0009](adr/ADR-0009-providerzy-i-profile.md) |
+| 13 | istnieje local inference strategy | [INFERENCE-ROUTING §5](INFERENCE-ROUTING.md#self-hosted), [inference/NODE.md](inference/NODE.md), [ADR-0015](adr/ADR-0015-self-hosted-inference-wezel-lan.md) (zastąpiła [ADR-0008](adr/ADR-0008-srodowisko-wsl2.md) i [ADR-0009](adr/ADR-0009-providerzy-i-profile.md) w M-INF0) |
 | 14 | istnieje routing strategy | [INFERENCE-ROUTING §2](INFERENCE-ROUTING.md#2-polityka-routingu-routing0-do-implementacji-w-m12), [ADR-0010](adr/ADR-0010-routing-asymetryczny.md) |
 | 15 | istnieje cache strategy | [GLU §6](GLU.md#6-cache) |
 | 16 | istnieje incremental strategy | [GLU §7](GLU.md#przyrostowosc), [PIPELINE §4](PIPELINE.md#4-przyrostowość-między-etapami) |

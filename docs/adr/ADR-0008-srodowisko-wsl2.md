@@ -1,6 +1,6 @@
 # ADR-0008: Runtime WSL2, core wieloplatformowy, testy bez GPU
 
-- **Status:** przyjęty
+- **Status:** zastąpiony przez ADR-0015
 - **Data:** 2026-10-05
 - **Milestone:** M0
 

@@ -50,7 +50,7 @@ liczby, odwołania) + **Editorial Model** + **glosariusz** (warstwy) + **polityk
 |---|---|---|
 | 1. Terminologia i liczby | deterministycznie | formy z glosariusza, odrzucone formy, liczby, odsyłacze, kości |
 | 2. Sygnały vs IR | deterministycznie | słownik sygnałów języka docelowego porównywany z IR (np. `modality: must_not` → w przekładzie musi być zakaz; `limit op: <=` → „co najwyżej / do”; liczba warunków) |
-| 3. Wsteczna ekstrakcja IR | lokalnie (`local_semantic`) | model czyta **przekład** i wyciąga IR-lite (modalność, warunki, limity, liczby, aktor). Porównanie z IR kanonicznym jest deterministyczne |
+| 3. Wsteczna ekstrakcja IR | self-hosted (`local_semantic`) | model czyta **przekład** i wyciąga IR-lite (modalność, warunki, limity, liczby, aktor). Porównanie z IR kanonicznym jest deterministyczne |
 | 4. Znaczenie (selektywnie) | premium | segmenty z rozbieżnością w krokach 2–3, z ryzykiem `high`/`critical` i próbka audytowa |
 | 5. Redakcja językowa | lokalnie lub premium | styl wg Stage 2 i przewodnika; zmiana dotykająca treści wraca do kroków 2–4 |
 | 6. Terminy sporne, notatki tłumacza | człowiek | decyzje `HD-` |
@@ -60,3 +60,16 @@ Krok 3 zastępuje część kosztownego przeglądu premium: zamiast czytać każd
 ### Pomoce do gry
 Grafy decyzyjne (idea `wgu` `kb/aids`) wyprowadzane są z `PROC-` (Stage 1) i `SEQ-`/`DP-` (Stage 1.5), a etykiety
 z glosariusza. Walidator grafu (każda decyzja ma wyjścia, brak martwych gałęzi) jest deterministyczny. Grafika powstaje w Stage 3.
+
+<a id="self-hosted-stage-2-3"></a>
+## Self-hosted compute w Stage 2 i 3
+Stage 2 i 3 korzystają z tego samego węzła self-hosted co Stage 1. Przepływ przekładu:
+
+```text
+segment źródła → szkic przekładu (local_translate) → deterministyczne kontrole terminów (glosariusz, CON-)
+→ wsteczna ekstrakcja IR i porównanie semantyczne (local_semantic) → premium tylko przy rozbieżności lub ryzyku
+```
+
+Profile mogą wskazywać **różne modele**: model najlepszy w logice nie musi być najlepszy w przekładzie ani redakcji.
+Mapowanie wybiera benchmark (M-INF dla logiki; dla przekładu M26), a nie założenie.
+

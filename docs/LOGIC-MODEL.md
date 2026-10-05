@@ -16,6 +16,25 @@ od języka docelowego (ADR-0003), od wyglądu publikacji i od przyszłego silnik
 - Ekstrakcja jest deterministyczna i wersjonowana (`extractor`). Ręczne poprawki są jawne (`corrections`).
 - Tekst segmentów nie trafia do repo (ADR-0012).
 
+<a id="pierwszenstwo-zrodel"></a>
+### Pierwszeństwo źródeł (source authority)
+Rozstrzyganie konfliktu źródeł **nie zależy od „intuicji” modelu**. Pole `source_document.precedence` już istnieje.
+Model rozszerzamy w M2 (kontrakt) i M7 (polityka w `project.yaml`):
+- Domyślna kolejność według roli, od najwyższej:
+
+  ```text
+  official errata > living rules > printed rules > official FAQ > designer clarification > community interpretation
+  ```
+
+  Projekt może ją nadpisać w `project.yaml`, na przykład gdy FAQ jest nowsze niż errata.
+- Wyższa pozycja wygrywa **tylko** przy konflikcie zapisanym jawnie: `CHG-` lub `REL-` z kotwicami do obu źródeł.
+  Pierwszeństwo jest wtedy deterministyczne i śledzalne.
+- Konflikt na tej samej pozycji albo konflikt z nieznaną datą lub wydaniem tworzy niejasność (`AMB-`) i trafia do
+  człowieka (`HD-`).
+- `community interpretation` nigdy nie jest źródłem kanonicznym sama w sobie. Może być wyłącznie dowodem w pakiecie
+  dla człowieka, a kanoniczna staje się po `HD-`.
+- Brakujące role dojdą do `source_document.role` w M2: `living_rules`, `community_interpretation`.
+
 ## Rekordy Stage 1
 | Rodzaj | Prefiks | Rola |
 |---|---|---|

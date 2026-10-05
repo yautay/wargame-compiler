@@ -7,7 +7,10 @@ z pamięci rozmowy, bo stan projektu jest w plikach.
 ## Zasady repo
 - To repo **narzędzia**. Dane gier żyją w repozytoriach gier (`project.yaml`, `source/`, `kb/`). Nie dodawaj tu
   niczego specyficznego dla jednej gry komercyjnej ani tekstów wydawców (ADR-0012). Benchmark = `bench/minigame` (tekst własny, CC0).
-- Pakiety: `wgc` (domena, rola „WGU”) i `glu` (wykonanie). `wgc` nie importuje `glu` (ADR-0002).
+- Pakiety: `wgc` (domena, rola „WGU”), `glu` (wykonanie) i `igw` (Inference Gateway węzła, od M-GW1). `wgc` nie
+  importuje `glu` (ADR-0002); `igw` nie importuje `wgc` ani `glu` (ADR-0016).
+- Inference: „local” = **self-hosted** na osobnym węźle w LAN (RTX 3090), nie localhost (ADR-0015). Niedostępny węzeł
+  nigdy automatycznie nie eskaluje do premium (ADR-0017).
 - Kontrakty: `contracts/schemas/*.schema.json`. Zmiana kontraktu w tej samej sesji aktualizuje fixture'y
   (`contracts/fixtures/`), testy i `docs/DATA-CONTRACTS.md`. Od `@1` pola usuwane lub przemianowane wymagają
   podbicia wersji, ADR i migracji.

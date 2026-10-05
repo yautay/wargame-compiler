@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/inference.schema.json",
+  "title": "igw/api@0: Inference Gateway wire protocol (GLU self_hosted provider ↔ igw on the inference node)",
+  "description": "DRAFT @0. Generic inference API of a self-hosted node. It carries NO domain knowledge: no task names, stages, rules or record ids (only the opaque `client_ref`). HTTP(S) + JSON. Each `$defs` entry is one wire message; the top-level envelope exists only so fixtures can hold examples. See docs/inference/NODE.md.",
+  "type": "object",
+  "required": ["schema", "messages"],
+  "properties": {
+    "schema": {"const": "igw/api@0"},
+    "messages": {"type": "array", "items": {"$ref": "#/$defs/example"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "example": {
+      "type": "object",
+      "required": ["message", "body"],
+      "properties": {
+        "message": {"enum": ["infer_request", "infer_result", "error", "health", "capabilities", "models", "metrics", "embed_request", "embed_result", "job_status"]},
+        "endpoint": {"type": "string", "description": "e.g. POST /v1/infer (documentation only)"},
+        "body": {"type": "object"}
+      },
+      "allOf": [
+        {"if": {"properties": {"message": {"const": "infer_request"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/infer_request"}}}},
+        {"if": {"properties": {"message": {"const": "infer_result"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/infer_result"}}}},
+        {"if": {"properties": {"message": {"const": "error"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/error"}}}},
+        {"if": {"properties": {"message": {"const": "health"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/health"}}}},
+        {"if": {"properties": {"message": {"const": "capabilities"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/capabilities"}}}},
+        {"if": {"properties": {"message": {"const": "models"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/models"}}}},
+        {"if": {"properties": {"message": {"const": "metrics"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/metrics"}}}},
+        {"if": {"properties": {"message": {"const": "embed_request"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/embed_request"}}}},
+        {"if": {"properties": {"message": {"const": "embed_result"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/embed_result"}}}},
+        {"if": {"properties": {"message": {"const": "job_status"}}}, "then": {"properties": {"body": {"$ref": "#/$defs/job_status"}}}}
+      ],
+      "additionalProperties": false
+    },
+
+    "node_profile": {"type": "string", "pattern": "^[a-z][a-z0-9_]{0,31}$", "description": "node-side profile name (fast, semantic, deep, embed…); never a model file name"},
+    "fingerprint": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of model file sha256 + quantization + runtime name/version + launch params that affect output; NEVER host, IP or node id (a replaced node with the same model keeps cache hits)"},
+    "request_id": {"type": "string", "pattern": "^[0-9A-Za-z_-]{6,64}$"},
+
+    "message": {
+      "type": "object",
+      "required": ["role", "content"],
+      "properties": {"role": {"enum": ["system", "user", "assistant"]}, "content": {"type": "string"}},
+      "additionalProperties": false
+    },
+
+    "infer_request": {
+      "type": "object",
+      "description": "POST /v1/infer. Synchronous: the gateway queues it and answers when done or when the deadline expires.",
+      "required": ["request_id", "profile", "messages", "output"],
+      "properties": {
+        "request_id": {"$ref": "#/$defs/request_id"},
+        "idempotency_key": {"type": "string", "maxLength": 128, "description": "client cache key hash; identical in-flight requests are deduplicated (no result cache on the node)"},
+        "client_ref": {"type": "string", "maxLength": 64, "description": "opaque client handle for logs/metrics (e.g. a GLU job id); the node never interprets it"},
+        "profile": {"$ref": "#/$defs/node_profile"},
+        "messages": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/message"}},
+        "output": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": {"enum": ["json_schema", "json_object", "text"]},
+            "schema": {"type": "object", "description": "decoding schema; must stay within capabilities.json_schema_subset (no if/then/else, no not)"}
+          },
+          "allOf": [{"if": {"properties": {"mode": {"const": "json_schema"}}}, "then": {"required": ["schema"]}}],
+          "additionalProperties": false
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "max_tokens": {"type": "integer", "minimum": 1},
+            "temperature": {"type": "number", "minimum": 0},
+            "top_p": {"type": "number", "minimum": 0, "maximum": 1},
+            "seed": {"type": "integer"},
+            "stop": {"type": "array", "items": {"type": "string"}, "maxItems": 8}
+          },
+          "additionalProperties": false
+        },
+        "priority": {"enum": ["interactive", "batch"], "default": "batch"},
+        "deadline_s": {"type": "integer", "minimum": 1, "description": "max seconds incl. queue and model load; past it the gateway answers with an error"},
+        "expected_fingerprint": {"$ref": "#/$defs/fingerprint", "description": "optional: reject (capability_missing) instead of serving a different model than the client expects"}
+      },
+      "additionalProperties": false
+    },
+
+    "infer_result": {
+      "type": "object",
+      "required": ["request_id", "profile", "model_fingerprint", "node_id", "output", "finish_reason", "usage", "timing"],
+      "properties": {
+        "request_id": {"$ref": "#/$defs/request_id"},
+        "profile": {"$ref": "#/$defs/node_profile"},
+        "model_fingerprint": {"$ref": "#/$defs/fingerprint"},
+        "node_id": {"type": "string", "description": "which node served it; recorded only in GLU execution state (.glu/), never in kb/"},
+        "output": {
+          "type": "object",
+          "required": ["text"],
+          "properties": {
+            "text": {"type": "string"},
+            "json": {"description": "parsed JSON when the mode was json_schema/json_object and parsing succeeded"},
+            "mode_used": {"enum": ["json_schema", "grammar", "json_object", "text"]},
+            "json_valid": {"type": "boolean", "description": "syntactic JSON only; schema and domain validation happen in GLU/WGC"}
+          },
+          "additionalProperties": false
+        },
+        "finish_reason": {"enum": ["stop", "length", "deadline", "cancelled"]},
+        "usage": {
+          "type": "object", "required": ["tokens_in", "tokens_out"],
+          "properties": {"tokens_in": {"type": "integer", "minimum": 0}, "tokens_out": {"type": "integer", "minimum": 0}},
+          "additionalProperties": false
+        },
+        "timing": {
+          "type": "object",
+          "properties": {
+            "queue_ms": {"type": "integer", "minimum": 0}, "load_ms": {"type": "integer", "minimum": 0},
+            "infer_ms": {"type": "integer", "minimum": 0}, "tokens_per_s": {"type": "number", "minimum": 0},
+            "gpu_seconds": {"type": "number", "minimum": 0}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "error": {
+      "type": "object",
+      "description": "Any non-2xx body. `code` drives the client: availability codes put the GLU job into waiting_inference and never count as a quality retry.",
+      "required": ["error"],
+      "properties": {
+        "error": {
+          "type": "object",
+          "required": ["code", "message", "retryable"],
+          "properties": {
+            "code": {"enum": ["unauthorized", "forbidden", "bad_request", "payload_too_large", "unknown_profile", "capability_missing", "queue_full", "model_loading", "runtime_unavailable", "deadline_exceeded", "internal"]},
+            "message": {"type": "string", "maxLength": 500},
+            "retryable": {"type": "boolean"},
+            "retry_after_s": {"type": "integer", "minimum": 0},
+            "request_id": {"$ref": "#/$defs/request_id"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "gpu": {
+      "type": "object", "required": ["name", "vram_total_mb"],
+      "properties": {
+        "name": {"type": "string"}, "vram_total_mb": {"type": "integer"}, "vram_free_mb": {"type": "integer"},
+        "utilization_pct": {"type": "number"}, "temperature_c": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+
+    "health": {
+      "type": "object",
+      "description": "GET /v1/health (authenticated). Unauthenticated GET /healthz returns only {status}.",
+      "required": ["status", "node_id"],
+      "properties": {
+        "status": {"enum": ["ok", "degraded", "loading", "down"]},
+        "node_id": {"type": "string"},
+        "api": {"const": "igw/api@0"},
+        "uptime_s": {"type": "integer", "minimum": 0},
+        "queue_depth": {"type": "integer", "minimum": 0},
+        "gpus": {"type": "array", "items": {"$ref": "#/$defs/gpu"}},
+        "ram_total_mb": {"type": "integer"}, "ram_free_mb": {"type": "integer"},
+        "loaded_profiles": {"type": "array", "items": {"$ref": "#/$defs/node_profile"}},
+        "runtime": {"type": "object", "properties": {"name": {"type": "string"}, "version": {"type": "string"}, "status": {"enum": ["ok", "starting", "down"]}}, "additionalProperties": false},
+        "reasons": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+
+    "capabilities": {
+      "type": "object",
+      "description": "GET /v1/capabilities. Static-ish node features; routing may use them (capability discovery).",
+      "required": ["api", "node_id", "structured_output"],
+      "properties": {
+        "api": {"const": "igw/api@0"},
+        "node_id": {"type": "string"},
+        "structured_output": {"type": "array", "items": {"enum": ["json_schema", "grammar", "json_object"]}},
+        "json_schema_subset": {"type": "string", "description": "dialect id of supported decoding schemas, e.g. llama.cpp-gbnf@1"},
+        "embeddings": {"type": "boolean"},
+        "vision": {"type": "boolean"},
+        "streaming": {"type": "array", "items": {"enum": ["none", "sse"]}},
+        "async_jobs": {"type": "boolean", "description": "false in MVP; /v1/jobs reserved (M-GW3)"},
+        "max_request_bytes": {"type": "integer"},
+        "max_queue": {"type": "integer"}
+      },
+      "additionalProperties": false
+    },
+
+    "models": {
+      "type": "object",
+      "description": "GET /v1/models: node profiles. GLU takes model identity (model_fingerprint) for its cache keys from here and from every infer_result, and combines it with its own sampling params into profile_fingerprint.",
+      "required": ["node_id", "profiles"],
+      "properties": {
+        "node_id": {"type": "string"},
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "model_fingerprint", "state"],
+            "properties": {
+              "name": {"$ref": "#/$defs/node_profile"},
+              "model_fingerprint": {"$ref": "#/$defs/fingerprint"},
+              "model_label": {"type": "string", "description": "human-readable model id for audit; not used for routing"},
+              "state": {"enum": ["loaded", "cold", "loading", "unavailable"]},
+              "pinned": {"type": "boolean"},
+              "max_context": {"type": "integer"}, "max_output_tokens": {"type": "integer"},
+              "max_concurrency": {"type": "integer", "minimum": 1},
+              "est_load_seconds": {"type": "number"},
+              "placement": {"enum": ["gpu", "gpu_cpu_offload", "cpu"]},
+              "modes": {"type": "array", "items": {"enum": ["interactive", "batch"]}}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "metrics": {
+      "type": "object",
+      "description": "GET /v1/metrics: JSON counters since start (no Prometheus in MVP).",
+      "required": ["node_id", "since"],
+      "properties": {
+        "node_id": {"type": "string"},
+        "since": {"type": "string", "format": "date-time"},
+        "requests": {"type": "integer"}, "failures": {"type": "object", "additionalProperties": {"type": "integer"}},
+        "tokens_in": {"type": "integer"}, "tokens_out": {"type": "integer"},
+        "tokens_per_s_avg": {"type": "number"},
+        "queue_depth": {"type": "integer"},
+        "model_loads": {"type": "integer"}, "model_load_seconds_total": {"type": "number"},
+        "inference_seconds_total": {"type": "number"},
+        "dedup_hits": {"type": "integer"},
+        "per_profile": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": {"type": "number"}}},
+        "gpu_utilization_pct": {"type": "number"}, "vram_used_mb": {"type": "integer"}, "ram_used_mb": {"type": "integer"}
+      },
+      "additionalProperties": false
+    },
+
+    "embed_request": {
+      "type": "object", "required": ["request_id", "profile", "input"],
+      "properties": {
+        "request_id": {"$ref": "#/$defs/request_id"}, "client_ref": {"type": "string", "maxLength": 64},
+        "profile": {"$ref": "#/$defs/node_profile"},
+        "input": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "embed_result": {
+      "type": "object", "required": ["request_id", "model_fingerprint", "vectors"],
+      "properties": {
+        "request_id": {"$ref": "#/$defs/request_id"}, "model_fingerprint": {"$ref": "#/$defs/fingerprint"},
+        "vectors": {"type": "array", "items": {"type": "array", "items": {"type": "number"}}},
+        "usage": {"type": "object", "properties": {"tokens_in": {"type": "integer"}}, "additionalProperties": false}
+      },
+      "additionalProperties": false
+    },
+
+    "job_status": {
+      "type": "object",
+      "description": "RESERVED (M-GW3, optional): async POST /v1/jobs → job_id, GET /v1/jobs/{id}, DELETE /v1/jobs/{id}.",
+      "required": ["job_id", "state"],
+      "properties": {
+        "job_id": {"$ref": "#/$defs/request_id"},
+        "state": {"enum": ["pending", "running", "completed", "failed", "cancelled"]},
+        "result": {"$ref": "#/$defs/infer_result"},
+        "error": {"$ref": "#/$defs/error"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

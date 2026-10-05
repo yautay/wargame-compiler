@@ -1,38 +1,54 @@
 # Architektura
 
 Dokument opisuje warstwy, granice i układ repozytoriów. Szczegóły: etapy w [PIPELINE.md](PIPELINE.md), wykonanie
-w [GLU.md](GLU.md), kontrakty w [DATA-CONTRACTS.md](DATA-CONTRACTS.md).
+w [GLU.md](GLU.md), kontrakty w [DATA-CONTRACTS.md](DATA-CONTRACTS.md), self-hosted inference w
+[inference/NODE.md](inference/NODE.md).
 
 ## 1. Warstwy
 
 ```text
-                 ┌──────────────── interfaces ────────────────┐
-                 │  CLI (wgc, glu)   MCP server   (future API)  │   adaptery: parsują wejście, wołają usługi,
-                 └──────────────────────┬──────────────────────┘   formatują wyjście; zero logiki domenowej
-                                        │
-                 ┌──────────────────── GLU core ───────────────────┐
-                 │ build planner · job store · scheduler · router    │   wykonanie, nie wiedza
-                 │ executors (deterministic | local | premium |      │
-                 │ human) · providers · cache · dependency graph ·   │
-                 │ metrics ledger                                    │
-                 └──────────────────────┬──────────────────────────┘
-                                        │ TaskSpec, validate(), accept()
-                 ┌──────────────────── WGC (domain) ─────────────────┐
-                 │ contracts (JSON Schema) · KB store · validators     │   wiedza i jej reguły
-                 │ (schema, refs, provenance, cues) · risk model ·     │
-                 │ gates · deterministic tools (ingest, tables, terms) │
-                 │ · task specs (prompts, output schemas, context      │
-                 │ builders) · views · exporters (engine kit, LaTeX)   │
-                 └──────────────────────┬──────────────────────────┘
-                                        │ read/write YAML
-                 ┌──────────────── game project repo ────────────────┐
-                 │ project.yaml · source/inventory.yaml · kb/ ·        │   źródło prawdy (git)
-                 │ publication/ · reports/ · .glu/ (gitignored)        │
-                 └─────────────────────────────────────────────────────┘
+ DEV MACHINE (Claude Desktop, GLU, repo gier)                         INFERENCE NODE (osobny PC w LAN)
+ ┌──────────────── interfaces ────────────────┐
+ │  CLI (wgc, glu)   MCP server   (future API)  │  adaptery: zero logiki domenowej
+ └──────────────────────┬──────────────────────┘
+                        │
+ ┌──────────────────── GLU core ───────────────────┐
+ │ build planner · job store (trwała kolejka) ·      │   wykonanie, nie wiedza
+ │ router · fallback policy · executors              │
+ │ (deterministic | local=self-hosted | premium |    │
+ │ human) · cache · dependency graph · metrics       │
+ ├──────────── provider abstraction ────────────────┤  HTTPS igw/api@0   ┌──────────────────────────────┐
+ │ fake · replay · self_hosted ──────────────────────┼─────────────────► │ igw: Inference Gateway        │
+ │ anthropic · desktop_pull ──► premium (API / MCP)  │   token + TLS     │  auth · kolejka · scheduler · │
+ └──────────────────────┬──────────────────────────┘                    │  lifecycle · health · metrics │
+                        │ TaskSpec, validate(), accept()                │      ↓ runtime adapter        │
+ ┌──────────────────── WGC (domain) ─────────────────┐                  │ llama.cpp / vLLM (127.0.0.1)  │
+ │ contracts (JSON Schema) · KB store · validators     │  wiedza i jej   │      ↓                        │
+ │ (schema, refs, provenance, cues) · risk model ·     │  reguły; nie    │ RTX 3090 24 GB · 128 GB RAM   │
+ │ gates · deterministic tools (ingest, tables, terms) │  zna sieci      └──────────────────────────────┘
+ │ · task specs (prompts, output/decoding schemas,     │  ani GPU         wymienialny worker: bez wiedzy
+ │ context builders) · views · exporters               │                  domenowej, bez stanu kanonicznego
+ └──────────────────────┬──────────────────────────┘
+                        │ read/write YAML
+ ┌──────────────── game project repo ────────────────┐
+ │ project.yaml · source/inventory.yaml · kb/ ·        │  źródło prawdy (git)
+ │ publication/ · reports/ · .glu/ (gitignored)        │
+ └─────────────────────────────────────────────────────┘
 ```
 
 Kierunek zależności: `interfaces → glu → wgc → contracts`. Pakiet `wgc` nie importuje `glu`. GLU nie zna pojęć gry.
 Wykonuje `TaskSpec` zarejestrowane przez WGC i zapisuje wyniki wyłącznie przez `wgc.accept()`.
+Pakiet **`igw`** (Inference Gateway, działa na węźle) nie importuje `wgc` ani `glu`, a GLU rozmawia z nim tylko przez
+HTTP i kontrakt `igw/api@0` (ADR-0016).
+
+**Warstwy inferencji** (od domeny w dół; każda nie wie nic o warstwach niżej):
+```text
+WGC domain → GLU orchestration → provider abstraction → self_hosted provider → LAN (HTTPS) → Inference Gateway
+→ runtime (llama.cpp; wymienialny) → GPU / CPU / RAM
+```
+- WGC nie wie nic o sieci ani GPU.
+- GLU nie wie, czy model działa na localhost, w LAN, w WSL czy na Linuksie.
+- Węzeł nie wie, czym jest reguła, gra, Stage ani przekład.
 
 ## 2. Granica WGC ↔ GLU
 | Pytanie | WGC (domena) | GLU (wykonanie) |
@@ -48,8 +64,10 @@ Wykonuje `TaskSpec` zarejestrowane przez WGC i zapisuje wyniki wyłącznie przez
 | Statusy etapów | ✔ `wgc gate` | czyta, planuje buildy |
 
 **TaskSpec** (kontrakt WGC → GLU, kształtowany w M9): `id`, `version`, `stage`, `input_selector` (które rekordy lub
-segmenty), `context_builder`, `prompt` (id@wersja), `output_schema`, `deterministic_impl?` (Tier 0), `validate(output)
-→ issues`, `risk_features(output)`, `accept(output) → records`, `semantic_projection` (co z wejścia wpływa na wynik).
+segmenty), `context_builder`, `prompt` (id@wersja), `output_schema`, `decoding_schema?` (płaski podzbiór do
+constrained decoding na węźle; domyślnie `output_schema`, jeśli jest zgodny), `deterministic_impl?` (Tier 0),
+`validate(output) → issues`, `risk_features(output)`, `accept(output) → records`, `semantic_projection` (co z wejścia
+wpływa na wynik).
 
 ## 3. Komponenty
 | Komponent | Pakiet | Opis | Milestone |
@@ -62,7 +80,9 @@ segmenty), `context_builder`, `prompt` (id@wersja), `output_schema`, `determinis
 | Bramki | `wgc.gate` | obliczane statusy etapów | M7 |
 | Job store | `glu.store` | SQLite: build, job, attempt, routing_decision | M8 |
 | Wykonawcy | `glu.exec` | deterministic, local, premium, human | M9–M16 |
-| Providerzy | `glu.providers` | fake, replay, openai_compat, anthropic | M10, M15 |
+| Providerzy | `glu.providers` | fake, replay, self_hosted (klient `igw/api@0`), anthropic, desktop_pull | M10, M15 |
+| Inference Gateway | `igw` (węzeł) | API `igw/api@0`, auth, limity, kolejka, scheduler, cykl życia modeli, adapter runtime'u, telemetria | M-GW1, M-GW2 |
+| Diagnostyka inferencji | `glu doctor`, `igw doctor` | DNS, TCP, TLS, auth, health, capabilities, modele, structured output | M-E2E, M-GW2 |
 | Cache | `glu.cache` | bloby adresowane treścią + indeks | M11 |
 | Router | `glu.routing` | polityka `routing@N`, decyzje z uzasadnieniem | M12 |
 | Graf zależności | `glu.graph` (z danymi od `wgc`) | stale, early cutoff | M13 |
@@ -94,16 +114,23 @@ Nie zawiera niczego, co dotyczy jednej konkretnej gry komercyjnej.
 ```
 **Repo silnika** (opcjonalne, dowolna technologia) przypina wersję `engine kit` i odsyła wyniki testów (`engine-results.json`).
 
+**Hosty.** Dev machine (Claude Desktop, MCP, GLU, repo gier, `.glu/`) i **inference node** w LAN (`igw`, runtime,
+pliki modeli, `node.yaml`) to różne komputery. Węzeł nie jest źródłem prawdy: jego wymiana kosztuje tylko ponowne
+obliczenia ([inference/NODE.md §7](inference/NODE.md#zrodlo-prawdy)).
+
 ## 5. Interfejsy
 - `wgc …`: polecenia domenowe, deterministyczne (validate, gate, view, export, ingest).
-- `glu …`: build, status, queue, review, decide, stats, cache.
+- `glu …`: build, status, queue, review, decide, stats, cache, doctor, explain.
+- `igw …` (na węźle): serve, doctor, token.
 - MCP: te same usługi co CLI, z listą dozwolonych narzędzi ([MCP.md](MCP.md)).
 - Skille Claude Code (opcjonalnie): cienkie nakładki wołające `glu`/`wgc`. Nie przechowują wiedzy.
 
 ## 6. Bezpieczeństwo (skrót)
 Najmniejsze uprawnienia (allowlista katalogów projektów, zakresy odczytu i zapisu, allowlista podprocesów,
-dozwolone endpointy lokalne), sekrety tylko ze zmiennych środowiska lub keyringu, redakcja logów, brak tekstu źródła
-w commitach. Szczegóły: [MCP.md](MCP.md#bezpieczenstwo).
+endpointy inferencji wyłącznie z konfiguracji providerów GLU), sekrety tylko ze zmiennych środowiska lub keyringu,
+redakcja logów, brak tekstu źródła w commitach. Szczegóły: [MCP.md](MCP.md#bezpieczenstwo).
+Sieć do węzła inferencji: HTTPS z przypiętym certyfikatem, token per klient, firewall z allowlistą hostów, runtime tylko na
+`127.0.0.1` węzła, limity requestów, brak wykonywania poleceń ([inference/NODE.md §7](inference/NODE.md#zrodlo-prawdy)).
 
 ## 7. Granice przyszłego silnika
 Opisane w [DIGITALIZATION.md](DIGITALIZATION.md#granice-silnika). Silnik nie jest częścią tego repo.

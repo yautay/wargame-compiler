@@ -1,4 +1,5 @@
-# Execution-state example: one Stage 1 job routed local → escalated to premium because of a boundary operator.
+# Execution-state example: one Stage 1 job routed local (self-hosted node in the LAN) → escalated to premium because of a
+# boundary operator (premium_reason: forced_rule, i.e. semantic escalation, not an availability fallback).
 schema: glu/exec@0
 records:
   - kind: build
@@ -6,7 +7,9 @@ records:
     project: drill-skirmish
     project_rev: "abc1234"
     target: {stage: stage1, scope: "chapter:5"}
-    policy: {routing: routing@0, budget_premium_usd: 2.0, max_human_questions: 3}
+    policy: {routing: routing@0, budget_premium_usd: 2.0, max_human_questions: 3,
+             fallback: {self_hosted_unavailable: queue, allow_premium_fallback: false, max_wait_seconds: 7200}}
+    inference_snapshot: {local_fast: "sha256:00000000000000f1", local_semantic: "sha256:00000000000000a2"}
     state: done
     started_at: "2026-10-05T10:00:00Z"
     finished_at: "2026-10-05T10:04:00Z"
@@ -25,15 +28,19 @@ records:
       prompt_version: "logic.rule.extract@0"
       output_schema: "wgc/logic@0#rule"
       profile: local_semantic
-      profile_fingerprint: "sha256:00000000000000cc"
+      profile_fingerprint: "sha256:00000000000000cc"   # = hash(model_fingerprint …a2 from the node, node profile, sampling params)
       input_hash: "sha256:0000000000005002"
       context_hash: "sha256:00000000000000dd"
       dependency_state: "sha256:00000000000000ee"
     cache_hit: false
-    attempts: [att_000001, att_000002]
+    attempts: [att_000000, att_000001, att_000002]
     accepted_records: [R-5.2]
-  - {kind: attempt, id: att_000001, job: job_0002bb, tier: local, profile: local_semantic, schema_valid: true, domain_valid: true,
-     outcome: escalate, tokens_in: 1800, tokens_out: 420, gpu_seconds: 9.5, wall_seconds: 11}
+  - {kind: attempt, id: att_000001, job: job_0002bb, tier: local, profile: local_semantic, endpoint: ai-node, node_id: ai-node-01,
+     model_fingerprint: "sha256:00000000000000a2", schema_valid: true, domain_valid: true,
+     outcome: escalate, tokens_in: 1800, tokens_out: 420, gpu_seconds: 9.5, queue_seconds: 1.2, load_seconds: 0, wall_seconds: 11}
+  # the node was briefly unreachable before this attempt: no quality retry consumed, no premium fallback
+  - {kind: attempt, id: att_000000, job: job_0002bb, tier: local, profile: local_semantic, endpoint: ai-node,
+     outcome: unavailable, error_class: network, wall_seconds: 3}
   - {kind: attempt, id: att_000002, job: job_0002bb, tier: premium, profile: premium_semantic, schema_valid: true, domain_valid: true,
      outcome: accepted, tokens_in: 2600, tokens_out: 380, cost_usd: 0.04, wall_seconds: 14}
   - kind: routing_decision
@@ -41,5 +48,6 @@ records:
     job: job_0002bb
     policy: routing@0
     chosen: premium
+    premium_reason: forced_rule
     signals: {risk_class: high, forced: boundary_operator, local_agreement: true, self_confidence: 0.9}
     reasons: ["forced rule: boundary_operator → premium review even when local runs agree"]

@@ -9,7 +9,9 @@ SOURCE → Stage 1 LOGIC ──┬──→ Stage 1.5 DIGITALIZATION → engine 
 ```
 
 - **WGC** (pakiet `wgc`): domena: kontrakty, Knowledge Base, walidatory, narzędzia deterministyczne.
-- **GLU** (pakiet `glu`): wykonanie: joby, routing kod → lokalny LLM → premium LLM → człowiek, cache, przyrostowość, CLI i MCP.
+- **GLU** (pakiet `glu`): wykonanie: joby, routing kod → self-hosted LLM → premium LLM → człowiek, cache, przyrostowość, CLI i MCP.
+- **Inference node** (pakiet `igw`, osobny PC w LAN z RTX 3090): Inference Gateway nad runtime'em modeli. Generyczny,
+  wymienialny worker obliczeniowy bez wiedzy o grach ([docs/inference/NODE.md](docs/inference/NODE.md)).
 - Knowledge Base w repo gry jest źródłem prawdy. Repozytorium narzędzia jest pamięcią projektu.
 
 > **Status:** Session 0 zakończona: architektura, kontrakty `@0`, roadmapa, system ciągłości. Kod domenowy zaczyna się
@@ -41,20 +43,24 @@ python -m pytest
 | [docs/DIGITALIZATION.md](docs/DIGITALIZATION.md) | Stage 1.5: stan, akcje, legalność, zdarzenia, timing, losowość, testy |
 | [docs/EDITORIAL-PUBLICATION.md](docs/EDITORIAL-PUBLICATION.md) | Stage 2 i Stage 3 |
 | [docs/GLU.md](docs/GLU.md) | orkiestracja, joby, cache, przyrostowość |
-| [docs/INFERENCE-ROUTING.md](docs/INFERENCE-ROUTING.md) | tiery, routing, providerzy, lokalna inferencja |
+| [docs/INFERENCE-ROUTING.md](docs/INFERENCE-ROUTING.md) | tiery, routing, providerzy, self-hosted inference |
+| [docs/inference/NODE.md](docs/inference/NODE.md) | węzeł inferencji, Inference Gateway, profile, scheduler, bezpieczeństwo, awarie |
+| [docs/inference/DEPLOYMENT.md](docs/inference/DEPLOYMENT.md) | wdrożenie węzła na Windows 11: sieć, firewall, TLS, autostart, diagnoza |
 | [docs/MCP.md](docs/MCP.md) | MCP, Claude Desktop, bezpieczeństwo |
 | [docs/DATA-CONTRACTS.md](docs/DATA-CONTRACTS.md) | schematy, ID, hashe, wersjonowanie |
 | [docs/QUALITY.md](docs/QUALITY.md) | model jakości, mutacje, benchmarki |
 | [docs/COST.md](docs/COST.md) | model kosztu, baseline, obserwowalność |
 | [docs/adr/](docs/adr/README.md) | decyzje architektoniczne |
 | [docs/DOD-SESSION-0.md](docs/DOD-SESSION-0.md) | spełnienie Definition of Done Session 0 |
+| [docs/DOD-M-INF0.md](docs/DOD-M-INF0.md) | spełnienie Definition of Done korekty architektury inferencji |
 
 ## Układ repo
 ```text
-contracts/schemas/     JSON Schema kontraktów (wgc/*@0, glu/exec@0)
+contracts/schemas/     JSON Schema kontraktów (wgc/*@0, glu/exec@0, igw/api@0)
 contracts/fixtures/    przykłady poprawne (valid/) i niepoprawne (invalid/)
 wgc/                   domena (dziś: rejestr kontraktów)
 glu/                   wykonanie (pusty do M8)
+igw/                   (od M-GW1) Inference Gateway węzła; nie importuje wgc ani glu
 bench/minigame/        gra benchmarkowa Drill Skirmish (CC0)
 docs/                  dokumentacja, ADR, handoffy
 tests/                 testy kontraktów i ciągłości

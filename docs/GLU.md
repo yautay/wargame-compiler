@@ -1,8 +1,10 @@
 # GLU: wykonanie i orkiestracja
 
-GLU kieruje pracę do wykonawców (kod deterministyczny, lokalny LLM, premium LLM, człowiek), pilnuje cache,
+GLU kieruje pracę do wykonawców (kod deterministyczny, self-hosted LLM, premium LLM, człowiek), pilnuje cache,
 przyrostowości, budżetu i metryk. **Nie posiada wiedzy o grze.** Knowledge Base (repo gry) pozostaje źródłem prawdy
 (ADR-0004). Kontrakt stanu wykonania: `contracts/schemas/glu.schema.json` (`glu/exec@0`).
+Self-hosted inference wykonuje osobny węzeł w LAN za Inference Gateway ([inference/NODE.md](inference/NODE.md)).
+GLU widzi go wyłącznie przez providera `self_hosted` i nie zakłada localhost (ADR-0015, ADR-0016).
 
 ## 1. Model nie jest pamięcią projektu
 ```text
@@ -24,21 +26,30 @@ Nic, co nie przeszło walidacji WGC, nie trafia do `kb/`. Historia czatu nie jes
 | **Escalation** | przejście joba do wyższego tieru (z powodem) | stan joba + RoutingDecision |
 | **Decision** | rozstrzygnięcie człowieka `HD-` (domena!) | `kb/decisions.yaml` |
 | **Artifact** | zaakceptowany rekord albo wygenerowany plik (widok, LaTeX, engine kit) | `kb/`, `publication/`, `reports/` |
+| **Endpoint** | logiczna nazwa bramki inferencji z konfiguracji GLU (np. `ai-node`), nie IP | `~/.config/glu/profiles.yaml`; w Attempt |
 | **Session** | okres pracy interaktywnej: człowiek albo premium w Claude Desktop/Code przerabia kolejkę przeglądów i pytań | efekty w `kb/` i `.glu/` |
 
 ## 3. Cykl życia joba
 ```text
-pending → ready → running → proposed → validating ─┬→ accepted → done
-   ↑                                                ├→ retry ──────────→ ready        (≤ N prób na tier)
-   │                                                ├→ escalated → ready (wyższy tier)
-   │                                                ├→ waiting_review → (pakiet premium/człowiek) → validating
-   │                                                ├→ waiting_human  → (HD-) → validating
-   │                                                └→ rejected / failed
+pending → ready → running ⇄ waiting_inference (węzeł niedostępny; bez zużycia prób)
+                     ↓
+                  proposed → validating ─┬→ accepted → done
+   ↑                                     ├→ retry ──────────→ ready        (≤ N prób na tier)
+   │                                     ├→ escalated → ready (wyższy tier)
+   │                                     ├→ waiting_review → (pakiet premium/człowiek) → validating
+   │                                     ├→ waiting_human  → (HD-) → validating
+   │                                     └→ rejected / failed
    └──────── stale (zmiana wejścia) ← done / accepted
 ```
 - **Cache hit** przy `ready` → od razu `accepted` (zero wywołań modelu).
 - **Retry** dostaje listę błędów walidacji (schemat i domena) w prompcie. Po wyczerpaniu prób następuje eskalacja, a nie akceptacja.
-- **Build** kończy się `done`, `waiting_review` (czeka kolejka premium), `waiting_human` (pytania) albo `failed`.
+- **Błąd dostępności providera** (sieć, TLS, timeout, ładowanie modelu, runtime) przenosi job do `waiting_inference`
+  zgodnie z `build.policy.fallback` (domyślnie `queue`). Nie zużywa limitu prób jakościowych i **nie eskaluje** do premium,
+  chyba że `allow_premium_fallback: true` (ADR-0017). Błąd auth lub TLS kończy build `failed` z diagnozą `glu doctor`.
+- **Build** kończy się `done`, `waiting_inference` (czeka na węzeł), `waiting_review` (czeka kolejka premium),
+  `waiting_human` (pytania) albo `failed`.
+- Job store GLU (SQLite) jest **jedyną trwałą kolejką**. Bramka węzła trzyma kolejkę w pamięci, a restart po którejkolwiek
+  stronie oznacza ponowne wysłanie idempotentnego requestu.
 
 ## 4. Pętla structured output
 ```text
@@ -48,12 +59,19 @@ MODEL → STRUCTURED OUTPUT (JSON Schema w żądaniu: guided decoding / response
       → ACCEPT / RETRY / ESCALATE
 ```
 - Schemat propozycji jest okrojonym schematem rekordu: **bez `prov`, `risk` i `status`**. Te pola dopisują GLU i WGC (ADR-0014).
+- Do modelu idzie `decoding_schema` zadania: płaski podzbiór JSON Schema zgodny z `capabilities.json_schema_subset`
+  węzła (np. llama.cpp nie obsługuje `if/then/else` i pomija nieobsługiwane cechy po cichu). Pełny schemat i walidacja
+  domenowa zawsze działają po stronie GLU i WGC.
 - Wiedza kanoniczna nigdy nie pochodzi z niezwalidowanego wolnego tekstu. Pola `{text}` i glosy są dozwolone,
   ale wliczają się do ryzyka.
 
-## 5. Wykonanie lokalne a sesja premium
-- **Lokalnie** GLU wykonuje setki jobów w falach według profilu (żeby ograniczyć przeładowania modelu w VRAM),
-  z równoległością ustaloną dla profilu.
+## 5. Wykonanie self-hosted a sesja premium
+- **Self-hosted** GLU wykonuje setki jobów na węźle w LAN. Wysyła je uporządkowane według profilu (fale jako
+  **wskazówka**), z równoległością nie większą niż `max_concurrency` z `/v1/models`. **Cyklem życia modeli w VRAM
+  (ładowanie, rezydencja, LRU) zarządza bramka węzła**, bo widzi wszystkich klientów
+  ([inference/NODE.md §5](inference/NODE.md#scheduler)).
+- Self-hosted compute nie ma limitu finansowego, więc dozwolone są dodatkowe passy z jasnym celem (druga ekstrakcja,
+  weryfikator, analiza rozbieżności, `local_deep`), jeśli zmniejszają eskalację premium (ADR-0017).
 - **Premium jest bezstanowy.** Dostaje `review_package`: pytanie, minimalny fragment źródła, rekordy z otoczenia w grafie
   (sąsiedztwo k-hop po `refs` i relacjach, przycięte do budżetu tokenów), propozycje lokalne (także rozbieżne),
   uzasadnienie ryzyka i `answer_schema`. Pakiet jest samowystarczalny: recenzent nie potrzebuje historii ani
@@ -66,13 +84,24 @@ Cache jest częścią architektury. **Niezmienione wejście = zero wywołań mod
 
 | Poziom | Klucz | Zawartość |
 |---|---|---|
-| L1: inferencja | sha256 z (provider, `profile_fingerprint`, wiadomości, schemat wyjścia, parametry próbkowania) | surowa odpowiedź modelu |
+| L1: inferencja | sha256 z (rodzaj providera, `profile_fingerprint`, wiadomości, schemat dekodowania, parametry próbkowania) | surowa odpowiedź modelu |
 | L2: wynik joba | sha256 z `cache_key` (niżej) | zaakceptowana propozycja + wynik walidacji |
 
 `cache_key` (schemat `glu.schema.json#/$defs/cache_key`):
-`task`, `task_version`, `prompt_version`, `output_schema`, `profile` + `profile_fingerprint` (model, kwantyzacja,
-parametry), `input_hash` (hashe segmentów lub rekordów wejściowych), `context_hash` (hash projekcji rekordów
-kontekstu), `dependency_state` (hash projekcji zaakceptowanych rekordów nadrzędnych).
+`task`, `task_version`, `prompt_version`, `output_schema`, `profile` + `profile_fingerprint`, `input_hash` (hashe
+segmentów lub rekordów wejściowych), `context_hash` (hash projekcji rekordów kontekstu), `dependency_state` (hash
+projekcji zaakceptowanych rekordów nadrzędnych).
+
+- **Tożsamość modelu raportuje węzeł**: `model_fingerprint` (`igw/api@0`: `/v1/models` i każdy `infer_result`) to
+  hash pliku modelu, kwantyzacji, runtime'u i parametrów uruchomienia. GLU łączy go z tym, co sam wysyła:
+  `profile_fingerprint` = hash(`model_fingerprint` raportowany przez węzeł, `node_profile`, parametry próbkowania i wyjścia z `profiles.yaml`). Żaden z nich **nie** obejmuje hosta, IP ani `node_id`:
+  - podmiana modelu na węźle daje miss;
+  - zmiana `temperature`, `seed`, `max_tokens` lub mapowania profilu w `profiles.yaml` daje miss;
+  - wymiana węzła na inny z tym samym modelem zachowuje trafienia.
+
+  Build zapisuje `inference_snapshot` (profil → `model_fingerprint` na starcie). Bez węzła trafienia L2 nadal działają.
+- Węzeł **nie** ma cache wyników. Jego cache to pliki modeli, page cache i prefix cache runtime'u
+  ([inference/NODE.md §6](inference/NODE.md#cache)). Odpowiedzialności się nie dublują.
 
 - Dekodowanie lokalne deterministyczne (temperatura 0 + seed, gdy serwer to wspiera), żeby cache L1 był sensowny i testowalny.
 - Bloby adresowane treścią: `.glu/blobs/sha256/<2>/<hash>`, indeks w SQLite. `glu cache gc` usuwa wpisy bez odwołań.
@@ -99,8 +128,13 @@ kontekstu), `dependency_state` (hash projekcji zaakceptowanych rekordów nadrzę
 - `build.policy.budget_premium_usd` i limit tokenów premium. Po przekroczeniu joby czekają (`waiting_review`) i nigdy
   nie są akceptowane lokalnie zamiast przeglądu.
 - `build.policy.max_human_questions`: pytania ponad limit są odkładane do następnej sesji.
-- Limity prób na tier, limit czasu joba, limit równoległości na profil.
+- Limity prób na tier, limit czasu joba, równoległość na profil (≤ `max_concurrency` węzła).
+- **Polityka niedostępności** `build.policy.fallback`: `self_hosted_unavailable: queue | block | fail`,
+  `allow_premium_fallback` (domyślnie `false`), `max_wait_seconds`. Budżet premium (≤ 2× baseline) dotyczy wyłącznie
+  premium. Self-hosted compute ma tylko limity czasu i pojemności.
 
 ## 9. Metryki
-Każdy Attempt zapisuje tokeny, koszt, czas GPU, czas ścienny i wynik walidacji, a każdy Build agregaty.
+Każdy Attempt zapisuje tokeny, koszt, czas GPU (raportowany przez węzeł), czas w kolejce i ładowania modelu,
+endpoint, `node_id`, `model_fingerprint`, czas ścienny, wynik walidacji i klasę błędu. Każdy Build zapisuje agregaty.
+Węzeł i endpoint żyją tylko w `.glu/`, nigdy w `kb/`.
 Definicje i raporty: [COST.md](COST.md#obserwowalnosc).

@@ -8,7 +8,10 @@
 | `wgc/logic@0` | `logic.schema.json` | Stage 1: Rule IR i rekordy pokrewne, gramatyka wyrażeń i efektów | @0 szkic |
 | `wgc/digital@0` | `digital.schema.json` | Stage 1.5 | @0 szkic |
 | `wgc/gate@0` | `gate.schema.json` | raport bramki (obliczany) | @0 szkic |
-| `glu/exec@0` | `glu.schema.json` | Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey | @0 szkic |
+| `glu/exec@0` | `glu.schema.json` | Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey; polityka fallbacku, `premium_reason`, stan `waiting_inference`, pola węzła w Attempt | @0 szkic |
+| `igw/api@0` | `inference.schema.json` | protokół Inference Gateway: `infer_request`/`infer_result`, `error`, `health`, `capabilities`, `models`, `metrics`, `embed_*`, `job_status` (zarezerwowany) | @0 szkic |
+| `glu/profiles@0` | (M10) | `~/.config/glu/profiles.yaml`: endpointy, profile logiczne, `fallback` | planowany |
+| `igw/node@0` | (M-GW1) | `node.yaml` węzła: nasłuch, auth, limity, runtime, modele, profile węzła, scheduler | planowany |
 | `wgc/project@0` | (M7) | `project.yaml` repo gry | planowany |
 | `wgc/editorial@0` | (M24) | Stage 2 | planowany |
 | `wgc/publication@0` | (M25–M26) | glosariusz, przekłady segmentów | planowany |
@@ -17,6 +20,20 @@
 
 Fixture'y: `contracts/fixtures/valid/*` (muszą przechodzić) i `contracts/fixtures/invalid/*` (muszą odpadać).
 Test: `tests/test_contracts.py`. Ładowanie: `wgc/contracts.py` (rejestr `referencing`, bez sieci).
+
+**Przestrzenie nazw:**
+- `wgc/*` to domena;
+- `glu/*` to stan wykonania i konfiguracja GLU;
+- `igw/*` to protokół i konfiguracja węzła inferencji, **bez pojęć domenowych**.
+
+`wgc/contracts.py` rejestruje `igw/api@0` wyłącznie jako loader schematów dla testów kontraktów. WGC nie zna
+infrastruktury inferencji, a `igw` czyta ten sam plik schematu bez importu `wgc` (ADR-0016).
+
+**Inwarianty `igw/api@0` i `glu/exec@0`:**
+- request inferencji nie ma pól domenowych (`additionalProperties: false`, tylko nieprzezroczysty `client_ref`);
+- wynik zawsze niesie `model_fingerprint`, który nie zawiera hosta;
+- decyzja routingu wybierająca premium zawsze ma `premium_reason`;
+- `kb/` (`prov.by`) nigdy nie zawiera hosta ani `node_id`, bo te pola żyją tylko w Attempt w `.glu/`.
 
 ## 2. Wersjonowanie i zgodność
 - `@0` to szkic: może się zmieniać bez migracji, ale każda zmiana aktualizuje fixture'y i testy w tej samej sesji.
