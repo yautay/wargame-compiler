@@ -53,6 +53,13 @@ pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 
 
   Macierz DoD: [DOD-M-INF0.md](DOD-M-INF0.md).
 
+### M-INF0a: Przegląd spójności dokumentacji i roadmapy po M-INF0
+- **Status:** done · **Rola:** ARCH · **Zależy od:** M-INF0
+- **Wynik:** audyt repo pod kątem założenia „local = localhost / WSL2”. Poprawki: brak `wsl.exe` w kryterium M22 i MCP.md,
+  adapter runtime'u bramki nazwany `llama_server` (wewnętrzny dla `igw`, nie provider GLU), kryteria wyboru Windows
+  natywnie vs WSL2 w M-INF, klasy `semantic_escalation` i `infrastructure_fallback` w telemetrii, rozdział profili
+  logicznych od modeli fizycznych w INFERENCE-ROUTING. Brak zmian kontraktów i kodu.
+
 ### M1: Tożsamość, hashowanie i walidator referencji
 - **Status:** next · **Rola:** IMPL · **Zależy od:** M0
 - **Zakres:** `wgc/ids.py` (gramatyka, rejestr prefiksów, `kind` ↔ prefiks), `wgc/canonical.py` (kanoniczny JSON,
@@ -174,7 +181,8 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
   - token Bearer (hashe w pliku, `igw token new|list|revoke`), allowlista IP klientów;
   - limity: body, `max_tokens`, kolejka;
   - kolejka FIFO na profil w pamięci, deduplikacja po `idempotency_key`;
-  - adapter runtime'u `fake` (testy) i `openai_compat` (llama-server pod stałym adresem `127.0.0.1`, bez cyklu życia);
+  - adaptery runtime'u **wewnętrzne dla `igw`** (nie providery GLU): `fake` (testy) i `llama_server` (protokół
+    OpenAI-compatible, stały adres `127.0.0.1`, bez cyklu życia). GLU nie zna ich portów;
   - `model_fingerprint` z sha256 pliku, kwantyzacji, wersji runtime'u i parametrów;
   - TLS z plików certyfikatu;
   - logi bez treści promptów.
@@ -254,7 +262,10 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
     - VRAM i RAM;
     - czas ładowania z NVMe i z page cache;
     - koszt przełączeń w realnej mieszance jobów Stage 1;
-  - decyzja: llama.cpp wystarcza albo M-VLLM;
+  - **weryfikacja wyboru runtime'u** (ADR-0018 to hipoteza MVP, nie dogmat): Windows natywnie vs WSL2 według kryteriów:
+    structured output, wydajność, stabilność, CUDA, ładowanie modeli, start usługi po restarcie, wdrożenie przez sieć,
+    utrzymanie;
+  - decyzja: llama.cpp natywnie wystarcza albo M-VLLM (WSL2);
   - przykładowe `node.yaml` i `profiles.yaml` w `docs/inference/`.
 - **Akceptacja:** ADR z wyborem i liczbami (aktualizuje hipotezy ADR-0018 i NODE.md §4); progi QUALITY §5 dla
   profilu akceptującego `low`.
@@ -344,7 +355,8 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
 - **Zakres:** serwer stdio, narzędzia odczytu z MCP.md, `mcp.yaml` (allowlisty, zakresy, redakcja logów).
 - **Zakres (dodatkowo):** `inference_status` (widok GLU na endpointy; MCP nie zna tokenów węzła i nie łączy się z nim).
 - **Akceptacja:** testy kontraktowe narzędzi bez Claude Desktop; próba wyjścia poza allowlistę odrzucona; test ręczny
-  z Claude Desktop (stdio natywnie albo przez `wsl.exe`, zależnie od miejsca GLU).
+  z Claude Desktop: `Claude Desktop → MCP (stdio) → GLU`. Środowisko GLU (Windows natywnie lub WSL2, Q-03) nie jest
+  częścią kontraktu; kryterium nie wymaga `wsl.exe`.
 
 ### M23: MCP zapis (review, decyzje, build) + Desktop Extension
 - **Status:** planned · **Rola:** IMPL · **Zależy od:** M22

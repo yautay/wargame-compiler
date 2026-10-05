@@ -41,6 +41,12 @@ Każda decyzja wybierająca premium zapisuje `premium_reason` (`glu/exec@0`): `r
 `human_request`. Dzięki temu fallback dostępności nie miesza się z eskalacją semantyczną
 ([ADR-0017](adr/ADR-0017-niedostepnosc-wezla-bez-premium-fallback.md)).
 
+W telemetrii i raportach rozróżniamy dwie klasy, wyprowadzane z `premium_reason` (bez nowego pola w kontrakcie):
+- **`infrastructure_fallback`**: `self_hosted_unavailable`. Powstaje tylko po jawnym `allow_premium_fallback: true`.
+  Nie mówi nic o trudności zadania i nie kalibruje ryzyka;
+- **`semantic_escalation`**: pozostałe powody (`risk_class`, `forced_rule`, `local_disagreement`,
+  `validation_exhausted`, `audit_sample`, `capability_missing`, `human_request`). Podlega kalibracji routingu i audytowi.
+
 Asymetria (ADR-0010): niepotrzebna eskalacja kosztuje pieniądze, a fałszywie negatywny wynik kosztuje poprawność
 całego łańcucha (logika → silnik → przekład). Każda decyzja zapisuje `routing_decision` z sygnałami i powodami.
 
@@ -68,9 +74,14 @@ Implementacje:
 | `anthropic` | premium przez API | M15 |
 | `desktop_pull` | premium przez kolejkę i Claude Desktop (ADR-0013) | M15 |
 
-- **GLU nie rozmawia z runtime'em** (llama.cpp, Ollama, vLLM). Robi to bramka przez adapter OpenAI-compatible
-  ([ADR-0016](adr/ADR-0016-inference-gateway-i-protokol.md)). Bramkę można uruchomić także na localhost, a GLU tego
-  nie odróżnia.
+- **GLU nie rozmawia z runtime'em** (llama.cpp, Ollama, vLLM) i nie zna jego portu ani endpointu. Robi to bramka
+  przez własny adapter runtime'u (dziś OpenAI-compatible, ale to szczegół bramki, a nie kontrakt GLU;
+  [ADR-0016](adr/ADR-0016-inference-gateway-i-protokol.md)). Kontrakt GLU↔bramka to `igw/api@0`, kontrakt
+  bramka→runtime jest wewnętrzny dla `igw`. Bramkę można uruchomić także na localhost lub drugim węźle, a GLU tego
+  nie odróżnia (zmienia się tylko `url` w `profiles.yaml`).
+- **Profile logiczne vs modele fizyczne:** GLU operuje na profilu (`local_fast` → `node_profile: fast`). Fizyczny model
+  widzi tylko bramka. `/v1/models` zwraca profile węzła razem z `model_fingerprint`, więc GLU zna dostępne profile
+  i zapisuje fingerprint w provenance i cache bez znajomości nazwy GGUF ani runtime'u.
 - Core nie zależy od żadnego serwera ani modelu. Schemat dekodowania (`decoding_schema` z TaskSpec) mieści się w
   `capabilities.json_schema_subset` (np. bez `if/then/else`). Brak structured output oznacza JSON mode + walidację
   + retry.

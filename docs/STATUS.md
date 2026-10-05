@@ -1,7 +1,7 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-05
-- **Ostatni milestone:** M-INF0 (korekta architektury: self-hosted inference na węźle w LAN): done
+- **Ostatni milestone:** M-INF0a (przegląd spójności po M-INF0; poprzednio M-INF0: self-hosted inference w LAN): done
 - **Bieżący milestone:** M1
 - **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-compiler.git`
 

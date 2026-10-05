@@ -79,7 +79,7 @@ Każdy Attempt i Build zapisuje metryki w `.glu/state.db`. `glu stats [--build I
 | `tokens_in/out` per tier i profil | z Attempt |
 | `premium_cost_usd` | suma kosztów API (+ szacunek dla `desktop_pull`) |
 | `local_gpu_seconds`, `model_swaps`, `local_queue_seconds` | czas GPU, przełączenia modeli, czas w kolejce węzła (raportuje węzeł) |
-| `premium_calls`, `premium_context_tokens`, `premium_by_reason` | wywołania premium, rozmiar pakietów, podział według `premium_reason` |
+| `premium_calls`, `premium_context_tokens`, `premium_by_reason` | wywołania premium, rozmiar pakietów, podział według `premium_reason` (klasy `semantic_escalation` i `infrastructure_fallback`, [INFERENCE-ROUTING §2](INFERENCE-ROUTING.md#2-polityka-routingu-routing0-do-implementacji-w-m12)) |
 | `premium_delta` | zmiana premium względem baseline i względem poprzedniej wersji polityki routingu (`glu stats --compare`) |
 | `inference_unavailable_seconds`, `premium_fallback_cost_usd` | czas w `waiting_inference`; koszt jawnie dozwolonego fallbacku |
 | `wall_seconds`, `human_wait_seconds` | czas ścienny, czas oczekiwania na człowieka |
