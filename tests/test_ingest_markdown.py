@@ -47,8 +47,15 @@ def test_label_is_not_part_of_text(bench):
 def test_table_segment_keeps_intro_and_cells(bench):
     t = bench["4.3"].text
     assert t.startswith("Apply the modified result on the Combat Results Table:")
-    assert "Modified result Effect on defender" in t and "7 or more Eliminated" in t
+    assert "Modified result\tEffect on defender" in t and "7 or more\tEliminated" in t
     assert "|" not in t and "---" not in t
+
+
+def test_table_cells_separated_by_tab_without_changing_hash():
+    data = b"**1.1** Intro:\n\n| a | | c |\n|---|---|---|\n| 1 | 2 | 3 |\n"
+    seg = markdown.extract(data)[0]
+    assert seg.text.split("\n")[2:] == ["a\t\tc", "1\t2\t3"]  # empty cell kept: columns stay aligned
+    assert text_hash(seg.text) == text_hash("Intro:\n\na c\n1 2 3")
 
 
 def test_numbered_list_stays_in_segment(bench):

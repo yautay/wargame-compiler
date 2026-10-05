@@ -1,4 +1,5 @@
-"""CLI: `glu status` and `glu export` (also `python -m glu`). Exit code 2 = operational error (ADR-0002)."""
+"""CLI: `glu status`, `glu export` and `glu build` (also `python -m glu`). Exit code 2 = operational error (ADR-0002);
+`glu build` returns 1 when the build ends `failed`."""
 from __future__ import annotations
 
 import argparse
@@ -10,6 +11,8 @@ from pathlib import Path
 import yaml
 
 from glu.store import Store, StoreError
+from wgc.kb import KBError
+from wgc.tasks import TaskError
 
 
 def _summary(store: Store, build: dict, with_jobs: bool) -> dict:
@@ -64,6 +67,40 @@ def _cmd_export(args) -> int:
     return 0
 
 
+def _cmd_build(args) -> int:
+    from glu import exec as executor, planner
+    from wgc.canonical import content_hash
+    from wgc.kb import Workspace
+
+    root = Path(args.root)
+    project = args.project or root.resolve().name
+    ws = Workspace(root)
+    plan = planner.plan(ws, args.stage, args.scope)
+    if args.dry_run:
+        print(f"Plan buildu (bez wykonania): projekt {project}, etap {plan.stage}, zakres {plan.scope}")
+        for j in plan.jobs:
+            key = content_hash(j.cache_key).split(":", 1)[1][:16]
+            print(f"  {j.spec.name}  tier: {j.tier}  wejścia: {', '.join(j.inputs)}  klucz: {key}")
+        for name in plan.skipped:
+            print(f"  pominięte (brak implementacji Tier 0): {name}")
+        print(f"Jobów: {len(plan.jobs)}. Niczego nie zapisano.")
+        return 0
+    with Store.at_root(root) as store:
+        result = executor.run(store, ws, plan, project)
+    m = result.metrics
+    print(f"Build {result.id}: projekt {project}, etap {result.stage}, zakres {result.scope}, stan: {result.state}")
+    for j in result.jobs:
+        print(f"  {j.id}  {j.task}  {', '.join(j.inputs)}  stan: {j.state}"
+              + (f"  rekordy: {', '.join(j.records)}" if j.records else ""))
+        for issue in j.issues:
+            print(f"    {issue}")
+    for name in plan.skipped:
+        print(f"  pominięte (brak implementacji Tier 0): {name}")
+    print(f"Jobów: {m['jobs_total']} (udane {m['jobs_done']}, nieudane {m['jobs_failed']}); rekordy: nowe "
+          f"{m['records_created']}, zmienione {m['records_updated']}, bez zmian {m['records_unchanged']}.")
+    return 0 if result.state == "done" else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="glu", description="wargame-compiler: wykonanie i orkiestracja (GLU).")
     sub = parser.add_subparsers(dest="command", required=True, metavar="polecenie")
@@ -78,6 +115,16 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("export", parents=[common], help="eksport rekordów stanu wykonania jako dokument glu/exec@0")
     p.add_argument("--out", metavar="plik", help="plik YAML (domyślnie standardowe wyjście)")
     p.set_defaults(func=_cmd_export)
+
+    p = sub.add_parser("build", help="planuje i wykonuje joby etapu (Tier 0: zadania deterministyczne); zapis do kb/ "
+                                     "tylko przez wgc.kb.accept")
+    p.add_argument("--root", default=".", metavar="katalog", help="katalog repo gry (domyślnie bieżący)")
+    p.add_argument("--stage", required=True, metavar="etap", help="etap, np. 1 albo stage1")
+    p.add_argument("--scope", default="all", metavar="zakres",
+                   help="all (domyślnie), chapter:<N> albo segment:<SEG-id>")
+    p.add_argument("--project", metavar="nazwa", help="nazwa projektu w buildzie (domyślnie nazwa katalogu --root)")
+    p.add_argument("--dry-run", action="store_true", help="tylko plan jobów; niczego nie zapisuje")
+    p.set_defaults(func=_cmd_build)
     return parser
 
 
@@ -90,7 +137,7 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         return args.func(args)
-    except StoreError as e:
+    except (StoreError, KBError, TaskError) as e:
         print(f"BŁĄD: {e}", file=sys.stderr)
         return 2
     except sqlite3.Error as e:  # e.g. `database is locked` after the store was opened

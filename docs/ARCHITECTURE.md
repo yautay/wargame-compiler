@@ -63,11 +63,18 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
 | Zapis do KB | ✔ `accept()` z provenance | woła `accept()`, nigdy nie pisze YAML sam |
 | Statusy etapów | ✔ `wgc gate` | czyta, planuje buildy |
 
-**TaskSpec** (kontrakt WGC → GLU, kształtowany w M9): `id`, `version`, `stage`, `input_selector` (które rekordy lub
-segmenty), `context_builder`, `prompt` (id@wersja), `output_schema`, `decoding_schema?` (płaski podzbiór do
-constrained decoding na węźle; domyślnie `output_schema`, jeśli jest zgodny), `deterministic_impl?` (Tier 0),
-`validate(output) → issues`, `risk_features(output)`, `accept(output) → records`, `semantic_projection` (co z wejścia
-wpływa na wynik).
+**TaskSpec** (kontrakt WGC → GLU, M9a, ADR-0025): zamrożona dataclass w `wgc/tasks.py`, rejestr `wgc.tasks.registry()`.
+- Pola obowiązkowe: `id`, `version`, `stage`, `output_kind`, `output_schema` (np. `wgc/logic@0#table`),
+  `input_selector` (które segmenty lub rekordy, jedno wejście na job), `validate(ws, wejścia, propozycje) → issues`.
+- Pola opcjonalne:
+  - `deterministic_impl?` (Tier 0);
+  - `semantic_projection?` (co z wejścia wpływa na wynik; domyślnie projekcje `logic` wejść);
+  - `risk_features` (do M6 pusta lista);
+  - do M10: `context_builder`, `prompt` (id@wersja) i `decoding_schema?` (płaski podzbiór do constrained decoding na
+    węźle; domyślnie `output_schema`, jeśli jest zgodny).
+- Wynik zadania to lista propozycji (rekord bez `prov`, `status`, `risk` + kotwice albo `derived_from`,
+  [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje)). Zamiast `accept` w każdym zadaniu jest jedna funkcja
+  `wgc.kb.accept()`: nadaje provenance, waliduje całe `kb/` i jako jedyna zapisuje YAML KB.
 
 ## 3. Komponenty
 | Komponent | Pakiet | Opis | Milestone |
@@ -79,7 +86,9 @@ wpływa na wynik).
 | Model ryzyka | `wgc.risk` | cechy, wagi, klasy, twarde reguły | M6 |
 | Bramki | `wgc.gate` | obliczane statusy etapów | M7 |
 | Job store | `glu.store`, `glu.states` | SQLite `.glu/state.db`: build, job, attempt, routing_decision; tabela przejść (ADR-0023); `glu status`, `glu export` | M8 |
-| Wykonawcy | `glu.exec` | deterministic, local, premium, human | M9–M16 |
+| Zadania i akceptacja | `wgc.tasks`, `wgc.kb`, `wgc.tables` | `TaskSpec` i rejestr, zakres buildu, `Workspace`, `accept()` (jedyny zapis do `kb/`), zadanie `wgc.tables.parse@0` | M9a |
+| Planner | `glu.planner` | etap + zakres → joby z kluczem cache; `glu build --dry-run` | M9a, M12 (bramki) |
+| Wykonawcy | `glu.exec` | deterministic (Tier 0, M9a), local, premium, human; `glu build` | M9a–M16 |
 | Providerzy | `glu.providers` | fake, replay, self_hosted (klient `igw/api@0`), anthropic, desktop_pull | M10, M15 |
 | Inference Gateway | `igw` (węzeł) | API `igw/api@0`, auth, limity, kolejka, scheduler, cykl życia modeli, adapter runtime'u, telemetria | M-GW1, M-GW2 |
 | Diagnostyka inferencji | `glu doctor`, `igw doctor` | DNS, TCP, TLS, auth, health, capabilities, modele, structured output | M-E2E, M-GW2 |
@@ -101,8 +110,8 @@ Nie zawiera niczego, co dotyczy jednej konkretnej gry komercyjnej.
 ├── source/inventory.yaml        SRC- i SEG- (bez tekstu), commitowane
 ├── private/                     PDF-y źródeł (gitignored, jeśli repo jest publiczne)
 ├── kb/
-│   ├── logic/                   Stage 1: concepts/, rules/<rozdział>.yaml, relations, tables, procedures,
-│   │                            ambiguities, interpretations, cases, changes
+│   ├── logic/                   Stage 1: concepts.yaml, rules.yaml, relations.yaml, tables.yaml, procedures.yaml,
+│   │                            ambiguities.yaml, interpretations.yaml, cases.yaml, changes.yaml (zapisuje accept())
 │   ├── decisions.yaml           HD- (tylko dopisywanie)
 │   ├── reviews.yaml             RR- (prośby z etapów niższych)
 │   ├── digital/                 Stage 1.5 (wgc/digital@0)

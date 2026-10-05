@@ -12,7 +12,7 @@ Status: `done`, `next`, `planned`, `optional`.
 Sekcje niżej grupują milestone'y tematycznie. Kolejność wykonania (strzałka = kolejność; zależności podaje każdy milestone):
 
 ```text
-tor domeny + GLU:  M1 → M2a → M8 → M9 → M10 ────────┐
+tor domeny + GLU:  M1 → M2a → M8 → M9a → M9b → M10 ─┐
 tor węzła (LAN):   M-GW1 → M-NODE (HUM) ─────────────┼─→ M-E2E (walking skeleton przez LAN) → M3 → M4 → M5 → M6 → M7
 pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 → M13 → M-GW2 → M-INF → M14 → M15 → M16 → …
                                                      │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
@@ -142,16 +142,39 @@ i M2b (PDF), bo całość przekraczała rozmiar jednej sesji.
   z GLU §3 (nielegalne przejście = wyjątek), `glu status`.
 - **Akceptacja:** testy przejść (legalne i nielegalne), trwałość po restarcie, eksport rekordów zgodny z `glu/exec@0`.
 
-### M9: TaskSpec, wykonawca deterministyczny, planner buildu
-- **Status:** next · **Rola:** ARCH (kontrakt) + IMPL · **Zależy od:** M2a, M8
-- **Zakres:** interfejs `TaskSpec` (ARCHITECTURE §2, z `decoding_schema`), rejestr zadań WGC, wykonawca Tier 0,
-  `glu build --stage --scope --dry-run`, pierwsze zadania deterministyczne (harvest terminów, parse tabel, relacje
-  warstwy scenariusza). Sprawdzanie bramek przez planner dochodzi w M12 (po M7). Dzięki temu M9 nie czeka na M3–M7,
-  a walking skeleton (M-E2E) powstaje wcześnie.
-- **Akceptacja:** build Tier 0 na `bench/minigame` daje rekordy przechodzące walidację; `accept()` jedyną drogą zapisu do `kb/`.
+Pierwotne M9 (TaskSpec, wykonawca deterministyczny, planner buildu) podzielono przed pracą na M9a i M9b, bo całość
+przekraczała rozmiar jednej sesji. Relacje warstwy scenariusza przeniesiono do M14: wyprowadza się je z rekordów `R-`
+(np. `REL-003` z `R-7.1` i `R-5.2`), a te powstają dopiero w M14.
+
+### M9a: TaskSpec, `accept()`, wykonawca Tier 0, `glu build`, parse tabel
+- **Status:** done · **Rola:** ARCH (kontrakt) + IMPL · **Zależy od:** M2a, M8
+- **Zakres:** interfejs `TaskSpec` (ARCHITECTURE §2, z `decoding_schema`) i rejestr zadań WGC; format propozycji;
+  `wgc.kb.accept()` (provenance nadawana deterministycznie, walidacja w pamięci przed zapisem, idempotencja, konflikty);
+  wykonawca Tier 0; planner i `glu build --stage --scope --dry-run`; zadanie `wgc.tables.parse@0` (z separatorem
+  komórek tabeli w cache tekstu Stage 0). Sprawdzanie bramek przez planner dochodzi w M12 (po M7). Dzięki temu M9a nie
+  czeka na M3–M7, a walking skeleton (M-E2E) powstaje wcześnie.
+- **Akceptacja:** build Tier 0 na `bench/minigame` daje rekordy przechodzące walidację; ponowny build bez zmian wejścia
+  nie zmienia `kb/`; `accept()` jedyną drogą zapisu do `kb/`; dry-run niczego nie zapisuje.
+- **Wynik:**
+  - `wgc/tasks.py` (`TaskSpec`, rejestr, zakresy `all|chapter:N|segment:SEG-…`);
+  - `wgc/kb.py` (`Workspace`, `accept()`, deterministyczny zapis `kb/logic/<rodzaj>.yaml`);
+  - `wgc.validate.validate_documents`;
+  - zadanie `wgc.tables.parse@0` (`wgc/tables.py`);
+  - separator komórek `\t` w cache tekstu Stage 0 bez zmiany `text_hash` (ADR-0024);
+  - `glu/planner.py`, `glu/exec.py` (wykonawca Tier 0) i `glu build --stage --scope --dry-run`;
+  - DATA-CONTRACTS §10, ADR-0024, ADR-0025.
+
+  Na `bench/minigame` build daje `TAB-4.3`. Handoff: [handoff/2026-10-05-M9a.md](handoff/2026-10-05-M9a.md).
+
+### M9b: Harvest terminów (Tier 0)
+- **Status:** next · **Rola:** IMPL · **Zależy od:** M9a
+- **Zakres:** zadanie `wgc.terms.harvest@0`: pojęcia `concept` tylko dla wzorców o pewnej kategorii (np. `NdM` → `die`,
+  `Scenario: X` → `scenario`, pozycje listy sekwencji `… Phase` → `phase`), z kotwicą i cytatem; pozostałe terminy nie
+  trafiają do `kb/` (kategorię ustala M14).
+- **Akceptacja:** build Tier 0 na `bench/minigame` daje pojęcia przechodzące walidację; brak zgadywanych kategorii.
 
 ### M10: Providerzy fake/replay/self_hosted + pętla structured output
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9 (kontrakt `igw/api@0` z M-INF0)
+- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a (kontrakt `igw/api@0` z M-INF0)
 - **Zakres:**
   - `glu.providers` z interfejsem INFERENCE-ROUTING §3: `generate`, `embed?`, `health`, `capabilities`, `models`
     i typowane błędy;
@@ -322,7 +345,8 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
 ### M14: Pakiet zadań Stage 1 (ekstrakcja reguł, pojęć, relacji, przypadków)
 - **Status:** planned · **Rola:** ARCH (prompty) + IMPL · **Zależy od:** M13, M-INF
 - **Zakres:** TaskSpec `logic.rule.extract`, `logic.concept.extract`, `logic.relations`, `logic.case.generate`,
-  `logic.ambiguity.detect`; context buildery; zamrożenie `wgc/logic@1`.
+  `logic.ambiguity.detect`; context buildery; deterministyczne relacje warstwy scenariusza
+  (`wgc.relations.scenario_layer@0`, przeniesione z M9); zamrożenie `wgc/logic@1`.
 - **Akceptacja:** build Stage 1 na `bench/minigame` przez węzeł self-hosted (albo `replay` nagrań) → scorer ≥ progów
   QUALITY §5; raport kosztu, routingu i `premium_delta`.
 

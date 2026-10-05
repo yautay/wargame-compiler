@@ -86,7 +86,13 @@ Store udostępnia liczbę prób jakościowych, czyli Attemptów z `outcome ≠ u
 | `planning`, `running`, `waiting_*` | `failed`, `cancelled` | efekt: `finished_at`; parametr `metrics` |
 
 Stany końcowe buildu: `done`, `failed` i `cancelled`. Wznowienie po `failed` to nowy build. Stanu buildu nie wylicza
-się ze stanów jobów, tylko ustawia go wykonawca (M9, M10).
+się ze stanów jobów, tylko ustawia go wykonawca (M9a, M10).
+
+**Tier 0 (M9a, ADR-0025).** Wykonawca deterministyczny (`glu.exec`) prowadzi job ścieżką `pending → ready → running →
+proposed → validating → accepted → done` i zapisuje jeden Attempt `tier: deterministic`. Wyjątek implementacji to
+`running → failed` (Attempt `outcome: error`), a odrzucenie wyniku przez `wgc.kb.accept()` to `validating → failed`
+(Attempt `outcome: rejected`). Build idzie `planning → running → done`, a gdy któryś job się nie udał,
+`running → failed`. Planner i `glu build --stage --scope --dry-run`: [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje).
 
 ## 4. Pętla structured output
 ```text

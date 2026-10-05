@@ -247,6 +247,14 @@ def _check_semantics(records: list[_Rec]) -> list[Diagnostic]:
     return out
 
 
+def _collect(report: Report, records: list[_Rec], doc, location: str) -> None:
+    report.diagnostics += _schema_diagnostics(doc, location)
+    if isinstance(doc, dict) and doc.get("schema") in DOMAIN_CONTRACTS and isinstance(doc.get("records"), list):
+        for rec in doc["records"]:
+            if isinstance(rec, dict) and isinstance(rec.get("id"), str):
+                records.append(_Rec(rec, location))
+
+
 def validate(paths) -> Report:
     report = Report()
     records: list[_Rec] = []
@@ -262,12 +270,20 @@ def validate(paths) -> Report:
             report.diagnostics.append(Diagnostic("load_error", ERROR, loc, "Plik nie zawiera żadnego dokumentu YAML.",
                                                  location=loc))
         for n, doc in enumerate(docs, 1):
-            dloc = loc if len(docs) == 1 else f"{loc}#{n}"
-            report.diagnostics += _schema_diagnostics(doc, dloc)
-            if isinstance(doc, dict) and doc.get("schema") in DOMAIN_CONTRACTS and isinstance(doc.get("records"), list):
-                for rec in doc["records"]:
-                    if isinstance(rec, dict) and isinstance(rec.get("id"), str):
-                        records.append(_Rec(rec, dloc))
+            _collect(report, records, doc, loc if len(docs) == 1 else f"{loc}#{n}")
+    report.records = len(records)
+    report.diagnostics += _check_semantics(records)
+    return report
+
+
+def validate_documents(documents: list[tuple[str, object]]) -> Report:
+    """`validate` for documents already in memory: (location, document) pairs, e.g. the KB as `accept()` would
+    write it. Same diagnostics; `files` counts the distinct locations."""
+    report = Report()
+    records: list[_Rec] = []
+    for location, doc in documents:
+        _collect(report, records, doc, location)
+    report.files = len({loc for loc, _ in documents})
     report.records = len(records)
     report.diagnostics += _check_semantics(records)
     return report

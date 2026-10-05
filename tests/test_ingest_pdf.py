@@ -77,7 +77,8 @@ def test_label_is_not_part_of_text_and_list_numbers_stay(bench):
     assert bench["3.4"].label == "3.4"
     assert "\n1. Rally Phase\n2. Movement Phase" in bench["2.2"].text
     assert "1" not in bench and "4" not in bench
-    assert bench["4.3"].segment_type == "table" and "5–6 Routed" in bench["4.3"].text
+    assert bench["4.3"].segment_type == "table" and "5–6\tRouted" in bench["4.3"].text
+    assert "\t" not in bench["3.4"].text  # only table rows use the cell separator
 
 
 def test_headings_levels_and_parents(bench):

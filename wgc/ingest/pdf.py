@@ -33,6 +33,7 @@ from dataclasses import dataclass, field
 from wgc.ingest import IngestError, Segment
 
 NAME = "wgc.ingest.pdf@0"
+CELL_SEP = "\t"  # cell separator of table rows in the extracted text (as in wgc.ingest.markdown)
 
 WORD_GAP = 0.2      # × font size: a wider gap between two glyphs is a space
 CELL_GAP = 2.0      # × font size: a wider gap between two words is a cell boundary
@@ -177,8 +178,8 @@ def _words(ln: _Line, glyphs: list[_Glyph]) -> str:
     return "".join(out)
 
 
-def _line_text(ln: _Line, skip: int = 0) -> str:
-    """Printed text of a line without its first `skip` non-space glyphs; cells joined with a space."""
+def _line_text(ln: _Line, skip: int = 0, sep: str = " ") -> str:
+    """Printed text of a line without its first `skip` non-space glyphs; cells joined with `sep`."""
     parts = []
     n = 0
     for cell in ln.cells:
@@ -189,7 +190,7 @@ def _line_text(ln: _Line, skip: int = 0) -> str:
                 kept.append(g)
         if kept:
             parts.append(_words(ln, kept))
-    return " ".join(parts)
+    return sep.join(parts)
 
 
 def _marker(ln: _Line) -> tuple[str, int] | None:
@@ -211,13 +212,17 @@ class _Open:
         self.key, self.label, self.segment_type = key, label, segment_type
         self.parent_key, self.order = parent_key, order
         self.lines: list[_Line] = []
-        self.texts: list[str] = []
+        self.skips: list[int] = []
         self.glyphs: list[_Glyph] = []  # text glyphs (label excluded) for the visual flags
 
     def add(self, ln: _Line, skip: int = 0) -> None:
         self.lines.append(ln)
-        self.texts.append(_line_text(ln, skip))
+        self.skips.append(skip)
         self.glyphs += [g for cell in ln.cells for g in cell][skip:]
+
+    def text(self, sep: str) -> str:
+        texts = (_line_text(ln, skip, sep) for ln, skip in zip(self.lines, self.skips))
+        return "\n".join(t for t in texts if t)
 
 
 def _layout(lines: list[_Line]) -> tuple[str, tuple[float, float, float, float]]:
@@ -281,7 +286,8 @@ def extract(data: bytes) -> list[Segment]:
             if stype == "rule" and sum(1 for ln in current.lines if len(ln.cells) > 1) >= 2:
                 stype = "table"
             pages, bbox = _layout(current.lines)
-            text = "\n".join(t for t in current.texts if t)
+            # table cells are separated by a tab, other text by a space (same text_hash: ADR-0024)
+            text = current.text(CELL_SEP if stype == "table" else " ")
             out.append(Segment(current.key, current.label, stype, text, current.parent_key, current.order,
                                pages, bbox, _flags(current.glyphs, base)))
             current = None

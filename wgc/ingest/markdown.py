@@ -10,7 +10,9 @@ Segmentation:
 - `parent` is the nearest preceding heading (for a heading: the nearest preceding heading of a higher level).
 
 Text is kept as printed: emphasis, code and link markup, blockquote and bullet markers, table pipes and the table
-separator row are removed; numbered list markers (`1.`) stay. `text_hash` normalizes whitespace afterwards.
+separator row are removed; numbered list markers (`1.`) stay. Table cells are separated by a tab (`CELL_SEP`, empty
+cells kept, so columns stay aligned for `wgc.tables.parse`). `text_hash` normalizes whitespace afterwards, so the
+separator does not change the hash (ADR-0024).
 """
 from __future__ import annotations
 
@@ -19,6 +21,7 @@ import re
 from wgc.ingest import IngestError, Segment
 
 NAME = "wgc.ingest.markdown@0"
+CELL_SEP = "\t"
 
 _HEADING = re.compile(r"^(#{1,6})[ \t]+(.*?)[ \t]*#*[ \t]*$")
 _HEADING_LABEL = re.compile(r"^(\d+(?:\.\d+)*[A-Za-z]?)\.?[ \t]+(.+)$")
@@ -55,7 +58,7 @@ def _body_line(line: str) -> tuple[str | None, bool]:
         return None, True
     if _TABLE_ROW.match(line):
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
-        return " ".join(c for c in cells if c), True
+        return CELL_SEP.join(cells), True
     return _BULLET.sub(r"\1", line), False
 
 

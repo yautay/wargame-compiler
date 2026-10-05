@@ -1,0 +1,198 @@
+"""M9a: planner, Tier 0 executor and `glu build` on bench/minigame (glu.planner, glu.exec, ADR-0025)."""
+from __future__ import annotations
+
+import dataclasses
+from pathlib import Path
+
+import pytest
+
+from glu import exec as executor, planner, states
+from glu.__main__ import main
+from glu.store import Store, db_path
+from test_glu_store import Clock, Ids
+from test_tables import game  # noqa: F401  (fixture)
+from wgc import contracts, kb, source, tables, tasks
+from wgc.kb import Workspace
+from wgc.validate import load_documents, validate
+
+TIER0_PATH = ["pending", "ready", "running", "proposed", "validating", "accepted", "done"]
+
+
+_IDS: dict[Path, Ids] = {}  # one ID sequence per game root, shared by the builds of a test
+
+
+def build(root: Path, scope: str = "all", plan: planner.Plan | None = None) -> executor.BuildResult:
+    ws = Workspace(root)
+    plan = plan or planner.plan(ws, "1", scope)
+    with Store(db_path(root), clock=Clock(), new_id=_IDS.setdefault(root, Ids())) as store:
+        return executor.run(store, ws, plan, "drill-skirmish")
+
+
+def tree(root: Path) -> dict[str, bytes]:
+    return {p.relative_to(root).as_posix(): p.read_bytes() for p in sorted(root.rglob("*")) if p.is_file()}
+
+
+def path_of(history: list[dict]) -> list[str]:
+    return [h["dst"] for h in history]
+
+
+def test_plan(game):
+    plan = planner.plan(Workspace(game), "1")
+    assert plan.stage == "stage1" and plan.scope == "all" and plan.skipped == []
+    [job] = plan.jobs
+    assert job.spec is tables.PARSE and job.inputs == ("SEG-dsk.4.3",) and job.tier == "deterministic"
+    assert job.cache_key == {"task": "wgc.tables.parse", "task_version": "0", "output_schema": "wgc/logic@0#table",
+                             "input_hash": tables.PARSE.input_hash(Workspace(game), job.inputs),
+                             "context_hash": planner.EMPTY_CONTEXT}
+    assert planner.plan(Workspace(game), "stage1", "chapter:3").jobs == []
+
+
+def test_plan_skips_tasks_without_tier0(game, monkeypatch):
+    model_only = dataclasses.replace(tables.PARSE, id="logic.model.only", deterministic_impl=None)
+    monkeypatch.setattr(tasks, "REGISTRY", {"wgc.tables.parse": tables.PARSE, "logic.model.only": model_only})
+    plan = planner.plan(Workspace(game), "1")
+    assert len(plan.jobs) == 1 and plan.skipped == ["logic.model.only@0"]
+
+
+def test_tier0_build_gives_valid_records(game):
+    res = build(game)
+    assert res.state == "done" and [j.state for j in res.jobs] == ["done"]
+    assert res.jobs[0].records == ["TAB-4.3"]
+    assert res.metrics == {"jobs_total": 1, "jobs_deterministic": 1, "jobs_done": 1, "jobs_failed": 0,
+                           "records_created": 1, "records_updated": 0, "records_unchanged": 0}
+    report = validate([game / "source", game / "kb"])
+    assert report.ok and not report.warnings and report.records == 34  # 33 Stage 0 records + TAB-4.3
+    [rec] = load_documents(game / "kb" / "logic" / "tables.yaml")[0]["records"]
+    assert rec["prov"]["job"] == res.jobs[0].id and rec["prov"]["by"] == {"tier": "deterministic",
+                                                                          "tool": "wgc.tables.parse@0"}
+
+
+def test_rebuild_without_changes_keeps_kb(game):
+    build(game)
+    before = tree(game / "kb")
+    res = build(game)
+    assert res.state == "done" and res.metrics["records_unchanged"] == 1 and res.metrics["records_created"] == 0
+    assert tree(game / "kb") == before
+
+
+def test_jobs_follow_legal_path_and_export_is_valid(game):
+    res = build(game)
+    with Store(db_path(game), create=False) as store:
+        history = store.history(res.jobs[0].id)
+        assert path_of(history) == TIER0_PATH
+        for src, dst in zip(TIER0_PATH, TIER0_PATH[1:]):
+            assert dst in states.allowed("job", src)
+        assert path_of(store.history(res.id)) == ["planning", "running", "done"]
+        [attempt] = store.attempts(res.jobs[0].id)
+        assert (attempt["tier"], attempt["outcome"], attempt["schema_valid"], attempt["domain_valid"]) == \
+            ("deterministic", "accepted", True, True)
+        job = store.job(res.jobs[0].id)
+        assert job["accepted_records"] == ["TAB-4.3"] and job["cache_hit"] is False and job["tier"] == "deterministic"
+        doc = store.export(res.id)
+    assert contracts.errors(doc) == []
+    assert [r["kind"] for r in doc["records"]] == ["build", "job", "attempt"]
+    assert doc["records"][0]["target"] == {"stage": "stage1", "scope": "all"}
+
+
+def test_rejected_output_fails_job_and_build(game):
+    build(game)
+    path = game / "kb" / "logic" / "tables.yaml"
+    path.write_text(path.read_text(encoding="utf-8").replace("Combat Results Table", "CRT")
+                    .replace("tool: wgc.tables.parse@0", "tool: wgc.other@0"), encoding="utf-8", newline="\n")
+    before = tree(game / "kb")
+    res = build(game)
+    assert res.state == "failed" and res.metrics["jobs_failed"] == 1 and "konflikt" in res.jobs[0].issues[0]
+    assert tree(game / "kb") == before
+    with Store(db_path(game), create=False) as store:
+        assert path_of(store.history(res.jobs[0].id)) == TIER0_PATH[:5] + ["failed"]
+        assert path_of(store.history(res.id)) == ["planning", "running", "failed"]
+        [attempt] = store.attempts(res.jobs[0].id)
+        assert attempt["outcome"] == "rejected" and attempt["domain_valid"] is False
+        assert "konflikt" in attempt["validation_errors"][0]
+
+
+def test_implementation_error_fails_job(game):
+    def boom(ws, inputs):
+        raise RuntimeError("parser crashed")
+
+    plan = planner.plan(Workspace(game), "1")
+    broken = dataclasses.replace(plan, jobs=[dataclasses.replace(plan.jobs[0],
+                                                                 spec=dataclasses.replace(tables.PARSE, deterministic_impl=boom))])
+    res = build(game, plan=broken)
+    assert res.state == "failed" and res.jobs[0].issues == ["RuntimeError: parser crashed"]
+    with Store(db_path(game), create=False) as store:
+        assert path_of(store.history(res.jobs[0].id)) == ["pending", "ready", "running", "failed"]
+        [attempt] = store.attempts(res.jobs[0].id)
+        assert attempt["outcome"] == "error" and attempt["error_class"] == "runtime"
+    assert not (game / "kb").exists()
+
+
+def test_only_accept_writes_kb(game, monkeypatch):
+    """GLU never writes KB YAML itself: with the WGC writer stubbed out, a build leaves no kb/ behind, and with a spy
+    every file in kb/ is one the WGC writer wrote."""
+    written: list[Path] = []
+    monkeypatch.setattr(kb, "_write_file", lambda path, text: written.append(path))
+    res = build(game)
+    assert res.state == "done" and written == [game / "kb" / "logic" / "tables.yaml"]
+    assert not (game / "kb").exists()
+
+    monkeypatch.undo()
+    real = kb._write_file
+    spied: list[Path] = []
+
+    def spy(path, text):
+        spied.append(path)
+        real(path, text)
+
+    monkeypatch.setattr(kb, "_write_file", spy)
+    build(game)
+    assert sorted(p for p in (game / "kb").rglob("*") if p.is_file()) == sorted(spied)
+
+
+# --- CLI ---------------------------------------------------------------------------------------------------------
+
+def test_cli_dry_run_writes_nothing(game, capsys):
+    before = tree(game)
+    assert main(["build", "--root", str(game), "--stage", "1", "--dry-run"]) == 0
+    out = capsys.readouterr().out
+    assert "wgc.tables.parse@0" in out and "SEG-dsk.4.3" in out and "Niczego nie zapisano" in out
+    assert tree(game) == before and not db_path(game).exists() and not (game / "kb").exists()
+
+
+def test_cli_build_then_status(game, capsys):
+    assert main(["build", "--root", str(game), "--stage", "1", "--scope", "chapter:4"]) == 0
+    out = capsys.readouterr().out
+    assert "stan: done" in out and "TAB-4.3" in out and "nowe 1" in out and "projekt drill-skirmish" in out
+    assert main(["status", "--root", str(game)]) == 0
+    assert "stage1 chapter:4" in capsys.readouterr().out
+    assert main(["build", "--root", str(game), "--stage", "1", "--project", "dsk"]) == 0
+    assert "bez zmian 1" in capsys.readouterr().out
+
+
+def test_cli_failed_build_exits_1(game, capsys):
+    assert main(["build", "--root", str(game), "--stage", "1"]) == 0
+    path = game / "kb" / "logic" / "tables.yaml"
+    path.write_text(path.read_text(encoding="utf-8").replace("Combat Results Table", "CRT")
+                    .replace("tool: wgc.tables.parse@0", "tool: wgc.other@0"), encoding="utf-8", newline="\n")
+    assert main(["build", "--root", str(game), "--stage", "1"]) == 1
+    assert "stan: failed" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize("args, message", [
+    (["--stage", "9"], "Brak zadań dla etapu"),
+    (["--stage", "1", "--scope", "chapter:9"], "brak nagłówka rozdziału"),
+    (["--stage", "1", "--scope", "everything"], "Niepoprawny zakres"),
+])
+def test_cli_operational_errors_exit_2(game, capsys, args, message):
+    assert main(["build", "--root", str(game), *args]) == 2
+    assert message in capsys.readouterr().err
+    assert not db_path(game).exists()
+
+
+def test_cli_missing_inventory_or_text_exits_2(game, tmp_path, capsys):
+    assert main(["build", "--root", str(tmp_path / "empty"), "--stage", "1"]) == 2
+    assert "inwentarza" in capsys.readouterr().err
+    (source.cache_dir(game, "SRC-dsk.rules") / "SEG-dsk.4.3.txt").unlink()
+    assert main(["build", "--root", str(game), "--stage", "1"]) == 2
+    assert "wgc source extract" in capsys.readouterr().err
+    assert not db_path(game).exists()

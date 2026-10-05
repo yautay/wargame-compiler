@@ -29,3 +29,5 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0021](ADR-0021-ingest-pdf-biblioteka-i-segmentacja.md) | Ingest PDF na bibliotekach o licencjach liberalnych (pdfplumber, pypdfium2), segmentacja PDF i flagi wizualne | przyjęty |
 | [ADR-0022](ADR-0022-glu-natywnie-na-windows.md) | GLU na dev machine działa natywnie na Windows (Q-03) | przyjęty |
 | [ADR-0023](ADR-0023-job-store-sqlite-i-maszyna-stanow.md) | Job store GLU w SQLite (`.glu/state.db`, migracje przez `user_version`) i maszyna stanów joba i buildu jako tabela | przyjęty |
+| [ADR-0024](ADR-0024-separator-komorek-tabel-w-tekscie-segmentu.md) | Komórki tabel w tekście segmentu rozdziela tabulator, bez zmiany wersji ekstraktorów | przyjęty |
+| [ADR-0025](ADR-0025-taskspec-accept-i-wykonawca-tier0.md) | TaskSpec jako interfejs Pythona, `accept()` jako jedyny zapis do `kb/`, wykonawca Tier 0 i planner | przyjęty |

@@ -48,6 +48,8 @@ infrastruktury inferencji, a `igw` czyta ten sam plik schematu bez importu `wgc`
   i `routing_decision`. `review_package` dojdzie w M12/M13.
 - `job.attempts` jest wyliczane z zapisanych Attemptów.
 - Test `tests/test_glu_store.py` odtwarza przez store fixture `contracts/fixtures/valid/glu.job.yaml` rekord w rekord.
+- Job Tier 0 (M9a) ma `tier: deterministic`, a `cache_key` bez `prompt_version`, `profile` i `dependency_state`;
+  `context_hash` to hash pustej listy ([§10](#propozycje)).
 
 ## 2. Wersjonowanie i zgodność
 - `@0` to szkic: może się zmieniać bez migracji, ale każda zmiana aktualizuje fixture'y i testy w tej samej sesji.
@@ -214,13 +216,15 @@ w `render`.
   inaczej `rule`;
 - inna treść poza numerowanym segmentem → `other`;
 - tekst bez etykiety i bez markupu inline, cytatów, punktorów, pionowych kresek i separatora tabel; numery list zostają;
+- komórki wiersza tabeli rozdziela tabulator (puste komórki zostają, więc kolumny się nie przesuwają), ADR-0024;
 - blok kodu nie otwiera segmentu.
 
 **Segmentacja PDF (`wgc.ingest.pdf@0`, ADR-0021):** te same zasady co Markdown, rozpoznawane z układu strony.
 - **Wiersze i tekst:**
   - znaki składa się w wiersze według dolnej krawędzi i czyta od góry do dołu (jedna kolumna);
   - spacja to znak spacji albo przerwa > 0,2 rozmiaru fontu;
-  - przerwa > 2 rozmiary fontu dzieli wiersz na komórki, a komórki łączy się w tekście spacją.
+  - przerwa > 2 rozmiary fontu dzieli wiersz na komórki; w segmencie `table` komórki łączy się w tekście
+    tabulatorem, w pozostałych spacją (ADR-0024).
 - **Nagłówek:** wiersz z fontem > 1,1 × najczęstszy rozmiar w dokumencie. Kolejne wiersze tego rozmiaru bez numeru na
   początku łączą się w jeden nagłówek, a poziom to ranga rozmiaru.
 - **Numer reguły:** pogrubione pierwsze słowo wiersza w postaci `N.N`. Otwiera segment do następnego numeru lub
@@ -278,3 +282,61 @@ Zmiana zawijania wierszy lub przeniesień daje tylko `file_hash_mismatch`, bo `t
 podzbiorem (te same projekcje `logic` i `order`), a `seg_hash` kotwic w `logic.minigame.yaml` to prawdziwe `text_hash`.
 Pilnuje tego `tests/test_source.py`. Inwentarza i fixture'ów nie waliduje się w jednym przebiegu, bo dałoby to
 `duplicate_id`.
+
+<a id="propozycje"></a>
+## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a)
+Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Workspace`, `accept`), ADR-0025.
+
+**Propozycja** to wynik zadania, zanim WGC go przyjmie. Wykonawca (kod Tier 0, a od M10 model) zwraca listę:
+```yaml
+- record: {kind: table, id: TAB-4.3, title: Combat Results Table, columns: [...], rows: [...], complete: true}
+  anchors: [{seg: SEG-dsk.4.3, quote: "Combat Results Table"}]   # quote i span opcjonalne
+  derived_from: [R-7.1]                                          # opcjonalne; kotwice albo derived_from wymagane
+```
+- `record` to rekord bez pól `prov`, `status` i `risk` (nadaje je WGC, ADR-0014); rodzaj musi być `output_kind` zadania.
+- Kotwica propozycji ma tylko `seg`, `quote` i `span`. `seg_hash` dopisuje WGC z inwentarza.
+- Schematu `wgc/proposal@0` jeszcze nie ma: kształt sprawdza `accept()`. Schemat dla modelu (z `decoding_schema`)
+  dochodzi w M10.
+
+**`accept(root, spec, inputs, proposals, *, by, job)`** to jedyna droga zapisu do `kb/`:
+1. kształt propozycji i reguły domenowe zadania (`TaskSpec.validate`);
+2. `prov`:
+   - `kind`: `explicit_source`, gdy każda kotwica wskazuje segment z inwentarza, a cytat (jeśli jest) występuje
+     dosłownie w znormalizowanym tekście segmentu; `errata`, `faq` albo `designer_clarification`, gdy kotwice
+     wskazują dokument o tej roli; bez kotwic: `deterministic_derivation` (tier `deterministic`) albo
+     `llm_inference` (tier `local`/`premium`);
+   - kotwica, której nie da się potwierdzić, odrzuca propozycję (w M9a dla każdego tieru, ADR-0025);
+   - `by` podaje wywołujący (GLU: tier i `tool` albo `profile`/`prompt`), `job` to ID joba;
+   - `inputs_hash` = `content_hash` listy projekcji `logic` segmentów kotwic i rekordów `derived_from`
+     (równy `input_hash` klucza cache joba Tier 0);
+   - `status: accepted`;
+3. każdy rekord sprawdzony schematem `wgc/logic@0`;
+4. scalenie z `kb/`:
+   - rekord równy istniejącemu z pominięciem `prov.job` i `prov.at` zostaje bez zmian (idempotencja; `prov.job`
+     wskazuje job, który pierwszy dał bieżącą treść);
+   - rekord tego samego zadania (`prov.by.tool` albo `prov.by.prompt` bez wersji) o innej treści jest zastępowany;
+   - rekord o tym samym ID od innego producenta albo ze statusem innym niż `accepted` to konflikt;
+5. walidacja całego `kb/` razem z inwentarzem w pamięci (`wgc.validate.validate_documents`);
+6. zapis tylko wtedy, gdy nie ma żadnego błędu i coś się zmieniło.
+
+Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `schema_valid`, `domain_valid`,
+`issues`. GLU przepisuje `schema_valid`, `domain_valid` i `issues` do Attemptu.
+
+**Układ `kb/`:**
+- `kb/logic/<rodzaj w liczbie mnogiej>.yaml`: `tables.yaml`, `concepts.yaml`, `rules.yaml`, `relations.yaml`,
+  `procedures.yaml`, `ambiguities.yaml`, `interpretations.yaml`, `cases.yaml`, `changes.yaml`;
+- jeden dokument `wgc/logic@0` na plik, rekordy posortowane po ID (liczby w porządku naturalnym), pola w kolejności
+  kontraktu, LF;
+- rekord krótszy niż 120 znaków w zapisie flow ma jedną linię (`- {…}`, jak inwentarz); dłuższy ma po jednej linii
+  na pole z wartością w zapisie flow;
+- rekord, który już leży w innym pliku `kb/`, zostaje w tym pliku;
+- pliki zapisuje w całości `wgc.kb._write_file`, więc komentarze nie są zachowywane.
+
+**Zadania Tier 0 (M9a):**
+
+| Zadanie | Wejście | Wynik |
+|---|---|---|
+| `wgc.tables.parse@0` | segment `table` | `TAB-<etykieta>` (dokument `rules`) albo `TAB-<seg_prefix>:<etykieta>`; tytuł z frazy „… Table”; kolumny z nagłówka; zakresy `{min, max}`, liczby, napisy jak w druku; `complete: false`, gdy kolumna klucza miesza zakresy z napisami |
+
+**Zakres buildu (`--scope`):** `all`, `chapter:<N>` (segmenty pod nagłówkiem z etykietą `N` albo `N.0`, po polu
+`parent`), `segment:<SEG-id>`; tylko obecne dokumenty.
