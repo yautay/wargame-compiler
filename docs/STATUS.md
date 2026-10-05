@@ -106,6 +106,8 @@ Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows
 kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-0025). Przegląd po M9a dodał Q-14 i Q-15.
 Zamknięte po M-STAB1 decyzją właściciela (2026-10-05): Q-13 i Q-14 (ADR-0027, wdrożenie M-STAB3/M10), Q-15 (ADR-0028,
 wdrożenie M12). Kolejność potwierdzona: M9b przed M-STAB2. Grę pilotażową (Q-02) właściciel poda później.
+Decyzja właściciela (2026-10-05): przekład Stage 3 pisze premium dla jakości językowej, wierność
+sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akceptacja M26 ze ślepym porównaniem stron).
 
 | # | Kwestia | Kto | Kiedy |
 |---|---|---|---|

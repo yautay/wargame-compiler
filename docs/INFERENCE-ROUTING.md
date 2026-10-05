@@ -9,9 +9,9 @@ Gateway (docelowo osobny węzeł w LAN), a nie model na localhost ([ADR-0015](ad
 |---|---|---|---|
 | **0 deterministyczny** | kod WGC | wszystko, co da się zrobić bez modelu | ingest, segmentacja, hashe, parsowanie tabel, harvest terminów, odsyłacze, relacje warstwy scenariusza, `LEG-` z zakazów, sygnały ryzyka, walidacja, gate, widoki, LaTeX |
 | **1 self-hosted szybki** | `local_fast` | szkice i ekstrakcja przy dobrze określonym wyjściu | szkic reguł z segmentu, klasyfikacja segmentów, propozycje pojęć |
-| **2 self-hosted semantyczny** | `local_semantic`, `local_translate` | niezależna druga ekstrakcja, weryfikacja, wsteczna ekstrakcja IR z przekładu | weryfikacja szkicu, relacje, przypadki kontrolne, przekład |
+| **2 self-hosted semantyczny** | `local_semantic` | niezależna druga ekstrakcja, weryfikacja, wsteczna ekstrakcja IR z przekładu | weryfikacja szkicu, relacje, przypadki kontrolne, kontrola przekładu |
 | **2+ self-hosted głęboki** | `local_deep` (tylko wsadowo) | rozjemca sporów, pass naprawczy, przygotowanie pakietu review | spór `medium`, wyczerpane próby walidacji przed premium |
-| **3 premium** | `premium_semantic` | **starszy recenzent semantyczny**: tylko trudne przypadki, rozbieżności, audyt | rekordy `high`/`critical`, spory lokalne, niejasności, próbka audytowa |
+| **3 premium** | `premium_semantic`, `premium_translate` | **starszy recenzent semantyczny**: tylko trudne przypadki, rozbieżności, audyt. Wyjątek: przekład Stage 3 (ADR-0029) | rekordy `high`/`critical`, spory lokalne, niejasności, próbka audytowa; przekład segmentów |
 | **4 człowiek** | właściciel | to, czego system nie powinien zgadywać | interpretacje, terminy, polityki, przekroczony budżet |
 
 Schemat nie jest sztywny. Polityka routingu jest daną (`routing@N`), a zadanie może deklarować własną drabinę tierów.
@@ -93,7 +93,7 @@ Domena zna tylko nazwy profili logicznych. Mapowanie ma dwa poziomy:
 - GLU: profil logiczny → endpoint i profil węzła, w `~/.config/glu/profiles.yaml` na dev machine, poza repo;
 - węzeł: profil węzła → model, w `node.yaml`, poza repo.
 
-Przykłady obu plików i klasy profili `fast`, `semantic`, `deep`, `translate`, `embed`:
+Przykłady obu plików i klasy profili `fast`, `semantic`, `deep`, `embed`:
 [inference/NODE.md §4](inference/NODE.md#profile). Skrót konfiguracji GLU:
 ```yaml
 endpoints:
@@ -103,6 +103,7 @@ profiles:
   local_semantic:   {endpoint: ai-node, node_profile: semantic, temperature: 0, seed: 0}
   local_deep:       {endpoint: ai-node, node_profile: deep,     temperature: 0, seed: 0, priority: batch}
   premium_semantic: {provider: anthropic, model: <najmocniejszy dostępny model Claude>, api_key_env: ANTHROPIC_API_KEY}
+  premium_translate: {provider: anthropic, model: <najmocniejszy dostępny model Claude>, api_key_env: ANTHROPIC_API_KEY}
 fallback: {self_hosted_unavailable: queue, allow_premium_fallback: false}
 ```
 Profile pozostają wymienialne: zmiana modelu to zmiana `node.yaml` i nowy fingerprint, a zmiana węzła to zmiana `url`.
@@ -137,7 +138,8 @@ Konkretne modele wybiera **M-INF** (benchmark przez bramkę na węźle).
 - **Bez węzła** (laptop deweloperski, CI): `fake` i `replay`. Testy nigdy nie wołają prawdziwego modelu ani sieci.
 
 ## 6. Premium jako starszy recenzent
-Premium nie wykonuje masowej ekstrakcji. Dostaje pakiety (`review_package`) dla rekordów, w których lokalna praca
+Premium nie wykonuje masowej ekstrakcji. Jedynym zadaniem masowym premium jest przekład Stage 3 (ADR-0029): premium
+pisze przekład, a wierność sprawdzają kroki deterministyczne i self-hosted. W pozostałych etapach premium dostaje pakiety (`review_package`) dla rekordów, w których lokalna praca
 jest ryzykowna lub sporna, oraz próbkę audytową. Odpowiada w `answer_schema`: werdykt (`accept`, `correct`,
 `requires_human_interpretation`), poprawiony rekord (jeśli `correct`), uzasadnienie z kotwicami, nowe niejasności.
 Wynik przechodzi tę samą walidację WGC co praca lokalna.

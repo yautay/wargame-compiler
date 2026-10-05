@@ -54,6 +54,17 @@ Obecny workflow wysyła **całość** pracy do modelu premium (czytanie całej i
 Nowy wysyła tylko `p_escalate + p_audit` (rzędu 30–40% jednostek na start), a każdy pakiet jest mały i samowystarczalny.
 Ostateczna ocena pochodzi z pomiaru (M28), nie z tego szacunku.
 
+**Stage 3 (przekład) jest wyjątkiem** (ADR-0029): premium pisze przekład każdego segmentu, a self-hosted i kod tylko
+go sprawdzają.
+```text
+premium_tokens_stage3 ≈ N_seg × (T_translate + p_mismatch × T_fix)
+```
+- `T_translate`: pakiet przekładu (segment, projekcja IR, terminy, konwencje Stage 2) i tekst docelowy,
+- `p_mismatch`: udział segmentów z rozbieżnością w krokach 1–3 weryfikacji, `T_fix`: pakiet poprawki z diffem.
+
+Obecny workflow ma trzy przebiegi premium na segment (tłumacz, weryfikator, redaktor). Szacunek: ok. 0,4–0,7 ×
+`B_translate`. Hipoteza do sprawdzenia w M26 względem `B_translate` z M-BASE.
+
 ## 4. Dźwignie kosztu
 | Dźwignia | Efekt | Ryzyko |
 |---|---|---|

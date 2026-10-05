@@ -107,8 +107,8 @@ profiles:
   local_fast:     {endpoint: ai-node, node_profile: fast,     temperature: 0, seed: 0, max_tokens: 2048}
   local_semantic: {endpoint: ai-node, node_profile: semantic, temperature: 0, seed: 0, max_tokens: 2048}
   local_deep:     {endpoint: ai-node, node_profile: deep,     temperature: 0, seed: 0, priority: batch}
-  local_translate: {endpoint: ai-node, node_profile: translate, temperature: 0, seed: 0}
   premium_semantic: {provider: anthropic, model: <najmocniejszy dostępny model Claude>, api_key_env: ANTHROPIC_API_KEY}
+  premium_translate: {provider: anthropic, model: <najmocniejszy dostępny model Claude>, api_key_env: ANTHROPIC_API_KEY}  # przekład Stage 3 (ADR-0029)
 fallback:
   self_hosted_unavailable: queue        # queue | block | fail
   allow_premium_fallback: false
@@ -131,18 +131,17 @@ profiles:
   fast:      {model: m_fast,     modes: [interactive, batch], pinned: false}
   semantic:  {model: m_semantic, modes: [interactive, batch]}
   deep:      {model: m_deep,     modes: [batch]}
-  translate: {model: m_semantic}   # alias: inny profil logiczny, ten sam model → bez przełączenia
 scheduler: {min_residency_s: 120, max_wait_s: 600, batch_window_ms: 200}
 ```
 
-**Klasy profili.** Wartości są hipotezami do pomiaru w M-INF. Nazwy modeli wybiera benchmark.
+**Klasy profili.** Wartości są hipotezami do pomiaru w M-INF. Nazwy modeli wybiera benchmark. Węzeł nie pisze
+przekładu Stage 3 (pisze go premium, ADR-0029), więc profil `translate` nie jest potrzebny.
 
 | Profil węzła | Klasa i rozmieszczenie | Jakość / opóźnienie / VRAM / RAM | Zastosowanie |
 |---|---|---|---|
 | `fast` | 7–14B, Q5–Q8, cały w VRAM, kontekst 16k, 4–8 slotów | średnia / niskie / 6–12 GB / — | klasyfikacja, ekstrakcja, triage, szkice |
-| `semantic` | ~24–32B dense albo ~30B MoE, Q4, cały w VRAM (~17–20 GB), 1–3 sloty | wysoka / średnie / prawie cała karta / — | druga ekstrakcja, weryfikacja, relacje, przypadki, wsteczna ekstrakcja IR, przekład |
+| `semantic` | ~24–32B dense albo ~30B MoE, Q4, cały w VRAM (~17–20 GB), 1–3 sloty | wysoka / średnie / prawie cała karta / — | druga ekstrakcja, weryfikacja, relacje, przypadki, wsteczna ekstrakcja IR z przekładu |
 | `deep` | ~70B dense albo duże MoE z ekspertami w RAM (`--n-cpu-moe`), 1 slot, tylko `batch` | najwyższa lokalnie / wysokie (kilka–kilkanaście tok/s) / cała karta / 40–80 GB | rozjemca sporów, trudne analizy przed premium, pass naprawczy |
-| `translate` | alias albo osobny model z mocnym językiem docelowym | — | Stage 3: szkic przekładu |
 | `embed` | opcjonalny, mały (GPU lub CPU), `pinned` | — | tylko jeśli zadanie tego wymaga (KB jest przeszukiwana deterministycznie) |
 
 **Jak wykorzystujemy 24 GB VRAM i 128 GB RAM:**

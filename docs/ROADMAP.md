@@ -497,10 +497,13 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
 
 ### M26: Przekład segmentów + wsteczna kontrola IR
 - **Status:** planned · **Rola:** IMPL · **Zależy od:** M25, M15
-- **Zakres:** `translate.segment` (profil `local_translate`, model wybrany pomiarem, może być inny niż dla logiki),
-  kroki 1–5 weryfikacji (EDITORIAL-PUBLICATION), `ir_hash`/`glossary_hash`, punktowa aktualizacja po zmianie terminu,
-  referencyjny przekład PL gry benchmarkowej.
-- **Akceptacja:** mutacje przekładu wykryte (≥ progów); zmiana terminu unieważnia tylko segmenty z tym `CON-`.
+- **Zakres:** `translate.segment` pisany przez premium (profil `premium_translate`, ADR-0029), kroki 0–5 przekładu
+  i weryfikacji (EDITORIAL-PUBLICATION), nowa wartość `premium_reason` dla zadania z premium jako tierem podstawowym
+  (zmiana addytywna `glu/exec@0`), `ir_hash`/`glossary_hash`, punktowa aktualizacja po zmianie terminu, referencyjny
+  przekład PL gry benchmarkowej.
+- **Akceptacja:** mutacje przekładu wykryte (≥ progów); zmiana terminu unieważnia tylko segmenty z tym `CON-`;
+  ślepe porównanie kilku stron przekładu nowego i obecnego workflow `wgu`, ocenione przez właściciela; koszt premium
+  Stage 3 względem `B_translate`.
 
 ### M27: Publikacja LaTeX
 - **Status:** planned · **Rola:** IMPL · **Zależy od:** M26
