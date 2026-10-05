@@ -87,7 +87,7 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
 | Model ryzyka | `wgc.risk` | cechy, wagi, klasy, twarde reguły | M6 |
 | Bramki | `wgc.gate` | obliczane statusy etapów | M7 |
 | Job store | `glu.store`, `glu.states` | SQLite `.glu/state.db`: build, job, attempt, routing_decision; tabela przejść (ADR-0023); `glu status`, `glu export` | M8 |
-| Zadania i akceptacja | `wgc.tasks`, `wgc.kb`, `wgc.tables` | `TaskSpec` i rejestr, zakres buildu, `Workspace`, `accept()` (jedyny zapis do `kb/`), zadanie `wgc.tables.parse@0` | M9a |
+| Zadania i akceptacja | `wgc.tasks`, `wgc.kb`, `wgc.tables`, `wgc.terms` | `TaskSpec` i rejestr, zakres buildu, `Workspace`, `accept()` (jedyny zapis do `kb/`), zadania `wgc.tables.parse@0` i `wgc.terms.harvest@0` | M9a, M9b |
 | Bezpieczny zapis KB | `wgc.fsio`, `wgc.kb` | atomowa podmiana pojedynczego pliku, blokada pisarza projektu `.glu/kb.lock` wokół całego `accept()` (ADR-0026) | M-STAB1 |
 | Planner | `glu.planner` | etap + zakres → joby z kluczem cache; `glu build --dry-run` | M9a, M12 (bramki) |
 | Wykonawcy | `glu.exec` | deterministic (Tier 0, M9a), local, premium, human; `glu build` | M9a–M16 |

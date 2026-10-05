@@ -11,10 +11,13 @@ from glu.__main__ import main
 from glu.store import Store, db_path
 from test_glu_store import Clock, Ids
 from test_tables import game  # noqa: F401  (fixture)
-from wgc import contracts, fsio, kb, source, tables, tasks
+from wgc import contracts, fsio, kb, source, tables, tasks, terms
 from wgc.kb import Workspace
 from wgc.validate import load_documents, validate
 
+# wgc.terms.harvest@0 on bench/minigame: one job over the segments with a match, six concepts (M9b)
+HARVEST_INPUTS = ("SEG-dsk.2.2", "SEG-dsk.4.2", "SEG-dsk.5.2", "SEG-dsk.7.0")
+CONCEPTS = ["CON-rally_phase", "CON-movement_phase", "CON-combat_phase", "CON-end_phase", "CON-d6", "CON-scn.the_ford"]
 TIER0_PATH = ["pending", "ready", "running", "proposed", "validating", "accepted", "done"]
 
 
@@ -39,8 +42,9 @@ def path_of(history: list[dict]) -> list[str]:
 def test_plan(game):
     plan = planner.plan(Workspace(game), "1")
     assert plan.stage == "stage1" and plan.scope == "all" and plan.skipped == []
-    [job] = plan.jobs
+    job, harvest = plan.jobs
     assert job.spec is tables.PARSE and job.inputs == ("SEG-dsk.4.3",) and job.tier == "deterministic"
+    assert harvest.spec is terms.HARVEST and harvest.inputs == HARVEST_INPUTS
     assert job.cache_key == {"task": "wgc.tables.parse", "task_version": "0", "output_schema": "wgc/logic@0#table",
                              "input_hash": tables.PARSE.input_hash(Workspace(game), job.inputs),
                              "context_hash": planner.EMPTY_CONTEXT}
@@ -56,12 +60,12 @@ def test_plan_skips_tasks_without_tier0(game, monkeypatch):
 
 def test_tier0_build_gives_valid_records(game):
     res = build(game)
-    assert res.state == "done" and [j.state for j in res.jobs] == ["done"]
-    assert res.jobs[0].records == ["TAB-4.3"]
-    assert res.metrics == {"jobs_total": 1, "jobs_deterministic": 1, "jobs_done": 1, "jobs_failed": 0,
-                           "records_created": 1, "records_updated": 0, "records_unchanged": 0}
+    assert res.state == "done" and [j.state for j in res.jobs] == ["done", "done"]
+    assert res.jobs[0].records == ["TAB-4.3"] and res.jobs[1].records == CONCEPTS
+    assert res.metrics == {"jobs_total": 2, "jobs_deterministic": 2, "jobs_done": 2, "jobs_failed": 0,
+                           "records_created": 7, "records_updated": 0, "records_unchanged": 0}
     report = validate([game / "source", game / "kb"])
-    assert report.ok and not report.warnings and report.records == 34  # 33 Stage 0 records + TAB-4.3
+    assert report.ok and not report.warnings and report.records == 40  # 33 Stage 0 records + TAB-4.3 + 6 concepts
     [rec] = load_documents(game / "kb" / "logic" / "tables.yaml")[0]["records"]
     assert rec["prov"]["job"] == res.jobs[0].id and rec["prov"]["by"] == {"tier": "deterministic",
                                                                           "tool": "wgc.tables.parse@0"}
@@ -71,8 +75,8 @@ def test_rebuild_without_changes_keeps_kb(game):
     build(game)
     before = tree(game / "kb")
     res = build(game)
-    assert res.state == "done" and res.metrics["records_unchanged"] == 1 and res.metrics["records_created"] == 0
-    assert tree(game / "kb") == before
+    assert res.state == "done" and res.metrics["records_unchanged"] == 7 and res.metrics["records_created"] == 0
+    assert res.metrics["records_updated"] == 0 and tree(game / "kb") == before
 
 
 def test_jobs_follow_legal_path_and_export_is_valid(game):
@@ -90,7 +94,7 @@ def test_jobs_follow_legal_path_and_export_is_valid(game):
         assert job["accepted_records"] == ["TAB-4.3"] and job["cache_hit"] is False and job["tier"] == "deterministic"
         doc = store.export(res.id)
     assert contracts.errors(doc) == []
-    assert [r["kind"] for r in doc["records"]] == ["build", "job", "attempt"]
+    assert [r["kind"] for r in doc["records"]] == ["build", "job", "job", "attempt", "attempt"]
     assert doc["records"][0]["target"] == {"stage": "stage1", "scope": "all"}
 
 
@@ -172,7 +176,8 @@ def test_only_accept_writes_kb(game, monkeypatch):
     written: list[Path] = []
     monkeypatch.setattr(kb, "_write_file", lambda path, text: written.append(path))
     res = build(game)
-    assert res.state == "done" and written == [game / "kb" / "logic" / "tables.yaml"]
+    assert res.state == "done" and written == [game / "kb" / "logic" / "tables.yaml",
+                                               game / "kb" / "logic" / "concepts.yaml"]
     assert not (game / "kb").exists()
 
     monkeypatch.undo()
@@ -202,11 +207,11 @@ def test_cli_dry_run_writes_nothing(game, capsys):
 def test_cli_build_then_status(game, capsys):
     assert main(["build", "--root", str(game), "--stage", "1", "--scope", "chapter:4"]) == 0
     out = capsys.readouterr().out
-    assert "stan: done" in out and "TAB-4.3" in out and "nowe 1" in out and "projekt drill-skirmish" in out
+    assert "stan: done" in out and "TAB-4.3" in out and "nowe 7" in out and "projekt drill-skirmish" in out
     assert main(["status", "--root", str(game)]) == 0
     assert "stage1 chapter:4" in capsys.readouterr().out
     assert main(["build", "--root", str(game), "--stage", "1", "--project", "dsk"]) == 0
-    assert "bez zmian 1" in capsys.readouterr().out
+    assert "bez zmian 7" in capsys.readouterr().out
 
 
 def test_cli_failed_build_exits_1(game, capsys):

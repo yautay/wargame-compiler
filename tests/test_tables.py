@@ -109,7 +109,7 @@ def test_validate_reports_ragged_rows(game):
 def test_registry_and_stage():
     spec = tasks.get("wgc.tables.parse")
     assert spec.name == "wgc.tables.parse@0" and spec.output_schema == "wgc/logic@0#table"
-    assert tasks.for_stage("1") == tasks.for_stage("stage1") == [spec]
+    assert tasks.for_stage("1") == tasks.for_stage("stage1") == [spec, tasks.get("wgc.terms.harvest")]
     with pytest.raises(tasks.TaskError, match="Brak zadań dla etapu"):
         tasks.for_stage("9")
     with pytest.raises(tasks.TaskError, match="Nieznane zadanie"):

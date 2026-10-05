@@ -80,7 +80,7 @@ ID są **stabilne**: nigdy nie są przenumerowywane ani używane ponownie. Usuni
 | `SRC-` | dokument źródłowy | 0 | `<gra>.<rola>` |
 | `SEG-` | segment | 0 | `<gra>.<etykieta>`; dla innych dokumentów `<gra>.<dok>:<etykieta>` |
 | `SEC-` | sekcja (mapowanie sekcja ↔ reguły atomowe) | 1 | numer sekcji |
-| `CON-` | pojęcie | 1 | `snake_case`; scenariusz `scn.<nazwa>` |
+| `CON-` | pojęcie | 1 | `snake_case`; scenariusz `scn.<nazwa>`; spoza głównej instrukcji `<klucz SRC>:<klucz>` ([§10](#id-pojec)) |
 | `R-` | reguła | 1 | `[<dok>:]<etykieta>[.<n>]`, gdzie `<dok>` pomija się dla głównej instrukcji (np. `R-3.4`, `R-3.4.2`, `R-SB:2.1`, `R-ERR:12`) |
 | `REL-` | relacja | 1 | numer kolejny |
 | `TAB-` | tabela | 1 | `snake_case` lub numer z instrukcji |
@@ -284,7 +284,7 @@ Pilnuje tego `tests/test_source.py`. Inwentarza i fixture'ów nie waliduje się 
 `duplicate_id`.
 
 <a id="propozycje"></a>
-## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a)
+## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a, M9b)
 Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Workspace`, `accept`), ADR-0025.
 
 **Propozycja** to wynik zadania, zanim WGC go przyjmie. Wykonawca (kod Tier 0, a od M10 model) zwraca listę:
@@ -323,9 +323,10 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
      `prior_translation` albo `other` odrzuca propozycję (jawna lista ról kanonicznych), a `llm_inference` bez kotwic
      wymaga deklaracji zadania. Do wdrożenia obowiązuje opis powyżej;
    - `by` podaje wywołujący (GLU: tier i `tool` albo `profile`/`prompt`), `job` to ID joba;
-   - `inputs_hash` = `content_hash` listy projekcji `logic` segmentów kotwic i rekordów `derived_from`
-     (równy `input_hash` klucza cache joba Tier 0). `derived_from` rozwiązuje się w inwentarzu i w `kb/` odczytanym
-     pod blokadą;
+   - `inputs_hash` = `content_hash` listy projekcji `logic` segmentów kotwic i rekordów `derived_from`. Jest równy
+     `input_hash` klucza cache joba Tier 0 tylko wtedy, gdy kotwice rekordu to dokładnie wejścia joba (np.
+     `wgc.tables.parse`). Dla `wgc.terms.harvest` obejmuje tylko segmenty kotwic rekordu (ADR-0030).
+     `derived_from` rozwiązuje się w inwentarzu i w `kb/` odczytanym pod blokadą;
    - `status: accepted`;
 5. każdy rekord z `prov` sprawdzony schematem `wgc/logic@0`;
 6. scalenie z `kb/`:
@@ -374,11 +375,38 @@ blokady (`wgc validate`, planner), którzy mogą zobaczyć stan między dwoma pl
 - blokada `.glu/kb.lock` leży poza `kb/`, bo `.glu/` jest ignorowane przez git. Pliku blokady się nie usuwa; blokadę
   zwalnia system przy końcu procesu, więc nie ma „wiszących” blokad po awarii.
 
-**Zadania Tier 0 (M9a):**
+**Zadania Tier 0 (M9a, M9b):**
 
-| Zadanie | Wejście | Wynik |
+| Zadanie | Wejście (jeden job) | Wynik |
 |---|---|---|
 | `wgc.tables.parse@0` | segment `table` | `TAB-<etykieta>` (dokument `rules`) albo `TAB-<seg_prefix>:<etykieta>`; tytuł z frazy „… Table”; kolumny z nagłówka; zakresy `{min, max}`, liczby, napisy jak w druku; `complete: false`, gdy kolumna klucza miesza zakresy z napisami |
+| `wgc.terms.harvest@0` | wszystkie segmenty jednego dokumentu z dopasowaniem wzorca; job powstaje, gdy zakres zawiera choć jeden z nich | `concept` tylko w kategoriach `die`, `phase`, `scenario` (wzorce niżej); jedna propozycja na ID; `source_terms` w kolejności pierwszego wystąpienia; jedna kotwica `{seg, quote}` na termin, cytat dosłowny, bez `span`; rekordy w `kb/logic/concepts.yaml` |
+
+<a id="id-pojec"></a>
+**Pojęcia z `wgc.terms.harvest@0` (M9b, ADR-0030).** Rekord powstaje tylko dla wzorca o pewnej kategorii. Każdy inny
+termin nie trafia do `kb/`: kategorię ustala M14.
+
+| Kategoria | Wzorzec | Klucz | `name` |
+|---|---|---|---|
+| `die` | `NdM` jako całe słowo z liczbą kostek (`1d6`, `2D6`; N ≥ 1, M ≥ 2) | `d<M>` (`1d6` i `2d6` → `d6`) | `d<M>` |
+| `scenario` | segment `heading`, którego cały tekst to `Scenario: X` | `scn.<slug(X)>` | `X` |
+| `phase` | wiersz listy numerowanej (`N.`/`N)`, co najmniej dwa w segmencie), którego cała pozycja to słowa z wielkiej litery zakończone `Phase` | `<slug(name)>` (końcówka `_phase`) | jak w druku |
+
+**Reguła ID pojęć** (deterministyczna, bez kolizji między dokumentami):
+- `slug(x)`: NFKD, tylko ASCII, małe litery, ciągi `[a-z0-9]` łączone `_`, bez usuwania słów (`The Ford` → `the_ford`).
+  Klucz spoza gramatyki §4 (np. pusty) nie daje rekordu;
+- **główna instrukcja** to dokument `rules` o najmniejszym ID `SRC-` (`SRC-<gra>.rules`; `wgc source init` nadaje
+  kolejnym `.2`, `.3`), niezależnie od kolejności w inwentarzu. Jej pojęcia mają ID `CON-<klucz>`. Warunek: nazwy
+  `SRC-` według `wgc source init`. Ręcznie dopisany dokument `rules` sortujący się przed `SRC-<gra>.rules` zmieniłby
+  główną instrukcję i ID pojęć (Q-17 w STATUS);
+- pojęcia **każdego innego dokumentu** mają ID `CON-<klucz SRC>:<klucz>`, np. `CON-dsk.scenario_book:scn.the_ford`,
+  `CON-dsk.rules.2:d6`. Klucz `SRC-` jest unikalny w inwentarzu, więc dwa dokumenty nie proponują tego samego ID;
+- postaci kluczy kategorii są rozłączne (`d<M>`, `…_phase`, `scn.…`);
+- `validate` zadania uruchamia wzorce ponownie na wejściach joba: ID, kategoria i każdy cytat muszą pochodzić
+  z dopasowania. Propozycja spoza wzorców jest odrzucana, nawet z cytatem dosłownym;
+- rekord nie zależy od `--scope`: wejścia joba to cały dokument, więc `chapter:5` po `all` nie zmienia `kb/`;
+- łączenie pojęć między dokumentami (`CON-d6` i `CON-dsk.scenario_book:d6`) należy do M14. `TAB-` zachowuje regułę
+  z M9a.
 
 **Zakres buildu (`--scope`):** `all`, `chapter:<N>` (segmenty pod nagłówkiem z etykietą `N` albo `N.0`, po polu
 `parent`), `segment:<SEG-id>`; tylko obecne dokumenty.

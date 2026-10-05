@@ -199,14 +199,23 @@ a pozostałe naprawy granicy akceptacji zaplanowano jako M-STAB2 i M-STAB3 przed
   Handoff: [handoff/2026-10-05-M-STAB1.md](handoff/2026-10-05-M-STAB1.md).
 
 ### M9b: Harvest terminów (Tier 0)
-- **Status:** next · **Rola:** IMPL · **Zależy od:** M9a, M-STAB1
+- **Status:** done · **Rola:** IMPL · **Zależy od:** M9a, M-STAB1
 - **Zakres:** zadanie `wgc.terms.harvest@0`: pojęcia `concept` tylko dla wzorców o pewnej kategorii (np. `NdM` → `die`,
   `Scenario: X` → `scenario`, pozycje listy sekwencji `… Phase` → `phase`), z kotwicą i cytatem; pozostałe terminy nie
   trafiają do `kb/` (kategorię ustala M14).
 - **Akceptacja:** build Tier 0 na `bench/minigame` daje pojęcia przechodzące walidację; brak zgadywanych kategorii.
+- **Wynik:**
+  - `wgc/terms.py` (`wgc.terms.harvest@0` w rejestrze `wgc.tasks`): wzorce `die`, `scenario`, `phase`, job na
+    dokument niezależny od zakresu, `validate` odrzucający inne kategorie i kotwice bez cytatu;
+  - reguła ID pojęć (`CON-<klucz>` dla głównej instrukcji, `CON-<klucz SRC>:<klucz>` dla innych dokumentów)
+    w DATA-CONTRACTS §10 i ADR-0030;
+  - `tests/test_terms.py`.
+
+  Na `bench/minigame` build daje `TAB-4.3` i 6 pojęć: 4 fazy, `CON-d6`, `CON-scn.the_ford`. Handoff:
+  [handoff/2026-10-05-M9b.md](handoff/2026-10-05-M9b.md).
 
 ### M-STAB2: Stabilizacja po M9a, etap 2: commit partii KB i recovery
-- **Status:** planned · **Rola:** ARCH (protokół) + IMPL · **Zależy od:** M-STAB1
+- **Status:** next · **Rola:** ARCH (protokół) + IMPL · **Zależy od:** M-STAB1
 - **Zakres:** ustalenia F01 (partia plików) i F04 przeglądu, decyzje N01 i N04:
   - commit całej partii plików `kb/` jednej akceptacji: manifest partii (np. w `.glu/`), podmiana plików i jawny
     znacznik zatwierdzenia; po przerwaniu albo dokończenie, albo wycofanie do poprzedniej wersji, nigdy częściowa

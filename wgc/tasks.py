@@ -66,8 +66,8 @@ class TaskSpec:
 
 
 def _registry() -> dict[str, TaskSpec]:
-    from wgc import tables
-    specs = [tables.PARSE]
+    from wgc import tables, terms
+    specs = [tables.PARSE, terms.HARVEST]
     return {s.id: s for s in specs}
 
 
