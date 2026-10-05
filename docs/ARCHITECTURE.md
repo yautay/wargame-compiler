@@ -75,7 +75,7 @@ wpływa na wynik).
 | Rejestr kontraktów | `wgc.contracts` | schematy `contracts/schemas/*.schema.json`, walidacja dokumentów | M0 (jest) |
 | Tożsamość i hashowanie | `wgc.ids`, `wgc.canonical` | gramatyka ID, kanoniczny JSON, projekcje semantyczne | M1 |
 | Walidator | `wgc.validate` | L0 schemat, L1 referencje, L2 provenance i sygnały | M1, M5 |
-| Ingest źródeł | `wgc.source` | inwentarz, segmentacja, render, flagi wizualne | M2 |
+| Ingest źródeł | `wgc.source`, `wgc.ingest` | inwentarz, segmentacja (Markdown: M2a; PDF, render, flagi wizualne: M2b) | M2a, M2b |
 | Model ryzyka | `wgc.risk` | cechy, wagi, klasy, twarde reguły | M6 |
 | Bramki | `wgc.gate` | obliczane statusy etapów | M7 |
 | Job store | `glu.store` | SQLite: build, job, attempt, routing_decision | M8 |

@@ -12,15 +12,15 @@ records:
     definition: {lang: en, text: "A playing piece with Strength and Movement Allowance."}
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_fast, prompt: "logic.concept.extract@0"},
-           anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "unit"}]}
+           anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:177ec5502601b3a5abb755320254288e5abdd391ec4b4f59516d09de836961aa", quote: "unit"}]}
   - {kind: concept, id: CON-light, category: state, of: CON-unit, name: Light, source_terms: [Light units], status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "Light units"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:7bc77698f96e15958afc202e08b598989d11f18fcfb781638f981162b23fc745", quote: "Light units"}]}}
   - {kind: concept, id: CON-routed, category: state, of: CON-unit, name: Routed, source_terms: [Routed], values: [formed, routed], status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "A Routed unit"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:177ec5502601b3a5abb755320254288e5abdd391ec4b4f59516d09de836961aa", quote: "A Routed unit"}]}}
   - {kind: concept, id: CON-strength, category: state_var, of: CON-unit, name: Strength, value_type: int, range: [1, 4], status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "the unit's Strength"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:b8323ca3a57c11499de11292f8a6f7cebf30ef22a703cfc46c76c3575b317fa4", quote: "the unit's Strength"}]}}
   - {kind: concept, id: CON-hex, category: place, name: hex, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "a hex"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:177ec5502601b3a5abb755320254288e5abdd391ec4b4f59516d09de836961aa", quote: "a hex"}]}}
   - kind: concept
     id: CON-adjacent_to_enemy
     category: predicate
@@ -31,26 +31,26 @@ records:
     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.concept.extract@0"}, derived_from: [R-3.3, R-3.4],
            note: "Definition of adjacency is not printed; inferred from standard hex usage. Low impact."}
   - {kind: concept, id: CON-move, category: action, name: move, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0000000000003003", quote: "stop moving"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0d5eb80243a0d19dc2508f26dd4213cf44641282def85234aff463c0e2d0451d", quote: "stop moving"}]}}
   - {kind: concept, id: CON-enter_hex, category: event, name: unit enters a hex, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0000000000003003", quote: "when it enters a hex"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0d5eb80243a0d19dc2508f26dd4213cf44641282def85234aff463c0e2d0451d", quote: "when it enters a hex"}]}}
   - {kind: concept, id: CON-rally, category: action, name: rally attempt, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "Roll 1d6"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:b8323ca3a57c11499de11292f8a6f7cebf30ef22a703cfc46c76c3575b317fa4", quote: "Roll 1d6"}]}}
   - {kind: concept, id: CON-d6, category: die, name: die (1d6), status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "1d6"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:b8323ca3a57c11499de11292f8a6f7cebf30ef22a703cfc46c76c3575b317fa4", quote: "1d6"}]}}
   - {kind: concept, id: CON-scn.ford, category: scenario, name: "The Ford", status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:0000000000007001", quote: "In this scenario"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:f24839379492bec2d2f60280d6dcebe1b52845ab2ed17ac0d986401bb152fb65", quote: "In this scenario"}]}}
   - {kind: concept, id: CON-game, category: entity_type, name: game, status: accepted,
      definition: {lang: en, text: "One play of Drill Skirmish: six Game Turns, optionally in a scenario."},
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0000000000002001", quote: "A game lasts six Game Turns"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0a4a039409ffd89e672470e33c1a9f6a04268aa8cddb9809940154173ae5b1d1", quote: "A game lasts six Game Turns"}]}}
   - {kind: concept, id: CON-game_turn, category: state_var, of: CON-game, name: Game Turn, value_type: int, range: [1, 6], status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0000000000002001", quote: "six Game Turns"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0a4a039409ffd89e672470e33c1a9f6a04268aa8cddb9809940154173ae5b1d1", quote: "six Game Turns"}]}}
   - {kind: concept, id: CON-ma, category: state_var, of: CON-unit, name: Movement Allowance, source_terms: [Movement Allowance, MA], value_type: int, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.1.1, seg_hash: "sha256:0000000000001001", quote: "Movement Allowance (MA)"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.1.1, seg_hash: "sha256:4e107d21fa387646e82c96ed3dce929151b4396e64828aa9bfe53b31df00fc97", quote: "Movement Allowance (MA)"}]}}
   - {kind: concept, id: CON-mp_spent, category: state_var, of: CON-unit, name: Movement Points spent, source_terms: [Movement Points, MP], value_type: int, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:0000000000003001", quote: "spend up to its MA in Movement Points (MP)"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:6e14bb764df2f85461067003ae07b519526678e180551c4c39e23af15dc36ee1", quote: "spend up to its MA in Movement Points (MP)"}]}}
   - {kind: concept, id: CON-moved_this_phase, category: state_var, of: CON-unit, name: has moved this phase, value_type: bool, status: accepted,
-     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.2, seg_hash: "sha256:0000000000003002", quote: "has not yet moved this phase"}]}}
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.2, seg_hash: "sha256:f4b16d59e13f079a0bca57890ce44ac43f7426e98c66824110fe1ca3b302c6e1", quote: "has not yet moved this phase"}]}}
   - kind: concept
     id: CON-owned_by_active
     category: predicate
@@ -58,7 +58,7 @@ records:
     params: [CON-unit]
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_fast, prompt: "logic.concept.extract@0"},
-           anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:0000000000003001", quote: "any or all of his units"}]}
+           anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:6e14bb764df2f85461067003ae07b519526678e180551c4c39e23af15dc36ee1", quote: "any or all of his units"}]}
   - {kind: concept, id: CON-at, category: predicate, name: unit is in hex, params: [CON-hex], status: accepted,
      definition: {lang: en, text: "True for a unit whose location is the given hex."},
      prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.concept.extract@0"}, derived_from: [R-3.6]}}
@@ -82,7 +82,7 @@ records:
     status: accepted
     refs: [CON-unit, CON-routed, CON-hex, CON-adjacent_to_enemy, CON-move]
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"}, job: job_0001aa,
-           anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "may not enter a hex adjacent to an enemy unit"}]}
+           anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:177ec5502601b3a5abb755320254288e5abdd391ec4b4f59516d09de836961aa", quote: "may not enter a hex adjacent to an enemy unit"}]}
     risk:
       model: wgc/risk@0
       score: 0.55
@@ -107,7 +107,7 @@ records:
     formalization: full
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0000000000003003", quote: "must stop moving"}]}
+           anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0d5eb80243a0d19dc2508f26dd4213cf44641282def85234aff463c0e2d0451d", quote: "must stop moving"}]}
   - kind: rule
     id: R-3.5
     label: "3.5"
@@ -120,7 +120,7 @@ records:
     unformalized: "The carve-out itself is the relation REL-001; 'remain subject to 3.4' is REL-002 (no exception to 3.4)."
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "not required to stop under 3.3"}]}
+           anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:7bc77698f96e15958afc202e08b598989d11f18fcfb781638f981162b23fc745", quote: "not required to stop under 3.3"}]}
   - kind: rule
     id: R-5.2
     label: "5.2"
@@ -134,7 +134,7 @@ records:
     formalization: full
     status: accepted
     prov: {kind: explicit_source, by: {tier: premium, profile: premium_semantic, prompt: "logic.rule.review@0"},
-           anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "equal to or less than the unit's Strength"}]}
+           anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:b8323ca3a57c11499de11292f8a6f7cebf30ef22a703cfc46c76c3575b317fa4", quote: "equal to or less than the unit's Strength"}]}
     risk: {model: wgc/risk@0, score: 0.6, class: high, forced: [boundary_operator],
            features: [{name: boundary_operator, value: 1, weight: 0.3, evidence: "equal to or less than"}, {name: randomness, value: 1, weight: 0.1}]}
   - kind: rule
@@ -152,7 +152,7 @@ records:
     formalization: full
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:0000000000007001", quote: "Strength plus one"}]}
+           anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:f24839379492bec2d2f60280d6dcebe1b52845ab2ed17ac0d986401bb152fb65", quote: "Strength plus one"}]}
   - kind: rule
     id: R-6.2
     label: "6.2"
@@ -164,27 +164,27 @@ records:
     ambiguities: [AMB-001]
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.6.2, seg_hash: "sha256:0000000000006002", quote: "moves adjacent to it"}]}
+           anchors: [{seg: SEG-dsk.6.2, seg_hash: "sha256:7f13435f471e5418dbffcfa77f61e1d8d5013f41a1331bac558fd515dbf82393", quote: "moves adjacent to it"}]}
 
   # ---- further rules realized by the Stage 1.5 fixture (kept small: closure, not gold) ---------
   - {kind: rule, id: R-1.1, label: "1.1", nature: definition, modality: is, formalization: partial,
      statement: {lang: en, text: "Each unit has a Strength from 1 to 4 and a Movement Allowance: 4 for infantry, 6 for Light units."},
      unformalized: "The MA per unit type is not structured yet.", refs: [CON-unit, CON-strength, CON-ma], status: accepted,
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-            anchors: [{seg: SEG-dsk.1.1, seg_hash: "sha256:0000000000001001", quote: "a Strength (1 to 4)"}]}}
+            anchors: [{seg: SEG-dsk.1.1, seg_hash: "sha256:4e107d21fa387646e82c96ed3dce929151b4396e64828aa9bfe53b31df00fc97", quote: "a Strength (1 to 4)"}]}}
   - {kind: rule, id: R-1.3, label: "1.3", nature: constraint, modality: is, formalization: none,
      statement: {lang: en, text: "Reserve markers are placed face-down; only their owner may look at them."}, status: accepted,
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-            anchors: [{seg: SEG-dsk.1.3, seg_hash: "sha256:0000000000001003", quote: "Only the owning player may look"}]}}
+            anchors: [{seg: SEG-dsk.1.3, seg_hash: "sha256:3a0e5f08da0e643aaa117026d1f411759dc6dc8a3a35441121ec409da0d6eaf4", quote: "Only the owning player may look"}]}}
   - {kind: rule, id: R-2.1, label: "2.1", nature: sequence, modality: is, formalization: none,
      statement: {lang: en, text: "A game has six Game Turns; each has a First Player Turn and then a Second Player Turn."},
      refs: [CON-game, CON-game_turn], status: accepted,
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-            anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0000000000002001", quote: "A game lasts six Game Turns"}]}}
+            anchors: [{seg: SEG-dsk.2.1, seg_hash: "sha256:0a4a039409ffd89e672470e33c1a9f6a04268aa8cddb9809940154173ae5b1d1", quote: "A game lasts six Game Turns"}]}}
   - {kind: rule, id: R-2.2, label: "2.2", nature: sequence, modality: is, formalization: none,
      statement: {lang: en, text: "A Player Turn has a Rally, Movement, Combat and End Phase, in this order."}, status: accepted,
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-            anchors: [{seg: SEG-dsk.2.2, seg_hash: "sha256:0000000000002002", quote: "in this order"}]}}
+            anchors: [{seg: SEG-dsk.2.2, seg_hash: "sha256:543a91690cd1620d964be4fcc521e359093e09d4e8aa5dc3afc24b27b2e4c895", quote: "in this order"}]}}
   - kind: rule
     id: R-3.1
     label: "3.1"
@@ -200,7 +200,7 @@ records:
     unformalized: "The Movement Phase window and 'one at a time' are not structured."
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:0000000000003001", quote: "may move any or all of his units"}]}
+           anchors: [{seg: SEG-dsk.3.1, seg_hash: "sha256:6e14bb764df2f85461067003ae07b519526678e180551c4c39e23af15dc36ee1", quote: "may move any or all of his units"}]}
   - kind: rule
     id: R-3.2
     label: "3.2"
@@ -212,7 +212,7 @@ records:
     unformalized: "Terrain costs and the first-hex exception are not structured yet (the exception becomes a relation in the gold model, M3)."
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.3.2, seg_hash: "sha256:0000000000003002", quote: "may always move one hex"}]}
+           anchors: [{seg: SEG-dsk.3.2, seg_hash: "sha256:f4b16d59e13f079a0bca57890ce44ac43f7426e98c66824110fe1ca3b302c6e1", quote: "may always move one hex"}]}
   - kind: rule
     id: R-3.6
     label: "3.6"
@@ -224,13 +224,13 @@ records:
     formalization: full
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.3.6, seg_hash: "sha256:0000000000003006", quote: "more than one unit"}]}
+           anchors: [{seg: SEG-dsk.3.6, seg_hash: "sha256:da00ecc88de21b4027932da9b0ed95112a17f098cc4a82ca4a48d45c75296454", quote: "more than one unit"}]}
   - {kind: rule, id: R-4.5, label: "4.5", nature: automatic_effect, modality: is, bind: {$unit: CON-unit},
      statement: {lang: en, text: "An eliminated unit is removed from the map."},
      effects: [{op: remove, of: $unit, when: {text: "the unit is eliminated"}}], formalization: partial,
      unformalized: "'Eliminated' is not a concept yet.", status: accepted,
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-            anchors: [{seg: SEG-dsk.4.5, seg_hash: "sha256:0000000000004005", quote: "removed from the map"}]}}
+            anchors: [{seg: SEG-dsk.4.5, seg_hash: "sha256:525f67b5ab2199241fb80a039987b7322dfaa975be699a96f90c5704a3f61c8a", quote: "removed from the map"}]}}
   - kind: rule
     id: R-5.1
     label: "5.1"
@@ -246,17 +246,17 @@ records:
     unformalized: "Adjacency of a unit (the predicate takes a hex) is a text leaf."
     status: accepted
     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
-           anchors: [{seg: SEG-dsk.5.1, seg_hash: "sha256:0000000000005001", quote: "Only one rally attempt"}]}
+           anchors: [{seg: SEG-dsk.5.1, seg_hash: "sha256:5f85c881be31ce0f94f741045899add145fb22cafc444837d071c718ab354b48", quote: "Only one rally attempt"}]}
 
   # ---- relations (the only home of exceptions and overrides) ----------------------------------
   - {kind: relation, id: REL-001, type: exception_to, from: R-3.5, to: R-3.3, priority_basis: exception_over_rule,
      when: {is: [$unit, CON-light]}, status: accepted,
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.relations@0"},
-            anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "not required to stop under 3.3"}]}}
+            anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:7bc77698f96e15958afc202e08b598989d11f18fcfb781638f981162b23fc745", quote: "not required to stop under 3.3"}]}}
   - {kind: relation, id: REL-002, type: see, from: R-3.5, to: R-3.4, priority_basis: explicit_statement, status: accepted,
      notes: "Explicit statement that 3.5 is NOT an exception to 3.4.",
      prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.relations@0"},
-            anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "They remain subject to 3.4"}]}}
+            anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:7bc77698f96e15958afc202e08b598989d11f18fcfb781638f981162b23fc745", quote: "They remain subject to 3.4"}]}}
   - {kind: relation, id: REL-003, type: overrides, from: R-7.1, to: R-5.2, priority_basis: scenario_over_game,
      when: {pred: CON-scn.ford}, status: accepted,
      prov: {kind: deterministic_derivation, by: {tier: deterministic, tool: "wgc.relations.scenario_layer@0"}, derived_from: [R-7.1, R-5.2]}}
@@ -273,7 +273,7 @@ records:
     complete: true
     status: accepted
     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.tables.parse@0"},
-           anchors: [{seg: SEG-dsk.4.3, seg_hash: "sha256:0000000000004003"}]}
+           anchors: [{seg: SEG-dsk.4.3, seg_hash: "sha256:413ad2fef4086a7217a0fc0c162688bc05fa15660cdbed1e12e2f8287f5c088c"}]}
 
   # ---- ambiguity, interpretation --------------------------------------------------------------
   - kind: ambiguity

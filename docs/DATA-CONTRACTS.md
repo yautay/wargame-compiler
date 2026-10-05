@@ -4,7 +4,7 @@
 | Kontrakt | Plik | Zawartość | Stan |
 |---|---|---|---|
 | `wgc/common` | `contracts/schemas/common.schema.json` | ID, hash, glosa, kotwica, wykonawca, provenance, ryzyko, cykl życia, `HD-`, `RR-` | @0 szkic |
-| `wgc/source@0` | `source.schema.json` | Stage 0: `source_document`, `segment` | @0 szkic |
+| `wgc/source@0` | `source.schema.json` | Stage 0: `source_document` (role, `seg_prefix`, pierwszeństwo), `segment`; inwentarz `source/inventory.yaml` ([§9](#stage0)) | @0 szkic |
 | `wgc/logic@0` | `logic.schema.json` | Stage 1: Rule IR i rekordy pokrewne, gramatyka wyrażeń i efektów | @0 szkic |
 | `wgc/digital@0` | `digital.schema.json` | Stage 1.5 | @0 szkic |
 | `wgc/gate@0` | `gate.schema.json` | raport bramki (obliczany) | @0 szkic |
@@ -156,7 +156,90 @@ To podstawa późniejszych `wgc diagnose` i `wgc explain` (M13).
 
 **Pozycje referencji sprawdzane przez `unresolved_ref`** (tabela `REF_FIELDS`): `refs`, `prov.derived_from`,
 `realizes` (także `entity.fields[].realizes`), `covers`, `applies_to`, `from_case`, `relation.from`/`to`,
-`interpretation.ambiguity`, `blocker.cause`/`affects`, `segment.doc` oraz `anchors[].seg` (w `prov.anchors`
+`interpretation.ambiguity`, `blocker.cause`/`affects`, `segment.doc`, `segment.parent` oraz `anchors[].seg` (w `prov.anchors`
 i `review_request.evidence`). Referencje w wyrażeniach, `ref_to`, `timing`, `emits`, `fires_on`, `legality`, `chain`,
 `ambiguities` i krokach testów nie są jeszcze sprawdzane. Walidator nie sprawdza też rodzaju celu referencji (np. czy
 `interpretation.ambiguity` wskazuje `AMB-`).
+
+<a id="stage0"></a>
+## 9. Stage 0: inwentarz źródeł i `wgc source` (M2a)
+Implementacja: `wgc/source.py` (inwentarz, polecenia) i `wgc/ingest/` (ekstraktory). Decyzje: ADR-0020.
+
+**Pliki w repo gry:**
+- `source/inventory.yaml`: jeden dokument `wgc/source@0`, commitowany, bez tekstu;
+- `.glu/source/<SRC-id>/<SEG-id>.txt`: tekst segmentów, gitignored (ADR-0012). `text_hash` liczy się z tego tekstu
+  przez `wgc.canonical.text_hash`, a `file_hash` to `wgc.canonical.sha256_hex` surowych bajtów pliku.
+
+**Polecenia** (`python -m wgc source <podpolecenie> [--root <repo gry>]`, domyślnie katalog bieżący):
+
+| Podpolecenie | Działanie |
+|---|---|
+| `init --game <kod> [--doc rola:ścieżka …]` | tworzy inwentarz z dokumentem `SRC-<kod>.<rola>` dla każdego `--doc` (ścieżka względem `--root`; powtórzona rola dostaje `.2`, `.3`…) i od razu robi `scan`. Pierwszy dokument `rules` dostaje `seg_prefix: <kod>`. Istniejący inwentarz jest błędem |
+| `scan` | dla dokumentów z `path`: `present`, `file_hash`, `extractor` (z rejestru rozszerzeń) |
+| `extract` | `scan`, potem segmentacja obecnych dokumentów: rekordy `SEG-` w inwentarzu i tekst w `.glu/source/` |
+| `verify [--json]` | walidacja inwentarza (§8) i kontrole Stage 0 niżej; kod 1 przy błędach |
+
+Kod wyjścia 2 oznacza błąd operacyjny: brak inwentarza, istniejący inwentarz przy `init`, nieznana rola, ścieżka
+poza projektem, błąd ekstrakcji w `extract`.
+
+**Zapis inwentarza:**
+- deterministyczny: stała kolejność pól (schemat), jeden rekord w wierszu, dokumenty w kolejności wpisów, segmenty
+  według dokumentu i `order`;
+- pola generowane są nadpisywane:
+  - w dokumencie: `present`, `file_hash`, `extractor`;
+  - w segmencie: `doc`, `label`, `segment_type`, `parent`, `order`, `pages`, `bbox`, `text_hash`, `visual_flags`;
+- pola ręczne zostają (`title`, `edition`, `language`, `complete`, `precedence`, `edition_skew`, `seg_prefix`, `notes`,
+  `corrections`, `verified_by_render`). `verified_by_render` znika, gdy zmienia się `text_hash` segmentu;
+- komentarze nie są zachowywane.
+
+**ID segmentu:**
+- postać `SEG-<seg_prefix>.<klucz>`;
+- `seg_prefix` domyślnie jest kluczem ID `SRC-`;
+- klucz to etykieta jak wydrukowana albo `u<n>` dla n-tego segmentu bez numeru;
+- `order` to pozycja w dokumencie liczona od 1, a `parent` to najbliższy wcześniejszy nagłówek.
+
+**Segmentacja Markdown (`wgc.ingest.markdown@0`):**
+- nagłówek ATX → `heading` (liczba na początku → etykieta);
+- `**N.N**` na początku wiersza → segment do następnego znacznika lub nagłówka: `table`, gdy zawiera tabelę Markdown,
+  inaczej `rule`;
+- inna treść poza numerowanym segmentem → `other`;
+- tekst bez etykiety i bez markupu inline, cytatów, punktorów, pionowych kresek i separatora tabel; numery list zostają;
+- blok kodu nie otwiera segmentu.
+
+**Domyślne pierwszeństwo według roli** (`wgc.source.DEFAULT_PRECEDENCE`, wyższe wygrywa przy jawnym konflikcie,
+[LOGIC-MODEL](LOGIC-MODEL.md#pierwszenstwo-zrodel)):
+
+| Rola | Domyślne `precedence` |
+|---|---|
+| `errata` | 60 |
+| `living_rules` | 50 |
+| `rules`, `scenario_book`, `charts`, `cards`, `counters`, `map`, `module` | 40 |
+| `faq` | 30 |
+| `designer_clarification` | 20 |
+| `community_interpretation` | 10 |
+| `prior_translation`, `other` | brak (wymagane jawne `precedence`) |
+
+Jawne `precedence` w inwentarzu nadpisuje wartość domyślną (`wgc.source.effective_precedence`); domyślna nie jest
+zapisywana. Politykę projektu (`project.yaml`) dodaje M7.
+
+**Diagnostyki `verify`** (format jak w §8):
+
+| Kod | Poziom | Znaczenie |
+|---|---|---|
+| `source_missing` | error | dokument `present: true` bez pliku |
+| `file_hash_mismatch` | error | hash pliku ≠ `file_hash` w inwentarzu |
+| `extractor_changed` | warning | inwentarz zapisał inny ekstraktor niż bieżący dla tego formatu |
+| `extract_error` | error | ponowna ekstrakcja się nie udała (np. powtórzona etykieta) |
+| `segment_hash_mismatch` | error | tekst segmentu po ponownej ekstrakcji ma inny `text_hash` niż w inwentarzu |
+| `segment_missing` | error | segmentu z inwentarza nie ma już w dokumencie |
+| `segment_unlisted` | error | dokument ma segment nieobecny w inwentarzu |
+| `cache_missing` | warning | brak tekstu segmentów w `.glu/source/` (odtwarza go `extract`) |
+| `cache_mismatch` | error | tekst w `.glu/source/` nie zgadza się z `text_hash` |
+
+Zmiana zawijania wierszy lub przeniesień daje tylko `file_hash_mismatch`, bo `text_hash` jest na nie niewrażliwy (§5).
+
+**Gra benchmarkowa:** `bench/minigame/source/inventory.yaml` jest commitowany i odświeżany poleceniem
+`python -m wgc source extract --root bench/minigame`. Fixture `contracts/fixtures/valid/source.minigame.yaml` jest jego
+podzbiorem (te same projekcje `logic` i `order`), a `seg_hash` kotwic w `logic.minigame.yaml` to prawdziwe `text_hash`.
+Pilnuje tego `tests/test_source.py`. Inwentarza i fixture'ów nie waliduje się w jednym przebiegu, bo dałoby to
+`duplicate_id`.

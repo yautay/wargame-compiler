@@ -1,25 +1,27 @@
 # Stage 0 fixture for bench/minigame/rulebook.md (self-authored, CC0).
-# Hashes are placeholders until milestone M2 (source ingest) computes real ones.
+# Hashes and `order` come from `wgc source extract` (bench/minigame/source/inventory.yaml); this fixture is a
+# subset of that inventory (tests/test_source.py keeps them in sync).
 schema: wgc/source@0
 records:
   - {kind: source_document, id: SRC-dsk.rules, role: rules, title: "Drill Skirmish", edition: "bench-1",
-     language: en, path: bench/minigame/rulebook.md, file_hash: "sha256:0000000000000001", present: true,
-     complete: true, precedence: 10, extractor: "wgc.ingest.markdown@0"}
+     language: en, path: bench/minigame/rulebook.md,
+     file_hash: "sha256:5369170c7fcc2cfc5a94cef763c9499d56dd47181c80dab61c3a771b2901f8fd",
+     present: true, complete: true, seg_prefix: dsk, extractor: "wgc.ingest.markdown@0"}
   - {kind: source_document, id: SRC-dsk.faq, role: faq, title: "Drill Skirmish FAQ", present: false,
      notes: "Expected but missing: AMB-001 (6.2) may be settled by a FAQ. A missing source is visible before analysis."}
-  - {kind: segment, id: SEG-dsk.1.1, doc: SRC-dsk.rules, label: "1.1", segment_type: rule, order: 11, text_hash: "sha256:0000000000001001"}
-  - {kind: segment, id: SEG-dsk.1.3, doc: SRC-dsk.rules, label: "1.3", segment_type: rule, order: 13, text_hash: "sha256:0000000000001003"}
-  - {kind: segment, id: SEG-dsk.2.1, doc: SRC-dsk.rules, label: "2.1", segment_type: rule, order: 21, text_hash: "sha256:0000000000002001"}
-  - {kind: segment, id: SEG-dsk.2.2, doc: SRC-dsk.rules, label: "2.2", segment_type: rule, order: 22, text_hash: "sha256:0000000000002002"}
-  - {kind: segment, id: SEG-dsk.3.1, doc: SRC-dsk.rules, label: "3.1", segment_type: rule, order: 31, text_hash: "sha256:0000000000003001"}
-  - {kind: segment, id: SEG-dsk.3.2, doc: SRC-dsk.rules, label: "3.2", segment_type: rule, order: 32, text_hash: "sha256:0000000000003002"}
-  - {kind: segment, id: SEG-dsk.3.3, doc: SRC-dsk.rules, label: "3.3", segment_type: rule, order: 33, text_hash: "sha256:0000000000003003"}
-  - {kind: segment, id: SEG-dsk.3.4, doc: SRC-dsk.rules, label: "3.4", segment_type: rule, order: 34, text_hash: "sha256:0000000000003004"}
-  - {kind: segment, id: SEG-dsk.3.5, doc: SRC-dsk.rules, label: "3.5", segment_type: rule, order: 35, text_hash: "sha256:0000000000003005"}
-  - {kind: segment, id: SEG-dsk.3.6, doc: SRC-dsk.rules, label: "3.6", segment_type: rule, order: 36, text_hash: "sha256:0000000000003006"}
-  - {kind: segment, id: SEG-dsk.4.3, doc: SRC-dsk.rules, label: "4.3", segment_type: table, order: 43, text_hash: "sha256:0000000000004003"}
-  - {kind: segment, id: SEG-dsk.4.5, doc: SRC-dsk.rules, label: "4.5", segment_type: rule, order: 45, text_hash: "sha256:0000000000004005"}
-  - {kind: segment, id: SEG-dsk.5.1, doc: SRC-dsk.rules, label: "5.1", segment_type: rule, order: 51, text_hash: "sha256:0000000000005001"}
-  - {kind: segment, id: SEG-dsk.5.2, doc: SRC-dsk.rules, label: "5.2", segment_type: rule, order: 52, text_hash: "sha256:0000000000005002"}
-  - {kind: segment, id: SEG-dsk.6.2, doc: SRC-dsk.rules, label: "6.2", segment_type: rule, order: 62, text_hash: "sha256:0000000000006002"}
-  - {kind: segment, id: SEG-dsk.7.1, doc: SRC-dsk.rules, label: "7.1", segment_type: rule, order: 71, text_hash: "sha256:0000000000007001"}
+  - {kind: segment, id: SEG-dsk.1.1, doc: SRC-dsk.rules, label: "1.1", segment_type: rule, order: 4, text_hash: "sha256:4e107d21fa387646e82c96ed3dce929151b4396e64828aa9bfe53b31df00fc97"}
+  - {kind: segment, id: SEG-dsk.1.3, doc: SRC-dsk.rules, label: "1.3", segment_type: rule, order: 6, text_hash: "sha256:3a0e5f08da0e643aaa117026d1f411759dc6dc8a3a35441121ec409da0d6eaf4"}
+  - {kind: segment, id: SEG-dsk.2.1, doc: SRC-dsk.rules, label: "2.1", segment_type: rule, order: 8, text_hash: "sha256:0a4a039409ffd89e672470e33c1a9f6a04268aa8cddb9809940154173ae5b1d1"}
+  - {kind: segment, id: SEG-dsk.2.2, doc: SRC-dsk.rules, label: "2.2", segment_type: rule, order: 9, text_hash: "sha256:543a91690cd1620d964be4fcc521e359093e09d4e8aa5dc3afc24b27b2e4c895"}
+  - {kind: segment, id: SEG-dsk.3.1, doc: SRC-dsk.rules, label: "3.1", segment_type: rule, order: 11, text_hash: "sha256:6e14bb764df2f85461067003ae07b519526678e180551c4c39e23af15dc36ee1"}
+  - {kind: segment, id: SEG-dsk.3.2, doc: SRC-dsk.rules, label: "3.2", segment_type: rule, order: 12, text_hash: "sha256:f4b16d59e13f079a0bca57890ce44ac43f7426e98c66824110fe1ca3b302c6e1"}
+  - {kind: segment, id: SEG-dsk.3.3, doc: SRC-dsk.rules, label: "3.3", segment_type: rule, order: 13, text_hash: "sha256:0d5eb80243a0d19dc2508f26dd4213cf44641282def85234aff463c0e2d0451d"}
+  - {kind: segment, id: SEG-dsk.3.4, doc: SRC-dsk.rules, label: "3.4", segment_type: rule, order: 14, text_hash: "sha256:177ec5502601b3a5abb755320254288e5abdd391ec4b4f59516d09de836961aa"}
+  - {kind: segment, id: SEG-dsk.3.5, doc: SRC-dsk.rules, label: "3.5", segment_type: rule, order: 15, text_hash: "sha256:7bc77698f96e15958afc202e08b598989d11f18fcfb781638f981162b23fc745"}
+  - {kind: segment, id: SEG-dsk.3.6, doc: SRC-dsk.rules, label: "3.6", segment_type: rule, order: 16, text_hash: "sha256:da00ecc88de21b4027932da9b0ed95112a17f098cc4a82ca4a48d45c75296454"}
+  - {kind: segment, id: SEG-dsk.4.3, doc: SRC-dsk.rules, label: "4.3", segment_type: table, order: 20, text_hash: "sha256:413ad2fef4086a7217a0fc0c162688bc05fa15660cdbed1e12e2f8287f5c088c"}
+  - {kind: segment, id: SEG-dsk.4.5, doc: SRC-dsk.rules, label: "4.5", segment_type: rule, order: 22, text_hash: "sha256:525f67b5ab2199241fb80a039987b7322dfaa975be699a96f90c5704a3f61c8a"}
+  - {kind: segment, id: SEG-dsk.5.1, doc: SRC-dsk.rules, label: "5.1", segment_type: rule, order: 24, text_hash: "sha256:5f85c881be31ce0f94f741045899add145fb22cafc444837d071c718ab354b48"}
+  - {kind: segment, id: SEG-dsk.5.2, doc: SRC-dsk.rules, label: "5.2", segment_type: rule, order: 25, text_hash: "sha256:b8323ca3a57c11499de11292f8a6f7cebf30ef22a703cfc46c76c3575b317fa4"}
+  - {kind: segment, id: SEG-dsk.6.2, doc: SRC-dsk.rules, label: "6.2", segment_type: rule, order: 28, text_hash: "sha256:7f13435f471e5418dbffcfa77f61e1d8d5013f41a1331bac558fd515dbf82393"}
+  - {kind: segment, id: SEG-dsk.7.1, doc: SRC-dsk.rules, label: "7.1", segment_type: rule, order: 30, text_hash: "sha256:f24839379492bec2d2f60280d6dcebe1b52845ab2ed17ac0d986401bb152fb65"}

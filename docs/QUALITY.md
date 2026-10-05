@@ -46,7 +46,7 @@ Złote przykłady to za mało. Od pierwszego użycia dochodzi **Hypothesis** (za
 
 | Właściwość | Gdzie | Milestone |
 |---|---|---|
-| `content_hash` nie zależy od kolejności kluczy ani formy NFC; `text_hash` nie zależy od zawijania wierszy | `wgc.canonical` | M1 (opcjonalnie), M2 |
+| `content_hash` nie zależy od kolejności kluczy ani formy NFC; `text_hash` nie zależy od zawijania wierszy | `wgc.canonical` | M1 (opcjonalnie), M2a |
 | build przyrostowy = build od zera (te same rekordy i hashe) dla losowych zmian segmentów | `glu.graph` | M13 |
 | generowane stany gry spełniają inwarianty; snapshot round-trip zachowuje hash | `wgc/state@0` | M17 |
 | akcja nielegalna nie zmienia stanu; `can_perform` jest czysty; granice `cmp` (≤/<) zachowują się na wartościach brzegowych | interpreter testów | M18, M21 |

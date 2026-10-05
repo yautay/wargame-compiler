@@ -12,12 +12,14 @@ Status: `done`, `next`, `planned`, `optional`.
 Sekcje niżej grupują milestone'y tematycznie. Kolejność wykonania (strzałka = kolejność; zależności podaje każdy milestone):
 
 ```text
-tor domeny + GLU:  M1 → M2 → M8 → M9 → M10 ─────────┐
+tor domeny + GLU:  M1 → M2a → M8 → M9 → M10 ────────┐
 tor węzła (LAN):   M-GW1 → M-NODE (HUM) ─────────────┼─→ M-E2E (walking skeleton przez LAN) → M3 → M4 → M5 → M6 → M7
 pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 → M13 → M-GW2 → M-INF → M14 → M15 → M16 → …
                                                      │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
 ```
 - Tor węzła nie zależy od domeny (węzeł nie zna WGC), więc M-GW1 i M-NODE mogą iść równolegle z M1–M10.
+- M2b (ingest PDF) może iść w dowolnym momencie po M2a; jest potrzebny przed pierwszą pracą na PDF-ie prawdziwej gry
+  (najpóźniej M28).
 - **M-E2E** to wczesny pionowy przekrój: jedna reguła przechodzi source → Stage 1 → GLU → węzeł w LAN → walidacja →
   `kb/` → Stage 1.5 → test, z premium jako `fake`.
 - Mapa tematów inferencji:
@@ -71,17 +73,33 @@ pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 
   `invalid/semantic/` z kodem w `# EXPECT:`, pliki YAML wielodokumentowe (ADR-0019), DATA-CONTRACTS §5 i §8.
   Handoff: [handoff/2026-10-05-M1.md](handoff/2026-10-05-M1.md).
 
-### M2: Stage 0: inwentarz i ingest źródeł
-- **Status:** next · **Rola:** IMPL · **Zależy od:** M1
-- **Zakres:** `wgc source init/scan/extract/verify`; ingest Markdown (gra benchmarkowa) i PDF (PyMuPDF): segmentacja
-  po numerach reguł, typy segmentów, `text_hash`, flagi wizualne (kolor zmian, przekreślenie), render strony do
-  weryfikacji; tekst w `.glu/source/`, inwentarz commitowany. Kontrakt `source_document`: role `living_rules`,
-  `community_interpretation` i domyślne pierwszeństwo według roli ([LOGIC-MODEL](LOGIC-MODEL.md#pierwszenstwo-zrodel)).
-- **Akceptacja:** `bench/minigame` → inwentarz z prawdziwymi hashami, fixture'y przeliczone; deterministyczność
-  (dwa przebiegi = identyczne hashe); test na PDF wygenerowanym z tekstu własnego.
+Pierwotne M2 (Stage 0: inwentarz i ingest źródeł) podzielono przed pracą na M2a (inwentarz, Markdown, kontrakt)
+i M2b (PDF), bo całość przekraczała rozmiar jednej sesji.
+
+### M2a: Stage 0: inwentarz, polecenia `wgc source`, ingest Markdown
+- **Status:** done · **Rola:** IMPL · **Zależy od:** M1
+- **Zakres:** `wgc source init/scan/extract/verify`; ingest Markdown (gra benchmarkowa): segmentacja po numerach reguł,
+  typy segmentów, `text_hash`, `file_hash`; tekst w `.glu/source/`, inwentarz commitowany (`bench/minigame/source/`).
+  Kontrakt `source_document`: role `living_rules`, `community_interpretation` i domyślne pierwszeństwo według roli
+  ([LOGIC-MODEL](LOGIC-MODEL.md#pierwszenstwo-zrodel)). Przeliczenie `text_hash` segmentów i `seg_hash` kotwic w fixture'ach.
+- **Akceptacja:** `bench/minigame` → inwentarz z prawdziwymi hashami, fixture'y przeliczone i zgodne z ingestem,
+  `wgc validate contracts/fixtures/valid` bez błędów; deterministyczność (dwa przebiegi = identyczne hashe i bajty
+  inwentarza); `wgc source verify` wykrywa zmianę pliku i cache.
+- **Wynik:** `wgc/source.py`, `wgc/ingest/` (rejestr ekstraktorów, `wgc.ingest.markdown@0`), `wgc source
+  init/scan/extract/verify`, `bench/minigame/source/inventory.yaml` (31 segmentów), fixture'y z prawdziwymi hashami
+  (16 segmentów, 34 kotwice), role i `seg_prefix` w `wgc/source@0`, `segment.parent` w `unresolved_ref`,
+  DATA-CONTRACTS §9, ADR-0020. Handoff: [handoff/2026-10-05-M2a.md](handoff/2026-10-05-M2a.md).
+
+### M2b: Stage 0: ingest PDF, flagi wizualne, render strony
+- **Status:** next · **Rola:** IMPL · **Zależy od:** M2a
+- **Zakres:** ekstraktor PDF (PyMuPDF albo biblioteka na licencji liberalnej, decyzja Q-10 w STATUS; nowa zależność
+  w `requirements.txt` i `pyproject.toml`) podpięty do rejestru ekstraktorów z M2a: segmentacja po numerach reguł,
+  `pages`, `bbox`, flagi wizualne (kolor zmian, przekreślenie), render strony do weryfikacji (`.glu/source/`).
+- **Akceptacja:** test na PDF wygenerowanym w teście z tekstu własnego (bez sieci, bez plików wydawców); ten sam tekst
+  w Markdown i PDF daje te same `text_hash` segmentów typu `rule`; flagi wizualne wykryte na przygotowanych stronach.
 
 ### M3: Złoty model logiki gry benchmarkowej + scorer
-- **Status:** planned · **Rola:** ARCH + HUM (przegląd) · **Zależy od:** M2
+- **Status:** planned · **Rola:** ARCH + HUM (przegląd) · **Zależy od:** M2a
 - **Zakres:** `bench/minigame/gold/logic.yaml` (wszystkie reguły 1.1–7.2, pojęcia, relacje, tabela, procedura
   sekwencji, AMB-001, przypadki dla każdej polaryzacji); `wgc bench score logic` (metryki z QUALITY §2).
 - **Akceptacja:** gold przechodzi `wgc validate` bez ostrzeżeń; scorer daje 100% dla gold i < 100% dla 3 ręcznych zniekształceń.
@@ -92,7 +110,7 @@ pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 
 - **Akceptacja:** każdy operator generuje mutację gold; raport tabelaryczny; test regresji harnessu.
 
 ### M5: Walidator L2 (provenance, cytaty, sygnały źródło↔IR)
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M2, M4
+- **Status:** planned · **Rola:** IMPL · **Zależy od:** M2a, M4
 - **Zakres:** cytat dosłowny w segmencie, słownik sygnałów EN (wersjonowany, idea z `wgu check fidelity`), reguły:
   zakaz → `must_not`/negacja, operator graniczny → `cmp`, liczby źródła ⊆ liczby IR, marker wyjątku → relacja.
 - **Akceptacja:** 0 fałszywych alarmów na gold; wykrycie mutacji krytycznych raportowane przez M4 (cel ≥ 80%; resztę łapie ryzyko).
@@ -116,7 +134,7 @@ pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 
 - **Akceptacja:** testy przejść (legalne i nielegalne), trwałość po restarcie, eksport rekordów zgodny z `glu/exec@0`.
 
 ### M9: TaskSpec, wykonawca deterministyczny, planner buildu
-- **Status:** planned · **Rola:** ARCH (kontrakt) + IMPL · **Zależy od:** M2, M8
+- **Status:** planned · **Rola:** ARCH (kontrakt) + IMPL · **Zależy od:** M2a, M8
 - **Zakres:** interfejs `TaskSpec` (ARCHITECTURE §2, z `decoding_schema`), rejestr zadań WGC, wykonawca Tier 0,
   `glu build --stage --scope --dry-run`, pierwsze zadania deterministyczne (harvest terminów, parse tabel, relacje
   warstwy scenariusza). Sprawdzanie bramek przez planner dochodzi w M12 (po M7). Dzięki temu M9 nie czeka na M3–M7,
@@ -217,9 +235,9 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
   - DEPLOYMENT.md zaktualizowany do stanu faktycznego (bez „weryfikacji M-NODE”).
 
 ### M-E2E: Walking skeleton przez LAN + `glu doctor`
-- **Status:** planned · **Rola:** IMPL + HUM (węzeł) · **Zależy od:** M2, M10, M-NODE
+- **Status:** planned · **Rola:** IMPL + HUM (węzeł) · **Zależy od:** M2a, M10, M-NODE
 - **Zakres:**
-  - **jedna reguła gry benchmarkowej** (zakaz 3.4) przechodzi całą drogę: `bench/minigame` → Stage 0 (M2) → TaskSpec
+  - **jedna reguła gry benchmarkowej** (zakaz 3.4) przechodzi całą drogę: `bench/minigame` → Stage 0 (M2a) → TaskSpec
     `logic.rule.extract` (minimalny prompt, `decoding_schema`) → GLU → `self_hosted` → bramka na węźle przez LAN →
     walidacja L0/L1 → `accept()` do `kb/` w katalogu tymczasowym → Stage 1.5 (szablon Tier 0 `prohibition` → `LEG-`
     i jeden `TST-` illegal) → walidacja kontraktu;
@@ -390,7 +408,7 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
 
 ## Faza 6: pilotaż
 ### M28: Pilot na prawdziwej grze + porównanie z baseline
-- **Status:** planned · **Rola:** HUM + IMPL · **Zależy od:** M21, M27, M-BASE
+- **Status:** planned · **Rola:** HUM + IMPL · **Zależy od:** M21, M27, M-BASE, M2b
 - **Zakres:** jedna gra (wybór właściciela), Stage 0–1.5 dla 1–2 rozdziałów, raport kosztu (premium według
   `premium_reason`, GPU węzła, czas) vs `B_*`.
 - **Akceptacja:** premium ≤ 2× baseline; FN z audytu ≤ progu; decyzja o dalszym rozwoju w ADR.

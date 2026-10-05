@@ -27,7 +27,7 @@
       "properties": {
         "kind": {"const": "source_document"},
         "id": {"$ref": "common.schema.json#/$defs/id"},
-        "role": {"enum": ["rules", "scenario_book", "charts", "errata", "faq", "designer_clarification", "cards", "counters", "map", "module", "prior_translation", "other"]},
+        "role": {"enum": ["rules", "living_rules", "scenario_book", "charts", "errata", "faq", "designer_clarification", "community_interpretation", "cards", "counters", "map", "module", "prior_translation", "other"]},
         "title": {"type": "string"},
         "edition": {"type": "string", "description": "edition / version string as printed"},
         "language": {"$ref": "common.schema.json#/$defs/lang"},
@@ -35,9 +35,10 @@
         "file_hash": {"$ref": "common.schema.json#/$defs/hash"},
         "present": {"type": "boolean"},
         "complete": {"type": "boolean", "description": "false when the document is known to lack content other sources must supply"},
-        "precedence": {"type": "integer", "description": "higher wins on conflict (e.g. errata > rules > charts of an older edition)"},
+        "precedence": {"type": "integer", "description": "higher wins on an explicit conflict; overrides the default by role (wgc.source.DEFAULT_PRECEDENCE: errata > living_rules > rules and printed components > faq > designer_clarification > community_interpretation)"},
         "edition_skew": {"type": "string", "description": "known mismatch with the main rules edition"},
-        "extractor": {"type": "string", "description": "deterministic extractor and version used, e.g. wgc.ingest.pdf@0.1"},
+        "seg_prefix": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$", "description": "key prefix of this document's segment ids (SEG-<seg_prefix>.<label>); default: the key of the SRC- id"},
+        "extractor": {"type": "string", "description": "deterministic extractor and version used, e.g. wgc.ingest.markdown@0"},
         "notes": {"type": "string"}
       },
       "additionalProperties": false
@@ -52,8 +53,8 @@
         "doc": {"$ref": "common.schema.json#/$defs/id"},
         "label": {"type": "string", "description": "rule number or label as printed, e.g. 3.4"},
         "segment_type": {"enum": ["rule", "heading", "table", "example", "designer_note", "historical_note", "play_note", "box", "list_item", "caption", "other"]},
-        "parent": {"$ref": "common.schema.json#/$defs/id"},
-        "order": {"type": "integer"},
+        "parent": {"$ref": "common.schema.json#/$defs/id", "description": "enclosing segment (the nearest preceding heading)"},
+        "order": {"type": "integer", "description": "1-based position in document order"},
         "pages": {"type": "string"},
         "bbox": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
         "text_hash": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of the normalized text (NFC, whitespace-collapsed, hyphenation joined)"},

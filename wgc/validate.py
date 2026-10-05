@@ -43,6 +43,7 @@ REF_FIELDS: tuple[tuple[frozenset[str] | None, tuple[str, ...]], ...] = (
     (frozenset({"blocker"}), ("cause",)),
     (frozenset({"blocker"}), ("affects",)),
     (frozenset({"segment"}), ("doc",)),
+    (frozenset({"segment"}), ("parent",)),
 )
 
 

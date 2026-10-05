@@ -25,3 +25,4 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0017](ADR-0017-niedostepnosc-wezla-bez-premium-fallback.md) | Niedostępność węzła nie eskaluje do premium; self-hosted jako zasób obfity | przyjęty |
 | [ADR-0018](ADR-0018-runtime-mvp-llama-cpp-windows.md) | Runtime MVP: llama.cpp natywnie na Windows; vLLM w WSL2 po benchmarku | przyjęty |
 | [ADR-0019](ADR-0019-wiele-dokumentow-w-pliku-yaml.md) | Plik YAML może zawierać wiele dokumentów, każdy z własnym kontraktem | przyjęty |
+| [ADR-0020](ADR-0020-inwentarz-i-segmentacja-stage0.md) | Inwentarz Stage 0, segmentacja Markdown, ID segmentów i domyślne pierwszeństwo źródeł | przyjęty |
