@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/glu.schema.json",
+  "title": "glu/exec@0: execution state (Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey)",
+  "description": "DRAFT @0. Execution state, NOT domain knowledge. Lives in .glu/ (SQLite + JSON blobs), gitignored. Only accepted outputs reach kb/, through WGC validators.",
+  "type": "object",
+  "required": ["schema", "records"],
+  "properties": {"schema": {"const": "glu/exec@0"}, "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}},
+  "additionalProperties": false,
+  "$defs": {
+    "xid": {"type": "string", "pattern": "^(build|job|att|rd|pkg)_[0-9A-Za-z]{6,32}$"},
+    "tier": {"enum": ["deterministic", "local", "premium", "human"]},
+    "record": {
+      "type": "object", "required": ["kind", "id"],
+      "properties": {"kind": {"enum": ["build", "job", "attempt", "routing_decision", "review_package"]}},
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "build"}}}, "then": {"$ref": "#/$defs/build"}},
+        {"if": {"properties": {"kind": {"const": "job"}}}, "then": {"$ref": "#/$defs/job"}},
+        {"if": {"properties": {"kind": {"const": "attempt"}}}, "then": {"$ref": "#/$defs/attempt"}},
+        {"if": {"properties": {"kind": {"const": "routing_decision"}}}, "then": {"$ref": "#/$defs/routing_decision"}},
+        {"if": {"properties": {"kind": {"const": "review_package"}}}, "then": {"$ref": "#/$defs/review_package"}}
+      ]
+    },
+    "cache_key": {
+      "type": "object",
+      "description": "Components of a cache key; the key itself is sha256 of the canonical JSON of this object.",
+      "required": ["task", "task_version", "output_schema", "input_hash", "context_hash"],
+      "properties": {
+        "task": {"type": "string"}, "task_version": {"type": "string"}, "prompt_version": {"type": "string"},
+        "output_schema": {"type": "string"},
+        "profile": {"type": "string"}, "profile_fingerprint": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of resolved model id + quantization + sampling params"},
+        "input_hash": {"$ref": "common.schema.json#/$defs/hash"},
+        "context_hash": {"$ref": "common.schema.json#/$defs/hash"},
+        "dependency_state": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of the semantic projections of upstream accepted records"}
+      },
+      "additionalProperties": false
+    },
+    "build": {
+      "type": "object",
+      "description": "One requested compilation over a scope (e.g. stage1 for chapter 3). Owns many jobs.",
+      "required": ["kind", "id", "project", "target", "state", "started_at"],
+      "properties": {
+        "kind": {"const": "build"}, "id": {"$ref": "#/$defs/xid"},
+        "project": {"type": "string"}, "project_rev": {"type": "string"},
+        "target": {"type": "object", "required": ["stage"], "properties": {"stage": {"type": "string"}, "scope": {"type": "string"}}, "additionalProperties": false},
+        "policy": {"type": "object", "properties": {"routing": {"type": "string"}, "budget_premium_usd": {"type": "number"}, "max_human_questions": {"type": "integer"}}, "additionalProperties": false},
+        "state": {"enum": ["planning", "running", "waiting_review", "waiting_human", "done", "failed", "cancelled"]},
+        "started_at": {"type": "string", "format": "date-time"}, "finished_at": {"type": "string", "format": "date-time"},
+        "metrics": {"type": "object", "additionalProperties": {"type": "number"}}
+      },
+      "additionalProperties": false
+    },
+    "job": {
+      "type": "object",
+      "description": "One unit of work: task + inputs. Idempotent: same cache key → same accepted result, zero inference.",
+      "required": ["kind", "id", "build", "task", "inputs", "state", "cache_key"],
+      "properties": {
+        "kind": {"const": "job"}, "id": {"$ref": "#/$defs/xid"}, "build": {"$ref": "#/$defs/xid"},
+        "task": {"type": "string", "description": "WGC task id, e.g. logic.rule.extract"},
+        "inputs": {"$ref": "common.schema.json#/$defs/ids"},
+        "depends_on": {"type": "array", "items": {"$ref": "#/$defs/xid"}},
+        "state": {"enum": ["pending", "ready", "running", "proposed", "validating", "accepted", "rejected", "retry", "escalated", "waiting_review", "waiting_human", "done", "failed", "cancelled", "stale"]},
+        "tier": {"$ref": "#/$defs/tier"},
+        "cache_key": {"$ref": "#/$defs/cache_key"},
+        "cache_hit": {"type": "boolean"},
+        "risk_class": {"enum": ["low", "medium", "high", "critical"]},
+        "attempts": {"type": "array", "items": {"$ref": "#/$defs/xid"}},
+        "accepted_records": {"$ref": "common.schema.json#/$defs/ids"}
+      },
+      "additionalProperties": false
+    },
+    "attempt": {
+      "type": "object",
+      "description": "One executor run of a job. Raw output is stored as a blob; validation results decide accept/retry/escalate.",
+      "required": ["kind", "id", "job", "tier", "outcome"],
+      "properties": {
+        "kind": {"const": "attempt"}, "id": {"$ref": "#/$defs/xid"}, "job": {"$ref": "#/$defs/xid"},
+        "tier": {"$ref": "#/$defs/tier"}, "profile": {"type": "string"}, "model": {"type": "string"},
+        "output_blob": {"$ref": "common.schema.json#/$defs/hash"},
+        "schema_valid": {"type": "boolean"}, "domain_valid": {"type": "boolean"},
+        "validation_errors": {"type": "array", "items": {"type": "string"}},
+        "outcome": {"enum": ["accepted", "retry", "escalate", "rejected", "requires_human_interpretation", "error"]},
+        "tokens_in": {"type": "integer"}, "tokens_out": {"type": "integer"},
+        "cost_usd": {"type": "number"}, "gpu_seconds": {"type": "number"}, "wall_seconds": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "routing_decision": {
+      "type": "object",
+      "description": "Audit of why a job went to a tier. Re-playable from the recorded signals and policy version.",
+      "required": ["kind", "id", "job", "policy", "chosen", "signals", "reasons"],
+      "properties": {
+        "kind": {"const": "routing_decision"}, "id": {"$ref": "#/$defs/xid"}, "job": {"$ref": "#/$defs/xid"},
+        "policy": {"type": "string", "description": "e.g. routing@0"},
+        "chosen": {"$ref": "#/$defs/tier"},
+        "signals": {"type": "object", "additionalProperties": {"type": ["number", "string", "boolean"]}},
+        "reasons": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "review_package": {
+      "type": "object",
+      "description": "Minimal self-contained package for a stateless premium (or human) reviewer. Everything the reviewer needs is inside; the answer must match `answer_schema`.",
+      "required": ["kind", "id", "job", "question", "context", "answer_schema"],
+      "properties": {
+        "kind": {"const": "review_package"}, "id": {"$ref": "#/$defs/xid"}, "job": {"$ref": "#/$defs/xid"},
+        "question": {"type": "string"},
+        "source_excerpt": {"type": "string", "description": "the minimal source text (local only; never committed)"},
+        "context": {"type": "array", "items": {"type": "object"}, "description": "accepted records in the k-hop dependency neighbourhood"},
+        "candidates": {"type": "array", "items": {"type": "object"}, "description": "local proposals, incl. disagreeing ones"},
+        "risk": {"$ref": "common.schema.json#/$defs/risk"},
+        "answer_schema": {"type": "string"},
+        "token_estimate": {"type": "integer"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

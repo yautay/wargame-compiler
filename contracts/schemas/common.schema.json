@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/common.schema.json",
+  "title": "wgc/common@0: shared building blocks (IDs, anchors, provenance, risk, lifecycle, human decisions)",
+  "description": "DRAFT @0: unstable until milestone M1 freezes it as @1. Field names are English; free text is Markdown.",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "description": "Typed stable ID: <PREFIX>-<key>. Prefix registry: docs/DATA-CONTRACTS.md#identyfikatory. Never renumbered.",
+      "pattern": "^[A-Z]{1,4}-[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "ids": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+    "hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{16,64}$", "description": "Canonical content hash (prefix may be truncated to >=16 hex chars in fixtures)."},
+    "lang": {"type": "string", "pattern": "^[a-z]{2}(-[A-Za-z0-9]+)?$"},
+    "text": {
+      "type": "object",
+      "description": "A gloss in one language. Never the source text itself (copyright): source text is referenced by anchor.",
+      "required": ["lang", "text"],
+      "properties": {"lang": {"$ref": "#/$defs/lang"}, "text": {"type": "string", "minLength": 1}},
+      "additionalProperties": false
+    },
+
+    "anchor": {
+      "type": "object",
+      "description": "Pointer into a source segment. `seg_hash` is the segment text hash at anchoring time: a mismatch makes the anchor stale.",
+      "required": ["seg", "seg_hash"],
+      "properties": {
+        "seg": {"$ref": "#/$defs/id", "description": "SEG-… source segment id"},
+        "seg_hash": {"$ref": "#/$defs/hash"},
+        "span": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2, "description": "[start, end) character offsets in the normalized segment text"},
+        "quote": {"type": "string", "maxLength": 200, "description": "Short verbatim cue (<= ~25 words) used for deterministic checks; optional"}
+      },
+      "additionalProperties": false
+    },
+
+    "executor": {
+      "type": "object",
+      "required": ["tier"],
+      "properties": {
+        "tier": {"enum": ["deterministic", "local", "premium", "human"]},
+        "tool": {"type": "string", "description": "deterministic tool and version, e.g. wgc.ingest.pdf@0.1"},
+        "profile": {"type": "string", "description": "model profile, e.g. local_semantic (never a raw model name in domain logic)"},
+        "model": {"type": "string", "description": "resolved model id recorded for audit only"},
+        "prompt": {"type": "string", "description": "task prompt id and version, e.g. logic.rule.extract@3"},
+        "person": {"type": "string", "description": "human role or handle, e.g. owner"}
+      },
+      "additionalProperties": false
+    },
+
+    "provenance": {
+      "type": "object",
+      "description": "Where a piece of knowledge comes from. An inference is never recorded as explicit_source.",
+      "required": ["kind", "by"],
+      "properties": {
+        "kind": {"enum": ["explicit_source", "deterministic_derivation", "llm_inference", "interpretation", "errata", "faq", "designer_clarification", "human_decision"]},
+        "anchors": {"type": "array", "items": {"$ref": "#/$defs/anchor"}},
+        "derived_from": {"$ref": "#/$defs/ids", "description": "records this was derived or inferred from"},
+        "decision": {"$ref": "#/$defs/id", "description": "HD-… human decision that established this (kind human_decision / accepted interpretation)"},
+        "by": {"$ref": "#/$defs/executor"},
+        "job": {"type": "string", "description": "GLU job id that produced the accepted proposal"},
+        "inputs_hash": {"$ref": "#/$defs/hash", "description": "hash of the semantic projections of anchors + derived_from at acceptance; a mismatch makes the record stale (lives in kb/, so staleness survives loss of .glu/)"},
+        "at": {"type": "string", "format": "date-time"},
+        "note": {"type": "string"}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"enum": ["explicit_source", "errata", "faq", "designer_clarification"]}}},
+         "then": {"required": ["anchors"], "properties": {"anchors": {"minItems": 1}}}},
+        {"if": {"properties": {"kind": {"enum": ["deterministic_derivation", "llm_inference", "interpretation"]}}},
+         "then": {"required": ["derived_from"], "properties": {"derived_from": {"minItems": 1}}}},
+        {"if": {"properties": {"kind": {"const": "human_decision"}}}, "then": {"required": ["decision"]}},
+        {"if": {"properties": {"kind": {"const": "deterministic_derivation"}}}, "then": {"properties": {"by": {"properties": {"tier": {"const": "deterministic"}}}}}},
+        {"if": {"properties": {"kind": {"const": "llm_inference"}}}, "then": {"properties": {"by": {"properties": {"tier": {"enum": ["local", "premium"]}}}}}},
+        {"if": {"properties": {"kind": {"const": "human_decision"}}}, "then": {"properties": {"by": {"properties": {"tier": {"const": "human"}}}}}}
+      ],
+      "additionalProperties": false
+    },
+
+    "risk": {
+      "type": "object",
+      "description": "Audit trail of the semantic-risk model (docs/LOGIC-MODEL.md#model-ryzyka). Computed by WGC, never typed by a model.",
+      "required": ["model", "score", "class", "features"],
+      "properties": {
+        "model": {"type": "string", "pattern": "^wgc/risk@[0-9]+$"},
+        "score": {"type": "number", "minimum": 0},
+        "class": {"enum": ["low", "medium", "high", "critical"]},
+        "forced": {"type": "array", "items": {"type": "string"}, "description": "hard rules that forced the class regardless of score, e.g. boundary_operator"},
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["name", "value", "weight"],
+            "properties": {"name": {"type": "string"}, "value": {"type": "number"}, "weight": {"type": "number"}, "evidence": {"type": "string"}},
+            "additionalProperties": false
+          }
+        },
+        "self_confidence": {"type": "number", "minimum": 0, "maximum": 1, "description": "model-reported, one signal among many"},
+        "input_hash": {"$ref": "#/$defs/hash"}
+      },
+      "additionalProperties": false
+    },
+
+    "lifecycle": {"enum": ["proposed", "accepted", "rejected", "superseded", "deprecated"],
+      "description": "Record lifecycle. Only `accepted` records are canonical; GLU proposals live outside kb/ until accepted."},
+
+    "human_decision": {
+      "type": "object",
+      "description": "HD-…: a decision only a human may take (interpretation, terminology, policy). Append-only.",
+      "required": ["kind", "id", "question", "answer", "by", "at"],
+      "properties": {
+        "kind": {"const": "human_decision"},
+        "id": {"$ref": "#/$defs/id"},
+        "question": {"type": "string"},
+        "options": {"type": "array", "items": {"type": "string"}},
+        "answer": {"type": "string"},
+        "rationale": {"type": "string"},
+        "scope": {"enum": ["game", "series", "all_games", "tool"]},
+        "affects": {"$ref": "#/$defs/ids"},
+        "supersedes": {"$ref": "#/$defs/id"},
+        "by": {"type": "string"},
+        "at": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": false
+    },
+
+    "review_request": {
+      "type": "object",
+      "description": "RR-…: a downstream stage (1.5, 2, 3) reports a suspected problem upstream. It never edits upstream records itself.",
+      "required": ["kind", "id", "from_stage", "target", "issue", "status"],
+      "properties": {
+        "kind": {"const": "review_request"},
+        "id": {"$ref": "#/$defs/id"},
+        "from_stage": {"enum": ["stage1_5", "stage2", "stage3", "engine"]},
+        "target": {"$ref": "#/$defs/ids"},
+        "issue": {"type": "string"},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/anchor"}},
+        "status": {"enum": ["open", "accepted", "rejected", "resolved"]},
+        "resolution": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

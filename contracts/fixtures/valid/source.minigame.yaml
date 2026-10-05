@@ -1,0 +1,16 @@
+# Stage 0 fixture for bench/minigame/rulebook.md (self-authored, CC0).
+# Hashes are placeholders until milestone M2 (source ingest) computes real ones.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-dsk.rules, role: rules, title: "Drill Skirmish", edition: "bench-1",
+     language: en, path: bench/minigame/rulebook.md, file_hash: "sha256:0000000000000001", present: true,
+     complete: true, precedence: 10, extractor: "wgc.ingest.markdown@0"}
+  - {kind: source_document, id: SRC-dsk.faq, role: faq, title: "Drill Skirmish FAQ", present: false,
+     notes: "Expected but missing: AMB-001 (6.2) may be settled by a FAQ. A missing source is visible before analysis."}
+  - {kind: segment, id: SEG-dsk.3.3, doc: SRC-dsk.rules, label: "3.3", segment_type: rule, order: 33, text_hash: "sha256:0000000000003003"}
+  - {kind: segment, id: SEG-dsk.3.4, doc: SRC-dsk.rules, label: "3.4", segment_type: rule, order: 34, text_hash: "sha256:0000000000003004"}
+  - {kind: segment, id: SEG-dsk.3.5, doc: SRC-dsk.rules, label: "3.5", segment_type: rule, order: 35, text_hash: "sha256:0000000000003005"}
+  - {kind: segment, id: SEG-dsk.4.3, doc: SRC-dsk.rules, label: "4.3", segment_type: table, order: 43, text_hash: "sha256:0000000000004003"}
+  - {kind: segment, id: SEG-dsk.5.2, doc: SRC-dsk.rules, label: "5.2", segment_type: rule, order: 52, text_hash: "sha256:0000000000005002"}
+  - {kind: segment, id: SEG-dsk.6.2, doc: SRC-dsk.rules, label: "6.2", segment_type: rule, order: 62, text_hash: "sha256:0000000000006002"}
+  - {kind: segment, id: SEG-dsk.7.1, doc: SRC-dsk.rules, label: "7.1", segment_type: rule, order: 71, text_hash: "sha256:0000000000007001"}

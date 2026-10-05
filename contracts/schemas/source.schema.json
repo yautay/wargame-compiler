@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/source.schema.json",
+  "title": "wgc/source@0: Stage 0 source inventory and segment map",
+  "description": "DRAFT @0. The inventory (`source/inventory.yaml`) is committed. Segment TEXT is never committed (copyright): it is re-extracted deterministically into the local cache and verified against `text_hash`.",
+  "type": "object",
+  "required": ["schema", "records"],
+  "properties": {
+    "schema": {"const": "wgc/source@0"},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {"kind": {"enum": ["source_document", "segment"]}},
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "source_document"}}}, "then": {"$ref": "#/$defs/source_document"}},
+        {"if": {"properties": {"kind": {"const": "segment"}}}, "then": {"$ref": "#/$defs/segment"}}
+      ]
+    },
+    "source_document": {
+      "type": "object",
+      "description": "SRC-…: one input document. Every expected input is listed, also missing ones (`present: false`), so a gap is visible before analysis starts.",
+      "required": ["kind", "id", "role", "present"],
+      "properties": {
+        "kind": {"const": "source_document"},
+        "id": {"$ref": "common.schema.json#/$defs/id"},
+        "role": {"enum": ["rules", "scenario_book", "charts", "errata", "faq", "designer_clarification", "cards", "counters", "map", "module", "prior_translation", "other"]},
+        "title": {"type": "string"},
+        "edition": {"type": "string", "description": "edition / version string as printed"},
+        "language": {"$ref": "common.schema.json#/$defs/lang"},
+        "path": {"type": "string", "description": "project-relative path; may be gitignored"},
+        "file_hash": {"$ref": "common.schema.json#/$defs/hash"},
+        "present": {"type": "boolean"},
+        "complete": {"type": "boolean", "description": "false when the document is known to lack content other sources must supply"},
+        "precedence": {"type": "integer", "description": "higher wins on conflict (e.g. errata > rules > charts of an older edition)"},
+        "edition_skew": {"type": "string", "description": "known mismatch with the main rules edition"},
+        "extractor": {"type": "string", "description": "deterministic extractor and version used, e.g. wgc.ingest.pdf@0.1"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "segment": {
+      "type": "object",
+      "description": "SEG-…: smallest addressable unit of source text (numbered rule paragraph, table, box, example). Provenance anchors point here.",
+      "required": ["kind", "id", "doc", "text_hash", "segment_type"],
+      "properties": {
+        "kind": {"const": "segment"},
+        "id": {"$ref": "common.schema.json#/$defs/id"},
+        "doc": {"$ref": "common.schema.json#/$defs/id"},
+        "label": {"type": "string", "description": "rule number or label as printed, e.g. 3.4"},
+        "segment_type": {"enum": ["rule", "heading", "table", "example", "designer_note", "historical_note", "play_note", "box", "list_item", "caption", "other"]},
+        "parent": {"$ref": "common.schema.json#/$defs/id"},
+        "order": {"type": "integer"},
+        "pages": {"type": "string"},
+        "bbox": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
+        "text_hash": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of the normalized text (NFC, whitespace-collapsed, hyphenation joined)"},
+        "visual_flags": {"type": "array", "items": {"enum": ["strikethrough", "changed_color", "image_only", "column_scrambled", "ocr"]}},
+        "verified_by_render": {"type": "boolean", "description": "true when a page render confirmed the extraction"},
+        "corrections": {"type": "array", "items": {"type": "object", "required": ["what", "by"],
+          "properties": {"what": {"type": "string"}, "by": {"type": "string"}}, "additionalProperties": false}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

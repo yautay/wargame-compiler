@@ -1,0 +1,207 @@
+# Stage 1 fixture: a slice of the Drill Skirmish Logic Model (bench/minigame/rulebook.md).
+# It demonstrates: prohibition (3.4), obligation + trigger (3.3), exception via relation (3.5),
+# boundary (5.2 "equal to or less"), scenario override (7.1), table (4.3), ambiguity (6.2) and control cases.
+schema: wgc/logic@0
+records:
+  # ---- concepts -------------------------------------------------------------------------------
+  - kind: concept
+    id: CON-unit
+    category: entity_type
+    name: unit
+    source_terms: [unit, units]
+    definition: {lang: en, text: "A playing piece with Strength and Movement Allowance."}
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_fast, prompt: "logic.concept.extract@0"},
+           anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "unit"}]}
+  - {kind: concept, id: CON-light, category: state, of: CON-unit, name: Light, source_terms: [Light units], status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "Light units"}]}}
+  - {kind: concept, id: CON-routed, category: state, of: CON-unit, name: Routed, source_terms: [Routed], values: [formed, routed], status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "A Routed unit"}]}}
+  - {kind: concept, id: CON-strength, category: state_var, of: CON-unit, name: Strength, value_type: int, range: [1, 4], status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "the unit's Strength"}]}}
+  - {kind: concept, id: CON-hex, category: place, name: hex, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "a hex"}]}}
+  - kind: concept
+    id: CON-adjacent_to_enemy
+    category: predicate
+    name: adjacent to an enemy unit
+    params: [CON-hex]
+    definition: {lang: en, text: "True for a hex that shares a hexside with a hex occupied by an enemy unit."}
+    status: accepted
+    prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.concept.extract@0"}, derived_from: [R-3.3, R-3.4],
+           note: "Definition of adjacency is not printed; inferred from standard hex usage. Low impact."}
+  - {kind: concept, id: CON-move, category: action, name: move, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0000000000003003", quote: "stop moving"}]}}
+  - {kind: concept, id: CON-enter_hex, category: event, name: unit enters a hex, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0000000000003003", quote: "when it enters a hex"}]}}
+  - {kind: concept, id: CON-rally, category: action, name: rally attempt, status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "Roll 1d6"}]}}
+  - {kind: concept, id: CON-d6, category: die, name: die (1d6), status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "1d6"}]}}
+  - {kind: concept, id: CON-scn.ford, category: scenario, name: "The Ford", status: accepted,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"}, anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:0000000000007001", quote: "In this scenario"}]}}
+
+  # ---- rules ----------------------------------------------------------------------------------
+  - kind: rule
+    id: R-3.4
+    label: "3.4"
+    nature: prohibition
+    modality: must_not
+    statement: {lang: en, text: "A Routed unit may not enter a hex adjacent to an enemy unit."}
+    bind: {$unit: CON-unit, $hex: CON-hex}
+    actor: $unit
+    action: CON-move
+    target: $hex
+    conditions: {all: [{is: [$unit, CON-routed]}, {pred: CON-adjacent_to_enemy, args: [$hex]}]}
+    formalization: full
+    status: accepted
+    refs: [CON-unit, CON-routed, CON-hex, CON-adjacent_to_enemy, CON-move]
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"}, job: job_0001aa,
+           anchors: [{seg: SEG-dsk.3.4, seg_hash: "sha256:0000000000003004", quote: "may not enter a hex adjacent to an enemy unit"}]}
+    risk:
+      model: wgc/risk@0
+      score: 0.55
+      class: high
+      forced: [negation_with_exception_target]
+      features:
+        - {name: negation, value: 1, weight: 0.15, evidence: "may not"}
+        - {name: inbound_exceptions, value: 0, weight: 0.2}
+        - {name: referenced_by_exception_text, value: 1, weight: 0.2, evidence: "3.5 'They remain subject to 3.4'"}
+        - {name: digital_state_impact, value: 1, weight: 0.2}
+      self_confidence: 0.93
+  - kind: rule
+    id: R-3.3
+    label: "3.3"
+    nature: obligation
+    modality: must
+    statement: {lang: en, text: "A unit must stop moving when it enters a hex adjacent to an enemy unit."}
+    bind: {$unit: CON-unit, $hex: CON-hex}
+    actor: $unit
+    triggers: [{event: CON-enter_hex, when: {pred: CON-adjacent_to_enemy, args: [$hex]}}]
+    effects: [{op: end_activity, of: $unit}]
+    formalization: full
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.3.3, seg_hash: "sha256:0000000000003003", quote: "must stop moving"}]}
+  - kind: rule
+    id: R-3.5
+    label: "3.5"
+    nature: permission
+    modality: need_not
+    statement: {lang: en, text: "Light units are not required to stop under 3.3; they remain subject to 3.4."}
+    bind: {$unit: CON-unit}
+    conditions: {is: [$unit, CON-light]}
+    formalization: partial
+    unformalized: "The carve-out itself is the relation REL-001; 'remain subject to 3.4' is REL-002 (no exception to 3.4)."
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "not required to stop under 3.3"}]}
+  - kind: rule
+    id: R-5.2
+    label: "5.2"
+    nature: automatic_effect
+    modality: is
+    statement: {lang: en, text: "Rally: roll 1d6; on a result equal to or less than the unit's Strength the unit becomes Formed."}
+    bind: {$unit: CON-unit}
+    effects:
+      - {op: random, source: CON-d6, spec: "1d6", bind: $roll}
+      - {op: leave_state, of: $unit, state: CON-routed, when: {cmp: [$roll, "<=", {val: CON-strength, of: $unit}]}}
+    formalization: full
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: premium, profile: premium_semantic, prompt: "logic.rule.review@0"},
+           anchors: [{seg: SEG-dsk.5.2, seg_hash: "sha256:0000000000005002", quote: "equal to or less than the unit's Strength"}]}
+    risk: {model: wgc/risk@0, score: 0.6, class: high, forced: [boundary_operator],
+           features: [{name: boundary_operator, value: 1, weight: 0.3, evidence: "equal to or less than"}, {name: randomness, value: 1, weight: 0.1}]}
+  - kind: rule
+    id: R-7.1
+    label: "7.1"
+    layer: scenario
+    applies_in: [CON-scn.ford]
+    nature: automatic_effect
+    modality: is
+    statement: {lang: en, text: "In The Ford, a rally succeeds on a result equal to or less than Strength plus one."}
+    bind: {$unit: CON-unit}
+    effects:
+      - {op: random, source: CON-d6, spec: "1d6", bind: $roll}
+      - {op: leave_state, of: $unit, state: CON-routed, when: {cmp: [$roll, "<=", {add: [{val: CON-strength, of: $unit}, 1]}]}}
+    formalization: full
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.7.1, seg_hash: "sha256:0000000000007001", quote: "Strength plus one"}]}
+  - kind: rule
+    id: R-6.2
+    label: "6.2"
+    nature: automatic_effect
+    modality: is
+    statement: {lang: en, text: "A Reserve marker is revealed when an enemy unit moves adjacent to it, or at its owner's choice at the start of his Movement Phase."}
+    formalization: partial
+    unformalized: "Trigger moment of 'moves adjacent' is ambiguous (AMB-001)."
+    ambiguities: [AMB-001]
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.rule.extract@0"},
+           anchors: [{seg: SEG-dsk.6.2, seg_hash: "sha256:0000000000006002", quote: "moves adjacent to it"}]}
+
+  # ---- relations (the only home of exceptions and overrides) ----------------------------------
+  - {kind: relation, id: REL-001, type: exception_to, from: R-3.5, to: R-3.3, priority_basis: exception_over_rule,
+     when: {is: [$unit, CON-light]}, status: accepted,
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.relations@0"},
+            anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "not required to stop under 3.3"}]}}
+  - {kind: relation, id: REL-002, type: see, from: R-3.5, to: R-3.4, priority_basis: explicit_statement, status: accepted,
+     notes: "Explicit statement that 3.5 is NOT an exception to 3.4.",
+     prov: {kind: explicit_source, by: {tier: local, profile: local_semantic, prompt: "logic.relations@0"},
+            anchors: [{seg: SEG-dsk.3.5, seg_hash: "sha256:0000000000003005", quote: "They remain subject to 3.4"}]}}
+  - {kind: relation, id: REL-003, type: overrides, from: R-7.1, to: R-5.2, priority_basis: scenario_over_game,
+     when: {pred: CON-scn.ford}, status: accepted,
+     prov: {kind: deterministic_derivation, by: {tier: deterministic, tool: "wgc.relations.scenario_layer@0"}, derived_from: [R-7.1, R-5.2]}}
+
+  # ---- table ----------------------------------------------------------------------------------
+  - kind: table
+    id: TAB-crt
+    title: Combat Results Table
+    columns: [{name: modified_result, role: key}, {name: effect, role: value}]
+    rows:
+      - [{min: null, max: 4}, none]
+      - [{min: 5, max: 6}, routed]
+      - [{min: 7, max: null}, eliminated]
+    complete: true
+    status: accepted
+    prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.tables.parse@0"},
+           anchors: [{seg: SEG-dsk.4.3, seg_hash: "sha256:0000000000004003"}]}
+
+  # ---- ambiguity, interpretation --------------------------------------------------------------
+  - kind: ambiguity
+    id: AMB-001
+    scope: original
+    question: "Does a Light unit that passes through a hex adjacent to a Reserve marker (without stopping) reveal it?"
+    readings:
+      - {id: a, gloss: "Any entry into an adjacent hex reveals the marker.", consequence: "Light units scout by passing by."}
+      - {id: b, gloss: "Only ending movement adjacent reveals the marker.", consequence: "Passing Light units reveal nothing."}
+    recommendation: {reading: a, strength: probable, by: {tier: premium, profile: premium_semantic}}
+    impact: {semantic: true, digital: blocks, editorial: false}
+    status: requires_human_interpretation
+    refs: [R-6.2, R-3.5, R-3.3]
+    prov: {kind: llm_inference, by: {tier: premium, profile: premium_semantic, prompt: "logic.ambiguity.detect@0"}, derived_from: [R-6.2, R-3.5]}
+  - kind: interpretation
+    id: INT-001
+    ambiguity: AMB-001
+    reading: a
+    status: proposed
+    prov: {kind: interpretation, by: {tier: premium, profile: premium_semantic}, derived_from: [AMB-001]}
+
+  # ---- control cases --------------------------------------------------------------------------
+  - {kind: case, id: CASE-001, polarity: negative, verdict: illegal,
+     question: "A Routed infantry unit wants to enter a clear hex adjacent to an enemy unit, with MP to spare. Legal?",
+     expected: "No (3.4). MP and the first-hex exception of 3.2 do not matter.", chain: [R-3.4], status: accepted,
+     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.case.generate@0"}, derived_from: [R-3.4]}}
+  - {kind: case, id: CASE-002, polarity: boundary, verdict: outcome,
+     question: "A Routed Strength-3 unit attempts to rally and rolls a 3.", expected: "It becomes Formed (equal to Strength suffices).",
+     chain: [R-5.2], status: accepted,
+     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.case.generate@0"}, derived_from: [R-5.2]}}
+  - {kind: case, id: CASE-003, polarity: override, verdict: outcome,
+     question: "In The Ford, a Routed Strength-3 unit rolls a 4 for rally.", expected: "It becomes Formed (7.1 overrides 5.2).",
+     chain: [R-7.1, REL-003, R-5.2], status: accepted,
+     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic, prompt: "logic.case.generate@0"}, derived_from: [R-7.1, R-5.2]}}
+  - {kind: case, id: CASE-004, polarity: ambiguity, verdict: requires_human_interpretation,
+     question: "A Light unit passes next to an enemy Reserve marker and continues moving. Is the marker revealed?",
+     expected: "Unresolved (AMB-001).", chain: [R-6.2, R-3.5], status: accepted,
+     prov: {kind: llm_inference, by: {tier: premium, profile: premium_semantic, prompt: "logic.case.generate@0"}, derived_from: [AMB-001]}}
