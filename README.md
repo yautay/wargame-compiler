@@ -1,5 +1,16 @@
 # wargame-compiler
 
+![Wargame Compiler banner](docs/assets/wargame-compiler-banner.png)
+
+> [!IMPORTANT]
+> ## Copyright & Usage Notice
+> Wargame Compiler is a tool. It does not grant rights to third-party game content, rulebooks, maps, counters,
+> artwork, trademarks, VASSAL modules, or other publisher materials. Use only input materials you are allowed to
+> read, analyze, translate, digitize, reproduce, or distribute, and do not use this repository to distribute
+> unauthorized copies. Game and publisher names are used only for identification, testing, interoperability,
+> research, or documentation; rights remain with their respective owners. This project is not affiliated with or
+> endorsed by any publisher unless explicitly stated. See [COPYRIGHT.md](COPYRIGHT.md).
+
 Kontrolowany **kompilator instrukcji gier wojennych**: od PDF-u wydawcy przez kanoniczny model logiki gry do
 specyfikacji silnika gry (z testami) oraz do wiernego wydania w innym języku w oprawie oryginału.
 
@@ -31,6 +42,7 @@ python -m pytest
 | Dokument | Po co |
 |---|---|
 | [CLAUDE.md](CLAUDE.md) | bootstrap dla sesji AI |
+| [COPYRIGHT.md](COPYRIGHT.md) | polityka third-party content, nazw i wygenerowanych wyników |
 | [docs/STATUS.md](docs/STATUS.md) | stan, bieżący i następny milestone, otwarte kwestie |
 | [docs/HANDOFF.md](docs/HANDOFF.md) | ostatnie przekazanie pracy |
 | [docs/SESSION-PLAYBOOK.md](docs/SESSION-PLAYBOOK.md) | jak prowadzić sesję, role modeli, rozmiar sesji |
