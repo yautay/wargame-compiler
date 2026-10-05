@@ -1,8 +1,8 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-05
-- **Ostatni milestone:** M2b (Stage 0: ingest PDF, flagi wizualne, render strony): done
-- **Bieżący milestone:** M8
+- **Ostatni milestone:** M8 (job store i maszyna stanów joba): done
+- **Bieżący milestone:** M9
 - **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-compiler.git`
 
 ## Gdzie jesteśmy
@@ -28,7 +28,15 @@ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. 
   - ten sam tekst w Markdown i PDF daje te same segmenty i `text_hash` (test na PDF-ie gry benchmarkowej
     wygenerowanym w teście).
 
-GLU to pusty pakiet. Mapa dokumentów: [README.md](../README.md#dokumentacja).
+- **M8 (pierwszy kod GLU):**
+  - job store `glu.store` w `.glu/state.db` (SQLite z biblioteki standardowej): tabele build, job, attempt,
+    routing_decision i dziennik `transition`; migracje schematu bazy przez `PRAGMA user_version`; walidacja każdego
+    rekordu kontraktem `glu/exec@0` przed zapisem (ADR-0023);
+  - maszyna stanów joba i buildu jako tabela `glu.states` (strażniki: premium fallback tylko przy
+    `allow_premium_fallback`, eskalacja podnosi tier); dokładna tabela w [GLU §3](GLU.md#tabela-przejsc);
+  - `glu status` i `glu export` (skrypt `glu` w `[project.scripts]`); eksport odtwarza fixture `glu.job.yaml`.
+
+Mapa dokumentów: [README.md](../README.md#dokumentacja).
 
 **Inferencja (M-INF0):** „local” znaczy self-hosted. Modele działają na **osobnym PC w LAN** (Windows 11 Pro,
 RTX 3090 24 GB, 128 GB RAM) za Inference Gateway `igw`, a nie na maszynie z Claude Desktop. Węzeł jest wymienialnym
@@ -46,34 +54,36 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
 | Stage 2 | planowany (M24) | — | — |
 | Stage 3 | planowany (M25–M26) | — | — |
 | Bramki | `wgc/gate@0` (szkic) | — | — |
-| GLU | `glu/exec@0` (szkic, z polityką fallbacku i `premium_reason`) | — | — |
+| GLU | `glu/exec@0` (szkic, z polityką fallbacku i `premium_reason`) | `glu.store`, `glu.states`, `glu status`, `glu export` (M8) | — (M9) |
 | Węzeł inferencji (`igw`) | `igw/api@0` (szkic) | — (M-GW1) | — (M-INF) |
 
 <a id="nastepny-milestone"></a>
-## Następny milestone: M8 Job store i maszyna stanów joba
-**Dlaczego teraz:** Stage 0 jest domknięty (M2a, M2b). Według [ROADMAP](ROADMAP.md#kolejnosc) tor domeny i GLU idzie
-dalej przez M8 → M9 → M10 do walking skeletonu M-E2E. M8 to pierwszy kod w `glu/`.
+## Następny milestone: M9 TaskSpec, wykonawca deterministyczny, planner buildu
+**Dlaczego teraz:** job store i maszyna stanów (M8) istnieją. Według [ROADMAP](ROADMAP.md#kolejnosc) tor domeny i GLU
+idzie dalej przez M9 → M10 do walking skeletonu M-E2E. M9 wprowadza pierwszy kontrakt WGC → GLU (`TaskSpec`).
 
-**Środowisko:** GLU działa natywnie na Windows (ADR-0022, Q-03 zamknięta): baza SQLite w `.glu/` repo gry na NTFS,
-bez WSL2. Core zostaje wieloplatformowy.
+**Środowisko:** GLU natywnie na Windows (ADR-0022). Job store: `glu.store.Store` (ADR-0023), stan buildu ustawia
+wykonawca, nie store.
 
 **Tor równoległy:** M-GW1 (Inference Gateway) i M-BASE (HUM) bez zmian.
 
-**Zakres (ROADMAP M8)**
-1. `glu.store`: SQLite z tabelami build, job, attempt i routing_decision oraz migracjami schematu bazy.
-2. Przejścia stanów z [GLU §3](GLU.md#3-cykl-życia-joba); nielegalne przejście to wyjątek.
-3. `glu status` i skrypt `glu` w `[project.scripts]` (ryzyko z ADR-0002 w tabeli niżej).
+**Zakres (ROADMAP M9)**
+1. Interfejs `TaskSpec` ([ARCHITECTURE §2](ARCHITECTURE.md#2-granica-wgc--glu), z `decoding_schema`)
+   i rejestr zadań WGC.
+2. Wykonawca Tier 0 (deterministyczny) prowadzący joby przez `glu.states` i zapisujący Attempty w `glu.store`.
+3. `glu build --stage --scope --dry-run`.
+4. Pierwsze zadania deterministyczne: harvest terminów, parse tabel, relacje warstwy scenariusza.
 
 **Kryteria akceptacji**
-- Testy przejść (legalnych i nielegalnych).
-- Trwałość po restarcie.
-- Eksport rekordów zgodny z `glu/exec@0`.
+- Build Tier 0 na `bench/minigame` daje rekordy przechodzące walidację.
+- `accept()` jest jedyną drogą zapisu do `kb/`.
 - `python -m pytest` zielone; test ciągłości zielony.
 
-**Poza zakresem:** planner i TaskSpec (M9), providerzy (M10), cokolwiek w `wgc/` poza tym, czego wymaga eksport.
+**Poza zakresem:** providerzy i pętla structured output (M10), cache (M11), router i sprawdzanie bramek (M12).
 
 ## Otwarte kwestie
-Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows, ADR-0022).
+Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows, ADR-0022). M8 nie otworzył nowych
+kwestii (ustalenia właściciela w ADR-0023).
 
 | # | Kwestia | Kto | Kiedy |
 |---|---|---|---|
@@ -97,8 +107,10 @@ Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows
 | Gramatyka IR za uboga dla gier z gęstymi wyjątkami | dużo `{text}`, niskie `formalization` | `formalization` jako metryka; predykaty-pojęcia; przegląd na M3 i pilocie |
 | Kalibracja ryzyka na grze benchmarkowej nie przeniesie się na prawdziwe gry | FN na pilocie | audyt premium (reguła 9), prywatny benchmark M-LEG |
 | Koszt baseline nieznany | brak oceny celu 2× | M-BASE |
-| `wgc/contracts.py` szuka schematów w `../contracts/` (poza pakietem): instalacja nieedytowalna ich nie zabierze | skrypt `wgc` (M1) nie działa po `pip install .` (działa po `pip install -e .`) | M7: przenieść schematy do `wgc/` jako package data lub dodać je do dystrybucji |
-| ADR-0002 obiecuje CLI `glu`, `pyproject` ma tylko `wgc` w `[project.scripts]` | brak polecenia `glu` po instalacji | M8 |
+| `wgc/contracts.py` szuka schematów w `../contracts/` (poza pakietem): instalacja nieedytowalna ich nie zabierze | skrypty `wgc` (M1) i `glu` (M8, store waliduje rekordy przez `wgc.contracts`) nie działają po `pip install .` (działają po `pip install -e .`) | M7: przenieść schematy do `wgc/` jako package data lub dodać je do dystrybucji |
+| Skrypt `glu` dopisany do `[project.scripts]` w M8; istniejąca instalacja edytowalna go nie ma | `glu` nie działa jako polecenie, dopóki nie przeinstalujesz pakietu (`python -m glu` działa) | `pip install -e .` po M8 |
+| Job store ma jednego pisarza naraz (domyślny journal, `timeout` 5 s, bez WAL) | MCP (M22) równolegle z CLI może dostać `database is locked` | decyzja o WAL w M22 (ADR-0023) |
+| Store waliduje każdy rekord schematem przy zapisie | wolniejsze buildy z tysiącami jobów | pomiar w M9/M11; w razie potrzeby walidacja tylko przy eksporcie (ADR-0023) |
 | Narzędzie czytające pliki KB przez `contracts.load` pominie dokumenty po `---` (ADR-0019) | ciche pominięcie rekordów | czytać przez `wgc.validate.load_documents` |
 | `bench/minigame/source/inventory.yaml` i fixture'y `valid/` mają te same ID segmentów | `wgc validate bench/minigame/source contracts/fixtures/valid` w jednym przebiegu daje `duplicate_id` (a `wgc validate bench` dodatkowo `schema_error` dla `phenomena.yaml`, który nie jest dokumentem KB) | walidować osobno (DATA-CONTRACTS §9) |
 | Klucze segmentów bez numeru (`u1`, `u2`…) zależą od pozycji | wstawienie wstępu przenumeruje je i unieważni kotwice do nich | nie kotwiczyć reguł do segmentów bez numeru (ADR-0020) |

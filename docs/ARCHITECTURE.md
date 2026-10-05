@@ -78,7 +78,7 @@ wpływa na wynik).
 | Ingest źródeł | `wgc.source`, `wgc.ingest` | inwentarz, segmentacja (Markdown: M2a; PDF, render, flagi wizualne: M2b) | M2a, M2b |
 | Model ryzyka | `wgc.risk` | cechy, wagi, klasy, twarde reguły | M6 |
 | Bramki | `wgc.gate` | obliczane statusy etapów | M7 |
-| Job store | `glu.store` | SQLite: build, job, attempt, routing_decision | M8 |
+| Job store | `glu.store`, `glu.states` | SQLite `.glu/state.db`: build, job, attempt, routing_decision; tabela przejść (ADR-0023); `glu status`, `glu export` | M8 |
 | Wykonawcy | `glu.exec` | deterministic, local, premium, human | M9–M16 |
 | Providerzy | `glu.providers` | fake, replay, self_hosted (klient `igw/api@0`), anthropic, desktop_pull | M10, M15 |
 | Inference Gateway | `igw` (węzeł) | API `igw/api@0`, auth, limity, kolejka, scheduler, cykl życia modeli, adapter runtime'u, telemetria | M-GW1, M-GW2 |

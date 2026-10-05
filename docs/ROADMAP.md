@@ -137,13 +137,13 @@ i M2b (PDF), bo całość przekraczała rozmiar jednej sesji.
 
 ## Faza 1: rdzeń GLU
 ### M8: Job store i maszyna stanów joba
-- **Status:** next · **Rola:** IMPL · **Zależy od:** M1
+- **Status:** done · **Rola:** IMPL · **Zależy od:** M1
 - **Zakres:** `glu.store` (SQLite: build, job, attempt, routing_decision; migracje schematu bazy), przejścia stanów
   z GLU §3 (nielegalne przejście = wyjątek), `glu status`.
 - **Akceptacja:** testy przejść (legalne i nielegalne), trwałość po restarcie, eksport rekordów zgodny z `glu/exec@0`.
 
 ### M9: TaskSpec, wykonawca deterministyczny, planner buildu
-- **Status:** planned · **Rola:** ARCH (kontrakt) + IMPL · **Zależy od:** M2a, M8
+- **Status:** next · **Rola:** ARCH (kontrakt) + IMPL · **Zależy od:** M2a, M8
 - **Zakres:** interfejs `TaskSpec` (ARCHITECTURE §2, z `decoding_schema`), rejestr zadań WGC, wykonawca Tier 0,
   `glu build --stage --scope --dry-run`, pierwsze zadania deterministyczne (harvest terminów, parse tabel, relacje
   warstwy scenariusza). Sprawdzanie bramek przez planner dochodzi w M12 (po M7). Dzięki temu M9 nie czeka na M3–M7,

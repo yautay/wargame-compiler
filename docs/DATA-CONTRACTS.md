@@ -42,6 +42,13 @@ infrastruktury inferencji, a `igw` czyta ten sam plik schematu bez importu `wgc`
 - decyzja routingu wybierająca premium zawsze ma `premium_reason`;
 - `kb/` (`prov.by`) nigdy nie zawiera hosta ani `node_id`, bo te pola żyją tylko w Attempt w `.glu/`.
 
+**Stan wykonania `glu/exec@0` w praktyce (M8, ADR-0023):**
+- Job store (`glu/store.py`, `.glu/state.db`) waliduje każdy rekord kontraktem przed zapisem.
+- `glu export [--build ID] [--out plik]` wydaje jeden dokument `glu/exec@0` z rekordami `build`, `job`, `attempt`
+  i `routing_decision`. `review_package` dojdzie w M12/M13.
+- `job.attempts` jest wyliczane z zapisanych Attemptów.
+- Test `tests/test_glu_store.py` odtwarza przez store fixture `contracts/fixtures/valid/glu.job.yaml` rekord w rekord.
+
 ## 2. Wersjonowanie i zgodność
 - `@0` to szkic: może się zmieniać bez migracji, ale każda zmiana aktualizuje fixture'y i testy w tej samej sesji.
 - **Zamrożenie `@1`** następuje, gdy kontrakt ma pierwszego konsumenta poza testami. Dla `logic` to M14

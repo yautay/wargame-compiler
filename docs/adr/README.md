@@ -28,3 +28,4 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0020](ADR-0020-inwentarz-i-segmentacja-stage0.md) | Inwentarz Stage 0, segmentacja Markdown, ID segmentów i domyślne pierwszeństwo źródeł | przyjęty |
 | [ADR-0021](ADR-0021-ingest-pdf-biblioteka-i-segmentacja.md) | Ingest PDF na bibliotekach o licencjach liberalnych (pdfplumber, pypdfium2), segmentacja PDF i flagi wizualne | przyjęty |
 | [ADR-0022](ADR-0022-glu-natywnie-na-windows.md) | GLU na dev machine działa natywnie na Windows (Q-03) | przyjęty |
+| [ADR-0023](ADR-0023-job-store-sqlite-i-maszyna-stanow.md) | Job store GLU w SQLite (`.glu/state.db`, migracje przez `user_version`) i maszyna stanów joba i buildu jako tabela | przyjęty |

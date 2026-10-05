@@ -51,6 +51,43 @@ pending → ready → running ⇄ waiting_inference (węzeł niedostępny; bez z
 - Job store GLU (SQLite) jest **jedyną trwałą kolejką**. Bramka węzła trzyma kolejkę w pamięci, a restart po którejkolwiek
   stronie oznacza ponowne wysłanie idempotentnego requestu.
 
+<a id="tabela-przejsc"></a>
+**Tabela przejść (M8, ADR-0023).** Wiążąca jest tabela w kodzie: `glu/states.py` (`JOB_RULES`, `BUILD_RULES`).
+Przejście spoza niej to wyjątek `IllegalTransition`, a stan rekordu się nie zmienia.
+
+| Job: ze stanu | do stanu | Strażnik, efekt, parametry |
+|---|---|---|
+| `pending` | `ready` | |
+| `ready` | `running` | efekt: `cache_hit: false` |
+| `ready` | `accepted` | cache hit; efekt: `cache_hit: true`; parametr `accepted_records` |
+| `running` | `waiting_inference`, `proposed`, `failed` | |
+| `waiting_inference` | `running`, `failed` | |
+| `waiting_inference` | `escalated` | strażnik: `policy.fallback.allow_premium_fallback: true` (ADR-0017) |
+| `proposed` | `validating` | |
+| `validating` | `accepted` | parametr `accepted_records` |
+| `validating` | `retry`, `escalated`, `waiting_review`, `waiting_human`, `rejected`, `failed` | |
+| `retry` | `ready` | |
+| `escalated` | `ready` | strażnik i parametr `tier`: wyższy niż bieżący (`deterministic < local < premium < human`) |
+| `waiting_review`, `waiting_human` | `validating` | |
+| `accepted` | `done`, `stale` | |
+| `done` | `stale` | |
+| `stale` | `pending` | |
+| każdy aktywny (`pending` … `waiting_human`, bez `accepted`, `done`, `stale`) | `cancelled` | |
+
+Stany końcowe joba: `rejected`, `failed` i `cancelled`. Limit N prób na tier egzekwuje pętla structured output (M10).
+Store udostępnia liczbę prób jakościowych, czyli Attemptów z `outcome ≠ unavailable` (`Store.quality_attempts`).
+
+| Build: ze stanu | do stanu | Efekt, parametry |
+|---|---|---|
+| `planning` | `running` | |
+| `running` | `waiting_inference`, `waiting_review`, `waiting_human` | |
+| `waiting_inference`, `waiting_review`, `waiting_human` | `running` | |
+| `running` | `done` | efekt: `finished_at`; parametr `metrics` |
+| `planning`, `running`, `waiting_*` | `failed`, `cancelled` | efekt: `finished_at`; parametr `metrics` |
+
+Stany końcowe buildu: `done`, `failed` i `cancelled`. Wznowienie po `failed` to nowy build. Stanu buildu nie wylicza
+się ze stanów jobów, tylko ustawia go wykonawca (M9, M10).
+
 ## 4. Pętla structured output
 ```text
 MODEL → STRUCTURED OUTPUT (JSON Schema w żądaniu: guided decoding / response_format)
