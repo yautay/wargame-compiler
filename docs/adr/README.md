@@ -26,3 +26,5 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0018](ADR-0018-runtime-mvp-llama-cpp-windows.md) | Runtime MVP: llama.cpp natywnie na Windows; vLLM w WSL2 po benchmarku | przyjęty |
 | [ADR-0019](ADR-0019-wiele-dokumentow-w-pliku-yaml.md) | Plik YAML może zawierać wiele dokumentów, każdy z własnym kontraktem | przyjęty |
 | [ADR-0020](ADR-0020-inwentarz-i-segmentacja-stage0.md) | Inwentarz Stage 0, segmentacja Markdown, ID segmentów i domyślne pierwszeństwo źródeł | przyjęty |
+| [ADR-0021](ADR-0021-ingest-pdf-biblioteka-i-segmentacja.md) | Ingest PDF na bibliotekach o licencjach liberalnych (pdfplumber, pypdfium2), segmentacja PDF i flagi wizualne | przyjęty |
+| [ADR-0022](ADR-0022-glu-natywnie-na-windows.md) | GLU na dev machine działa natywnie na Windows (Q-03) | przyjęty |

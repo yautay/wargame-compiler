@@ -162,8 +162,9 @@ i `review_request.evidence`). Referencje w wyrażeniach, `ref_to`, `timing`, `em
 `interpretation.ambiguity` wskazuje `AMB-`).
 
 <a id="stage0"></a>
-## 9. Stage 0: inwentarz źródeł i `wgc source` (M2a)
-Implementacja: `wgc/source.py` (inwentarz, polecenia) i `wgc/ingest/` (ekstraktory). Decyzje: ADR-0020.
+## 9. Stage 0: inwentarz źródeł i `wgc source` (M2a, M2b)
+Implementacja: `wgc/source.py` (inwentarz, polecenia) i `wgc/ingest/` (ekstraktory). Decyzje: ADR-0020 (inwentarz,
+Markdown), ADR-0021 (PDF).
 
 **Pliki w repo gry:**
 - `source/inventory.yaml`: jeden dokument `wgc/source@0`, commitowany, bez tekstu;
@@ -178,9 +179,11 @@ Implementacja: `wgc/source.py` (inwentarz, polecenia) i `wgc/ingest/` (ekstrakto
 | `scan` | dla dokumentów z `path`: `present`, `file_hash`, `extractor` (z rejestru rozszerzeń) |
 | `extract` | `scan`, potem segmentacja obecnych dokumentów: rekordy `SEG-` w inwentarzu i tekst w `.glu/source/` |
 | `verify [--json]` | walidacja inwentarza (§8) i kontrole Stage 0 niżej; kod 1 przy błędach |
+| `render (--doc SRC-… \| --segment SEG-…) [--pages 1,3-4] [--scale 2.0]` | renderuje strony PDF do `.glu/source/<SRC-id>/pages/p<NNN>.png` do ręcznej weryfikacji (`verified_by_render`). Domyślnie renderuje strony segmentu (`pages`) albo cały dokument. Skala 1.0 = 72 dpi |
 
 Kod wyjścia 2 oznacza błąd operacyjny: brak inwentarza, istniejący inwentarz przy `init`, nieznana rola, ścieżka
-poza projektem, błąd ekstrakcji w `extract`.
+poza projektem, błąd ekstrakcji w `extract`, nieznany dokument lub segment, dokument inny niż PDF albo zły zakres stron
+w `render`.
 
 **Zapis inwentarza:**
 - deterministyczny: stała kolejność pól (schemat), jeden rekord w wierszu, dokumenty w kolejności wpisów, segmenty
@@ -205,6 +208,31 @@ poza projektem, błąd ekstrakcji w `extract`.
 - inna treść poza numerowanym segmentem → `other`;
 - tekst bez etykiety i bez markupu inline, cytatów, punktorów, pionowych kresek i separatora tabel; numery list zostają;
 - blok kodu nie otwiera segmentu.
+
+**Segmentacja PDF (`wgc.ingest.pdf@0`, ADR-0021):** te same zasady co Markdown, rozpoznawane z układu strony.
+- **Wiersze i tekst:**
+  - znaki składa się w wiersze według dolnej krawędzi i czyta od góry do dołu (jedna kolumna);
+  - spacja to znak spacji albo przerwa > 0,2 rozmiaru fontu;
+  - przerwa > 2 rozmiary fontu dzieli wiersz na komórki, a komórki łączy się w tekście spacją.
+- **Nagłówek:** wiersz z fontem > 1,1 × najczęstszy rozmiar w dokumencie. Kolejne wiersze tego rozmiaru bez numeru na
+  początku łączą się w jeden nagłówek, a poziom to ranga rozmiaru.
+- **Numer reguły:** pogrubione pierwsze słowo wiersza w postaci `N.N`. Otwiera segment do następnego numeru lub
+  nagłówka. Numer w zwykłym kroju (odsyłacz) i pozycje list zostają w tekście.
+- **Typ segmentu:** `table`, gdy co najmniej dwa wiersze segmentu mają kilka komórek, inaczej `rule`. Treść bez numeru
+  to `other`.
+- **Pola generowane dla PDF:**
+
+  | Pole | Postać |
+  |---|---|
+  | `pages` | `"3"` albo `"3-4"`: pierwsza i ostatnia strona segmentu, numeracja od 1 |
+  | `bbox` | `[x0, top, x1, bottom]` w punktach od lewego górnego rogu pierwszej strony segmentu (suma wierszy na tej stronie), zaokrąglone do 0,1 |
+  | `visual_flags` | ze znaków tekstu, bez etykiety. `changed_color`: kolor wypełnienia znaku ≠ najczęstszy kolor znaków w dokumencie (Gray/RGB/CMYK sprowadzone do RGB); nagłówki tej flagi nie dostają. `strikethrough`: pozioma linia albo prostokąt ≤ 2 pt w środkowym pasie znaku (30–70% wysokości od góry; podkreślenie się nie liczy). Puste flagi nie są zapisywane |
+
+- **Ograniczenia:**
+  - jedna kolumna;
+  - nagłówki i stopki stron wchodzą do tekstu;
+  - strony bez warstwy tekstu nie dają segmentów (`image_only`, `column_scrambled` i OCR nie są obsługiwane);
+  - komórka tabeli zawinięta w kilka wierszy daje inny tekst niż w Markdown.
 
 **Domyślne pierwszeństwo według roli** (`wgc.source.DEFAULT_PRECEDENCE`, wyższe wygrywa przy jawnym konflikcie,
 [LOGIC-MODEL](LOGIC-MODEL.md#pierwszenstwo-zrodel)):

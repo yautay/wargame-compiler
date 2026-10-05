@@ -23,14 +23,19 @@ class Segment:
     text: str                # extracted text, before `wgc.canonical.normalize_text`
     parent_key: str | None
     order: int               # 1-based position in document order
+    # Layout, for paged formats only (PDF): "3" or "3-4"; [x0, top, x1, bottom] on the first page; contract flags.
+    pages: str | None = None
+    bbox: tuple[float, float, float, float] | None = None
+    visual_flags: tuple[str, ...] = ()
 
 
 Extractor = Callable[[bytes], list[Segment]]
 
 
 def _registry() -> dict[str, tuple[str, Extractor]]:
-    from wgc.ingest import markdown
-    return {".md": (markdown.NAME, markdown.extract), ".markdown": (markdown.NAME, markdown.extract)}
+    from wgc.ingest import markdown, pdf
+    return {".md": (markdown.NAME, markdown.extract), ".markdown": (markdown.NAME, markdown.extract),
+            ".pdf": (pdf.NAME, pdf.extract)}
 
 
 def extractor_for(path: str | PurePath) -> tuple[str, Extractor] | None:

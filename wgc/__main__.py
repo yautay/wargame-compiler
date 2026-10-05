@@ -1,4 +1,4 @@
-"""CLI: `python -m wgc validate <ścieżki…> [--json]` and `python -m wgc source init|scan|extract|verify` (also installed as `wgc`)."""
+"""CLI: `python -m wgc validate <ścieżki…> [--json]` and `python -m wgc source init|scan|extract|verify|render` (also installed as `wgc`)."""
 from __future__ import annotations
 
 import argparse
@@ -47,6 +47,8 @@ def _cmd_source(args) -> int:
             messages = source.init(args.root, args.game, args.doc)
         elif args.source_command == "scan":
             messages = source.scan(args.root)
+        elif args.source_command == "render":
+            messages = source.render(args.root, args.doc, args.segment, args.pages, args.scale)
         else:
             messages = source.extract(args.root)
     except source.SourceError as e:
@@ -77,6 +79,13 @@ def build_parser() -> argparse.ArgumentParser:
     ssub.add_parser("extract", parents=[common], help="scan + segmentacja: rekordy SEG- w inwentarzu, tekst w .glu/source/")
     s = ssub.add_parser("verify", parents=[common], help="sprawdza inwentarz, hashe plików i segmentów oraz cache tekstu")
     s.add_argument("--json", action="store_true", help="raport jako JSON (lista diagnostyk)")
+    s = ssub.add_parser("render", parents=[common],
+                        help="renderuje strony PDF do .glu/source/<SRC-id>/pages/ (ręczna weryfikacja ekstrakcji)")
+    s.add_argument("--doc", metavar="SRC-id", help="dokument PDF z inwentarza")
+    s.add_argument("--segment", metavar="SEG-id", help="segment: renderuje jego strony (pole pages)")
+    s.add_argument("--pages", metavar="zakres", help="strony, np. 3, 3-4 albo 1,3-4 (domyślnie strony segmentu "
+                                                    "albo cały dokument)")
+    s.add_argument("--scale", type=float, default=2.0, help="skala renderu, 1.0 = 72 dpi (domyślnie 2.0)")
     p.set_defaults(func=_cmd_source)
     return parser
 

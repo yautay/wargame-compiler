@@ -113,4 +113,4 @@ def test_deterministic(bench):
 def test_extractor_registry():
     name, fn = extractor_for("source/rules.MD")
     assert name == markdown.NAME == "wgc.ingest.markdown@0" and fn is markdown.extract
-    assert extractor_for("private/rules.pdf") is None  # PDF: M2b
+    assert extractor_for("private/rules.docx") is None

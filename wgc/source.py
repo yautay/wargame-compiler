@@ -1,4 +1,4 @@
-"""Stage 0: source inventory and the `wgc source init|scan|extract|verify` commands (docs/DATA-CONTRACTS.md §9, ADR-0020).
+"""Stage 0: source inventory and the `wgc source init|scan|extract|verify|render` commands (DATA-CONTRACTS §9, ADR-0020, ADR-0021).
 
 The inventory `source/inventory.yaml` (`wgc/source@0`) is committed in the game repo; segment text lives only in
 `.glu/source/<SRC-id>/<SEG-id>.txt` (ADR-0012). `scan` and `extract` rewrite the inventory deterministically:
@@ -250,7 +250,13 @@ def _segment_record(doc: dict, sid: str, seg: Segment, old: dict | None) -> dict
     if seg.parent_key is not None:
         rec["parent"] = segment_id(doc, seg.parent_key)
     rec["order"] = seg.order
+    if seg.pages is not None:
+        rec["pages"] = seg.pages
+    if seg.bbox is not None:
+        rec["bbox"] = list(seg.bbox)
     rec["text_hash"] = text_hash(seg.text)
+    if seg.visual_flags:
+        rec["visual_flags"] = list(seg.visual_flags)
     if old:
         for k, v in old.items():
             if k not in GENERATED_SEGMENT_FIELDS and k not in rec:
@@ -291,6 +297,68 @@ def extract(root: Path) -> list[str]:
         _write_cache(root, doc["id"], extracted)
         messages.append(f"{doc['id']}: segmenty {len(new)} (nowe {added}, zmienione {changed}, usunięte {removed}).")
     write_inventory(root, inv)
+    return messages
+
+
+def parse_pages(spec: str) -> list[int]:
+    """`"3"`, `"3-4"` or `"1,3-4"` → sorted 1-based page numbers."""
+    out: set[int] = set()
+    for part in spec.split(","):
+        a, sep, b = part.strip().partition("-")
+        try:
+            lo, hi = int(a), int(b) if sep else int(a)
+        except ValueError:
+            raise SourceError(f"Niepoprawny zakres stron `{spec}` (oczekiwano np. 3, 3-4 albo 1,3-4).") from None
+        if lo < 1 or hi < lo:
+            raise SourceError(f"Niepoprawny zakres stron `{spec}`.")
+        out.update(range(lo, hi + 1))
+    return sorted(out)
+
+
+def render(root: Path, doc_id: str | None = None, segment: str | None = None, pages: str | None = None,
+           scale: float = 2.0) -> list[str]:
+    """Render PDF pages to `.glu/source/<SRC-id>/pages/p<NNN>.png` for manual verification (`verified_by_render`).
+
+    Pages: `pages`, else the pages of `segment`, else the whole document.
+    """
+    from wgc.ingest import pdf
+
+    root = Path(root)
+    inv = read_inventory(root)
+    if segment is not None:
+        seg = next((s for s in inv.segments if s["id"] == segment), None)
+        if seg is None:
+            raise SourceError(f"Segmentu {segment} nie ma w inwentarzu.")
+        if doc_id is not None and doc_id != seg.get("doc"):
+            raise SourceError(f"Segment {segment} należy do {seg.get('doc')}, nie do {doc_id}.")
+        doc_id = seg.get("doc")
+        if pages is None:
+            if "pages" not in seg:
+                raise SourceError(f"Segment {segment} nie ma pola `pages` (render obsługuje tylko PDF).")
+            pages = seg["pages"]
+    if doc_id is None:
+        raise SourceError("Podaj dokument (--doc) albo segment (--segment).")
+    doc = inv.document(doc_id)
+    if doc is None:
+        raise SourceError(f"Dokumentu {doc_id} nie ma w inwentarzu.")
+    if not doc.get("present") or "path" not in doc or not (root / doc["path"]).is_file():
+        raise SourceError(f"{doc_id}: brak pliku do renderu.")
+    ext = extractor_for(doc["path"])
+    if ext is None or ext[0] != pdf.NAME:
+        raise SourceError(f"{doc_id}: render obsługuje tylko PDF.")
+    data = (root / doc["path"]).read_bytes()
+    numbers = parse_pages(pages) if pages is not None else list(range(1, pdf.page_count(data) + 1))
+    out_dir = cache_dir(root, doc_id) / "pages"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    messages = []
+    for n in numbers:
+        try:
+            png = pdf.render_page(data, n, scale)
+        except IngestError as e:
+            raise SourceError(f"{doc_id}: {e}") from None
+        target = out_dir / f"p{n:03d}.png"
+        target.write_bytes(png)
+        messages.append(f"{doc_id}: strona {n} → {target.as_posix()}")
     return messages
 
 

@@ -15,9 +15,9 @@ domain (wgc) ← GLU core ← interfaces: CLI │ MCP server │ future API
 
 ## Transport i pakowanie
 - Serwer stdio: `glu mcp serve --config <plik>`. Kontrakt MCP to tylko polecenie stdio; **nie zależy od WSL**.
-  Środowisko GLU (Windows natywnie albo WSL2) jest decyzją wdrożeniową (STATUS Q-03). Jeśli GLU działa w WSL2,
-  polecenie uruchamiające opakowuje się w `wsl.exe` w konfiguracji Claude Desktop, ale nie jest to wymaganie architektury
-  ani kryterium akceptacji.
+  GLU działa natywnie na Windows (ADR-0022), więc Claude Desktop uruchamia polecenie bezpośrednio. Gdyby GLU działał
+  kiedyś w WSL2, polecenie opakowuje się w `wsl.exe` w konfiguracji Claude Desktop, ale nie jest to wymaganie
+  architektury ani kryterium akceptacji.
 - Docelowo pakiet **Desktop Extension** (manifest, ikona, parametry konfiguracji: ścieżka konfiguracji, profil
   uprawnień). Pakowanie w M23.
 - Biblioteka MCP wchodzi do `requirements.txt` dopiero w M22 (zależność opcjonalna `[mcp]`).

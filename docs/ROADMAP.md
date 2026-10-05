@@ -18,8 +18,8 @@ pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 
                                                      │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
 ```
 - Tor węzła nie zależy od domeny (węzeł nie zna WGC), więc M-GW1 i M-NODE mogą iść równolegle z M1–M10.
-- M2b (ingest PDF) może iść w dowolnym momencie po M2a; jest potrzebny przed pierwszą pracą na PDF-ie prawdziwej gry
-  (najpóźniej M28).
+- M2b (ingest PDF) jest zrobiony. Wielokolumnowe PDF-y, nagłówki i stopki stron oraz strony bez tekstu (Q-11 w STATUS)
+  trzeba obsłużyć przed pierwszą pracą na PDF-ie prawdziwej gry (najpóźniej M28).
 - **M-E2E** to wczesny pionowy przekrój: jedna reguła przechodzi source → Stage 1 → GLU → węzeł w LAN → walidacja →
   `kb/` → Stage 1.5 → test, z premium jako `fake`.
 - Mapa tematów inferencji:
@@ -91,12 +91,21 @@ i M2b (PDF), bo całość przekraczała rozmiar jednej sesji.
   DATA-CONTRACTS §9, ADR-0020. Handoff: [handoff/2026-10-05-M2a.md](handoff/2026-10-05-M2a.md).
 
 ### M2b: Stage 0: ingest PDF, flagi wizualne, render strony
-- **Status:** next · **Rola:** IMPL · **Zależy od:** M2a
+- **Status:** done · **Rola:** IMPL · **Zależy od:** M2a
 - **Zakres:** ekstraktor PDF (PyMuPDF albo biblioteka na licencji liberalnej, decyzja Q-10 w STATUS; nowa zależność
   w `requirements.txt` i `pyproject.toml`) podpięty do rejestru ekstraktorów z M2a: segmentacja po numerach reguł,
   `pages`, `bbox`, flagi wizualne (kolor zmian, przekreślenie), render strony do weryfikacji (`.glu/source/`).
 - **Akceptacja:** test na PDF wygenerowanym w teście z tekstu własnego (bez sieci, bez plików wydawców); ten sam tekst
   w Markdown i PDF daje te same `text_hash` segmentów typu `rule`; flagi wizualne wykryte na przygotowanych stronach.
+- **Wynik:**
+  - ekstraktor `wgc.ingest.pdf@0` (`wgc/ingest/pdf.py`) na pdfplumber/pdfminer.six, z polami `pages`, `bbox`
+    i `visual_flags` (`changed_color`, `strikethrough`);
+  - `wgc source render` (pypdfium2) zapisuje strony do `.glu/source/<SRC-id>/pages/`;
+  - writer PDF do testów `tests/pdfgen.py`;
+  - zgodność z Markdown: PDF gry benchmarkowej daje te same segmenty i `text_hash` (także nagłówki i tabela);
+  - DATA-CONTRACTS §9, ADR-0021 (Q-10).
+
+  Handoff: [handoff/2026-10-05-M2b.md](handoff/2026-10-05-M2b.md).
 
 ### M3: Złoty model logiki gry benchmarkowej + scorer
 - **Status:** planned · **Rola:** ARCH + HUM (przegląd) · **Zależy od:** M2a
@@ -128,7 +137,7 @@ i M2b (PDF), bo całość przekraczała rozmiar jednej sesji.
 
 ## Faza 1: rdzeń GLU
 ### M8: Job store i maszyna stanów joba
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M1
+- **Status:** next · **Rola:** IMPL · **Zależy od:** M1
 - **Zakres:** `glu.store` (SQLite: build, job, attempt, routing_decision; migracje schematu bazy), przejścia stanów
   z GLU §3 (nielegalne przejście = wyjątek), `glu status`.
 - **Akceptacja:** testy przejść (legalne i nielegalne), trwałość po restarcie, eksport rekordów zgodny z `glu/exec@0`.
@@ -375,8 +384,8 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
 - **Zakres:** serwer stdio, narzędzia odczytu z MCP.md, `mcp.yaml` (allowlisty, zakresy, redakcja logów).
 - **Zakres (dodatkowo):** `inference_status` (widok GLU na endpointy; MCP nie zna tokenów węzła i nie łączy się z nim).
 - **Akceptacja:** testy kontraktowe narzędzi bez Claude Desktop; próba wyjścia poza allowlistę odrzucona; test ręczny
-  z Claude Desktop: `Claude Desktop → MCP (stdio) → GLU`. Środowisko GLU (Windows natywnie lub WSL2, Q-03) nie jest
-  częścią kontraktu; kryterium nie wymaga `wsl.exe`.
+  z Claude Desktop: `Claude Desktop → MCP (stdio) → GLU`. GLU działa natywnie na Windows (ADR-0022); środowisko nie jest
+  częścią kontraktu, kryterium nie wymaga `wsl.exe`.
 
 ### M23: MCP zapis (review, decyzje, build) + Desktop Extension
 - **Status:** planned · **Rola:** IMPL · **Zależy od:** M22
