@@ -32,7 +32,7 @@ Wejście: klasa ryzyka i twarde reguły z `wgc/risk@N`, wynik walidacji, zgodno�
 | 8 | wynik `requires_human_interpretation` albo niejasność z `impact.semantic` bez źródła rozstrzygającego | Tier 4 (pytanie `HD-` w kolejce) |
 | 9 | audyt: losowe p% (domyślnie 10%, potem z kalibracji) akceptacji lokalnych | kopia do Tier 3. Niezgodność zwiększa szacowany odsetek FN i wymusza rekalibrację |
 | 10 | budżet premium wyczerpany | job czeka (`waiting_review`). **Nigdy** nie spada do akceptacji lokalnej |
-| 11 | ryzyko `medium`, spór Tier 1 vs Tier 2, albo wyczerpane próby na Tier 2 | najpierw `local_deep` (rozjemca lub pass naprawczy). Zgoda z jednym z kandydatów + walidacja OK + brak reguły `forced` → akceptacja lokalna z podwyższonym audytem (reguła 9). W przeciwnym razie Tier 3 z pakietem zawierającym diff kandydatów |
+| 11 | spór Tier 1 vs Tier 2 albo wyczerpane próby na Tier 2 | `local_deep` przygotowuje diff kandydatów, analizę rozbieżności albo pass naprawczy i pakiet review, potem Tier 3. `local_deep` **nie daje akceptacji**; wynik passu naprawczego przechodzi zwykłą walidację i reguły ryzyka, a spór (`local_disagreement`, `forced`) zawsze kończy się Tier 3 (ADR-0028) |
 | 12 | provider self-hosted niedostępny (`error_class` dostępności) | job `waiting_inference` zgodnie z `fallback.self_hosted_unavailable` (domyślnie `queue`). Nie zużywa prób jakościowych. Premium **tylko** przy `allow_premium_fallback: true` (`premium_reason: self_hosted_unavailable`) |
 | 13 | brak profilu lub capability na węźle | czekanie albo `failed` (`capability_missing`). Nigdy cicha podmiana profilu |
 

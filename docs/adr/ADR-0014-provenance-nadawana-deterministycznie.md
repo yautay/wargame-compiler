@@ -1,6 +1,6 @@
 # ADR-0014: Rodzaj provenance nadaje WGC, nie model
 
-- **Status:** przyjęty
+- **Status:** przyjęty; punkt „w przeciwnym razie `llm_inference`” zastąpiony przez ADR-0027
 - **Data:** 2026-10-05
 - **Milestone:** M0
 

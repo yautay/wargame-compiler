@@ -11,7 +11,7 @@ from glu.__main__ import main
 from glu.store import Store, db_path
 from test_glu_store import Clock, Ids
 from test_tables import game  # noqa: F401  (fixture)
-from wgc import contracts, kb, source, tables, tasks
+from wgc import contracts, fsio, kb, source, tables, tasks
 from wgc.kb import Workspace
 from wgc.validate import load_documents, validate
 
@@ -127,6 +127,45 @@ def test_implementation_error_fails_job(game):
     assert not (game / "kb").exists()
 
 
+def test_program_error_in_acceptance_is_an_error_not_a_rejection(game):
+    """M-STAB1 (F08): a bug in the task's `validate` fails the job with Attempt `error`, never `rejected`, and no
+    job stays `validating`."""
+    def broken(ws, inputs, proposals):
+        raise RuntimeError("bug in validate")
+
+    plan = planner.plan(Workspace(game), "1")
+    spec = dataclasses.replace(tables.PARSE, validate=broken)
+    res = build(game, plan=dataclasses.replace(plan, jobs=[dataclasses.replace(plan.jobs[0], spec=spec)]))
+    assert res.state == "failed" and res.jobs[0].issues[0].startswith("błąd programu: RuntimeError: bug in validate")
+    with Store(db_path(game), create=False) as store:
+        history = store.history(res.jobs[0].id)
+        assert path_of(history) == TIER0_PATH[:5] + ["failed"] and history[-1]["reason"] == "błąd programu w akceptacji"
+        [attempt] = store.attempts(res.jobs[0].id)
+        assert attempt["outcome"] == "error" and attempt["error_class"] == "runtime"
+    assert not (game / "kb").exists()
+
+
+@pytest.mark.parametrize("fault, reason", [("write", "awaria zapisu kb/"), ("busy", "kb/ zajęte przez innego pisarza")])
+def test_operational_acceptance_failure_is_an_error(game, monkeypatch, fault, reason):
+    """M-STAB1 (F01, F02): a failed write or a busy KB lock is Attempt `error` with its own reason; kb/ is untouched."""
+    if fault == "write":
+        def boom(*args):
+            raise OSError(28, "brak miejsca (symulacja)")
+        monkeypatch.setattr(fsio.os, "replace", boom)
+        res = build(game)
+    else:
+        monkeypatch.setattr(kb, "LOCK_TIMEOUT", 0.2)
+        with kb.lock(game):
+            res = build(game)
+    monkeypatch.undo()
+    assert res.state == "failed"
+    with Store(db_path(game), create=False) as store:
+        assert store.history(res.jobs[0].id)[-1]["reason"] == reason
+        [attempt] = store.attempts(res.jobs[0].id)
+        assert attempt["outcome"] == "error" and attempt["error_class"] == "runtime"
+    assert not (game / "kb" / "logic" / "tables.yaml").exists() and fsio.temp_files(game) == []
+
+
 def test_only_accept_writes_kb(game, monkeypatch):
     """GLU never writes KB YAML itself: with the WGC writer stubbed out, a build leaves no kb/ behind, and with a spy
     every file in kb/ is one the WGC writer wrote."""
@@ -157,6 +196,7 @@ def test_cli_dry_run_writes_nothing(game, capsys):
     out = capsys.readouterr().out
     assert "wgc.tables.parse@0" in out and "SEG-dsk.4.3" in out and "Niczego nie zapisano" in out
     assert tree(game) == before and not db_path(game).exists() and not (game / "kb").exists()
+    assert not (game / kb.LOCK_FILE).exists()  # the plan never takes the KB writer lock (M-STAB1)
 
 
 def test_cli_build_then_status(game, capsys):

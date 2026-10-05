@@ -1,7 +1,7 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-05
-- **Ostatni milestone:** M9a (TaskSpec, `accept()`, wykonawca Tier 0, `glu build`, parse tabel): done
+- **Ostatni milestone:** M-STAB1 (stabilizacja po M9a, etap 1: bezpieczny zapis KB, jeden pisarz, typy propozycji): done
 - **Bieżący milestone:** M9b
 - **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-compiler.git`
 
@@ -43,6 +43,15 @@ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. 
   - zadanie `wgc.tables.parse@0`; komórki tabel w cache tekstu rozdziela tabulator bez zmiany `text_hash` (ADR-0024);
   - planner (`glu/planner.py`), wykonawca Tier 0 (`glu/exec.py`) i `glu build --stage --scope --dry-run`;
     na `bench/minigame` build daje `TAB-4.3`.
+- **M-STAB1 (etap naprawczy po przeglądzie [po M9a](reviews/2026-10-05-przeglad-po-M9a.md), ADR-0026):**
+  - zapis pliku `kb/` przez atomową podmianę (`wgc/fsio.py`); awaria przed podmianą zachowuje poprzednie bajty (F01
+    dla pojedynczego pliku);
+  - blokada pisarza projektu `.glu/kb.lock` (procesy i wątki) wokół całego odczytu, merge'a, walidacji i zapisu
+    w `accept()`. Zajęta dłużej niż 60 s daje `KBBusy`. `Workspace` z nieaktualnym inwentarzem daje `KBStale` (F02);
+  - typy i schemat propozycji sprawdzane przed funkcjami domenowymi: diagnostyka zamiast `TypeError` (F08);
+  - wykonawca Tier 0 rozróżnia odrzucenie (Attempt `rejected`), awarię operacyjną i błąd programu (Attempt `error`).
+
+  Pozostałe ustalenia przeglądu (F03–F07, F09–F20) są otwarte; ich plan to M-STAB2, M-STAB3 i kwestie poniżej.
 
 Mapa dokumentów: [README.md](../README.md#dokumentacja).
 
@@ -57,7 +66,7 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
 |---|---|---|---|
 | Tożsamość, hashe, walidator | `wgc/common` (ID, hash) | `wgc.ids`, `wgc.canonical`, `wgc.validate` (M1) | fixture'y `valid/` + `invalid/semantic/` |
 | Stage 0 | `wgc/source@0` (szkic; role, `seg_prefix`) | `wgc.source`, `wgc.ingest.markdown` (M2a), `wgc.ingest.pdf` (M2b) | `bench/minigame/source/inventory.yaml` |
-| Stage 1 | `wgc/logic@0` (szkic) | `wgc.tasks`, `wgc.kb.accept`, `wgc.tables` (M9a) | `phenomena.yaml`, gold w M3 |
+| Stage 1 | `wgc/logic@0` (szkic) | `wgc.tasks`, `wgc.kb.accept`, `wgc.tables` (M9a); `wgc.fsio`, blokada i atomowy zapis `kb/` (M-STAB1) | `phenomena.yaml`, gold w M3 |
 | Stage 1.5 | `wgc/digital@0` (szkic) | — | gold w M17–M21 |
 | Stage 2 | planowany (M24) | — | — |
 | Stage 3 | planowany (M25–M26) | — | — |
@@ -68,8 +77,13 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
 <a id="nastepny-milestone"></a>
 ## Następny milestone: M9b Harvest terminów (Tier 0)
 **Dlaczego teraz:** M9a dał `TaskSpec`, `accept()`, planner i wykonawcę Tier 0 z jednym zadaniem (parse tabel).
-Według [ROADMAP](ROADMAP.md#kolejnosc) tor domeny idzie dalej przez M9b → M10 do walking skeletonu M-E2E. M10 zależy
-tylko od M9a, więc można go zacząć przed M9b, jeśli właściciel tak zdecyduje.
+M-STAB1 zabezpieczył zapis do `kb/` (pojedynczy plik, jeden pisarz, typy propozycji). Według
+[ROADMAP](ROADMAP.md#kolejnosc) tor domeny idzie dalej przez M9b → M-STAB2 → M-STAB3 → M10 do walking skeletonu
+M-E2E. Właściciel potwierdził kolejność M9b przed M-STAB2. M10 czeka na M-STAB3.
+
+**Uwaga z M-STAB1:** harvest daje wiele rekordów w jednym jobie. Gdy akceptacja zmienia więcej niż jeden plik `kb/`
+(np. pojęcie leży już w innym pliku), do M-STAB2 awaria między podmianami zostawia część wyniku (ADR-0026;
+`KBWriteError` wymienia podmienione pliki).
 
 **Środowisko:** GLU natywnie na Windows (ADR-0022). Kontrakt zadań i zapis do `kb/`: ADR-0025, DATA-CONTRACTS §10.
 
@@ -85,15 +99,17 @@ tylko od M9a, więc można go zacząć przed M9b, jeśli właściciel tak zdecyd
 - `python -m pytest` zielone; test ciągłości zielony.
 
 **Poza zakresem:** relacje warstwy scenariusza (M14), providerzy i pętla structured output (M10), cache (M11), router
-i bramki (M12).
+i bramki (M12), naprawy M-STAB2/M-STAB3.
 
 ## Otwarte kwestie
 Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows, ADR-0022). M8 nie otworzył nowych
-kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-0025).
+kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-0025). Przegląd po M9a dodał Q-14 i Q-15.
+Zamknięte po M-STAB1 decyzją właściciela (2026-10-05): Q-13 i Q-14 (ADR-0027, wdrożenie M-STAB3/M10), Q-15 (ADR-0028,
+wdrożenie M12). Kolejność potwierdzona: M9b przed M-STAB2. Grę pilotażową (Q-02) właściciel poda później.
 
 | # | Kwestia | Kto | Kiedy |
 |---|---|---|---|
-| Q-02 | Wybór gry pilotażowej (M28) i rozdziału do M-BASE | właściciel | przed M-BASE |
+| Q-02 | Wybór gry pilotażowej i reprezentatywnego rozdziału (wyjątek, limit liczbowy, tabela, errata/FAQ) plus kilka stron jako próbka kontrolna; rekomendacja: wybrać teraz, nie dopiero w M28 (przegląd F13/F15). Właściciel poda grę później | właściciel | przed M3 i M-BASE |
 | Q-06 | Nazwa hosta węzła (`ai-node`?), sposób rozwiązywania (DNS routera, rezerwacja DHCP albo `hosts`) i adres dev machine do allowlisty | właściciel | przed M-NODE |
 | Q-07 | Autostart węzła: Harmonogram zadań czy usługa (WinSW) | właściciel + M-NODE | M-NODE |
 | Q-08 | Czy dopuszczamy `allow_premium_fallback: true` w jakimkolwiek buildzie (np. pilot z terminem) | właściciel | przed M12 |
@@ -102,7 +118,6 @@ kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-002
 | Q-09 | Zakres `unresolved_ref` poza listą M1: referencje w wyrażeniach (`pred`, `is`, `val`, `count`), `ref_to`, `timing`, `emits`, `fires_on`, `legality`, `chain`, `ambiguities`, kroki testów; kontrola rodzaju celu (np. `interpretation.ambiguity` → `AMB-`). Fixture'y `valid/` już dziś je rozwiązują | M5 (L2) albo M7 | przed M5 |
 | Q-11 | Ekstraktor PDF obsługuje jedną kolumnę: przed pierwszym PDF-em prawdziwej gry potrzebne są kolumny (wykrycie `column_scrambled` albo kolejność czytania), usuwanie nagłówków i stopek stron oraz decyzja o stronach bez warstwy tekstu (`image_only`, OCR). Zakres do ustalenia na PDF-ie gry pilotażowej (ADR-0021) | właściciel + IMPL | przed M28 |
 | Q-12 | `accept()` waliduje całe `kb/` i każdy błąd blokuje zapis. Rekord unieważniony zmianą źródła (np. stara kotwica `TAB-4.3` po przenumerowaniu tabeli) blokuje każdy kolejny `accept()`, aż ktoś poprawi KB ręcznie. Trzeba rozdzielić błędy blokujące od stanu `stale` (ADR-0004, ADR-0025) | M13 (graf, invalidacja) | przed M13 |
-| Q-13 | `accept()` daje `explicit_source` dla kotwic w każdej roli dokumentu poza errata/FAQ/wyjaśnieniem autora, także `community_interpretation` i `prior_translation`, które same nie są kanoniczne (LOGIC-MODEL). Rozstrzygnąć: odrzucenie, inny rodzaj provenance albo status inny niż `accepted` | właściciel + ARCH | przed pierwszym takim źródłem (najpóźniej M14) |
 
 ## Ryzyka
 | Ryzyko | Wpływ | Łagodzenie |
@@ -117,7 +132,13 @@ kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-002
 | Koszt baseline nieznany | brak oceny celu 2× | M-BASE |
 | `wgc/contracts.py` szuka schematów w `../contracts/` (poza pakietem): instalacja nieedytowalna ich nie zabierze | skrypty `wgc` (M1) i `glu` (M8, store waliduje rekordy przez `wgc.contracts`) nie działają po `pip install .` (działają po `pip install -e .`) | M7: przenieść schematy do `wgc/` jako package data lub dodać je do dystrybucji |
 | Skrypt `glu` dopisany do `[project.scripts]` w M8; istniejąca instalacja edytowalna go nie ma | `glu` nie działa jako polecenie, dopóki nie przeinstalujesz pakietu (`python -m glu` działa) | `pip install -e .` po M8 |
-| Job store ma jednego pisarza naraz (domyślny journal, `timeout` 5 s, bez WAL) | MCP (M22) równolegle z CLI może dostać `database is locked` | decyzja o WAL w M22 (ADR-0023) |
+| Job store ma jednego pisarza naraz (domyślny journal, `timeout` 5 s, bez WAL) | MCP (M22) równolegle z CLI może dostać `database is locked` | decyzja o WAL w M22 (ADR-0023); WAL nie chroni plików `kb/` (te chroni blokada ADR-0026) |
+| Akceptacja zmieniająca kilka plików `kb/` podmienia je po kolei (ADR-0026) | awaria między podmianami zostawia część wyniku, której pełna wersja nie przeszła walidacji | `KBWriteError` wymienia podmienione pliki; ponów build, a jeśli walidacja całego `kb/` odrzuca stan częściowy, przywróć te pliki z git; commit partii i recovery w M-STAB2 |
+| Udany zapis `kb/`, po którym zawiedzie zapis Attemptu, zostawia job w `validating` (F04) | stan wykonania nie mówi wiarygodnie, czy wynik zatwierdzono | następny build jest idempotentny; receipt i reconcile w M-STAB2 |
+| Blokada `.glu/kb.lock` jest doradcza | ręczna edycja, `git checkout` i czytelnicy bez blokady (`wgc validate`, planner) jej nie respektują; na Windows otwarty plik wymusza ponowienia `os.replace` (ok. 1,5 s), potem `KBWriteError` | nie edytować `kb/` w trakcie buildu; zamknąć edytor pliku `kb/` przed buildem |
+| `KBStale` sprawdza tylko inwentarz, nie rekordy `kb/` czytane jako kontekst | przyszłe zadanie modelowe może dać wynik ze starego kontekstu | manifest wejść i generacja `kb/` w M-STAB3 (N05) |
+| Testy awarii zapisu wstrzykują wyjątki | odcięcie zasilania, zabicie procesu w trakcie `fsync` i dyski sieciowe (SMB) niezbadane; na Windows trwałość podmiany nie jest wymuszona (brak `fsync` katalogu) | repo gry na dysku lokalnym; ewentualny test fizyczny przy M-NODE/pilocie |
+| Gałąź POSIX `wgc.fsio` (`fcntl.flock`, `fsync` katalogu, tryb pliku) nie była uruchamiana; M-STAB1 nie był testowany na Pythonie 3.10 | błąd widoczny dopiero na Linux/WSL albo starszym Pythonie | uruchomić `python -m pytest` na Linux/WSL i 3.10 przy najbliższej okazji (np. M-NODE) |
 | Store waliduje każdy rekord schematem przy zapisie | wolniejsze buildy z tysiącami jobów | pomiar w M11 (w M9a nie mierzono: build gry benchmarkowej ma 1 job); w razie potrzeby walidacja tylko przy eksporcie (ADR-0023) |
 | Narzędzie czytające pliki KB przez `contracts.load` pominie dokumenty po `---` (ADR-0019) | ciche pominięcie rekordów | czytać przez `wgc.validate.load_documents` |
 | `bench/minigame/source/inventory.yaml` i fixture'y `valid/` mają te same ID segmentów | `wgc validate bench/minigame/source contracts/fixtures/valid` w jednym przebiegu daje `duplicate_id` (a `wgc validate bench` dodatkowo `schema_error` dla `phenomena.yaml`, który nie jest dokumentem KB) | walidować osobno (DATA-CONTRACTS §9) |

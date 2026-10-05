@@ -298,29 +298,69 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
 - Schematu `wgc/proposal@0` jeszcze nie ma: kształt sprawdza `accept()`. Schemat dla modelu (z `decoding_schema`)
   dochodzi w M10.
 
-**`accept(root, spec, inputs, proposals, *, by, job)`** to jedyna droga zapisu do `kb/`:
-1. kształt propozycji i reguły domenowe zadania (`TaskSpec.validate`);
-2. `prov`:
+**`accept(root, spec, inputs, proposals, *, by, job, ws, lock_timeout)`** to jedyna droga zapisu do `kb/`:
+1. typy i kształt propozycji, a potem każdy `record` sprawdzony schematem `wgc/logic@0` z pominięciem tylko braku
+   pól nadawanych przez WGC (`prov`, `status`, `risk`). To czyste kontrole przed jakąkolwiek funkcją domenową:
+   - wynik zadania jest listą;
+   - `record.id` to ID (napis zgodny z gramatyką §4);
+   - `anchors` to lista obiektów `{seg, quote?, span?}`, gdzie `seg` to ID, `quote` to napis, a `span` to
+     `[początek, koniec]` z liczb całkowitych (bez wartości logicznych) i `0 ≤ początek ≤ koniec`;
+   - `derived_from` to lista ID.
+
+   Błąd daje diagnostykę w `issues` (`schema_valid: false`), nigdy `TypeError`, i nie zakłada blokady (M-STAB1);
+2. blokada pisarza projektu (`.glu/kb.lock`, ADR-0026) i kontrola, że inwentarz na dysku jest tym, z którego
+   `Workspace` liczył wynik (odcisk bajtów). Kroki 3–8 wykonują się pod blokadą, na `kb/` czytanym na nowo z dysku;
+3. reguły domenowe zadania (`TaskSpec.validate`);
+4. `prov`:
    - `kind`: `explicit_source`, gdy każda kotwica wskazuje segment z inwentarza, a cytat (jeśli jest) występuje
      dosłownie w znormalizowanym tekście segmentu; `errata`, `faq` albo `designer_clarification`, gdy kotwice
      wskazują dokument o tej roli; bez kotwic: `deterministic_derivation` (tier `deterministic`) albo
      `llm_inference` (tier `local`/`premium`);
-   - kotwica, której nie da się potwierdzić, odrzuca propozycję (w M9a dla każdego tieru, ADR-0025);
+   - kotwica, której nie da się potwierdzić, odrzuca propozycję w każdym tierze (ADR-0025, ADR-0027: bez
+     automatycznego obniżenia do `llm_inference`). Dotyczy to też `span`, którego koniec wykracza poza znormalizowany
+     tekst segmentu (M-STAB1);
+   - **zdecydowane, do wdrożenia w M-STAB3 (ADR-0027):** kotwica w dokumencie o roli `community_interpretation`,
+     `prior_translation` albo `other` odrzuca propozycję (jawna lista ról kanonicznych), a `llm_inference` bez kotwic
+     wymaga deklaracji zadania. Do wdrożenia obowiązuje opis powyżej;
    - `by` podaje wywołujący (GLU: tier i `tool` albo `profile`/`prompt`), `job` to ID joba;
    - `inputs_hash` = `content_hash` listy projekcji `logic` segmentów kotwic i rekordów `derived_from`
-     (równy `input_hash` klucza cache joba Tier 0);
+     (równy `input_hash` klucza cache joba Tier 0). `derived_from` rozwiązuje się w inwentarzu i w `kb/` odczytanym
+     pod blokadą;
    - `status: accepted`;
-3. każdy rekord sprawdzony schematem `wgc/logic@0`;
-4. scalenie z `kb/`:
+5. każdy rekord z `prov` sprawdzony schematem `wgc/logic@0`;
+6. scalenie z `kb/`:
    - rekord równy istniejącemu z pominięciem `prov.job` i `prov.at` zostaje bez zmian (idempotencja; `prov.job`
      wskazuje job, który pierwszy dał bieżącą treść);
    - rekord tego samego zadania (`prov.by.tool` albo `prov.by.prompt` bez wersji) o innej treści jest zastępowany;
    - rekord o tym samym ID od innego producenta albo ze statusem innym niż `accepted` to konflikt;
-5. walidacja całego `kb/` razem z inwentarzem w pamięci (`wgc.validate.validate_documents`);
-6. zapis tylko wtedy, gdy nie ma żadnego błędu i coś się zmieniło.
+7. walidacja całego `kb/` razem z inwentarzem sprawdzonym w kroku 2 (`wgc.validate.validate_documents`);
+8. zapis tylko wtedy, gdy nie ma żadnego błędu i coś się zmieniło. Każdy plik jest podmieniany atomowo: plik
+   tymczasowy `.<nazwa>.<losowe>.wgc-tmp` w tym samym katalogu, `flush` i `fsync`, potem `os.replace` (`wgc.fsio`).
+   Pozostałości po przerwanym procesie usuwa następny zapis pod blokadą. Na Windows podmiana jest atomowa, ale jej
+   trwałość po odcięciu zasilania nie jest wymuszona (brak `fsync` katalogu, ADR-0026).
 
 Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `schema_valid`, `domain_valid`,
 `issues`. GLU przepisuje `schema_valid`, `domain_valid` i `issues` do Attemptu.
+
+**Rodzaje niepowodzenia** (M-STAB1, ADR-0026):
+
+| Sytuacja | `accept()` | Attempt w GLU |
+|---|---|---|
+| Dane odrzucone (typy, schemat, domena, kotwice, konflikt, walidacja całego `kb/`) | `AcceptResult.issues`, nic nie zapisane | `outcome: rejected` |
+| Awaria operacyjna: brak lub nieczytelny inwentarz, tekst albo plik `kb/` | `KBError` | `outcome: error`, `error_class: runtime` |
+| Blokada zajęta dłużej niż `lock_timeout` (domyślnie `kb.LOCK_TIMEOUT` = 60 s) | `KBBusy` | jak wyżej, powód „kb/ zajęte przez innego pisarza” |
+| Inwentarz zmienił się po odczycie przez `Workspace` | `KBStale`, nic nie zapisane | jak wyżej, powód „inwentarz zmienił się w trakcie joba” |
+| Nieudany zapis pliku | `KBWriteError`: ten plik ma poprzednią zawartość; komunikat wymienia pliki już podmienione w tej akceptacji | jak wyżej, powód „awaria zapisu kb/” |
+| Błąd programu (wyjątek w WGC albo w `validate` zadania) | wyjątek przechodzi dalej, blokada zwolniona | `outcome: error`, komunikat `błąd programu: …` |
+
+W CLI `KBError` przed buildem (np. brak inwentarza) daje kod 2. W trakcie buildu każdy z tych przypadków kończy job
+`failed`, a build kodem 1.
+
+**Granice gwarancji (ADR-0026).** Atomowy jest pojedynczy plik, nie partia. Gdy akceptacja zmienia kilka plików,
+awaria po podmianie pierwszego zostawia w `kb/` część wyniku (komunikat `KBWriteError` je wymienia). Nie ma też
+odtwarzania spójności między `kb/` a `.glu/state.db` (job może zostać bez Attemptu po udanym zapisie). Blokada jest
+doradcza: chroni przed innymi wywołaniami `accept()`, nie przed edytorem, `git checkout` ani czytelnikami bez
+blokady (`wgc validate`, planner), którzy mogą zobaczyć stan między dwoma plikami partii.
 
 **Układ `kb/`:**
 - `kb/logic/<rodzaj w liczbie mnogiej>.yaml`: `tables.yaml`, `concepts.yaml`, `rules.yaml`, `relations.yaml`,
@@ -330,7 +370,9 @@ Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `
 - rekord krótszy niż 120 znaków w zapisie flow ma jedną linię (`- {…}`, jak inwentarz); dłuższy ma po jednej linii
   na pole z wartością w zapisie flow;
 - rekord, który już leży w innym pliku `kb/`, zostaje w tym pliku;
-- pliki zapisuje w całości `wgc.kb._write_file`, więc komentarze nie są zachowywane.
+- pliki zapisuje w całości `wgc.kb._write_file` (atomowa podmiana), więc komentarze nie są zachowywane;
+- blokada `.glu/kb.lock` leży poza `kb/`, bo `.glu/` jest ignorowane przez git. Pliku blokady się nie usuwa; blokadę
+  zwalnia system przy końcu procesu, więc nie ma „wiszących” blokad po awarii.
 
 **Zadania Tier 0 (M9a):**
 

@@ -91,7 +91,10 @@ się ze stanów jobów, tylko ustawia go wykonawca (M9a, M10).
 **Tier 0 (M9a, ADR-0025).** Wykonawca deterministyczny (`glu.exec`) prowadzi job ścieżką `pending → ready → running →
 proposed → validating → accepted → done` i zapisuje jeden Attempt `tier: deterministic`. Wyjątek implementacji to
 `running → failed` (Attempt `outcome: error`), a odrzucenie wyniku przez `wgc.kb.accept()` to `validating → failed`
-(Attempt `outcome: rejected`). Build idzie `planning → running → done`, a gdy któryś job się nie udał,
+(Attempt `outcome: rejected`). Awaria operacyjna akceptacji (zajęta blokada `kb/`, inwentarz zmieniony w trakcie
+joba, nieudany zapis) i błąd programu (wyjątek w WGC albo w `validate` zadania) też kończą job `validating → failed`,
+ale z Attemptem `outcome: error` (`error_class: runtime`) i osobnym powodem przejścia; nigdy jako `rejected`
+(M-STAB1, ADR-0026). Build idzie `planning → running → done`, a gdy któryś job się nie udał,
 `running → failed`. Planner i `glu build --stage --scope --dry-run`: [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje).
 
 ## 4. Pętla structured output

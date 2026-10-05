@@ -6,7 +6,7 @@
 | **L0 schemat** | zgodność z `wgc/*@N` | `wgc.contracts` | zawsze |
 | **L1 referencje** | unikalność ID, zgodność `kind` ↔ prefiks, rozwiązywanie `refs`, `derived_from`, `realizes`, końców relacji, `anchors.seg` | `wgc.validate` (M1) | zawsze |
 | **L2 domena** | provenance (cytat dosłowny w segmencie, zgodny `seg_hash`, rola dokumentu), sygnały źródło↔IR (zakaz → `must_not` lub negacja, operator graniczny → `cmp` z właściwym operatorem, liczby ze źródła obecne w IR), markery wyjątków → relacje, `partial` → `unformalized` | `wgc.validate` (M5) | błędy zawsze, ostrzeżenia podnoszą ryzyko |
-| **L3 zgodność** | dwie niezależne ekstrakcje self-hosted zgodne po normalizacji; spór rozstrzyga najpierw `local_deep` (bez prawa do akceptacji `forced`/`high`) | GLU + WGC (normalizacja IR) | dla `medium` |
+| **L3 zgodność** | dwie niezależne ekstrakcje self-hosted zgodne po normalizacji; spór idzie do premium; `local_deep` przygotowuje tylko diff i pakiet review, bez prawa akceptacji (ADR-0028) | GLU + WGC (normalizacja IR) | dla `medium` |
 | **L4 odpowiadalność** | każdy `case` da się odpowiedzieć wyłącznie z KB (łańcuch istnieje, werdykt zgodny) | WGC + lokalny model | gate Stage 1 |
 | **L5 przegląd premium** | znaczenie, kompletność wyjątków, granice | premium | `high`/`critical`, spory, audyt |
 | **L6 człowiek** | interpretacje, terminy, polityki | właściciel | `requires_human_interpretation` |
@@ -99,7 +99,7 @@ consistency (odsetek wystąpień `CON-` w zatwierdzonej formie), style preservat
 | Obszar | Wstępny próg | Kiedy rewidować |
 |---|---|---|
 | Ekstrakcja self-hosted, pola krytyczne IR | ≥ 95% zgodności z gold przed akceptacją lokalną `low` | M-INF |
-| Rozstrzygnięcia `local_deep` (spory `medium`) | audyt premium 2× wyższy niż reguła 9, dopóki niezgodność ≤ 2% | M-INF, pilot |
+| Rozstrzygnięcia `local_deep` (spory `medium`) | nie występują w `routing@0` (ADR-0028); próg obowiązuje dopiero po ADR wyjątku: audyt premium 2× wyższy niż reguła 9, dopóki niezgodność ≤ 2% | po gold i próbce kontrolnej |
 | Mutacje krytyczne, wykrycie przez L2 + ryzyko | 100% | każda zmiana `wgc/risk@N` |
 | Audyt premium akceptacji lokalnych | niezgodność ≤ 2%, inaczej podnieść próg ryzyka | co build pilotażowy |
 | Złote testy 1.5 na interpreterze | 100% | M21 |

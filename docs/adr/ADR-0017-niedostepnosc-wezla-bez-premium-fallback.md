@@ -1,6 +1,6 @@
 # ADR-0017: Niedostępność węzła nie eskaluje do premium; self-hosted jako zasób obfity
 
-- **Status:** przyjęty
+- **Status:** przyjęty; rola `local_deep` jako rozjemcy doprecyzowana przez ADR-0028 (bez prawa akceptacji)
 - **Data:** 2026-10-05
 - **Milestone:** M-INF0
 

@@ -74,7 +74,8 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
     węźle; domyślnie `output_schema`, jeśli jest zgodny).
 - Wynik zadania to lista propozycji (rekord bez `prov`, `status`, `risk` + kotwice albo `derived_from`,
   [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje)). Zamiast `accept` w każdym zadaniu jest jedna funkcja
-  `wgc.kb.accept()`: nadaje provenance, waliduje całe `kb/` i jako jedyna zapisuje YAML KB.
+  `wgc.kb.accept()`: nadaje provenance, waliduje całe `kb/` i jako jedyna zapisuje YAML KB (pod blokadą pisarza
+  projektu, każdy plik atomowo; ADR-0026).
 
 ## 3. Komponenty
 | Komponent | Pakiet | Opis | Milestone |
@@ -87,6 +88,7 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
 | Bramki | `wgc.gate` | obliczane statusy etapów | M7 |
 | Job store | `glu.store`, `glu.states` | SQLite `.glu/state.db`: build, job, attempt, routing_decision; tabela przejść (ADR-0023); `glu status`, `glu export` | M8 |
 | Zadania i akceptacja | `wgc.tasks`, `wgc.kb`, `wgc.tables` | `TaskSpec` i rejestr, zakres buildu, `Workspace`, `accept()` (jedyny zapis do `kb/`), zadanie `wgc.tables.parse@0` | M9a |
+| Bezpieczny zapis KB | `wgc.fsio`, `wgc.kb` | atomowa podmiana pojedynczego pliku, blokada pisarza projektu `.glu/kb.lock` wokół całego `accept()` (ADR-0026) | M-STAB1 |
 | Planner | `glu.planner` | etap + zakres → joby z kluczem cache; `glu build --dry-run` | M9a, M12 (bramki) |
 | Wykonawcy | `glu.exec` | deterministic (Tier 0, M9a), local, premium, human; `glu build` | M9a–M16 |
 | Providerzy | `glu.providers` | fake, replay, self_hosted (klient `igw/api@0`), anthropic, desktop_pull | M10, M15 |

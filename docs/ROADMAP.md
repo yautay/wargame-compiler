@@ -12,10 +12,10 @@ Status: `done`, `next`, `planned`, `optional`.
 Sekcje niżej grupują milestone'y tematycznie. Kolejność wykonania (strzałka = kolejność; zależności podaje każdy milestone):
 
 ```text
-tor domeny + GLU:  M1 → M2a → M8 → M9a → M9b → M10 ─┐
-tor węzła (LAN):   M-GW1 → M-NODE (HUM) ─────────────┼─→ M-E2E (walking skeleton przez LAN) → M3 → M4 → M5 → M6 → M7
-pomiar:            M-BASE (HUM, jak najwcześniej)    │       → M11 → M12 → M13 → M-GW2 → M-INF → M14 → M15 → M16 → …
-                                                     │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
+tor domeny + GLU:  M1 → M2a → M8 → M9a → M-STAB1 → M9b → M-STAB2 → M-STAB3 → M10 ─┐
+tor węzła (LAN):   M-GW1 → M-NODE (HUM) ──────────────────────────────────────────┼─→ M-E2E (walking skeleton przez LAN) → M3 → M4 → M5 → M6 → M7
+pomiar:            M-BASE (HUM, jak najwcześniej)                                 │       → M11 → M12 → M13 → M-GW2 → M-INF → M14 → M15 → M16 → …
+                                                                                  │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
 ```
 - Tor węzła nie zależy od domeny (węzeł nie zna WGC), więc M-GW1 i M-NODE mogą iść równolegle z M1–M10.
 - M2b (ingest PDF) jest zrobiony. Wielokolumnowe PDF-y, nagłówki i stopki stron oraz strony bez tekstu (Q-11 w STATUS)
@@ -166,15 +166,81 @@ przekraczała rozmiar jednej sesji. Relacje warstwy scenariusza przeniesiono do 
 
   Na `bench/minigame` build daje `TAB-4.3`. Handoff: [handoff/2026-10-05-M9a.md](handoff/2026-10-05-M9a.md).
 
+Po M9a niezależny przegląd ([reviews/2026-10-05-przeglad-po-M9a.md](reviews/2026-10-05-przeglad-po-M9a.md)) wykazał
+utratę danych przy zapisie KB i przy dwóch równoległych akceptacjach. Przed M9b wstawiono etap naprawczy M-STAB1,
+a pozostałe naprawy granicy akceptacji zaplanowano jako M-STAB2 i M-STAB3 przed M10.
+
+### M-STAB1: Stabilizacja po M9a, etap 1: bezpieczny zapis KB, jeden pisarz, typy propozycji
+- **Status:** done · **Rola:** IMPL · **Zależy od:** M9a
+- **Zakres:** ustalenia F01 (tylko pojedynczy plik), F02 i F08 przeglądu:
+  - atomowa podmiana pliku KB (plik tymczasowy w tym samym katalogu, `fsync`, `os.replace`, sprzątanie, ponowienia
+    na Windows) bez zapisu w miejscu;
+  - blokada pisarza projektu między procesami i wątkami wokół całego odczytu, merge'a, walidacji i zapisu
+    w `accept()`, z limitem czasu;
+  - przekazany `Workspace` nie nadpisuje nowszego wyniku: świeży odczyt `kb/` pod blokadą i kontrola odcisku
+    inwentarza;
+  - typy i schemat propozycji przed funkcjami domenowymi;
+  - rozdzielenie odrzucenia danych, awarii I/O i błędu programu w `accept()` i wykonawcy Tier 0.
+- **Akceptacja:**
+  - awaria przed podmianą zachowuje stare bajty;
+  - dwie akceptacje (wątki i procesy) nie gubią rekordów;
+  - `id=[]`, `quote=123` i błędny `span` dają diagnostykę bez zapisu;
+  - rebuild idempotentny, dry-run bez zapisu;
+  - `python -m pytest` zielone.
+- **Poza zakresem:** commit partii plików i recovery (M-STAB2), hashe, manifest, projekcje i kontrakt propozycji
+  (M-STAB3), decyzje Q-13, Q-14 i Q-15.
+- **Wynik:**
+  - `wgc/fsio.py` (`atomic_write`, `exclusive`);
+  - `wgc/kb.py`: `lock()`, `KBBusy`, `KBStale`, `KBWriteError`, kontrole typów i schematu przed domeną;
+  - `glu/exec.py`: Attempt `error` dla awarii i błędu programu;
+  - `tests/test_kb_safety.py`;
+  - ADR-0026 i DATA-CONTRACTS §10.
+
+  Handoff: [handoff/2026-10-05-M-STAB1.md](handoff/2026-10-05-M-STAB1.md).
+
 ### M9b: Harvest terminów (Tier 0)
-- **Status:** next · **Rola:** IMPL · **Zależy od:** M9a
+- **Status:** next · **Rola:** IMPL · **Zależy od:** M9a, M-STAB1
 - **Zakres:** zadanie `wgc.terms.harvest@0`: pojęcia `concept` tylko dla wzorców o pewnej kategorii (np. `NdM` → `die`,
   `Scenario: X` → `scenario`, pozycje listy sekwencji `… Phase` → `phase`), z kotwicą i cytatem; pozostałe terminy nie
   trafiają do `kb/` (kategorię ustala M14).
 - **Akceptacja:** build Tier 0 na `bench/minigame` daje pojęcia przechodzące walidację; brak zgadywanych kategorii.
 
+### M-STAB2: Stabilizacja po M9a, etap 2: commit partii KB i recovery
+- **Status:** planned · **Rola:** ARCH (protokół) + IMPL · **Zależy od:** M-STAB1
+- **Zakres:** ustalenia F01 (partia plików) i F04 przeglądu, decyzje N01 i N04:
+  - commit całej partii plików `kb/` jednej akceptacji: manifest partii (np. w `.glu/`), podmiana plików i jawny
+    znacznik zatwierdzenia; po przerwaniu albo dokończenie, albo wycofanie do poprzedniej wersji, nigdy częściowa
+    `kb/` uznana za poprawną;
+  - receipt akceptacji (generacja `kb/`) zapisywany razem z Attemptem; końcowe wpisy store (`add_attempt`
+    i przejścia) w jednej transakcji;
+  - reconcile/recovery: polecenie albo krok startu buildu, który znajduje joby w `validating`/`running`
+    i uzgadnia je z `kb/` (KB pozostaje prawdą także po utracie `.glu/`, ADR-0004).
+- **Akceptacja:** testy awarii między podmianami plików partii i po zapisie KB a przed zapisem Attemptu; recovery
+  przywraca spójny stan bez ręcznej edycji; `kb/` nadal w YAML/git.
+- **Poza zakresem:** rozproszona transakcja KB+SQLite, przeniesienie KB do bazy (ADR-0004).
+
+### M-STAB3: Stabilizacja po M9a, etap 3: hashe wejść, manifest, projekcje, kontrakt propozycji
+- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB2
+- **Zakres:** ustalenia F03, F05, F06, F07 i F11 przeglądu, decyzje N03, N05, N06, N07 i N10. Jeśli nie zmieści
+  się w jednej sesji, dzieli się go przed pracą.
+  - **Hashe strukturalne:** obok znormalizowanego `text_hash` wersjonowany hash struktury tabeli albo artefaktu
+    ekstrakcji, używany przez parser, planner, provenance i verify; zastąpienie ADR-0024.
+  - **Manifest wejść wywołania:** task/version, projekcja/version, wejścia i kontekst z hashami, autorytet źródeł;
+    osobno dowody rekordu (`prov`). Generacja `kb/` dla zadań czytających rekordy KB.
+  - **Projekcje:** treść nieformalizowana przy `formalization: none|partial`, definicje predykatów, projekcje dla
+    rodzajów używanych w M10–M14, podbicie wersji.
+  - **Kontrakt propozycji i statusów:** `wgc/proposal@0` (envelope), dispatch kontraktu etapu, lifecycle oddzielony
+    od rozstrzygnięcia niejasności, ownership `task + zakres wejść` z manifestem outputów.
+- **Akceptacja:** testy zmiany granic komórek bez zmiany `text_hash`, zmiany treści nieformalizowanej, zmiany roli
+  źródła i zniknięcia jednego outputu; kontrakt propozycji z fixture'ami i DATA-CONTRACTS.
+- **Decyzje właściciela (przyjęte):** ADR-0027. Lista ról kanonicznych dla automatycznej akceptacji
+  (`community_interpretation`, `prior_translation` i `other` odrzucane, Q-13); niepotwierdzona kotwica zawsze odrzuca,
+  `llm_inference` tylko z deklaracją zadania (Q-14). M-STAB3 wdraża obie reguły z testami dla każdej roli.
+- **Poza zakresem:** pełny graf zależności i przyrostowy rebuild (M13), cache (M11), trwałe ID i mapa przenumerowań
+  (F10, osobna decyzja przed pierwszą regeneracją zmienionych źródeł).
+
 ### M10: Providerzy fake/replay/self_hosted + pętla structured output
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a (kontrakt `igw/api@0` z M-INF0)
+- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3 (kontrakt `igw/api@0` z M-INF0)
 - **Zakres:**
   - `glu.providers` z interfejsem INFERENCE-ROUTING §3: `generate`, `embed?`, `health`, `capabilities`, `models`
     i typowane błędy;
@@ -182,7 +248,8 @@ przekraczała rozmiar jednej sesji. Relacje warstwy scenariusza przeniesiono do 
     z konfiguracji, nigdy IP na sztywno; klient HTTP `httpx` (dopisany do `requirements.txt`, transport w pamięci w testach);
   - `glu/profiles@0` (`profiles.yaml`: endpointy, profile, `fallback`);
   - wykonawca self-hosted;
-  - pętla schemat → domena → accept/retry/escalate z feedbackiem błędów;
+  - pętla schemat → domena → accept/retry/escalate z feedbackiem błędów; odrzucona kotwica wraca do modelu jako
+    błąd do poprawy, bez obniżenia do `llm_inference` (ADR-0027);
   - błąd dostępności → `waiting_inference` bez zużycia prób, bez premium (ADR-0017);
   - provenance dopisywane deterministycznie (ADR-0014).
 - **Akceptacja:**
@@ -204,7 +271,8 @@ przekraczała rozmiar jednej sesji. Relacje warstwy scenariusza przeniesiono do 
 ### M12: Routing deterministyczny
 - **Status:** planned · **Rola:** IMPL · **Zależy od:** M6, M11
 - **Zakres:** `routing@0` (tabela INFERENCE-ROUTING §2, reguły 1–13) jako dane, `routing_decision` z powodami
-  i `premium_reason`, lokalny multi-pass (`local_deep` jako rozjemca i pass naprawczy), audyt próbkowy, budżety,
+  i `premium_reason`, lokalny multi-pass (`local_deep` jako pass naprawczy i przygotowanie diffu, bez prawa
+  akceptacji, ADR-0028), audyt próbkowy, budżety,
   polityka niedostępności, sprawdzanie bramek w plannerze, `glu explain <job|rekord>` (dlaczego self-hosted, dlaczego
   premium).
 - **Akceptacja:** testy tabelaryczne dla każdej reguły; budżet wyczerpany → `waiting_review`, nigdy akceptacja lokalna;

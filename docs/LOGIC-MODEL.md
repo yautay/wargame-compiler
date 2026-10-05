@@ -35,7 +35,8 @@ Model rozszerzył M2a (kontrakt, ADR-0020); M7 doda politykę w `project.yaml`:
 - Konflikt na tej samej pozycji albo konflikt z nieznaną datą lub wydaniem tworzy niejasność (`AMB-`) i trafia do
   człowieka (`HD-`).
 - `community interpretation` nigdy nie jest źródłem kanonicznym sama w sobie. Może być wyłącznie dowodem w pakiecie
-  dla człowieka, a kanoniczna staje się po `HD-`.
+  dla człowieka, a kanoniczna staje się po `HD-`. To samo dotyczy `prior_translation` i `other`: automatyczna
+  akceptacja jest możliwa tylko z jawnej listy ról kanonicznych (ADR-0027, wdrożenie M-STAB3).
 - Role `living_rules` i `community_interpretation` są w `source_document.role` od M2a.
 
 ## Rekordy Stage 1
