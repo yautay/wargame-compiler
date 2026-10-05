@@ -3,7 +3,7 @@
 - **Data aktualizacji:** 2026-10-05
 - **Ostatni milestone:** M0 (Session 0): done
 - **Bieżący milestone:** M1
-- **Stan repo:** testy zielone (`python -m pytest`); git zainicjowany, bez commitów (commit na prośbę właściciela)
+- **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-complier.git`
 
 ## Gdzie jesteśmy
 Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. Nie ma jeszcze kodu domenowego poza
@@ -65,7 +65,6 @@ bramki (M7), cokolwiek w `glu/`, zamrożenie `@1`.
 ## Otwarte kwestie
 | # | Kwestia | Kto | Kiedy |
 |---|---|---|---|
-| Q-01 | Czy commitować Session 0 i na jakiej gałęzi; czy repo ma remote | właściciel | teraz |
 | Q-02 | Wybór gry pilotażowej (M28) i rozdziału do M-BASE | właściciel | przed M-BASE |
 | Q-03 | Czy repo gier przenieść do systemu plików WSL (wydajność) | właściciel | przed M-INF |
 | Q-04 | Czy glosy KB mają mieć drugi język (np. PL) jako widok Stage 3, czy wystarczy EN | właściciel | przed M7 (widoki) |
