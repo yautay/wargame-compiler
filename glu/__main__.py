@@ -1,5 +1,5 @@
-"""CLI: `glu status`, `glu export` and `glu build` (also `python -m glu`). Exit code 2 = operational error (ADR-0002);
-`glu build` returns 1 when the build ends `failed`."""
+"""CLI: `glu status`, `glu export`, `glu build` and `glu reconcile` (also `python -m glu`). Exit code 2 = operational
+error (ADR-0002); `glu build` returns 1 when the build ends `failed`."""
 from __future__ import annotations
 
 import argparse
@@ -10,7 +10,7 @@ from pathlib import Path
 
 import yaml
 
-from glu.store import Store, StoreError
+from glu.store import Store, StoreError, db_path
 from wgc.kb import KBError
 from wgc.tasks import TaskError
 
@@ -69,6 +69,7 @@ def _cmd_export(args) -> int:
 
 def _cmd_build(args) -> int:
     from glu import exec as executor, planner
+    from wgc import kb
     from wgc.canonical import content_hash
     from wgc.kb import Workspace
 
@@ -83,10 +84,14 @@ def _cmd_build(args) -> int:
             print(f"  {j.spec.name}  tier: {j.tier}  wejścia: {', '.join(j.inputs)}  klucz: {key}")
         for name in plan.skipped:
             print(f"  pominięte (brak implementacji Tier 0): {name}")
+        if kb.pending_batch(root):
+            print("  kb/ ma przerwaną partię zapisu: `glu build` najpierw ją uzgodni (podgląd: `glu reconcile --dry-run`)")
         print(f"Jobów: {len(plan.jobs)}. Niczego nie zapisano.")
         return 0
     with Store.at_root(root) as store:
         result = executor.run(store, ws, plan, project)
+    for line in result.reconciled:
+        print(f"Reconcile: {line}")
     m = result.metrics
     print(f"Build {result.id}: projekt {project}, etap {result.stage}, zakres {result.scope}, stan: {result.state}")
     for j in result.jobs:
@@ -99,6 +104,30 @@ def _cmd_build(args) -> int:
     print(f"Jobów: {m['jobs_total']} (udane {m['jobs_done']}, nieudane {m['jobs_failed']}); rekordy: nowe "
           f"{m['records_created']}, zmienione {m['records_updated']}, bez zmian {m['records_unchanged']}.")
     return 0 if result.state == "done" else 1
+
+
+def _cmd_reconcile(args) -> int:
+    from glu import reconcile
+    from wgc import fsio
+    root = Path(args.root)
+    if args.dry_run or not db_path(root).is_file():  # no store: no builds to reconcile, only kb/, no lock file
+        res = reconcile.reconcile(root, dry_run=args.dry_run)
+    else:
+        try:  # the start lock of builds: a build being created is never taken for a dead one (ADR-0031)
+            with fsio.exclusive(root / reconcile.START_LOCK, reconcile.START_TIMEOUT):
+                res = reconcile.reconcile(root)
+        except fsio.LockBusy:
+            raise StoreError(f"inny `glu build` tej gry startuje dłużej niż {reconcile.START_TIMEOUT:g} s "
+                             f"({reconcile.START_LOCK.as_posix()}); ponów") from None
+    if not res.actions:
+        print("Nic do uzgodnienia: kb/ bez przerwanej partii, brak przerwanych buildów.")
+        return 0
+    print("Plan reconcile (bez zapisu):" if args.dry_run else "Reconcile:")
+    for line in res.actions:
+        print(f"  {line}")
+    if args.dry_run:
+        print("Niczego nie zapisano.")
+    return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -125,6 +154,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--project", metavar="nazwa", help="nazwa projektu w buildzie (domyślnie nazwa katalogu --root)")
     p.add_argument("--dry-run", action="store_true", help="tylko plan jobów; niczego nie zapisuje")
     p.set_defaults(func=_cmd_build)
+
+    p = sub.add_parser("reconcile", help="recovery kb/ i uzgodnienie przerwanych buildów i jobów z kb/ (ADR-0031)")
+    p.add_argument("--root", default=".", metavar="katalog", help="katalog repo gry (domyślnie bieżący)")
+    p.add_argument("--dry-run", action="store_true", help="tylko plan; niczego nie zapisuje")
+    p.set_defaults(func=_cmd_reconcile)
     return parser
 
 

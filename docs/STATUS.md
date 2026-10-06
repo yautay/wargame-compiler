@@ -1,8 +1,8 @@
 # STATUS
 
-- **Data aktualizacji:** 2026-10-05
-- **Ostatni milestone:** M9b (harvest terminów, Tier 0): done
-- **Bieżący milestone:** M-STAB2
+- **Data aktualizacji:** 2026-10-06
+- **Ostatni milestone:** M-STAB2 (stabilizacja po M9a, etap 2: commit partii KB i recovery): done
+- **Bieżący milestone:** M-STAB3a
 - **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-compiler.git`
 
 ## Gdzie jesteśmy
@@ -51,7 +51,7 @@ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. 
   - typy i schemat propozycji sprawdzane przed funkcjami domenowymi: diagnostyka zamiast `TypeError` (F08);
   - wykonawca Tier 0 rozróżnia odrzucenie (Attempt `rejected`), awarię operacyjną i błąd programu (Attempt `error`).
 
-  Pozostałe ustalenia przeglądu (F03–F07, F09–F20) są otwarte; ich plan to M-STAB2, M-STAB3 i kwestie poniżej.
+  Pozostałe ustalenia przeglądu (F03–F07, F09–F20) są otwarte; ich plan to M-STAB2, M-STAB3a–c i kwestie poniżej.
 - **M9b (ADR-0030):**
   - zadanie `wgc.terms.harvest@0` (`wgc/terms.py`). Daje `concept` tylko dla wzorców o pewnej kategorii:
     - `NdM` → `die`;
@@ -63,6 +63,21 @@ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. 
   - reguła ID pojęć: `CON-<klucz>` dla głównej instrukcji, `CON-<klucz SRC>:<klucz>` dla innych dokumentów
     ([DATA-CONTRACTS §10](DATA-CONTRACTS.md#id-pojec));
   - na `bench/minigame` build daje `TAB-4.3` i 6 pojęć.
+- **M-STAB2 (ADR-0031, ustalenia F01 i F04 przeglądu):**
+  - akceptacja zmieniająca dwa pliki `kb/` lub więcej idzie jedną partią z dziennikiem wycofania w `kb/.wgc-batch/`
+    (`wgc/fsbatch.py`, format `wgc-kb-batch@1`, czyta też `@0`). Po przerwaniu `kb/` jest w całości stara albo
+    w całości nowa;
+  - nieudana partia ma trzy rozłączne wyniki: zatwierdzony, potwierdzone wycofanie (`KBWriteError`, job `failed`)
+    i nierozstrzygnięty (`KBUnresolved`: intencja `rolling_back` albo jej brak, job zostaje w `validating`, receipt
+    i dziennik zostają, build przerwany, rozstrzyga reconcile);
+  - `wgc kb recover [--dry-run]`; `accept()` robi recovery pod blokadą przed odczytem `kb/`; `wgc validate` zgłasza
+    `kb_batch_pending` (także dla `kb/logic` i pojedynczego pliku) i czyta `kb/` pod wspólną blokadą z pisarzem,
+    bez tworzenia pliku blokady; pierwszy zapis w repo bez `.glu/kb.lock` wymusza ponowny odczyt
+    (`kb_read_unstable` po 5 próbach);
+  - receipt akceptacji (`generation`, `records`) w `.glu/kb-receipts/` i w Attempcie (`kb_receipt`, `glu/exec@0`);
+  - `Store.finish_job`: Attempt i ostatnie przejścia joba w jednej transakcji;
+  - `glu reconcile [--dry-run]` i krok startu `glu build`: joby martwych buildów uzgadniane z `kb/` (blokada
+    żywotności `.glu/builds/<build>.lock`), bez nowych krawędzi tabeli przejść ([GLU §3](GLU.md#reconcile)).
 
 Mapa dokumentów: [README.md](../README.md#dokumentacja).
 
@@ -77,56 +92,53 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
 |---|---|---|---|
 | Tożsamość, hashe, walidator | `wgc/common` (ID, hash) | `wgc.ids`, `wgc.canonical`, `wgc.validate` (M1) | fixture'y `valid/` + `invalid/semantic/` |
 | Stage 0 | `wgc/source@0` (szkic; role, `seg_prefix`) | `wgc.source`, `wgc.ingest.markdown` (M2a), `wgc.ingest.pdf` (M2b) | `bench/minigame/source/inventory.yaml` |
-| Stage 1 | `wgc/logic@0` (szkic) | `wgc.tasks`, `wgc.kb.accept`, `wgc.tables` (M9a); `wgc.fsio`, blokada i atomowy zapis `kb/` (M-STAB1); `wgc.terms` (M9b) | `phenomena.yaml`, gold w M3 |
+| Stage 1 | `wgc/logic@0` (szkic) | `wgc.tasks`, `wgc.kb.accept`, `wgc.tables` (M9a); `wgc.fsio`, blokada i atomowy zapis `kb/` (M-STAB1); `wgc.terms` (M9b); `wgc.fsbatch`, `wgc kb recover` (M-STAB2) | `phenomena.yaml`, gold w M3 |
 | Stage 1.5 | `wgc/digital@0` (szkic) | — | gold w M17–M21 |
 | Stage 2 | planowany (M24) | — | — |
 | Stage 3 | planowany (M25–M26) | — | — |
 | Bramki | `wgc/gate@0` (szkic) | — | — |
-| GLU | `glu/exec@0` (szkic, z polityką fallbacku i `premium_reason`) | `glu.store`, `glu.states`, `glu status`, `glu export` (M8); `glu.planner`, `glu.exec`, `glu build` (M9a) | build Tier 0 na `bench/minigame` w testach |
+| GLU | `glu/exec@0` (szkic, z polityką fallbacku i `premium_reason`) | `glu.store`, `glu.states`, `glu status`, `glu export` (M8); `glu.planner`, `glu.exec`, `glu build` (M9a); `glu.reconcile`, `glu reconcile` (M-STAB2) | build Tier 0 na `bench/minigame` w testach |
 | Węzeł inferencji (`igw`) | `igw/api@0` (szkic) | — (M-GW1) | — (M-INF) |
 
 <a id="nastepny-milestone"></a>
-## Następny milestone: M-STAB2 Stabilizacja po M9a, etap 2: commit partii KB i recovery
-**Dlaczego teraz:** M9b dodał drugie zadanie Tier 0, więc build ma już kilka akceptacji, a pierwsze zadanie modelowe
-(M10) przyjdzie po M-STAB3. Według [ROADMAP](ROADMAP.md#kolejnosc) tor domeny idzie przez M-STAB2 → M-STAB3 → M10 do
-walking skeletonu M-E2E. Dziś:
-- akceptacja zmieniająca kilka plików `kb/` podmienia je po kolei (ADR-0026);
-- udany zapis `kb/`, po którym zawiedzie zapis Attemptu, zostawia job w `validating` (F04).
+## Następny milestone: M-STAB3a Stabilizacja po M9a, etap 3a: hashe strukturalne
+**Dlaczego teraz:** M-STAB2 zamknął trwałość zapisu `kb/` i spójność ze stanem wykonania (F01, F04). Właściciel
+podzielił etap 3 (2026-10-06) na M-STAB3a (hashe strukturalne), M-STAB3b (manifest wejść, projekcje i diagnostyka
+receiptu) i M-STAB3c (kontrakt propozycji, ownership, ADR-0027). Według [ROADMAP](ROADMAP.md#kolejnosc) tor domeny idzie
+przez M-STAB3a → M-STAB3b → M-STAB3c → M10. Hash struktury jest pierwszy, bo od niego zależą klucze jobów i provenance
+(F03): ten sam `text_hash` może dziś oznaczać inne granice komórek tabeli.
 
-**Środowisko:** GLU natywnie na Windows (ADR-0022). Zapis do `kb/`: ADR-0025, ADR-0026, DATA-CONTRACTS §10.
+**Środowisko:** GLU natywnie na Windows (ADR-0022). Zapis do `kb/`: ADR-0025, ADR-0026, ADR-0031, DATA-CONTRACTS §10.
 
 **Tor równoległy:** M-GW1 (Inference Gateway) i M-BASE (HUM) bez zmian.
 
-**Zakres (ROADMAP M-STAB2):**
-1. Commit całej partii plików `kb/` jednej akceptacji. Manifest partii (np. w `.glu/`), podmiana plików i jawny
-   znacznik zatwierdzenia. Po przerwaniu albo dokończenie, albo wycofanie, nigdy częściowa `kb/` uznana za poprawną.
-2. Receipt akceptacji (generacja `kb/`) zapisywany razem z Attemptem. Końcowe wpisy store w jednej transakcji.
-3. Reconcile/recovery: joby w `validating`/`running` uzgadniane z `kb/` (KB pozostaje prawdą także po utracie
-   `.glu/`, ADR-0004).
+**Zakres:** [ROADMAP M-STAB3a](ROADMAP.md) (ustalenie F03, decyzja N03): wersjonowany hash struktury tabeli albo
+artefaktu ekstrakcji obok znormalizowanego `text_hash`, używany przez parser, planner, provenance i verify;
+zastąpienie ADR-0024; nowa wersja ekstraktora albo formatu i jawna regeneracja wcześniejszych artefaktów.
 
-**Pierwsza czynność:** projekt protokołu manifest partii → podmiana → znacznik zatwierdzenia → recovery jako ADR.
-Czytać:
-- ADR-0004, ADR-0023, ADR-0026;
-- `glu/exec.py`, `wgc/kb.py` (`_accept_locked`);
-- ustalenia F01/F04 [przeglądu](reviews/2026-10-05-przeglad-po-M9a.md).
+**Pierwsza czynność:** ADR hashy strukturalnych (zastępuje ADR-0024). Czytać:
+- ADR-0020, ADR-0021, ADR-0024, ADR-0025;
+- ustalenie F03 [przeglądu](reviews/2026-10-05-przeglad-po-M9a.md);
+- `wgc/canonical.py`, `wgc/ingest/`, `wgc/source.py` (`verify`), `wgc/tables.py`, `wgc/kb.py` (`_provenance`),
+  `glu/planner.py`.
 
-**Kryteria akceptacji:**
-- testy awarii między podmianami plików partii oraz po zapisie KB a przed zapisem Attemptu;
-- recovery przywraca spójny stan bez ręcznej edycji;
-- `kb/` nadal w YAML/git;
-- `python -m pytest` zielone, test ciągłości zielony.
+**Kryteria akceptacji:** test zmiany granic komórek bez zmiany `text_hash` wykryty przez verify, planner
+i provenance; `python -m pytest` zielone, test ciągłości zielony.
 
-**Poza zakresem:**
-- rozproszona transakcja KB+SQLite i przeniesienie KB do bazy (ADR-0004);
-- M-STAB3: hashe, manifest wejść, projekcje, kontrakt propozycji, ADR-0027;
-- stale i usuwanie rekordów (Q-12, Q-16).
+**Poza zakresem:** manifest wejść, projekcje i diagnostyka receiptu (M-STAB3b), kontrakt propozycji, ownership
+i ADR-0027 (M-STAB3c), trwałe ID (F10), Q-12, Q-16 i Q-17 (pozostają otwarte, decyzja właściciela 2026-10-06).
 
 ## Otwarte kwestie
 Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows, ADR-0022). M8 nie otworzył nowych
 kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-0025). Przegląd po M9a dodał Q-14 i Q-15.
-Zamknięte po M-STAB1 decyzją właściciela (2026-10-05): Q-13 i Q-14 (ADR-0027, wdrożenie M-STAB3/M10), Q-15 (ADR-0028,
+Zamknięte po M-STAB1 decyzją właściciela (2026-10-05): Q-13 i Q-14 (ADR-0027, wdrożenie M-STAB3c/M10), Q-15 (ADR-0028,
 wdrożenie M12). Kolejność potwierdzona: M9b przed M-STAB2. Grę pilotażową (Q-02) właściciel poda później. M9b otworzył
-Q-16 i Q-17.
+Q-16 i Q-17. M-STAB2 otworzył Q-18, zamkniętą przez właściciela 2026-10-06 (poniżej).
+Decyzje właściciela po M-STAB2 (2026-10-06, ADR-0031): dziennik partii zostaje w `kb/.wgc-batch/`; repo gry nie
+ignoruje go w git (Q-18 zamknięta); automatyczny reconcile martwych buildów zostaje; przed M10 (w M-STAB3b)
+dochodzi polecenie diagnostyczne porównujące receipt wskazanego joba z `kb/`, bez automatycznej naprawy (różnica
+względem historycznego receiptu nie oznacza sama w sobie uszkodzenia); M-STAB3 podzielony na M-STAB3a/3b/3c;
+Q-12, Q-16 i Q-17 pozostają otwarte.
 Decyzja właściciela (2026-10-05, w trakcie M9b): przekład Stage 3 pisze premium dla jakości językowej, wierność
 sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akceptacja M26 ze ślepym porównaniem stron).
 
@@ -141,7 +153,7 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
 | Q-09 | Zakres `unresolved_ref` poza listą M1: referencje w wyrażeniach (`pred`, `is`, `val`, `count`), `ref_to`, `timing`, `emits`, `fires_on`, `legality`, `chain`, `ambiguities`, kroki testów; kontrola rodzaju celu (np. `interpretation.ambiguity` → `AMB-`). Fixture'y `valid/` już dziś je rozwiązują | M5 (L2) albo M7 | przed M5 |
 | Q-11 | Ekstraktor PDF obsługuje jedną kolumnę: przed pierwszym PDF-em prawdziwej gry potrzebne są kolumny (wykrycie `column_scrambled` albo kolejność czytania), usuwanie nagłówków i stopek stron oraz decyzja o stronach bez warstwy tekstu (`image_only`, OCR). Zakres do ustalenia na PDF-ie gry pilotażowej (ADR-0021) | właściciel + IMPL | przed M28 |
 | Q-12 | `accept()` waliduje całe `kb/` i każdy błąd blokuje zapis. Rekord unieważniony zmianą źródła (np. stara kotwica `TAB-4.3` po przenumerowaniu tabeli) blokuje każdy kolejny `accept()`, aż ktoś poprawi KB ręcznie. Trzeba rozdzielić błędy blokujące od stanu `stale` (ADR-0004, ADR-0025). Od M9b częściej: przemianowana faza zostawia stare pojęcie (`anchor_hash_mismatch`), a zmiana segmentu z kotwicami pojęć daje nieudany pierwszy build zadań wykonywanych przed harvest (ADR-0030, `tests/test_terms.py`) | M13 (graf, invalidacja) | przed M13 |
-| Q-16 | Własność rekordów `CON-`: harvest nie usuwa pojęć, których już nie daje (F11), a model (M14) albo `HD-` z tym samym ID daje konflikt, po którym job harvest kończy się `failed`. Kto jest właścicielem pojęcia `die`/`phase`/`scenario`, gdy M14 je wzbogaci (definicja, `values`), i jak łączyć pojęcia między dokumentami (`CON-d6` i `CON-<klucz SRC>:d6`)? | ARCH + właściciel | M-STAB3 (ownership) albo przed M14 |
+| Q-16 | Własność rekordów `CON-`: harvest nie usuwa pojęć, których już nie daje (F11), a model (M14) albo `HD-` z tym samym ID daje konflikt, po którym job harvest kończy się `failed`. Kto jest właścicielem pojęcia `die`/`phase`/`scenario`, gdy M14 je wzbogaci (definicja, `values`), i jak łączyć pojęcia między dokumentami (`CON-d6` i `CON-<klucz SRC>:d6`)? | ARCH + właściciel | M-STAB3c (ownership) albo przed M14 |
 | Q-17 | Który dokument jest „główną instrukcją” (ID bez przedrostka) dla `TAB-` i `CON-`. `TAB-` ma regułę z M9a: bez przedrostka dla każdego dokumentu `rules`, więc dwa dokumenty `rules` z tabelą o tej samej etykiecie dają to samo ID. `CON-` bierze dokument `rules` o najmniejszym `SRC-` (ADR-0030), co zakłada nazewnictwo `wgc source init`: ręcznie dopisany `SRC-dsk.advanced` przejąłby tę rolę i zmienił ID. Propozycja: jawne pole w inwentarzu (np. `main: true` albo `seg_prefix` równy kodowi gry) jako jedno źródło dla obu prefiksów. To zmiana ID i kontraktu, więc potrzebuje decyzji | właściciel + ARCH | przed pierwszą grą z dwoma dokumentami `rules` |
 
 ## Ryzyka
@@ -158,12 +170,19 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
 | `wgc/contracts.py` szuka schematów w `../contracts/` (poza pakietem): instalacja nieedytowalna ich nie zabierze | skrypty `wgc` (M1) i `glu` (M8, store waliduje rekordy przez `wgc.contracts`) nie działają po `pip install .` (działają po `pip install -e .`) | M7: przenieść schematy do `wgc/` jako package data lub dodać je do dystrybucji |
 | Skrypt `glu` dopisany do `[project.scripts]` w M8; istniejąca instalacja edytowalna go nie ma | `glu` nie działa jako polecenie, dopóki nie przeinstalujesz pakietu (`python -m glu` działa) | `pip install -e .` po M8 |
 | Job store ma jednego pisarza naraz (domyślny journal, `timeout` 5 s, bez WAL) | MCP (M22) równolegle z CLI może dostać `database is locked` | decyzja o WAL w M22 (ADR-0023); WAL nie chroni plików `kb/` (te chroni blokada ADR-0026) |
-| Akceptacja zmieniająca kilka plików `kb/` podmienia je po kolei (ADR-0026) | awaria między podmianami zostawia część wyniku, której pełna wersja nie przeszła walidacji | `KBWriteError` wymienia podmienione pliki; ponów build, a jeśli walidacja całego `kb/` odrzuca stan częściowy, przywróć te pliki z git; commit partii i recovery w M-STAB2 |
-| Udany zapis `kb/`, po którym zawiedzie zapis Attemptu, zostawia job w `validating` (F04) | stan wykonania nie mówi wiarygodnie, czy wynik zatwierdzono | następny build jest idempotentny; receipt i reconcile w M-STAB2 |
+| Windows bez `fsync` katalogu: trwałość podmian partii i znacznika zatwierdzenia po odcięciu zasilania nie jest wymuszona (ADR-0031) | spójność `kb/` zależy od kolejności dziennika NTFS (nietestowane); Attempt `accepted` w SQLite może przetrwać utratę zmian `kb/` | awaria procesu jest pokryta testami (`os._exit`); rozbieżność po awarii zasilania pokazuje porównanie `kb_receipt` z `kb/` (dziś ręcznie: `wgc.kb.check_receipt`; polecenie diagnostyczne w M-STAB3b), naprawia ją ponowny build |
+| Reconcile kończy przerwany build `failed` (albo `done`), nie wznawia go | przerwana praca wymaga nowego buildu | świadomie (ADR-0023, ADR-0031); Tier 0 jest tani, cache M11 ograniczy koszt modeli |
+| Receipt dowodzi zgodności treści z `kb/`, nie autorstwa | job martwego buildu uznany za `done`, gdy identyczny rekord dał inny job | wystarcza do uzgodnienia stanu (ADR-0031) |
+| Blokada żywotności buildu i blokada startu (`.glu/builds/`, `.glu/build.lock`) to blokady systemowe jak `kb.lock` | na dysku sieciowym (SMB/NFS) mogą działać inaczej: reconcile mógłby uznać żywy build za martwy | repo gry na dysku lokalnym (jak w ADR-0026) |
+| Pozostałość `kb/.wgc-batch/` po nieudanym usunięciu katalogu (np. antywirus na Windows) | `wgc validate` zgłasza `kb_batch_pending` mimo spójnego `kb/`; po wycofaniu w `accept()` wynik jest `KBUnresolved`, więc build się przerywa | `wgc kb recover` sprząta (idempotentne); `accept()` robi to samo pod blokadą; reconcile rozstrzyga job |
+| Wynik nierozstrzygnięty (`KBUnresolved`) przy trwałej awarii I/O | każdy kolejny `glu build` kończy się kodem 2 na starcie (recovery zawodzi), dopóki I/O nie wróci | świadomie: nie budować na niepewnym `kb/`; `wgc kb recover` po usunięciu przyczyny, potem `glu reconcile` |
+| Walidator czyta `kb/` pod blokadą pisarza `.glu/kb.lock` | `wgc validate` w trakcie buildu czeka na bieżący `accept()` (i odwrotnie); przy blokadzie zajętej ponad 60 s `kb_read_unstable` | akceptacje trwają ułamki sekundy; walidować po zakończeniu buildów |
+| Zmiana `kb/` spoza blokady (edytor, `git checkout`) przywracająca identyczne bajty między kontrolami walidatora | mieszana wersja niewykryta (ABA) | blokada doradcza (ADR-0026); nie edytować `kb/` w trakcie walidacji ani buildu |
+| `accept()` z `job` wywołany poza GLU zostawia receipt w `.glu/kb-receipts/` | pliki receiptów rosną | GLU usuwa receipt po zapisie Attemptu; `glu reconcile` usuwa osierocone |
 | Blokada `.glu/kb.lock` jest doradcza | ręczna edycja, `git checkout` i czytelnicy bez blokady (`wgc validate`, planner) jej nie respektują; na Windows otwarty plik wymusza ponowienia `os.replace` (ok. 1,5 s), potem `KBWriteError` | nie edytować `kb/` w trakcie buildu; zamknąć edytor pliku `kb/` przed buildem |
-| `KBStale` sprawdza tylko inwentarz, nie rekordy `kb/` czytane jako kontekst | przyszłe zadanie modelowe może dać wynik ze starego kontekstu | manifest wejść i generacja `kb/` w M-STAB3 (N05) |
-| Testy awarii zapisu wstrzykują wyjątki | odcięcie zasilania, zabicie procesu w trakcie `fsync` i dyski sieciowe (SMB) niezbadane; na Windows trwałość podmiany nie jest wymuszona (brak `fsync` katalogu) | repo gry na dysku lokalnym; ewentualny test fizyczny przy M-NODE/pilocie |
-| Gałąź POSIX `wgc.fsio` (`fcntl.flock`, `fsync` katalogu, tryb pliku) nie była uruchamiana; M-STAB1 nie był testowany na Pythonie 3.10 | błąd widoczny dopiero na Linux/WSL albo starszym Pythonie | uruchomić `python -m pytest` na Linux/WSL i 3.10 przy najbliższej okazji (np. M-NODE) |
+| `KBStale` sprawdza tylko inwentarz, nie rekordy `kb/` czytane jako kontekst | przyszłe zadanie modelowe może dać wynik ze starego kontekstu | manifest wejść i generacja `kb/` w M-STAB3b (N05) |
+| Testy awarii: wyjątki wstrzykiwane i (od M-STAB2) procesy potomne kończone `os._exit` w punktach protokołu | odcięcie zasilania, zabicie procesu wewnątrz `fsync`/`os.replace` i dyski sieciowe (SMB) niezbadane; na Windows trwałość podmiany nie jest wymuszona (brak `fsync` katalogu) | repo gry na dysku lokalnym; ewentualny test fizyczny przy M-NODE/pilocie |
+| Gałąź POSIX `wgc.fsio` i `wgc.fsbatch` (`fcntl.flock`, `fsync` katalogu, tryb pliku) nie była uruchamiana; M-STAB1 i M-STAB2 nie były testowane na Pythonie 3.10 | błąd widoczny dopiero na Linux/WSL albo starszym Pythonie | uruchomić `python -m pytest` na Linux/WSL i 3.10 przy najbliższej okazji (np. M-NODE) |
 | Store waliduje każdy rekord schematem przy zapisie | wolniejsze buildy z tysiącami jobów | pomiar w M11 (w M9a nie mierzono: build gry benchmarkowej ma 1 job); w razie potrzeby walidacja tylko przy eksporcie (ADR-0023) |
 | Narzędzie czytające pliki KB przez `contracts.load` pominie dokumenty po `---` (ADR-0019) | ciche pominięcie rekordów | czytać przez `wgc.validate.load_documents` |
 | `bench/minigame/source/inventory.yaml` i fixture'y `valid/` mają te same ID segmentów | `wgc validate bench/minigame/source contracts/fixtures/valid` w jednym przebiegu daje `duplicate_id` (a `wgc validate bench` dodatkowo `schema_error` dla `phenomena.yaml`, który nie jest dokumentem KB) | walidować osobno (DATA-CONTRACTS §9) |
@@ -172,7 +191,7 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
 | Cache tekstu `.glu/source/` zapisany przed ADR-0024 ma ten sam `text_hash`, ale komórki tabel rozdzielone spacją | `wgc source verify` tego nie wykrywa; `wgc.tables.parse` odrzuca tabelę (job `failed`) | ponowne `wgc source extract`; komunikat zadania to podpowiada (ADR-0024) |
 | Fixture `logic.minigame.yaml` ma `TAB-crt` z `tool: wgc.tables.parse@0`, ale z ID i wartościami (`none`, `routed`), których deterministyczny parse nie daje (`TAB-4.3`, `No effect`) | mylący przykład dla kolejnych sesji | fixture to ilustracja kontraktu, nie gold; gold tabeli w M3 |
 | Fixture `logic.minigame.yaml` przypisuje `tool: wgc.terms.harvest@0` pojęcia o kategoriach, których harvest nie daje (`CON-rally` jako `action`, `CON-game`, `CON-enter_hex`), i klucz `CON-scn.ford` (harvest: `CON-scn.the_ford`) | mylący przykład: sugeruje, że Tier 0 zgaduje kategorie | ilustracja kontraktu, nie gold (ADR-0030); gold pojęć w M3 |
-| Pojęcie zakotwiczone w dokumencie `community_interpretation` albo `prior_translation` dostaje dziś `explicit_source` i `accepted` (harvest czyta każdy obecny dokument) | niekanoniczny termin w KB | ADR-0027 wdraża M-STAB3; job harvest obejmuje jeden dokument, więc odrzucenie nie zablokuje innych |
+| Pojęcie zakotwiczone w dokumencie `community_interpretation` albo `prior_translation` dostaje dziś `explicit_source` i `accepted` (harvest czyta każdy obecny dokument) | niekanoniczny termin w KB | ADR-0027 wdraża M-STAB3c; job harvest obejmuje jeden dokument, więc odrzucenie nie zablokuje innych |
 | Wzorce harvest są ścisłe (bez `Scenario 2: X`, `1. Movement Phase: …`, list punktowanych, `… Step`, gołego `d6`) | na prawdziwej grze mniej pojęć Tier 0, więcej pracy w M14 | świadomie; rozszerzenie to `wgc.terms.harvest@1` po próbce gry pilotażowej (Q-02) |
 | `accept()` przy każdym jobie czyta i waliduje całe `kb/` | wolne buildy przy tysiącach rekordów | pomiar w M11/M14; w razie potrzeby walidacja przyrostowa (M13) |
 | PDF gry nie pogrubia numerów reguł albo ma kilka kolumn | segmentacja PDF zlewa reguły albo daje fałszywe tabele | sprawdzić na PDF-ie gry pilotażowej (Q-11), render stron do porównania (`wgc source render`) |

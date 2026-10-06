@@ -42,7 +42,9 @@ records:
   - {kind: attempt, id: att_000000, job: job_0002bb, tier: local, profile: local_semantic, endpoint: ai-node,
      outcome: unavailable, error_class: network, wall_seconds: 3}
   - {kind: attempt, id: att_000002, job: job_0002bb, tier: premium, profile: premium_semantic, schema_valid: true, domain_valid: true,
-     outcome: accepted, tokens_in: 2600, tokens_out: 380, cost_usd: 0.04, wall_seconds: 14}
+     outcome: accepted, tokens_in: 2600, tokens_out: 380, cost_usd: 0.04, wall_seconds: 14,
+     # what accept() committed (ADR-0031): kb/ generation and the hash of each record as written; reconcile checks it
+     kb_receipt: {generation: "sha256:0000000000000a11", records: {R-5.2: "sha256:0000000000000b22"}}}
   - kind: routing_decision
     id: rd_000001
     job: job_0002bb

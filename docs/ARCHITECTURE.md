@@ -89,6 +89,7 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
 | Job store | `glu.store`, `glu.states` | SQLite `.glu/state.db`: build, job, attempt, routing_decision; tabela przejść (ADR-0023); `glu status`, `glu export` | M8 |
 | Zadania i akceptacja | `wgc.tasks`, `wgc.kb`, `wgc.tables`, `wgc.terms` | `TaskSpec` i rejestr, zakres buildu, `Workspace`, `accept()` (jedyny zapis do `kb/`), zadania `wgc.tables.parse@0` i `wgc.terms.harvest@0` | M9a, M9b |
 | Bezpieczny zapis KB | `wgc.fsio`, `wgc.kb` | atomowa podmiana pojedynczego pliku, blokada pisarza projektu `.glu/kb.lock` wokół całego `accept()` (ADR-0026) | M-STAB1 |
+| Partia KB i recovery | `wgc.fsbatch`, `wgc.kb`, `glu.reconcile` | partia plików `kb/` z dziennikiem wycofania `kb/.wgc-batch/`, `wgc kb recover`, receipt akceptacji, `Store.finish_job`, `glu reconcile` z blokadą żywotności buildu (ADR-0031) | M-STAB2 |
 | Planner | `glu.planner` | etap + zakres → joby z kluczem cache; `glu build --dry-run` | M9a, M12 (bramki) |
 | Wykonawcy | `glu.exec` | deterministic (Tier 0, M9a), local, premium, human; `glu build` | M9a–M16 |
 | Providerzy | `glu.providers` | fake, replay, self_hosted (klient `igw/api@0`), anthropic, desktop_pull | M10, M15 |

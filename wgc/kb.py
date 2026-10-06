@@ -13,12 +13,18 @@
 5. merges with `kb/`: an equal record (ignoring `prov.job` and `prov.at`) is left untouched, a record of the same
    task is replaced, a record of another producer with the same ID is a conflict;
 6. validates the whole KB with the inventory in memory (`wgc.validate.validate_documents`);
-7. writes only when there are no issues and something changed, each file by atomic replacement (`wgc.fsio`).
+7. writes only when there are no issues: first the receipt `.glu/kb-receipts/<job>.json` (when `job` is given),
+   then the changed files: one file by atomic replacement (`wgc.fsio`), two or more as one batch with an undo
+   journal in `kb/.wgc-batch/` (`wgc.fsbatch`, ADR-0031).
+
+Before step 3, under the lock, an interrupted batch is recovered (`recover`), so a result is never merged into a
+partial `kb/`.
 
 Outcomes: rejected data → `AcceptResult.issues` (nothing written); operational failure (unreadable input, busy lock,
-stale workspace, failed write) → `KBError` and its subclasses; any other exception is a program error and propagates.
-A failed write keeps the previous content of that file, but files replaced before it in the same acceptance stay
-replaced: there is no multi-file commit yet (ADR-0026).
+stale workspace, failed write, undecidable interrupted batch) → `KBError` and its subclasses; any other exception is
+a program error and propagates. A failed write normally leaves `kb/` as it was (`KBWriteError`: one file is replaced
+atomically, a batch is rolled back at once). When the rollback of a batch does not complete, the result is not
+decided yet: `KBUnresolved`, the journal and the receipt stay, and recovery plus reconcile decide (ADR-0031).
 
 Layout: `kb/logic/<kind plural>.yaml` (`tables.yaml`, `concepts.yaml`, …), one `wgc/logic@0` document per file,
 records sorted by ID (numbers in natural order), fields in contract order, LF. A record found in another file of
@@ -28,6 +34,7 @@ from __future__ import annotations
 
 import contextlib
 import copy
+import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -35,7 +42,7 @@ from typing import Iterator
 
 import yaml
 
-from wgc import contracts, fsio, source
+from wgc import contracts, fsbatch, fsio, source
 from wgc.canonical import canonical_json, content_hash, normalize_text, projection, sha256_hex, text_hash
 from wgc.ids import is_id
 from wgc.tasks import Inputs, TaskSpec
@@ -45,6 +52,10 @@ KB_DIR = Path("kb")
 # KB writer lock of a game repo; `.glu/` is local state (gitignored), so the lock never shows up in `kb/` or in git.
 LOCK_FILE = Path(".glu") / "kb.lock"
 LOCK_TIMEOUT = 60.0  # seconds `accept()` waits for the lock before `KBBusy`
+# Undo journal of a multi-file acceptance (ADR-0031). Inside kb/, so losing .glu/ never hides a partial kb/.
+BATCH_DIR = KB_DIR / ".wgc-batch"
+# Receipts of acceptances, one per job, until GLU has recorded the Attempt (ADR-0031).
+RECEIPTS_DIR = Path(".glu") / "kb-receipts"
 LOGIC = "wgc/logic@0"
 # Record kind → file under kb/logic/ (human decisions and review requests have their own files, outside accept()).
 KIND_FILES = {"concept": "concepts.yaml", "rule": "rules.yaml", "relation": "relations.yaml", "table": "tables.yaml",
@@ -76,8 +87,18 @@ class KBStale(KBError):
 
 
 class KBWriteError(KBError):
-    """Writing a file of `kb/` failed. That file keeps its previous content; the message names the files already
-    replaced by the same acceptance."""
+    """Writing `kb/` failed and `kb/` is as it was: one file is replaced atomically, a batch was rolled back and its
+    journal removed. A batch whose rollback did not complete is `KBUnresolved` instead (ADR-0031)."""
+
+
+class KBUnresolved(KBError):
+    """A batch failed and its rollback did not complete: the outcome of the acceptance is not decided yet. The journal
+    `kb/.wgc-batch/` and the receipt stay; `wgc kb recover` / `glu reconcile` decide it from `kb/` (ADR-0031)."""
+
+
+class KBBatchConflict(KBError):
+    """An interrupted batch cannot be finished or rolled back automatically (a file changed outside it, or a copy
+    is missing); nothing was changed (ADR-0031)."""
 
 
 # --- workspace ------------------------------------------------------------------------------------------------------
@@ -136,19 +157,27 @@ class Workspace:
         return text
 
     def kb_files(self) -> list[Path]:
-        kb = self.root / KB_DIR
-        return sorted(p for p in kb.rglob("*") if p.suffix in (".yaml", ".yml") and p.is_file()) if kb.is_dir() else []
+        return kb_files(self.root)
 
     def kb_documents(self) -> list[tuple[Path, object]]:
         """(file, document) for every document of `kb/` (several per file allowed, ADR-0019)."""
-        out = []
-        for path in self.kb_files():
-            try:
-                docs = load_documents(path)
-            except (OSError, UnicodeDecodeError, yaml.YAMLError) as e:
-                raise KBError(f"Nie można wczytać {path.as_posix()}: {e}") from None
-            out += [(path, d) for d in docs]
-        return out
+        return kb_documents(self.root)
+
+
+def kb_files(root: str | Path) -> list[Path]:
+    kb = Path(root) / KB_DIR
+    return sorted(p for p in kb.rglob("*") if p.suffix in (".yaml", ".yml") and p.is_file()) if kb.is_dir() else []
+
+
+def kb_documents(root: str | Path) -> list[tuple[Path, object]]:
+    out = []
+    for path in kb_files(root):
+        try:
+            docs = load_documents(path)
+        except (OSError, UnicodeDecodeError, yaml.YAMLError) as e:
+            raise KBError(f"Nie można wczytać {path.as_posix()}: {e}") from None
+        out += [(path, d) for d in docs]
+    return out
 
 
 def _records(doc) -> list[dict]:
@@ -169,6 +198,7 @@ class AcceptResult:
     schema_valid: bool = True
     domain_valid: bool = True
     issues: list[str] = field(default_factory=list)     # Polish messages; non-empty → nothing written
+    receipt: dict | None = None                         # {generation, records} of an accepted result (ADR-0031)
 
     @property
     def ok(self) -> bool:
@@ -352,11 +382,15 @@ def _natural(record_id: str) -> list:
 
 
 @contextlib.contextmanager
-def lock(root: str | Path, timeout: float | None = None) -> Iterator[None]:
+def lock(root: str | Path, timeout: float | None = None, create: bool = True) -> Iterator[None]:
     """The KB writer lock of a game repo (`.glu/kb.lock`, ADR-0026), between processes and threads. Busy for longer
-    than `timeout` seconds → `KBBusy`."""
+    than `timeout` seconds → `KBBusy`. `create=False` (read-only callers): without a lock file there has never been
+    a writer, so nothing is locked and nothing is created."""
     path = Path(root) / LOCK_FILE
     timeout = LOCK_TIMEOUT if timeout is None else timeout
+    if not create and not path.is_file():
+        yield
+        return
     with contextlib.ExitStack() as stack:
         try:
             stack.enter_context(fsio.exclusive(path, timeout))
@@ -405,6 +439,7 @@ def accept(root: str | Path, spec: TaskSpec, inputs: Inputs, proposals: list, *,
 def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: list[dict], by: dict,
                    job: str | None, inventory: dict, res: AcceptResult) -> AcceptResult:
     root = ws.root
+    _recover_locked(root)  # never merge into a partial kb/ (ADR-0031)
     docs = ws.kb_documents()  # read now, under the lock
     kb_records = {r["id"]: r for _, doc in docs for r in _records(doc) if isinstance(r.get("id"), str)}
     domain = list(spec.validate(ws, inputs, proposals))
@@ -468,26 +503,51 @@ def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: lis
         res.issues += [f"{d.code} {d.subject}: {d.message}" for d in errors]
         return res
 
-    # write the changed files, each by atomic replacement
+    # new content of the changed files, the receipt, then one atomic file or one batch (ADR-0031)
     files = sorted({docs[i][0] for i in changed})
-    if files:
-        _remove_orphan_temps(root / KB_DIR)
+    texts: dict[Path, str] = {}
     for path in files:
         file_docs = [d for p, d in docs if p == path]
         for d in file_docs:
             if isinstance(d, dict) and d.get("schema") == LOGIC:
                 d["records"] = sorted((ordered(r) for r in d["records"]), key=lambda r: _natural(r.get("id", "")))
-        rel = path.relative_to(root).as_posix()
+        texts[path] = dump(file_docs)
+    final = {r["id"]: r for _, d in docs for r in _records(d) if isinstance(r.get("id"), str)}
+    contents = {p: p.read_bytes() for p in kb_files(root)} | {p: t.encode("utf-8") for p, t in texts.items()}
+    res.receipt = {"generation": _generation(root, contents),
+                   "records": {rid: content_hash(final[rid]) for rid in res.records}}
+    if job:
+        _write_receipt(root, job, res.receipt)
+    if len(files) == 1:
+        [path] = files
         try:
-            _write_file(path, dump(file_docs))
+            _write_file(path, texts[path])
         except OSError as e:
-            done = (f" Pliki już podmienione w tej akceptacji: {', '.join(res.files)}. kb/ zawiera część wyniku: ponów "
-                    "build; jeśli walidacja całego kb/ odrzuci ten stan częściowy, przywróć te pliki z git."
-                    if res.files else " Niczego nie zapisano.")
-            raise KBWriteError(f"Nie można zapisać {rel}: {e}. Ten plik ma poprzednią zawartość (zapis atomowy)."
-                               + done) from e
-        res.files.append(rel)
+            raise KBWriteError(f"Nie można zapisać {path.relative_to(root).as_posix()}: {e}. Ten plik ma poprzednią "
+                               "zawartość (zapis atomowy). Niczego nie zapisano.") from e
+    elif files:
+        _write_batch(root, [(p, texts[p].encode("utf-8")) for p in files], job)
+    res.files = [p.relative_to(root).as_posix() for p in files]
     return res
+
+
+def _write_batch(root: Path, changes: list[tuple[Path, bytes]], job: str | None) -> None:
+    """Several files of `kb/` as one batch (ADR-0031). On failure: `KBWriteError` when the rollback completed,
+    `KBUnresolved` when it did not (the journal stays for recovery), `KBWriteError` when preparing failed."""
+    names = ", ".join(p.relative_to(root).as_posix() for p, _ in changes)
+    try:
+        fsbatch.commit(root, root / BATCH_DIR, changes, job)
+    except fsbatch.BatchError as e:
+        if e.rolled_back:
+            raise KBWriteError(f"Nie można zapisać partii plików kb/ ({names}): {e}. Partia wycofana, kb/ bez zmian. "
+                               "Niczego nie zapisano.") from e
+        direction = ("wycofanie jest przesądzone (manifest `rolling_back`)" if e.rollback_decided
+                     else "kierunek (dokończenie albo wycofanie) ustali recovery")
+        raise KBUnresolved(f"Nie można zapisać partii plików kb/ ({names}): {e}. Wynik akceptacji nierozstrzygnięty: "
+                           f"{direction}; dziennik {BATCH_DIR.as_posix()}/ i receipt zostają. Uruchom `glu reconcile` "
+                           "(albo `wgc kb recover`), zanim cokolwiek przeczyta kb/.") from e
+    except OSError as e:  # preparing the batch failed: no file of kb/ was touched
+        raise KBWriteError(f"Nie można przygotować partii plików kb/ ({names}): {e}. Niczego nie zapisano.") from e
 
 
 def _remove_orphan_temps(kb_dir: Path) -> None:
@@ -497,6 +557,118 @@ def _remove_orphan_temps(kb_dir: Path) -> None:
             tmp.unlink()
         except OSError:
             pass
+
+
+# --- recovery and receipts (ADR-0031) -------------------------------------------------------------------------------
+
+@dataclass
+class Recovery:
+    state: str                      # clean | orphan | rollback | forward (wgc.fsbatch)
+    actions: list[str] = field(default_factory=list)
+    job: str | None = None          # job of the interrupted batch
+
+
+def pending_batch(root: str | Path) -> bool:
+    """`kb/.wgc-batch/` exists: a batch was interrupted (or is in progress in another process right now)."""
+    return (Path(root) / BATCH_DIR).exists()
+
+
+def _recover_locked(root: Path, dry_run: bool = False) -> Recovery:
+    try:
+        p = fsbatch.recover(root, root / BATCH_DIR, dry_run=dry_run)
+    except fsbatch.BatchConflict as e:
+        raise KBBatchConflict(f"Przerwana partia kb/ wymaga decyzji: {e}.") from None
+    except OSError as e:
+        raise KBWriteError(f"Recovery przerwanej partii kb/ nie powiodło się: {e}.") from None
+    out = Recovery(p.state, list(p.actions), p.job)
+    temps = fsio.temp_files(root / KB_DIR)
+    if temps:
+        out.actions += [f"usunięcie pliku tymczasowego {t.relative_to(root).as_posix()}" for t in temps]
+        if not dry_run:
+            _remove_orphan_temps(root / KB_DIR)
+    return out
+
+
+def recover(root: str | Path, dry_run: bool = False, lock_timeout: float | None = None) -> Recovery:
+    """Finish or roll back an interrupted batch of `kb/` under the writer lock (ADR-0031): afterwards `kb/` is
+    wholly old or wholly new. Idempotent; on a clean `kb/` it changes nothing. `dry_run`: only the plan, nothing
+    written (not even the lock file)."""
+    root = Path(root)
+    if not pending_batch(root) and not fsio.temp_files(root / KB_DIR):
+        return Recovery("clean")  # nothing to recover: not even the lock file is created
+    with lock(root, lock_timeout, create=not dry_run):
+        return _recover_locked(root, dry_run)
+
+
+def _generation(root: Path, contents: dict[Path, bytes]) -> str:
+    """Generation of `kb/`: hash of (path, `sha256:<hex>` of the bytes) of every KB file. Receipts written before
+    this was fixed hashed `sha256:sha256:<hex>` components: their `generation` differs for the same `kb/`, which
+    `check_receipt` does not compare (ADR-0031)."""
+    return content_hash(sorted([p.relative_to(root).as_posix(), sha256_hex(b)] for p, b in contents.items()))
+
+
+def generation(root: str | Path) -> str:
+    root = Path(root)
+    return _generation(root, {p: p.read_bytes() for p in kb_files(root)})
+
+
+def _receipt_path(root: Path, job: str) -> Path:
+    return Path(root) / RECEIPTS_DIR / f"{job}.json"
+
+
+def _write_receipt(root: Path, job: str, receipt: dict) -> None:
+    path = _receipt_path(root, job)
+    try:
+        fsio.atomic_write(path, json.dumps({"job": job, **receipt}, ensure_ascii=False, indent=1).encode("utf-8"))
+    except OSError as e:
+        raise KBWriteError(f"Nie można zapisać receiptu akceptacji {path.as_posix()}: {e}. Niczego nie zapisano "
+                           "w kb/.") from e
+
+
+def read_receipt(root: str | Path, job: str) -> dict | None:
+    """Receipt `{generation, records}` of the acceptance of `job`, or None (never written, or already discarded)."""
+    path = _receipt_path(Path(root), job)
+    try:
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        return {"generation": doc["generation"], "records": dict(doc["records"])}
+    except FileNotFoundError:
+        return None
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        raise KBError(f"Nieczytelny receipt {path.as_posix()}: {e}") from None
+
+
+def receipt_jobs(root: str | Path) -> list[str]:
+    """Jobs with a receipt still on disk."""
+    d = Path(root) / RECEIPTS_DIR
+    return sorted(p.stem for p in d.glob("*.json")) if d.is_dir() else []
+
+
+def discard_receipt(root: str | Path, job: str) -> None:
+    """Remove the receipt once the Attempt is recorded. A leftover receipt is harmless: reconcile removes it."""
+    try:
+        _receipt_path(Path(root), job).unlink()
+    except OSError:
+        pass
+
+
+def check_receipt(root: str | Path, receipt: dict, *, dry_run: bool = False,
+                  lock_timeout: float | None = None) -> list[str]:
+    """Differences between a receipt and the current `kb/` (empty list: `kb/` holds that result). Under the writer
+    lock and after recovery, so a batch in progress is never judged half-way. `dry_run`: no recovery, no lock file."""
+    root = Path(root)
+    with lock(root, lock_timeout, create=not dry_run):
+        if pending_batch(root):
+            if dry_run:
+                return ["kb/ ma przerwaną partię (najpierw recovery)"]
+            _recover_locked(root)
+        current = {r["id"]: r for _, d in kb_documents(root) for r in _records(d) if isinstance(r.get("id"), str)}
+    out = []
+    for rid, h in receipt["records"].items():
+        if rid not in current:
+            out.append(f"{rid}: brak w kb/")
+        elif content_hash(current[rid]) != h:
+            out.append(f"{rid}: inna treść w kb/")
+    return out
 
 
 # --- serialization --------------------------------------------------------------------------------------------------
@@ -531,6 +703,7 @@ def dump(documents: list) -> str:
 
 
 def _write_file(path: Path, text: str) -> None:
-    """The only place that writes a file of `kb/` (tests replace it to prove that). Atomic replacement: a failure
-    leaves the previous content (ADR-0026)."""
+    """Writes one file of `kb/` (tests replace it to prove that a single-file acceptance goes through here). Atomic
+    replacement: a failure leaves the previous content (ADR-0026). Several files go through `_write_batch`; recovery
+    only finishes or undoes such a batch from its journal (ADR-0031)."""
     fsio.atomic_write(path, text.encode("utf-8"))

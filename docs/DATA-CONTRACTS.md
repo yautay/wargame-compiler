@@ -8,7 +8,7 @@
 | `wgc/logic@0` | `logic.schema.json` | Stage 1: Rule IR i rekordy pokrewne, gramatyka wyrażeń i efektów | @0 szkic |
 | `wgc/digital@0` | `digital.schema.json` | Stage 1.5 | @0 szkic |
 | `wgc/gate@0` | `gate.schema.json` | raport bramki (obliczany) | @0 szkic |
-| `glu/exec@0` | `glu.schema.json` | Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey; polityka fallbacku, `premium_reason`, stan `waiting_inference`, pola węzła w Attempt | @0 szkic |
+| `glu/exec@0` | `glu.schema.json` | Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey; polityka fallbacku, `premium_reason`, stan `waiting_inference`, pola węzła i `kb_receipt` w Attempt | @0 szkic |
 | `igw/api@0` | `inference.schema.json` | protokół Inference Gateway: `infer_request`/`infer_result`, `error`, `health`, `capabilities`, `models`, `metrics`, `embed_*`, `job_status` (zarezerwowany) | @0 szkic |
 | `glu/profiles@0` | (M10) | `~/.config/glu/profiles.yaml`: endpointy, profile logiczne, `fallback` | planowany |
 | `igw/node@0` | (M-GW1) | `node.yaml` węzła: nasłuch, auth, limity, runtime, modele, profile węzła, scheduler | planowany |
@@ -50,6 +50,9 @@ infrastruktury inferencji, a `igw` czyta ten sam plik schematu bez importu `wgc`
 - Test `tests/test_glu_store.py` odtwarza przez store fixture `contracts/fixtures/valid/glu.job.yaml` rekord w rekord.
 - Job Tier 0 (M9a) ma `tier: deterministic`, a `cache_key` bez `prompt_version`, `profile` i `dependency_state`;
   `context_hash` to hash pustej listy ([§10](#propozycje)).
+- Attempt `accepted` niesie `kb_receipt` (M-STAB2, ADR-0031): `generation` (hash generacji `kb/` po akceptacji) i
+  `records` (ID → `content_hash` rekordu w `kb/`). Pole jest opcjonalne i addytywne w `@0`. Końcowe wpisy joba
+  (Attempt i ostatnie przejścia) zapisuje jedna transakcja (`Store.finish_job`).
 
 ## 2. Wersjonowanie i zgodność
 - `@0` to szkic: może się zmieniać bez migracji, ale każda zmiana aktualizuje fixture'y i testy w tej samej sesji.
@@ -161,6 +164,8 @@ To podstawa późniejszych `wgc diagnose` i `wgc explain` (M13).
 | `kind_prefix_mismatch` | L1 | prefiks ID nie odpowiada `kind` (§4) |
 | `unresolved_ref` | L1 | referencja wskazuje nieistniejący rekord |
 | `anchor_hash_mismatch` | provenance | `anchors[].seg_hash` ≠ `text_hash` wskazanego segmentu (kotwica nieaktualna) |
+| `kb_batch_pending` | L0 | w odpowiednim `kb/` (podany katalog, nadrzędny katalog `kb` przy walidacji `kb/logic` albo pojedynczego pliku, katalog `kb` poniżej podanego) leży `.wgc-batch/manifest.json`: przerwana partia zapisu, pliki mogą być częściowo stare (ADR-0031; naprawa: `wgc kb recover`) |
+| `kb_read_unstable` | L0 | nie udało się przeczytać spójnej wersji `kb/` w 5 próbach (pojawił się plik blokady pierwszego pisarza, manifest partii albo zmiana plików spoza blokady) albo blokada pisarza była zajęta dłużej niż 60 s (ADR-0031) |
 | `missing_decision` | provenance | `prov.kind: human_decision` albo zaakceptowana interpretacja bez `prov.decision` wskazującego istniejący rekord `HD-` |
 
 **Pozycje referencji sprawdzane przez `unresolved_ref`** (tabela `REF_FIELDS`): `refs`, `prov.derived_from`,
@@ -284,7 +289,7 @@ Pilnuje tego `tests/test_source.py`. Inwentarza i fixture'ów nie waliduje się 
 `duplicate_id`.
 
 <a id="propozycje"></a>
-## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a, M9b)
+## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a, M9b, M-STAB2)
 Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Workspace`, `accept`), ADR-0025.
 
 **Propozycja** to wynik zadania, zanim WGC go przyjmie. Wykonawca (kod Tier 0, a od M10 model) zwraca listę:
@@ -298,7 +303,9 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
 - Schematu `wgc/proposal@0` jeszcze nie ma: kształt sprawdza `accept()`. Schemat dla modelu (z `decoding_schema`)
   dochodzi w M10.
 
-**`accept(root, spec, inputs, proposals, *, by, job, ws, lock_timeout)`** to jedyna droga zapisu do `kb/`:
+**`accept(root, spec, inputs, proposals, *, by, job, ws, lock_timeout)`** to jedyna droga zapisu do `kb/`.
+Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko kończy albo wycofuje partię, którą zaczął
+`accept()`, bajtami z dziennika zapisanego przez `accept()`. Kroki `accept()`:
 1. typy i kształt propozycji, a potem każdy `record` sprawdzony schematem `wgc/logic@0` z pominięciem tylko braku
    pól nadawanych przez WGC (`prov`, `status`, `risk`). To czyste kontrole przed jakąkolwiek funkcją domenową:
    - wynik zadania jest listą;
@@ -309,7 +316,9 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
 
    Błąd daje diagnostykę w `issues` (`schema_valid: false`), nigdy `TypeError`, i nie zakłada blokady (M-STAB1);
 2. blokada pisarza projektu (`.glu/kb.lock`, ADR-0026) i kontrola, że inwentarz na dysku jest tym, z którego
-   `Workspace` liczył wynik (odcisk bajtów). Kroki 3–8 wykonują się pod blokadą, na `kb/` czytanym na nowo z dysku;
+   `Workspace` liczył wynik (odcisk bajtów). Pod blokadą najpierw recovery przerwanej partii (`kb/.wgc-batch/`,
+   ADR-0031), więc wynik nigdy nie jest scalany z częściową `kb/`. Kroki 3–8 wykonują się pod blokadą, na `kb/`
+   czytanym na nowo z dysku;
 3. reguły domenowe zadania (`TaskSpec.validate`);
 4. `prov`:
    - `kind`: `explicit_source`, gdy każda kotwica wskazuje segment z inwentarza, a cytat (jeśli jest) występuje
@@ -319,7 +328,7 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
    - kotwica, której nie da się potwierdzić, odrzuca propozycję w każdym tierze (ADR-0025, ADR-0027: bez
      automatycznego obniżenia do `llm_inference`). Dotyczy to też `span`, którego koniec wykracza poza znormalizowany
      tekst segmentu (M-STAB1);
-   - **zdecydowane, do wdrożenia w M-STAB3 (ADR-0027):** kotwica w dokumencie o roli `community_interpretation`,
+   - **zdecydowane, do wdrożenia w M-STAB3c (ADR-0027):** kotwica w dokumencie o roli `community_interpretation`,
      `prior_translation` albo `other` odrzuca propozycję (jawna lista ról kanonicznych), a `llm_inference` bez kotwic
      wymaga deklaracji zadania. Do wdrożenia obowiązuje opis powyżej;
    - `by` podaje wywołujący (GLU: tier i `tool` albo `profile`/`prompt`), `job` to ID joba;
@@ -335,13 +344,21 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
    - rekord tego samego zadania (`prov.by.tool` albo `prov.by.prompt` bez wersji) o innej treści jest zastępowany;
    - rekord o tym samym ID od innego producenta albo ze statusem innym niż `accepted` to konflikt;
 7. walidacja całego `kb/` razem z inwentarzem sprawdzonym w kroku 2 (`wgc.validate.validate_documents`);
-8. zapis tylko wtedy, gdy nie ma żadnego błędu i coś się zmieniło. Każdy plik jest podmieniany atomowo: plik
-   tymczasowy `.<nazwa>.<losowe>.wgc-tmp` w tym samym katalogu, `flush` i `fsync`, potem `os.replace` (`wgc.fsio`).
-   Pozostałości po przerwanym procesie usuwa następny zapis pod blokadą. Na Windows podmiana jest atomowa, ale jej
-   trwałość po odcięciu zasilania nie jest wymuszona (brak `fsync` katalogu, ADR-0026).
+8. zapis tylko wtedy, gdy nie ma żadnego błędu (M-STAB2, ADR-0031):
+   - najpierw receipt `.glu/kb-receipts/<job>.json` (gdy podano `job`; także gdy nic się nie zmieniło):
+     `generation` (hash par ścieżka pliku `kb/` → `sha256` bajtów po akceptacji) i `records` (ID każdego
+     zaproponowanego rekordu → `content_hash` rekordu w `kb/` po akceptacji);
+   - **jeden zmieniony plik:** atomowa podmiana: plik tymczasowy `.<nazwa>.<losowe>.wgc-tmp` w tym samym katalogu,
+     `flush` i `fsync`, potem `os.replace` (`wgc.fsio`, ADR-0026);
+   - **dwa pliki lub więcej:** partia z dziennikiem wycofania w `kb/.wgc-batch/` (`wgc.fsbatch`): kopie starej
+     i nowej treści, manifest `prepared`, podmiany, znacznik `committed`, usunięcie katalogu. Awaria podmiany albo
+     znacznika w żywym procesie zapisuje intencję `rolling_back` i od razu wycofuje partię.
+
+   Pozostałości po przerwanym procesie usuwa recovery pod blokadą.
 
 Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `schema_valid`, `domain_valid`,
-`issues`. GLU przepisuje `schema_valid`, `domain_valid` i `issues` do Attemptu.
+`issues`, `receipt` (`{generation, records}` przyjętego wyniku, inaczej `null`). GLU przepisuje `schema_valid`,
+`domain_valid` i `issues` do Attemptu, a `receipt` do `kb_receipt` Attemptu `accepted`.
 
 **Rodzaje niepowodzenia** (M-STAB1, ADR-0026):
 
@@ -351,17 +368,57 @@ Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `
 | Awaria operacyjna: brak lub nieczytelny inwentarz, tekst albo plik `kb/` | `KBError` | `outcome: error`, `error_class: runtime` |
 | Blokada zajęta dłużej niż `lock_timeout` (domyślnie `kb.LOCK_TIMEOUT` = 60 s) | `KBBusy` | jak wyżej, powód „kb/ zajęte przez innego pisarza” |
 | Inwentarz zmienił się po odczycie przez `Workspace` | `KBStale`, nic nie zapisane | jak wyżej, powód „inwentarz zmienił się w trakcie joba” |
-| Nieudany zapis pliku | `KBWriteError`: ten plik ma poprzednią zawartość; komunikat wymienia pliki już podmienione w tej akceptacji | jak wyżej, powód „awaria zapisu kb/” |
+| Nieudany zapis pliku albo partii, wycofanie potwierdzone | `KBWriteError`: `kb/` bez zmian (plik: atomowa podmiana; partia: przywrócona i dziennik usunięty) | jak wyżej, powód „awaria zapisu kb/”; receipt usuwany |
+| Nieudana partia, której wycofanie się nie dokończyło (z zapisaną intencją `rolling_back` albo bez niej) | `KBUnresolved`: wynik nierozstrzygnięty, `kb/.wgc-batch/` i receipt zostają | **bez Attemptu**: job zostaje w `validating`, build przerwany (kod 2); rozstrzyga `glu reconcile` albo start następnego buildu, z `kb/` po recovery |
+| Przerwana partia, której recovery nie rozstrzyga (plik zmieniony poza partią, brak kopii) | `KBBatchConflict`, nic nie zmienione | jak wyżej, powód „przerwana partia kb/ wymaga decyzji” |
 | Błąd programu (wyjątek w WGC albo w `validate` zadania) | wyjątek przechodzi dalej, blokada zwolniona | `outcome: error`, komunikat `błąd programu: …` |
 
-W CLI `KBError` przed buildem (np. brak inwentarza) daje kod 2. W trakcie buildu każdy z tych przypadków kończy job
-`failed`, a build kodem 1.
+W CLI `KBError` przed buildem (np. brak inwentarza) daje kod 2. W trakcie buildu każdy z tych przypadków poza
+`KBUnresolved` kończy job `failed`, a build kodem 1. `KBUnresolved` przerywa build kodem 2, a job zostaje w
+`validating` do reconcile.
 
-**Granice gwarancji (ADR-0026).** Atomowy jest pojedynczy plik, nie partia. Gdy akceptacja zmienia kilka plików,
-awaria po podmianie pierwszego zostawia w `kb/` część wyniku (komunikat `KBWriteError` je wymienia). Nie ma też
-odtwarzania spójności między `kb/` a `.glu/state.db` (job może zostać bez Attemptu po udanym zapisie). Blokada jest
-doradcza: chroni przed innymi wywołaniami `accept()`, nie przed edytorem, `git checkout` ani czytelnikami bez
-blokady (`wgc validate`, planner), którzy mogą zobaczyć stan między dwoma plikami partii.
+<a id="recovery"></a>
+**Recovery partii (`wgc kb recover [--dry-run]`, ADR-0031).** Decyzja ze stanu manifestu i hashy plików
+(`sha256:<hex>`; dzienniki `wgc-kb-batch@0` z podwójnym przedrostkiem `sha256:sha256:` są normalizowane przy
+odczycie):
+
+| Stan `kb/.wgc-batch/` | Wynik |
+|---|---|
+| brak | bez zmian (usuwane są tylko osierocone `*.wgc-tmp`) |
+| bez manifestu (przerwane przygotowanie) | katalog usunięty, `kb/` w całości stara |
+| `committed` albo `prepared` z nową treścią każdego pliku | dokończenie, `kb/` w całości nowa |
+| `rolling_back` (intencja wycofania) albo `prepared` w pozostałych przypadkach | wycofanie z kopii (nowe pliki usuwane), `kb/` w całości stara |
+| plik ani ze starą, ani z nową treścią, brak kopii, nieczytelny manifest | `KBBatchConflict`, nic nie zmienione |
+
+Recovery jest idempotentne: przerwane recovery albo wycofanie dokańcza się, uruchamiając je ponownie. Na czystym
+`kb/` niczego nie zmienia (nie tworzy nawet `.glu/kb.lock`). `--dry-run` tylko wypisuje plan (bez zapisu, także bez
+`.glu/kb.lock`). `wgc validate` zgłasza `kb_batch_pending`, dopóki manifest leży w `kb/`.
+
+**Spójny odczyt w `wgc validate` (ADR-0031):**
+- na czas odczytu walidator trzyma blokadę pisarza `.glu/kb.lock` każdego odpowiedniego `kb/` (podany katalog,
+  nadrzędny `kb`, katalogi `kb` poniżej), jeśli jej plik istnieje. Pliku blokady nie tworzy i niczego nie zapisuje;
+- jeśli plik blokady pojawi się w trakcie odczytu (pierwszy zapis w repo bez `.glu/kb.lock`), odczyt jest powtarzany
+  pod tą blokadą;
+- dodatkowo sprawdza, że nie pojawił się manifest, zbiór plików jest ten sam, a bajty się nie zmieniły;
+- przy niepowodzeniu ponawia odczyt, a po 5 próbach albo po 60 s zajętej blokady zgłasza `kb_read_unstable`.
+
+Partie zmieniające `kb/` w trakcie walidacji, także nowa → stara → nowa z przywróceniem identycznych bajtów, nie dają
+OK dla mieszanej wersji. Nie dotyczy to zmian spoza blokady (edytor, git), które przywracają identyczne bajty.
+
+**Granice gwarancji (ADR-0026, ADR-0031):**
+- przerwanie procesu w dowolnym punkcie akceptacji, wycofania albo recovery kończy się po (ponownym) recovery `kb/`
+  w całości starą albo w całości nową;
+- zatwierdzenie, potwierdzone wycofanie i wynik nierozstrzygnięty mają różne skutki w GLU (tabela wyżej); dowód
+  (receipt, dziennik) nie jest usuwany przed rozstrzygnięciem;
+- Windows nie robi `fsync` katalogu: podmiany plików i znacznika są atomowe, ale ich trwałość po odcięciu
+  zasilania nie jest wymuszona. Spójność zależy wtedy od kolejności dziennika NTFS (nietestowane). Attempt
+  `accepted` w SQLite może przetrwać utratę zmian `kb/`; rozbieżność pokazuje porównanie `kb_receipt` z `kb/`;
+- spójność `kb/` z `.glu/state.db` przywraca `glu reconcile` ([GLU §3](GLU.md#reconcile)). Receipt dowodzi
+  zgodności treści, nie autorstwa;
+- `kb/.wgc-batch/` nie jest ignorowany w git (decyzja właściciela, Q-18): po awarii widać go w `git status`,
+  a `git clean -fdX` go nie usunie;
+- blokada jest doradcza: chroni przed innymi wywołaniami `accept()`, nie przed edytorem, `git checkout` ani
+  czytelnikami bez blokady (planner, edytor). Ręczna zmiana pliku przerwanej partii daje `KBBatchConflict`.
 
 **Układ `kb/`:**
 - `kb/logic/<rodzaj w liczbie mnogiej>.yaml`: `tables.yaml`, `concepts.yaml`, `rules.yaml`, `relations.yaml`,
@@ -371,7 +428,9 @@ blokady (`wgc validate`, planner), którzy mogą zobaczyć stan między dwoma pl
 - rekord krótszy niż 120 znaków w zapisie flow ma jedną linię (`- {…}`, jak inwentarz); dłuższy ma po jednej linii
   na pole z wartością w zapisie flow;
 - rekord, który już leży w innym pliku `kb/`, zostaje w tym pliku;
-- pliki zapisuje w całości `wgc.kb._write_file` (atomowa podmiana), więc komentarze nie są zachowywane;
+- pliki zapisuje w całości `wgc.kb` (pojedynczy plik: `_write_file`, partia: `wgc.fsbatch`), więc komentarze nie
+  są zachowywane;
+- `kb/.wgc-batch/` istnieje tylko w trakcie partii albo po jej przerwaniu; nazwy w nim nie kończą się na `.yaml`;
 - blokada `.glu/kb.lock` leży poza `kb/`, bo `.glu/` jest ignorowane przez git. Pliku blokady się nie usuwa; blokadę
   zwalnia system przy końcu procesu, więc nie ma „wiszących” blokad po awarii.
 

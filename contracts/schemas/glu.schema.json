@@ -98,7 +98,18 @@
         "model_fingerprint": {"$ref": "common.schema.json#/$defs/hash", "description": "reported by the node in infer_result"},
         "queue_seconds": {"type": "number"}, "load_seconds": {"type": "number"},
         "tokens_in": {"type": "integer"}, "tokens_out": {"type": "integer"},
-        "cost_usd": {"type": "number"}, "gpu_seconds": {"type": "number"}, "wall_seconds": {"type": "number"}
+        "cost_usd": {"type": "number"}, "gpu_seconds": {"type": "number"}, "wall_seconds": {"type": "number"},
+        "kb_receipt": {
+          "type": "object",
+          "description": "receipt of an accepted result (ADR-0031): kb/ generation after the acceptance and the content hash of each proposed record as it lies in kb/",
+          "required": ["generation", "records"],
+          "properties": {
+            "generation": {"$ref": "common.schema.json#/$defs/hash"},
+            "records": {"type": "object", "propertyNames": {"$ref": "common.schema.json#/$defs/id"},
+                        "additionalProperties": {"$ref": "common.schema.json#/$defs/hash"}}
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": false
     },

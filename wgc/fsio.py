@@ -3,7 +3,7 @@
 Standard library only, Windows and POSIX:
 - `atomic_write(path, data)`: temporary file in the same directory, flush + `fsync`, then `os.replace`. A failure
   before the replacement leaves the previous file byte for byte and removes the temporary file. There is no fallback
-  to writing the target in place. One file only: several files are replaced one after another, not as one commit.
+  to writing the target in place. One file only: several files as one commit go through `wgc.fsbatch` (ADR-0031).
 - `exclusive(path, timeout)`: lock on a lock file (`msvcrt.locking` on Windows, `fcntl.flock` on POSIX), plus a
   thread lock per path, so threads of one process and separate processes exclude each other. The OS releases the
   lock when the process dies; the lock file itself is never removed. Busy for longer than `timeout` → `LockBusy`.

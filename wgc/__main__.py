@@ -1,4 +1,5 @@
-"""CLI: `python -m wgc validate <ścieżki…> [--json]` and `python -m wgc source init|scan|extract|verify|render` (also installed as `wgc`)."""
+"""CLI: `python -m wgc validate <ścieżki…> [--json]`, `python -m wgc source init|scan|extract|verify|render` and
+`python -m wgc kb recover [--dry-run]` (also installed as `wgc`)."""
 from __future__ import annotations
 
 import argparse
@@ -59,6 +60,26 @@ def _cmd_source(args) -> int:
     return 0
 
 
+def _cmd_kb(args) -> int:
+    from wgc import kb
+    try:
+        rec = kb.recover(args.root, dry_run=args.dry_run)
+    except kb.KBError as e:
+        print(f"BŁĄD: {e}", file=sys.stderr)
+        return 2
+    if not rec.actions:
+        print("kb/ bez przerwanej partii: nic do zrobienia.")
+        return 0
+    what = {"orphan": "przerwane przygotowanie partii", "rollback": "wycofanie do starej treści",
+            "forward": "dokończenie zatwierdzonej partii", "clean": "pliki tymczasowe"}[rec.state]
+    print(("Plan recovery (bez zapisu): " if args.dry_run else "Recovery kb/: ") + what
+          + (f", job {rec.job}" if rec.job else ""))
+    for a in rec.actions:
+        print(f"  {a}")
+    print("Niczego nie zapisano." if args.dry_run else "kb/ jest w całości stara albo w całości nowa.")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="wgc", description="wargame-compiler: narzędzia domenowe (WGC).")
     sub = parser.add_subparsers(dest="command", required=True, metavar="polecenie")
@@ -87,6 +108,12 @@ def build_parser() -> argparse.ArgumentParser:
                                                     "albo cały dokument)")
     s.add_argument("--scale", type=float, default=2.0, help="skala renderu, 1.0 = 72 dpi (domyślnie 2.0)")
     p.set_defaults(func=_cmd_source)
+
+    p = sub.add_parser("kb", help="kb/ repo gry: recovery przerwanej partii zapisu (ADR-0031)")
+    ksub = p.add_subparsers(dest="kb_command", required=True, metavar="podpolecenie")
+    s = ksub.add_parser("recover", parents=[common], help="kończy albo wycofuje przerwaną partię plików kb/")
+    s.add_argument("--dry-run", action="store_true", help="tylko plan; niczego nie zapisuje")
+    p.set_defaults(func=_cmd_kb)
     return parser
 
 

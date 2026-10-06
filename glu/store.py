@@ -323,33 +323,52 @@ class Store:
     def transition_job(self, job_id: str, dst: str, *, reason: str | None = None, tier: str | None = None,
                        accepted_records: list[str] | None = None) -> dict:
         now = self._now()
-        params = {"tier": tier, "accepted_records": list(accepted_records) if accepted_records is not None else None}
         with self._tx() as conn:
-            record = self._load("job", job_id)
-            build = self._load("build", record["build"])
-            new = states.step("job", record, dst, params, build=build, now=now)
-            self._check(new)
-            conn.execute("UPDATE job SET state = ?, tier = ?, updated_at = ?, body = ? WHERE id = ?",
-                         (new["state"], new.get("tier"), now, json.dumps(new, ensure_ascii=False), job_id))
-            self._log(conn, "job", job_id, record["state"], dst, now, reason)
+            self._step_job(conn, job_id, dst, now, reason=reason, tier=tier, accepted_records=accepted_records)
         return self.job(job_id)
+
+    def _step_job(self, conn: sqlite3.Connection, job_id: str, dst: str, now: str, *, reason: str | None = None,
+                  tier: str | None = None, accepted_records: list[str] | None = None) -> None:
+        params = {"tier": tier, "accepted_records": list(accepted_records) if accepted_records is not None else None}
+        record = self._load("job", job_id)
+        build = self._load("build", record["build"])
+        new = states.step("job", record, dst, params, build=build, now=now)
+        self._check(new)
+        conn.execute("UPDATE job SET state = ?, tier = ?, updated_at = ?, body = ? WHERE id = ?",
+                     (new["state"], new.get("tier"), now, json.dumps(new, ensure_ascii=False), job_id))
+        self._log(conn, "job", job_id, record["state"], dst, now, reason)
+
+    def finish_job(self, job_id: str, tier: str, outcome: str, steps: list[tuple[str, dict]], **fields) -> str:
+        """The final entries of a job in one transaction (ADR-0031): one Attempt, then each `(state, options)` of
+        `steps` (options: `reason`, `tier`, `accepted_records`), e.g. `validating → accepted → done`. Any error leaves
+        the job as it was: no Attempt without its transitions. Returns the Attempt ID."""
+        now = self._now()
+        with self._tx() as conn:
+            attempt = self._add_attempt(conn, job_id, tier, outcome, fields, now)
+            for dst, options in steps:
+                self._step_job(conn, job_id, dst, now, **options)
+        return attempt
 
     # --- attempts and routing decisions (append-only) --------------------------------------------------------
 
     def add_attempt(self, job_id: str, tier: str, outcome: str, **fields) -> str:
         """Record one executor run. `fields`: optional Attempt fields of glu/exec@0 (profile, error_class, …)."""
+        now = self._now()
+        with self._tx() as conn:
+            return self._add_attempt(conn, job_id, tier, outcome, fields, now)
+
+    def _add_attempt(self, conn: sqlite3.Connection, job_id: str, tier: str, outcome: str, fields: dict,
+                     now: str) -> str:
         reserved = sorted({"kind", "id", "job", "tier", "outcome"} & set(fields))
         if reserved:
             raise StoreError(f"pól {', '.join(reserved)} nie podaje się w fields próby")
-        now = self._now()
-        with self._tx() as conn:
-            job = self._load("job", job_id)
-            if job["state"] in states.JOB_TERMINAL:
-                raise StoreError(f"job {job_id} jest zakończony ({job['state']}); nie można dodać próby")
-            record = {"kind": "attempt", "id": self._new_id("att"), "job": job_id, "tier": tier, "outcome": outcome,
-                      **fields}
-            self._insert(conn, "attempt", {"id": record["id"], "job": job_id, "tier": tier, "outcome": outcome,
-                                           "created_at": now}, record)
+        job = self._load("job", job_id)
+        if job["state"] in states.JOB_TERMINAL:
+            raise StoreError(f"job {job_id} jest zakończony ({job['state']}); nie można dodać próby")
+        record = {"kind": "attempt", "id": self._new_id("att"), "job": job_id, "tier": tier, "outcome": outcome,
+                  **fields}
+        self._insert(conn, "attempt", {"id": record["id"], "job": job_id, "tier": tier, "outcome": outcome,
+                                       "created_at": now}, record)
         return record["id"]
 
     def attempts(self, job_id: str) -> list[dict]:

@@ -6,16 +6,33 @@ documents separated by `---`, each naming its own contract) and returns a `Repor
 
 L1 and provenance checks treat all records of the domain contracts (`wgc/source|logic|digital`) from all files as one
 set. Documents of other contracts (`wgc/gate`, `glu/exec`, `igw/api`) get L0 only: their ids live outside the KB.
+
+Consistent reading of `kb/` (ADR-0031). Relevant `kb/` directories are the path itself, its ancestors named `kb`
+and `kb` directories below it. The validator writes nothing:
+- it holds the KB writer lock (`<repo>/.glu/kb.lock`, the lock of `accept()` and recovery) of every relevant `kb/`
+  whose lock file exists, for the whole read. Taking the OS lock on an existing file writes nothing; a missing lock
+  file is never created;
+- a missing lock file means no writer has ever run: every writer creates it before its first change and nobody
+  removes it. If one appears during the read, a first writer may have started, so the read is repeated (now under
+  that lock);
+- in addition (for changes outside the lock: editor, git), every file is checked again after the read: same set of
+  files, same bytes, no new batch manifest.
+
+Otherwise it reads again (`READ_ATTEMPTS`), then reports `kb_read_unstable`. A pending batch manifest is
+`kb_batch_pending`, also when only `kb/logic` or a single file of `kb/` is validated.
 """
 from __future__ import annotations
 
+import contextlib
+import hashlib
 import re
+import time
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import yaml
 
-from wgc import contracts, ids
+from wgc import contracts, fsio, ids
 
 DOMAIN_CONTRACTS = frozenset({"wgc/source@0", "wgc/logic@0", "wgc/digital@0"})
 
@@ -26,6 +43,22 @@ WARNING = "warning"
 # Provenance: anchor_hash_mismatch, missing_decision.
 CODES = ("load_error", "schema_error", "duplicate_id", "kind_prefix_mismatch", "unresolved_ref",
          "anchor_hash_mismatch", "missing_decision")
+# State of a KB directory, not of its records (ADR-0031).
+KB_CODES = ("kb_batch_pending", "kb_read_unstable")
+KB_DIR_NAME = "kb"
+BATCH_MANIFEST = Path(".wgc-batch") / "manifest.json"
+READ_ATTEMPTS = 5
+READ_RETRY_WAIT = 0.1  # seconds between attempts
+KB_LOCK = Path(".glu") / "kb.lock"  # = wgc.kb.LOCK_FILE (wgc.kb imports this module, not the other way round)
+READ_LOCK_TIMEOUT = 60.0  # seconds the validator waits for a writer (as `accept()` does)
+
+
+def _after_read(path: Path) -> None:
+    """Called after each file is read; tests replace it to change `kb/` in the middle of a read."""
+
+
+def _after_check(path: Path) -> None:
+    """Called after each file is checked again; tests replace it to change `kb/` between the checks."""
 
 # Reference positions checked for `unresolved_ref`: (record kinds or None = any kind, field path).
 # A value is one ID or a list of IDs; `*` steps into every item of a list. Anchors (`seg`) and `prov.decision` have dedicated checks below.
@@ -114,6 +147,51 @@ def _files(paths, report: Report) -> list[Path]:
             report.diagnostics.append(Diagnostic("load_error", ERROR, p.as_posix(), f"Ścieżka nie istnieje: {p.as_posix()}",
                                                  location=p.as_posix()))
     return out
+
+
+def _kb_dirs(paths) -> list[Path]:
+    """`kb/` directories whose batch can change the given paths: the path itself or an ancestor named `kb`, and
+    every directory below a given directory that holds a batch journal."""
+    out: set[Path] = set()
+    for p in map(Path, paths):
+        p = p.absolute()
+        out.update(a for a in [p, *p.parents] if a.name == KB_DIR_NAME and a.is_dir())
+        if p.is_dir():
+            out.update(m.parent for m in p.rglob(".wgc-batch") if m.is_dir())
+            out.update(d for d in p.rglob(KB_DIR_NAME) if d.is_dir())
+    return sorted(out)
+
+
+def _pending(kb_dirs: list[Path]) -> list[Path]:
+    return [d for d in kb_dirs if (d / BATCH_MANIFEST).is_file()]
+
+
+def _read(paths) -> tuple[Report, list[tuple[Path, bytes | None]], list[Path], bool]:
+    """One read of every file: (report with path errors, (file, bytes or None), pending kb dirs, stable)."""
+    report = Report()
+    kb_dirs = _kb_dirs(paths)
+    pending = _pending(kb_dirs)
+    files = _files(paths, report)
+    data = []
+    for f in files:
+        try:
+            data.append((f, f.read_bytes()))
+        except OSError:
+            data.append((f, None))
+        _after_read(f)
+    # nothing moved while reading: same manifests, same files, same bytes
+    stable = _pending(_kb_dirs(paths)) == pending and _files(paths, Report()) == files
+    for f, b in data:
+        stable = stable and _digest(f) == (hashlib.sha256(b).digest() if b is not None else None)
+        _after_check(f)
+    return report, data, pending, stable
+
+
+def _digest(path: Path) -> bytes | None:
+    try:
+        return hashlib.sha256(path.read_bytes()).digest()
+    except OSError:
+        return None
 
 
 def load_documents(path: Path) -> list:
@@ -255,14 +333,49 @@ def _collect(report: Report, records: list[_Rec], doc, location: str) -> None:
                 records.append(_Rec(rec, location))
 
 
+def _locked_read(paths) -> tuple[Report, list[tuple[Path, bytes | None]], list[Path], bool, str | None]:
+    """`_read` under the writer locks that exist; (…, stable, problem). Stable only if no lock file appeared."""
+    locks = sorted({d.parent / KB_LOCK for d in _kb_dirs(paths)})
+    held = [lk for lk in locks if lk.is_file()]
+    with contextlib.ExitStack() as stack:
+        try:
+            for lk in held:  # sorted order, like any other multi-lock holder
+                stack.enter_context(fsio.exclusive(lk, READ_LOCK_TIMEOUT))
+        except fsio.LockBusy as e:
+            return Report(), [], [], False, f"blokada zapisu {Path(e.filename).as_posix()} zajęta dłużej niż " \
+                                             f"{READ_LOCK_TIMEOUT:g} s"
+        report, data, pending, stable = _read(paths)
+        appeared = [lk for lk in locks if lk not in held and lk.is_file()]  # a first writer started meanwhile
+    return report, data, pending, stable and not appeared, None
+
+
 def validate(paths) -> Report:
-    report = Report()
+    paths = list(paths)
+    problem = None
+    for attempt in range(READ_ATTEMPTS):
+        report, data, pending, stable, problem = _locked_read(paths)
+        if stable or problem:
+            break
+        time.sleep(READ_RETRY_WAIT)
+    if not stable:
+        loc = ", ".join(Path(p).as_posix() for p in paths)
+        why = problem or f"kb/ zmieniało się w trakcie odczytu ({READ_ATTEMPTS} prób)"
+        report.diagnostics.append(Diagnostic(
+            "kb_read_unstable", ERROR, loc, f"{why}: wynik walidacji mógłby dotyczyć mieszanej wersji. Ponów po "
+            "zakończeniu buildu.", location=loc))
+    for d in pending:  # an interrupted batch of kb/ (ADR-0031): the files may be half old, half new
+        loc = (d / BATCH_MANIFEST.parent).as_posix()
+        report.diagnostics.append(Diagnostic(
+            "kb_batch_pending", ERROR, loc, "Przerwana partia zapisu kb/: pliki mogą być częściowo stare, a częściowo "
+            "nowe. Uruchom `wgc kb recover` (albo `glu reconcile`).", location=loc))
     records: list[_Rec] = []
-    for f in _files(paths, report):
+    for f, raw in data:
         loc = f.as_posix()
         report.files += 1
         try:
-            docs = load_documents(f)
+            if raw is None:
+                raise OSError("plik zniknął albo jest nieczytelny")
+            docs = [d for d in yaml.safe_load_all(raw.decode("utf-8")) if d is not None]
         except (OSError, UnicodeDecodeError, yaml.YAMLError) as e:
             report.diagnostics.append(Diagnostic("load_error", ERROR, loc, f"Nie można wczytać pliku: {e}", location=loc))
             continue

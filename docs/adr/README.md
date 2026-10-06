@@ -36,3 +36,4 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0028](ADR-0028-local-deep-bez-prawa-akceptacji.md) | `local_deep` bez prawa akceptacji w `routing@0`; spór i reguły `forced` zawsze idą do premium | przyjęty |
 | [ADR-0029](ADR-0029-przeklad-premium-weryfikacja-lokalna.md) | Przekład Stage 3 pisze premium; wierność sprawdzają wykonawcy niezależni od tłumacza | przyjęty |
 | [ADR-0030](ADR-0030-harvest-terminow-tier0-i-id-pojec.md) | Harvest terminów Tier 0: wzorce o pewnej kategorii, job na dokument, ID pojęć (`CON-<klucz>`, `CON-<klucz SRC>:<klucz>`) | przyjęty |
+| [ADR-0031](ADR-0031-commit-partii-kb-i-recovery.md) | Commit partii plików `kb/` z dziennikiem wycofania i recovery; receipt akceptacji w Attempcie; reconcile GLU z blokadą żywotności buildu | przyjęty |

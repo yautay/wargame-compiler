@@ -96,6 +96,31 @@ joba, nieudany zapis) i błąd programu (wyjątek w WGC albo w `validate` zadani
 ale z Attemptem `outcome: error` (`error_class: runtime`) i osobnym powodem przejścia; nigdy jako `rejected`
 (M-STAB1, ADR-0026). Build idzie `planning → running → done`, a gdy któryś job się nie udał,
 `running → failed`. Planner i `glu build --stage --scope --dry-run`: [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje).
+Końcowe wpisy joba (Attempt, przy `accepted` z `kb_receipt`, i ostatnie przejścia) zapisuje jedna transakcja
+(`Store.finish_job`, M-STAB2). Wyjątek: `KBUnresolved` (partia, której wycofanie się nie dokończyło, ADR-0031)
+nie zapisuje Attemptu ani przejścia. Job zostaje w `validating`, receipt zostaje, a build jest przerywany. Rozstrzyga
+reconcile.
+
+<a id="reconcile"></a>
+**Reconcile (M-STAB2, ADR-0031).** `glu reconcile [--dry-run]` i krok startu `glu build` (nie `--dry-run`):
+1. recovery przerwanej partii `kb/` (`wgc kb recover`, [DATA-CONTRACTS §10](DATA-CONTRACTS.md#recovery));
+2. buildy niezakończone, których blokady żywotności `.glu/builds/<build>.lock` nikt nie trzyma (proces buildu
+   zginął). Żywy build trzyma ją przez cały czas działania i reconcile go nie dotyka. Start buildu (reconcile,
+   utworzenie buildu i jego blokady) idzie pod krótką blokadą `.glu/build.lock`; `glu reconcile` bierze tę samą
+   blokadę.
+
+| Job martwego buildu | Wynik |
+|---|---|
+| `validating`, receipt `.glu/kb-receipts/<job>.json` zgodny z `kb/` | Attempt `accepted` z `kb_receipt`, `validating → accepted → done` |
+| `validating` bez receiptu albo z niezgodnym | Attempt `error` (`runtime`), `validating → failed`, powód `reconcile: …` |
+| `running` | Attempt `error` (`runtime`), `running → failed` |
+| `accepted` | `accepted → done` |
+| `pending`, `ready`, `proposed` i inne aktywne | `cancelled` |
+
+Potem build: `running → done`, gdy każdy job jest `done`, inaczej `→ failed`. Wszystkie przejścia są w tabeli wyżej:
+reconcile nie dodaje krawędzi. Receipty zakończonych i nieznanych jobów są usuwane. Reconcile jest idempotentne,
+a `--dry-run` niczego nie tworzy (ani `.glu/`, ani bazy, ani plików blokad). Wznowienie przerwanej pracy to nadal
+nowy build.
 
 ## 4. Pętla structured output
 ```text

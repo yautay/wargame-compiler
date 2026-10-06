@@ -100,28 +100,32 @@ def test_failure_of_a_new_file_leaves_no_file(game, monkeypatch):
     assert not tables_file(game).exists() and fsio.temp_files(game / "kb") == []
 
 
-def test_failure_on_second_file_names_the_replaced_one(game, monkeypatch):
-    """Known gap (ADR-0026): atomic files are not an atomic batch. The error says which files were replaced."""
+def test_failure_on_second_file_rolls_back_the_whole_batch(game, monkeypatch):
+    """M-STAB2 guarantee (ADR-0031; in M-STAB1 this test documented the gap): the second file of a batch fails after
+    the first was replaced, and `kb/` is back to the old content in full, with no journal left behind."""
     assert accept(game, proposals(game)).ok
     moved = game / "kb" / "logic" / "combat.yaml"
     tables_file(game).rename(moved)
-    props = proposals(game) + proposals(game, "TAB-new")
+    before = moved.read_bytes()
+    props = proposals(game) + proposals(game, "TAB-new")  # TAB-4.3 stays in combat.yaml, TAB-new → tables.yaml
     props[0]["record"]["title"] = "CRT"
-    real, calls = os.replace, []
+    real, targets = os.replace, []
 
-    def second_fails(src, dst):
-        calls.append(dst)
-        if len(calls) == 2:
-            raise OSError(errno.EIO, "błąd I/O (symulacja)")
+    def second_target_fails(src, dst):
+        if Path(dst).parent == moved.parent:  # files of kb/logic, not the journal manifest
+            targets.append(dst)
+            if len(targets) == 2:
+                raise OSError(errno.EIO, "błąd I/O (symulacja)")
         real(src, dst)
 
-    monkeypatch.setattr(fsio.os, "replace", second_fails)
+    monkeypatch.setattr(fsio.os, "replace", second_target_fails)
     with pytest.raises(kb.KBWriteError) as exc:
         accept(game, props)
     monkeypatch.undo()
-    assert "kb/logic/combat.yaml" in str(exc.value) and "część wyniku" in str(exc.value)
-    assert load_documents(moved)[0]["records"][0]["title"] == "CRT"  # first file already replaced
-    assert not tables_file(game).exists() and fsio.temp_files(game / "kb") == []
+    assert "Partia wycofana, kb/ bez zmian" in str(exc.value) and len(targets) >= 2
+    assert moved.read_bytes() == before and not tables_file(game).exists()
+    assert not (game / kb.BATCH_DIR).exists() and fsio.temp_files(game / "kb") == []
+    assert validate([game / "source", game / "kb"]).ok
 
 
 @pytest.mark.skipif(os.name != "nt", reason="retries on PermissionError only on Windows")

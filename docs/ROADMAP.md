@@ -12,7 +12,7 @@ Status: `done`, `next`, `planned`, `optional`.
 Sekcje niżej grupują milestone'y tematycznie. Kolejność wykonania (strzałka = kolejność; zależności podaje każdy milestone):
 
 ```text
-tor domeny + GLU:  M1 → M2a → M8 → M9a → M-STAB1 → M9b → M-STAB2 → M-STAB3 → M10 ─┐
+tor domeny + GLU:  M1 → M2a → M8 → M9a → M-STAB1 → M9b → M-STAB2 → M-STAB3a → M-STAB3b → M-STAB3c → M10 ─┐
 tor węzła (LAN):   M-GW1 → M-NODE (HUM) ──────────────────────────────────────────┼─→ M-E2E (walking skeleton przez LAN) → M3 → M4 → M5 → M6 → M7
 pomiar:            M-BASE (HUM, jak najwcześniej)                                 │       → M11 → M12 → M13 → M-GW2 → M-INF → M14 → M15 → M16 → …
                                                                                   │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
@@ -215,7 +215,7 @@ a pozostałe naprawy granicy akceptacji zaplanowano jako M-STAB2 i M-STAB3 przed
   [handoff/2026-10-05-M9b.md](handoff/2026-10-05-M9b.md).
 
 ### M-STAB2: Stabilizacja po M9a, etap 2: commit partii KB i recovery
-- **Status:** next · **Rola:** ARCH (protokół) + IMPL · **Zależy od:** M-STAB1
+- **Status:** done · **Rola:** ARCH (protokół) + IMPL · **Zależy od:** M-STAB1
 - **Zakres:** ustalenia F01 (partia plików) i F04 przeglądu, decyzje N01 i N04:
   - commit całej partii plików `kb/` jednej akceptacji: manifest partii (np. w `.glu/`), podmiana plików i jawny
     znacznik zatwierdzenia; po przerwaniu albo dokończenie, albo wycofanie do poprzedniej wersji, nigdy częściowa
@@ -227,29 +227,68 @@ a pozostałe naprawy granicy akceptacji zaplanowano jako M-STAB2 i M-STAB3 przed
 - **Akceptacja:** testy awarii między podmianami plików partii i po zapisie KB a przed zapisem Attemptu; recovery
   przywraca spójny stan bez ręcznej edycji; `kb/` nadal w YAML/git.
 - **Poza zakresem:** rozproszona transakcja KB+SQLite, przeniesienie KB do bazy (ADR-0004).
+- **Wynik (ADR-0031):**
+  - `wgc/fsbatch.py`: partia ≥ 2 plików z dziennikiem wycofania w `kb/.wgc-batch/` (kopie, manifest `prepared`,
+    podmiany, znacznik `committed`). Awaria w żywym procesie od razu wycofuje partię. Dziennik leży w `kb/`, więc
+    utrata `.glu/` go nie ukrywa;
+  - `wgc kb recover [--dry-run]`: dokończenie albo wycofanie z hashy plików, idempotentne. `accept()` robi recovery
+    pod blokadą przed odczytem `kb/`. `wgc validate` zgłasza `kb_batch_pending`;
+  - receipt akceptacji (`generation`, `records`) w `.glu/kb-receipts/<job>.json` przed zapisem plików i w Attempcie
+    jako `kb_receipt` (zmiana addytywna `glu/exec@0`);
+  - `Store.finish_job`: Attempt i ostatnie przejścia joba w jednej transakcji;
+  - `glu reconcile [--dry-run]` i krok startu `glu build`: blokada żywotności buildu `.glu/builds/<build>.lock`,
+    uzgodnienie jobów martwych buildów z `kb/` bez nowych krawędzi tabeli przejść;
+  - testy `tests/test_kb_batch.py` i `tests/test_glu_reconcile.py`, w tym procesy potomne kończone `os._exit` między
+    podmianami partii i po zapisie `kb/` przed Attemptem. Test luki partii w `tests/test_kb_safety.py` zamieniony na
+    test gwarancji.
 
-### M-STAB3: Stabilizacja po M9a, etap 3: hashe wejść, manifest, projekcje, kontrakt propozycji
-- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB2
-- **Zakres:** ustalenia F03, F05, F06, F07 i F11 przeglądu, decyzje N03, N05, N06, N07 i N10. Jeśli nie zmieści
-  się w jednej sesji, dzieli się go przed pracą.
-  - **Hashe strukturalne:** obok znormalizowanego `text_hash` wersjonowany hash struktury tabeli albo artefaktu
-    ekstrakcji, używany przez parser, planner, provenance i verify; zastąpienie ADR-0024.
-  - **Manifest wejść wywołania:** task/version, projekcja/version, wejścia i kontekst z hashami, autorytet źródeł;
-    osobno dowody rekordu (`prov`). Generacja `kb/` dla zadań czytających rekordy KB.
-  - **Projekcje:** treść nieformalizowana przy `formalization: none|partial`, definicje predykatów, projekcje dla
-    rodzajów używanych w M10–M14, podbicie wersji.
-  - **Kontrakt propozycji i statusów:** `wgc/proposal@0` (envelope), dispatch kontraktu etapu, lifecycle oddzielony
-    od rozstrzygnięcia niejasności, ownership `task + zakres wejść` z manifestem outputów.
-- **Akceptacja:** testy zmiany granic komórek bez zmiany `text_hash`, zmiany treści nieformalizowanej, zmiany roli
-  źródła i zniknięcia jednego outputu; kontrakt propozycji z fixture'ami i DATA-CONTRACTS.
-- **Decyzje właściciela (przyjęte):** ADR-0027. Lista ról kanonicznych dla automatycznej akceptacji
-  (`community_interpretation`, `prior_translation` i `other` odrzucane, Q-13); niepotwierdzona kotwica zawsze odrzuca,
-  `llm_inference` tylko z deklaracją zadania (Q-14). M-STAB3 wdraża obie reguły z testami dla każdej roli.
+  Handoff: [handoff/2026-10-05-M-STAB2.md](handoff/2026-10-05-M-STAB2.md).
+
+### Podział M-STAB3 (decyzja właściciela, 2026-10-06)
+Zakres etapu 3 stabilizacji (ustalenia F03, F05, F06, F07 i F11 przeglądu, decyzje N03, N05, N06, N07 i N10) jest za
+duży na jedną sesję, więc dzieli się na trzy milestone'y wykonywane po kolei przed M10.
+
+### M-STAB3a: Stabilizacja po M9a, etap 3a: hashe strukturalne
+- **Status:** next · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB2
+- **Zakres:** ustalenie F03 przeglądu, decyzja N03: obok znormalizowanego `text_hash` wersjonowany hash struktury
+  tabeli albo artefaktu ekstrakcji, używany przez parser, planner, provenance i verify; zastąpienie ADR-0024; nowa
+  wersja ekstraktora albo formatu i jawna regeneracja wcześniejszych artefaktów.
+- **Akceptacja:** test zmiany granic komórek bez zmiany `text_hash` (wykryta przez verify, planner i provenance);
+  `python -m pytest` zielone.
+- **Poza zakresem:** manifest wejść i projekcje (M-STAB3b), kontrakt propozycji (M-STAB3c), trwałe ID (F10).
+
+### M-STAB3b: Stabilizacja po M9a, etap 3b: manifest wejść i projekcje
+- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3a
+- **Zakres:** ustalenia F05 i F06, decyzje N05 i N06:
+  - **manifest wejść wywołania:** task/version, projekcja/version, wejścia i kontekst z hashami, autorytet źródeł;
+    osobno dowody rekordu (`prov`). Generacja `kb/` dla zadań czytających rekordy KB (liczona już przez
+    `wgc.kb.generation`, ADR-0031);
+  - **projekcje:** treść nieformalizowana przy `formalization: none|partial`, definicje predykatów, projekcje dla
+    rodzajów używanych w M10–M14, podbicie wersji;
+  - **diagnostyka receiptu (decyzja właściciela, 2026-10-06):** polecenie porównujące receipt (`kb_receipt`)
+    wskazanego joba z bieżącym `kb/`, tylko raport, bez automatycznej naprawy. Różnica nie oznacza sama w sobie
+    uszkodzenia, bo `kb/` mogło później zostać poprawnie zmienione. Ma być gotowe przed M10.
+- **Akceptacja:** testy zmiany treści nieformalizowanej i zmiany kontekstu (generacja `kb/`); polecenie diagnostyczne
+  z testem zgodnego receiptu, różnicy i braku joba; `python -m pytest` zielone.
+- **Poza zakresem:** kontrakt propozycji (M-STAB3c), cache (M11), graf zależności (M13).
+
+### M-STAB3c: Stabilizacja po M9a, etap 3c: kontrakt propozycji, ownership, wdrożenie ADR-0027
+- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3b
+- **Zakres:** ustalenia F07 i F11, decyzje N07 i N10:
+  - **kontrakt propozycji i statusów:** `wgc/proposal@0` (envelope), dispatch kontraktu etapu, lifecycle oddzielony
+    od rozstrzygnięcia niejasności;
+  - **ownership** `task + zakres wejść` z manifestem outputów;
+  - **wdrożenie ADR-0027:** lista ról kanonicznych dla automatycznej akceptacji (`community_interpretation`,
+    `prior_translation` i `other` odrzucane, Q-13); niepotwierdzona kotwica zawsze odrzuca, `llm_inference` tylko
+    z deklaracją zadania (Q-14).
+- **Akceptacja:** testy zmiany roli źródła (każda rola) i zniknięcia jednego outputu; kontrakt propozycji
+  z fixture'ami i DATA-CONTRACTS; `python -m pytest` zielone.
 - **Poza zakresem:** pełny graf zależności i przyrostowy rebuild (M13), cache (M11), trwałe ID i mapa przenumerowań
-  (F10, osobna decyzja przed pierwszą regeneracją zmienionych źródeł).
+  (F10, osobna decyzja przed pierwszą regeneracją zmienionych źródeł). Q-12, Q-16 i Q-17 pozostają otwarte (decyzja
+  właściciela, 2026-10-06).
 
 ### M10: Providerzy fake/replay/self_hosted + pętla structured output
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3 (kontrakt `igw/api@0` z M-INF0)
+- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3c (kontrakt `igw/api@0` z M-INF0)
 - **Zakres:**
   - `glu.providers` z interfejsem INFERENCE-ROUTING §3: `generate`, `embed?`, `health`, `capabilities`, `models`
     i typowane błędy;
