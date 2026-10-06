@@ -240,8 +240,8 @@ def test_rebuild_and_other_scopes_keep_kb(game):
         res = build(game, scope)
         assert res.state == "done" and res.metrics["records_created"] == res.metrics["records_updated"] == 0
         assert tree(game / "kb") == before, scope
-    plan = planner.plan(Workspace(game), "1", "chapter:3")  # no match in chapter 3: no harvest job
-    assert plan.jobs == []
+    plan = planner.plan(Workspace(game), "1", "chapter:3")
+    assert len(plan.jobs) == 1  # owned document still reconciles when a scoped segment has no match
 
 
 def test_harvest_records_do_not_depend_on_scope(game):
@@ -257,29 +257,17 @@ def test_dry_run_writes_nothing(game, capsys):
     assert tree(game) == before and not db_path(game).exists() and not (game / "kb").exists()
 
 
-def test_vanished_term_blocks_acceptance_until_removed(game):
-    """A phase renamed in the source leaves the old concept with a stale anchor. Until M13 (Q-12) and ownership of
-    outputs (F11, M-STAB3) this blocks every acceptance, also of other tasks, and kb/ stays as it was."""
+def test_vanished_term_is_retired_by_owner(game):
+    """The harvest owner retires the missing output and writes the replacement in one batch."""
     build(game)
     rulebook = game / "rulebook.md"
     rulebook.write_text(rulebook.read_text(encoding="utf-8").replace("4. End Phase", "4. Supply Phase"),
                         encoding="utf-8", newline="\n")
     source.extract(game)
-    before = tree(game / "kb")
     res = build(game)
-    assert res.state == "failed" and [j.state for j in res.jobs] == ["failed", "failed"]
-    assert any(i.startswith("anchor_hash_mismatch CON-end_phase") for i in res.jobs[1].issues)
-    assert tree(game / "kb") == before
-
-    # the owner removes the stale record (by hand or from git); the next build accepts the new phase
-    path = game / "kb" / "logic" / "concepts.yaml"
-    [doc] = load_documents(path)
-    doc["records"] = [r for r in doc["records"] if r["id"] != "CON-end_phase"]
-    path.write_text(kb.dump([doc]), encoding="utf-8", newline="\n")
-    # the first build after the change: wgc.tables.parse runs first and still sees the other phases with the old
-    # `seg_hash` of SEG-dsk.2.2, so it fails; the harvest job refreshes them. The next build is clean (Q-12).
-    res = build(game)
-    assert [j.state for j in res.jobs] == ["failed", "done"] and "CON-supply_phase" in res.jobs[1].records
+    assert res.state == "failed" and [j.state for j in res.jobs] == ["failed", "done"]
+    assert "CON-supply_phase" in res.jobs[1].records
+    assert "CON-end_phase" not in {r["id"] for r in concepts(game)}
     res = build(game)
     assert res.state == "done" and res.metrics["records_created"] == 0
     assert "CON-end_phase" not in {r["id"] for r in concepts(game)}

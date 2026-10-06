@@ -4,7 +4,8 @@ A `TaskSpec` says what a task reads, what a correct output looks like and how to
 (Tier 0). GLU plans jobs from the registry (`REGISTRY`, `for_stage`), runs them and hands every output to
 `wgc.kb.accept`, the only path into `kb/`. `wgc` never imports `glu` (ADR-0002): GLU imports this module.
 
-A task output is a list of **proposals** (docs/DATA-CONTRACTS.md §10):
+A task implementation returns a list of **proposals** (docs/DATA-CONTRACTS.md §10); GLU wraps it in
+`wgc/proposal@0` before acceptance:
 `{record: <record without prov, status, risk>, anchors: [{seg, quote?, span?}], derived_from: [ids]}`.
 Provenance, status, `inputs_hash` and `manifest` are added by `wgc.kb.accept` (ADR-0014). What a job reads (inputs,
 authority data of source documents, `kb/` context) is defined once, by `wgc.manifest.build` from the fields below
@@ -50,6 +51,11 @@ class TaskSpec:
     # Records of `kb/` the task reads as context (ids). A task with it reads `kb/`: its manifest is checked against
     # `kb/` at acceptance (ADR-0033). `context_builder` (M10) may read only these records.
     context_selector: Callable[["Workspace", Inputs], list[str]] | None = None
+    # Stable logical input scope of one producer. Defaults to its input IDs; a task whose input set varies
+    # (harvest) supplies a document scope. The scope is independent of content hashes and build --scope.
+    ownership_scope: Callable[["Workspace", Inputs], tuple[str, ...]] | None = None
+    # ADR-0027: unanchored model inference is opt-in per task, never inferred from the executor tier.
+    allow_llm_inference: bool = False
     # Risk features of a proposal (`wgc/risk@0`, M6); none until then.
     risk_features: Callable[[dict], list[dict]] = lambda proposal: []
     # M10: context for the model, prompt id@version and the flat decoding schema for the node.

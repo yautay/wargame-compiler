@@ -1,8 +1,8 @@
 # ADR-0027: Automatyczna akceptacja tylko z ról kanonicznych; niepotwierdzona kotwica to odrzucenie, nie inferencja
 
-- **Status:** przyjęty
+- **Status:** przyjęty; wdrożony w akceptacji przez ADR-0035 (pętla retry nadal w M10)
 - **Data:** 2026-10-05
-- **Milestone:** M-STAB1 (decyzja właściciela po sesji); wdrożenie M-STAB3 i M10
+- **Milestone:** M-STAB1 (decyzja właściciela po sesji); wdrożenie granicy akceptacji M-STAB3c, pętla prób M10
 
 ## Kontekst
 - **Q-13 (przegląd po M9a, F09):** `wgc.kb.accept()` daje `explicit_source` każdej kotwicy w dokumencie, którego rola
@@ -48,13 +48,9 @@
 
 ## Konsekwencje
 - **Wdrożenie:**
-  - M-STAB3 dodaje listę ról w `wgc.kb`, deklarację inferencji zadania i ich miejsce w kontrakcie propozycji
+  - M-STAB3c dodał listę ról w `wgc.kb`, deklarację inferencji w `TaskSpec` i kontrakt propozycji
     (`wgc/proposal@0`), z testami dla każdej roli;
   - M10 dodaje informację zwrotną o odrzuconej kotwicy w pętli prób.
-- **Do wdrożenia obowiązuje stan obecny** (ADR-0025):
-  - kotwica w roli niekanonicznej nadal daje `explicit_source`. Gra benchmarkowa nie ma takich dokumentów, a zadania
-    modelowe jeszcze nie istnieją;
-  - propozycja modelu bez kotwic, z `derived_from`, nadal daje `llm_inference` bez deklaracji zadania.
 - Dokument z rolą `other` nie da automatycznie rekordów, dopóki nie dostanie właściwej roli. To świadomie ostra
   reguła. Złagodzenie wymaga nowego ADR.
 - Odrzucenia zamiast obniżeń zwiększą liczbę ponowień i eskalacji w M10–M14. Koszt mierzy M-INF i M14.

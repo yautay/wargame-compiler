@@ -1,6 +1,6 @@
 # ADR-0030: Harvest terminów Tier 0: wzorce o pewnej kategorii, job na dokument, ID pojęć
 
-- **Status:** przyjęty; zależności joba harvest (wszystkie wejścia, dokumenty `rules`) w `prov.manifest` według ADR-0033
+- **Status:** przyjęty; zależności joba harvest w `prov.manifest` według ADR-0033, ownership dokumentu i wycofanie outputów według ADR-0035
 - **Data:** 2026-10-05
 - **Milestone:** M9b
 
@@ -73,20 +73,21 @@
 - **`inputs_hash` w `prov`** to hash projekcji segmentów kotwic rekordu (DATA-CONTRACTS §10). Dla harvest nie jest
   równy `input_hash` klucza cache joba, który obejmuje wszystkie segmenty z dopasowaniem w dokumencie.
 - **Termin znika ze źródła:**
-  - stary rekord zostaje z nieaktualną kotwicą, bo zadanie nie usuwa rekordów, których już nie daje (F11);
-  - walidacja całego `kb/` (`anchor_hash_mismatch`) blokuje wtedy każdy kolejny `accept()`, także innych zadań;
-  - pomaga tylko ręczne usunięcie rekordu (Q-12, M13; ownership outputów w M-STAB3).
+  - od M-STAB3c harvest uzgadnia kompletny zbiór outputów dokumentu i wycofuje brakujące pojęcie (ADR-0035);
+  - jeśli znikną wszystkie segmenty dokumentu, planner nie ma już wejścia dla joba; usunięcie źródła pozostaje
+    w Q-12/M13.
 - **Zmiana tekstu segmentu z kotwicami pojęć:** pierwszy build po niej może się nie udać dla zadań wykonywanych
   przed harvest (`wgc.tables.parse` widzi stare `seg_hash`). Harvest odświeża swoje rekordy, a następny build
   przechodzi. To ta sama kwestia Q-12.
 - **Fixture `logic.minigame.yaml`** przypisuje `wgc.terms.harvest@0` pojęcia o kategoriach, których to zadanie nie
   daje (`CON-rally` jako `action`, `CON-game`, `CON-enter_hex`), i klucz `CON-scn.ford`. Fixture pozostaje
   ilustracją kontraktu, nie gold (jak `TAB-crt`).
-- **Pojęcie z dokumentu niekanonicznego** (`community_interpretation`, `prior_translation`) dostaje dziś
-  `explicit_source`. Odrzuci je M-STAB3 (ADR-0027). Ponieważ job obejmuje jeden dokument, odrzucenie nie zablokuje
+- **Pojęcie z dokumentu niekanonicznego** (`community_interpretation`, `prior_translation`) jest odrzucane od
+  M-STAB3c (ADR-0027). Ponieważ job obejmuje jeden dokument, odrzucenie nie zablokuje
   pojęć z innych dokumentów.
 - **Rekord tego samego ID od innego producenta** (np. model w M14 albo `HD-`) daje konflikt i job harvest kończy się
-  `failed`. Podział własności wymaga decyzji przy M14 albo ownership w M-STAB3.
+  `failed`. M-STAB3c przypisuje ownera do taska i zakresu wejść; polityka wzbogacania pojęć przez M14 pozostaje
+  otwarta (Q-16).
 - **Wzorce ścisłe:**
   - pominięte są `Scenario 2: X`, pozycje listy z opisem (`1. Movement Phase: …`), listy punktowane (Stage 0 usuwa
     punktory), kroki `… Step` i gołe `d6`;

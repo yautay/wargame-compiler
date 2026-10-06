@@ -18,6 +18,7 @@ import pytest
 
 from test_tables import game  # noqa: F401  (fixture)
 from wgc import fsio, kb, source, tasks
+from wgc.canonical import normalize_text
 from wgc.kb import Workspace
 from wgc.validate import load_documents, validate
 
@@ -86,7 +87,7 @@ def test_failure_before_replace_keeps_old_bytes(game, monkeypatch, patched):
     props[0]["record"]["title"] = "CRT"
     with pytest.raises(kb.KBWriteError) as exc:
         accept(game, props)
-    assert "poprzednią zawartość" in str(exc.value) and "Niczego nie zapisano" in str(exc.value)
+    assert "Niczego nie zapisano" in str(exc.value)
     monkeypatch.undo()
     assert tables_file(game).read_bytes() == before
     assert fsio.temp_files(game / "kb") == []
@@ -135,8 +136,9 @@ def test_replace_retries_while_target_is_held(game, monkeypatch):
     real, calls = os.replace, []
 
     def held_twice(src, dst):
-        calls.append(dst)
-        if len(calls) <= 2:
+        if Path(dst) == tables_file(game):
+            calls.append(dst)
+        if Path(dst) == tables_file(game) and len(calls) <= 2:
             raise PermissionError(errno.EACCES, "plik otwarty przez inny proces (symulacja)")
         real(src, dst)
 
@@ -200,15 +202,15 @@ def test_lock_is_exclusive_between_threads_and_times_out(game):
     assert lock_file(game).exists()  # the lock file stays; the OS lock is what counts
 
 
-def test_two_threads_do_not_lose_records(game, monkeypatch):
-    """P15 of the review: both accepts start from the same empty KB; the writes are slow."""
-    real = kb._write_file
+def test_two_threads_serialize_complete_output_sets(game, monkeypatch):
+    """Two accepts of the same owner serialize; the second complete set replaces the first."""
+    real = kb._write_batch
 
-    def slow(path, text):
+    def slow(root, changes, job):
         time.sleep(0.2)
-        real(path, text)
+        real(root, changes, job)
 
-    monkeypatch.setattr(kb, "_write_file", slow)
+    monkeypatch.setattr(kb, "_write_batch", slow)
     barrier = threading.Barrier(2)
     results: dict[str, kb.AcceptResult] = {}
 
@@ -224,7 +226,7 @@ def test_two_threads_do_not_lose_records(game, monkeypatch):
     for t in threads:
         t.join(30)
     assert all(r.ok for r in results.values()) and len(results) == 2
-    assert table_ids(game) == ["TAB-a", "TAB-b"]
+    assert table_ids(game) in (["TAB-a"], ["TAB-b"])
     assert validate([game / "source", game / "kb"]).ok
 
 
@@ -238,15 +240,15 @@ from wgc import kb, tasks
 from wgc.kb import Workspace
 
 root, rid, marker, timeout = Path(sys.argv[2]), sys.argv[3], Path(sys.argv[4]), float(sys.argv[5])
-real_write = kb._write_file
+real_write = kb._write_batch
 
 
-def slow_write(path, text):  # a long write keeps the other process waiting on the lock
+def slow_write(root, changes, job):  # a long write keeps the other process waiting on the lock
     time.sleep(0.3)
-    real_write(path, text)
+    real_write(root, changes, job)
 
 
-kb._write_file = slow_write
+kb._write_batch = slow_write
 spec = tasks.get("wgc.tables.parse")
 ws = Workspace(root)
 props = spec.deterministic_impl(ws, ("SEG-dsk.4.3",))
@@ -281,7 +283,7 @@ def wait_for(paths: list[Path], procs: list[subprocess.Popen], limit: float = 60
         time.sleep(0.05)
 
 
-def test_two_processes_do_not_lose_records(game, tmp_path):
+def test_two_processes_serialize_complete_output_sets(game, tmp_path):
     """Two processes compute proposals from the same empty KB while this process holds the lock, then race for it."""
     with kb.lock(game):
         spawned = [spawn(tmp_path, game, rid, 60) for rid in ("TAB-a", "TAB-b")]
@@ -290,7 +292,7 @@ def test_two_processes_do_not_lose_records(game, tmp_path):
         assert all(p.poll() is None for p in procs)  # both wait for the lock
     outs = [p.communicate(timeout=60) for p in procs]
     assert [p.returncode for p in procs] == [0, 0], outs
-    assert table_ids(game) == ["TAB-a", "TAB-b"]
+    assert table_ids(game) in (["TAB-a"], ["TAB-b"])
     assert validate([game / "source", game / "kb"]).ok
 
 
@@ -303,11 +305,11 @@ def test_busy_lock_in_another_process_gives_kbbusy(game, tmp_path):
 
 
 def test_old_workspace_reads_current_kb(game):
-    """A workspace built before another accept must not hide (and then overwrite) the newer KB."""
+    """An old workspace still reconciles against the current owner's output set under the lock."""
     old = Workspace(game)
     assert accept(game, proposals(game, "TAB-a")).ok
     assert accept(game, proposals(game, "TAB-b", old), ws=old).ok
-    assert table_ids(game) == ["TAB-a", "TAB-b"]
+    assert table_ids(game) == ["TAB-b"]
 
 
 def test_result_from_a_changed_inventory_is_not_written(game):
@@ -393,10 +395,13 @@ def test_span_beyond_the_segment_is_a_domain_issue(game):
 
 def test_valid_span_and_quote_are_kept(game):
     props = proposals(game)
-    props[0]["anchors"] = [{"seg": SEG, "span": [0, 5], "quote": "Combat Results Table"}]
+    text = normalize_text(Workspace(game).text(SEG))
+    start = text.index("Combat Results Table")
+    span = [start, start + len("Combat Results Table")]
+    props[0]["anchors"] = [{"seg": SEG, "span": span, "quote": "Combat Results Table"}]
     assert accept(game, props).ok
     [anchor] = load_documents(tables_file(game))[0]["records"][0]["prov"]["anchors"]
-    assert anchor["span"] == [0, 5] and anchor["quote"] == "Combat Results Table"
+    assert anchor["span"] == span and anchor["quote"] == "Combat Results Table"
 
 
 def test_program_error_in_task_validate_propagates(game):

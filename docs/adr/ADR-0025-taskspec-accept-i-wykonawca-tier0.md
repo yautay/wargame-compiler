@@ -1,6 +1,6 @@
 # ADR-0025: TaskSpec jako interfejs Pythona, `accept()` jako jedyny zapis do `kb/`, wykonawca Tier 0 i planner
 
-- **Status:** przyjęty; `semantic_projection`, klucz joba i `prov.inputs_hash` zmienione przez ADR-0033 (manifest wywołania), projekcje przez ADR-0034
+- **Status:** przyjęty; `semantic_projection`, klucz joba i `prov.inputs_hash` zmienione przez ADR-0033, projekcje przez ADR-0034; kontrakt propozycji i ownership rozszerza ADR-0035
 - **Data:** 2026-10-05
 - **Milestone:** M9a
 
@@ -25,16 +25,16 @@
   do `kb/` miał jedną ścieżkę i jedne reguły provenance. Zadanie wpływa na akceptację przez `validate`.
 - **Rejestr** to słownik w `wgc.tasks` (`registry()`, `get`, `for_stage`). GLU go importuje; nie ma entry pointów.
 - **Propozycja** ma postać `{record, anchors, derived_from}`; `record` bez `prov`, `status` i `risk`
-  (DATA-CONTRACTS §10). Schemat `wgc/proposal@0` dochodzi w M10.
+  (DATA-CONTRACTS §10). Od M-STAB3c lista jest opakowana w `wgc/proposal@0` (ADR-0035).
 - **`wgc.kb.accept(root, spec, inputs, proposals, *, by, job)`**:
   - nadaje `prov` (rodzaj według ADR-0014, `seg_hash` z inwentarza, `inputs_hash`, `by` od wywołującego, `job`)
     i `status: accepted`;
   - kotwica, której nie da się potwierdzić (brak segmentu, cytat niedosłowny), odrzuca propozycję w każdym tierze.
-    ADR-0014 przewiduje dla modelu obniżenie do `llm_inference`; ta ścieżka dochodzi w M10 razem z pętlą
-    structured output. Dla Tier 0 obniżenie jest niemożliwe, bo `llm_inference` wymaga tieru `local` albo `premium`;
+    ADR-0027 zastąpił obniżenie z ADR-0014: `llm_inference` wymaga braku kotwic, `derived_from`, tieru
+    `local` albo `premium` i jawnego `TaskSpec.allow_llm_inference` (wdrożone w M-STAB3c);
   - idempotencja: rekord równy istniejącemu z pominięciem `prov.job` i `prov.at` nie jest zapisywany;
-  - to samo zadanie (producent z `prov.by.tool`/`prompt` bez wersji) zastępuje swój rekord; inny producent albo
-    status inny niż `accepted` to konflikt, a nie nadpisanie;
+  - od M-STAB3c zadanie zastępuje własny rekord w tym samym logicznym zakresie wejść (`prov.owner`);
+    inny owner albo status inny niż `accepted` to konflikt, a nie nadpisanie;
   - przed zapisem waliduje całe `kb/` razem z inwentarzem (`wgc.validate.validate_documents`, nowa funkcja
     wydzielona z `validate`); każdy błąd blokuje zapis;
   - pisze `kb/logic/<rodzaj>.yaml` deterministycznie (DATA-CONTRACTS §10) jedną funkcją `wgc.kb._write_file`.

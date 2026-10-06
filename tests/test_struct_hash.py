@@ -79,7 +79,7 @@ def test_struct_hash_is_versioned():
     text = "Roll\tResult\n4\tHit"
     assert structure(text) == [["Roll", "Result"], ["4", "Hit"]]
     assert struct_hash(text) == content_hash({"format": STRUCT_VERSION, "lines": structure(text)})
-    assert canonical.PROJECTION_VERSION == "wgc/projection@2"  # @1 added struct_hash (ADR-0032), @2 ADR-0034
+    assert canonical.PROJECTION_VERSION == "wgc/projection@3"  # @3 includes ambiguity resolution (ADR-0035)
     assert "struct_hash" in canonical.PROJECTIONS[("segment", "logic")]
 
 

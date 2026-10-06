@@ -300,7 +300,7 @@ duży na jedną sesję, więc dzieli się na trzy milestone'y wykonywane po kole
   - testy `tests/test_manifest.py`, `tests/test_projections.py`, `tests/test_glu_receipt.py`.
 
 ### M-STAB3c: Stabilizacja po M9a, etap 3c: kontrakt propozycji, ownership, wdrożenie ADR-0027
-- **Status:** next · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3b
+- **Status:** done · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3b
 - **Zakres:** ustalenia F07 i F11, decyzje N07 i N10:
   - **kontrakt propozycji i statusów:** `wgc/proposal@0` (envelope), dispatch kontraktu etapu, lifecycle oddzielony
     od rozstrzygnięcia niejasności;
@@ -313,9 +313,20 @@ duży na jedną sesję, więc dzieli się na trzy milestone'y wykonywane po kole
 - **Poza zakresem:** pełny graf zależności i przyrostowy rebuild (M13), cache (M11), trwałe ID i mapa przenumerowań
   (F10, osobna decyzja przed pierwszą regeneracją zmienionych źródeł). Q-12, Q-16 i Q-17 pozostają otwarte (decyzja
   właściciela, 2026-10-06).
+- **Wynik (ADR-0035):**
+  - `wgc/proposal@0` jako envelope wyniku zadania; GLU przekazuje go do `accept()`, które waliduje rekord względem
+    kontraktu etapu (`logic` lub `digital`). Fixture'y poprawne i niepoprawne oraz testy dispatchu;
+  - `AMB-`: `status` lifecycle i odrębne `resolution`; projekcja `wgc/projection@3` obejmuje `resolution`;
+  - `prov.owner` = rodzina taska i logiczny zakres wejść; `wgc/outputs@0` w `kb/outputs/` ma aktywne ID, ich hashe
+    i tombstones wycofanych ID. Rekordy i manifest są jedną partią, receipt zapisuje `retired`. Harvest uzgadnia
+    także pusty output, jeśli dokument nadal istnieje;
+  - ADR-0027: jawna lista ról kanonicznych; `community_interpretation`, `prior_translation`, `other` odrzucane;
+    błędna kotwica zawsze odrzucana; `llm_inference` tylko z `TaskSpec.allow_llm_inference`;
+  - testy każdej roli, zniknięcia jednego i ostatniego outputu, konfliktu ownerów, ręcznej zmiany, kontraktu,
+    etapu i lifecycle.
 
 ### M10: Providerzy fake/replay/self_hosted + pętla structured output
-- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3c (kontrakt `igw/api@0` z M-INF0)
+- **Status:** next · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3c (kontrakt `igw/api@0` z M-INF0)
 - **Zakres:**
   - `glu.providers` z interfejsem INFERENCE-ROUTING §3: `generate`, `embed?`, `health`, `capabilities`, `models`
     i typowane błędy;

@@ -21,7 +21,8 @@ import unicodedata
 
 # @1: `struct_hash` in the `logic` projection of a segment (ADR-0032). @2: unformalized content of incomplete rules,
 # predicate definitions, projections of the kinds read in M10–M14 and E2E, no fallbacks (ADR-0034).
-PROJECTION_VERSION = "wgc/projection@2"
+# @3: ambiguity `resolution` is content, independent of lifecycle status (ADR-0035).
+PROJECTION_VERSION = "wgc/projection@3"
 STRUCT_VERSION = "wgc/struct@0"  # definition of `structure`; any change to it is a new version (ADR-0032)
 CELL_SEP = "\t"  # cell separator of table rows in extracted segment text (wgc.ingest.*, ADR-0032)
 
@@ -57,7 +58,7 @@ PROJECTIONS: dict[tuple[str, str], tuple[str, ...]] = {
     ("procedure", "logic"): _PROCEDURE,
     ("procedure", "digital"): _PROCEDURE,
     ("procedure", "publication"): ("title", "steps"),
-    ("ambiguity", "logic"): ("scope", "question", "readings", "recommendation", "impact", "resolved_by"),
+    ("ambiguity", "logic"): ("scope", "question", "readings", "recommendation", "impact", "resolution", "resolved_by"),
     ("interpretation", "logic"): _INTERPRETATION,
     ("interpretation", "digital"): _INTERPRETATION,
     ("case", "logic"): _CASE,

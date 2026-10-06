@@ -109,8 +109,9 @@ def test_completed_rollback_is_a_plain_write_error(game, monkeypatch):
 
 def two_file_build(root: Path):
     """A build whose tables job writes two files (TAB-4.3 moved to combat.yaml, changed, plus TAB-new)."""
-    assert accept(root, proposals(root)).ok
-    tables_file(root).rename(combat_file(root))
+    if not combat_file(root).exists():
+        assert accept(root, proposals(root)).ok
+        tables_file(root).rename(combat_file(root))
 
     def impl(ws, inputs):
         props = tables.PARSE.deterministic_impl(ws, inputs) + tables.PARSE.deterministic_impl(ws, inputs)
@@ -136,6 +137,8 @@ def job_state(root: Path) -> tuple[str, str, list[dict]]:
 @pytest.mark.parametrize("intent_fails, final, kb_after", [(False, "failed", "old"), (True, "done", "new")])
 def test_unresolved_acceptance_aborts_the_build_and_reconcile_decides(game, monkeypatch, intent_fails, final,
                                                                        kb_after):
+    assert accept(game, proposals(game)).ok
+    tables_file(game).rename(combat_file(game))
     fail_marker(monkeypatch, intent_fails=intent_fails)
     fail_first_restore(monkeypatch)
     with pytest.raises(kb.KBUnresolved, match="job zostaje w `validating`"):
@@ -161,6 +164,8 @@ def test_unresolved_acceptance_aborts_the_build_and_reconcile_decides(game, monk
 
 
 def test_completed_rollback_fails_the_job_at_once(game, monkeypatch):
+    assert accept(game, proposals(game)).ok
+    tables_file(game).rename(combat_file(game))
     fail_marker(monkeypatch)
     res = two_file_build(game)
     monkeypatch.undo()
@@ -171,6 +176,8 @@ def test_completed_rollback_fails_the_job_at_once(game, monkeypatch):
 
 def test_unresolved_batch_blocks_the_next_build_until_recovery_works(game, monkeypatch):
     """Reconcile at the start of the next build cannot recover kb/ (I/O still failing): the build does not start."""
+    assert accept(game, proposals(game)).ok
+    tables_file(game).rename(combat_file(game))
     fail_marker(monkeypatch)
     fail_first_restore(monkeypatch)
     with pytest.raises(kb.KBUnresolved):
@@ -466,7 +473,7 @@ def aba_setup(root: Path, with_lock_file: bool):
         if version == "new":
             props[0]["record"]["title"], props[1]["record"]["title"] = "A-new", "B-new"
         res = accept(root, props)
-        assert res.ok and len(res.files) == 2, res  # one batch of two files
+        assert res.ok and len(res.files) == 3, res  # two record files and the owner manifest
     batch("new")
     batch("old")
     if not with_lock_file:

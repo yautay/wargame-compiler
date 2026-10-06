@@ -3,11 +3,13 @@
 ## 1. Rejestr kontraktów
 | Kontrakt | Plik | Zawartość | Stan |
 |---|---|---|---|
-| `wgc/common` | `contracts/schemas/common.schema.json` | ID, hash, glosa, kotwica, wykonawca, provenance (z manifestem wywołania `wgc/manifest@0`, ADR-0033), ryzyko, cykl życia, `HD-`, `RR-` | @0 szkic |
+| `wgc/common` | `contracts/schemas/common.schema.json` | ID, hash, glosa, kotwica, wykonawca, provenance (z manifestem wywołania i ownerem), ryzyko, cykl życia, `HD-`, `RR-` | @0 szkic |
 | `wgc/source@0` | `source.schema.json` | Stage 0: `source_document` (role, `seg_prefix`, pierwszeństwo), `segment`; inwentarz `source/inventory.yaml` ([§9](#stage0)) | @0 szkic |
 | `wgc/logic@0` | `logic.schema.json` | Stage 1: Rule IR i rekordy pokrewne, gramatyka wyrażeń i efektów | @0 szkic |
 | `wgc/digital@0` | `digital.schema.json` | Stage 1.5 | @0 szkic |
 | `wgc/gate@0` | `gate.schema.json` | raport bramki (obliczany) | @0 szkic |
+| `wgc/proposal@0` | `proposal.schema.json` | envelope wyniku zadania przed akceptacją: task, output_schema, propozycje | @0 wdrożony |
+| `wgc/outputs@0` | `outputs.schema.json` | manifest aktywnych i wycofanych outputów ownera w `kb/outputs/` | @0 wdrożony |
 | `glu/exec@0` | `glu.schema.json` | Build, Job, Attempt, RoutingDecision, ReviewPackage, CacheKey; polityka fallbacku, `premium_reason`, stan `waiting_inference`, pola węzła i `kb_receipt` w Attempt | @0 szkic |
 | `igw/api@0` | `inference.schema.json` | protokół Inference Gateway: `infer_request`/`infer_result`, `error`, `health`, `capabilities`, `models`, `metrics`, `embed_*`, `job_status` (zarezerwowany) | @0 szkic |
 | `glu/profiles@0` | (M10) | `~/.config/glu/profiles.yaml`: endpointy, profile logiczne, `fallback` | planowany |
@@ -133,9 +135,9 @@ Implementacja: `wgc/canonical.py`.
 - **Projekcja semantyczna (`projection(record, consumer)`):** dla każdej pary (rodzaj rekordu, konsument) WGC definiuje
   listę pól wchodzących do hasha. Projekcja zawiera zawsze `kind` i `id` oraz te pola z listy, które rekord ma.
   `notes`, `refs`, `risk`, `status` i `prov` nigdy do niej nie wchodzą. Glosa reguły (`statement`) wchodzi tylko jako
-  pole warunkowe (niżej). Listy są danymi (`PROJECTIONS`, `CONDITIONAL`), wersja `wgc/projection@2` (`@1`:
+  pole warunkowe (niżej). Listy są danymi (`PROJECTIONS`, `CONDITIONAL`), wersja `wgc/projection@3` (`@1`:
   `struct_hash` w projekcji `logic` segmentu, ADR-0032; `@2`: treść nieformalizowana, definicje predykatów, rodzaje
-  M10–M14 i E2E, bez zapasów, ADR-0034). Konsumenci: `logic` (joby Stage 1 czytające rekord jako wejście lub
+  M10–M14 i E2E, bez zapasów, ADR-0034; `@3`: `ambiguity.resolution`, ADR-0035). Konsumenci: `logic` (joby Stage 1 czytające rekord jako wejście lub
   kontekst), `digital` (Stage 1.5), `publication` (przekład segmentu, Stage 3).
 
   | Rodzaj | `logic` | `digital` | `publication` |
@@ -147,7 +149,7 @@ Implementacja: `wgc/canonical.py`.
   | `relation` | `type`, `from`, `to`, `when`, `priority_basis` | `type`, `from`, `to`, `when`, `priority_basis` | `type`, `from`, `to` |
   | `table` | `title`, `columns`, `rows`, `complete` | jak `logic` | `title`, `columns`, `rows` |
   | `procedure` | `title`, `category`, `repeat`, `steps` | jak `logic` | `title`, `steps` |
-  | `ambiguity` | `scope`, `question`, `readings`, `recommendation`, `impact`, `resolved_by` | — | — |
+  | `ambiguity` | `scope`, `question`, `readings`, `recommendation`, `impact`, `resolution`, `resolved_by` | — | — |
   | `interpretation` | `ambiguity`, `reading`, `statement` (treść odczytu, nie glosa) | jak `logic` | — |
   | `case` | `polarity`, `question`, `expected`, `verdict`, `chain` | jak `logic` | — |
   | `change` | `change_kind`, `affects`, `summary`, `from_edition`, `to_edition` | — | — |
@@ -351,26 +353,34 @@ Pilnuje tego `tests/test_source.py`. Inwentarza i fixture'ów nie waliduje się 
 `duplicate_id`.
 
 <a id="propozycje"></a>
-## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a, M9b, M-STAB2, M-STAB3b)
-Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Workspace`, `accept`), ADR-0025.
+## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a–M-STAB3c)
+Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Workspace`, `accept`), `wgc/ownership.py`, ADR-0025 i ADR-0035.
 
-**Propozycja** to wynik zadania, zanim WGC go przyjmie. Wykonawca (kod Tier 0, a od M10 model) zwraca listę:
+**Propozycja** to wynik zadania, zanim WGC go przyjmie. Wykonawca (kod Tier 0, a od M10 model) zwraca envelope:
 ```yaml
-- record: {kind: table, id: TAB-4.3, title: Combat Results Table, columns: [...], rows: [...], complete: true}
-  anchors: [{seg: SEG-dsk.4.3, quote: "Combat Results Table"}]   # quote i span opcjonalne
-  derived_from: [R-7.1]                                          # opcjonalne; kotwice albo derived_from wymagane
+schema: wgc/proposal@0
+task: wgc.tables.parse@0
+output_schema: wgc/logic@0#table
+proposals:
+  - record: {kind: table, id: TAB-4.3, title: Combat Results Table, columns: [...], rows: [...], complete: true}
+    anchors: [{seg: SEG-dsk.4.3, quote: "Combat Results Table"}]
 ```
 - `record` to rekord bez pól `prov`, `status` i `risk` (nadaje je WGC, ADR-0014); rodzaj musi być `output_kind` zadania.
 - Kotwica propozycji ma tylko `seg`, `quote` i `span`. `seg_hash` dopisuje WGC z inwentarza.
-- Schematu `wgc/proposal@0` jeszcze nie ma: kształt sprawdza `accept()`. Schemat dla modelu (z `decoding_schema`)
-  dochodzi w M10.
+- `anchors` (`seg`, opcjonalne `quote` i `span`) albo `derived_from` są wymagane dla każdego rekordu.
+  `seg_hash` nadaje WGC. Lista propozycji pozostaje skrótem API Pythona; `accept()` waliduje ten sam envelope.
+- `output_schema` wybiera kontrakt etapu: `stage1` → `wgc/logic@0#kind`, `stage1.5` →
+  `wgc/digital@0#kind`. `decoding_schema` M10 jest tylko pomocniczym podzbiorem, nie zastępuje walidacji WGC.
+- `AMB-` ma `status` lifecycle (WGC nadaje `accepted`) i osobne `resolution` podane w propozycji:
+  `open|requires_human_interpretation|resolved|house_rule|wont_fix`. `INT-` nie może być automatycznie zaakceptowane
+  bez `prov.decision` wskazującego `HD-`.
 
 **`accept(root, spec, inputs, proposals, *, by, job, ws, lock_timeout, manifest)`** to jedyna droga zapisu do `kb/`.
 Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko kończy albo wycofuje partię, którą zaczął
 `accept()`, bajtami z dziennika zapisanego przez `accept()`. Kroki `accept()`:
-1. typy i kształt propozycji, a potem każdy `record` sprawdzony schematem `wgc/logic@0` z pominięciem tylko braku
+1. typy i kształt envelope, a potem każdy `record` sprawdzony schematem zadeklarowanego etapu z pominięciem tylko braku
    pól nadawanych przez WGC (`prov`, `status`, `risk`). To czyste kontrole przed jakąkolwiek funkcją domenową:
-   - wynik zadania jest listą;
+   - wynik zadania jest envelope z listą `proposals`;
    - `record.id` to ID (napis zgodny z gramatyką §4);
    - `anchors` to lista obiektów `{seg, quote?, span?}`, gdzie `seg` to ID, `quote` to napis, a `span` to
      `[początek, koniec]` z liczb całkowitych (bez wartości logicznych) i `0 ≤ początek ≤ koniec`;
@@ -386,16 +396,15 @@ Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko k
    zapisane;
 3. reguły domenowe zadania (`TaskSpec.validate`);
 4. `prov`:
-   - `kind`: `explicit_source`, gdy każda kotwica wskazuje segment z inwentarza, a cytat (jeśli jest) występuje
-     dosłownie w znormalizowanym tekście segmentu; `errata`, `faq` albo `designer_clarification`, gdy kotwice
-     wskazują dokument o tej roli; bez kotwic: `deterministic_derivation` (tier `deterministic`) albo
-     `llm_inference` (tier `local`/`premium`);
+   - `kind`: `explicit_source` tylko dla ról `rules`, `living_rules`, `scenario_book`, `charts`, `cards`, `counters`,
+     `map`, `module`; `errata`, `faq`, `designer_clarification` dają własny rodzaj. Role
+     `community_interpretation`, `prior_translation`, `other` i nieznane odrzucają automatyczną akceptację.
+     Bez kotwic: `deterministic_derivation` (tier `deterministic`) albo `llm_inference` (tier `local`/`premium`)
+     tylko gdy `TaskSpec.allow_llm_inference=True` i jest `derived_from`;
    - kotwica, której nie da się potwierdzić, odrzuca propozycję w każdym tierze (ADR-0025, ADR-0027: bez
      automatycznego obniżenia do `llm_inference`). Dotyczy to też `span`, którego koniec wykracza poza znormalizowany
      tekst segmentu (M-STAB1);
-   - **zdecydowane, do wdrożenia w M-STAB3c (ADR-0027):** kotwica w dokumencie o roli `community_interpretation`,
-     `prior_translation` albo `other` odrzuca propozycję (jawna lista ról kanonicznych), a `llm_inference` bez kotwic
-     wymaga deklaracji zadania. Do wdrożenia obowiązuje opis powyżej;
+   - cytat i `span`, jeśli są jednocześnie podane, muszą wskazywać te same znaki tekstu;
    - `by` podaje wywołujący (GLU: tier i `tool` albo `profile`/`prompt`), `job` to ID joba;
    - `inputs_hash` = hash dowodów rekordu: `content_hash({projection: <wersja>, records: [projekcje logic segmentów
      kotwic (z `text_hash` i `struct_hash`, ADR-0032) i rekordów derived_from]})`. `derived_from` rozwiązuje się
@@ -403,19 +412,21 @@ Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko k
    - `manifest` = manifest wywołania joba (ADR-0033). Dla harvest obejmuje wszystkie wejścia joba, a nie tylko
      segmenty kotwic pojęcia;
    - każdy dowód (segment kotwicy, rekord `derived_from`) musi należeć do odczytu joba (`inputs` albo `context`
-     manifestu). Inaczej propozycja jest odrzucana („spoza manifestu wywołania”);
+     manifestu) lub być innym kandydatem tej samej partii. Cykl kandydatów jest odrzucany;
+   - `owner: {task, scope}` wskazuje właściciela zbioru outputów ([niżej](#ownership));
    - `status: accepted`;
-5. każdy rekord z `prov` sprawdzony schematem `wgc/logic@0`;
+5. każdy rekord z `prov` sprawdzony kontraktem etapu;
 6. scalenie z `kb/`:
    - rekord równy istniejącemu z pominięciem `prov.job` i `prov.at` zostaje bez zmian (idempotencja; `prov.job`
      wskazuje job, który pierwszy dał bieżącą treść);
-   - rekord tego samego zadania (`prov.by.tool` albo `prov.by.prompt` bez wersji) o innej treści jest zastępowany;
-   - rekord o tym samym ID od innego producenta albo ze statusem innym niż `accepted` to konflikt;
+   - rekord tego samego zadania i logicznego zakresu o innej treści jest zastępowany;
+   - rekord o tym samym ID od innego zadania lub zakresu albo ze statusem innym niż `accepted` to konflikt;
+   - ID z poprzedniego `active`, którego nie ma w propozycjach, jest wycofane z kanonicznego pliku;
 7. walidacja całego `kb/` razem z inwentarzem sprawdzonym w kroku 2 (`wgc.validate.validate_documents`);
 8. zapis tylko wtedy, gdy nie ma żadnego błędu (M-STAB2, ADR-0031):
    - najpierw receipt `.glu/kb-receipts/<job>.json` (gdy podano `job`; także gdy nic się nie zmieniło):
-     `generation` (hash par ścieżka pliku `kb/` → `sha256` bajtów po akceptacji) i `records` (ID każdego
-     zaproponowanego rekordu → `content_hash` rekordu w `kb/` po akceptacji);
+     `generation` (hash par ścieżka pliku `kb/` → `sha256` bajtów po akceptacji), `records` (ID każdego
+     zaproponowanego rekordu → `content_hash`) i `retired` (ID wycofane przez tę akceptację);
    - **jeden zmieniony plik:** atomowa podmiana: plik tymczasowy `.<nazwa>.<losowe>.wgc-tmp` w tym samym katalogu,
      `flush` i `fsync`, potem `os.replace` (`wgc.fsio`, ADR-0026);
    - **dwa pliki lub więcej:** partia z dziennikiem wycofania w `kb/.wgc-batch/` (`wgc.fsbatch`): kopie starej
@@ -424,8 +435,8 @@ Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko k
 
    Pozostałości po przerwanym procesie usuwa recovery pod blokadą.
 
-Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `schema_valid`, `domain_valid`,
-`issues`, `receipt` (`{generation, records}` przyjętego wyniku, inaczej `null`). GLU przepisuje `schema_valid`,
+Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `retired`, `files`, `schema_valid`, `domain_valid`,
+`issues`, `receipt` (`{generation, records, retired}` przyjętego wyniku, inaczej `null`). GLU przepisuje `schema_valid`,
 `domain_valid` i `issues` do Attemptu, a `receipt` do `kb_receipt` Attemptu `accepted`.
 
 **Rodzaje niepowodzenia** (M-STAB1, ADR-0026):
@@ -457,7 +468,7 @@ implementacją, a `accept()` zapisuje ją w `prov.manifest` (w `kb/`, więc zale
 manifest:
   format: wgc/manifest@0
   task: wgc.terms.harvest@0                  # id@wersja
-  projection: wgc/projection@2
+  projection: wgc/projection@3
   inputs: [{id: SEG-dsk.2.2, hash: …}, …]    # w kolejności wejść; własna projekcja zadania albo projekcja logic
   authority: [{id: SRC-dsk.rules, hash: …}]  # projekcja logic dokumentu (role, seg_prefix, precedence), po ID
   context: [{id: CON-d6, hash: …}]           # rekordy kb/ czytane jako kontekst, po ID; brak pola, gdy ich nie ma
@@ -482,6 +493,26 @@ manifest:
   inwentarzem i `kb/` i zwraca listę zmian (pusta lista: zależności bez zmian). Walidator sprawdza `prov.manifest`
   tylko schematem: brakujący wpis nie blokuje `accept()` (Q-12). Oznaczanie rekordów `stale` to M13.
 
+<a id="ownership"></a>
+**Manifest outputów (`wgc/outputs@0`, M-STAB3c, ADR-0035).** Jeden plik
+`kb/outputs/<sha256({task, scope})>.yaml` na rodzinę zadania i logiczny zakres wejść:
+
+```yaml
+schema: wgc/outputs@0
+owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}
+active: [CON-d6, CON-rally_phase]
+hashes: {CON-d6: "sha256:…", CON-rally_phase: "sha256:…"}
+retired: [CON-old_phase]
+```
+
+`scope` domyślnie zawiera posortowane ID wejść joba; harvest deklaruje ID dokumentu, żeby zmiana liczby dopasowanych segmentów
+nie zmieniała właściciela. `active` jest kompletnym zbiorem ID po akceptacji. `retired` pamięta wycofania; takich
+rekordów nie ma już w kanonicznych plikach. Manifest leży w `kb/`, więc przeżywa utratę `.glu/`, i jest zapisywany
+w tej samej partii co rekordy. Pierwsza akceptacja może przejąć wcześniejsze rekordy, których `prov.manifest`
+jednoznacznie wskazuje ten sam task i scope. Właściciel nie przejmuje rekordu innego taska, scope ani decyzji
+człowieka. `hashes` chroni aktywne rekordy przed cichym nadpisaniem po ręcznej zmianie. Gdy zniknie ostatnie dopasowanie harvestu w nadal obecnym dokumencie, planner tworzy job uzgadniający
+pusty output. Usunięcie całego dokumentu/segmentów i ogólna obsługa `stale` należą do Q-12/M13.
+
 <a id="diagnostyka-receiptu"></a>
 **Diagnostyka receiptu: `glu receipt <job> [--root] [--json]` (M-STAB3b, ADR-0033, decyzja właściciela
 2026-10-06).** Porównuje receipt akceptacji joba z bieżącym `kb/` i **niczego nie zmienia**: baza `.glu/state.db`
@@ -491,7 +522,7 @@ istnieje, bez recovery, reconcile, usuwania receiptów i blokady startu buildów
 
 | Status | Znaczenie | Kod |
 |---|---|---|
-| `match` | każdy rekord receiptu ma w `kb/` tę samą treść | 0 |
+| `match` | każdy rekord receiptu ma w `kb/` tę samą treść, a jego `retired` jest nieobecne | 0 |
 | `differs` | rekord ma inną treść albo go brak; raport podaje bieżące `prov.job` i czy to późniejszy job | 1 |
 | `no_job` | joba nie ma w bazie | 1 |
 | `no_receipt` | job bez receiptu (np. `failed`) | 1 |

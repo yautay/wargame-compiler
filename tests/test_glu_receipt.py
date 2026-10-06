@@ -76,7 +76,7 @@ def test_difference_made_by_a_later_job(game, capsys):
     code, out = run(game, first, capsys)
     assert code == 1
     assert f"CON-rally_phase: inna treść w kb/ (bieżący rekord pochodzi z {later}, późniejszy job)" in out
-    assert "CON-combat_phase: brak w kb/" not in out  # the old record stays (F11): it is unchanged
+    assert "CON-combat_phase: brak w kb/" in out  # the owner retired this output (F11)
     rep = receipt.report(game, first)
     assert rep["records"]["CON-rally_phase"] == {"state": "changed", "job": later, "later": True}
 

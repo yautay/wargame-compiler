@@ -106,7 +106,8 @@
           "properties": {
             "generation": {"$ref": "common.schema.json#/$defs/hash"},
             "records": {"type": "object", "propertyNames": {"$ref": "common.schema.json#/$defs/id"},
-                        "additionalProperties": {"$ref": "common.schema.json#/$defs/hash"}}
+                        "additionalProperties": {"$ref": "common.schema.json#/$defs/hash"}},
+            "retired": {"$ref": "common.schema.json#/$defs/ids", "description": "outputs withdrawn by this acceptance"}
           },
           "additionalProperties": false
         }

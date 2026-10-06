@@ -141,7 +141,7 @@ def test_sequence_nodes_are_defined_ids(tmp_path):
 
 def test_accepted_interpretation_without_decision_field(tmp_path):
     amb = {"kind": "ambiguity", "id": "AMB-1", "question": "q", "readings": [{"id": "a", "gloss": "a"}, {"id": "b", "gloss": "b"}],
-           "impact": {}, "status": "open", "prov": BY_HD}
+           "impact": {}, "status": "accepted", "resolution": "open", "prov": BY_HD}
     intp = {"kind": "interpretation", "id": "INT-1", "ambiguity": "AMB-1", "reading": "a", "status": "accepted",
             "prov": {"kind": "interpretation", "by": {"tier": "human"}, "derived_from": ["AMB-1"]}}
     report = validate([write(tmp_path, logic(amb, intp))])

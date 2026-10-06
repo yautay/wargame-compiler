@@ -69,7 +69,9 @@ def lines(rep: dict) -> list[str]:
         return out + ["kb/ ma przerwaną partię zapisu: porównanie po `wgc kb recover` (to polecenie niczego nie "
                       "naprawia)."]
     for rid, info in rep["records"].items():
-        line = f"  {rid}: {STATE_PL[info['state']]}"
+        label = ("wycofany, brak w kb/ (zgodny)" if info["state"] == "missing" else
+                 "wycofany, znów obecny w kb/") if info.get("retired") else STATE_PL[info["state"]]
+        line = f"  {rid}: {label}"
         if info["state"] != "same" and info.get("job") not in (None, job):
             when = {True: "późniejszy job", False: "wcześniejszy job", None: "job spoza tej bazy"}[info.get("later")]
             line += f" (bieżący rekord pochodzi z {info['job']}, {when})"

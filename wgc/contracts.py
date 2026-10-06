@@ -22,6 +22,8 @@ CONTRACTS = {
     "wgc/logic@0": "logic.schema.json",
     "wgc/digital@0": "digital.schema.json",
     "wgc/gate@0": "gate.schema.json",
+    "wgc/outputs@0": "outputs.schema.json",
+    "wgc/proposal@0": "proposal.schema.json",
     "glu/exec@0": "glu.schema.json",
     # Wire protocol of the inference node. Registered here only so the shared loader and contract tests cover it;
     # WGC has no knowledge of inference infrastructure, and `igw` loads the same file without importing `wgc` (ADR-0016).

@@ -56,6 +56,15 @@
       },
       "additionalProperties": false
     },
+    "owner": {
+      "type": "object",
+      "required": ["task", "scope"],
+      "properties": {
+        "task": {"type": "string", "minLength": 1, "description": "versionless task family"},
+        "scope": {"$ref": "#/$defs/ids", "minItems": 1, "description": "stable logical input scope"}
+      },
+      "additionalProperties": false
+    },
     "manifest": {
       "type": "object",
       "description": "Invocation manifest (wgc/manifest@0, ADR-0033): everything the job that produced the record read, with hashes. Lives in kb/, so the dependencies of a record survive the loss of .glu/. Nothing volatile (job, time, kb/ generation).",
@@ -83,6 +92,7 @@
         "job": {"type": "string", "description": "GLU job id that produced the accepted proposal"},
         "inputs_hash": {"$ref": "#/$defs/hash", "description": "hash of the record's own evidence: the semantic projections (with their version) of its anchor segments and derived_from records at acceptance (ADR-0033); what the whole job read is `manifest`"},
         "manifest": {"$ref": "#/$defs/manifest"},
+        "owner": {"$ref": "#/$defs/owner", "description": "task family and logical input scope that may replace or retire this record"},
         "at": {"type": "string", "format": "date-time"},
         "note": {"type": "string"}
       },

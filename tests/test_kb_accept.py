@@ -33,7 +33,7 @@ def tables_file(root: Path) -> Path:
 
 def test_accept_writes_record_with_provenance(game):
     res = accept(game, proposals(game))
-    assert res.ok and res.created == ["TAB-4.3"] and res.files == ["kb/logic/tables.yaml"]
+    assert res.ok and res.created == ["TAB-4.3"] and "kb/logic/tables.yaml" in res.files
     [doc] = load_documents(tables_file(game))
     [rec] = doc["records"]
     ws = Workspace(game)
@@ -44,7 +44,7 @@ def test_accept_writes_record_with_provenance(game):
                            "by": BY, "job": "job_000001",
                            "inputs_hash": content_hash({"projection": PROJECTION_VERSION,
                                                         "records": [projection(seg, "logic")]}),
-                           "manifest": planned.body}
+                           "manifest": planned.body, "owner": {"task": SPEC.id, "scope": [SEG]}}
     # one definition of what the job read: the planner's manifest (ADR-0033)
     assert planned.body == {"format": "wgc/manifest@0", "task": "wgc.tables.parse@0", "projection": PROJECTION_VERSION,
                             "inputs": [{"id": SEG, "hash": content_hash(projection(seg, "logic"))}],
@@ -147,9 +147,13 @@ def test_derivation_without_anchors_is_deterministic_derivation(game):
     assert res.ok
     prov = load_documents(tables_file(game))[0]["records"][0]["prov"]
     assert prov["kind"] == "deterministic_derivation" and prov["derived_from"] == [SEG] and "anchors" not in prov
-    # a model without anchors is an inference, never a source (ADR-0014)
+    # A model without anchors needs an explicit task declaration (ADR-0027).
     props[0]["record"]["id"] = "TAB-x"
     res = accept(game, props, by={"tier": "local", "profile": "local_fast", "prompt": "wgc.tables.parse@0"})
+    assert not res.ok and "allow_llm_inference" in res.issues[0]
+    from dataclasses import replace
+    res = kb.accept(game, replace(SPEC, allow_llm_inference=True), INPUTS, props,
+                    by={"tier": "local", "profile": "local_fast", "prompt": "wgc.tables.parse@0"})
     assert res.ok
     recs = {r["id"]: r for r in load_documents(tables_file(game))[0]["records"]}
     assert recs["TAB-x"]["prov"]["kind"] == "llm_inference"
@@ -192,7 +196,7 @@ def test_record_stays_in_its_file(game):
     props = proposals(game)
     props[0]["record"]["title"] = "CRT"
     res = accept(game, props)
-    assert res.ok and res.files == ["kb/logic/combat.yaml"] and not tables_file(game).exists()
+    assert res.ok and "kb/logic/combat.yaml" in res.files and not tables_file(game).exists()
 
 
 def test_validate_documents_matches_validate():

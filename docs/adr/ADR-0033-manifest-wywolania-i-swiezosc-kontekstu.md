@@ -1,6 +1,6 @@
 # ADR-0033: Manifest wywołania zadania w `prov.manifest`, jedna definicja zależności, świeżość kontekstu `kb/` i diagnostyka receiptu
 
-- **Status:** przyjęty
+- **Status:** przyjęty; odrębny manifest outputów dodaje ADR-0035
 - **Data:** 2026-10-06
 - **Milestone:** M-STAB3b
 
@@ -119,9 +119,10 @@ opis `provenance.inputs_hash` mówi teraz „hash dowodów rekordu”. `glu/exec
   kotwic. To poprawne, bo wynik zależy od całego odczytu.
 - **Koszt:** manifest jest powtarzany w każdym rekordzie joba (harvest: w każdym pojęciu dokumentu). Pliki `kb/` rosną,
   a linie `prov` są długie. Przy dużych grach można przenieść manifesty do osobnego pliku w nowym ADR.
-- Zmiana roli dokumentu nie odrzuca jeszcze propozycji (ADR-0027, M-STAB3c), a stary rekord o poprzednim ID zostaje
-  w `kb/` (F11, Q-16, Q-12). Manifest tylko zapisuje dane, z których zadanie wybiera główną instrukcję. Reguła Q-17 się
-  nie zmienia.
+- Od M-STAB3c zmiana roli na niekanoniczną odrzuca nową propozycję (ADR-0027). Zmiana na inną rolę kanoniczną
+  może dać nowe ID; ownership wycofuje wtedy poprzedni output tego samego zakresu (ADR-0035). Rekord po zmianie
+  na rolę niekanoniczną pozostaje do obsługi stale (Q-12). Manifest zapisuje dane, z których zadanie wybiera
+  główną instrukcję; reguła Q-17 się nie zmienia.
 - Żadne zadanie nie czyta dziś `kb/` jako kontekstu. Mechanizm sprawdzają testy z zadaniem testowym. Pierwsze zadania
   z kontekstem przychodzą w M10/M14.
 - Zadanie czytające `kb/` w buildzie, w którym wcześniejszy job zmienia jego kontekst, kończy się błędem i wymaga

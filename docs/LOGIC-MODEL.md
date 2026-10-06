@@ -138,7 +138,8 @@ bez wywołań modelu.
 
 ## Niejasności i człowiek w pętli
 - Model może zaproponować odczytania i rekomendację z siłą (`certain`, `probable`, `speculative`). **Nie rozstrzyga.**
-- Gdy wpływ jest semantyczny, a źródła (errata, FAQ) milczą, stan końcowy automatu to `requires_human_interpretation`,
+- Gdy wpływ jest semantyczny, a źródła (errata, FAQ) milczą, przyjęty rekord `AMB-` ma
+  `status: accepted` i `resolution: requires_human_interpretation` (ADR-0035),
   a przypadek kontrolny ma werdykt `requires_human_interpretation`.
 - Człowiek odpowiada decyzją `HD-` (pytanie zamknięte z wariantami, rekomendacją i skutkami). Interpretacja `INT-`
   staje się `accepted` z `prov.decision`.

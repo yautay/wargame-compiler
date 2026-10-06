@@ -40,3 +40,4 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0032](ADR-0032-hash-struktury-segmentu.md) | Wersjonowany hash struktury segmentu (`struct_hash`) obok `text_hash` w kluczu joba, provenance i verify; ekstraktory `@1` i jawna regeneracja | przyjęty (zastępuje ADR-0024; rozszerzony przez ADR-0033, ADR-0034) |
 | [ADR-0033](ADR-0033-manifest-wywolania-i-swiezosc-kontekstu.md) | Manifest wywołania zadania w `prov.manifest` jako jedna definicja zależności plannera i provenance; świeżość kontekstu `kb/` przez generację; `glu receipt` | przyjęty |
 | [ADR-0034](ADR-0034-projekcje-semantyczne-wersja-2.md) | Projekcje `wgc/projection@2`: treść nieformalizowana, definicje predykatów, rodzaje M10–M14 i E2E, bez zapasów | przyjęty |
+| [ADR-0035](ADR-0035-kontrakt-propozycji-i-ownership-outputow.md) | Envelope `wgc/proposal@0`, dispatch etapu, lifecycle niejasności i ownership outputów; wdrożenie ADR-0027 | przyjęty |

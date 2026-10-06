@@ -3,7 +3,7 @@
 `Workspace` reads what tasks need: the Stage 0 inventory, segment text from `.glu/source/` (checked against
 `text_hash` and `struct_hash`, ADR-0032) and the records already in `kb/`. `accept()` turns task proposals into KB records:
 
-1. checks types and shape of the proposals and each record against the contract without the WGC-owned fields
+1. checks the `wgc/proposal@0` envelope, proposal shapes and each record against its stage contract without WGC-owned fields
    (pure checks, before any domain function: wrong data gives diagnostics, never a `TypeError`);
 2. takes the KB writer lock of the project (`.glu/kb.lock`, ADR-0026) and checks that the inventory has not changed
    since the `Workspace` read it; steps 3–7 run under the lock on KB read afresh from disk (one snapshot). The job
@@ -14,12 +14,12 @@
    the caller (GLU: tier, tool or profile); `manifest` is what the job read; `inputs_hash` is the hash of the record's
    own evidence (the `logic` projections of its anchor segments and `derived_from` records, with the projection
    version), and that evidence must be among what the job read;
-5. merges with `kb/`: an equal record (ignoring `prov.job` and `prov.at`) is left untouched, a record of the same
-   task is replaced, a record of another producer with the same ID is a conflict;
+5. reconciles the complete output set of `task + logical input scope` with `kb/`: equal records stay untouched,
+   missing outputs are retired, and records owned by another scope or edited outside the owner are protected;
 6. validates the whole KB with the inventory in memory (`wgc.validate.validate_documents`);
 7. writes only when there are no issues: first the receipt `.glu/kb-receipts/<job>.json` (when `job` is given),
-   then the changed files: one file by atomic replacement (`wgc.fsio`), two or more as one batch with an undo
-   journal in `kb/.wgc-batch/` (`wgc.fsbatch`, ADR-0031).
+   then the changed records and `wgc/outputs@0` owner manifest as one batch with an undo journal in
+   `kb/.wgc-batch/` (`wgc.fsbatch`, ADR-0031).
 
 Before step 3, under the lock, an interrupted batch is recovered (`recover`), so a result is never merged into a
 partial `kb/`.
@@ -30,9 +30,9 @@ a program error and propagates. A failed write normally leaves `kb/` as it was (
 atomically, a batch is rolled back at once). When the rollback of a batch does not complete, the result is not
 decided yet: `KBUnresolved`, the journal and the receipt stay, and recovery plus reconcile decide (ADR-0031).
 
-Layout: `kb/logic/<kind plural>.yaml` (`tables.yaml`, `concepts.yaml`, …), one `wgc/logic@0` document per file,
-records sorted by ID (numbers in natural order), fields in contract order, LF. A record found in another file of
-`kb/` stays in that file. Files are rewritten whole: comments are not kept.
+Layout: `kb/logic/<kind plural>.yaml` or `kb/digital/<kind plural>.yaml`, one stage document per file,
+plus `kb/outputs/<owner hash>.yaml`. Records are sorted by ID (numbers in natural order), fields in contract order,
+LF. A record found in another file of `kb/` stays in that file. Files are rewritten whole: comments are not kept.
 """
 from __future__ import annotations
 
@@ -46,7 +46,7 @@ from typing import Iterator
 
 import yaml
 
-from wgc import contracts, fsbatch, fsio, manifest as manifests, source
+from wgc import contracts, fsbatch, fsio, manifest as manifests, ownership, source
 from wgc.canonical import (PROJECTION_VERSION, ProjectionError, canonical_json, content_hash, normalize_text,
                            projection, sha256_hex, struct_hash, text_hash)
 from wgc.ids import is_id
@@ -63,16 +63,24 @@ BATCH_DIR = KB_DIR / ".wgc-batch"
 # Receipts of acceptances, one per job, until GLU has recorded the Attempt (ADR-0031).
 RECEIPTS_DIR = Path(".glu") / "kb-receipts"
 LOGIC = "wgc/logic@0"
+DIGITAL = "wgc/digital@0"
 # Record kind → file under kb/logic/ (human decisions and review requests have their own files, outside accept()).
 KIND_FILES = {"concept": "concepts.yaml", "rule": "rules.yaml", "relation": "relations.yaml", "table": "tables.yaml",
               "procedure": "procedures.yaml", "ambiguity": "ambiguities.yaml",
               "interpretation": "interpretations.yaml", "case": "cases.yaml", "change": "changes.yaml"}
+DIGITAL_FILES = {kind: ("entities" if kind == "entity" else "priorities" if kind == "priority" else
+                        "legalities" if kind == "legality" else f"{kind}s") + ".yaml"
+                 for kind in ("entity", "derived", "action", "legality", "event", "trigger", "sequence",
+                              "decision_point", "random_source", "modifier", "hidden_info", "invariant",
+                              "priority", "blocker", "test")}
 # Proposal fields set by WGC, never by the executor (ADR-0014).
 RESERVED = ("prov", "status", "risk")
 # `prov` fields that do not make two records different (who accepted it and when, not what it says).
 VOLATILE_PROV = ("job", "at")
 # Source role → provenance kind of an anchored record (ADR-0014).
-ROLE_KINDS = {"errata": "errata", "faq": "faq", "designer_clarification": "designer_clarification"}
+ROLE_KINDS = {**{role: "explicit_source" for role in
+                 ("rules", "living_rules", "scenario_book", "charts", "cards", "counters", "map", "module")},
+              "errata": "errata", "faq": "faq", "designer_clarification": "designer_clarification"}
 
 HEADER = """\
 # wgc/logic@0: rekordy KB zapisuje wyłącznie `wgc.kb.accept()` (ADR-0025). Komentarze nie są zachowywane.
@@ -262,6 +270,7 @@ class AcceptResult:
     created: list[str] = field(default_factory=list)
     updated: list[str] = field(default_factory=list)
     unchanged: list[str] = field(default_factory=list)
+    retired: list[str] = field(default_factory=list)
     files: list[str] = field(default_factory=list)      # written files, relative to the root (POSIX)
     schema_valid: bool = True
     domain_valid: bool = True
@@ -273,18 +282,18 @@ class AcceptResult:
         return not self.issues
 
 
-def _fields(defn: str) -> list[str]:
+def _fields(defn: str, contract: str = LOGIC) -> list[str]:
     """Property order of a `wgc/logic@0` definition, or of `provenance` from the common schema."""
     if defn == "provenance":
         common = contracts.registry().contents(contracts.BASE_URI + "common.schema.json")
         return list(common["$defs"]["provenance"]["properties"])
-    return list(contracts.schema_for(LOGIC)["$defs"][defn]["properties"])
+    return list(contracts.schema_for(contract)["$defs"][defn]["properties"])
 
 
-def ordered(record: dict) -> dict:
+def ordered(record: dict, contract: str = LOGIC) -> dict:
     """Record with fields in contract order (unknown fields last), `prov` too."""
     kind = record.get("kind")
-    order = _fields(kind) if kind in KIND_FILES else []
+    order = _fields(kind, contract) if kind in (KIND_FILES if contract == LOGIC else DIGITAL_FILES) else []
     out = {f: record[f] for f in order if f in record}
     out.update({k: v for k, v in record.items() if k not in out})
     if isinstance(out.get("prov"), dict):
@@ -309,6 +318,25 @@ def _producer(record: dict) -> str | None:
     return name.split("@", 1)[0] if isinstance(name, str) else None
 
 
+def _owned_by(record: dict, owner_id: dict, ws: Workspace, spec: TaskSpec) -> bool:
+    """Explicit ownership is authoritative; a legacy record needs a manifest proving the same logical scope."""
+    prov = record.get("prov") or {}
+    if record.get("status") != "accepted" or record.get("kind") in ("human_decision", "interpretation") or \
+            prov.get("kind") == "human_decision" or (prov.get("by") or {}).get("tier") == "human":
+        return False
+    recorded = prov.get("owner")
+    if recorded is not None:
+        return recorded == owner_id
+    prior = prov.get("manifest") or {}
+    prior_inputs = tuple(e["id"] for e in prior.get("inputs", []) if isinstance(e, dict) and "id" in e)
+    try:
+        return (_producer(record) == owner_id["task"] and
+                prior.get("task", "").split("@", 1)[0] == owner_id["task"] and bool(prior_inputs) and
+                ownership.owner(ws, spec, prior_inputs) == owner_id)
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
 def _label(value) -> str:
     return value if isinstance(value, str) else repr(value)
 
@@ -330,6 +358,8 @@ def _anchor_issues(anchors) -> list[str]:
             out.append(f"kotwica {i}: `seg` musi być ID segmentu (napis), jest {a.get('seg')!r}.")
         if "quote" in a and not isinstance(a["quote"], str):
             out.append(f"kotwica {i}: `quote` musi być napisem, jest {a['quote']!r}.")
+        elif "quote" in a and not normalize_text(a["quote"]):
+            out.append(f"kotwica {i}: `quote` nie może być pustym cytatem.")
         if "span" in a and not _is_span(a["span"]):
             out.append(f"kotwica {i}: `span` musi być parą liczb całkowitych [początek, koniec] z 0 ≤ początek ≤ koniec, "
                        f"jest {a['span']!r}.")
@@ -377,13 +407,26 @@ def _shape_issues(spec: TaskSpec, proposals) -> list[str]:
 _RESERVED_MISSING = {f"{f!r} is a required property" for f in RESERVED}
 
 
+def _output_contract(spec: TaskSpec) -> tuple[str, dict[str, str], str]:
+    contract, sep, kind = spec.output_schema.partition("#")
+    expected = {"stage1": LOGIC, "stage1.5": DIGITAL}.get(spec.stage)
+    if not sep or contract != expected or kind != spec.output_kind:
+        raise KBError(f"Zadanie {spec.name}: output_schema `{spec.output_schema}` nie pasuje do etapu `{spec.stage}` "
+                      "i rodzaju outputu.")
+    files = KIND_FILES if contract == LOGIC else DIGITAL_FILES
+    if kind not in files:
+        raise KBError(f"Zadanie {spec.name}: rodzaj `{kind}` nie ma polityki zapisu w {contract}.")
+    return contract, files, "logic" if contract == LOGIC else "digital"
+
+
 def _record_schema_issues(spec: TaskSpec, proposals: list[dict]) -> list[str]:
-    """Each proposed record against `wgc/logic@0` before provenance exists, so domain functions get typed data."""
-    validator = contracts.validator(LOGIC)
+    """Each proposed record against its stage contract before provenance exists."""
+    contract, _, _ = _output_contract(spec)
+    validator = contracts.validator(contract)
     out = []
     for n, p in enumerate(proposals, 1):
         rec = p["record"]
-        errs = sorted(validator.iter_errors({"schema": LOGIC, "records": [rec]}), key=lambda e: list(e.absolute_path))
+        errs = sorted(validator.iter_errors({"schema": contract, "records": [rec]}), key=lambda e: list(e.absolute_path))
         for e in errs:
             if e.validator == "required" and e.message in _RESERVED_MISSING:
                 continue
@@ -394,7 +437,8 @@ def _record_schema_issues(spec: TaskSpec, proposals: list[dict]) -> list[str]:
 
 
 def _provenance(ws: Workspace, proposal: dict, by: dict, job: str | None,
-                kb_records: dict[str, dict], manifest: Manifest) -> tuple[dict | None, list[str]]:
+                kb_records: dict[str, dict], manifest: Manifest, spec: TaskSpec,
+                owner_id: dict, candidates: dict[str, dict]) -> tuple[dict | None, list[str]]:
     """`prov` of an accepted record (ADR-0014) or the reasons why it cannot be given. `kb_records` is the KB read
     under the writer lock: `derived_from` resolves against it, never against an older snapshot. The evidence of the
     record (anchors, `derived_from`) must be among what the job read (`manifest`, ADR-0033)."""
@@ -419,17 +463,25 @@ def _provenance(ws: Workspace, proposal: dict, by: dict, job: str | None,
             issues.append(f"{rid}: `span` {span} wykracza poza znormalizowany tekst segmentu {a['seg']} "
                           f"(długość {len(text)}).")
             continue
+        if span is not None and quote is not None and normalize_text(quote) != text[span[0]:span[1]]:
+            issues.append(f"{rid}: cytat {quote!r} nie odpowiada `span` {span} w segmencie {a['seg']}.")
+            continue
         anchors.append({"seg": a["seg"], "seg_hash": seg["text_hash"],
                         **{k: a[k] for k in ("span", "quote") if k in a}})
-        kinds.add(ROLE_KINDS.get((ws.document(seg["doc"]) or {}).get("role"), "explicit_source"))
+        role = (ws.document(seg["doc"]) or {}).get("role")
+        if role not in ROLE_KINDS:
+            issues.append(f"{rid}: rola źródła `{role}` nie jest kanoniczna; automatyczna akceptacja wymaga roli "
+                          "z listy ADR-0027 (materiał może być dowodem decyzji HD-).")
+            continue
+        kinds.add(ROLE_KINDS[role])
         inputs.append(projection(seg, "logic"))
     derived = list(proposal.get("derived_from") or [])
     for d in derived:
-        rec = ws.segment(d) or kb_records.get(d)
+        rec = ws.segment(d) or candidates.get(d) or kb_records.get(d)
         if rec is None:
             issues.append(f"{rid}: brak rekordu `{d}` (derived_from) w inwentarzu ani w kb/.")
             continue
-        if d not in read:
+        if d not in read and d not in candidates:
             issues.append(f"{rid}: `derived_from` wskazuje {d}, którego job nie czytał (spoza manifestu wywołania).")
             continue
         try:
@@ -445,12 +497,15 @@ def _provenance(ws: Workspace, proposal: dict, by: dict, job: str | None,
     elif by.get("tier") == "deterministic":
         kind = "deterministic_derivation"
     elif by.get("tier") in ("local", "premium"):
+        if not spec.allow_llm_inference:
+            return None, [f"{rid}: zadanie {spec.name} nie deklaruje `allow_llm_inference`; propozycja bez kotwic "
+                          "nie może być automatycznie przyjęta."]
         kind = "llm_inference"
     else:
         return None, [f"{rid}: wykonawca `{by.get('tier')}` bez kotwic nie daje provenance (wymaga HD-)."]
     prov = {"kind": kind, **({"anchors": anchors} if anchors else {}), **({"derived_from": derived} if derived else {}),
             "by": dict(by), **({"job": job} if job else {}), "inputs_hash": evidence_hash(inputs),
-            "manifest": copy.deepcopy(manifest.body)}
+            "manifest": copy.deepcopy(manifest.body), "owner": copy.deepcopy(owner_id)}
     return prov, []
 
 
@@ -499,7 +554,7 @@ def _inventory_under_lock(ws: Workspace) -> dict:
     return [d for d in yaml.safe_load_all(data.decode("utf-8")) if d is not None][0]
 
 
-def accept(root: str | Path, spec: TaskSpec, inputs: Inputs, proposals: list, *, by: dict,
+def accept(root: str | Path, spec: TaskSpec, inputs: Inputs, proposals: list | dict, *, by: dict,
            job: str | None = None, ws: Workspace | None = None, lock_timeout: float | None = None,
            manifest: Manifest | None = None) -> AcceptResult:
     """Accept the proposals of one job into `kb/` (the only writer of KB YAML). See the module docstring.
@@ -508,11 +563,23 @@ def accept(root: str | Path, spec: TaskSpec, inputs: Inputs, proposals: list, *,
     task that reads `kb/`, else computed here. It is checked against `kb/` under the lock (ADR-0033)."""
     ws = ws or Workspace(root)
     root = ws.root
+    if isinstance(proposals, dict):
+        envelope = proposals
+        proposals = envelope.get("proposals")
+    else:
+        envelope = {"schema": "wgc/proposal@0", "task": spec.name, "output_schema": spec.output_schema,
+                    "proposals": proposals}
+    envelope_issues = (contracts.errors(envelope) if envelope.get("schema") == "wgc/proposal@0" else
+                       ["Envelope propozycji wymaga `schema: wgc/proposal@0`."])
+    if envelope.get("task") != spec.name or envelope.get("output_schema") != spec.output_schema:
+        envelope_issues.append(f"Envelope propozycji musi deklarować zadanie {spec.name} i kontrakt {spec.output_schema}.")
     res = AcceptResult(records=[p["record"]["id"] for p in proposals if isinstance(p, dict)
                                 and isinstance(p.get("record"), dict) and isinstance(p["record"].get("id"), str)]
                        if isinstance(proposals, list) else [])
     # pure checks first: nothing below sees wrong types, and rejected data never waits for the lock
-    issues = _shape_issues(spec, proposals) or _record_schema_issues(spec, proposals)
+    issues = _shape_issues(spec, proposals)
+    if not issues:
+        issues = envelope_issues or _record_schema_issues(spec, proposals)
     if issues:
         res.schema_valid, res.issues = False, issues
         return res
@@ -549,19 +616,51 @@ def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: lis
     snap = read_snapshot(root)  # read now, under the lock
     lws = ws.pinned(snap)
     manifest = _current_manifest(lws, spec, inputs, given)  # before anything is judged or written (ADR-0033)
+    contract, kind_files, stage_dir = _output_contract(spec)
     docs = list(snap.documents)
     kb_records = {r["id"]: r for _, doc in docs for r in _records(doc) if isinstance(r.get("id"), str)}
     domain = list(spec.validate(lws, inputs, proposals))
+    owner_id = ownership.owner(lws, spec, inputs)
+    owner_path = ownership.path(root, spec.id, tuple(owner_id["scope"]))
+    old_output = next((d for p, d in docs if p == owner_path), None)
+    if old_output is not None and (not isinstance(old_output, dict) or contracts.errors(old_output)
+                                   or old_output.get("owner") != owner_id):
+        raise KBError(f"Niepoprawny manifest outputów {owner_path.relative_to(root).as_posix()}.")
+    # First acceptance after M-STAB3b: safely claim records whose old invocation maps to this exact logical scope.
+    old_active = set(old_output["active"]) if old_output is not None else set()
+    if old_output is None:
+        for rid, rec in kb_records.items():
+            if not _owned_by(rec, owner_id, lws, spec):
+                continue
+            old_active.add(rid)
+    candidates = {p["record"]["id"]: p["record"] for p in proposals}
+    def cyclic(rid: str, path: set[str], done: set[str]) -> bool:
+        if rid in path:
+            return True
+        if rid in done:
+            return False
+        path.add(rid)
+        for p in proposals:
+            if p["record"]["id"] == rid:
+                if any(cyclic(d, path, done) for d in p.get("derived_from", []) if d in candidates):
+                    return True
+                break
+        path.remove(rid)
+        done.add(rid)
+        return False
+    checked: set[str] = set()
+    if any(cyclic(rid, set(), checked) for rid in candidates):
+        domain.append("`derived_from` tworzy cykl w partii propozycji.")
 
     # records with provenance, each checked against the contract on its own
     new: list[dict] = []
     for p in proposals:
-        prov, errs = _provenance(lws, p, by, job, kb_records, manifest)
+        prov, errs = _provenance(lws, p, by, job, kb_records, manifest, spec, owner_id, candidates)
         domain += errs
         if prov is None:
             continue
-        rec = ordered({**p["record"], "status": "accepted", "prov": prov})
-        schema_errs = contracts.errors({"schema": LOGIC, "records": [rec]})
+        rec = ordered({**p["record"], "status": "accepted", "prov": prov}, contract)
+        schema_errs = contracts.errors({"schema": contract, "records": [rec]})
         if schema_errs:
             res.schema_valid = False
             res.issues += [f"{rec['id']}: niezgodność ze schematem {spec.output_schema}: {e}" for e in schema_errs]
@@ -574,27 +673,48 @@ def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: lis
     # merge into the documents of kb/
     where = {r["id"]: (i, r) for i, (_, doc) in enumerate(docs) for r in _records(doc) if isinstance(r.get("id"), str)}
     changed: set[int] = set()
+    if old_output is not None:
+        for rid in old_active:
+            current = kb_records.get(rid)
+            if current is None or old_output["hashes"].get(rid) != content_hash(current):
+                res.issues.append(f"{rid}: konflikt ownership: aktywny output zmienił treść poza ownerem albo zniknął; "
+                                  "automatyczne uzgodnienie jest zablokowane.")
+    if res.issues:
+        res.domain_valid = False
+        return res
+    for rid in sorted(old_active - set(candidates)):
+        if rid not in where:
+            res.issues.append(f"{rid}: manifest outputów wskazuje brakujący rekord; nie można go wycofać bez "
+                              "uzgodnienia ownership.")
+            continue
+        i, old = where[rid]
+        if not _owned_by(old, owner_id, lws, spec):
+            res.issues.append(f"{rid}: output zmienił właściciela albo status; zadanie {spec.name} go nie wycofuje.")
+            continue
+        docs[i][1]["records"].remove(old)
+        changed.add(i)
+        res.retired.append(rid)
     for rec in new:
         rid = rec["id"]
         if rid in where:
             i, old = where[rid]
-            if _comparable(old) == _comparable(rec):
-                res.unchanged.append(rid)
-                continue
-            if old.get("status") != "accepted" or _producer(old) != spec.id:
+            if not _owned_by(old, owner_id, lws, spec):
                 res.issues.append(f"{rid}: konflikt z rekordem w {docs[i][0].relative_to(root).as_posix()} "
                                   f"(producent `{_producer(old)}`, status `{old.get('status')}`); zadanie {spec.name} "
                                   "nie nadpisuje cudzych rekordów.")
+                continue
+            if _comparable(old) == _comparable(rec):
+                res.unchanged.append(rid)
                 continue
             recs = docs[i][1]["records"]
             recs[recs.index(old)] = rec
             res.updated.append(rid)
         else:
-            path = root / KB_DIR / "logic" / KIND_FILES[rec["kind"]]
+            path = root / KB_DIR / stage_dir / kind_files[rec["kind"]]
             i = next((n for n, (p, d) in enumerate(docs) if p == path and isinstance(d, dict)
-                      and d.get("schema") == LOGIC), None)
+                      and d.get("schema") == contract), None)
             if i is None:
-                docs.append((path, {"schema": LOGIC, "records": []}))
+                docs.append((path, {"schema": contract, "records": []}))
                 i = len(docs) - 1
             docs[i][1]["records"].append(rec)
             res.created.append(rid)
@@ -602,6 +722,19 @@ def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: lis
     if res.issues:
         res.domain_valid = False
         return res
+
+    active = {r["id"]: r for _, d in docs for r in _records(d) if r.get("id") in candidates}
+    output = {"schema": ownership.SCHEMA, "owner": owner_id,
+              "active": sorted(candidates), "hashes": {rid: content_hash(active[rid]) for rid in sorted(candidates)},
+              "retired": sorted((set((old_output or {}).get("retired", [])) | set(res.retired)) - set(candidates))}
+    if old_output != output:
+        if old_output is None:
+            docs.append((owner_path, output))
+            changed.add(len(docs) - 1)
+        else:
+            i = next(i for i, (p, _) in enumerate(docs) if p == owner_path)
+            docs[i] = (owner_path, output)
+            changed.add(i)
 
     # the whole KB with the inventory checked under the lock must stay valid
     report = validate_documents([(source.inventory_path(root).relative_to(root).as_posix(), inventory)]
@@ -617,14 +750,19 @@ def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: lis
     texts: dict[Path, str] = {}
     for path in files:
         file_docs = [d for p, d in docs if p == path]
+        if path == owner_path:
+            texts[path] = yaml.safe_dump(output, sort_keys=False, allow_unicode=True)
+            continue
         for d in file_docs:
-            if isinstance(d, dict) and d.get("schema") == LOGIC:
-                d["records"] = sorted((ordered(r) for r in d["records"]), key=lambda r: _natural(r.get("id", "")))
+            if isinstance(d, dict) and d.get("schema") == contract:
+                d["records"] = sorted((ordered(r, contract) for r in d["records"]),
+                                      key=lambda r: _natural(r.get("id", "")))
         texts[path] = dump(file_docs)
     final = {r["id"]: r for _, d in docs for r in _records(d) if isinstance(r.get("id"), str)}
     contents = dict(snap.files) | {p: t.encode("utf-8") for p, t in texts.items()}
     res.receipt = {"generation": _generation(root, contents),
-                   "records": {rid: content_hash(final[rid]) for rid in res.records}}
+                   "records": {rid: content_hash(final[rid]) for rid in res.records},
+                   "retired": res.retired}
     if job:
         _write_receipt(root, job, res.receipt)
     if len(files) == 1:
@@ -739,7 +877,8 @@ def read_receipt(root: str | Path, job: str) -> dict | None:
     path = _receipt_path(Path(root), job)
     try:
         doc = json.loads(path.read_text(encoding="utf-8"))
-        return {"generation": doc["generation"], "records": dict(doc["records"])}
+        return {"generation": doc["generation"], "records": dict(doc["records"]),
+                "retired": list(doc.get("retired", []))}
     except FileNotFoundError:
         return None
     except (OSError, ValueError, KeyError, TypeError) as e:
@@ -777,6 +916,9 @@ def check_receipt(root: str | Path, receipt: dict, *, dry_run: bool = False,
             out.append(f"{rid}: brak w kb/")
         elif content_hash(current[rid]) != h:
             out.append(f"{rid}: inna treść w kb/")
+    for rid in receipt.get("retired", []):
+        if rid in current:
+            out.append(f"{rid}: wycofany output jest obecny w kb/")
     return out
 
 
@@ -804,6 +946,12 @@ def compare_receipt(root: str | Path, receipt: dict, lock_timeout: float | None 
         state = "missing" if rec is None else "same" if content_hash(rec) == h else "changed"
         out.records[rid] = {"state": state, "job": ((rec or {}).get("prov") or {}).get("job")}
         if state != "same":
+            out.status = "differs"
+    for rid in receipt.get("retired", []):
+        rec = current.get(rid)
+        state = "missing" if rec is None else "changed"
+        out.records[rid] = {"state": state, "job": ((rec or {}).get("prov") or {}).get("job"), "retired": True}
+        if rec is not None:
             out.status = "differs"
     return out
 
@@ -836,7 +984,9 @@ def dump(documents: list) -> str:
             parts.append("\n".join(lines + [x for r in d["records"] for x in _dump_record(r)]) + "\n")
         else:
             parts.append(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=120))
-    return HEADER + "---\n".join(parts)
+    schema = documents[0].get("schema") if documents and isinstance(documents[0], dict) else LOGIC
+    header = HEADER if schema == LOGIC else f"# {schema}: rekordy KB zapisuje wyłącznie `wgc.kb.accept()`.\n"
+    return header + "---\n".join(parts)
 
 
 def _write_file(path: Path, text: str) -> None:

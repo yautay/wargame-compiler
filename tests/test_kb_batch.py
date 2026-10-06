@@ -63,7 +63,7 @@ def codes(root: Path) -> list[str]:
 def test_two_files_are_committed_together_with_a_receipt(game):
     props = two_file_proposals(game)
     res = accept(game, props, job=JOB)
-    assert res.ok and res.files == ["kb/logic/combat.yaml", "kb/logic/tables.yaml"] and is_new(game)
+    assert res.ok and set(res.files) >= {"kb/logic/combat.yaml", "kb/logic/tables.yaml"} and is_new(game)
     assert not (game / kb.BATCH_DIR).exists() and fsio.temp_files(game / "kb") == []
     assert validate([game / "source", game / "kb"]).ok
     assert res.receipt["generation"] == kb.generation(game)
@@ -166,7 +166,8 @@ def crash_child(tmp_path: Path, root: Path, step: str) -> None:
     ("staged", "old"),        # preparing: kb/ untouched, journal without manifest
     ("prepared", "old"),      # manifest written, no file replaced
     ("replaced:0", "old"),    # between the two replacements: kb/ half old, half new
-    ("replaced:1", "new"),    # every file replaced, commit marker not written
+    ("replaced:1", "old"),    # ownership manifest is still old
+    ("replaced:2", "new"),    # every file replaced, commit marker not written
     ("committed", "new"),     # marker written, journal not removed
 ])
 def test_crash_of_a_process_then_recovery(game, tmp_path, step, outcome):
@@ -200,7 +201,7 @@ def test_accept_recovers_an_interrupted_batch_first(game, tmp_path):
     res = accept(game, proposals(game, "TAB-other"))
     assert res.ok and not (game / kb.BATCH_DIR).exists()
     assert [r["id"] for r in load_documents(tables_file(game))[0]["records"]] == ["TAB-other"]
-    assert load_documents(combat_file(game))[0]["records"][0]["title"] != "CRT"  # the batch was rolled back
+    assert load_documents(combat_file(game))[0]["records"] == []  # rollback, then TAB-4.3 retired by this owner
     assert validate([game / "source", game / "kb"]).ok
 
 

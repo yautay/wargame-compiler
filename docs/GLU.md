@@ -101,6 +101,10 @@ Końcowe wpisy joba (Attempt, przy `accepted` z `kb_receipt`, i ostatnie przejś
 nie zapisuje Attemptu ani przejścia. Job zostaje w `validating`, receipt zostaje, a build jest przerywany. Rozstrzyga
 reconcile.
 
+Od M-STAB3c GLU przekazuje do `accept()` envelope `wgc/proposal@0` z `task`, `output_schema` i kompletną listą
+`proposals`. WGC uzgadnia zbiór outputów jednego ownera (`task + logiczny zakres wejść`) w tej samej partii co
+rekordy; brakujący output jest wycofywany i trafia do `kb_receipt.retired` (ADR-0035).
+
 <a id="reconcile"></a>
 **Reconcile (M-STAB2, ADR-0031).** `glu reconcile [--dry-run]` i krok startu `glu build` (nie `--dry-run`):
 1. recovery przerwanej partii `kb/` (`wgc kb recover`, [DATA-CONTRACTS §10](DATA-CONTRACTS.md#recovery));
@@ -129,6 +133,7 @@ receipt nierozstrzygniętej akceptacji joba w `validating`) z bieżącym `kb/` i
 (bez migracji), nie robi recovery ani reconcile, nie usuwa receiptów i nie tworzy plików blokad. Przy różnicy podaje
 bieżące `prov.job` rekordu i czy to późniejszy job: różnica względem historycznego receiptu może wynikać z poprawnej
 późniejszej zmiany `kb/` ([DATA-CONTRACTS §10](DATA-CONTRACTS.md#diagnostyka-receiptu)).
+Od M-STAB3c `match` wymaga również nieobecności ID z `kb_receipt.retired`.
 
 **Manifest joba i świeżość kontekstu (M-STAB3b, ADR-0033).** Planner bierze klucz joba z manifestu wywołania
 (`wgc.manifest.build`). Wykonawca liczy manifest ponownie przed implementacją (dla zadań czytających `kb/` na jednej
@@ -144,7 +149,8 @@ MODEL → STRUCTURED OUTPUT (JSON Schema w żądaniu: guided decoding / response
       → DOMAIN VALIDATION (wgc.validate: referencje, kotwice, cytaty dosłowne, sygnały źródło↔IR, liczby)
       → ACCEPT / RETRY / ESCALATE
 ```
-- Schemat propozycji jest okrojonym schematem rekordu: **bez `prov`, `risk` i `status`**. Te pola dopisują GLU i WGC (ADR-0014).
+- Envelope `wgc/proposal@0` niesie rekord **bez `prov`, `risk` i `status`**. Te pola nadaje WGC (ADR-0014,
+  ADR-0035); `decoding_schema` jest pomocniczy i nie zastępuje kontraktu etapu.
 - Do modelu idzie `decoding_schema` zadania: płaski podzbiór JSON Schema zgodny z `capabilities.json_schema_subset`
   węzła (np. llama.cpp nie obsługuje `if/then/else` i pomija nieobsługiwane cechy po cichu). Pełny schemat i walidacja
   domenowa zawsze działają po stronie GLU i WGC.

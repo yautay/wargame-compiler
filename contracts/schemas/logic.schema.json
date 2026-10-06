@@ -217,7 +217,7 @@
     "ambiguity": {
       "type": "object",
       "description": "AMB-…: something the sources do not settle. Never resolved silently; `requires_human_interpretation` is a valid end state for automation.",
-      "required": ["kind", "id", "question", "readings", "status", "impact", "prov"],
+      "required": ["kind", "id", "question", "readings", "status", "resolution", "impact", "prov"],
       "properties": {
         "kind": {"const": "ambiguity"}, "id": {"$ref": "#/$defs/ref"},
         "scope": {"enum": ["original", "edition_skew", "translation", "digital"]},
@@ -228,7 +228,9 @@
           "reading": {"type": "string"}, "strength": {"enum": ["certain", "probable", "speculative"]}, "by": {"$ref": "common.schema.json#/$defs/executor"}}, "additionalProperties": false},
         "impact": {"type": "object", "properties": {
           "semantic": {"type": "boolean"}, "digital": {"enum": ["none", "affects", "blocks"]}, "editorial": {"type": "boolean"}}, "additionalProperties": false},
-        "status": {"enum": ["open", "requires_human_interpretation", "resolved", "house_rule", "wont_fix"]},
+        "status": {"$ref": "common.schema.json#/$defs/lifecycle"},
+        "resolution": {"enum": ["open", "requires_human_interpretation", "resolved", "house_rule", "wont_fix"],
+                       "description": "Disposition of the ambiguity; independent of record lifecycle."},
         "resolved_by": {"$ref": "#/$defs/ref", "description": "HD-…, CHG-… or INT-…"},
         "prov": {"$ref": "common.schema.json#/$defs/provenance"}, "risk": {"$ref": "common.schema.json#/$defs/risk"},
         "refs": {"$ref": "common.schema.json#/$defs/ids"}, "notes": {"type": "string"}

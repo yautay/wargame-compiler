@@ -15,8 +15,9 @@ ID (DATA-CONTRACTS §10): `CON-<key>` for the main rules (the `rules` document w
 `SRC-<game>.rules`), `CON-<SRC key>:<key>` for every other document. The SRC key is unique in the inventory, so two
 documents never propose the same ID; joining concepts across documents is M14's job.
 
-Jobs: one per document. The job is planned when the scope contains a segment with a match, and its inputs are all
-segments of that document with a match, whatever the scope: a record never depends on `--scope`. Besides its inputs
+Jobs: one per document. The job is planned when the scope contains a segment with a match or the document already
+owns outputs to reconcile. Its inputs are all matching segments of that document, or all segments when the last
+match vanished, whatever the scope: a record never depends on `--scope`. Besides its inputs
 the task reads the authority data of every `rules` document (it picks the main rules among them), so the job manifest
 lists them (`authority_selector`, ADR-0033). One proposal per ID;
 `source_terms` lists the printed terms in order of first occurrence, and each printed term has one anchor at its
@@ -90,14 +91,23 @@ def _has_match(ws, sid: str) -> bool:
 
 
 def _select(ws, segments: list[str]) -> list[Inputs]:
-    """One job per document with a match inside the scope; inputs: every segment of that document with a match."""
+    """One job per document with a match in scope, or with owned outputs to reconcile after all matches vanish."""
+    from wgc import ownership
     docs: list[str] = []
     for sid in segments:
         doc = ws.segment(sid)["doc"]
-        if doc not in docs and _has_match(ws, sid):
+        if doc not in docs and (_has_match(ws, sid) or ownership.exists(ws.root, TASK_ID, (doc,))):
             docs.append(doc)
-    return [tuple(s["id"] for s in ws.inventory.segments if s["doc"] == doc and _has_match(ws, s["id"]))
-            for doc in docs]
+    jobs = []
+    for doc in docs:
+        all_ids = tuple(s["id"] for s in ws.inventory.segments if s["doc"] == doc)
+        matched = tuple(sid for sid in all_ids if _has_match(ws, sid))
+        jobs.append(matched or all_ids)
+    return jobs
+
+
+def _ownership_scope(ws, inputs: Inputs) -> tuple[str, ...]:
+    return (ws.segment(inputs[0])["doc"],)
 
 
 def _run(ws, inputs: Inputs) -> list[dict]:
@@ -162,4 +172,4 @@ def _rules_documents(ws, inputs: Inputs) -> list[str]:
 
 HARVEST = TaskSpec(id=TASK_ID, version=VERSION, stage="stage1", output_kind="concept",
                    output_schema="wgc/logic@0#concept", input_selector=_select, validate=_validate,
-                   deterministic_impl=_run, authority_selector=_rules_documents)
+                   deterministic_impl=_run, authority_selector=_rules_documents, ownership_scope=_ownership_scope)

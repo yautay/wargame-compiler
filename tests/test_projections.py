@@ -29,7 +29,7 @@ PREDICATE = {"kind": "concept", "id": "CON-adjacent", "category": "predicate", "
 
 
 def test_version():
-    assert PROJECTION_VERSION == "wgc/projection@2"
+    assert PROJECTION_VERSION == "wgc/projection@3"
 
 
 @pytest.mark.parametrize("consumer", CONSUMERS)
@@ -101,7 +101,7 @@ def test_new_kinds_have_versioned_projections(kind, consumer, field, value):
 
 
 def test_no_projection_is_an_error_naming_the_version():
-    with pytest.raises(ProjectionError, match="wgc/projection@2"):
+    with pytest.raises(ProjectionError, match="wgc/projection@3"):
         projection({"kind": "entity", "id": "ENT-unit"}, "digital")
 
 
@@ -116,5 +116,5 @@ def test_manifest_has_no_fallback_for_kinds_without_projection(game):
         "schema: wgc/digital@0\nrecords:\n  - {kind: entity, id: ENT-unit, concept: CON-unit, status: accepted, "
         "prov: {kind: human_decision, decision: HD-1, by: {tier: human}}}\n", encoding="utf-8")
     spec = dataclasses.replace(tables.PARSE, context_selector=lambda ws, inputs: ["ENT-unit"])
-    with pytest.raises(kb.KBError, match="wgc/projection@2"):
+    with pytest.raises(kb.KBError, match="wgc/projection@3"):
         manifests.build(kb.Workspace(game), spec, ("SEG-dsk.4.3",))

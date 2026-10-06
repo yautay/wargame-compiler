@@ -175,21 +175,20 @@ def test_only_accept_writes_kb(game, monkeypatch):
     """GLU never writes KB YAML itself: with the WGC writer stubbed out, a build leaves no kb/ behind, and with a spy
     every file in kb/ is one the WGC writer wrote."""
     written: list[Path] = []
-    monkeypatch.setattr(kb, "_write_file", lambda path, text: written.append(path))
+    monkeypatch.setattr(kb, "_write_batch", lambda root, changes, job: written.extend(p for p, _ in changes))
     res = build(game)
-    assert res.state == "done" and written == [game / "kb" / "logic" / "tables.yaml",
-                                               game / "kb" / "logic" / "concepts.yaml"]
+    assert res.state == "done" and {p.name for p in written} >= {"tables.yaml", "concepts.yaml"}
     assert not (game / "kb").exists()
 
     monkeypatch.undo()
-    real = kb._write_file
+    real = kb._write_batch
     spied: list[Path] = []
 
-    def spy(path, text):
-        spied.append(path)
-        real(path, text)
+    def spy(root, changes, job):
+        spied.extend(p for p, _ in changes)
+        real(root, changes, job)
 
-    monkeypatch.setattr(kb, "_write_file", spy)
+    monkeypatch.setattr(kb, "_write_batch", spy)
     build(game)
     assert sorted(p for p in (game / "kb").rglob("*") if p.is_file()) == sorted(spied)
 

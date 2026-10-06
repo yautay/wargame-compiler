@@ -105,7 +105,9 @@ def run_job(store: Store, ws: Workspace, job_id: str, planned: PlannedJob, count
     store.transition_job(job_id, "proposed")
     store.transition_job(job_id, "validating")
     try:
-        accepted = kb.accept(ws.root, spec, planned.inputs, proposals, by={"tier": tier, "tool": spec.name},
+        envelope = {"schema": "wgc/proposal@0", "task": spec.name, "output_schema": spec.output_schema,
+                    "proposals": proposals}
+        accepted = kb.accept(ws.root, spec, planned.inputs, envelope, by={"tier": tier, "tool": spec.name},
                              job=job_id, ws=jws, manifest=manifest)
     except kb.KBUnresolved as e:  # the outcome is not decided: keep the evidence (receipt, journal) for reconcile
         raise kb.KBUnresolved(f"job {job_id}: {e} Build przerwany: job zostaje w `validating` do reconcile.") from e

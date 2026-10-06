@@ -1,8 +1,8 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-06
-- **Ostatni milestone:** M-STAB3b (stabilizacja po M9a, etap 3b: manifest wejść, projekcje, diagnostyka receiptu): done
-- **Bieżący milestone:** M-STAB3c
+- **Ostatni milestone:** M-STAB3c (kontrakt propozycji, ownership outputów, wdrożenie ADR-0027): done
+- **Bieżący milestone:** M10
 - **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-compiler.git`
 
 ## Gdzie jesteśmy
@@ -102,6 +102,17 @@ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. 
     M10–M14 i E2E, bez zapasów ([DATA-CONTRACTS §5](DATA-CONTRACTS.md));
   - `glu receipt <job> [--json]`: porównanie `kb_receipt` z `kb/`, tylko do odczytu
     ([GLU §3](GLU.md#receipt)).
+- **M-STAB3c (ADR-0035; ustalenia F07, F09 i F11 przeglądu):**
+  - envelope `wgc/proposal@0`, walidacja propozycji i dispatch `output_schema` do kontraktu `logic` albo `digital`;
+  - `AMB-`: lifecycle `status` oddzielony od `resolution`; projekcja `wgc/projection@3` obejmuje `resolution`;
+  - owner `task + logiczny zakres wejść` w `prov.owner`, manifest `wgc/outputs@0` w `kb/outputs/` z `active`,
+    `hashes`, `retired`; brakujące outputy wycofywane w jednej partii z manifestem, receipt obejmuje `retired`;
+    ręczna zmiana aktywnego rekordu blokuje automatyczne nadpisanie;
+  - harvest ma scope dokumentu i wykonuje job uzgadniający, gdy zniknie ostatnie dopasowanie w nadal obecnym
+    dokumencie;
+  - ADR-0027 wdrożony w `accept()`: jawne role kanoniczne, niepotwierdzone kotwice odrzucane,
+    `llm_inference` wymaga `TaskSpec.allow_llm_inference`;
+  - Q-12, Q-16 i Q-17 pozostają otwarte. M10 dostaje kontrakt i granicę akceptacji bez pętli retry ani providerów.
 
 Mapa dokumentów: [README.md](../README.md#dokumentacja).
 
@@ -116,7 +127,7 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
 |---|---|---|---|
 | Tożsamość, hashe, walidator | `wgc/common` (ID, hash) | `wgc.ids`, `wgc.canonical`, `wgc.validate` (M1) | fixture'y `valid/` + `invalid/semantic/` |
 | Stage 0 | `wgc/source@0` (szkic; role, `seg_prefix`, `struct_hash`) | `wgc.source`, `wgc.ingest.markdown` (M2a), `wgc.ingest.pdf` (M2b); `struct_hash`, ekstraktory `@1` (M-STAB3a) | `bench/minigame/source/inventory.yaml` |
-| Stage 1 | `wgc/logic@0` (szkic; `prov.manifest`) | `wgc.tasks`, `wgc.kb.accept`, `wgc.tables` (M9a); `wgc.fsio`, blokada i atomowy zapis `kb/` (M-STAB1); `wgc.terms` (M9b); `wgc.fsbatch`, `wgc kb recover` (M-STAB2); `wgc.manifest`, projekcje `@2` (M-STAB3b) | `phenomena.yaml`, gold w M3 |
+| Stage 1 | `wgc/logic@0`, `wgc/proposal@0`, `wgc/outputs@0` | `wgc.tasks`, `wgc.kb.accept`, `wgc.tables` (M9a); `wgc.fsio`, blokada i atomowy zapis `kb/` (M-STAB1); `wgc.terms` (M9b); `wgc.fsbatch`, `wgc kb recover` (M-STAB2); `wgc.manifest`, projekcje `@2` (M-STAB3b); ownership i projekcja `@3` (M-STAB3c) | `phenomena.yaml`, gold w M3 |
 | Stage 1.5 | `wgc/digital@0` (szkic) | — | gold w M17–M21 |
 | Stage 2 | planowany (M24) | — | — |
 | Stage 3 | planowany (M25–M26) | — | — |
@@ -125,42 +136,30 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
 | Węzeł inferencji (`igw`) | `igw/api@0` (szkic) | — (M-GW1) | — (M-INF) |
 
 <a id="nastepny-milestone"></a>
-## Następny milestone: M-STAB3c Stabilizacja po M9a, etap 3c: kontrakt propozycji, ownership, wdrożenie ADR-0027
-**Dlaczego teraz:** według [ROADMAP](ROADMAP.md#kolejnosc) tor domeny idzie przez M-STAB3c → M10. M-STAB3b dał jedną
-definicję zależności joba (manifest, ADR-0033) i projekcje `@2` (ADR-0034). Przed pętlą structured output (M10)
-potrzebne są: kontrakt propozycji dla modelu (F07, N07), własność wyników zadania (F11, N10) i jawna lista ról
-kanonicznych z ADR-0027 (Q-13, Q-14). Dziś kotwica w dokumencie `community_interpretation` daje `explicit_source`.
+## Następny milestone: M10 Providerzy fake/replay/self_hosted i pętla structured output
+**Dlaczego teraz:** M-STAB3c ustalił envelope propozycji, dispatch kontraktu etapu, ownership outputów i politykę
+autorytetu ADR-0027. Według [ROADMAP](ROADMAP.md#kolejnosc) następnym krokiem toru domeny jest wykonanie modelowego
+zadania przez providerów i pętlę walidacji.
 
-**Środowisko:** GLU natywnie na Windows (ADR-0022). Zapis do `kb/`: ADR-0025, ADR-0026, ADR-0031, ADR-0033,
-DATA-CONTRACTS §10.
+**Zakres:** [ROADMAP M10](ROADMAP.md) i ADR-0015–0017, ADR-0027, ADR-0035. Providerzy fake/replay/self_hosted,
+konfiguracja profili i pętla structured output z retry/escalate. Niedostępny węzeł przechodzi do
+`waiting_inference` bez automatycznego premium.
+
+**Pierwsza czynność:** przeczytać M10 w ROADMAP, ADR-0035, DATA-CONTRACTS §10, `glu/exec.py`, `wgc/kb.py` i kontrakt
+`igw/api@0`; zaprojektować granicę providera i mapowanie błędów. Model może proponować treść envelope;
+`prov`, lifecycle i decyzja o akceptacji pozostają po stronie WGC.
 
 **Tor równoległy:** M-GW1 (Inference Gateway) i M-BASE (HUM) bez zmian.
 
-**Zakres:** [ROADMAP M-STAB3c](ROADMAP.md) (ustalenia F07 i F11, decyzje N07 i N10):
-- kontrakt propozycji `wgc/proposal@0` (envelope), dispatch kontraktu etapu, lifecycle oddzielony od rozstrzygnięcia
-  niejasności;
-- ownership `zadanie + zakres wejść` z manifestem outputów (manifest wywołania z ADR-0033 opisuje wejścia, nie
-  wyjścia);
-- wdrożenie ADR-0027: lista ról kanonicznych, deklaracja inferencji zadania.
-
-**Pierwsza czynność:** ADR kontraktu propozycji i ownership (F07, F11, N07, N10). Czytać:
-- ADR-0025, ADR-0027, ADR-0030, ADR-0033;
-- ustalenia F07, F09 i F11 [przeglądu](reviews/2026-10-05-przeglad-po-M9a.md);
-- `wgc/kb.py` (`_shape_issues`, `_provenance`, `ROLE_KINDS`, `_accept_locked`), `wgc/manifest.py`, `wgc/tasks.py`.
-
-**Kryteria akceptacji:** z ROADMAP: testy zmiany roli źródła (każda rola) i zniknięcia jednego outputu; kontrakt
-propozycji z fixture'ami i DATA-CONTRACTS; `python -m pytest` zielone, test ciągłości zielony.
-
-**Poza zakresem:** pełny graf zależności i przyrostowy rebuild (M13), cache (M11), trwałe ID (F10). Q-12, Q-16 i Q-17
-pozostają otwarte (decyzja właściciela 2026-10-06), chyba że właściciel zdecyduje inaczej przed sesją.
+**Poza zakresem M10:** cache M11, routing M12, graf/stale M13. Q-12, Q-16 i Q-17 pozostają otwarte.
 
 ## Otwarte kwestie
 Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows, ADR-0022). M8 nie otworzył nowych
 kwestii (ustalenia właściciela w ADR-0023). M9a otworzył Q-12 i Q-13 (ADR-0025). Przegląd po M9a dodał Q-14 i Q-15.
 Zamknięte po M-STAB1 decyzją właściciela (2026-10-05): Q-13 i Q-14 (ADR-0027, wdrożenie M-STAB3c/M10), Q-15 (ADR-0028,
 wdrożenie M12). Kolejność potwierdzona: M9b przed M-STAB2. Grę pilotażową (Q-02) właściciel poda później. M9b otworzył
-Q-16 i Q-17. M-STAB2 otworzył Q-18, zamkniętą przez właściciela 2026-10-06 (poniżej). M-STAB3a i M-STAB3b nie
-otworzyły nowych kwestii.
+Q-16 i Q-17. M-STAB2 otworzył Q-18, zamkniętą przez właściciela 2026-10-06 (poniżej). M-STAB3a, M-STAB3b i
+M-STAB3c nie otworzyły nowych kwestii.
 Decyzje właściciela po M-STAB2 (2026-10-06, ADR-0031): dziennik partii zostaje w `kb/.wgc-batch/`; repo gry nie
 ignoruje go w git (Q-18 zamknięta); automatyczny reconcile martwych buildów zostaje; przed M10 (w M-STAB3b)
 dochodzi polecenie diagnostyczne porównujące receipt wskazanego joba z `kb/`, bez automatycznej naprawy (różnica
@@ -180,7 +179,7 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
 | Q-09 | Zakres `unresolved_ref` poza listą M1: referencje w wyrażeniach (`pred`, `is`, `val`, `count`), `ref_to`, `timing`, `emits`, `fires_on`, `legality`, `chain`, `ambiguities`, kroki testów; kontrola rodzaju celu (np. `interpretation.ambiguity` → `AMB-`). Fixture'y `valid/` już dziś je rozwiązują | M5 (L2) albo M7 | przed M5 |
 | Q-11 | Ekstraktor PDF obsługuje jedną kolumnę: przed pierwszym PDF-em prawdziwej gry potrzebne są kolumny (wykrycie `column_scrambled` albo kolejność czytania), usuwanie nagłówków i stopek stron oraz decyzja o stronach bez warstwy tekstu (`image_only`, OCR). Zakres do ustalenia na PDF-ie gry pilotażowej (ADR-0021) | właściciel + IMPL | przed M28 |
 | Q-12 | `accept()` waliduje całe `kb/` i każdy błąd blokuje zapis. Rekord unieważniony zmianą źródła (np. stara kotwica `TAB-4.3` po przenumerowaniu tabeli) blokuje każdy kolejny `accept()`, aż ktoś poprawi KB ręcznie. Trzeba rozdzielić błędy blokujące od stanu `stale` (ADR-0004, ADR-0025). Od M9b częściej: przemianowana faza zostawia stare pojęcie (`anchor_hash_mismatch`), a zmiana segmentu z kotwicami pojęć daje nieudany pierwszy build zadań wykonywanych przed harvest (ADR-0030, `tests/test_terms.py`) | M13 (graf, invalidacja) | przed M13 |
-| Q-16 | Własność rekordów `CON-`: harvest nie usuwa pojęć, których już nie daje (F11), a model (M14) albo `HD-` z tym samym ID daje konflikt, po którym job harvest kończy się `failed`. Kto jest właścicielem pojęcia `die`/`phase`/`scenario`, gdy M14 je wzbogaci (definicja, `values`), i jak łączyć pojęcia między dokumentami (`CON-d6` i `CON-<klucz SRC>:d6`)? | ARCH + właściciel | M-STAB3c (ownership) albo przed M14 |
+| Q-16 | Ownership harvestu wycofuje jego brakujące pojęcia, lecz model (M14) albo `HD-` z tym samym ID nadal daje konflikt. Kto jest właścicielem pojęcia `die`/`phase`/`scenario`, gdy M14 je wzbogaci (definicja, `values`), i jak łączyć pojęcia między dokumentami (`CON-d6` i `CON-<klucz SRC>:d6`)? | ARCH + właściciel | przed M14 |
 | Q-17 | Który dokument jest „główną instrukcją” (ID bez przedrostka) dla `TAB-` i `CON-`. `TAB-` ma regułę z M9a: bez przedrostka dla każdego dokumentu `rules`, więc dwa dokumenty `rules` z tabelą o tej samej etykiecie dają to samo ID. `CON-` bierze dokument `rules` o najmniejszym `SRC-` (ADR-0030), co zakłada nazewnictwo `wgc source init`: ręcznie dopisany `SRC-dsk.advanced` przejąłby tę rolę i zmienił ID. Propozycja: jawne pole w inwentarzu (np. `main: true` albo `seg_prefix` równy kodowi gry) jako jedno źródło dla obu prefiksów. To zmiana ID i kontraktu, więc potrzebuje decyzji | właściciel + ARCH | przed pierwszą grą z dwoma dokumentami `rules` |
 
 ## Ryzyka
@@ -210,6 +209,7 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
 | Zadanie czytające `kb/` jako kontekst w buildzie, w którym wcześniejszy job zmienia ten kontekst (np. harvest przed zadaniem czytającym pojęcia) | job kończy się błędem „wejścia joba zmieniły się od planu”, potrzebny drugi build | świadomie (ADR-0033): nigdy wynik ze starego kontekstu; kolejność i zależności jobów w M13. Dziś żadne zadanie nie czyta kontekstu `kb/` |
 | Manifest wywołania jest powtarzany w `prov` każdego rekordu joba (harvest: w każdym pojęciu dokumentu) | pliki `kb/` rosną, linie `prov` są długie i mniej czytelne | przyjęty koszt (ADR-0033); przy dużych grach przeniesienie manifestów do osobnego pliku w nowym ADR |
 | Pierwszy build po M-STAB3b w istniejącym repo gry | każdy rekord `TAB-`/`CON-` zapisany jako „zmieniony” (nowe `prov.manifest`, `prov.inputs_hash` z wersją projekcji `@2`) | jednorazowo, oczekiwane (ADR-0033, ADR-0034); rekord bez `prov.manifest` nie jest błędem walidacji |
+| Pierwszy build po M-STAB3c w istniejącym repo gry | powstają manifesty `kb/outputs/`, rekordy dostają `prov.owner` i manifesty nową projekcję `@3`; akceptacja może wycofać brakujący wynik poprzedniej wersji tylko gdy dawny `prov.manifest` jednoznacznie wskazuje ten sam scope | oczekiwany jednorazowy zapis; dla starszych rekordów bez identyfikowalnego ownera potrzebny przegląd przed usunięciem (ADR-0035, Q-12) |
 | Testy awarii: wyjątki wstrzykiwane i (od M-STAB2) procesy potomne kończone `os._exit` w punktach protokołu | odcięcie zasilania, zabicie procesu wewnątrz `fsync`/`os.replace` i dyski sieciowe (SMB) niezbadane; na Windows trwałość podmiany nie jest wymuszona (brak `fsync` katalogu) | repo gry na dysku lokalnym; ewentualny test fizyczny przy M-NODE/pilocie |
 | Gałąź POSIX `wgc.fsio` i `wgc.fsbatch` (`fcntl.flock`, `fsync` katalogu, tryb pliku) nie była uruchamiana; M-STAB1 i M-STAB2 nie były testowane na Pythonie 3.10 | błąd widoczny dopiero na Linux/WSL albo starszym Pythonie | uruchomić `python -m pytest` na Linux/WSL i 3.10 przy najbliższej okazji (np. M-NODE) |
 | Store waliduje każdy rekord schematem przy zapisie | wolniejsze buildy z tysiącami jobów | pomiar w M11 (w M9a nie mierzono: build gry benchmarkowej ma 1 job); w razie potrzeby walidacja tylko przy eksporcie (ADR-0023) |
@@ -222,7 +222,7 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
 | Rekord zaakceptowany przed zmianą `struct_hash` segmentu nie jest oznaczany jako nieaktualny | walidator nie przelicza `prov.inputs_hash`; stary wynik zostaje w `kb/` do ponownego buildu | ponowny build zastępuje rekord (inny klucz joba); `wgc.manifest.check(ws, prov.manifest)` pokazuje zmienione wpisy bez `.glu/` (M-STAB3b); oznaczanie `stale` w M13 (Q-12) |
 | Fixture `logic.minigame.yaml` ma `TAB-crt` z `tool: wgc.tables.parse@0`, ale z ID i wartościami (`none`, `routed`), których deterministyczny parse nie daje (`TAB-4.3`, `No effect`) | mylący przykład dla kolejnych sesji | fixture to ilustracja kontraktu, nie gold; gold tabeli w M3 |
 | Fixture `logic.minigame.yaml` przypisuje `tool: wgc.terms.harvest@0` pojęcia o kategoriach, których harvest nie daje (`CON-rally` jako `action`, `CON-game`, `CON-enter_hex`), i klucz `CON-scn.ford` (harvest: `CON-scn.the_ford`) | mylący przykład: sugeruje, że Tier 0 zgaduje kategorie | ilustracja kontraktu, nie gold (ADR-0030); gold pojęć w M3 |
-| Pojęcie zakotwiczone w dokumencie `community_interpretation` albo `prior_translation` dostaje dziś `explicit_source` i `accepted` (harvest czyta każdy obecny dokument) | niekanoniczny termin w KB | ADR-0027 wdraża M-STAB3c; job harvest obejmuje jeden dokument, więc odrzucenie nie zablokuje innych |
+| Zmiana roli źródła z kanonicznej na niekanoniczną po wcześniejszej akceptacji | nowa propozycja jest odrzucana przez ADR-0027, lecz stary rekord pozostaje w `kb/` do rozwiązania stale (Q-12) | właściciel M-STAB3c odrzuca nowe wyniki; ogólna invalidacja w M13 |
 | Wzorce harvest są ścisłe (bez `Scenario 2: X`, `1. Movement Phase: …`, list punktowanych, `… Step`, gołego `d6`) | na prawdziwej grze mniej pojęć Tier 0, więcej pracy w M14 | świadomie; rozszerzenie to `wgc.terms.harvest@1` po próbce gry pilotażowej (Q-02) |
 | `accept()` przy każdym jobie czyta i waliduje całe `kb/` | wolne buildy przy tysiącach rekordów | pomiar w M11/M14; w razie potrzeby walidacja przyrostowa (M13) |
 | PDF gry nie pogrubia numerów reguł albo ma kilka kolumn | segmentacja PDF zlewa reguły albo daje fałszywe tabele | sprawdzić na PDF-ie gry pilotażowej (Q-11), render stron do porównania (`wgc source render`) |
