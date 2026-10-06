@@ -1,5 +1,6 @@
-"""CLI: `glu status`, `glu export`, `glu build` and `glu reconcile` (also `python -m glu`). Exit code 2 = operational
-error (ADR-0002); `glu build` returns 1 when the build ends `failed`."""
+"""CLI: `glu status`, `glu export`, `glu build`, `glu reconcile` and `glu receipt` (also `python -m glu`). Exit code
+2 = operational error (ADR-0002); `glu build` returns 1 when the build ends `failed`; `glu receipt` returns 0 only when
+the receipt matches `kb/` (ADR-0033)."""
 from __future__ import annotations
 
 import argparse
@@ -130,6 +131,17 @@ def _cmd_reconcile(args) -> int:
     return 0
 
 
+def _cmd_receipt(args) -> int:
+    from glu import receipt
+    rep = receipt.report(args.root, args.job)
+    if args.json:
+        print(json.dumps(rep, ensure_ascii=False, indent=2))
+    else:
+        for line in receipt.lines(rep):
+            print(line)
+    return receipt.EXIT[rep["status"]]
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="glu", description="wargame-compiler: wykonanie i orkiestracja (GLU).")
     sub = parser.add_subparsers(dest="command", required=True, metavar="polecenie")
@@ -159,6 +171,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--root", default=".", metavar="katalog", help="katalog repo gry (domyślnie bieżący)")
     p.add_argument("--dry-run", action="store_true", help="tylko plan; niczego nie zapisuje")
     p.set_defaults(func=_cmd_reconcile)
+
+    p = sub.add_parser("receipt", help="porównuje receipt akceptacji joba (kb_receipt) z bieżącym kb/; tylko odczyt, "
+                                       "bez recovery i naprawy (ADR-0033)")
+    p.add_argument("job", metavar="job_id", help="ID joba z bazy stanu GLU")
+    p.add_argument("--root", default=".", metavar="katalog", help="katalog repo gry (domyślnie bieżący)")
+    p.add_argument("--json", action="store_true", help="wynik jako JSON")
+    p.set_defaults(func=_cmd_receipt)
     return parser
 
 

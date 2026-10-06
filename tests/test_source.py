@@ -120,7 +120,7 @@ def test_init_scan_extract(tmp_path):
     inv = source.read_inventory(root)
     (doc,) = inv.documents
     assert doc["id"] == "SRC-tst.rules" and doc["seg_prefix"] == "tst" and doc["present"] is True
-    assert doc["path"] == "private/rules.md" and doc["extractor"] == "wgc.ingest.markdown@0"
+    assert doc["path"] == "private/rules.md" and doc["extractor"] == "wgc.ingest.markdown@1"
     assert doc["file_hash"] == sha256_hex((root / "private" / "rules.md").read_bytes())
     segs = segments(root)
     assert list(segs) == ["SEG-tst.u1", "SEG-tst.1.0", "SEG-tst.1.1", "SEG-tst.1.2", "SEG-tst.2.0", "SEG-tst.2.1"]
@@ -229,11 +229,14 @@ def test_verify_detects_changed_file(tmp_path):
     assert [d.subject for d in report.diagnostics if d.code == "segment_hash_mismatch"] == ["SEG-tst.1.1"]
 
 
-def test_verify_ignores_rewrapping_but_not_new_or_removed_rules(tmp_path):
+def test_verify_rewrapping_keeps_text_hash_and_reports_structure_and_new_or_removed_rules(tmp_path):
     root = make_game(tmp_path)
     rules = root / "private" / "rules.md"
     rules.write_text(RULES.replace("may move\nup to", "may move up\nto"), encoding="utf-8", newline="\n")
-    assert codes(source.verify(root)) == {"file_hash_mismatch"}  # same text, other wrapping: segments still match
+    report = source.verify(root)
+    # same words, other lines: text_hash still matches (no segment_hash_mismatch), struct_hash does not (ADR-0032)
+    assert codes(report) == {"file_hash_mismatch", "segment_struct_mismatch"}
+    assert [d.subject for d in report.diagnostics if d.code == "segment_struct_mismatch"] == ["SEG-tst.1.2"]
     rules.write_text(RULES + "\n**2.2** Hits remove a unit.\n", encoding="utf-8", newline="\n")
     assert "segment_unlisted" in codes(source.verify(root))
     rules.write_text(RULES.split("**1.2**")[0] + "## 2.0" + RULES.split("## 2.0")[1], encoding="utf-8", newline="\n")

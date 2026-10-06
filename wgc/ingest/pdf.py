@@ -1,10 +1,10 @@
-"""PDF extractor `wgc.ingest.pdf@0` and page render (ADR-0021, segmentation rules of ADR-0020).
+"""PDF extractor `wgc.ingest.pdf@1` and page render (ADR-0021, segmentation rules of ADR-0020, @1: ADR-0032).
 
 Text layer (pdfplumber/pdfminer.six): characters are grouped into lines by baseline, lines are read top to bottom
 (single column). A space is inserted where the gap between two glyphs exceeds `WORD_GAP` of the font size; a gap over
 `CELL_GAP` splits the line into cells (a table row).
 
-Segmentation mirrors `wgc.ingest.markdown@0`:
+Segmentation mirrors `wgc.ingest.markdown@1`:
 - a line set in a font larger than the body size (the most frequent size) is a `heading`; consecutive heading lines
   of the same size form one heading; a leading number (`1.0 Components`) becomes its label; the level is the rank of
   the size (largest = 1);
@@ -12,7 +12,8 @@ Segmentation mirrors `wgc.ingest.markdown@0`:
   heading; it is a `table` when at least two of its lines are multi-cell rows, else `rule`. A number set in the regular
   weight (a cross-reference wrapped to the start of a line) does not open a segment;
 - other content outside a numbered segment is an `other` segment; unlabeled segments get keys `u1`, `u2`, …;
-- the label is not part of the text; lines are joined with newlines, cells with a space.
+- the label is not part of the text; lines are joined with newlines; cells with a tab (`CELL_SEP`) in a `table`
+  segment, with a space elsewhere. Lines and cells enter the segment's `struct_hash` (ADR-0032).
 
 Generated layout fields:
 - `pages`: `"3"` or `"3-4"` (1-based, first-last page with a line of the segment);
@@ -30,10 +31,11 @@ import re
 from collections import Counter
 from dataclasses import dataclass, field
 
+from wgc.canonical import CELL_SEP
 from wgc.ingest import IngestError, Segment
 
-NAME = "wgc.ingest.pdf@0"
-CELL_SEP = "\t"  # cell separator of table rows in the extracted text (as in wgc.ingest.markdown)
+# @1 (ADR-0032): segments get `struct_hash`; text cached by @0 may lack the tab between table cells
+NAME = "wgc.ingest.pdf@1"
 
 WORD_GAP = 0.2      # × font size: a wider gap between two glyphs is a space
 CELL_GAP = 2.0      # × font size: a wider gap between two words is a cell boundary
@@ -286,7 +288,7 @@ def extract(data: bytes) -> list[Segment]:
             if stype == "rule" and sum(1 for ln in current.lines if len(ln.cells) > 1) >= 2:
                 stype = "table"
             pages, bbox = _layout(current.lines)
-            # table cells are separated by a tab, other text by a space (same text_hash: ADR-0024)
+            # table cells are separated by a tab, other text by a space: same text_hash, own struct_hash (ADR-0032)
             text = current.text(CELL_SEP if stype == "table" else " ")
             out.append(Segment(current.key, current.label, stype, text, current.parent_key, current.order,
                                pages, bbox, _flags(current.glyphs, base)))

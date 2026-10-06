@@ -6,7 +6,9 @@ A `TaskSpec` says what a task reads, what a correct output looks like and how to
 
 A task output is a list of **proposals** (docs/DATA-CONTRACTS.md §10):
 `{record: <record without prov, status, risk>, anchors: [{seg, quote?, span?}], derived_from: [ids]}`.
-Provenance, status and `inputs_hash` are added by `wgc.kb.accept` (ADR-0014).
+Provenance, status, `inputs_hash` and `manifest` are added by `wgc.kb.accept` (ADR-0014). What a job reads (inputs,
+authority data of source documents, `kb/` context) is defined once, by `wgc.manifest.build` from the fields below
+(ADR-0033): the planner keys the job with it and `accept()` records it.
 
 Scopes of a build (`--scope`): `all`, `chapter:<N>` (segments under the heading labelled `N` or `N.0`, by
 `parent`), `segment:<SEG-id>`.
@@ -15,8 +17,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Callable
-
-from wgc.canonical import content_hash, projection
 
 if TYPE_CHECKING:
     from wgc.kb import Workspace
@@ -42,8 +42,14 @@ class TaskSpec:
     validate: Callable[["Workspace", Inputs, list[dict]], list[str]]
     # Tier 0 implementation: inputs → proposals. None for model-only tasks.
     deterministic_impl: Callable[["Workspace", Inputs], list[dict]] | None = None
-    # What of the inputs affects the result (cache key, `prov.inputs_hash`); default: `logic` projections.
-    semantic_projection: Callable[["Workspace", Inputs], list[dict]] | None = None
+    # What of one input affects the result (its entry in the job manifest); default: its `logic` projection.
+    semantic_projection: Callable[["Workspace", str], dict] | None = None
+    # Source documents whose authority data (role, seg_prefix, precedence) the task reads besides those of its input
+    # segments, e.g. every `rules` document when it picks the main rules (ADR-0033).
+    authority_selector: Callable[["Workspace", Inputs], list[str]] | None = None
+    # Records of `kb/` the task reads as context (ids). A task with it reads `kb/`: its manifest is checked against
+    # `kb/` at acceptance (ADR-0033). `context_builder` (M10) may read only these records.
+    context_selector: Callable[["Workspace", Inputs], list[str]] | None = None
     # Risk features of a proposal (`wgc/risk@0`, M6); none until then.
     risk_features: Callable[[dict], list[dict]] = lambda proposal: []
     # M10: context for the model, prompt id@version and the flat decoding schema for the node.
@@ -55,14 +61,6 @@ class TaskSpec:
     def name(self) -> str:
         """Tool or task name with version, as recorded in `prov.by.tool` and in the cache key."""
         return f"{self.id}@{self.version}"
-
-    def projections(self, ws: "Workspace", inputs: Inputs) -> list[dict]:
-        if self.semantic_projection is not None:
-            return self.semantic_projection(ws, inputs)
-        return [projection(ws.record(i), "logic") for i in inputs]
-
-    def input_hash(self, ws: "Workspace", inputs: Inputs) -> str:
-        return content_hash(self.projections(ws, inputs))
 
 
 def _registry() -> dict[str, TaskSpec]:

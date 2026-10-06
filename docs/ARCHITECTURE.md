@@ -68,12 +68,17 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
   `input_selector` (które segmenty lub rekordy, jedno wejście na job), `validate(ws, wejścia, propozycje) → issues`.
 - Pola opcjonalne:
   - `deterministic_impl?` (Tier 0);
-  - `semantic_projection?` (co z wejścia wpływa na wynik; domyślnie projekcje `logic` wejść);
+  - `semantic_projection?(ws, id) → dict` (co z jednego wejścia wpływa na wynik; domyślnie projekcja `logic`);
+  - `authority_selector?(ws, wejścia) → [SRC-…]` (dokumenty, z których zadanie czyta dane autorytetu poza dokumentami
+    swoich segmentów; harvest: każdy dokument `rules`);
+  - `context_selector?(ws, wejścia) → [ID]` (rekordy `kb/` czytane jako kontekst; zadanie z nim „czyta `kb/`”);
   - `risk_features` (do M6 pusta lista);
   - do M10: `context_builder`, `prompt` (id@wersja) i `decoding_schema?` (płaski podzbiór do constrained decoding na
     węźle; domyślnie `output_schema`, jeśli jest zgodny).
 - Wynik zadania to lista propozycji (rekord bez `prov`, `status`, `risk` + kotwice albo `derived_from`,
-  [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje)). Zamiast `accept` w każdym zadaniu jest jedna funkcja
+  [DATA-CONTRACTS §10](DATA-CONTRACTS.md#propozycje)). Co job czyta, definiuje jedna funkcja `wgc.manifest.build`
+  z tych pól (manifest wywołania, ADR-0033): planner bierze z niej klucz joba, `accept()` zapisuje ją w
+  `prov.manifest`. Metody `projections` i `input_hash` usunięto w M-STAB3b. Zamiast `accept` w każdym zadaniu jest jedna funkcja
   `wgc.kb.accept()`: nadaje provenance, waliduje całe `kb/` i jako jedyna zapisuje YAML KB (pod blokadą pisarza
   projektu, każdy plik atomowo; ADR-0026).
 
@@ -90,6 +95,7 @@ WGC domain → GLU orchestration → provider abstraction → self_hosted provid
 | Zadania i akceptacja | `wgc.tasks`, `wgc.kb`, `wgc.tables`, `wgc.terms` | `TaskSpec` i rejestr, zakres buildu, `Workspace`, `accept()` (jedyny zapis do `kb/`), zadania `wgc.tables.parse@0` i `wgc.terms.harvest@0` | M9a, M9b |
 | Bezpieczny zapis KB | `wgc.fsio`, `wgc.kb` | atomowa podmiana pojedynczego pliku, blokada pisarza projektu `.glu/kb.lock` wokół całego `accept()` (ADR-0026) | M-STAB1 |
 | Partia KB i recovery | `wgc.fsbatch`, `wgc.kb`, `glu.reconcile` | partia plików `kb/` z dziennikiem wycofania `kb/.wgc-batch/`, `wgc kb recover`, receipt akceptacji, `Store.finish_job`, `glu reconcile` z blokadą żywotności buildu (ADR-0031) | M-STAB2 |
+| Manifest wywołania | `wgc.manifest`, `wgc.kb` | jedna definicja odczytu joba (`prov.manifest`, klucz joba), migawka `kb/` i świeżość kontekstu (`KBContextStale`), `glu receipt` (`glu.receipt`) (ADR-0033); projekcje `wgc/projection@2` (ADR-0034) | M-STAB3b |
 | Planner | `glu.planner` | etap + zakres → joby z kluczem cache; `glu build --dry-run` | M9a, M12 (bramki) |
 | Wykonawcy | `glu.exec` | deterministic (Tier 0, M9a), local, premium, human; `glu build` | M9a–M16 |
 | Providerzy | `glu.providers` | fake, replay, self_hosted (klient `igw/api@0`), anthropic, desktop_pull | M10, M15 |

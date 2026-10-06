@@ -47,6 +47,29 @@
       "additionalProperties": false
     },
 
+    "manifest_entry": {
+      "type": "object",
+      "required": ["id", "hash"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "hash": {"$ref": "#/$defs/hash", "description": "content hash of the semantic projection the job read"}
+      },
+      "additionalProperties": false
+    },
+    "manifest": {
+      "type": "object",
+      "description": "Invocation manifest (wgc/manifest@0, ADR-0033): everything the job that produced the record read, with hashes. Lives in kb/, so the dependencies of a record survive the loss of .glu/. Nothing volatile (job, time, kb/ generation).",
+      "required": ["format", "task", "projection", "inputs", "authority"],
+      "properties": {
+        "format": {"const": "wgc/manifest@0"},
+        "task": {"type": "string", "description": "task id@version"},
+        "projection": {"type": "string", "pattern": "^wgc/projection@[0-9]+$"},
+        "inputs": {"type": "array", "items": {"$ref": "#/$defs/manifest_entry"}, "description": "job inputs in order: the task's projection of each"},
+        "authority": {"type": "array", "items": {"$ref": "#/$defs/manifest_entry"}, "description": "source documents whose authority data (role, seg_prefix, precedence) the task read, sorted by id"},
+        "context": {"type": "array", "items": {"$ref": "#/$defs/manifest_entry"}, "minItems": 1, "description": "kb/ records read as context, sorted by id; absent when none"}
+      },
+      "additionalProperties": false
+    },
     "provenance": {
       "type": "object",
       "description": "Where a piece of knowledge comes from. An inference is never recorded as explicit_source.",
@@ -58,7 +81,8 @@
         "decision": {"$ref": "#/$defs/id", "description": "HD-… human decision that established this (kind human_decision / accepted interpretation)"},
         "by": {"$ref": "#/$defs/executor"},
         "job": {"type": "string", "description": "GLU job id that produced the accepted proposal"},
-        "inputs_hash": {"$ref": "#/$defs/hash", "description": "hash of the semantic projections of anchors + derived_from at acceptance; a mismatch makes the record stale (lives in kb/, so staleness survives loss of .glu/)"},
+        "inputs_hash": {"$ref": "#/$defs/hash", "description": "hash of the record's own evidence: the semantic projections (with their version) of its anchor segments and derived_from records at acceptance (ADR-0033); what the whole job read is `manifest`"},
+        "manifest": {"$ref": "#/$defs/manifest"},
         "at": {"type": "string", "format": "date-time"},
         "note": {"type": "string"}
       },

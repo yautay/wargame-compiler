@@ -16,7 +16,9 @@ ID (DATA-CONTRACTS §10): `CON-<key>` for the main rules (the `rules` document w
 documents never propose the same ID; joining concepts across documents is M14's job.
 
 Jobs: one per document. The job is planned when the scope contains a segment with a match, and its inputs are all
-segments of that document with a match, whatever the scope: a record never depends on `--scope`. One proposal per ID;
+segments of that document with a match, whatever the scope: a record never depends on `--scope`. Besides its inputs
+the task reads the authority data of every `rules` document (it picks the main rules among them), so the job manifest
+lists them (`authority_selector`, ADR-0033). One proposal per ID;
 `source_terms` lists the printed terms in order of first occurrence, and each printed term has one anchor at its
 first occurrence with a verbatim `quote` (the term; for a scenario the whole `Scenario: X`), no `span`.
 """
@@ -26,6 +28,7 @@ import re
 import unicodedata
 
 from wgc import ids
+from wgc.canonical import structure
 from wgc.tasks import Inputs, TaskSpec
 
 TASK_ID = "wgc.terms.harvest"
@@ -57,7 +60,7 @@ def matches(seg: dict, text: str) -> list[tuple[str, str, str, str, str]]:
         m = _SCENARIO.match(_squash(text))
         if m and slug(m[1]):
             out.append(("scenario", f"scn.{slug(m[1])}", m[1], m[1], m[0]))
-    lines = text.split("\n")
+    lines = [" ".join(cells) for cells in structure(text)]  # lines of `struct_hash` (ADR-0032)
     if sum(1 for line in lines if _LIST_ITEM.match(line)) >= 2:
         for line in lines:
             m = _PHASE_ITEM.match(line)
@@ -151,6 +154,12 @@ def _validate(ws, inputs: Inputs, proposals: list[dict]) -> list[str]:
     return issues
 
 
+def _rules_documents(ws, inputs: Inputs) -> list[str]:
+    """Authority data the task reads beyond its inputs: every `rules` document, the candidates of `main_rules`
+    (ADR-0033). A `rules` document added or renamed changes the job manifest, even when IDs stay the same."""
+    return [d["id"] for d in ws.inventory.documents if d.get("role") == "rules"]
+
+
 HARVEST = TaskSpec(id=TASK_ID, version=VERSION, stage="stage1", output_kind="concept",
                    output_schema="wgc/logic@0#concept", input_selector=_select, validate=_validate,
-                   deterministic_impl=_run)
+                   deterministic_impl=_run, authority_selector=_rules_documents)

@@ -12,6 +12,7 @@ od języka docelowego (ADR-0003), od wyglądu publikacji i od przyszłego silnik
   (`present: false`), więc luka jest widoczna, zanim ruszy analiza (lekcja 7 z ARCHAEOLOGY).
 - **Segmenty** (`segment`, `SEG-`): najmniejsze adresowalne jednostki tekstu (akapit z numerem reguły, tabela, ramka,
   przykład, nota). Mają `text_hash` znormalizowanego tekstu (NFC, zwinięte białe znaki, złączone przeniesienia),
+  `struct_hash` wierszy i komórek tego tekstu (ADR-0032),
   `visual_flags` (przekreślenie, kolor zmian, pomieszane kolumny, OCR) i `verified_by_render`.
 - Ekstrakcja jest deterministyczna i wersjonowana (`extractor`). Ręczne poprawki są jawne (`corrections`).
 - Tekst segmentów nie trafia do repo (ADR-0012).
@@ -102,7 +103,7 @@ Rekord ma `prov.kind` (`common.schema.json#/$defs/provenance`):
 | `errata`, `faq`, `designer_clarification` | treść z dokumentu o tej roli | `anchors` do segmentu takiego dokumentu |
 | `human_decision` | ustalenie człowieka | `decision: HD-…`, `by.tier: human` |
 
-Rodzaj nadaje WGC, nie model (ADR-0014). `inputs_hash` zapamiętuje stan wejść w chwili akceptacji (wykrywanie `stale`).
+Rodzaj nadaje WGC, nie model (ADR-0014). `inputs_hash` zapamiętuje stan dowodów rekordu (kotwic i `derived_from`), a `manifest` wszystko, co przeczytał job, który dał rekord (ADR-0033). Oba leżą w `kb/`, więc nieaktualność da się wykryć bez `.glu/` (M13).
 
 <a id="model-ryzyka"></a>
 ## Model ryzyka semantycznego (`wgc/risk@0`)

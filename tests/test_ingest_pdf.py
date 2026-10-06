@@ -1,4 +1,4 @@
-"""PDF extractor `wgc.ingest.pdf@0`: parity with Markdown, layout fields, visual flags, render (ADR-0021).
+"""PDF extractor `wgc.ingest.pdf@1`: parity with Markdown, layout fields, visual flags, render (ADR-0021).
 
 Every PDF is generated in the test (`tests/pdfgen.py`) from self-authored text: no network, no publisher files.
 """
@@ -42,7 +42,7 @@ def rule_line(w: PdfWriter, y: float, label: str | None, text: str, **kw) -> flo
 # --- Markdown ↔ PDF parity ------------------------------------------------------------------------------------------
 
 def test_registry_maps_pdf():
-    assert extractor_for("private/Rules.PDF")[0] == pdf.NAME == "wgc.ingest.pdf@0"
+    assert extractor_for("private/Rules.PDF")[0] == pdf.NAME == "wgc.ingest.pdf@1"
 
 
 def test_same_text_in_markdown_and_pdf_gives_same_rule_hashes(bench):

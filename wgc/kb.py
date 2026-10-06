@@ -1,15 +1,19 @@
 """Knowledge Base of a game repo: reading the workspace and `accept()`, the only path that writes `kb/` (ADR-0025).
 
 `Workspace` reads what tasks need: the Stage 0 inventory, segment text from `.glu/source/` (checked against
-`text_hash`) and the records already in `kb/`. `accept()` turns task proposals into KB records:
+`text_hash` and `struct_hash`, ADR-0032) and the records already in `kb/`. `accept()` turns task proposals into KB records:
 
 1. checks types and shape of the proposals and each record against the contract without the WGC-owned fields
    (pure checks, before any domain function: wrong data gives diagnostics, never a `TypeError`);
 2. takes the KB writer lock of the project (`.glu/kb.lock`, ADR-0026) and checks that the inventory has not changed
-   since the `Workspace` read it; steps 3–7 run under the lock on KB read afresh from disk;
+   since the `Workspace` read it; steps 3–7 run under the lock on KB read afresh from disk (one snapshot). The job
+   manifest (`wgc.manifest`, ADR-0033) is checked against that snapshot first: a task reading `kb/` whose context
+   changed since its execution gets `KBContextStale`;
 3. the task's own domain rules (`TaskSpec.validate`);
 4. adds `status: accepted` and `prov`: the kind is decided here, never by the executor (ADR-0014); `by` comes from
-   the caller (GLU: tier, tool or profile), `inputs_hash` is the hash of the `logic` projections of the inputs;
+   the caller (GLU: tier, tool or profile); `manifest` is what the job read; `inputs_hash` is the hash of the record's
+   own evidence (the `logic` projections of its anchor segments and `derived_from` records, with the projection
+   version), and that evidence must be among what the job read;
 5. merges with `kb/`: an equal record (ignoring `prov.job` and `prov.at`) is left untouched, a record of the same
    task is replaced, a record of another producer with the same ID is a conflict;
 6. validates the whole KB with the inventory in memory (`wgc.validate.validate_documents`);
@@ -42,9 +46,11 @@ from typing import Iterator
 
 import yaml
 
-from wgc import contracts, fsbatch, fsio, source
-from wgc.canonical import canonical_json, content_hash, normalize_text, projection, sha256_hex, text_hash
+from wgc import contracts, fsbatch, fsio, manifest as manifests, source
+from wgc.canonical import (PROJECTION_VERSION, ProjectionError, canonical_json, content_hash, normalize_text,
+                           projection, sha256_hex, struct_hash, text_hash)
 from wgc.ids import is_id
+from wgc.manifest import Manifest
 from wgc.tasks import Inputs, TaskSpec
 from wgc.validate import ERROR, load_documents, validate_documents
 
@@ -86,6 +92,11 @@ class KBStale(KBError):
     """The inventory changed after the `Workspace` read it: a result computed from the old state is not written."""
 
 
+class KBContextStale(KBStale):
+    """Records of `kb/` that the job read (its manifest) changed between execution and acceptance: the result was
+    computed from an old context and is not written (ADR-0033)."""
+
+
 class KBWriteError(KBError):
     """Writing `kb/` failed and `kb/` is as it was: one file is replaced atomically, a batch was rolled back and its
     journal removed. A batch whose rollback did not complete is `KBUnresolved` instead (ADR-0031)."""
@@ -107,7 +118,11 @@ class Workspace:
     """Read-only view of a game repo for tasks: inventory, segment text and KB records.
 
     The inventory is read once (with its fingerprint `inventory_hash`); KB records are read from disk on every call,
-    so a long-lived workspace never serves an old KB snapshot."""
+    so a long-lived workspace never serves an old KB snapshot. A **pinned** workspace (`pinned`) reads `kb/` only from
+    one snapshot instead: the manifest of a job and its implementation then see the same records, and the snapshot's
+    generation tells `accept()` whether they are still current (ADR-0033)."""
+
+    _kb: "KBSnapshot | None" = None
 
     def __init__(self, root: str | Path):
         self.root = Path(root)
@@ -140,12 +155,16 @@ class Workspace:
         return rec
 
     def text(self, seg_id: str) -> str:
-        """Extracted text of a segment from `.glu/source/`, checked against its `text_hash`."""
+        """Extracted text of a segment from `.glu/source/`, checked against its `text_hash` and `struct_hash`: a task
+        never reads lines or cells other than those its job key and `prov.inputs_hash` stand for (ADR-0032)."""
         if seg_id in self._text:
             return self._text[seg_id]
         seg = self._segments.get(seg_id)
         if seg is None:
             raise KBError(f"Segmentu `{seg_id}` nie ma w inwentarzu.")
+        if "struct_hash" not in seg:
+            raise KBError(f"Segment {seg_id} nie ma `struct_hash`: inwentarz i tekst z ekstraktora sprzed ADR-0032 "
+                          "trzeba wygenerować ponownie: uruchom `wgc source extract`.")
         path = source.cache_dir(self.root, seg["doc"]) / f"{seg_id}.txt"
         if not path.is_file():
             raise KBError(f"Brak tekstu segmentu {seg_id} ({path.as_posix()}): uruchom `wgc source extract`.")
@@ -153,6 +172,9 @@ class Workspace:
         if text_hash(text) != seg.get("text_hash"):
             raise KBError(f"Tekst segmentu {seg_id} w {path.as_posix()} nie zgadza się z `text_hash` inwentarza: "
                           "uruchom `wgc source extract`.")
+        if struct_hash(text) != seg["struct_hash"]:
+            raise KBError(f"Tekst segmentu {seg_id} w {path.as_posix()} ma te same słowa, ale inne wiersze albo komórki "
+                          "niż `struct_hash` inwentarza: uruchom `wgc source extract`.")
         self._text[seg_id] = text
         return text
 
@@ -160,8 +182,54 @@ class Workspace:
         return kb_files(self.root)
 
     def kb_documents(self) -> list[tuple[Path, object]]:
-        """(file, document) for every document of `kb/` (several per file allowed, ADR-0019)."""
-        return kb_documents(self.root)
+        """(file, document) for every document of `kb/` (several per file allowed, ADR-0019); from the snapshot when
+        pinned (do not modify the documents)."""
+        return list(self._kb.documents) if self._kb is not None else kb_documents(self.root)
+
+    @property
+    def kb_generation(self) -> str | None:
+        """Generation of the pinned `kb/` snapshot, None when not pinned."""
+        return self._kb.generation if self._kb is not None else None
+
+    def pinned(self, snapshot: "KBSnapshot") -> "Workspace":
+        """The same workspace (inventory, text) reading `kb/` only from `snapshot`."""
+        view = copy.copy(self)
+        view._kb = snapshot
+        return view
+
+    def pinned_now(self) -> "Workspace":
+        """Pinned to a snapshot of `kb/` read now (without the lock: a torn read never matches a later generation,
+        so `accept()` recomputes and compares, ADR-0033)."""
+        return self.pinned(read_snapshot(self.root))
+
+
+@dataclass(frozen=True)
+class KBSnapshot:
+    """`kb/` read once: the bytes of every file, its documents and the generation of exactly these bytes."""
+    files: dict[Path, bytes]
+    documents: list[tuple[Path, object]]
+    generation: str
+
+
+def read_snapshot(root: str | Path) -> KBSnapshot:
+    """Every KB file read once; documents and generation come from the same bytes (ADR-0033)."""
+    root = Path(root)
+    files: dict[Path, bytes] = {}
+    docs: list[tuple[Path, object]] = []
+    for path in kb_files(root):
+        try:
+            data = path.read_bytes()
+            docs += [(path, d) for d in yaml.safe_load_all(data.decode("utf-8")) if d is not None]
+        except (OSError, UnicodeDecodeError, yaml.YAMLError) as e:
+            raise KBError(f"Nie można wczytać {path.as_posix()}: {e}") from None
+        files[path] = data
+    return KBSnapshot(files, docs, _generation(root, files))
+
+
+def snapshot(root: str | Path, lock_timeout: float | None = None) -> KBSnapshot:
+    """A snapshot read under the KB writer lock when its file exists (nothing is created): never a batch half-way."""
+    with lock(root, lock_timeout, create=False):
+        return read_snapshot(root)
 
 
 def kb_files(root: str | Path) -> list[Path]:
@@ -326,16 +394,21 @@ def _record_schema_issues(spec: TaskSpec, proposals: list[dict]) -> list[str]:
 
 
 def _provenance(ws: Workspace, proposal: dict, by: dict, job: str | None,
-                kb_records: dict[str, dict]) -> tuple[dict | None, list[str]]:
+                kb_records: dict[str, dict], manifest: Manifest) -> tuple[dict | None, list[str]]:
     """`prov` of an accepted record (ADR-0014) or the reasons why it cannot be given. `kb_records` is the KB read
-    under the writer lock: `derived_from` resolves against it, never against an older snapshot."""
+    under the writer lock: `derived_from` resolves against it, never against an older snapshot. The evidence of the
+    record (anchors, `derived_from`) must be among what the job read (`manifest`, ADR-0033)."""
     rid = proposal["record"]["id"]
     issues = []
     anchors, kinds, inputs = [], set(), []
+    read = manifest.ids()
     for a in proposal.get("anchors") or []:
         seg = ws.segment(a["seg"])
         if seg is None:
             issues.append(f"{rid}: kotwica wskazuje segment `{a['seg']}`, którego nie ma w inwentarzu.")
+            continue
+        if a["seg"] not in read:
+            issues.append(f"{rid}: kotwica w {a['seg']}, którego job nie czytał (spoza manifestu wywołania).")
             continue
         quote, span = a.get("quote"), a.get("span")
         text = normalize_text(ws.text(a["seg"])) if quote is not None or span is not None else ""
@@ -356,10 +429,13 @@ def _provenance(ws: Workspace, proposal: dict, by: dict, job: str | None,
         if rec is None:
             issues.append(f"{rid}: brak rekordu `{d}` (derived_from) w inwentarzu ani w kb/.")
             continue
+        if d not in read:
+            issues.append(f"{rid}: `derived_from` wskazuje {d}, którego job nie czytał (spoza manifestu wywołania).")
+            continue
         try:
             inputs.append(projection(rec, "logic"))
-        except KeyError:  # kinds without a semantic projection: the record without WGC-owned fields
-            inputs.append({k: v for k, v in rec.items() if k not in (*RESERVED, "notes")})
+        except ProjectionError as e:  # no fallback (ADR-0034)
+            issues.append(f"{rid}: `derived_from` {d}: {e}.")
     if len(kinds) > 1:
         issues.append(f"{rid}: kotwice wskazują źródła o różnych rolach ({', '.join(sorted(kinds))}).")
     if issues:
@@ -373,8 +449,15 @@ def _provenance(ws: Workspace, proposal: dict, by: dict, job: str | None,
     else:
         return None, [f"{rid}: wykonawca `{by.get('tier')}` bez kotwic nie daje provenance (wymaga HD-)."]
     prov = {"kind": kind, **({"anchors": anchors} if anchors else {}), **({"derived_from": derived} if derived else {}),
-            "by": dict(by), **({"job": job} if job else {}), "inputs_hash": content_hash(inputs)}
+            "by": dict(by), **({"job": job} if job else {}), "inputs_hash": evidence_hash(inputs),
+            "manifest": copy.deepcopy(manifest.body)}
     return prov, []
+
+
+def evidence_hash(projections: list[dict]) -> str:
+    """`prov.inputs_hash`: the evidence of one record (projections of its anchor segments and `derived_from` records),
+    with the projection version (ADR-0033, ADR-0034). What the job read is `prov.manifest`."""
+    return content_hash({"projection": PROJECTION_VERSION, "records": projections})
 
 
 def _natural(record_id: str) -> list:
@@ -417,9 +500,12 @@ def _inventory_under_lock(ws: Workspace) -> dict:
 
 
 def accept(root: str | Path, spec: TaskSpec, inputs: Inputs, proposals: list, *, by: dict,
-           job: str | None = None, ws: Workspace | None = None, lock_timeout: float | None = None) -> AcceptResult:
+           job: str | None = None, ws: Workspace | None = None, lock_timeout: float | None = None,
+           manifest: Manifest | None = None) -> AcceptResult:
     """Accept the proposals of one job into `kb/` (the only writer of KB YAML). See the module docstring.
-    `lock_timeout`: seconds to wait for the KB writer lock (default `LOCK_TIMEOUT`), then `KBBusy`."""
+    `lock_timeout`: seconds to wait for the KB writer lock (default `LOCK_TIMEOUT`), then `KBBusy`.
+    `manifest`: the manifest the proposals were computed with (`wgc.manifest.build` at execution); required for a
+    task that reads `kb/`, else computed here. It is checked against `kb/` under the lock (ADR-0033)."""
     ws = ws or Workspace(root)
     root = ws.root
     res = AcceptResult(records=[p["record"]["id"] for p in proposals if isinstance(p, dict)
@@ -433,21 +519,44 @@ def accept(root: str | Path, spec: TaskSpec, inputs: Inputs, proposals: list, *,
     # one writer per project: read KB, merge, validate and write as one critical section (ADR-0026)
     with lock(root, LOCK_TIMEOUT if lock_timeout is None else lock_timeout):
         inventory = _inventory_under_lock(ws)
-        return _accept_locked(ws, spec, inputs, proposals, by, job, inventory, res)
+        return _accept_locked(ws, spec, inputs, proposals, by, job, inventory, res, manifest)
+
+
+def _current_manifest(lws: Workspace, spec: TaskSpec, inputs: Inputs, given: Manifest | None) -> Manifest:
+    """The manifest to record, checked against the inventory and `kb/` read under the lock (`lws`, ADR-0033):
+    - a task reading `kb/` must bring the manifest of its execution; the same generation means the same bytes, else
+      the manifest is rebuilt and any difference is `KBContextStale`;
+    - a task not reading `kb/` is compared without the generation, so changes of other files never block it."""
+    if given is None:
+        if manifests.reads_kb(lws, spec, inputs):
+            raise KBError(f"Zadanie {spec.name} czyta kb/: accept() wymaga manifestu z wykonania joba (ADR-0033).")
+        return manifests.build(lws, spec, inputs)
+    if given.generation is not None and given.generation == lws.kb_generation:
+        return given
+    current = manifests.build(lws, spec, inputs)
+    changes = manifests.diff(given.body, current.body)
+    if changes:
+        cls = KBContextStale if given.generation is not None else KBStale
+        raise cls(f"Wejścia joba zmieniły się między wykonaniem a akceptacją ({'; '.join(changes)}). Wynik obliczony "
+                  "ze starego kontekstu nie został zapisany: ponów build.")
+    return given
 
 
 def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: list[dict], by: dict,
-                   job: str | None, inventory: dict, res: AcceptResult) -> AcceptResult:
+                   job: str | None, inventory: dict, res: AcceptResult, given: Manifest | None) -> AcceptResult:
     root = ws.root
     _recover_locked(root)  # never merge into a partial kb/ (ADR-0031)
-    docs = ws.kb_documents()  # read now, under the lock
+    snap = read_snapshot(root)  # read now, under the lock
+    lws = ws.pinned(snap)
+    manifest = _current_manifest(lws, spec, inputs, given)  # before anything is judged or written (ADR-0033)
+    docs = list(snap.documents)
     kb_records = {r["id"]: r for _, doc in docs for r in _records(doc) if isinstance(r.get("id"), str)}
-    domain = list(spec.validate(ws, inputs, proposals))
+    domain = list(spec.validate(lws, inputs, proposals))
 
     # records with provenance, each checked against the contract on its own
     new: list[dict] = []
     for p in proposals:
-        prov, errs = _provenance(ws, p, by, job, kb_records)
+        prov, errs = _provenance(lws, p, by, job, kb_records, manifest)
         domain += errs
         if prov is None:
             continue
@@ -513,7 +622,7 @@ def _accept_locked(ws: Workspace, spec: TaskSpec, inputs: Inputs, proposals: lis
                 d["records"] = sorted((ordered(r) for r in d["records"]), key=lambda r: _natural(r.get("id", "")))
         texts[path] = dump(file_docs)
     final = {r["id"]: r for _, d in docs for r in _records(d) if isinstance(r.get("id"), str)}
-    contents = {p: p.read_bytes() for p in kb_files(root)} | {p: t.encode("utf-8") for p, t in texts.items()}
+    contents = dict(snap.files) | {p: t.encode("utf-8") for p, t in texts.items()}
     res.receipt = {"generation": _generation(root, contents),
                    "records": {rid: content_hash(final[rid]) for rid in res.records}}
     if job:
@@ -668,6 +777,34 @@ def check_receipt(root: str | Path, receipt: dict, *, dry_run: bool = False,
             out.append(f"{rid}: brak w kb/")
         elif content_hash(current[rid]) != h:
             out.append(f"{rid}: inna treść w kb/")
+    return out
+
+
+@dataclass
+class ReceiptComparison:
+    """A receipt against the current `kb/`, read only (`glu receipt`, ADR-0033)."""
+    status: str                                     # match | differs | pending_batch
+    records: dict[str, dict] = field(default_factory=dict)  # id → {state: same|changed|missing, job: current prov.job}
+    generation_equal: bool | None = None            # kb/ byte for byte as after the acceptance
+
+
+def compare_receipt(root: str | Path, receipt: dict, lock_timeout: float | None = None) -> ReceiptComparison:
+    """Compare a receipt with the current `kb/` and change nothing: no recovery, no lock file created (the writer lock
+    is taken only when its file exists, which writes nothing). A pending batch is reported, not resolved. A
+    difference may be a correct later change of `kb/` (another job, a human decision), not damage."""
+    root = Path(root)
+    with lock(root, lock_timeout, create=False):
+        if pending_batch(root):
+            return ReceiptComparison("pending_batch")
+        snap = read_snapshot(root)
+    current = {r["id"]: r for _, d in snap.documents for r in _records(d) if isinstance(r.get("id"), str)}
+    out = ReceiptComparison("match", generation_equal=receipt.get("generation") == snap.generation)
+    for rid, h in receipt["records"].items():
+        rec = current.get(rid)
+        state = "missing" if rec is None else "same" if content_hash(rec) == h else "changed"
+        out.records[rid] = {"state": state, "job": ((rec or {}).get("prov") or {}).get("job")}
+        if state != "same":
+            out.status = "differs"
     return out
 
 

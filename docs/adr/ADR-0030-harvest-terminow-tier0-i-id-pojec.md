@@ -1,6 +1,6 @@
 # ADR-0030: Harvest terminów Tier 0: wzorce o pewnej kategorii, job na dokument, ID pojęć
 
-- **Status:** przyjęty
+- **Status:** przyjęty; zależności joba harvest (wszystkie wejścia, dokumenty `rules`) w `prov.manifest` według ADR-0033
 - **Data:** 2026-10-05
 - **Milestone:** M9b
 

@@ -122,6 +122,21 @@ reconcile nie dodaje krawędzi. Receipty zakończonych i nieznanych jobów są u
 a `--dry-run` niczego nie tworzy (ani `.glu/`, ani bazy, ani plików blokad). Wznowienie przerwanej pracy to nadal
 nowy build.
 
+<a id="receipt"></a>
+**Diagnostyka receiptu (M-STAB3b, ADR-0033).** `glu receipt <job> [--json]` porównuje `kb_receipt` joba (albo
+receipt nierozstrzygniętej akceptacji joba w `validating`) z bieżącym `kb/` i tylko raportuje: `match` (kod 0),
+`differs`, `no_job`, `no_receipt`, `pending_batch` (kod 1), błąd operacyjny (kod 2). Bazę otwiera tylko do odczytu
+(bez migracji), nie robi recovery ani reconcile, nie usuwa receiptów i nie tworzy plików blokad. Przy różnicy podaje
+bieżące `prov.job` rekordu i czy to późniejszy job: różnica względem historycznego receiptu może wynikać z poprawnej
+późniejszej zmiany `kb/` ([DATA-CONTRACTS §10](DATA-CONTRACTS.md#diagnostyka-receiptu)).
+
+**Manifest joba i świeżość kontekstu (M-STAB3b, ADR-0033).** Planner bierze klucz joba z manifestu wywołania
+(`wgc.manifest.build`). Wykonawca liczy manifest ponownie przed implementacją (dla zadań czytających `kb/` na jednej
+migawce `kb/`, którą czyta też implementacja). Inny niż w planie kończy job `running → failed` (Attempt `error`,
+powód „wejścia joba zmieniły się od planu”), zanim implementacja ruszy. `accept()` dostaje ten manifest
+i odmawia zapisu, gdy kontekst zmienił się przed akceptacją (`KBContextStale`: Attempt `error`, `validating → failed`,
+powód „kontekst kb/ zmienił się między wykonaniem a akceptacją”).
+
 ## 4. Pętla structured output
 ```text
 MODEL → STRUCTURED OUTPUT (JSON Schema w żądaniu: guided decoding / response_format)
@@ -159,9 +174,11 @@ Cache jest częścią architektury. **Niezmienione wejście = zero wywołań mod
 | L2: wynik joba | sha256 z `cache_key` (niżej) | zaakceptowana propozycja + wynik walidacji |
 
 `cache_key` (schemat `glu.schema.json#/$defs/cache_key`):
-`task`, `task_version`, `prompt_version`, `output_schema`, `profile` + `profile_fingerprint`, `input_hash` (hashe
-segmentów lub rekordów wejściowych), `context_hash` (hash projekcji rekordów kontekstu), `dependency_state` (hash
-projekcji zaakceptowanych rekordów nadrzędnych).
+`task`, `task_version`, `prompt_version`, `output_schema`, `profile` + `profile_fingerprint`, `input_hash` (hash
+manifestu wywołania bez kontekstu: projekcje wejść i dane autorytetu dokumentów źródłowych; projekcja segmentu ma
+`text_hash` i `struct_hash`, więc inne granice komórek lub wierszy dają inny klucz, ADR-0032, ADR-0033),
+`context_hash` (hash listy `context` manifestu: projekcje rekordów `kb/` czytanych jako kontekst), `dependency_state`
+(hash projekcji zaakceptowanych rekordów nadrzędnych). Generacja `kb/` nie wchodzi do klucza (ADR-0033).
 
 - **Tożsamość modelu raportuje węzeł**: `model_fingerprint` (`igw/api@0`: `/v1/models` i każdy `infer_result`) to
   hash pliku modelu, kwantyzacji, runtime'u i parametrów uruchomienia. GLU łączy go z tym, co sam wysyła:
@@ -193,7 +210,8 @@ projekcji zaakceptowanych rekordów nadrzędnych).
   idź dalej.
 - **Kierunek:** krawędzie biegną tylko w dół etapów. Zmiana layoutu Stage 3 nie ma krawędzi do Stage 1.
 - Zmiana jednej reguły nie powoduje pełnej analizy gry. Przelicza się tylko jej domknięcie w grafie.
-- Świeżość da się wyliczyć bez `.glu/`, bo `seg_hash` i `prov.inputs_hash` są w `kb/`.
+- Świeżość da się wyliczyć bez `.glu/`, bo `seg_hash`, `prov.inputs_hash` i `prov.manifest` są w `kb/`
+  (`wgc.manifest.check`, ADR-0033).
 
 ## 8. Budżety i bezpieczniki
 - `build.policy.budget_premium_usd` i limit tokenów premium. Po przekroczeniu joby czekają (`waiting_review`) i nigdy

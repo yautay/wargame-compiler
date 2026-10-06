@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from wgc import source, tables, tasks
-from wgc.canonical import text_hash
+from wgc.canonical import struct_hash, text_hash
 from wgc.kb import KBError, Workspace
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -76,24 +76,27 @@ def test_unparsed_key_cell_makes_table_incomplete(game):
     path = source.cache_dir(game, seg["doc"]) / "SEG-dsk.4.3.txt"
     path.write_text(path.read_text(encoding="utf-8").replace("5–6\t", "5 through 6\t"), encoding="utf-8", newline="\n")
     inv = source.inventory_path(game)
-    text = inv.read_text(encoding="utf-8").replace(seg["text_hash"], text_hash(path.read_text(encoding="utf-8")))
-    inv.write_text(text, encoding="utf-8", newline="\n")
+    new = path.read_text(encoding="utf-8")
+    text = inv.read_text(encoding="utf-8").replace(seg["text_hash"], text_hash(new))
+    inv.write_text(text.replace(seg["struct_hash"], struct_hash(new)), encoding="utf-8", newline="\n")
     ws = Workspace(game)
     [proposal] = tasks.get("wgc.tables.parse").deterministic_impl(ws, ("SEG-dsk.4.3",))
     assert proposal["record"]["rows"][1][0] == "5 through 6"
     assert proposal["record"]["complete"] is False
 
 
-def test_cache_without_cell_separator_is_reported(game):
-    """A cache written before ADR-0024 has the same text_hash but no tabs: the task says what to do."""
+def test_cache_without_cell_separator_is_refused(game):
+    """A cache written before ADR-0024 has the same text_hash but no tabs: `struct_hash` stops the task (ADR-0032)."""
     seg = Workspace(game).segment("SEG-dsk.4.3")
     path = source.cache_dir(game, seg["doc"]) / "SEG-dsk.4.3.txt"
     path.write_text(path.read_text(encoding="utf-8").replace("\t", " "), encoding="utf-8", newline="\n")
-    ws = Workspace(game)
-    spec = tasks.get("wgc.tables.parse")
-    proposals = spec.deterministic_impl(ws, ("SEG-dsk.4.3",))
-    [issue] = spec.validate(ws, ("SEG-dsk.4.3",), proposals)
-    assert "tabulatorem" in issue and "wgc source extract" in issue
+    with pytest.raises(KBError, match="wiersze albo komórki.*wgc source extract"):
+        tasks.get("wgc.tables.parse").deterministic_impl(Workspace(game), ("SEG-dsk.4.3",))
+
+
+def test_text_without_cell_separator_has_no_columns():
+    """Without tab-separated rows nothing is guessed: no columns, so `validate` rejects the table."""
+    assert tables.parse("Combat Results Table\n4 or less No effect") == ([], [])
 
 
 def test_validate_reports_ragged_rows(game):

@@ -1,6 +1,6 @@
 # ADR-0025: TaskSpec jako interfejs Pythona, `accept()` jako jedyny zapis do `kb/`, wykonawca Tier 0 i planner
 
-- **Status:** przyjęty
+- **Status:** przyjęty; `semantic_projection`, klucz joba i `prov.inputs_hash` zmienione przez ADR-0033 (manifest wywołania), projekcje przez ADR-0034
 - **Data:** 2026-10-05
 - **Milestone:** M9a
 

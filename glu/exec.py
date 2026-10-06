@@ -13,6 +13,12 @@ Every state change goes through `glu.store` and the transition tables of `glu.st
 Each run is one Attempt (`tier: deterministic`). The output goes to `wgc.kb.accept`, which decides provenance and is
 the only writer of `kb/`: the executor never writes KB YAML. No routing decision is recorded (router: M12).
 
+Before the implementation runs, the job manifest is computed again (`wgc.manifest.build`, ADR-0033). For a task that
+reads `kb/` it is computed on a workspace pinned to one `kb/` snapshot, and the implementation reads the same
+snapshot; `accept()` gets that manifest and refuses it when the context changed meanwhile (`KBContextStale`). A
+manifest different from the planned one (e.g. an earlier job of this build changed the context) fails the job before
+anything runs, so the job key in the store and `prov.manifest` never disagree; ordering jobs is M13.
+
 The final entries of a job (the Attempt, with `kb_receipt` when accepted, and its last transitions) go in one store
 transaction (`Store.finish_job`). A build starts with reconcile of interrupted builds and `kb/` (`glu.reconcile`) and
 holds its liveness lock until it ends (ADR-0031).
@@ -25,9 +31,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from glu import reconcile
-from glu.planner import Plan, PlannedJob
+from glu.planner import Plan, PlannedJob, cache_key
 from glu.store import Store, StoreError
-from wgc import fsio, kb
+from wgc import fsio, kb, manifest as manifests
 from wgc.kb import Workspace
 
 
@@ -55,6 +61,7 @@ class BuildResult:
 
 # Transition reasons of operational `accept()` failures (all are Attempts with `outcome: error`, not `rejected`).
 _KB_FAILURES = {kb.KBBusy: "kb/ zajęte przez innego pisarza", kb.KBStale: "inwentarz zmienił się w trakcie joba",
+                kb.KBContextStale: "kontekst kb/ zmienił się między wykonaniem a akceptacją",
                 kb.KBWriteError: "awaria zapisu kb/", kb.KBBatchConflict: "przerwana partia kb/ wymaga decyzji"}
 
 
@@ -80,8 +87,18 @@ def run_job(store: Store, ws: Workspace, job_id: str, planned: PlannedJob, count
         finish("error", [("failed", {"reason": reason})], error_class="runtime", validation_errors=result.issues)
         return result
 
+    try:  # what the job reads, again: kb/ reads from one snapshot that the implementation reads too (ADR-0033)
+        jws = ws.pinned(kb.snapshot(ws.root)) if manifests.reads_kb(ws, spec, planned.inputs) else ws
+        manifest = manifests.build(jws, spec, planned.inputs)
+    except kb.KBError as e:
+        result.issues = [str(e)]
+        return error("nie można odczytać wejść joba")
+    if cache_key(spec, manifest) != planned.cache_key:
+        result.issues = ["wejścia joba zmieniły się od planu: " + "; ".join(manifests.diff(planned.manifest.body,
+                                                                                         manifest.body))]
+        return error("wejścia joba zmieniły się od planu")
     try:
-        proposals = spec.deterministic_impl(ws, planned.inputs)
+        proposals = spec.deterministic_impl(jws, planned.inputs)
     except Exception as e:  # a bug or unreadable input of one task must not stop the build
         result.issues = [f"{type(e).__name__}: {e}"]
         return error("błąd implementacji deterministycznej")
@@ -89,7 +106,7 @@ def run_job(store: Store, ws: Workspace, job_id: str, planned: PlannedJob, count
     store.transition_job(job_id, "validating")
     try:
         accepted = kb.accept(ws.root, spec, planned.inputs, proposals, by={"tier": tier, "tool": spec.name},
-                             job=job_id, ws=ws)
+                             job=job_id, ws=jws, manifest=manifest)
     except kb.KBUnresolved as e:  # the outcome is not decided: keep the evidence (receipt, journal) for reconcile
         raise kb.KBUnresolved(f"job {job_id}: {e} Build przerwany: job zostaje w `validating` do reconcile.") from e
     except kb.KBError as e:  # operational: the output was not judged, so it is an error, not a rejection

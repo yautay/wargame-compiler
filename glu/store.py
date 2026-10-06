@@ -155,20 +155,33 @@ def migrate(conn: sqlite3.Connection) -> int:
 class Store:
     """Open job store. Use as a context manager or call `close()`."""
 
-    def __init__(self, path: str | Path, *, create: bool = True,
+    def __init__(self, path: str | Path, *, create: bool = True, read_only: bool = False,
                  clock: Callable[[], datetime] = utc_now, new_id: Callable[[str], str] = new_id):
+        """`read_only`: an existing database opened with `mode=ro`, never migrated (diagnostics, ADR-0033)."""
         self.path = Path(path)
-        if not create and not self.path.is_file():
+        if (read_only or not create) and not self.path.is_file():
             raise StoreError(f"brak bazy stanu GLU: {self.path} (nie utworzono jeszcze żadnego buildu)")
-        if create:
+        if create and not read_only:
             self.path.parent.mkdir(parents=True, exist_ok=True)
         self._clock = clock
         self._new_id = new_id
         try:
-            self._conn = sqlite3.connect(self.path, isolation_level=None, timeout=5.0)
+            if read_only:
+                self._conn = sqlite3.connect(self.path.resolve().as_uri() + "?mode=ro", uri=True,
+                                             isolation_level=None, timeout=5.0)
+            else:
+                self._conn = sqlite3.connect(self.path, isolation_level=None, timeout=5.0)
         except sqlite3.Error as e:
             raise StoreError(f"nie można otworzyć bazy stanu GLU {self.path}: {e}") from e
         try:
+            if read_only:
+                version = self._conn.execute("PRAGMA user_version").fetchone()[0]
+                if version != SCHEMA_VERSION:
+                    raise StoreError(f"baza {self.path} ma wersję schematu {version}, a ta wersja GLU używa "
+                                     f"{SCHEMA_VERSION}; odczyt bez migracji jest niemożliwy (migruje każde polecenie "
+                                     "zapisu, np. `glu status`)")
+                self.applied_migrations = 0
+                return
             self._conn.execute("PRAGMA foreign_keys = ON")
             self.applied_migrations = migrate(self._conn)
         except sqlite3.OperationalError as e:  # e.g. locked by another process
@@ -407,6 +420,10 @@ class Store:
         rows = self._conn.execute("SELECT src, dst, at, reason FROM transition WHERE entity_id = ? ORDER BY seq",
                                   (entity_id,))
         return [{"src": src, "dst": dst, "at": at, "reason": reason} for src, dst, at, reason in rows]
+
+    def creation_seq(self, entity_id: str) -> int | None:
+        """Position of the creation of a build or job in the transition log (monotonic, unlike clock time)."""
+        return self._conn.execute("SELECT MIN(seq) FROM transition WHERE entity_id = ?", (entity_id,)).fetchone()[0]
 
     def export(self, build_id: str | None = None) -> dict:
         """One `glu/exec@0` document: each build, then its jobs, then per job its attempts and routing decisions.

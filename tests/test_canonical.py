@@ -112,10 +112,13 @@ def test_projection_hash_ignores_statement_notes_risk():
 
 
 def test_projection_covers_required_kinds():
-    kinds = {k for k, _ in PROJECTIONS}
-    assert kinds == {"rule", "concept", "relation", "segment"}
+    from wgc.kb import KIND_FILES
+    # every record kind of kb/logic has a `logic` projection: no fallback can come back (ADR-0034)
+    assert {k for k, c in PROJECTIONS if c == "logic"} >= set(KIND_FILES) | {"segment", "source_document"}
     for (kind, _consumer), fields in PROJECTIONS.items():
-        assert not {"statement", "notes", "risk", "status", "prov", "kind", "id"} & set(fields), kind
+        assert not {"notes", "refs", "risk", "status", "prov", "kind", "id"} & set(fields), kind
+        # a rule's gloss enters only through CONDITIONAL; an interpretation's statement is its content
+        assert "statement" not in fields or kind == "interpretation", kind
 
 
 def test_projection_unknown_pair():

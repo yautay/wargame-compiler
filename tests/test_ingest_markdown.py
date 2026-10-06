@@ -1,4 +1,4 @@
-"""Markdown extractor `wgc.ingest.markdown@0`: segmentation, printed text, determinism (ADR-0020)."""
+"""Markdown extractor `wgc.ingest.markdown@1`: segmentation, printed text, determinism (ADR-0020)."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -119,5 +119,5 @@ def test_deterministic(bench):
 
 def test_extractor_registry():
     name, fn = extractor_for("source/rules.MD")
-    assert name == markdown.NAME == "wgc.ingest.markdown@0" and fn is markdown.extract
+    assert name == markdown.NAME == "wgc.ingest.markdown@1" and fn is markdown.extract
     assert extractor_for("private/rules.docx") is None

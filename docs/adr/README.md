@@ -25,15 +25,18 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
 | [ADR-0017](ADR-0017-niedostepnosc-wezla-bez-premium-fallback.md) | Niedostępność węzła nie eskaluje do premium; self-hosted jako zasób obfity | przyjęty (rola `local_deep` doprecyzowana przez ADR-0028) |
 | [ADR-0018](ADR-0018-runtime-mvp-llama-cpp-windows.md) | Runtime MVP: llama.cpp natywnie na Windows; vLLM w WSL2 po benchmarku | przyjęty |
 | [ADR-0019](ADR-0019-wiele-dokumentow-w-pliku-yaml.md) | Plik YAML może zawierać wiele dokumentów, każdy z własnym kontraktem | przyjęty |
-| [ADR-0020](ADR-0020-inwentarz-i-segmentacja-stage0.md) | Inwentarz Stage 0, segmentacja Markdown, ID segmentów i domyślne pierwszeństwo źródeł | przyjęty |
+| [ADR-0020](ADR-0020-inwentarz-i-segmentacja-stage0.md) | Inwentarz Stage 0, segmentacja Markdown, ID segmentów i domyślne pierwszeństwo źródeł | przyjęty (pola generowane segmentu i `verified_by_render` rozszerzone przez ADR-0032) |
 | [ADR-0021](ADR-0021-ingest-pdf-biblioteka-i-segmentacja.md) | Ingest PDF na bibliotekach o licencjach liberalnych (pdfplumber, pypdfium2), segmentacja PDF i flagi wizualne | przyjęty |
 | [ADR-0022](ADR-0022-glu-natywnie-na-windows.md) | GLU na dev machine działa natywnie na Windows (Q-03) | przyjęty |
 | [ADR-0023](ADR-0023-job-store-sqlite-i-maszyna-stanow.md) | Job store GLU w SQLite (`.glu/state.db`, migracje przez `user_version`) i maszyna stanów joba i buildu jako tabela | przyjęty |
-| [ADR-0024](ADR-0024-separator-komorek-tabel-w-tekscie-segmentu.md) | Komórki tabel w tekście segmentu rozdziela tabulator, bez zmiany wersji ekstraktorów | przyjęty |
-| [ADR-0025](ADR-0025-taskspec-accept-i-wykonawca-tier0.md) | TaskSpec jako interfejs Pythona, `accept()` jako jedyny zapis do `kb/`, wykonawca Tier 0 i planner | przyjęty |
+| [ADR-0024](ADR-0024-separator-komorek-tabel-w-tekscie-segmentu.md) | Komórki tabel w tekście segmentu rozdziela tabulator, bez zmiany wersji ekstraktorów | zastąpiony przez ADR-0032 |
+| [ADR-0025](ADR-0025-taskspec-accept-i-wykonawca-tier0.md) | TaskSpec jako interfejs Pythona, `accept()` jako jedyny zapis do `kb/`, wykonawca Tier 0 i planner | przyjęty (rozszerzony przez ADR-0033, ADR-0034) |
 | [ADR-0026](ADR-0026-atomowy-zapis-i-blokada-pisarza-kb.md) | Atomowy zapis pliku KB i blokada pisarza projektu wokół całego `accept()` | przyjęty |
 | [ADR-0027](ADR-0027-autorytet-rol-zrodel-i-niepotwierdzone-kotwice.md) | Automatyczna akceptacja tylko z ról kanonicznych; niepotwierdzona kotwica to odrzucenie, nie inferencja | przyjęty |
 | [ADR-0028](ADR-0028-local-deep-bez-prawa-akceptacji.md) | `local_deep` bez prawa akceptacji w `routing@0`; spór i reguły `forced` zawsze idą do premium | przyjęty |
 | [ADR-0029](ADR-0029-przeklad-premium-weryfikacja-lokalna.md) | Przekład Stage 3 pisze premium; wierność sprawdzają wykonawcy niezależni od tłumacza | przyjęty |
-| [ADR-0030](ADR-0030-harvest-terminow-tier0-i-id-pojec.md) | Harvest terminów Tier 0: wzorce o pewnej kategorii, job na dokument, ID pojęć (`CON-<klucz>`, `CON-<klucz SRC>:<klucz>`) | przyjęty |
+| [ADR-0030](ADR-0030-harvest-terminow-tier0-i-id-pojec.md) | Harvest terminów Tier 0: wzorce o pewnej kategorii, job na dokument, ID pojęć (`CON-<klucz>`, `CON-<klucz SRC>:<klucz>`) | przyjęty (rozszerzony przez ADR-0033) |
 | [ADR-0031](ADR-0031-commit-partii-kb-i-recovery.md) | Commit partii plików `kb/` z dziennikiem wycofania i recovery; receipt akceptacji w Attempcie; reconcile GLU z blokadą żywotności buildu | przyjęty |
+| [ADR-0032](ADR-0032-hash-struktury-segmentu.md) | Wersjonowany hash struktury segmentu (`struct_hash`) obok `text_hash` w kluczu joba, provenance i verify; ekstraktory `@1` i jawna regeneracja | przyjęty (zastępuje ADR-0024; rozszerzony przez ADR-0033, ADR-0034) |
+| [ADR-0033](ADR-0033-manifest-wywolania-i-swiezosc-kontekstu.md) | Manifest wywołania zadania w `prov.manifest` jako jedna definicja zależności plannera i provenance; świeżość kontekstu `kb/` przez generację; `glu receipt` | przyjęty |
+| [ADR-0034](ADR-0034-projekcje-semantyczne-wersja-2.md) | Projekcje `wgc/projection@2`: treść nieformalizowana, definicje predykatów, rodzaje M10–M14 i E2E, bez zapasów | przyjęty |

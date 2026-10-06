@@ -249,16 +249,27 @@ Zakres etapu 3 stabilizacji (ustalenia F03, F05, F06, F07 i F11 przeglądu, decy
 duży na jedną sesję, więc dzieli się na trzy milestone'y wykonywane po kolei przed M10.
 
 ### M-STAB3a: Stabilizacja po M9a, etap 3a: hashe strukturalne
-- **Status:** next · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB2
+- **Status:** done · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB2
 - **Zakres:** ustalenie F03 przeglądu, decyzja N03: obok znormalizowanego `text_hash` wersjonowany hash struktury
   tabeli albo artefaktu ekstrakcji, używany przez parser, planner, provenance i verify; zastąpienie ADR-0024; nowa
   wersja ekstraktora albo formatu i jawna regeneracja wcześniejszych artefaktów.
 - **Akceptacja:** test zmiany granic komórek bez zmiany `text_hash` (wykryta przez verify, planner i provenance);
   `python -m pytest` zielone.
 - **Poza zakresem:** manifest wejść i projekcje (M-STAB3b), kontrakt propozycji (M-STAB3c), trwałe ID (F10).
+- **Wynik (ADR-0032, zastępuje ADR-0024):**
+  - `struct_hash` segmentu: `content_hash({format: wgc/struct@0, lines: structure(tekst)})`, czyli wiersze i komórki
+    tekstu (`wgc.canonical.structure`). Pole w `wgc/source@0` (addytywne);
+  - projekcja `logic` segmentu ma `struct_hash` (`wgc/projection@1`): zmienia się klucz joba i `prov.inputs_hash`,
+    a `seg_hash` kotwic (`text_hash`) zostaje;
+  - `Workspace.text` sprawdza oba hashe i wymaga `struct_hash` (planner, parsery, cytaty kotwic);
+  - `wgc.tables.parse` i `wgc.terms.harvest` czytają tekst tylko przez `structure`;
+  - `verify`: `segment_struct_mismatch`, `struct_hash_missing`, `cache_mismatch` także dla struktury;
+  - ekstraktory `wgc.ingest.markdown@1` i `wgc.ingest.pdf@1`. Inwentarz `@0` wymaga `wgc source extract` (jawna
+    regeneracja); inwentarz gry benchmarkowej i fixture `source.minigame.yaml` wygenerowane ponownie;
+  - testy `tests/test_struct_hash.py` (F03 w cache i w źródle, granica wiersza w liście faz, regeneracja `@0`).
 
 ### M-STAB3b: Stabilizacja po M9a, etap 3b: manifest wejść i projekcje
-- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3a
+- **Status:** done · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3a
 - **Zakres:** ustalenia F05 i F06, decyzje N05 i N06:
   - **manifest wejść wywołania:** task/version, projekcja/version, wejścia i kontekst z hashami, autorytet źródeł;
     osobno dowody rekordu (`prov`). Generacja `kb/` dla zadań czytających rekordy KB (liczona już przez
@@ -271,9 +282,25 @@ duży na jedną sesję, więc dzieli się na trzy milestone'y wykonywane po kole
 - **Akceptacja:** testy zmiany treści nieformalizowanej i zmiany kontekstu (generacja `kb/`); polecenie diagnostyczne
   z testem zgodnego receiptu, różnicy i braku joba; `python -m pytest` zielone.
 - **Poza zakresem:** kontrakt propozycji (M-STAB3c), cache (M11), graf zależności (M13).
+- **Wynik (ADR-0033, ADR-0034):**
+  - manifest wywołania `wgc/manifest@0` (`wgc.manifest.build`): zadanie i wersja, wersja projekcji, wejścia, dane
+    autorytetu dokumentów źródłowych i kontekst `kb/`, każde z hashem. Jedna definicja dla klucza joba (planner,
+    ponownie wykonawca) i `prov.manifest` (w `kb/`, więc zależności przetrwają utratę `.glu/`; `wgc.manifest.check`);
+  - `prov.inputs_hash` to hash dowodów rekordu (kotwice, `derived_from`); dowód spoza manifestu jest odrzucany;
+  - `TaskSpec`: `semantic_projection` dla jednego wejścia, nowe `authority_selector` (harvest: każdy dokument
+    `rules`) i `context_selector`; bez `projections` i `input_hash`;
+  - świeżość kontekstu: migawka `kb/` (`wgc.kb.read_snapshot`, `Workspace.pinned`) dla manifestu i implementacji,
+    generacja jako token porównania w `accept()`, `KBContextStale`; manifest wykonania różny od planu kończy job;
+  - projekcje `wgc/projection@2`: treść nieformalizowana reguł `none`/`partial`, definicja i `defined_by` predykatu
+    w `digital`, projekcje `source_document`, `table`, `procedure`, `ambiguity`, `interpretation`, `case`, `change`,
+    `legality`, `test`; bez zapasów (`ProjectionError`);
+  - `glu receipt <job> [--json]`: porównanie `kb_receipt` z `kb/` tylko do odczytu (`Store(read_only=True)`,
+    `wgc.kb.compare_receipt`), statusy `match`, `differs`, `no_job`, `no_receipt`, `pending_batch`;
+  - kontrakt: `$defs/manifest` i `provenance.manifest` w `common.schema.json` (addytywnie), fixture'y;
+  - testy `tests/test_manifest.py`, `tests/test_projections.py`, `tests/test_glu_receipt.py`.
 
 ### M-STAB3c: Stabilizacja po M9a, etap 3c: kontrakt propozycji, ownership, wdrożenie ADR-0027
-- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3b
+- **Status:** next · **Rola:** ARCH + IMPL · **Zależy od:** M-STAB3b
 - **Zakres:** ustalenia F07 i F11, decyzje N07 i N10:
   - **kontrakt propozycji i statusów:** `wgc/proposal@0` (envelope), dispatch kontraktu etapu, lifecycle oddzielony
     od rozstrzygnięcia niejasności;

@@ -3,7 +3,7 @@
 ## 1. Rejestr kontraktów
 | Kontrakt | Plik | Zawartość | Stan |
 |---|---|---|---|
-| `wgc/common` | `contracts/schemas/common.schema.json` | ID, hash, glosa, kotwica, wykonawca, provenance, ryzyko, cykl życia, `HD-`, `RR-` | @0 szkic |
+| `wgc/common` | `contracts/schemas/common.schema.json` | ID, hash, glosa, kotwica, wykonawca, provenance (z manifestem wywołania `wgc/manifest@0`, ADR-0033), ryzyko, cykl życia, `HD-`, `RR-` | @0 szkic |
 | `wgc/source@0` | `source.schema.json` | Stage 0: `source_document` (role, `seg_prefix`, pierwszeństwo), `segment`; inwentarz `source/inventory.yaml` ([§9](#stage0)) | @0 szkic |
 | `wgc/logic@0` | `logic.schema.json` | Stage 1: Rule IR i rekordy pokrewne, gramatyka wyrażeń i efektów | @0 szkic |
 | `wgc/digital@0` | `digital.schema.json` | Stage 1.5 | @0 szkic |
@@ -48,11 +48,13 @@ infrastruktury inferencji, a `igw` czyta ten sam plik schematu bez importu `wgc`
   i `routing_decision`. `review_package` dojdzie w M12/M13.
 - `job.attempts` jest wyliczane z zapisanych Attemptów.
 - Test `tests/test_glu_store.py` odtwarza przez store fixture `contracts/fixtures/valid/glu.job.yaml` rekord w rekord.
-- Job Tier 0 (M9a) ma `tier: deterministic`, a `cache_key` bez `prompt_version`, `profile` i `dependency_state`;
-  `context_hash` to hash pustej listy ([§10](#propozycje)).
+- Job Tier 0 (M9a) ma `tier: deterministic`, a `cache_key` bez `prompt_version`, `profile` i `dependency_state`.
+  `input_hash` i `context_hash` pochodzą z manifestu wywołania joba ([§10](#manifest), ADR-0033). Dla zadania, które
+  nie czyta rekordów `kb/`, `context_hash` to hash pustej listy.
 - Attempt `accepted` niesie `kb_receipt` (M-STAB2, ADR-0031): `generation` (hash generacji `kb/` po akceptacji) i
   `records` (ID → `content_hash` rekordu w `kb/`). Pole jest opcjonalne i addytywne w `@0`. Końcowe wpisy joba
-  (Attempt i ostatnie przejścia) zapisuje jedna transakcja (`Store.finish_job`).
+  (Attempt i ostatnie przejścia) zapisuje jedna transakcja (`Store.finish_job`). `glu receipt <job>` porównuje ten
+  receipt z bieżącym `kb/` tylko do odczytu ([§10](#diagnostyka-receiptu), ADR-0033).
 
 ## 2. Wersjonowanie i zgodność
 - `@0` to szkic: może się zmieniać bez migracji, ale każda zmiana aktualizuje fixture'y i testy w tej samej sesji.
@@ -115,20 +117,59 @@ Implementacja: `wgc/canonical.py`.
   łączniki (U+00AD) razem z następującym białym znakiem, przeniesienia (łącznik na końcu wiersza między dwoma
   niebiałymi znakami): między literą a małą literą łącznik i złamanie znikają (`move-⏎ment` → `movement`), w pozostałych
   przypadkach znika tylko złamanie (`First-⏎Player` → `First-Player`, `3-⏎step` → `3-step`), zwinięte białe znaki,
-  obcięte końce.
+  obcięte końce. Nie zależy od zawijania wierszy ani od separatora komórek. Używają go kotwice (`seg_hash`), wykrywanie
+  nieaktualnych kotwic i parytet Markdown ↔ PDF.
+- **Hash struktury segmentu (`struct_hash`, ADR-0032):** `content_hash({format: "wgc/struct@0", lines: structure(tekst)})`.
+  `structure` (`wgc.canonical`) to wiersze tekstu segmentu jako listy komórek:
+  - NFC, CRLF i CR → LF;
+  - podział na wiersze po LF, na komórki po tabulatorze (`CELL_SEP`);
+  - w komórce zwinięte białe znaki;
+  - pomijany jest pusty wiersz bez tabulatora (wiersz pustych komórek zostaje, bo to wiersz tabeli);
+  - bez łączenia przeniesień.
+
+  Te same słowa w innych wierszach albo komórkach dają ten sam `text_hash` i inny `struct_hash`. Parsery tekstu
+  (`wgc.tables.parse`, `wgc.terms.harvest`) czytają tekst wyłącznie przez `structure`, więc równy `struct_hash` daje
+  równy wynik. Zmiana definicji `structure` to nowa wersja `wgc/struct@N` i nowa wersja ekstraktorów.
 - **Projekcja semantyczna (`projection(record, consumer)`):** dla każdej pary (rodzaj rekordu, konsument) WGC definiuje
   listę pól wchodzących do hasha. Projekcja zawiera zawsze `kind` i `id` oraz te pola z listy, które rekord ma.
-  `statement`, `notes`, `risk`, `status` i `prov` nigdy do niej nie wchodzą. Listy są danymi (`PROJECTIONS`),
-  wersja `wgc/projection@0`, zmieniana razem z kontraktem. Konsumenci: `logic` (joby Stage 1 czytające rekord jako
-  wejście lub kontekst), `digital` (Stage 1.5), `publication` (przekład segmentu, Stage 3).
+  `notes`, `refs`, `risk`, `status` i `prov` nigdy do niej nie wchodzą. Glosa reguły (`statement`) wchodzi tylko jako
+  pole warunkowe (niżej). Listy są danymi (`PROJECTIONS`, `CONDITIONAL`), wersja `wgc/projection@2` (`@1`:
+  `struct_hash` w projekcji `logic` segmentu, ADR-0032; `@2`: treść nieformalizowana, definicje predykatów, rodzaje
+  M10–M14 i E2E, bez zapasów, ADR-0034). Konsumenci: `logic` (joby Stage 1 czytające rekord jako wejście lub
+  kontekst), `digital` (Stage 1.5), `publication` (przekład segmentu, Stage 3).
 
   | Rodzaj | `logic` | `digital` | `publication` |
   |---|---|---|---|
-  | `segment` | `doc`, `label`, `segment_type`, `text_hash` | — | `segment_type`, `text_hash` |
+  | `segment` | `doc`, `label`, `segment_type`, `text_hash`, `struct_hash` | — | `segment_type`, `text_hash` |
+  | `source_document` | `role`, `seg_prefix`, `precedence` | — | — |
   | `rule` | `label`, `section`, `layer`, `applies_in`, `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`, `effects`, `limits`, `triggers`, `formalization`, `ambiguities` | `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`, `effects`, `limits`, `triggers`, `layer`, `applies_in`, `formalization` | `nature`, `modality`, `bind`, `actor`, `action`, `target`, `timing`, `conditions`, `effects`, `limits`, `triggers` |
   | `concept` | `category`, `name`, `source_terms`, `definition`, `of`, `params`, `parent`, `value_type`, `range`, `values`, `defined_by` | `category`, `name`, `of`, `params`, `value_type`, `range`, `values`, `parent` | `category`, `name`, `source_terms`, `definition` |
   | `relation` | `type`, `from`, `to`, `when`, `priority_basis` | `type`, `from`, `to`, `when`, `priority_basis` | `type`, `from`, `to` |
-- `prov.inputs_hash` = hash projekcji wejść (kotwic i `derived_from`) w chwili akceptacji.
+  | `table` | `title`, `columns`, `rows`, `complete` | jak `logic` | `title`, `columns`, `rows` |
+  | `procedure` | `title`, `category`, `repeat`, `steps` | jak `logic` | `title`, `steps` |
+  | `ambiguity` | `scope`, `question`, `readings`, `recommendation`, `impact`, `resolved_by` | — | — |
+  | `interpretation` | `ambiguity`, `reading`, `statement` (treść odczytu, nie glosa) | jak `logic` | — |
+  | `case` | `polarity`, `question`, `expected`, `verdict`, `chain` | jak `logic` | — |
+  | `change` | `change_kind`, `affects`, `summary`, `from_edition`, `to_edition` | — | — |
+  | `legality` | — | `applies_to`, `check`, `predicate`, `reason_code`, `unless`, `realizes` | — |
+  | `test` | — | `category`, `from_case`, `covers`, `given`, `when`, `then`, `realizes` | — |
+
+  **Pola warunkowe** (`CONDITIONAL`):
+  - reguła z `formalization` `none` albo `partial` (brak pola = `full`): `statement` i `unformalized` we wszystkich
+    trzech konsumentach. Przy pełnym IR glosa nie wchodzi do projekcji;
+  - pojęcie `category: predicate`: `definition` i `defined_by` także w `digital`.
+
+  Rodzaj bez projekcji dla danego konsumenta to błąd z nazwą wersji projekcji (`ProjectionError`), nigdy zapas
+  z całego rekordu. Każdy rodzaj `kb/logic` ma projekcję `logic` (pilnuje tego test). Znaczenie reguł definiujących
+  predykat (przechodnio) dochodzi przez graf (M13), nie przez projekcję.
+- **Hashe rekordu w `prov`** (ADR-0033):
+  - `prov.inputs_hash` = hash **dowodów rekordu**: `content_hash({projection: <wersja>, records: [projekcje logic
+    segmentów kotwic i rekordów derived_from]})`;
+  - `prov.manifest` = manifest wywołania joba, czyli wszystko, co job przeczytał ([§10](#manifest)). Klucz joba
+    (`input_hash`, `context_hash`) liczy się z tego samego manifestu.
+
+  Projekcja `logic` segmentu ma `struct_hash`, więc klucz joba i oba hashe zmieniają się przy innych granicach
+  komórek lub wierszy, a `seg_hash` kotwicy (`text_hash`) nie (ADR-0032).
 
 ## 6. Konwencje YAML
 - UTF-8 bez BOM, LF (`.gitattributes`).
@@ -178,12 +219,24 @@ i `review_request.evidence`). Referencje w wyrażeniach, `ref_to`, `timing`, `em
 <a id="stage0"></a>
 ## 9. Stage 0: inwentarz źródeł i `wgc source` (M2a, M2b)
 Implementacja: `wgc/source.py` (inwentarz, polecenia) i `wgc/ingest/` (ekstraktory). Decyzje: ADR-0020 (inwentarz,
-Markdown), ADR-0021 (PDF).
+Markdown), ADR-0021 (PDF), ADR-0032 (`struct_hash`, ekstraktory `@1`).
 
 **Pliki w repo gry:**
 - `source/inventory.yaml`: jeden dokument `wgc/source@0`, commitowany, bez tekstu;
-- `.glu/source/<SRC-id>/<SEG-id>.txt`: tekst segmentów, gitignored (ADR-0012). `text_hash` liczy się z tego tekstu
-  przez `wgc.canonical.text_hash`, a `file_hash` to `wgc.canonical.sha256_hex` surowych bajtów pliku.
+- `.glu/source/<SRC-id>/<SEG-id>.txt`: tekst segmentów, gitignored (ADR-0012). `text_hash` i `struct_hash` liczą się
+  z tego tekstu (`wgc.canonical.text_hash`, `wgc.canonical.struct_hash`, §5), a `file_hash` to
+  `wgc.canonical.sha256_hex` surowych bajtów pliku.
+
+**Bramka tekstu dla zadań:** `Workspace.text` (planner, parsery, cytaty kotwic) podaje tekst segmentu tylko wtedy, gdy
+segment ma `struct_hash`, a tekst w `.glu/source/` zgadza się z `text_hash` i `struct_hash`. W przeciwnym razie
+`KBError` z poleceniem `wgc source extract`, a `glu build` kończy się kodem 2 przed utworzeniem buildu.
+
+**Regeneracja artefaktów sprzed ADR-0032:** ekstraktory `@0` nie zapisywały `struct_hash`, a cache tekstu sprzed
+ADR-0024 nie ma tabulatorów między komórkami. Inwentarz z `wgc.ingest.markdown@0` albo `wgc.ingest.pdf@0` daje w
+`verify` błąd `struct_hash_missing` i ostrzeżenie `extractor_changed`, a każde zadanie odmawia odczytu tekstu. Naprawą
+jest `wgc source extract`: dopisuje `struct_hash`, przepisuje cache i ustawia ekstraktor `@1`. Samo dopisanie
+`struct_hash` nie jest zmianą segmentu (`verified_by_render` zostaje). Pierwszy build po regeneracji zapisuje rekordy
+z nowym `prov.inputs_hash` (wynik `zmienione`), bo projekcja segmentu ma nowe pole; kotwice nie stają się nieaktualne.
 
 **Polecenia** (`python -m wgc source <podpolecenie> [--root <repo gry>]`, domyślnie katalog bieżący):
 
@@ -204,9 +257,11 @@ w `render`.
   według dokumentu i `order`;
 - pola generowane są nadpisywane:
   - w dokumencie: `present`, `file_hash`, `extractor`;
-  - w segmencie: `doc`, `label`, `segment_type`, `parent`, `order`, `pages`, `bbox`, `text_hash`, `visual_flags`;
+  - w segmencie: `doc`, `label`, `segment_type`, `parent`, `order`, `pages`, `bbox`, `text_hash`, `struct_hash`,
+    `visual_flags`;
 - pola ręczne zostają (`title`, `edition`, `language`, `complete`, `precedence`, `edition_skew`, `seg_prefix`, `notes`,
-  `corrections`, `verified_by_render`). `verified_by_render` znika, gdy zmienia się `text_hash` segmentu;
+  `corrections`, `verified_by_render`). `verified_by_render` znika, gdy zmienia się `text_hash` albo `struct_hash`
+  segmentu (render potwierdzał poprzednią ekstrakcję);
 - komentarze nie są zachowywane.
 
 **ID segmentu:**
@@ -215,21 +270,23 @@ w `render`.
 - klucz to etykieta jak wydrukowana albo `u<n>` dla n-tego segmentu bez numeru;
 - `order` to pozycja w dokumencie liczona od 1, a `parent` to najbliższy wcześniejszy nagłówek.
 
-**Segmentacja Markdown (`wgc.ingest.markdown@0`):**
+**Segmentacja Markdown (`wgc.ingest.markdown@1`; `@1` od ADR-0032: segmentacja i tekst jak w `@0` po ADR-0024, plus
+`struct_hash`):**
 - nagłówek ATX → `heading` (liczba na początku → etykieta);
 - `**N.N**` na początku wiersza → segment do następnego znacznika lub nagłówka: `table`, gdy zawiera tabelę Markdown,
   inaczej `rule`;
 - inna treść poza numerowanym segmentem → `other`;
 - tekst bez etykiety i bez markupu inline, cytatów, punktorów, pionowych kresek i separatora tabel; numery list zostają;
-- komórki wiersza tabeli rozdziela tabulator (puste komórki zostają, więc kolumny się nie przesuwają), ADR-0024;
+- komórki wiersza tabeli rozdziela tabulator (puste komórki zostają, więc kolumny się nie przesuwają); granice komórek
+  i wierszy pokrywa `struct_hash` (ADR-0032);
 - blok kodu nie otwiera segmentu.
 
-**Segmentacja PDF (`wgc.ingest.pdf@0`, ADR-0021):** te same zasady co Markdown, rozpoznawane z układu strony.
+**Segmentacja PDF (`wgc.ingest.pdf@1`, ADR-0021, `@1` od ADR-0032 jak w Markdown):** te same zasady co Markdown, rozpoznawane z układu strony.
 - **Wiersze i tekst:**
   - znaki składa się w wiersze według dolnej krawędzi i czyta od góry do dołu (jedna kolumna);
   - spacja to znak spacji albo przerwa > 0,2 rozmiaru fontu;
   - przerwa > 2 rozmiary fontu dzieli wiersz na komórki; w segmencie `table` komórki łączy się w tekście
-    tabulatorem, w pozostałych spacją (ADR-0024).
+    tabulatorem, w pozostałych spacją (ten sam `text_hash`, `struct_hash` rozróżnia, ADR-0032).
 - **Nagłówek:** wiersz z fontem > 1,1 × najczęstszy rozmiar w dokumencie. Kolejne wiersze tego rozmiaru bez numeru na
   początku łączą się w jeden nagłówek, a poziom to ranga rozmiaru.
 - **Numer reguły:** pogrubione pierwsze słowo wiersza w postaci `N.N`. Otwiera segment do następnego numeru lub
@@ -248,7 +305,9 @@ w `render`.
   - jedna kolumna;
   - nagłówki i stopki stron wchodzą do tekstu;
   - strony bez warstwy tekstu nie dają segmentów (`image_only`, `column_scrambled` i OCR nie są obsługiwane);
-  - komórka tabeli zawinięta w kilka wierszy daje inny tekst niż w Markdown.
+  - komórka tabeli zawinięta w kilka wierszy daje inny tekst niż w Markdown;
+  - zawijanie akapitów w PDF różni się od Markdown, więc `struct_hash` segmentów PDF i Markdown z tym samym tekstem
+    zwykle się różni (`text_hash` jest równy).
 
 **Domyślne pierwszeństwo według roli** (`wgc.source.DEFAULT_PRECEDENCE`, wyższe wygrywa przy jawnym konflikcie,
 [LOGIC-MODEL](LOGIC-MODEL.md#pierwszenstwo-zrodel)):
@@ -272,24 +331,27 @@ zapisywana. Politykę projektu (`project.yaml`) dodaje M7.
 |---|---|---|
 | `source_missing` | error | dokument `present: true` bez pliku |
 | `file_hash_mismatch` | error | hash pliku ≠ `file_hash` w inwentarzu |
-| `extractor_changed` | warning | inwentarz zapisał inny ekstraktor niż bieżący dla tego formatu |
+| `extractor_changed` | warning | inwentarz zapisał inny ekstraktor niż bieżący dla tego formatu (regeneracja: `extract`) |
 | `extract_error` | error | ponowna ekstrakcja się nie udała (np. powtórzona etykieta) |
 | `segment_hash_mismatch` | error | tekst segmentu po ponownej ekstrakcji ma inny `text_hash` niż w inwentarzu |
+| `segment_struct_mismatch` | error | ten sam `text_hash`, ale inny `struct_hash` niż w inwentarzu (inne granice komórek lub wierszy) |
 | `segment_missing` | error | segmentu z inwentarza nie ma już w dokumencie |
 | `segment_unlisted` | error | dokument ma segment nieobecny w inwentarzu |
+| `struct_hash_missing` | error | segmenty dokumentu bez `struct_hash` (inwentarz z ekstraktora `@0`, sprzed ADR-0032); jedna diagnostyka na dokument, segmenty w `affected` |
 | `cache_missing` | warning | brak tekstu segmentów w `.glu/source/` (odtwarza go `extract`) |
-| `cache_mismatch` | error | tekst w `.glu/source/` nie zgadza się z `text_hash` |
+| `cache_mismatch` | error | tekst w `.glu/source/` nie zgadza się z `text_hash` albo z `struct_hash` |
 
-Zmiana zawijania wierszy lub przeniesień daje tylko `file_hash_mismatch`, bo `text_hash` jest na nie niewrażliwy (§5).
+Zmiana zawijania wierszy daje `file_hash_mismatch` i `segment_struct_mismatch` (wiersze to struktura), ale nie
+`segment_hash_mismatch`, bo `text_hash` jest na nią niewrażliwy (§5).
 
 **Gra benchmarkowa:** `bench/minigame/source/inventory.yaml` jest commitowany i odświeżany poleceniem
 `python -m wgc source extract --root bench/minigame`. Fixture `contracts/fixtures/valid/source.minigame.yaml` jest jego
-podzbiorem (te same projekcje `logic` i `order`), a `seg_hash` kotwic w `logic.minigame.yaml` to prawdziwe `text_hash`.
+podzbiorem (te same projekcje `logic`, z `struct_hash`, i `order`), a `seg_hash` kotwic w `logic.minigame.yaml` to prawdziwe `text_hash`.
 Pilnuje tego `tests/test_source.py`. Inwentarza i fixture'ów nie waliduje się w jednym przebiegu, bo dałoby to
 `duplicate_id`.
 
 <a id="propozycje"></a>
-## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a, M9b, M-STAB2)
+## 10. Propozycje zadań, `accept()` i układ `kb/` (M9a, M9b, M-STAB2, M-STAB3b)
 Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Workspace`, `accept`), ADR-0025.
 
 **Propozycja** to wynik zadania, zanim WGC go przyjmie. Wykonawca (kod Tier 0, a od M10 model) zwraca listę:
@@ -303,7 +365,7 @@ Implementacja: `wgc/tasks.py` (`TaskSpec`, rejestr, zakres), `wgc/kb.py` (`Works
 - Schematu `wgc/proposal@0` jeszcze nie ma: kształt sprawdza `accept()`. Schemat dla modelu (z `decoding_schema`)
   dochodzi w M10.
 
-**`accept(root, spec, inputs, proposals, *, by, job, ws, lock_timeout)`** to jedyna droga zapisu do `kb/`.
+**`accept(root, spec, inputs, proposals, *, by, job, ws, lock_timeout, manifest)`** to jedyna droga zapisu do `kb/`.
 Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko kończy albo wycofuje partię, którą zaczął
 `accept()`, bajtami z dziennika zapisanego przez `accept()`. Kroki `accept()`:
 1. typy i kształt propozycji, a potem każdy `record` sprawdzony schematem `wgc/logic@0` z pominięciem tylko braku
@@ -318,7 +380,10 @@ Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko k
 2. blokada pisarza projektu (`.glu/kb.lock`, ADR-0026) i kontrola, że inwentarz na dysku jest tym, z którego
    `Workspace` liczył wynik (odcisk bajtów). Pod blokadą najpierw recovery przerwanej partii (`kb/.wgc-batch/`,
    ADR-0031), więc wynik nigdy nie jest scalany z częściową `kb/`. Kroki 3–8 wykonują się pod blokadą, na `kb/`
-   czytanym na nowo z dysku;
+   czytanym na nowo z dysku (jedna migawka: każdy plik czytany raz, z tych bajtów dokumenty i generacja).
+   Najpierw manifest wywołania jest sprawdzany względem tej migawki ([niżej](#manifest)): zadanie czytające `kb/`,
+   którego kontekst zmienił się od wykonania, dostaje `KBContextStale`, zanim cokolwiek zostanie ocenione lub
+   zapisane;
 3. reguły domenowe zadania (`TaskSpec.validate`);
 4. `prov`:
    - `kind`: `explicit_source`, gdy każda kotwica wskazuje segment z inwentarza, a cytat (jeśli jest) występuje
@@ -332,10 +397,13 @@ Recovery (`wgc kb recover`, ADR-0031) nie jest nowym źródłem treści: tylko k
      `prior_translation` albo `other` odrzuca propozycję (jawna lista ról kanonicznych), a `llm_inference` bez kotwic
      wymaga deklaracji zadania. Do wdrożenia obowiązuje opis powyżej;
    - `by` podaje wywołujący (GLU: tier i `tool` albo `profile`/`prompt`), `job` to ID joba;
-   - `inputs_hash` = `content_hash` listy projekcji `logic` segmentów kotwic i rekordów `derived_from`. Jest równy
-     `input_hash` klucza cache joba Tier 0 tylko wtedy, gdy kotwice rekordu to dokładnie wejścia joba (np.
-     `wgc.tables.parse`). Dla `wgc.terms.harvest` obejmuje tylko segmenty kotwic rekordu (ADR-0030).
-     `derived_from` rozwiązuje się w inwentarzu i w `kb/` odczytanym pod blokadą;
+   - `inputs_hash` = hash dowodów rekordu: `content_hash({projection: <wersja>, records: [projekcje logic segmentów
+     kotwic (z `text_hash` i `struct_hash`, ADR-0032) i rekordów derived_from]})`. `derived_from` rozwiązuje się
+     w inwentarzu i w `kb/` odczytanym pod blokadą. Rodzaj bez projekcji odrzuca propozycję (ADR-0034);
+   - `manifest` = manifest wywołania joba (ADR-0033). Dla harvest obejmuje wszystkie wejścia joba, a nie tylko
+     segmenty kotwic pojęcia;
+   - każdy dowód (segment kotwicy, rekord `derived_from`) musi należeć do odczytu joba (`inputs` albo `context`
+     manifestu). Inaczej propozycja jest odrzucana („spoza manifestu wywołania”);
    - `status: accepted`;
 5. każdy rekord z `prov` sprawdzony schematem `wgc/logic@0`;
 6. scalenie z `kb/`:
@@ -368,6 +436,8 @@ Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `
 | Awaria operacyjna: brak lub nieczytelny inwentarz, tekst albo plik `kb/` | `KBError` | `outcome: error`, `error_class: runtime` |
 | Blokada zajęta dłużej niż `lock_timeout` (domyślnie `kb.LOCK_TIMEOUT` = 60 s) | `KBBusy` | jak wyżej, powód „kb/ zajęte przez innego pisarza” |
 | Inwentarz zmienił się po odczycie przez `Workspace` | `KBStale`, nic nie zapisane | jak wyżej, powód „inwentarz zmienił się w trakcie joba” |
+| Rekordy `kb/` z manifestu zadania czytającego `kb/` zmieniły się między wykonaniem a akceptacją (ADR-0033) | `KBContextStale` (podklasa `KBStale`) z listą zmienionych wpisów, nic nie zapisane, bez receiptu | jak wyżej, powód „kontekst kb/ zmienił się między wykonaniem a akceptacją” |
+| Zadanie czytające `kb/` wywołane bez manifestu z wykonania | `KBError` | jak wyżej |
 | Nieudany zapis pliku albo partii, wycofanie potwierdzone | `KBWriteError`: `kb/` bez zmian (plik: atomowa podmiana; partia: przywrócona i dziennik usunięty) | jak wyżej, powód „awaria zapisu kb/”; receipt usuwany |
 | Nieudana partia, której wycofanie się nie dokończyło (z zapisaną intencją `rolling_back` albo bez niej) | `KBUnresolved`: wynik nierozstrzygnięty, `kb/.wgc-batch/` i receipt zostają | **bez Attemptu**: job zostaje w `validating`, build przerwany (kod 2); rozstrzyga `glu reconcile` albo start następnego buildu, z `kb/` po recovery |
 | Przerwana partia, której recovery nie rozstrzyga (plik zmieniony poza partią, brak kopii) | `KBBatchConflict`, nic nie zmienione | jak wyżej, powód „przerwana partia kb/ wymaga decyzji” |
@@ -376,6 +446,62 @@ Wynik (`AcceptResult`): `records`, `created`, `updated`, `unchanged`, `files`, `
 W CLI `KBError` przed buildem (np. brak inwentarza) daje kod 2. W trakcie buildu każdy z tych przypadków poza
 `KBUnresolved` kończy job `failed`, a build kodem 1. `KBUnresolved` przerywa build kodem 2, a job zostaje w
 `validating` do reconcile.
+
+<a id="manifest"></a>
+**Manifest wywołania (`wgc/manifest@0`, M-STAB3b, ADR-0033).** Jedyna definicja tego, co job czyta:
+`wgc.manifest.build(ws, spec, wejścia)`. Planner liczy z niej klucz joba, wykonawca liczy ją ponownie przed
+implementacją, a `accept()` zapisuje ją w `prov.manifest` (w `kb/`, więc zależności rekordu przetrwają utratę
+`.glu/`). Schemat: `common.schema.json#/$defs/manifest`.
+
+```yaml
+manifest:
+  format: wgc/manifest@0
+  task: wgc.terms.harvest@0                  # id@wersja
+  projection: wgc/projection@2
+  inputs: [{id: SEG-dsk.2.2, hash: …}, …]    # w kolejności wejść; własna projekcja zadania albo projekcja logic
+  authority: [{id: SRC-dsk.rules, hash: …}]  # projekcja logic dokumentu (role, seg_prefix, precedence), po ID
+  context: [{id: CON-d6, hash: …}]           # rekordy kb/ czytane jako kontekst, po ID; brak pola, gdy ich nie ma
+```
+
+- `authority` zawsze obejmuje dokumenty segmentów wejściowych (rola wybiera rodzaj provenance). Zadanie dopisuje inne
+  przez `TaskSpec.authority_selector`; `wgc.terms.harvest` dopisuje każdy dokument `rules`, bo wybiera spośród nich
+  główną instrukcję (ADR-0030, Q-17 bez zmian).
+- `context` wypełnia `TaskSpec.context_selector`. Dziś żadne zadanie nie czyta kontekstu `kb/` (M10/M14).
+- W manifeście nie ma niczego zmiennego (job, build, zakres, czas, generacja `kb/`).
+- Klucz joba: `input_hash` = `content_hash` manifestu bez `context`, `context_hash` = `content_hash` listy `context`
+  (hash pustej listy, gdy jej nie ma).
+- `TaskSpec.semantic_projection(ws, id) → dict` zastępuje projekcję jednego wejścia (ARCHITECTURE §2).
+- **Świeżość kontekstu.** Zadanie czyta `kb/`, gdy ma `context_selector` albo wejście, które nie jest segmentem.
+  Wykonawca czyta wtedy migawkę `kb/` (`wgc.kb.snapshot`, pod blokadą pisarza bez tworzenia pliku), liczy z niej
+  manifest, a implementacja czyta tę samą migawkę (`Workspace.pinned`). Manifest wykonania różny od planu kończy job
+  błędem („wejścia joba zmieniły się od planu”) przed implementacją. `accept()` porównuje generację migawki
+  z wykonania z generacją `kb/` pod blokadą: równa generacja to te same bajty; inna oznacza ponowne policzenie
+  manifestu, a różnica daje `KBContextStale`. Zadanie bez kontekstu porównuje manifest bez generacji, więc zmiany
+  innych plików `kb/` (równoległy build) go nie blokują. Generacja nigdy nie trafia do manifestu, `prov` ani klucza.
+- **Odtworzenie zależności bez `.glu/`:** `wgc.manifest.check(ws, prov.manifest)` porównuje każdy wpis z bieżącym
+  inwentarzem i `kb/` i zwraca listę zmian (pusta lista: zależności bez zmian). Walidator sprawdza `prov.manifest`
+  tylko schematem: brakujący wpis nie blokuje `accept()` (Q-12). Oznaczanie rekordów `stale` to M13.
+
+<a id="diagnostyka-receiptu"></a>
+**Diagnostyka receiptu: `glu receipt <job> [--root] [--json]` (M-STAB3b, ADR-0033, decyzja właściciela
+2026-10-06).** Porównuje receipt akceptacji joba z bieżącym `kb/` i **niczego nie zmienia**: baza `.glu/state.db`
+otwierana tylko do odczytu (`mode=ro`, bez migracji), `kb/` pod blokadą pisarza tylko wtedy, gdy plik blokady
+istnieje, bez recovery, reconcile, usuwania receiptów i blokady startu buildów. Receipt to `kb_receipt` Attemptu
+`accepted`, a dla joba w `validating` receipt nierozstrzygniętej akceptacji z `.glu/kb-receipts/`.
+
+| Status | Znaczenie | Kod |
+|---|---|---|
+| `match` | każdy rekord receiptu ma w `kb/` tę samą treść | 0 |
+| `differs` | rekord ma inną treść albo go brak; raport podaje bieżące `prov.job` i czy to późniejszy job | 1 |
+| `no_job` | joba nie ma w bazie | 1 |
+| `no_receipt` | job bez receiptu (np. `failed`) | 1 |
+| `pending_batch` | `kb/` ma przerwaną partię; porównanie po `wgc kb recover` | 1 |
+| błąd operacyjny | brak bazy, baza w innej wersji schematu, nieczytelny `kb/`, blokada zajęta > 60 s | 2 |
+
+Raport mówi też, czy generacja `kb/` jest równa generacji z receiptu (`kb/` bajt w bajt jak po akceptacji). Różnica
+względem historycznego receiptu nie oznacza sama w sobie uszkodzenia: późniejszy poprawny `accept()` (inny job,
+decyzja człowieka) też zmienia rekord. Rozbieżność bez późniejszej zmiany (np. utrata zmian `kb/` po awarii zasilania
+na Windows, ADR-0031) naprawia ponowny build.
 
 <a id="recovery"></a>
 **Recovery partii (`wgc kb recover [--dry-run]`, ADR-0031).** Decyzja ze stanu manifestu i hashy plików
@@ -440,6 +566,9 @@ OK dla mieszanej wersji. Nie dotyczy to zmian spoza blokady (edytor, git), któr
 |---|---|---|
 | `wgc.tables.parse@0` | segment `table` | `TAB-<etykieta>` (dokument `rules`) albo `TAB-<seg_prefix>:<etykieta>`; tytuł z frazy „… Table”; kolumny z nagłówka; zakresy `{min, max}`, liczby, napisy jak w druku; `complete: false`, gdy kolumna klucza miesza zakresy z napisami |
 | `wgc.terms.harvest@0` | wszystkie segmenty jednego dokumentu z dopasowaniem wzorca; job powstaje, gdy zakres zawiera choć jeden z nich | `concept` tylko w kategoriach `die`, `phase`, `scenario` (wzorce niżej); jedna propozycja na ID; `source_terms` w kolejności pierwszego wystąpienia; jedna kotwica `{seg, quote}` na termin, cytat dosłowny, bez `span`; rekordy w `kb/logic/concepts.yaml` |
+
+Oba zadania czytają wiersze i komórki tekstu wyłącznie przez `wgc.canonical.structure`, czyli treść `struct_hash`
+(§5, ADR-0032). Wersje zadań się nie zmieniły: dla tego samego tekstu wynik jest taki sam jak przed ADR-0032.
 
 <a id="id-pojec"></a>
 **Pojęcia z `wgc.terms.harvest@0` (M9b, ADR-0030).** Rekord powstaje tylko dla wzorca o pewnej kategorii. Każdy inny

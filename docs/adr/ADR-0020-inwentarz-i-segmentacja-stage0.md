@@ -1,6 +1,6 @@
 # ADR-0020: Inwentarz Stage 0, segmentacja Markdown, ID segmentów i domyślne pierwszeństwo źródeł
 
-- **Status:** przyjęty
+- **Status:** przyjęty; lista pól generowanych segmentu i warunek usunięcia `verified_by_render` rozszerzone przez ADR-0032 (`struct_hash`)
 - **Data:** 2026-10-05
 - **Milestone:** M2a
 

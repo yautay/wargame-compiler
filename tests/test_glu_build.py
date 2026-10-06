@@ -11,7 +11,7 @@ from glu.__main__ import main
 from glu.store import Store, db_path
 from test_glu_store import Clock, Ids
 from test_tables import game  # noqa: F401  (fixture)
-from wgc import contracts, fsio, kb, source, tables, tasks, terms
+from wgc import contracts, fsio, kb, manifest as manifests, source, tables, tasks, terms
 from wgc.kb import Workspace
 from wgc.validate import load_documents, validate
 
@@ -46,8 +46,9 @@ def test_plan(game):
     assert job.spec is tables.PARSE and job.inputs == ("SEG-dsk.4.3",) and job.tier == "deterministic"
     assert harvest.spec is terms.HARVEST and harvest.inputs == HARVEST_INPUTS
     assert job.cache_key == {"task": "wgc.tables.parse", "task_version": "0", "output_schema": "wgc/logic@0#table",
-                             "input_hash": tables.PARSE.input_hash(Workspace(game), job.inputs),
+                             "input_hash": manifests.build(Workspace(game), tables.PARSE, job.inputs).input_hash,
                              "context_hash": planner.EMPTY_CONTEXT}
+    assert job.manifest == manifests.build(Workspace(game), tables.PARSE, job.inputs)
     assert planner.plan(Workspace(game), "stage1", "chapter:3").jobs == []
 
 

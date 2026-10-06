@@ -1,6 +1,6 @@
 # ADR-0024: Komórki tabel w tekście segmentu rozdziela tabulator, bez zmiany wersji ekstraktorów
 
-- **Status:** przyjęty
+- **Status:** zastąpiony przez ADR-0032
 - **Data:** 2026-10-05
 - **Milestone:** M9a
 

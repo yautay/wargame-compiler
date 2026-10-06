@@ -96,7 +96,7 @@ SEG-dsk.3.4 ──anchor──▶ R-3.4 ──realizes──▶ LEG-move.routed_
 
 ## 4. Przyrostowość między etapami
 Krawędzie zależności biegną wyłącznie w dół (Stage 0 → 1 → {1.5, 2} → 3). Każdy rekord pochodny pamięta `inputs_hash`
-projekcji semantycznych swoich wejść. Skutki:
+(hash projekcji swoich dowodów) i `manifest` (wszystko, co przeczytał job, który go dał, ADR-0033). Skutki:
 - zmiana segmentu źródła unieważnia rekordy z kotwicą do niego, potem (przez graf) zależną logikę, fragmenty 1.5, 2, 3 i testy;
 - **early cutoff**: jeśli przeliczony rekord ma tę samą projekcję semantyczną, propagacja się zatrzymuje;
 - zmiana układu strony (Stage 3) nie ma krawędzi do Stage 1, więc go nie unieważnia;

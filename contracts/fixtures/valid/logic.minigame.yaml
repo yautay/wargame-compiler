@@ -272,8 +272,13 @@ records:
       - [{min: 7, max: null}, eliminated]
     complete: true
     status: accepted
+    # inputs_hash: the record's own evidence; manifest: what the whole job read (ADR-0033; hashes illustrative)
     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.tables.parse@0"},
-           anchors: [{seg: SEG-dsk.4.3, seg_hash: "sha256:413ad2fef4086a7217a0fc0c162688bc05fa15660cdbed1e12e2f8287f5c088c"}]}
+           anchors: [{seg: SEG-dsk.4.3, seg_hash: "sha256:413ad2fef4086a7217a0fc0c162688bc05fa15660cdbed1e12e2f8287f5c088c"}],
+           inputs_hash: "sha256:00000000000000e1",
+           manifest: {format: wgc/manifest@0, task: wgc.tables.parse@0, projection: wgc/projection@2,
+                      inputs: [{id: SEG-dsk.4.3, hash: "sha256:00000000000000e2"}],
+                      authority: [{id: SRC-dsk.rules, hash: "sha256:00000000000000e3"}]}}
 
   # ---- ambiguity, interpretation --------------------------------------------------------------
   - kind: ambiguity

@@ -12,7 +12,7 @@ from pathlib import Path
 import yaml
 
 from wgc import contracts, ids
-from wgc.canonical import sha256_hex, text_hash
+from wgc.canonical import sha256_hex, struct_hash, text_hash
 from wgc.ingest import IngestError, Segment, extractor_for
 from wgc.validate import ERROR, WARNING, Diagnostic, Report, load_documents, validate
 
@@ -37,15 +37,16 @@ DEFAULT_PRECEDENCE: dict[str, int] = {
 DOCUMENT_FIELDS = ("kind", "id", "role", "title", "edition", "language", "path", "file_hash", "present", "complete",
                    "precedence", "edition_skew", "seg_prefix", "extractor", "notes")
 SEGMENT_FIELDS = ("kind", "id", "doc", "label", "segment_type", "parent", "order", "pages", "bbox", "text_hash",
-                  "visual_flags", "verified_by_render", "corrections")
+                  "struct_hash", "visual_flags", "verified_by_render", "corrections")
 # Segment fields owned by the extractor; `corrections` and `verified_by_render` are hand-set and kept
-# (`verified_by_render` is dropped when the text hash changes: the render confirmed the old text).
+# (`verified_by_render` is dropped when the text or its structure changes: the render confirmed the old extraction).
 GENERATED_SEGMENT_FIELDS = ("doc", "label", "segment_type", "parent", "order", "pages", "bbox", "text_hash",
-                            "visual_flags")
+                            "struct_hash", "visual_flags")
 
 # Stage 0 diagnostic codes of `verify` (besides the validator's codes for the inventory itself).
 CODES = ("source_missing", "file_hash_mismatch", "extractor_changed", "extract_error", "segment_hash_mismatch",
-         "segment_missing", "segment_unlisted", "cache_missing", "cache_mismatch")
+         "segment_struct_mismatch", "segment_missing", "segment_unlisted", "struct_hash_missing", "cache_missing",
+         "cache_mismatch")
 
 HEADER = """\
 # wgc/source@0: inwentarz źródeł (Stage 0), commitowany. Tekst segmentów jest tylko w .glu/source/ (ADR-0012).
@@ -255,15 +256,22 @@ def _segment_record(doc: dict, sid: str, seg: Segment, old: dict | None) -> dict
     if seg.bbox is not None:
         rec["bbox"] = list(seg.bbox)
     rec["text_hash"] = text_hash(seg.text)
+    rec["struct_hash"] = struct_hash(seg.text)
     if seg.visual_flags:
         rec["visual_flags"] = list(seg.visual_flags)
     if old:
         for k, v in old.items():
             if k not in GENERATED_SEGMENT_FIELDS and k not in rec:
                 rec[k] = v
-        if old.get("text_hash") != rec["text_hash"]:
+        if _changed(old, rec):
             rec.pop("verified_by_render", None)
     return rec
+
+
+def _changed(old: dict, new: dict) -> bool:
+    """The segment's text or its structure changed. A record without `struct_hash` (extractor @0, before ADR-0032)
+    gets one at regeneration: that alone is not a change."""
+    return old.get("text_hash") != new["text_hash"] or old.get("struct_hash", new["struct_hash"]) != new["struct_hash"]
 
 
 def _write_cache(root: Path, doc_id: str, extracted: list[tuple[str, Segment]]) -> None:
@@ -290,7 +298,7 @@ def extract(root: Path) -> list[str]:
             continue
         old = {s["id"]: s for s in inv.segments_of(doc["id"])}
         new = [_segment_record(doc, sid, seg, old.get(sid)) for sid, seg in extracted]
-        changed = sum(1 for r in new if r["id"] in old and old[r["id"]].get("text_hash") != r["text_hash"])
+        changed = sum(1 for r in new if r["id"] in old and _changed(old[r["id"]], r))
         added = sum(1 for r in new if r["id"] not in old)
         removed = len(set(old) - {r["id"] for r in new})
         inv.segments = [s for s in inv.segments if s.get("doc") != doc["id"]] + new
@@ -389,29 +397,44 @@ def verify(root: Path) -> Report:
             ext = extractor_for(doc["path"])
             if ext and doc.get("extractor") != ext[0]:
                 add("extractor_changed", WARNING, did,
-                    f"Inwentarz zapisał ekstraktor {doc.get('extractor')}, bieżący to {ext[0]}.")
+                    f"Inwentarz zapisał ekstraktor {doc.get('extractor')}, bieżący to {ext[0]}: uruchom "
+                    "`wgc source extract`.")
             try:
                 extracted = _extract_doc(root, doc)
             except IngestError as e:
                 add("extract_error", ERROR, did, str(e))
                 extracted = None
             if extracted is not None:
-                fresh = {sid: text_hash(seg.text) for sid, seg in extracted}
-                for sid, h in fresh.items():
+                fresh = {sid: (text_hash(seg.text), struct_hash(seg.text)) for sid, seg in extracted}
+                for sid, (h, sh) in fresh.items():
                     if sid not in listed:
                         add("segment_unlisted", ERROR, sid, f"Segment z {doc['path']} nie jest w inwentarzu.", [did])
                     elif listed[sid].get("text_hash") != h:
                         add("segment_hash_mismatch", ERROR, sid,
                             f"Tekst segmentu ma hash {h}, inwentarz: {listed[sid].get('text_hash')}.", [did])
+                    elif listed[sid].get("struct_hash", sh) != sh:
+                        add("segment_struct_mismatch", ERROR, sid,
+                            f"Ten sam tekst, ale inne wiersze albo komórki: `struct_hash` {sh}, inwentarz: "
+                            f"{listed[sid]['struct_hash']}. Uruchom `wgc source extract`.", [did])
                 for sid in listed.keys() - fresh.keys():
                     add("segment_missing", ERROR, sid, f"Segmentu z inwentarza nie ma już w {doc['path']}.", [did])
+        unstructured = [sid for sid, seg in listed.items() if "struct_hash" not in seg]
+        if unstructured:
+            add("struct_hash_missing", ERROR, did,
+                f"{len(unstructured)} segmentów bez `struct_hash`: inwentarz i tekst z ekstraktora sprzed ADR-0032. "
+                "Uruchom `wgc source extract`.", unstructured)
         missing = []
         for sid, seg in listed.items():
             f = cache_dir(root, did) / f"{sid}.txt"
             if not f.is_file():
                 missing.append(sid)
-            elif text_hash(f.read_text(encoding="utf-8")) != seg.get("text_hash"):
+                continue
+            cached = f.read_text(encoding="utf-8")
+            if text_hash(cached) != seg.get("text_hash"):
                 add("cache_mismatch", ERROR, sid, f"Tekst w {f.as_posix()} nie zgadza się z `text_hash`.", [did])
+            elif seg.get("struct_hash", struct_hash(cached)) != struct_hash(cached):
+                add("cache_mismatch", ERROR, sid, f"Tekst w {f.as_posix()} ma te same słowa, ale inne wiersze albo "
+                    "komórki niż `struct_hash` inwentarza: uruchom `wgc source extract`.", [did])
         if missing:
             add("cache_missing", WARNING, did,
                 f"Brak tekstu {len(missing)} segmentów w {cache_dir(root, did).as_posix()}: uruchom `wgc source extract`.",

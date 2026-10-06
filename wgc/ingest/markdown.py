@@ -1,4 +1,4 @@
-"""Markdown extractor `wgc.ingest.markdown@0` (ADR-0020).
+"""Markdown extractor `wgc.ingest.markdown@1` (ADR-0020, @1: ADR-0032).
 
 Segmentation:
 - an ATX heading (`#`…`######`) is a `heading` segment; a leading number (`1.0 Components`) becomes its label;
@@ -11,17 +11,18 @@ Segmentation:
 
 Text is kept as printed: emphasis, code and link markup, blockquote and bullet markers, table pipes and the table
 separator row are removed; numbered list markers (`1.`) stay. Table cells are separated by a tab (`CELL_SEP`, empty
-cells kept, so columns stay aligned for `wgc.tables.parse`). `text_hash` normalizes whitespace afterwards, so the
-separator does not change the hash (ADR-0024).
+cells kept, so columns stay aligned for `wgc.tables.parse`). `text_hash` normalizes whitespace afterwards, so neither
+the separator nor line breaks change it; `struct_hash` keeps both (ADR-0032).
 """
 from __future__ import annotations
 
 import re
 
+from wgc.canonical import CELL_SEP
 from wgc.ingest import IngestError, Segment
 
-NAME = "wgc.ingest.markdown@0"
-CELL_SEP = "\t"
+# @1 (ADR-0032): segments get `struct_hash`; text cached by @0 may lack the tab between table cells
+NAME = "wgc.ingest.markdown@1"
 
 _HEADING = re.compile(r"^(#{1,6})[ \t]+(.*?)[ \t]*#*[ \t]*$")
 _HEADING_LABEL = re.compile(r"^(\d+(?:\.\d+)*[A-Za-z]?)\.?[ \t]+(.+)$")

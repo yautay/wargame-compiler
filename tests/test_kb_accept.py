@@ -7,8 +7,8 @@ from pathlib import Path
 import yaml
 
 from test_tables import game  # noqa: F401  (fixture)
-from wgc import kb, tasks
-from wgc.canonical import content_hash, projection
+from wgc import kb, manifest as manifests, tasks
+from wgc.canonical import PROJECTION_VERSION, content_hash, projection
 from wgc.kb import Workspace
 from wgc.validate import load_documents, validate, validate_documents
 
@@ -36,12 +36,20 @@ def test_accept_writes_record_with_provenance(game):
     assert res.ok and res.created == ["TAB-4.3"] and res.files == ["kb/logic/tables.yaml"]
     [doc] = load_documents(tables_file(game))
     [rec] = doc["records"]
-    seg = Workspace(game).segment(SEG)
+    ws = Workspace(game)
+    seg = ws.segment(SEG)
+    planned = manifests.build(ws, SPEC, INPUTS)
     assert rec["status"] == "accepted"
     assert rec["prov"] == {"kind": "explicit_source", "anchors": [{"seg": SEG, "seg_hash": seg["text_hash"]}],
-                           "by": BY, "job": "job_000001", "inputs_hash": content_hash([projection(seg, "logic")])}
-    # the same hash as the job's input_hash in the cache key
-    assert rec["prov"]["inputs_hash"] == SPEC.input_hash(Workspace(game), INPUTS)
+                           "by": BY, "job": "job_000001",
+                           "inputs_hash": content_hash({"projection": PROJECTION_VERSION,
+                                                        "records": [projection(seg, "logic")]}),
+                           "manifest": planned.body}
+    # one definition of what the job read: the planner's manifest (ADR-0033)
+    assert planned.body == {"format": "wgc/manifest@0", "task": "wgc.tables.parse@0", "projection": PROJECTION_VERSION,
+                            "inputs": [{"id": SEG, "hash": content_hash(projection(seg, "logic"))}],
+                            "authority": [{"id": "SRC-dsk.rules",
+                                           "hash": content_hash(projection(ws.document("SRC-dsk.rules"), "logic"))}]}
     assert list(rec)[:3] == ["kind", "id", "title"]  # contract order
     assert validate([game / "source", game / "kb"]).ok
 

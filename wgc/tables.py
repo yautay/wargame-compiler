@@ -1,7 +1,8 @@
 """Task `wgc.tables.parse@0` (Tier 0): a segment of type `table` → a `table` record (`TAB-`), ADR-0025.
 
-Input: one table segment. Its extracted text has table rows with cells separated by a tab (ADR-0024); the first
-such row is the header. Output, with an anchor to the segment:
+Input: one table segment. Its extracted text has table rows with cells separated by a tab; lines and cells are
+`wgc.canonical.structure`, the content of the segment's `struct_hash` (ADR-0032). The first line with two or more
+cells is the header. Output, with an anchor to the segment:
 - `id`: `TAB-<label>` for the main rules (`role: rules`), else `TAB-<seg_prefix>:<label>` (the segment key when
   the segment has no label);
 - `title`: the capitalized phrase ending in "Table" in the segment text ("Combat Results Table"), else
@@ -18,7 +19,7 @@ from __future__ import annotations
 import re
 
 from wgc import ids
-from wgc.ingest.markdown import CELL_SEP
+from wgc.canonical import structure
 from wgc.tasks import Inputs, TaskSpec
 
 TASK_ID = "wgc.tables.parse"
@@ -67,12 +68,12 @@ def table_id(doc: dict, seg: dict) -> str:
 
 
 def parse(text: str) -> tuple[list[str], list[list]]:
-    """(header cells, body rows) of the tab-separated rows of a segment text."""
-    rows = [line.split(CELL_SEP) for line in text.split("\n") if CELL_SEP in line]
+    """(header cells, body rows) of the lines with two or more cells of a segment text. Reads only `structure(text)`,
+    so equal `struct_hash` gives an equal result (ADR-0032)."""
+    rows = [line for line in structure(text) if len(line) > 1]
     if not rows:
         return [], []
-    header = [" ".join(c.split()) for c in rows[0]]
-    return header, [[cell(c) for c in r] for r in rows[1:]]
+    return rows[0], [[cell(c) for c in r] for r in rows[1:]]
 
 
 def _select(ws, segments: list[str]) -> list[Inputs]:
@@ -102,7 +103,7 @@ def _validate(ws, inputs: Inputs, proposals: list[dict]) -> list[str]:
         n = len(rec.get("columns") or [])
         if n < 2:
             issues.append(f"{rec.get('id')}: tabela bez co najmniej dwóch kolumn; tekst segmentu {inputs[0]} nie ma "
-                          "komórek rozdzielonych tabulatorem (ADR-0024): uruchom `wgc source extract`.")
+                          "komórek rozdzielonych tabulatorem (ADR-0032).")
             continue
         if not rec.get("rows"):
             issues.append(f"{rec.get('id')}: tabela bez wierszy danych.")
