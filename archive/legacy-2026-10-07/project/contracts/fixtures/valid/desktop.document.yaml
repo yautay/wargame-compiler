@@ -1,0 +1,277 @@
+schema: wgc/desktop@0
+kind: document
+source: {doc: SRC-desktop.rules, file_hash: 'sha256:205d2d6faa2e3e7542946af02bd9449b352d8f0b55e88d826b42e3b342f6f7e8', page_count: 2}
+package: {id: river.p1-2, hash: 'sha256:21b066a0eae5873725ecbeca87b1d4bfc886176fd06b01716f5ab147669e1610'}
+blocks:
+- ref: b.title
+  type: heading
+  evidence: &id001 [e.p1f1]
+  printed_label: '1'
+- ref: b.setup
+  type: list
+  evidence: &id002 [e.p1f2, e.p1f3]
+  parent: b.title
+- ref: b.flood
+  type: box
+  evidence: &id003 [e.p1f6]
+  parent: b.title
+- ref: b.flood-rule
+  type: paragraph
+  evidence: &id004 [e.p1f7, e.p1f8]
+  parent: b.flood
+  printed_label: '3'
+- ref: b.crossing
+  type: heading
+  evidence: &id005 [e.p1f4]
+  printed_label: '2'
+- ref: b.crossing-start
+  type: paragraph
+  evidence: &id006 [e.p1f5]
+  parent: b.crossing
+- ref: b.crossing-end
+  type: paragraph
+  evidence: &id007 [e.p2f1]
+  parent: b.crossing
+- ref: b.chart-title
+  type: heading
+  evidence: &id008 [e.p2f2]
+  printed_label: '4'
+- ref: b.chart
+  type: table
+  evidence: &id009 [e.p2f3, e.p2f4, e.p2f5, e.p2f6]
+  parent: b.chart-title
+  table:
+    rows: 2
+    columns: 2
+    notes: []
+    cells:
+    - row: 0
+      column: 0
+      row_span: 1
+      column_span: 1
+      role: header
+      evidence: [e.p2f3]
+    - row: 0
+      column: 1
+      row_span: 1
+      column_span: 1
+      role: header
+      evidence: [e.p2f4]
+    - row: 1
+      column: 0
+      row_span: 1
+      column_span: 1
+      role: data
+      evidence: [e.p2f5]
+    - row: 1
+      column: 1
+      row_span: 1
+      column_span: 1
+      role: data
+      evidence: [e.p2f6]
+- ref: b.night-title
+  type: heading
+  evidence: &id010 [e.p2f7]
+  printed_label: '5'
+- ref: b.night-rule
+  type: paragraph
+  evidence: &id011 [e.p2f8]
+  parent: b.night-title
+- ref: b.night-sign
+  type: note
+  parent: b.night-title
+  evidence: [e.night]
+reading_order: [b.title, b.setup, b.flood, b.flood-rule, b.crossing, b.crossing-start, b.crossing-end, b.chart-title, b.chart,
+  b.night-title, b.night-rule, b.night-sign]
+relations:
+- ref: r.crossing
+  type: continuation
+  from: b.crossing-start
+  to: b.crossing-end
+  evidence: [e.p1f5, e.p2f1]
+- ref: r.flood
+  type: scope
+  from: b.flood
+  to: b.flood-rule
+  cue: frame
+  evidence: [e.frame, e.p1f6]
+evidence:
+- ref: e.p1f1
+  kind: text_layer
+  spans:
+  - {fragment: p1f1, start: 0, end: 14}
+- ref: e.p1f2
+  kind: text_layer
+  spans:
+  - {fragment: p1f2, start: 0, end: 19}
+- ref: e.p1f3
+  kind: text_layer
+  spans:
+  - {fragment: p1f3, start: 0, end: 19}
+- ref: e.p1f4
+  kind: text_layer
+  spans:
+  - {fragment: p1f4, start: 0, end: 11}
+- ref: e.p1f5
+  kind: text_layer
+  spans:
+  - {fragment: p1f5, start: 0, end: 27}
+- ref: e.p1f6
+  kind: text_layer
+  spans:
+  - {fragment: p1f6, start: 0, end: 21}
+- ref: e.p1f7
+  kind: text_layer
+  spans:
+  - {fragment: p1f7, start: 0, end: 21}
+- ref: e.p1f8
+  kind: text_layer
+  spans:
+  - {fragment: p1f8, start: 0, end: 25}
+- ref: e.p1f9
+  kind: text_layer
+  spans:
+  - {fragment: p1f9, start: 0, end: 1}
+- ref: e.p2f1
+  kind: text_layer
+  spans:
+  - {fragment: p2f1, start: 0, end: 30}
+- ref: e.p2f2
+  kind: text_layer
+  spans:
+  - {fragment: p2f2, start: 0, end: 15}
+- ref: e.p2f3
+  kind: text_layer
+  spans:
+  - {fragment: p2f3, start: 0, end: 6}
+- ref: e.p2f4
+  kind: text_layer
+  spans:
+  - {fragment: p2f4, start: 0, end: 5}
+- ref: e.p2f5
+  kind: text_layer
+  spans:
+  - {fragment: p2f5, start: 0, end: 4}
+- ref: e.p2f6
+  kind: text_layer
+  spans:
+  - {fragment: p2f6, start: 0, end: 1}
+- ref: e.p2f7
+  kind: text_layer
+  spans:
+  - {fragment: p2f7, start: 0, end: 14}
+- ref: e.p2f8
+  kind: text_layer
+  spans:
+  - {fragment: p2f8, start: 0, end: 27}
+- ref: e.p2f9
+  kind: text_layer
+  spans:
+  - {fragment: p2f9, start: 0, end: 1}
+- ref: e.night
+  kind: image_transcription
+  pdf_page: 2
+  bbox: &id012 [320, 140, 540, 185]
+  image: {path: night.png, hash: 'sha256:a630312e979c815ab977e91db52cf3f2d3179c172b89e9e662d4207d96f008cd'}
+  text: 'NIGHT: LIMIT 1'
+  discrepancy: No corresponding text-layer fragment.
+- ref: e.frame
+  kind: visual_scope
+  pdf_page: 1
+  bbox: &id013 [30, 180, 285, 280]
+  image: {path: p001.png, hash: 'sha256:45bb802a31bd463e5341f6c33e106a56e27f5df6ca2276438f68b933863e5ab4'}
+  text: Blue frame restricts rule 3 to flood conditions.
+coverage:
+- ref: c.b.title
+  pdf_page: 1
+  bbox: [40.0, 48.716, 157.6, 62.716]
+  classification: content
+  evidence: *id001
+  blocks: [b.title]
+- ref: c.b.setup
+  pdf_page: 1
+  bbox: [40.0, 87.746, 142.6, 113.746]
+  classification: content
+  evidence: *id002
+  blocks: [b.setup]
+- ref: c.b.flood
+  pdf_page: 1
+  bbox: [40.0, 192.746, 153.4, 201.746]
+  classification: content
+  evidence: *id003
+  blocks: [b.flood]
+- ref: c.b.flood-rule
+  pdf_page: 1
+  bbox: [40.0, 227.746, 175.0, 253.746]
+  classification: content
+  evidence: *id004
+  blocks: [b.flood-rule]
+- ref: c.b.crossing
+  pdf_page: 1
+  bbox: [320.0, 87.746, 379.4, 96.746]
+  classification: content
+  evidence: *id005
+  blocks: [b.crossing]
+- ref: c.b.crossing-start
+  pdf_page: 1
+  bbox: [320.0, 122.746, 465.8, 131.746]
+  classification: content
+  evidence: *id006
+  blocks: [b.crossing-start]
+- ref: c.b.crossing-end
+  pdf_page: 2
+  bbox: [40.0, 57.746, 202.0, 66.746]
+  classification: content
+  evidence: *id007
+  blocks: [b.crossing-end]
+- ref: c.b.chart-title
+  pdf_page: 2
+  bbox: [40.0, 122.746, 121.0, 131.746]
+  classification: content
+  evidence: *id008
+  blocks: [b.chart-title]
+- ref: c.b.chart
+  pdf_page: 2
+  bbox: [40.0, 157.746, 217.0, 188.746]
+  classification: content
+  evidence: *id009
+  blocks: [b.chart]
+- ref: c.b.night-title
+  pdf_page: 2
+  bbox: [320.0, 57.746, 395.6, 66.746]
+  classification: content
+  evidence: *id010
+  blocks: [b.night-title]
+- ref: c.b.night-rule
+  pdf_page: 2
+  bbox: [320.0, 92.746, 465.8, 101.746]
+  classification: content
+  evidence: *id011
+  blocks: [b.night-rule]
+- ref: c.night-sign
+  pdf_page: 2
+  bbox: *id012
+  classification: content
+  evidence: [e.night]
+  blocks: [b.night-sign]
+- ref: c.frame
+  pdf_page: 1
+  bbox: *id013
+  classification: excluded
+  reason: Frame geometry is preserved as relation evidence; text is covered separately.
+  evidence: [e.frame]
+  blocks: []
+- ref: c.footer1
+  pdf_page: 1
+  bbox: [40.0, 787.746, 45.4, 796.746]
+  classification: excluded
+  reason: Printed pagination.
+  evidence: [e.p1f9]
+  blocks: []
+- ref: c.footer2
+  pdf_page: 2
+  bbox: [40.0, 787.746, 45.4, 796.746]
+  classification: excluded
+  reason: Printed pagination.
+  evidence: [e.p2f9]
+  blocks: []

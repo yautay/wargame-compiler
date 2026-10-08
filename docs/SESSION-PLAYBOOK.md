@@ -1,70 +1,47 @@
-# Playbook sesji
+# Playbook sesji POC
 
-Dotyczy sesji AI, które **rozwijają to narzędzie**. Pracę nad konkretną grą wykonuje GLU (buildy, joby) i właściciel
-(decyzje). Ten playbook jej nie opisuje.
+1. Przeczytaj [bootstrap](../CLAUDE.md), [STATUS](STATUS.md), [HANDOFF](HANDOFF.md)
+   i wskazany handoff, [ROADMAP](ROADMAP.md), [POC-PLAN](POC-PLAN.md) oraz bieżącą kartę.
+2. Sprawdź Git i pliki. Przy błędzie własności stosuj wyłącznie parametr polecenia
+   `git -c safe.directory=C:/dev/wargame-compiler ...`; nie zmieniaj konfiguracji globalnej.
+   Zachowaj zastane zmiany; nie wykonuj reset/clean/stash/commit/push.
+3. Sprawdź zależności karty, wersję oceny i limity. Planuj do 90 minut pracy na kartę;
+   jeśli zakres się nie mieści, podziel go przed wykonaniem na jawnie nazwane części.
+   M-POC0 ma jednorazowy zakres archiwum i planu wskazany przez właściciela.
+4. Wykonuj tylko kartę. Materiały SPQR i odpowiedzi są prywatnymi danymi.
+   Karta M-POC2B jest wyjątkiem od czytania prywatnych wyników poprzednich sesji:
+   przekazanie zawiera wyłącznie pakiet ekstrakcji i metadane zamrożenia, bez oczekiwań.
+5. Zachowuj surowe bajty, hashe i czas. Każdy etap ma osobny raport. Awaria/brak
+   odpowiedzi to stan `waiting_response`, brak źródła `blocked_source`, brak przeglądu
+   `waiting_review`; nie zamieniaj ich w sukces lub puste poprawne dane.
+6. Błąd wykryty w M-POC3–M-POC5 trafia do raportu i ograniczonej pętli korekt
+   [planu](POC-PLAN.md#korekty). Nie trzeba czekać do M-POC6, by odblokować format.
+   Zachowaj pomiar pierwszego wyniku; korekta nie zmienia zamrożonych oczekiwań.
+7. Przegląd człowieka: zamrożenie oceny, interpretacje i źródła krytyczne, ocena sytuacji,
+   końcowa akceptacja oraz decyzja. Odwracalne operacje plikowe nie wymagają osobnych zgód.
+8. Uruchom [kontrole](../scripts/check.ps1). Zapisz także błędy, bez ich ukrywania.
+   ROADMAP ma dokładnie jeden `next`; STATUS wskazuje ten etap i jedną bieżącą kartę.
+   Aktualizuj handoff i wskaźnik; nie oznaczaj etapu done przed rzeczywistym wykonaniem.
 
-## Procedura sesji (8 kroków)
-1. **Bootstrap:** przeczytaj `CLAUDE.md`, potem ten plik.
-2. **Stan:** przeczytaj [STATUS.md](STATUS.md) (bieżący milestone, otwarte kwestie, ryzyka) i ostatni handoff
-   ([HANDOFF.md](HANDOFF.md)).
-3. **Milestone:** znajdź bieżący milestone w [ROADMAP.md](ROADMAP.md). Przeczytaj tylko dokumenty wskazane w jego
-   zakresie i w handoffie (dyscyplina kontekstu).
-4. **Jeden slice:** wykonaj zakres milestone'u, nic ponad. Rzeczy spoza zakresu zapisz jako kwestie w STATUS.
-   Jeśli zakres jest za duży, podziel milestone (`Mna`/`Mnb`, bez kropki, bo test ciągłości przyjmuje tylko `M[\w-]+`)
-   w ROADMAP **przed** pracą.
-5. **Testy akceptacyjne:** `python -m pytest`. Testy milestone'u muszą przechodzić. Nie zostawiaj czerwonych testów.
-   Jeśli coś się nie udało, zapisz to w handoffie z wynikiem testu.
-6. **Decyzje:** każda decyzja architektoniczna to nowy ADR w `docs/adr/` + wpis w `docs/adr/README.md`. Decyzja
-   odwracająca wcześniejszą to nowy ADR, który zastępuje stary.
-7. **STATUS:** zaktualizuj [STATUS.md](STATUS.md): status milestone'u w ROADMAP, nowy bieżący milestone, kwestie, ryzyka.
-8. **Handoff:** utwórz `docs/handoff/RRRR-MM-DD-Mn.md` według szablonu niżej i podmień wskaźnik w [HANDOFF.md](HANDOFF.md).
+## Dokumenty i odpowiedzialność
 
-Test `tests/test_continuity.py` sprawdza, że STATUS, ROADMAP, HANDOFF i ADR są ze sobą spójne. Czerwony test ciągłości
-oznacza niedokończoną sesję.
+ROADMAP prowadzi statusy milestone'ów, karty szczegółowy zakres, STATUS pracę i blokady,
+HANDOFF najnowsze przekazanie. Status karty jest w STATUS/handoffie; nie duplikujemy
+automatycznej kolejki. M-POC7 może zakończyć eksperyment także decyzją o odrzuceniu;
+nie oznacza to sukcesu ekstrakcji. Po zamknięciu całego planu zasada jednego `next`
+wymaga jawnej aktualizacji testu i roadmapy, nie pozornego kolejnego etapu.
 
-## Zasady
-- **Zapisuj fakty, decyzje i stan, nie tok rozumowania.** Żadnego chain-of-thought w repo.
-- Kod i nazwy pól po angielsku. Dokumentacja, komunikaty CLI dla użytkownika i skille po polsku.
-- Teksty chronione (instrukcje wydawców) nigdy nie trafiają do tego repo (ADR-0012).
-- Zmiana kontraktu (`contracts/schemas/`) w tej samej sesji aktualizuje fixture'y, testy i `docs/DATA-CONTRACTS.md`.
-- Commit i push tylko na prośbę właściciela. Praca na gałęzi, jeśli właściciel tak ustali.
-- Windows: pliki z backslashami i długie skrypty pisz narzędziem do zapisu plików, nie heredokiem (ADR-0008, ARCHAEOLOGY §3).
+Codex przygotowuje artefakty i pomiary; właściciel ocenia źródła i znaczenie;
+przegląd wspólny rozstrzyga rozbieżności na podstawie materiału źródłowego.
+Żaden zapis modelu „approved” nie zastępuje odnotowanej decyzji człowieka.
 
-## Rozmiar sesji
-Dobry milestone:
-- kończy się w jednej sesji (orientacyjnie ≤ 10–15 zmienionych plików, ≤ ok. 1500 linii kodu i testów),
-- ma kryteria akceptacji sprawdzalne testem,
-- ma jasne „poza zakresem”,
-- zostawia repo w stanie zielonym.
+## Handoff jednej sesji
 
-Zły milestone: „Implement GLU”, „Zrób digitalizację”. Dobry: „Implement job state model”, „Implement deterministic routing”.
+Zapisz datę, ID karty/milestone, `done|partial|blocked`, wykonawcę, wejścia i hashe,
+artefakty, wyniki kontroli i ograniczenia, wykorzystany budżet, przeglądy człowieka,
+otwarte błędy, dokładną czynność wznowienia i następną kartę.
+Publiczny handoff nie zawiera treści reguł ani szczegółowych sytuacji.
+Prywatny rejestr sesji przechowuje dowody oraz czasy.
 
-<a id="role-modeli"></a>
-## Role modeli
-Proces nie jest związany z nazwą modelu. Role:
-| Rola | Kto (dziś) | Do czego |
-|---|---|---|
-| **Architecture Model** | najmocniejszy dostępny model | Session 0, kontrakty, prompty zadań, złote modele, ADR o dużym zasięgu |
-| **Implementation Model** | szybki model dobry w kodowaniu | milestone'y IMPL według ROADMAP |
-| **Local Worker** | model self-hosted na węźle w LAN (profile `local_*`, ADR-0015) | joby GLU w buildach (nie rozwój narzędzia) |
-| **Premium Reviewer** | mocny model przez API lub Claude Desktop | pakiety review w buildach, przegląd kontraktów na prośbę |
-| **Human Reviewer** | właściciel | decyzje domenowe, interpretacje, terminy, akceptacja ADR o kosztach |
-
-## Szablon handoffu (`docs/handoff/RRRR-MM-DD-Mn.md`)
-```markdown
-# Handoff: Mn <tytuł> (RRRR-MM-DD)
-- **Model/rola:** …
-- **Wynik:** done | partial | blocked
-## Zrobione
-- …(pliki, polecenia)
-## Testy
-- `python -m pytest`: N passed / M failed (jeśli failed: które i dlaczego)
-## Decyzje
-- ADR-NNNN …
-## Niezrobione / poza zakresem
-- …
-## Następny krok
-- Mn+1: … (pierwsza czynność, pliki do przeczytania)
-## Ryzyka i pułapki odkryte w sesji
-- …
-```
+Archiwalny playbook nie jest aktywną instrukcją. Dostęp do starego projektu:
+[README archiwum](../archive/legacy-2026-10-07/README.md).
