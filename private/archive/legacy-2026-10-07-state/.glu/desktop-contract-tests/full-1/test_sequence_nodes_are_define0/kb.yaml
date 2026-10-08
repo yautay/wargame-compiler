@@ -1,0 +1,19 @@
+schema: wgc/digital@0
+records:
+- kind: sequence
+  id: SEQ-turn
+  realizes: []
+  nodes:
+  - id: SEQ-turn
+    level: game_turn
+  - id: SEQ-move
+    level: phase
+  - id: ACT-x
+    level: step
+- kind: trigger
+  id: TRG-1
+  fires_on: SEQ-move
+  response: {}
+  mandatory: true
+  realizes: []
+  blocked_by: []

@@ -1,0 +1,135 @@
+{
+  "id": "M-POC1B-owner-decision-24",
+  "card": "M-POC1B",
+  "question_id": "RQ-15e/closing",
+  "parent_question": "RQ-15e",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T15:42:17.289842+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "Zatwierdzam",
+  "raw_response_file": "owner-answer-24.raw.txt",
+  "raw_response_sha256": "d2eab609cb7c5c53328ca2c3dcc9247942604a6cad89fb4cd27b1b0893a4faa2",
+  "approved_question": "Czy zatwierdzasz te trzy oznaczenia critical oraz zamknięcie M-POC1B w opisanym zakresie, z zachowaniem zapisanych ograniczeń?",
+  "approved_scope": {
+    "criticality_only": [
+      {
+        "ids": [
+          "EXP-017",
+          "SIT-07"
+        ],
+        "source": "C-9.16-01 PDF33",
+        "accepted_result": "DR<=TQ 0CH;DR>TQ positiveexcesswithmin1",
+        "proposed_criticality": "critical",
+        "reason": "0versus1CH changescohesionstate andpotentialfutureRout",
+        "decision_scope_basis": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-01-RQ-01.json",
+            "sha256": "ee89310b6a603ae6fa7e79295ab1579e4257f9f8d1a8ea5cf96f119a05de85f4",
+            "bytes": 3147
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-20-RQ-15d.json",
+            "sha256": "777d6e538fd33f9d7d51e928c419b85d81ae41d8a6bd6a254e9ef439e709706b",
+            "bytes": 7855
+          }
+        ]
+      },
+      {
+        "ids": [
+          "EXP-008 subsequent7-9",
+          "SIT-05",
+          "DEP-NEW-002 subsequent exception"
+        ],
+        "source": "TR-03 PDF32 andC9.14-11 PDF32/33",
+        "accepted_result": "LeaderEL later7-9 immediateRallyHitsTQminus2 insteadofelimination",
+        "proposed_criticality": "critical",
+        "reason": "Unitelimination versusRally changes existence/state",
+        "decision_scope_basis": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-02-RQ-02.json",
+            "sha256": "ee2a60b212439a734d96e3d696cf8b74d0fa7b2e92a2c0ebd62e899c1344779b",
+            "bytes": 4264
+          }
+        ]
+      },
+      {
+        "ids": [
+          "EXP-009 first7-9 scope"
+        ],
+        "source": "TR-03 PDF32",
+        "accepted_result": "FirstLeader7-9movement, laterLeader7-9Rallyonly",
+        "proposed_criticality": "critical",
+        "reason": "FirstmovementversusimmediateRally changestiming/state",
+        "decision_scope_basis": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-21-RQ-15e-EXP009.json",
+            "sha256": "fd00d1583b96c80bbb7b44879a1f8cc912257bdb0262e055ec1b9fbc85c70c10",
+            "bytes": 3286
+          }
+        ]
+      }
+    ],
+    "card_closure": "M-POC1B boundedpreparationandactualownerreview complete:20situations reviewedinshownlocalscopes, sourceevidence/contextlimits andperdecision74IDcatalog; allretainedgaps remainexplicit.",
+    "no_new_game_interpretation": "Previouslyacceptedoutcomesretained; no assumption ofwhole74/127 approval",
+    "retained_limits": [
+      "EXP-002 base0ELHitsreductionfloor notresolved",
+      "EXP-031 AS/LC printedversushalve order context needed",
+      "DEP-031 MRRCrowidentity hypothesis unconfirmed",
+      "EXP-010/019/033/050/064/066/074 actualmap/command/scenario/CombatTables/countervalues remainrequires_context",
+      "EXP-040 actualretreatgeometry/6.69/10.22/legalordering/sharedend unclosed, butper-unitreadingaccepted",
+      "4.84triggerdie versusfirst9.14directionalDR counting notaddressed",
+      "FullexternalShockallocation/OW/leadercasualty/supply/eligibilityprocedures notclosed",
+      "Unshownperfieldrelationmetadata,aliases/deduplication/targetidentities/sourceclosure notindividuallyowneraccepted",
+      "No fullatomic/glyphcoverage, fullgamelegalresolution, graphcertificate, eval-v1 orqualitymeasurement"
+    ]
+  },
+  "approved_criticality": "critical for exactlyspecifiedEXP017/SIT07, EXP008subsequent/SIT05/DEPNEW002 andEXP009firstrollscope",
+  "rationale_accepted_by_reference": "0vs1CH changescohesionstate;Rallyvseliminationchangesunitexistence/state;firstmovementvsearlyRally changestiming/state. Ownerconfirms shownclosingquestion.",
+  "owner_independent_reason_text": "None beyond approval; shown reasons accepted by reference",
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15e-closing-presentation-02.json",
+      "sha256": "d7ba17155ce07054338436abac884d33db0218e4d9364fde70d1f463cc59c89d",
+      "bytes": 5749
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/review-catalog-after-decision-23.json",
+      "sha256": "2d7a358879a8d1bb25521ed72e20b67f1638ac65d8ef211300fc7b6505d4dd24",
+      "bytes": 46345
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/closing-audit-before-RQ15e-01.json",
+      "sha256": "00576006ebb6bec22daffcd5b7de6df88bf3e207f16f6857ec8469b7a87969c0",
+      "bytes": 21312
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/review-state-after-decision-23.json",
+      "sha256": "a94dc7b3c9599c5ba4b9613cf3c3728e75656aab4737752119713afd4b32198c",
+      "bytes": 1718
+    }
+  ],
+  "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "card_result": "done in approved bounded scope, contingent on requiredtechnicalchecks completing",
+  "milestone": "M-POC1",
+  "milestone_status": "next",
+  "next_card": "M-POC1C",
+  "next_card_executed": false,
+  "scored_situation_changes": [],
+  "whole_collection_or_graph_accepted": false,
+  "gold": false,
+  "frozen": false,
+  "remaining_gaps": [
+    "EXP-002 base0ELHitsreductionfloor notresolved",
+    "EXP-031 AS/LC printedversushalve order context needed",
+    "DEP-031 MRRCrowidentity hypothesis unconfirmed",
+    "EXP-010/019/033/050/064/066/074 actualmap/command/scenario/CombatTables/countervalues remainrequires_context",
+    "EXP-040 actualretreatgeometry/6.69/10.22/legalordering/sharedend unclosed, butper-unitreadingaccepted",
+    "4.84triggerdie versusfirst9.14directionalDR counting notaddressed",
+    "FullexternalShockallocation/OW/leadercasualty/supply/eligibilityprocedures notclosed",
+    "Unshownperfieldrelationmetadata,aliases/deduplication/targetidentities/sourceclosure notindividuallyowneraccepted",
+    "No fullatomic/glyphcoverage, fullgamelegalresolution, graphcertificate, eval-v1 orqualitymeasurement"
+  ],
+  "known_index_exception_retained": true
+}

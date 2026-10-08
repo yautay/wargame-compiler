@@ -1,0 +1,17 @@
+# Computed gate report (example). Stage 1 of the mini-game is usable but has an open interpretation.
+schema: wgc/gate@0
+stage: stage1
+scope: {kind: game, ref: drill-skirmish}
+state: validated_with_open_issues
+computed_at: "2026-10-05T12:00:00Z"
+inputs_hash: "sha256:00000000000000aa"
+policy: gate.stage1@0
+criteria:
+  - {id: schema_valid, description: "0 schema errors", required: true, met: true, value: 0, threshold: 0}
+  - {id: refs_resolve, description: "every ref resolves", required: true, met: true, value: 0, threshold: 0}
+  - {id: segment_coverage, description: "share of rule segments with >=1 rule record", required: true, met: true, value: 1.0, threshold: 1.0}
+  - {id: high_risk_reviewed, description: "high/critical risk records reviewed by premium or human", required: true, met: true, value: 1.0, threshold: 1.0}
+  - {id: anchors_fresh, description: "no stale anchors", required: true, met: true, value: 0, threshold: 0}
+  - {id: open_semantic_ambiguities, description: "open ambiguities with semantic impact", required: false, met: false, value: 1, threshold: 0}
+metrics: {rules_total: 6, rules_formalized_full: 4, rules_formalized_partial: 2, ambiguities_open: 1}
+open_issues: [AMB-001]

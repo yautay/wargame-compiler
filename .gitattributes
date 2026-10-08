@@ -1,3 +1,6 @@
 * text=auto eol=lf
 *.png binary
 *.pdf binary
+
+# Owner-requested feature/tests evidence: preserve original bytes and hashes.
+/private/** -text -eol -filter whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

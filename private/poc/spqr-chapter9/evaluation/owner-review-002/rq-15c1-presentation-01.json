@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T13:18:06.267096+00:00",
+  "question_id": "RQ-15c1",
+  "parent_question": "RQ-15",
+  "scope": {
+    "EXP-007": "Rout EL triggers immediate Rampage die procedure. OrdinaryEL0 towards nearest friendly unit, tie opponent choice. No invented target without map.",
+    "EXP-008": "Leader Elephant DR0 eliminated; subsequent7-9 rally already approved; first7-9 unresolvedEXP009 retained.",
+    "EXP-011": "Complete each Rampage immediately before any other mechanic except OW in its face under6.51; no concurrent Rampages. RampagingEL has noZOC. Previously approved noRF and normal noRally with laterLeaderexception retained.",
+    "EXP-013": "Repeat until offmap, elimination(ordinaryEL7-9mahout), at least8hexes from nearest unit(any allegiance) causing elimination, or if none above eliminate after4th consecutive RampageDR."
+  },
+  "linked_dependency_ids": [
+    "DEP-004",
+    "DEP-041",
+    "DEP-092"
+  ],
+  "source_ids": [
+    "C-9.14-01",
+    "TR-01",
+    "C-9.14-02",
+    "C-9.14-05..09",
+    "C-9.14-11"
+  ],
+  "existing_situation_links": [
+    "SIT-04 ordinaryfirst/sub7-9 and3hexattempt",
+    "SIT-05 subsequentLeader7-9 rally",
+    "SIT-06 missingactualmapcompass"
+  ],
+  "coverage_limit": "Those cases do not score DR0, 8hex boundary, fourth-roll boundary or concurrent-sequence gate. No new scored SIT added.",
+  "review_illustration": {
+    "id": "RV-RQ15c1-01",
+    "role": "explanation only; not scored SIT",
+    "facts": "OrdinaryEL, supplied distance to nearestunit and consecutiveRampageDRcount, no other earlier end condition; nearest target(s) supplied forDR0 example",
+    "local_results": [
+      "DR0 with two equally nearest friendly units: opponent selects",
+      "Distance7:does not trigger8hexstop;distance8:eliminated",
+      "ThreeconsecutiveDR:does not trigger4throllstop;afterfourth:eliminated if noearlierend"
+    ]
+  },
+  "criticality": "Wrong Rout trigger/0 exception changes unit state; wrong scheduling permits intervening actions/ZOC; using >8 or wrong fourth count changes elimination timing.",
+  "remaining_uncertainty": [
+    "Actual map/nearest friendly vs nearestany distance unavailable",
+    "Full OW6.51 and distance/route procedures unclosed",
+    "EXP009firstLeader7-9 still unresolved",
+    "CollisionHits and stackedleader casualty reserved forRQ15c2",
+    "No full state legality or graph metadata closure"
+  ],
+  "question": "Czy zatwierdzasz te pozostałe odczyty EXP-007/008/011/013 wraz z krytycznością, z zachowaniem nierozstrzygniętego pierwszego 7–9 Leader Elephant?",
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c1-draft-records.json",
+      "sha256": "8ed1bed1f24ecf0875693cbae4114058fd27719155ec200782efa7760b35aecf",
+      "bytes": 37032
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c1-evidence.json",
+      "sha256": "f12320376ac7e1416f2c4ba9db3623c58703c3b6c2940cb46e360ba660e752b0",
+      "bytes": 5254
+    }
+  ],
+  "owner_answer": null
+}

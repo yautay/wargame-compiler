@@ -1,0 +1,11 @@
+# wgc/logic@0: rekordy KB zapisuje wyłącznie `wgc.kb.accept()` (ADR-0025). Komentarze nie są zachowywane.
+schema: wgc/logic@0
+records:
+  - kind: table
+    id: TAB-4.3
+    title: Combat Results Table
+    columns: [{name: Modified result, role: key}, {name: Effect on defender, role: value}]
+    rows: [[{min: null, max: 4}, No effect], [{min: 5, max: 6}, Routed], [{min: 7, max: null}, Eliminated]]
+    complete: true
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.4.3, seg_hash: 'sha256:413ad2fef4086a7217a0fc0c162688bc05fa15660cdbed1e12e2f8287f5c088c', quote: Combat Results Table}], by: {tier: deterministic, tool: wgc.tables.parse@0}, job: job_000001, inputs_hash: 'sha256:facc037dd4774db5224dec1d5a5f49b1836ecd5dc9fdb1a7cff08cf2bbf42310', manifest: {format: wgc/manifest@0, task: wgc.tables.parse@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.4.3, hash: 'sha256:95b7e6282777d283cd3ac32ad78da1eecc81e7fe5617c133dede3d77fdee836c'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.tables.parse, scope: [SEG-dsk.4.3]}}

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T13:25:04.306141+00:00",
+  "question_id": "RQ-15c2",
+  "parent_question": "RQ-15",
+  "scope": {
+    "EXP-012/C-9.14-03": "Would enter occupiedhex friendlyorfoe:EL stopsadjacent. Occupantunit incurs1CH if entry through itsFront,2 if itsFlank/Rear; cavalry2 regardlessangle. Source unit not only infantry. Previously approved3hexattempt retained.",
+    "EXP-012/C-9.14-04": "Both units in affectedstack each receiveHits, no division of a pooled total. Leader in hithex aloneorstacked unablewithdraw4.72 dieswithoutDR; cannot assume inability without context.",
+    "EXP-014/C-9.14-10": "Leader stackedwithRampagingEL travelswithit. At end leadercasualty4.73; survivor stayswhereELended. If ELoffmap bothELandleader eliminated, not survival inferred fromcasualtyDR."
+  },
+  "proposed_wording_correction": {
+    "id": "COR-RQ15c2-EXP012-01",
+    "original": "Trafiona piechota dostaje 1 Hit od Front lub 2 od Flank/Rear",
+    "proposed": "Jednostka zajmująca heks dostaje 1 CH od Front lub 2 od Flank/Rear; kawaleria zawsze 2",
+    "reason": "C9.14-03 says unit whetherenemyorfriendly, then explicitcavalryexception; infantry-only wording is narrower than source. No further type-specific external exception guessed.",
+    "status": "pending owner review; original unchanged"
+  },
+  "linked_dependency_ids": [
+    "DEP-005",
+    "DEP-006"
+  ],
+  "dependency_scope": "C9.14-04 needs4.72 inability condition;C9.14-10 needs4.73 casualtyprocedure. Targetsunresolved, no invented probabilities or actual withdrawal result.",
+  "existing_situation_links": [
+    "SIT-04:givenfreepath/noearlytermination;3hexattemptonly, no collision/leader numericcoverage",
+    "No dedicated scored SIT forEXP014"
+  ],
+  "review_illustration": {
+    "id": "RV-RQ15c2-01",
+    "role": "explanation only, no scored SIT added",
+    "facts": "Occupiedtargethex geometry/type supplied; twoinfantryinstack hitRear; inabilitywithdraw oftargetleader expresslysupplied; ridingleader separately considered",
+    "local_results": [
+      "EL staysadjacent; twoinfantryeach2CH, not1each",
+      "Cavalryoccupant2CH evenFront",
+      "Targetleader expresslyunablewithdraw dieswithoutDR",
+      "Ridingleader offmap withEL=>both eliminated; otherend=>4.73 result remains unknown withoutprocedure"
+    ]
+  },
+  "criticality": "Changing stophex or allegiance/angle/type changesmovement/Hits; splittingHits betweenstack units undercounts; confusingtargetleader withridingleader or omittingcasualty/offmapexception changesleaderstate.",
+  "remaining_uncertainty": [
+    "Actual geometry/passability/stacking/withdrawal eligibility unavailable",
+    "4.72 withdrawal and4.73 casualty procedures unclosed",
+    "No actual casualty outcome or probabilities",
+    "EXP009firstLeader7-9 unresolved",
+    "No new scored situations, full game result or graph certificate"
+  ],
+  "question": "Czy zatwierdzasz te odczyty EXP-012/014 wraz z krytycznością oraz korektę EXP-012 z samej piechoty na jednostkę zajmującą heks, z podanym wyjątkiem kawalerii?",
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c2-draft-records.json",
+      "sha256": "38151f1ca2441e42c70cf45c670c9a569b50512f12fbb38da10193ca974e1a61",
+      "bytes": 12640
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c2-evidence.json",
+      "sha256": "92a67ba497c290caf9b92d40f94fd14271ad34eb33fe3a558e4796841da8043b",
+      "bytes": 2709
+    }
+  ],
+  "owner_answer": null
+}

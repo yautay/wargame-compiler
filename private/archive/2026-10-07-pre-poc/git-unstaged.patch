@@ -1,0 +1,1168 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 6f51c33..7731211 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -9,8 +9,12 @@ z pamięci rozmowy, bo stan projektu jest w plikach.
+   niczego specyficznego dla jednej gry komercyjnej ani tekstów wydawców (ADR-0012). Benchmark = `bench/minigame` (tekst własny, CC0).
+ - Pakiety: `wgc` (domena, rola „WGU”), `glu` (wykonanie) i `igw` (Inference Gateway węzła, od M-GW1). `wgc` nie
+   importuje `glu` (ADR-0002); `igw` nie importuje `wgc` ani `glu` (ADR-0016).
+-- Inference: „local” = **self-hosted** na osobnym węźle w LAN (RTX 3090), nie localhost (ADR-0015). Niedostępny węzeł
+-  nigdy automatycznie nie eskaluje do premium (ADR-0017).
++- Inference: „local” = **self-hosted**. Lokalny worker i sprzęt RTX 3090 są opcjonalne; nie ma automatycznej
++  eskalacji do API przy ich niedostępności (ADR-0037, zastępuje obowiązkową topologię ADR-0015).
++- **Kierunek od 2026-10-06 (ADR-0037, nadrzędny wobec starszych opisów inferencji):** premium wyłącznie przez
++  ChatGPT lub Claude Desktop, wymiana pakietów plikowych, **bez API inferencji**. Lokalny LLM opcjonalny przez
++  proces/pliki; gateway LAN nie jest zależnością. Przebudowujemy istniejący ingest, zachowując rdzeń WGC/GLU.
++  Przed implementacją przeczytaj `docs/DESKTOP-IMPLEMENTATION-PLAN.md`; aktywna kolejność to M-DESK, nie dawny M10.
+ - Kontrakty: `contracts/schemas/*.schema.json`. Zmiana kontraktu w tej samej sesji aktualizuje fixture'y
+   (`contracts/fixtures/`), testy i `docs/DATA-CONTRACTS.md`. Od `@1` pola usuwane lub przemianowane wymagają
+   podbicia wersji, ADR i migracji.
+diff --git a/README.md b/README.md
+index 03acfad..dbd53fd 100644
+--- a/README.md
++++ b/README.md
+@@ -20,13 +20,15 @@ SOURCE → Stage 1 LOGIC ──┬──→ Stage 1.5 DIGITALIZATION → engine
+ ```
+ 
+ - **WGC** (pakiet `wgc`): domena: kontrakty, Knowledge Base, walidatory, narzędzia deterministyczne.
+-- **GLU** (pakiet `glu`): wykonanie: joby, routing kod → self-hosted LLM → premium LLM → człowiek, cache, przyrostowość, CLI i MCP.
+-- **Inference node** (pakiet `igw`, osobny PC w LAN z RTX 3090): Inference Gateway nad runtime'em modeli. Generyczny,
+-  wymienialny worker obliczeniowy bez wiedzy o grach ([docs/inference/NODE.md](docs/inference/NODE.md)).
++- **GLU** (pakiet `glu`): wykonanie: joby, cache i CLI; planowana kolejka wymiany pakietów z aplikacją desktopową.
++- **Lokalny LLM:** opcjonalny kontroler przez proces/pliki po pilocie jakości. Dawny projekt `igw` i węzła LAN
++  jest odłożony ([ADR-0037](docs/adr/ADR-0037-ekstrakcja-desktop-bez-api.md)).
+ - Knowledge Base w repo gry jest źródłem prawdy. Repozytorium narzędzia jest pamięcią projektu.
+ 
+-> **Status:** Session 0 zakończona: architektura, kontrakty `@0`, roadmapa, system ciągłości. Kod domenowy zaczyna się
+-> od M1. Zob. [docs/STATUS.md](docs/STATUS.md).
++> **Aktualny kierunek (2026-10-06):** przebudowa ingestu PDF przez ChatGPT lub Claude Desktop, bez API inferencji.
++> Zachowujemy rdzeń WGC/GLU; lokalny LLM jest opcjonalnym kontrolerem. Plan zapisany, implementacja od M-DESK1.
++> Zacznij od [planu implementacji](docs/DESKTOP-IMPLEMENTATION-PLAN.md) i [STATUS](docs/STATUS.md).
++> Opisy gatewaya i routingu poniżej odzwierciedlają wcześniejszy projekt, zastąpiony w tym zakresie przez ADR-0037.
+ 
+ Następca narzędzia `wargame_utils` (`wgu`), budowany od zera (ADR-0001). Oba mogą działać obok siebie (ADR-0002).
+ 
+@@ -46,7 +48,8 @@ python -m pytest
+ | [docs/STATUS.md](docs/STATUS.md) | stan, bieżący i następny milestone, otwarte kwestie |
+ | [docs/HANDOFF.md](docs/HANDOFF.md) | ostatnie przekazanie pracy |
+ | [docs/SESSION-PLAYBOOK.md](docs/SESSION-PLAYBOOK.md) | jak prowadzić sesję, role modeli, rozmiar sesji |
+-| [docs/ROADMAP.md](docs/ROADMAP.md) | milestone'y M0–M28 |
++| [docs/ROADMAP.md](docs/ROADMAP.md) | aktywne etapy M-DESK i historyczny backlog |
++| [docs/DESKTOP-IMPLEMENTATION-PLAN.md](docs/DESKTOP-IMPLEMENTATION-PLAN.md) | przebudowa ingestu, kryteria odbioru i start kolejnej sesji |
+ | [docs/VISION.md](docs/VISION.md) | wizja i zasady |
+ | [docs/ARCHAEOLOGY.md](docs/ARCHAEOLOGY.md) | co istniało, lekcje, analiza luk |
+ | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | warstwy, granica WGC ↔ GLU, repozytoria |
+diff --git a/contracts/schemas/source.schema.json b/contracts/schemas/source.schema.json
+index 036f572..548ee84 100644
+--- a/contracts/schemas/source.schema.json
++++ b/contracts/schemas/source.schema.json
+@@ -39,6 +39,7 @@
+         "edition_skew": {"type": "string", "description": "known mismatch with the main rules edition"},
+         "seg_prefix": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$", "description": "key prefix of this document's segment ids (SEG-<seg_prefix>.<label>); default: the key of the SRC- id"},
+         "extractor": {"type": "string", "description": "deterministic extractor and version used, e.g. wgc.ingest.markdown@1"},
++        "hybrid_hash": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of approved hybrid evidence in .glu/source/<SRC-id>/hybrid/approved.json"},
+         "notes": {"type": "string"}
+       },
+       "additionalProperties": false
+@@ -57,6 +58,12 @@
+         "order": {"type": "integer", "description": "1-based position in document order"},
+         "pages": {"type": "string"},
+         "bbox": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
++        "areas": {"type": "array", "items": {"type": "object", "required": ["page", "bbox", "word_ids"],
++          "properties": {"page": {"type": "integer", "minimum": 1},
++            "bbox": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
++            "word_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1}},
++          "additionalProperties": false}, "minItems": 1,
++          "description": "page-specific source regions; unlike bbox, includes every page of a spanning segment"},
+         "text_hash": {"$ref": "common.schema.json#/$defs/hash", "description": "hash of the normalized text (NFC, whitespace-collapsed, hyphenation joined)"},
+         "struct_hash": {"$ref": "common.schema.json#/$defs/hash", "description": "versioned hash of the lines and table cells of the extracted text (wgc/struct@N, ADR-0032); written by extractors @1+, required before tasks read the segment"},
+         "visual_flags": {"type": "array", "items": {"enum": ["strikethrough", "changed_color", "image_only", "column_scrambled", "ocr"]}},
+diff --git a/docs/ARCHITECTURE.md b/docs/ARCHITECTURE.md
+index a55b5a9..0a314d3 100644
+--- a/docs/ARCHITECTURE.md
++++ b/docs/ARCHITECTURE.md
+@@ -1,5 +1,11 @@
+ # Architektura
+ 
++> **Aktualna decyzja (2026-10-06):** [ADR-0037](adr/ADR-0037-ekstrakcja-desktop-bez-api.md) i
++> [plan implementacji desktopowej](DESKTOP-IMPLEMENTATION-PLAN.md) zastępują poniższy projekt wykonania
++> przez API/gateway. Premium czyta dokumenty w ChatGPT lub Claude Desktop; wymiana odbywa się przez pliki.
++> Lokalny kontroler jest opcjonalny. Zachowujemy granicę WGC/GLU i bezpieczny zapis KB. Diagramy infrastruktury
++> niżej są historyczne; nowe kontrakty i runtime nie zostały jeszcze wdrożone.
++
+ Dokument opisuje warstwy, granice i układ repozytoriów. Szczegóły: etapy w [PIPELINE.md](PIPELINE.md), wykonanie
+ w [GLU.md](GLU.md), kontrakty w [DATA-CONTRACTS.md](DATA-CONTRACTS.md), self-hosted inference w
+ [inference/NODE.md](inference/NODE.md).
+diff --git a/docs/DATA-CONTRACTS.md b/docs/DATA-CONTRACTS.md
+index 5987609..9bcb65f 100644
+--- a/docs/DATA-CONTRACTS.md
++++ b/docs/DATA-CONTRACTS.md
+@@ -5,6 +5,7 @@
+ |---|---|---|---|
+ | `wgc/common` | `contracts/schemas/common.schema.json` | ID, hash, glosa, kotwica, wykonawca, provenance (z manifestem wywołania i ownerem), ryzyko, cykl życia, `HD-`, `RR-` | @0 szkic |
+ | `wgc/source@0` | `source.schema.json` | Stage 0: `source_document` (role, `seg_prefix`, pierwszeństwo), `segment`; inwentarz `source/inventory.yaml` ([§9](#stage0)) | @0 szkic |
++| `wgc/desktop@0` | `desktop.schema.json` | pakiet, odpowiedź, dokument z dowodami i rewizja prywatna ([§11](#desktop)); ADR-0037/0038 | @0, kontrakty i kontrola w pamięci |
+ | `wgc/logic@0` | `logic.schema.json` | Stage 1: Rule IR i rekordy pokrewne, gramatyka wyrażeń i efektów | @0 szkic |
+ | `wgc/digital@0` | `digital.schema.json` | Stage 1.5 | @0 szkic |
+ | `wgc/gate@0` | `gate.schema.json` | raport bramki (obliczany) | @0 szkic |
+@@ -221,7 +222,7 @@ i `review_request.evidence`). Referencje w wyrażeniach, `ref_to`, `timing`, `em
+ <a id="stage0"></a>
+ ## 9. Stage 0: inwentarz źródeł i `wgc source` (M2a, M2b)
+ Implementacja: `wgc/source.py` (inwentarz, polecenia) i `wgc/ingest/` (ekstraktory). Decyzje: ADR-0020 (inwentarz,
+-Markdown), ADR-0021 (PDF), ADR-0032 (`struct_hash`, ekstraktory `@1`).
++Markdown), ADR-0021 (PDF), ADR-0032 (`struct_hash`, ekstraktory `@1`), ADR-0036 (jawny hybrydowy PDF `@2`).
+ 
+ **Pliki w repo gry:**
+ - `source/inventory.yaml`: jeden dokument `wgc/source@0`, commitowany, bez tekstu;
+@@ -247,6 +248,7 @@ z nowym `prov.inputs_hash` (wynik `zmienione`), bo projekcja segmentu ma nowe po
+ | `init --game <kod> [--doc rola:ścieżka …]` | tworzy inwentarz z dokumentem `SRC-<kod>.<rola>` dla każdego `--doc` (ścieżka względem `--root`; powtórzona rola dostaje `.2`, `.3`…) i od razu robi `scan`. Pierwszy dokument `rules` dostaje `seg_prefix: <kod>`. Istniejący inwentarz jest błędem |
+ | `scan` | dla dokumentów z `path`: `present`, `file_hash`, `extractor` (z rejestru rozszerzeń) |
+ | `extract` | `scan`, potem segmentacja obecnych dokumentów: rekordy `SEG-` w inwentarzu i tekst w `.glu/source/` |
++| `hybrid --doc SRC-… (--prepare \| --codex \| --provider-exe program \| --replay-dir katalog)` | `--prepare` eksportuje pakiety słów i rendery do `.glu`, aby asystent w Codex lub Claude Desktop przygotował `pNNN.json` z `proposal`; `--replay-dir` sprawdza te propozycje. `--codex` używa zalogowanego Codex CLI bez osobnego klucza API. Program dostaje JSON ze słowami i PNG w base64 przez stdin, zwraca JSON przez stdout. Niepewna strona zapisuje raport w `.glu` i blokuje zapis segmentów; nowy dokument bez segmentów zachowuje jawny wybór trybu hybrydowego, a `verify` zgłasza brak zatwierdzonego wyniku |
+ | `verify [--json]` | walidacja inwentarza (§8) i kontrole Stage 0 niżej; kod 1 przy błędach |
+ | `render (--doc SRC-… \| --segment SEG-…) [--pages 1,3-4] [--scale 2.0]` | renderuje strony PDF do `.glu/source/<SRC-id>/pages/p<NNN>.png` do ręcznej weryfikacji (`verified_by_render`). Domyślnie renderuje strony segmentu (`pages`) albo cały dokument. Skala 1.0 = 72 dpi |
+ 
+@@ -311,6 +313,25 @@ w `render`.
+   - zawijanie akapitów w PDF różni się od Markdown, więc `struct_hash` segmentów PDF i Markdown z tym samym tekstem
+     zwykle się różni (`text_hash` jest równy).
+ 
++**Jawny wariant hybrydowy (`wgc.ingest.pdf.hybrid@2`, ADR-0036):** wybiera go tylko `source hybrid` dla wskazanego PDF.
++Kod pobiera słowa warstwy tekstowej i renderuje stronę; provider proponuje kolejność i segmenty. Propozycja strony ma
++`segments` (`type`, `text`, `areas` z `page`, `bbox`, `word_ids`; dla `table` także `rows` z komórkami `text` i `areas`),
++`exclusions` (`word_ids`, `reason`), `unresolved` (`bbox`, `reason`) i `image_only` (`bbox`, `description`).
++Wszystkie słowa muszą należeć dokładnie raz do segmentu lub wyłączenia; kod sprawdza też, że każdy niebiały znak
++warstwy tekstowej trafił do wyodrębnionego słowa. Tekst segmentu i każdej komórki musi zgadzać
++się z przypisanymi słowami; obszary muszą mieścić się na stronie i zawierać wskazane słowa. Komórki muszą rozkładać
++wszystkie słowa tabeli bez powtórzeń; liczba komórek musi być taka sama w każdym wierszu, a pojedynczy wiersz lub
++kolumna wymaga przeglądu jako potencjalny katalog.
++`unresolved`, `image_only`, strona bez warstwy tekstowej albo błąd po jednym
++ponowieniu (render 3×) oznacza przegląd, bez zatwierdzenia inwentarza. Wyłączenia, np. paginy, wymagają powodu.
++Kod nadaje ID `SEG-<seg_prefix>.p<strona>s<kolejność>`, hashe i kolejność. Etykieta może się powtarzać.
++`areas` w rekordzie segmentu zachowuje obszary na każdej stronie; dawne `bbox` nadal oznacza tylko pierwszą stronę.
++Pełne propozycje, w tym tekst tabel, są tylko w `.glu/source/<SRC-id>/hybrid/approved.json`; inwentarz przechowuje
++`hybrid_hash`. `source verify` kontroluje ten plik i jego związek z `file_hash` PDF, bez nowego wywołania LLM.
++Ostatnie propozycje także stron odrzuconych zapisuje `.glu/source/<SRC-id>/hybrid/proposals/pNNN.json`, a metryki i
++diagnostyki w `report.json`; można je skorygować i podać ponownie przez `--replay-dir`.
++`scan` zachowuje jawny wybór hybrydowy, a zwykły PDF `@1` działa jak wcześniej.
++
+ **Domyślne pierwszeństwo według roli** (`wgc.source.DEFAULT_PRECEDENCE`, wyższe wygrywa przy jawnym konflikcie,
+ [LOGIC-MODEL](LOGIC-MODEL.md#pierwszenstwo-zrodel)):
+ 
+@@ -335,6 +356,7 @@ zapisywana. Politykę projektu (`project.yaml`) dodaje M7.
+ | `file_hash_mismatch` | error | hash pliku ≠ `file_hash` w inwentarzu |
+ | `extractor_changed` | warning | inwentarz zapisał inny ekstraktor niż bieżący dla tego formatu (regeneracja: `extract`) |
+ | `extract_error` | error | ponowna ekstrakcja się nie udała (np. powtórzona etykieta) |
++| `hybrid_area_mismatch` | error | obszary, strony lub typ segmentu różnią się od zatwierdzonego artefaktu hybrydowego |
+ | `segment_hash_mismatch` | error | tekst segmentu po ponownej ekstrakcji ma inny `text_hash` niż w inwentarzu |
+ | `segment_struct_mismatch` | error | ten sam `text_hash`, ale inny `struct_hash` niż w inwentarzu (inne granice komórek lub wierszy) |
+ | `segment_missing` | error | segmentu z inwentarza nie ma już w dokumencie |
+@@ -629,3 +651,160 @@ termin nie trafia do `kb/`: kategorię ustala M14.
+ 
+ **Zakres buildu (`--scope`):** `all`, `chapter:<N>` (segmenty pod nagłówkiem z etykietą `N` albo `N.0`, po polu
+ `parent`), `segment:<SEG-id>`; tylko obecne dokumenty.
++
++<a id="desktop"></a>
++## 11. Wymiana desktopowa i dokument prywatny (M-DESK1/2)
++
++Obowiązują [ADR-0037](adr/ADR-0037-ekstrakcja-desktop-bez-api.md),
++[ADR-0038](adr/ADR-0038-minimalne-kontrakty-desktop.md) i [plan](DESKTOP-IMPLEMENTATION-PLAN.md).
++Premium pracuje w ChatGPT lub Claude Desktop przez pliki, bez API inferencji. Lokalny LLM jest opcjonalny.
++Kontrakt powstaje obok legacy `wgc/source@0`; nie migruje inwentarza ani kotwic KB.
++
++### Koperty i granice odpowiedzialności
++
++`wgc/desktop@0` jest jedną rodziną z czterema rozłącznymi `kind`, walidowaną przez istniejący rejestr
++`wgc.contracts`. Wszystkie obiekty są zamknięte (`additionalProperties: false`).
++
++| Kind / definicja | Zawartość | Autor |
++|---|---|---|
++| `package` | ID/hash, task, źródło, docelowe/kontekstowe strony, instrukcja i jej wersja, schemat odpowiedzi, hashe plików, surowe fragmenty i rendery | kod, eksporter od M-DESK2 |
++| `response` | wiązanie z pakietem, deklaracja aplikacji/modelu, propozycja `document` | premium w aplikacji; fixture jest własny, nie modelowy |
++| `document` | bloki, niezależna hierarchia/kolejność, relacje, dowody i rozliczenie obszarów | propozycja premium, kontrola kodu |
++| `$defs/evidence` | `text_layer`, `image_transcription`, `diagram_description`, `visual_scope` | dowód tekstowy rekonstruuje kod, odczyt obrazu wymaga review |
++| `revision` | hashe odpowiedzi/dokumentu, rodzic i mapa zmian, wynik walidacji, jawne stany przeglądu, kompletność | WGC po kontroli i jawnym review; zapis od M-DESK3/4 |
++
++`response` nie może podać `validation`, `reviews` ani `completeness`. Bez rewizji jest propozycją.
++`producer.application` to `chatgpt`, `claude_desktop` lub `unknown`; nazwa modelu jest deklaracją
++(`model_identity: reported`), nie fingerprintem dostawcy. Brak danych zapisujemy jako `unknown`.
++Kontrakt nie wymaga GPU, metryk, lokalnego procesu ani gatewaya.
++
++### Zakres, tożsamość i hashe
++
++- `source` zawiera `SRC-`, pełny hash oryginału i liczbę stron PDF. `pdf_page` jest numerem od 1;
++  `printed_label` jest osobną etykietą (może być `null`, gdy nieznana).
++- `target_pages` i `context_pages` są rozłączne. Snapshoty `pages` pokrywają ich sumę. Bloki i rozliczenie
++  obszarów zapisujemy tylko dla stron docelowych; kontekst nie daje dodatkowego właścicielstwa.
++  Dowody relacji mogą odwołać się do kontekstu. Brak bloku za granicą pakietu zapisujemy jako lukę
++  z zależnościami `affects`, bez tworzenia bloku na stronie kontekstowej.
++- `ref` jest kluczem lokalnym w niezmienionym pakiecie. ID bloku to para `(package.id, ref)`;
++  drukowana etykieta reguły nie jest ID. Nie dopisujemy tych kluczy do globalnego rejestru KB.
++  Rewizja z `parent` wymaga `changes: [{before: [...], after: [...], reason: ...}]` dla jawnej mapy
++  dodania/usunięcia/podziału/połączenia. Nie obiecujemy automatycznie stabilnych ID po zmianie wydania.
++- Wszystkie nowe hashe są pełnym `sha256:` i 64 małymi znakami hex, bez skrótów fixture'ów z `common`.
++  `package.hash` i `revision.hash` = `wgc.desktop.envelope_hash`: istniejący `content_hash` całej koperty
++  bez jej własnego pola `hash`. Nie ma innego specjalnego pola pomijanego przy hashowaniu.
++- Hash pliku PDF, renderu, wycinka, instrukcji, legendy, przykładu i kopii schematu dotyczy **bajtów** pliku.
++  Wskaźniki `revision.document` i `revision.response` dotyczą **kanonicznych odczytanych danych**, nie
++  białych znaków YAML/JSON. Wiązanie pakietu w odpowiedzi i dokumencie musi pasować dokładnie.
++- Manifest wymaga renderów dla wszystkich dostarczonych stron oraz instrukcji, schematu, legendy i przykładu.
++  Pełny oryginalny PDF jest opcjonalnym `source`; wybrane strony mogą być `page_pdf`. Nie trzeba przekazywać
++  całej instrukcji, aby czytać mały pakiet. Ścieżki są względne POSIX, bez absolutnych ścieżek i `..`.
++
++### Dowody, struktura i pokrycie
++
++Surowy fragment kodu to `{ref, text, bbox, glyphs: [{start,end,bbox}]}`. Zakresy dotyczą surowego tekstu,
++liczonego punktami kodowymi Unicode, **przed** `normalize_text`; `[start,end)` nie przecina glifu.
++Model może podzielić fragment albo złożyć kilka fragmentów w zadanej kolejności:
++
++```yaml
++ref: e.crossing
++kind: text_layer
++spans:
++  - {fragment: p1f5, start: 0, end: 26}
++```
++
++`wgc.desktop.resolve_text` rekonstruuje wskazane podciągi (oddzielone `\n`) oraz dokładne obwiednie sumy
++glifów na każdej stronie. Model nie kopiuje tekstu warstwy PDF ani wszystkich ID słów. Brak tekstu w PDF
++nie zamienia się w zmyślony `text_layer`.
++
++Dowód obrazowy wymaga `{ref, kind, pdf_page, bbox, image: {path,hash}, text}`.
++`image_transcription` zachowuje odczytany napis, `diagram_description` opis, `visual_scope` znaczenie ramki
++lub koloru; oryginał obrazowy pozostaje dowodem. Opcjonalne `discrepancy` jawnie opisuje różnicę względem
++warstwy tekstowej. Transkrypcja nie jest potwierdzona przez sam zgodny hash obrazu.
++
++Blok ma typ i niepuste `evidence`, opcjonalny `parent` i `printed_label`. `reading_order` jest permutacją
++bloków, niezależną od hierarchii i współrzędnych. Kontynuacja jest relacją dwóch bloków, także między
++kolumnami/stronami. `scope` wymaga `cue: frame|color` oraz dowodu `visual_scope`; nie jest samym `parent`.
++Pozostałe relacje to `caption_of` i `legend_of`. Tabela zachowuje liczbę wierszy/kolumn, komórki z dowodami,
++rolą nagłówka/danych, `row_span`, `column_span` i referencjami not. Siatka musi być pokryta dokładnie raz.
++Nie odrzucamy tabeli za sam pojedynczy wiersz; nietypowa interpretacja pozostaje przedmiotem review.
++
++`coverage` rozlicza obszary jako `content`, `excluded` z powodem albo `gap` z powodem i `affects`.
++Każdy widoczny znak surowej warstwy tekstowej w zakresie docelowym musi wystąpić dokładnie raz w rozliczeniu;
++jawna luka może wskazać niepewny fragment i nie daje zatwierdzonego dowodu. Ramka może geometrycznie obejmować
++tekst rozliczony osobno. Lista obszarów nie dowodzi automatycznie pełnego pokrycia renderu — pominięta ilustracja
++wymaga kontroli wzrokowej. Kontrola tekstu oraz kontrola widocznych elementów są odrębne.
++
++### Walidacja i przegląd
++
++`contracts.errors` / obecne `wgc validate` kontrolują **schemat** kopert (L0); kontrakt nie dodaje rekordów
++do walidatora KB. `wgc.desktop.check(package, response, revision=None)` kontroluje powiązany zestaw w pamięci:
++manifesty, zakresy, referencje, glify/spany, obwiednie, hierarchię, tabelę, pokrycie tekstu oraz spójność rewizji.
++Zwraca istniejące diagnostyki WGC `desktop_*`; niczego nie zapisuje i nie zmienia stanów.
++
++| Stan | Znaczenie |
++|---|---|
++| odpowiedź bez rewizji | propozycja, bez prawa użycia jako zatwierdzony wynik |
++| `validation: unchecked|valid|invalid` | kontrola struktury przez kod, niezależna od oceny znaczenia |
++| `reviews[].status: pending` | element oczekuje na przegląd |
++| `approved` | jawny recenzent, hash dokumentu i hashe porównanych renderów w `basis` |
++| `rejected` | przegląd odrzucił element |
++| `stale` | wcześniejsza ocena nie dotyczy aktualnych dowodów/rewizji |
++
++Rewizja jawnie wymienia stan każdego bloku, dowodu, relacji i obszaru. `approved` wymaga `validation: valid`
++oraz zatwierdzenia zależności: tekstu/transkrypcji, rodzica, rozliczenia obszaru, kontynuacji i zakresu ramki.
++Otwarta luka z `affects` blokuje zależne elementy; niezależny fragment może mieć kompletną podstawę review.
++`complete` wymaga wszystkich stron oryginału, wszystkich elementów zatwierdzonych i braku luk.
++Samo podanie recenzenta w JSON nie uwierzytelnia go: ścieżkę jawnego review dostarczy M-DESK4.
++
++### Trwałe prywatne artefakty
++
++Układ projektu gry, do implementacji w M-DESK3:
++
++```text
++private/source-artifacts/<SRC-id>/
++  originals/       # oryginały, warianty wydania, rendery/wycinki użyte w dowodach
++  packages/        # niezmienne manifesty i dostarczone pliki
++  responses/       # surowe odpowiedzi zachowane także po odrzuceniu
++  documents/       # sprawdzone snapshoty dokumentu, w tym propozycje oczekujące
++  revisions/       # niezmienne rewizje z rodzicem, mapą zmian i przeglądem
++```
++
++Ścieżki plików rewizji są względne wobec tego korzenia. W katalogu każdego pakietu ścieżki manifestu są względne
++wobec jego własnego korzenia. Pełny tekst/render/odpowiedź pozostają prywatne, ignorowane przez git i objęte
++kopią zapasową. Commitowane metadane gry mają wskazywać tylko ID źródła, hash oryginału i ID/hash wybranej
++rewizji. Ich integracja z `source/` i kotwicami KB należy do M-DESK6b, nie zmienia obecnego `source.schema.json`.
++Cache `.glu/` zawiera wyłącznie odtwarzalny stan operacyjny; jego utrata nie usuwa odczytu premium.
++M-DESK1 ustala format/układ, nie implementuje magazynu, importera, backupu ani migracji.
++
++### Eksport plików (M-DESK2)
++
++`python -m wgc desktop export --pdf <plik> --doc <SRC-id> --pages <zakres> --output <nowy-katalog>`
++przygotowuje pakiet niezależnie od inwentarza source/KB/GLU. `--pages` jest obowiązkowe; domyślny kontekst
++obejmuje tylko bezpośrednich sąsiadów, `--context <zakres>|none` wybiera go jawnie. Zakresy pozostają rozłączne.
++Oryginalny PDF nie jest dołączany. Rendery i surowe snapshoty obejmują wyłącznie wybrane strony.
++`manifest.txt` jest JSON z kopertą pakietu; pozostałe pliki to instrukcja `document.read.desktop@0.1`, legenda,
++syntetyczny przykład odpowiedzi, kopia schematu i PNG. Wszystkie są sprawdzane hashem bajtów przed publikacją.
++Istniejący katalog wyjściowy nie jest nadpisywany; katalog przygotowawczy jest publikowany po pełnym zapisie.
++
++`wgc.ingest.pdf.raw_pages` zachowuje kolejność strumienia znaków i surowe ciągi Unicode bez normalizacji,
++deduplikacji czy dopisywania spacji. Zbliżona linia i mała przerwa grupują kolejne glify technicznie;
++model nadal ustala semantyczne bloki i kolejność. Geometria ma precyzję 0.001 punktu PDF; glif wieloznakowy
++obejmuje cały zakres kodowych znaków, a glif poza stroną lub z pustą geometrią kończy eksport błędem.
++`printed_label` pozostaje `null`. Pusta warstwa tekstowa jest dozwolona; obraz zachowuje render.
++ID pochodzi z zawartości pakietu przed dodaniem ID/hash, hash z całej koperty bez hash (jak w M-DESK1).
++Powtarzalność bajtów obowiązuje dla tych samych wejść i bibliotek, nie między dowolnymi wersjami rendererów.
++`wgc.desktop_export.verify_files` kontroluje tylko manifest i bajty jego assetów; nie importuje odpowiedzi.
++Nie wprowadza rewizji ani akceptacji. [Instrukcja wymiany i stan ręcznej próby](DESKTOP-EXCHANGE.md).
++
++### Przykład i testy
++
++[Własny przykład CC0](../bench/desktop-two-page/README.md) ma dwie strony, kolumny, kontynuację, ramkę
++zakresu i prawdziwy raster z napisem nieobecnym w warstwie PDF. `valid/desktop.*.yaml` zawierają pakiet,
++odpowiedź, dokument i rewizję; `invalid/desktop.*.yaml` wykrywają brak dowodu oraz zatwierdzenie bez podstawy.
++`desktop-invalid/foreign-package.yaml` jest poprawne na L0, ale odrzucane przez kontrolę wiązania pakietu.
++
++`tests/test_desktop_contracts.py` sprawdza rzeczywiste bajty artefaktów i warstwę PDF, oczekiwany odczyt,
++mutacje dowodów/manifestu/pokrycia/rewizji, częściowy przegląd, luki i stany nieaktualne.
++Celowo błędna transkrypcja i przestawiona kolejność kolumn mogą przejść strukturę — nadal są `pending`.
++To test granicy gwarancji, nie pomiar jakości modelu. Q-11 pozostaje do pilota M-DESK5.
+diff --git a/docs/HANDOFF.md b/docs/HANDOFF.md
+index e2d4f75..52a3cf2 100644
+--- a/docs/HANDOFF.md
++++ b/docs/HANDOFF.md
+@@ -1,7 +1,20 @@
+ # HANDOFF
+ 
+-Wskaźnik na ostatni handoff. Archiwum: `docs/handoff/` (pliki `RRRR-MM-DD-Mn.md`, tylko dopisywanie).
++Wskaźniki na ostatni ukończony milestone i bieżącą sesję. Archiwum: `docs/handoff/` (pliki `RRRR-MM-DD-Mn.md`, tylko dopisywanie).
+ 
+-- **Ostatni:** [handoff/2026-10-06-M-STAB3c.md](handoff/2026-10-06-M-STAB3c.md)
+-- **Poprzedni:** [handoff/2026-10-06-M-STAB3b.md](handoff/2026-10-06-M-STAB3b.md)
+-- **Następny milestone:** M10 (szczegóły w [STATUS.md](STATUS.md#nastepny-milestone)): providerzy fake/replay/self_hosted i pętla structured output; tor równoległy: M-GW1
++- **Ostatni ukończony:** [handoff/2026-10-06-M-DESK1.md](handoff/2026-10-06-M-DESK1.md)
++- **Bieżąca sesja (partial):** [handoff/2026-10-07-M-DESK2.md](handoff/2026-10-07-M-DESK2.md)
++- **Poprzedni:** [handoff/2026-10-06-M-DESK2.md](handoff/2026-10-06-M-DESK2.md)
++- **Następny milestone:** M-DESK2: deterministyczny eksporter pakietu i ręczna próba wymiany pliku w aplikacji.
++  Kod i pakiet są gotowe; zapisany JSON przeszedł kontrolę schematu, wiązania i `desktop.check`.
++  Metadane i dowód dotyczą Codex desktop oraz zapisu narzędziem plikowym, nie próby ChatGPT/Claude Desktop.
++  M-DESK2 nadal partial: oczekuje ręczna wymiana w jednej z wymaganych aplikacji i dowód tej próby.
++  Nowy wynik SPQR ma **23 błędy `desktop.check`** mimo poprawnego JSON/schematu/wiązania;
++  zachowano oryginał, zapisano raport i prywatny prompt ręcznej korekty. Zacznij od bieżącego handoffu,
++  [kroków wymiany](DESKTOP-EXCHANGE.md), [DATA-CONTRACTS §11](DATA-CONTRACTS.md#desktop) i [STATUS](STATUS.md#nastepny-milestone).
++  Dawny M10 i gateway nie są aktywną ścieżką; obowiązuje brak API inferencji.
++- **Dodatkowa próbka właściciela:** wybrano SPQR, PDF 32 (edycja 5), z tabelą i diagramem.
++  Właściciel zatwierdził stronę; pakiet PDF 32 + kontekst PDF 31/33 jest wyeksportowany i sprawdzony.
++  Zapisana odpowiedź pochodzi z Codex; struktura wymaga korekty, wymiana ChatGPT/Claude nadal oczekuje.
++  Prywatne kroki: `private/source-artifacts/SRC-spqr.rules/trial-p032-instructions.txt`.
++  Szczegóły w bieżącym handoffie. Potwierdzony model wcześniejszej próby Codex: GPT 6.1 Sol, rozumowanie wysoki.
+diff --git a/docs/INFERENCE-ROUTING.md b/docs/INFERENCE-ROUTING.md
+index 5d9b31e..bd52101 100644
+--- a/docs/INFERENCE-ROUTING.md
++++ b/docs/INFERENCE-ROUTING.md
+@@ -1,5 +1,11 @@
+ # Routing, providerzy i self-hosted inference
+ 
++> **Dokument historyczny w zakresie wykonawców i transportu.** Od 2026-10-06 obowiązuje
++> [ADR-0037](adr/ADR-0037-ekstrakcja-desktop-bez-api.md): premium w ChatGPT lub Claude Desktop przez pakiety
++> plikowe, bez API inferencji; opcjonalny lokalny kontroler przez proces/pliki. Nie implementować poniższej
++> drabiny jako aktualnej polityki ani providerów API/HTTPS. Aktywny [plan](DESKTOP-IMPLEMENTATION-PLAN.md)
++> zaczyna od jakości odczytu premium; decyzje o optymalizacji zapadają po pilocie.
++
+ **Local = self-hosted.** Tier `local` i profile `local_*` oznaczają modele na naszej infrastrukturze za Inference
+ Gateway (docelowo osobny węzeł w LAN), a nie model na localhost ([ADR-0015](adr/ADR-0015-self-hosted-inference-wezel-lan.md),
+ [inference/NODE.md](inference/NODE.md#definicja)).
+diff --git a/docs/LOGIC-MODEL.md b/docs/LOGIC-MODEL.md
+index ae86697..c9615d6 100644
+--- a/docs/LOGIC-MODEL.md
++++ b/docs/LOGIC-MODEL.md
+@@ -1,5 +1,10 @@
+ # Model logiki (Stage 0 i Stage 1)
+ 
++> **Stage 0 i wykonawcy:** [ADR-0037](adr/ADR-0037-ekstrakcja-desktop-bez-api.md) zastępuje założenie
++> deterministycznej interpretacji PDF i lokalnej ekstrakcji jako domyślnej. Premium pracuje przez aplikację,
++> bez API. Reprezentacja dokumentu i dowody wizualne powstają przed Rule IR; planowane rozszerzenia opisuje
++> [plan implementacji](DESKTOP-IMPLEMENTATION-PLAN.md). Istniejące kontrakty pozostają do jawnej migracji.
++
+ Stage 1 odpowiada wyłącznie na pytanie: **jak działa gra?** Buduje kanoniczną reprezentację instrukcji niezależną
+ od języka docelowego (ADR-0003), od wyglądu publikacji i od przyszłego silnika. Kontrakty:
+ `contracts/schemas/source.schema.json`, `logic.schema.json`, `common.schema.json`. Przykład:
+diff --git a/docs/PIPELINE.md b/docs/PIPELINE.md
+index 3c9d459..4e26291 100644
+--- a/docs/PIPELINE.md
++++ b/docs/PIPELINE.md
+@@ -1,5 +1,10 @@
+ # Pipeline: etapy, kontrakty, bramki
+ 
++> **Korekta Stage 0 (ADR-0037):** deterministyczne przygotowanie -> modelowy odczyt struktury w aplikacji
++> desktopowej -> przegląd -> trwała prywatna rewizja dokumentu -> Stage 1. Kolory/ramki/diagramy o znaczeniu
++> dla reguł są dowodami przed Stage 1. Opis odtwarzalnego tekstu w cache niżej dotyczy legacy; szczegóły
++> nowej ścieżki i jej niezaimplementowanych jeszcze kontraktów: [plan](DESKTOP-IMPLEMENTATION-PLAN.md).
++
+ ```text
+ Stage 0  SOURCE         inwentarz źródeł, segmenty, hashe            (deterministycznie + człowiek przy OCR)
+    ↓
+diff --git a/docs/ROADMAP.md b/docs/ROADMAP.md
+index 1b4c3ec..91ac9a9 100644
+--- a/docs/ROADMAP.md
++++ b/docs/ROADMAP.md
+@@ -9,33 +9,120 @@ Status: `done`, `next`, `planned`, `optional`.
+ 
+ <a id="kolejnosc"></a>
+ ## Kolejność wykonania
+-Sekcje niżej grupują milestone'y tematycznie. Kolejność wykonania (strzałka = kolejność; zależności podaje każdy milestone):
++Aktywną kolejność ustala ADR-0037 i [plan implementacji](DESKTOP-IMPLEMENTATION-PLAN.md).
++Przebudowujemy istniejący kod. Premium działa przez ChatGPT lub Claude Desktop, bez API inferencji.
+ 
+ ```text
+-tor domeny + GLU:  M1 → M2a → M8 → M9a → M-STAB1 → M9b → M-STAB2 → M-STAB3a → M-STAB3b → M-STAB3c → M10 ─┐
+-tor węzła (LAN):   M-GW1 → M-NODE (HUM) ──────────────────────────────────────────┼─→ M-E2E (walking skeleton przez LAN) → M3 → M4 → M5 → M6 → M7
+-pomiar:            M-BASE (HUM, jak najwcześniej)                                 │       → M11 → M12 → M13 → M-GW2 → M-INF → M14 → M15 → M16 → …
+-                                                                                  │   (M-VLLM, M-GW3: optional, tylko gdy pomiar tego wymaga)
++M-DESK0 (done) -> M-DESK1 (done) -> M-DESK2 (next) -> M-DESK3 -> M-DESK4
++ -> M-DESK5 (bramka jakości) -> M-DESK6a -> M-DESK6b -> M-DESK7 -> M-DESK9
++                                                         -> M-DESK8 (optional)
+ ```
+-- Tor węzła nie zależy od domeny (węzeł nie zna WGC), więc M-GW1 i M-NODE mogą iść równolegle z M1–M10.
+-- M2b (ingest PDF) jest zrobiony. Wielokolumnowe PDF-y, nagłówki i stopki stron oraz strony bez tekstu (Q-11 w STATUS)
+-  trzeba obsłużyć przed pierwszą pracą na PDF-ie prawdziwej gry (najpóźniej M28).
+-- **M-E2E** to wczesny pionowy przekrój: jedna reguła przechodzi source → Stage 1 → GLU → węzeł w LAN → walidacja →
+-  `kb/` → Stage 1.5 → test, z premium jako `fake`.
+-- Mapa tematów inferencji:
+-
+-  | Temat | Milestone |
+-  |---|---|
+-  | Inference Provider Contract | M-INF0 (kontrakt `igw/api@0`), M10 (kod) |
+-  | Remote Self-Hosted Provider | M10 |
+-  | Inference Gateway | M-GW1 |
+-  | Node Runtime | M-GW1 (adapter), M-NODE (instalacja), M-GW2 (supervisor) |
+-  | LAN Security | M-GW1 (aplikacja), M-NODE (firewall, TLS, sekrety) |
+-  | Health / Capabilities | M-GW1 (endpointy), M10 (klient) |
+-  | Model Profiles | M-INF0 (projekt), M-GW1 (`node.yaml`), M10 (`profiles.yaml`), M-INF (wybór modeli) |
+-  | Queue / Scheduling | M-GW1 (kolejka), M-GW2 (scheduler, cykl życia) |
+-  | Diagnostics | M-E2E (`glu doctor`), M-GW2 (`igw doctor`) |
+-  | End-to-end LAN test | M-E2E |
++
++**Milestone'y starszych faz o statusie `planned`/`optional` są odłożonym backlogiem, nie kolejką wykonania.**
++Ich dawnych zakresów API, gatewaya, LAN i lokalnego routingu nie realizować. M-DESK9 przepisze przydatne
++dalsze zadania według wyników pilota. Status `done` wcześniejszych etapów opisuje wykonane prace i pozostaje.
++M-DESK8 nie blokuje M-DESK9. Q-11 jest otwarta i przechodzi do pilota M-DESK5, nie do ręcznego łatania 20 stron
++legacy. M3 (gold) i M-BASE (pomiar) mają wczesny odpowiednik w M-DESK1/5; gateway nie jest zależnością gold.
++
++## Aktywna przebudowa desktopowa
++
++Szczegółowe zakresy, przypadki testowe i bramki: [plan](DESKTOP-IMPLEMENTATION-PLAN.md#7-etapy-i-kryteria-odbioru).
++Każda sesja aktualizuje ten rejestr statusów; plan nie jest osobną kopią postępu.
++
++### M-DESK0: Decyzja i plan przebudowy
++- **Status:** done · **Rola:** ARCH · **Zależy od:** M-STAB3c
++- **Wynik:** ADR-0037, plan implementacji, aktualizacja punktów wejścia i kolejności; kod bez zmian.
++
++### M-DESK1: Minimalne kontrakty dokumentu i pakietu
++- **Status:** done · **Rola:** ARCH + IMPL · **Zależy od:** M-DESK0
++- **Zakres:** schematy pakietu, odpowiedzi, dowodów i rewizji; własny dwustronicowy przykład i fixture'y;
++  DATA-CONTRACTS. Oddzielić zakres docelowy od kontekstu i poprawność strukturalną od zatwierdzenia.
++- **Akceptacja:** kolumny, kontynuacja, ramka zakresu, transkrypcja obrazu mają reprezentację; negatywne
++  fixture'y wykrywają brak dowodu i niespójny manifest; testy offline zielone.
++- **Poza zakresem:** eksporter/importer, modele, GPU, migracja istniejącej gry.
++- **Wynik:** `wgc/desktop@0` (package/response/document/revision, wspólne dowody), `wgc.desktop`
++  (kontrola w pamięci i rekonstrukcja tekstu), własny [przykład CC0](../bench/desktop-two-page/README.md),
++  fixture'y poprawne i negatywne, testy offline, DATA-CONTRACTS §11, ADR-0038.
++  Walidacja nie nadaje zatwierdzenia; Q-11 i zmiany legacy pozostają. Handoff:
++  [2026-10-06-M-DESK1](handoff/2026-10-06-M-DESK1.md).
++
++### M-DESK2: Eksport pakietów do aplikacji desktopowej
++- **Status:** next · **Rola:** IMPL + HUM · **Zależy od:** M-DESK1
++- **Zakres:** deterministyczny pakiet z tekstem/renderami, kontekstem, schematem i instrukcją odpowiedzi.
++- **Akceptacja:** zgodne hashe przy ponowieniu; ręczny round-trip pliku w co najmniej jednej aplikacji,
++  możliwości drugiej opisane bez obietnic automatycznej integracji; bez API/sterowania GUI.
++- **Wykonanie częściowe (2026-10-06):** ogólny eksporter `wgc.desktop_export`, jawne CLI `desktop export`,
++  surowe glify/rendery i osobny kontekst, rzeczywiste hashe oraz kopia schematu, testy offline.
++  [Pakiet i kroki ręcznej próby](DESKTOP-EXCHANGE.md) są gotowe. Schemat/hashe pakietu poprawne,
++  ponowny eksport: siedem identycznych bajtowo plików (143563 bajty).
++  Zapisany `mdesk2-chatgpt.json` (9770 bajtów) przeszedł JSON, schemat, wiązanie i `desktop.check`
++  bez diagnostyk; oryginalne bajty zachowano. Metadane/dowód wskazują **Codex desktop** i bezpośredni
++  zapis narzędziem plikowym; właściciel potwierdził **GPT 6.1 Sol, rozumowanie wysoki** w osobnych metadanych.
++  Nie potwierdza to ręcznej wymiany w ChatGPT/Claude Desktop; oryginalna koperta nadal ma model `unknown`.
++  M-DESK2 pozostaje `next`/partial, M-DESK3 nie rozpoczęto. Obie wymagane aplikacje nadal niesprawdzone;
++  ograniczenia opisano na podstawie dokumentacji. Wynik strukturalny nie nadaje zatwierdzenia.
++  Dodatkowo właściciel zatwierdził SPQR PDF 32 (edycja 5): pakiet z kontekstem 31/33 ma osiem plików,
++  6806093 bajty; schemat/hashe i powtarzalność poprawne. Podgląd celu zachowany identycznie.
++  Pakiet i instrukcja próby wyłącznie prywatne. Wynik SPQR sprawdzony 2026-10-07: JSON/schemat/wiązanie
++  poprawne, `desktop.check` **23 błędy** (1 dowodów tabeli, 22 coverage). Odczyt tabeli/diagramu obiecujący,
++  ale struktura wymaga ręcznej korekty. Dowód dotyczy Codex, model `gpt sol 6.1`, rozumowanie wysoki;
++  ChatGPT/Claude Desktop nadal niesprawdzone. Oryginalne bajty i osiem assetów pakietu zachowane.
++  Ostatni pełny zestaw dla tego kodu (2026-10-06): **806 passed, 1 skipped**, 291,11 s;
++  bieżące testy kontraktów/eksportera/ciągłości: **160 passed**, 14,30 s
++  (lokalny TMP/TEMP, nowy basetemp `spqr-response-review-20261007-1`;
++  log `.glu/desktop-export-session/spqr-response-review-20261007-1/targeted.log`).
++  Końcowa osobna ciągłość **95 passed**, 0,27 s; nowy basetemp `spqr-response-review-continuity-20261007-1`.
++  [Bieżący handoff kontroli](handoff/2026-10-07-M-DESK2.md),
++  [wcześniejszy eksport i przygotowanie](handoff/2026-10-06-M-DESK2.md).
++
++### M-DESK3: Import i trwałe rewizje prywatnych artefaktów
++- **Status:** planned · **Rola:** IMPL · **Zależy od:** M-DESK2
++- **Zakres:** import propozycji, diagnostyka, prywatny magazyn, eksport i odtworzenie.
++- **Akceptacja:** stary/obcy pakiet odrzucony; powtórny import idempotentny; awaria zachowuje poprzedni wynik;
++  utrata cache nie wymaga modelu. Brak zapisu do KB na tym etapie.
++
++### M-DESK4: Podgląd, review i poprawki fragmentów
++- **Status:** planned · **Rola:** IMPL + HUM · **Zależy od:** M-DESK3
++- **Zakres:** porównanie renderu z blokami i tabelami, jawne zatwierdzanie i pakiet korekty obszaru.
++- **Akceptacja:** poprawny fragment jest zachowany mimo innej luki; zależny zakres pozostaje zablokowany;
++  tekst z obrazu może uzyskać zweryfikowany dowód bez udawania warstwy tekstowej.
++
++### M-DESK5: Pilot jakości odczytu instrukcji
++- **Status:** planned · **Rola:** HUM + ARCH · **Zależy od:** M-DESK4
++- **Zakres:** 12–18 stron prywatnego korpusu, wcześniej ustalone oczekiwania i próbka kontrolna;
++  raport pierwszego wyniku i korekt, czasu użytkownika i dostępnych metryk.
++- **Akceptacja:** krytyczne elementy poprawne, brak cichych pominięć i dopowiedzeń, pokrycie rozliczone;
++  decyzja kontynuować albo poprawić kontrakt. Nie zamykać Q-11 na podstawie samego JSON/schema validity.
++
++### M-DESK6a: Ekstrakcja semantyczna z zatwierdzonego dokumentu
++- **Status:** planned · **Rola:** ARCH + IMPL + HUM · **Zależy od:** M-DESK5
++- **Zakres:** pakiet jednej sekcji z zależnościami, propozycje reguł/wyjątków/limitów i przypadków kontrolnych.
++- **Akceptacja:** ślad reguły do dowodu tekstowego/wizualnego; przypadek pozytywny i negatywny sprawdzone
++  względem źródła. Bez pełnej digitalizacji i bez bezpośredniego zapisu modelu do KB.
++
++### M-DESK6b: Akceptacja KB i zmiana rewizji źródła
++- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-DESK6a
++- **Zakres:** integracja przez `accept()`, manifesty i ownership; dowody wizualne; Q-12/Q-16/Q-17 dla pilota.
++- **Akceptacja:** odrzucenie starego pakietu i niepotwierdzonej kotwicy, kontrola zależnych rekordów po zmianie
++  rewizji; konserwatywna blokada zakresu dopuszczalna przed pełnym grafem. Bez cichej migracji źródeł.
++
++### M-DESK7: Kolejka pracy desktopowej w GLU
++- **Status:** planned · **Rola:** IMPL · **Zależy od:** M-DESK6b
++- **Zakres:** powiązanie istniejącego job store z eksportem, oczekiwaniem, importem i review.
++- **Akceptacja:** restart zachowuje pracę, duplikat odpowiedzi nie dubluje akceptacji; brak odpowiedzi pozostawia
++  oczekiwanie bez wywołania API. Zmiany stanów/kontraktów wymagają fixture'ów i testów recovery.
++
++### M-DESK8: Opcjonalny lokalny kontroler
++- **Status:** optional · **Rola:** IMPL + HUM · **Zależy od:** M-DESK7
++- **Zakres:** worker przez proces/pliki, niezależna ekstrakcja kontrolna, raport rozbieżności.
++- **Akceptacja:** porównanie wykrytych błędów/fałszywych alarmów/czasu z wariantem bez workera;
++  bez samodzielnej akceptacji; brak lokalnego modelu nie blokuje podstawowej pracy desktopowej.
++
++### M-DESK9: Migracja i dalsza roadmapa
++- **Status:** planned · **Rola:** ARCH + IMPL · **Zależy od:** M-DESK7
++- **Zakres:** jawny diff i odwracalne przełączenie projektu; aktualizacja dalszych etapów M3–M28.
++- **Akceptacja:** regresje legacy/Markdown, zachowane dowody i rewizje, udokumentowana migracja i rollback;
++  decyzja o wycofaniu legacy oparta na pilocie, bez przywracania API.
+ 
+ ## Faza 0: fundament
+ ### M0: Architektura i system ciągłości (Session 0)
+@@ -326,7 +413,8 @@ duży na jedną sesję, więc dzieli się na trzy milestone'y wykonywane po kole
+     etapu i lifecycle.
+ 
+ ### M10: Providerzy fake/replay/self_hosted + pętla structured output
+-- **Status:** next · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3c (kontrakt `igw/api@0` z M-INF0)
++- **Status:** planned · **Rola:** IMPL · **Zależy od:** M9a, M-STAB3c (kontrakt `igw/api@0` z M-INF0)
++- **Odłożone przez ADR-0037:** poniższy zakres jest historyczny; nie implementować API. Zastępuje go aktywny plan M-DESK.
+ - **Zakres:**
+   - `glu.providers` z interfejsem INFERENCE-ROUTING §3: `generate`, `embed?`, `health`, `capabilities`, `models`
+     i typowane błędy;
+@@ -514,6 +602,7 @@ decyzje ADR-0015…0018. Pakiet `igw` nie importuje `wgc` ani `glu`.
+ 
+ ### M15: Premium: review package, `anthropic`, `desktop_pull`
+ - **Status:** planned · **Rola:** IMPL · **Zależy od:** M14
++- **Odłożone przez ADR-0037:** poniższy zakres jest historyczny; nie implementować API. Zastępuje go aktywny plan M-DESK.
+ - **Zakres:** budowa pakietu (k-hop, limit tokenów), `answer_schema`, provider `anthropic`, kolejka `desktop_pull`, `glu review`.
+ - **Akceptacja:** pakiety ≤ 4k tokenów dla gold; odpowiedź niezgodna ze schematem → retry/odrzucenie; testy na `fake`.
+ 
+diff --git a/docs/SESSION-PLAYBOOK.md b/docs/SESSION-PLAYBOOK.md
+index 48812e9..1a18bb5 100644
+--- a/docs/SESSION-PLAYBOOK.md
++++ b/docs/SESSION-PLAYBOOK.md
+@@ -46,8 +46,8 @@ Proces nie jest związany z nazwą modelu. Role:
+ |---|---|---|
+ | **Architecture Model** | najmocniejszy dostępny model | Session 0, kontrakty, prompty zadań, złote modele, ADR o dużym zasięgu |
+ | **Implementation Model** | szybki model dobry w kodowaniu | milestone'y IMPL według ROADMAP |
+-| **Local Worker** | model self-hosted na węźle w LAN (profile `local_*`, ADR-0015) | joby GLU w buildach (nie rozwój narzędzia) |
+-| **Premium Reviewer** | mocny model przez API lub Claude Desktop | pakiety review w buildach, przegląd kontraktów na prośbę |
++| **Local Worker** | opcjonalny model self-hosted przez proces/pliki (ADR-0037) | niezależne kontrole i propozycje; bez samodzielnej akceptacji KB |
++| **Premium Reader / Reviewer** | mocny model w ChatGPT lub Claude Desktop, bez API (ADR-0037) | struktura dokumentu, ekstrakcja reguł, pakiety rozbieżności i review |
+ | **Human Reviewer** | właściciel | decyzje domenowe, interpretacje, terminy, akceptacja ADR o kosztach |
+ 
+ ## Szablon handoffu (`docs/handoff/RRRR-MM-DD-Mn.md`)
+diff --git a/docs/STATUS.md b/docs/STATUS.md
+index 3987847..1f9fb18 100644
+--- a/docs/STATUS.md
++++ b/docs/STATUS.md
+@@ -1,11 +1,40 @@
+ # STATUS
+ 
+-- **Data aktualizacji:** 2026-10-06
+-- **Ostatni milestone:** M-STAB3c (kontrakt propozycji, ownership outputów, wdrożenie ADR-0027): done
+-- **Bieżący milestone:** M10
+-- **Stan repo:** testy zielone (`python -m pytest`); gałąź `master`, remote `origin` = `git@github.com:yautay/wargame-compiler.git`
++- **Data aktualizacji:** 2026-10-07
++- **Ostatni milestone:** M-DESK1 (minimalne kontrakty desktopowe, ADR-0038): done
++- **Bieżący milestone:** M-DESK2
++- **Stan repo:** kod eksportera M-DESK2 i pakiet do próby gotowe; testy zielone: **806 passed, 1 skipped**
++  (291,11 s w kontynuacji 2026-10-06). Pełny zestaw z lokalnym TMP/TEMP i nowym basetemp
++  `continuation-full-1`; log `.glu/desktop-export-session/continuation-1/full.log`.
++  Testy kontraktów/eksportera/ciągłości 2026-10-07: **160 passed**, 14,30 s;
++  lokalny TMP/TEMP, nowy basetemp `spqr-response-review-20261007-1`,
++  log `.glu/desktop-export-session/spqr-response-review-20261007-1/targeted.log`.
++  Osobna końcowa ciągłość: **95 passed**, 0,27 s; nowy basetemp `spqr-response-review-continuity-20261007-1`,
++  log w tym samym katalogu `continuity.log` (nowy handoff dodaje jeden przypadek kontroli linków).
++  M-DESK2 **partial**: zapisany JSON z Codex przeszedł schemat, wiązanie i `desktop.check`, ale dowód
++  nie potwierdza ręcznej wymiany w ChatGPT/Claude Desktop. Nowy wynik SPQR ma poprawny JSON/schemat
++  i wiązanie, lecz **23 błędy `desktop.check`** (1 dowodów tabeli, 22 coverage); wymaga ręcznej korekty.
++  Gałąź `master`,
++  remote `origin` = `git@github.com:yautay/wargame-compiler.git`. Lokalny TMP/TEMP i nowy basetemp według handoffu.
++  Bez commita/pusha; wcześniejsze zmiany Q-11, M-DESK1 i kod/testy M-DESK2 zachowane.
++
++## Aktualny kierunek
++
++Właściciel zatwierdził przebudowę istniejącego kodu. Premium wyłącznie w ChatGPT lub Claude Desktop,
++bez API inferencji; bazowy transport to pakiety plików. Lokalny LLM jest opcjonalnym kontrolerem przez
++proces/pliki. Gateway LAN i dawny routing nie są aktywnymi pracami. Obowiązuje
++[ADR-0037](adr/ADR-0037-ekstrakcja-desktop-bez-api.md) i [plan](DESKTOP-IMPLEMENTATION-PLAN.md).
++
++M-DESK0 zapisuje decyzję i plan, nie wdraża nowego ingestu. Dotychczasowy kod PDF i zmiany pilota Q-11 pozostają.
++M-DESK1 dodaje `wgc/desktop@0`, kontrolę kontraktów w pamięci i własny dwustronicowy przykład CC0
++([DATA-CONTRACTS §11](DATA-CONTRACTS.md#desktop), [ADR-0038](adr/ADR-0038-minimalne-kontrakty-desktop.md)).
++Struktura i przegląd są oddzielne: fixture rewizji ma `validation: valid`, `pending` i `partial`.
++Nowa ścieżka powstaje obok legacy, z trwałymi prywatnymi rewizjami dokumentu, przeglądem obszarów i późniejszą
++integracją z KB. Pełna kolejka i lokalny worker dopiero po potwierdzeniu jakości odczytu premium.
+ 
+ ## Gdzie jesteśmy
++Poniżej stan zaimplementowanych fundamentów i historia. Dawne oznaczenia przyszłych milestone'ów nie
++ustanawiają kolejności; aktywna kolejność M-DESK jest w ROADMAP.
+ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją. Kod domenowy:
+ - **M1:**
+   - rejestr kontraktów (`wgc/contracts.py`);
+@@ -116,12 +145,9 @@ Architektura, kontrakty `@0`, gra benchmarkowa i system ciągłości istnieją.
+ 
+ Mapa dokumentów: [README.md](../README.md#dokumentacja).
+ 
+-**Inferencja (M-INF0):** „local” znaczy self-hosted. Modele działają na **osobnym PC w LAN** (Windows 11 Pro,
+-RTX 3090 24 GB, 128 GB RAM) za Inference Gateway `igw`, a nie na maszynie z Claude Desktop. Węzeł jest wymienialnym
+-workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z nim providerem `self_hosted` przez HTTPS
+-(`igw/api@0`). Niedostępny węzeł nie eskaluje do premium bez jawnej polityki. Decyzje: ADR-0015…0018. Projekt:
+-[inference/NODE.md](inference/NODE.md), wdrożenie: [inference/DEPLOYMENT.md](inference/DEPLOYMENT.md). Kolejność prac:
+-[ROADMAP](ROADMAP.md#kolejnosc).
++**Inferencja:** projekt M-INF0 opisywał węzeł LAN i gateway, których kod nie powstał. ADR-0037
++zastępuje tę obowiązkową ścieżkę pracą desktopową bez API. Dawne dokumenty NODE/DEPLOYMENT są referencją
++historyczną; nie wdrażać ich w ramach nowego planu. Lokalny sprzęt można później wykorzystać w M-DESK8.
+ 
+ | Etap / podsystem | Kontrakt | Kod | Benchmark |
+ |---|---|---|---|
+@@ -136,22 +162,58 @@ workerem bez wiedzy domenowej i nie jest źródłem prawdy. GLU łączy się z n
+ | Węzeł inferencji (`igw`) | `igw/api@0` (szkic) | — (M-GW1) | — (M-INF) |
+ 
+ <a id="nastepny-milestone"></a>
+-## Następny milestone: M10 Providerzy fake/replay/self_hosted i pętla structured output
+-**Dlaczego teraz:** M-STAB3c ustalił envelope propozycji, dispatch kontraktu etapu, ownership outputów i politykę
+-autorytetu ADR-0027. Według [ROADMAP](ROADMAP.md#kolejnosc) następnym krokiem toru domeny jest wykonanie modelowego
+-zadania przez providerów i pętlę walidacji.
++## Następny milestone: M-DESK2 Eksport pakietów do aplikacji desktopowej
++
++**Cel:** deterministyczny eksport małego pakietu według `wgc/desktop@0` i ręczna próba przekazania/odebrania
++pliku w co najmniej jednej aplikacji. Przeczytać [plan](DESKTOP-IMPLEMENTATION-PLAN.md), ADR-0037/0038,
++[DATA-CONTRACTS §11](DATA-CONTRACTS.md#desktop) i ostatni handoff M-DESK1.
+ 
+-**Zakres:** [ROADMAP M10](ROADMAP.md) i ADR-0015–0017, ADR-0027, ADR-0035. Providerzy fake/replay/self_hosted,
+-konfiguracja profili i pętla structured output z retry/escalate. Niedostępny węzeł przechodzi do
+-`waiting_inference` bez automatycznego premium.
++**Zakres:** surowe fragmenty/glify, rendery stron docelowych i sąsiedni kontekst, manifest z rzeczywistymi
++hashami plików, instrukcja odpowiedzi i kopia schematu. Krótkie instrukcje dla ChatGPT i Claude Desktop;
++możliwości transferu drugiej aplikacji opisać jawnie. Nie uznawać samego eksportu/JSON za jakościowy pilot.
+ 
+-**Pierwsza czynność:** przeczytać M10 w ROADMAP, ADR-0035, DATA-CONTRACTS §10, `glu/exec.py`, `wgc/kb.py` i kontrakt
+-`igw/api@0`; zaprojektować granicę providera i mapowanie błędów. Model może proponować treść envelope;
+-`prov`, lifecycle i decyzja o akceptacji pozostają po stronie WGC.
++**Pierwsza czynność:** sprawdzić stan roboczy i zachować Q-11; przeczytać `desktop.schema.json`,
++`wgc/desktop.py`, `tests/test_desktop_contracts.py`, `bench/desktop-two-page/README.md` i `wgc/ingest/pdf.py`.
++Generator przykładu to fixture, nie ogólny eksporter. Wykorzystać przygotowanie dowodów PDF i sprawdzić
++powtarzalne bajty manifestu przed próbą ręczną.
+ 
+-**Tor równoległy:** M-GW1 (Inference Gateway) i M-BASE (HUM) bez zmian.
++**Wynik bieżącej sesji:** `wgc.desktop_export` i CLI `desktop export` przygotowują jawnie wybrane strony,
++surowe glify, rendery i osobny kontekst bez kopiowania oryginału. Generator fixture'ów M-DESK1 niezmieniony.
++Pakiet własnego PDF 1 (cel) + PDF 2 (kontekst) istnieje w `private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2`;
++hashe plików sprawdzono, oba rendery obejrzano. [Dokładne kroki i ograniczenia aplikacji](DESKTOP-EXCHANGE.md).
++Zapisany `responses/mdesk2-chatgpt.json` (9770 bajtów; identyczny z `response.json`) przeszedł niezależną
++kontrolę ścisłego JSON, obu schematów, wiązania z pakietem/źródłem i `desktop.check` bez diagnostyk.
++Oryginalne bajty zachowano. Faktyczna aplikacja według metadanych i prywatnego snapshotu rozmowy:
++Codex desktop, model **GPT 6.1 Sol**, rozumowanie **wysoki** według późniejszego potwierdzenia właściciela
++(`mdesk2-codex-owner-confirmation.json`; pierwotna koperta nadal `unknown`). Bezpośredni zapis narzędziem plikowym; brak potwierdzonego ręcznego
++kopiowania albo pobrania załącznika. Nazwa pliku nie potwierdza ChatGPT. Nie nadano zatwierdzenia merytorycznego.
++Raport: `.glu/desktop-export-session/response-review-1/validation.json`. Pakiet i jego hashe ponownie poprawne.
++Wcześniejszy audyt pustego katalogu/powtarzalności eksportu pozostaje w handoffie i `continuation-1/audit.json`.
++Następna czynność: ręczna wymiana tego samego pakietu w ChatGPT lub Claude Desktop, zapis osobnej odpowiedzi,
++metadanych i dowodu oraz kontrola `desktop.check`; dopiero wtedy decyzja o done. Zachować również próbę Codex.
++Obie wymagane aplikacje i ich możliwości na koncie właściciela nadal niesprawdzone. Nie zastępować próby replayem.
+ 
+-**Poza zakresem M10:** cache M11, routing M12, graf/stale M13. Q-12, Q-16 i Q-17 pozostają otwarte.
++Właściciel zatwierdził dodatkową próbkę SPQR, PDF/drukowane **32** (edycja 5), z tabelą i diagramem.
++Istniejący eksporter przygotował `private/source-artifacts/SRC-spqr.rules/packages/mdesk2-spqr-p032-context031-033`:
++cel PDF 32, kontekst PDF 31/33, osiem plików, 6806093 bajty (manifest 4415700 bajtów).
++Schemat/hashe poprawne, ponowny eksport identyczny bajtowo, render celu zgodny z zatwierdzonym podglądem.
++Odpowiedź SPQR znaleziono jako dodatkowy `response.json` w katalogu pakietu. Oryginał zachowano,
++kopię bajtową zapisano poza pakietem jako `responses/spqr-p032-codex.json` (149492 bajty).
++JSON, oba schematy i wiązanie poprawne; `desktop.check`: **23 błędy** — 1 `desktop_table_evidence`
++i 22 `desktop_coverage_evidence`. 37 bloków, 4 relacje, 48 dowodów, 50 obszarów. Wstępne porównanie
++renderów potwierdza scalenie tabeli 4x2, diagram/podpis/kierunki i dwie luki kontynuacji; brak zatwierdzenia.
++Dowód w czacie „Przygotuj response dla PDF 32” wskazuje Codex desktop, model `gpt sol 6.1`, `reported`,
++rozumowanie wysoki według właściciela, odbiór narzędziem plikowym. ChatGPT/Claude Desktop nadal niesprawdzone.
++Raport `.glu/desktop-export-session/spqr-response-review-20261007-1/validation.json`;
++prywatny prompt korekty `responses/spqr-p032-correction-prompt-20261007.txt`.
++Rekonstrukcja `resolve_text` na drobnych fragmentach tego PDF daje liczne podziały wiersza wewnątrz słów;
++surowe pokrycie znaków jest poprawne, ale sam wynik nie jest jeszcze czytelną prozą. Ograniczenie zapisane,
++bez zmiany eksportera, walidatora, tekstu albo oryginalnej odpowiedzi w celu uzyskania zielonego wyniku.
++Raport przygotowania: `.glu/desktop-export-session/model-confirmation-1/spqr-preparation.json`.
++To jedna dodatkowa próba pakietu M-DESK2; nie wykonano pilota M-DESK5 ani integracji z repo gry.
++
++**Poza zakresem:** API, gateway, modele/GPU, importer i trwały magazyn (M-DESK3), migracja istniejących źródeł i KB.
++Nie kontynuować dawnego M10. Q-11 pozostaje otwarta do M-DESK5; Q-12/Q-16/Q-17 mają właściciela w M-DESK6b.
+ 
+ ## Otwarte kwestie
+ Zamknięte w M2b: Q-10 (biblioteka PDF, ADR-0021), Q-03 (GLU natywnie na Windows, ADR-0022). M8 nie otworzył nowych
+@@ -160,6 +222,19 @@ Zamknięte po M-STAB1 decyzją właściciela (2026-10-05): Q-13 i Q-14 (ADR-0027
+ wdrożenie M12). Kolejność potwierdzona: M9b przed M-STAB2. Grę pilotażową (Q-02) właściciel poda później. M9b otworzył
+ Q-16 i Q-17. M-STAB2 otworzył Q-18, zamkniętą przez właściciela 2026-10-06 (poniżej). M-STAB3a, M-STAB3b i
+ M-STAB3c nie otworzyły nowych kwestii.
++
++**Q-11 (częściowa implementacja, otwarta):** ADR-0036 wprowadza jawny `wgc.ingest.pdf.hybrid@2` z pakietami słów
++i renderów, propozycją przez Codex CLI, program lub replay, kontrolą pokrycia/tekstów/obszarów/tabel i zapisanym
++zatwierdzonym wynikiem dla `source verify`. `wgc.ingest.pdf@1` pozostaje domyślny. Testy syntetyczne są zielone.
++Pilot na prywatnym PDF (20 stron, 7450 słów warstwy tekstowej; 0 znaków nieprzypisanych do słów) zakończył się
++**20 stronami do przeglądu, bez inwentarza**: 17 stron miało błąd wywołania Codex CLI po ponowieniu; na innych
++model zgłosił tekst w obrazach, a na stronie 2 dodatkowo brak obszaru, niezgodny tekst i obszar nierozstrzygnięty.
++Na stronie 20 kontrola punktowa ujawniła dwa fałszywe kandydaty na tabelę z pojedynczym wierszem; walidator odtąd
++kieruje takie struktury do przeglądu. Nagłówki tylko w obrazie widać m.in. na stronach 2, 4 i 19.
++Raport pilota jest w ignorowanym `.glu/dtp-ingest-test/.glu/source/SRC-dtp.rules/hybrid/report.json`.
++Zmierzono co najmniej 179557 tokenów wejścia i 31797 wyjścia; koszt pieniężny nie jest raportowany przez Codex CLI.
++Kryteria jakości kolumn, list i kompletnego oznaczenia tekstu w obrazach na prywatnym PDF pozostają niezweryfikowane.
++ADR-0037 przekierowuje Q-11 do M-DESK5. M-DESK1 sprawdził kontrakty na własnym przykładzie, nie zamyka jakościowego pilota; bieżący etap to M-DESK2.
+ Decyzje właściciela po M-STAB2 (2026-10-06, ADR-0031): dziennik partii zostaje w `kb/.wgc-batch/`; repo gry nie
+ ignoruje go w git (Q-18 zamknięta); automatyczny reconcile martwych buildów zostaje; przed M10 (w M-STAB3b)
+ dochodzi polecenie diagnostyczne porównujące receipt wskazanego joba z `kb/`, bez automatycznej naprawy (różnica
+@@ -171,18 +246,31 @@ sprawdzają kroki deterministyczne i self-hosted (ADR-0029, wdrożenie M26; akce
+ | # | Kwestia | Kto | Kiedy |
+ |---|---|---|---|
+ | Q-02 | Wybór gry pilotażowej i reprezentatywnego rozdziału (wyjątek, limit liczbowy, tabela, errata/FAQ) plus kilka stron jako próbka kontrolna; rekomendacja: wybrać teraz, nie dopiero w M28 (przegląd F13/F15). Właściciel poda grę później | właściciel | przed M3 i M-BASE |
+-| Q-06 | Nazwa hosta węzła (`ai-node`?), sposób rozwiązywania (DNS routera, rezerwacja DHCP albo `hosts`) i adres dev machine do allowlisty | właściciel | przed M-NODE |
+-| Q-07 | Autostart węzła: Harmonogram zadań czy usługa (WinSW) | właściciel + M-NODE | M-NODE |
+-| Q-08 | Czy dopuszczamy `allow_premium_fallback: true` w jakimkolwiek buildzie (np. pilot z terminem) | właściciel | przed M12 |
++| Q-06 | Historyczne: nazwa hosta, DNS i allowlista gatewaya. Odłożone przez ADR-0037; nie blokuje planu desktopowego | właściciel | poza aktywnym planem |
++| Q-07 | Historyczne: autostart gatewaya. Odłożone przez ADR-0037; ewentualny lokalny proces ustala M-DESK8 | właściciel | poza aktywnym planem |
++| Q-08 | Zamknięta przez ADR-0037: brak fallbacku API; lokalny kontroler opcjonalny, premium działa jawnie w aplikacji | właściciel | 2026-10-06 |
+ | Q-04 | Czy glosy KB mają mieć drugi język (np. PL) jako widok Stage 3, czy wystarczy EN | właściciel | przed M7 (widoki) |
+ | Q-05 | Licencja repo narzędzia | właściciel | przed publikacją |
+ | Q-09 | Zakres `unresolved_ref` poza listą M1: referencje w wyrażeniach (`pred`, `is`, `val`, `count`), `ref_to`, `timing`, `emits`, `fires_on`, `legality`, `chain`, `ambiguities`, kroki testów; kontrola rodzaju celu (np. `interpretation.ambiguity` → `AMB-`). Fixture'y `valid/` już dziś je rozwiązują | M5 (L2) albo M7 | przed M5 |
+-| Q-11 | Ekstraktor PDF obsługuje jedną kolumnę: przed pierwszym PDF-em prawdziwej gry potrzebne są kolumny (wykrycie `column_scrambled` albo kolejność czytania), usuwanie nagłówków i stopek stron oraz decyzja o stronach bez warstwy tekstu (`image_only`, OCR). Zakres do ustalenia na PDF-ie gry pilotażowej (ADR-0021) | właściciel + IMPL | przed M28 |
++| Q-11 | Legacy hybrid nie dał zatwierdzonego inwentarza. Nowy pilot struktury dokumentu według ADR-0037; sprawdzić kolumny, listy, tabele, kolor/zakres, diagramy i transkrypcje obrazu | M-DESK5 + właściciel | przed M-DESK6a |
+ | Q-12 | `accept()` waliduje całe `kb/` i każdy błąd blokuje zapis. Rekord unieważniony zmianą źródła (np. stara kotwica `TAB-4.3` po przenumerowaniu tabeli) blokuje każdy kolejny `accept()`, aż ktoś poprawi KB ręcznie. Trzeba rozdzielić błędy blokujące od stanu `stale` (ADR-0004, ADR-0025). Od M9b częściej: przemianowana faza zostawia stare pojęcie (`anchor_hash_mismatch`), a zmiana segmentu z kotwicami pojęć daje nieudany pierwszy build zadań wykonywanych przed harvest (ADR-0030, `tests/test_terms.py`) | M13 (graf, invalidacja) | przed M13 |
+ | Q-16 | Ownership harvestu wycofuje jego brakujące pojęcia, lecz model (M14) albo `HD-` z tym samym ID nadal daje konflikt. Kto jest właścicielem pojęcia `die`/`phase`/`scenario`, gdy M14 je wzbogaci (definicja, `values`), i jak łączyć pojęcia między dokumentami (`CON-d6` i `CON-<klucz SRC>:d6`)? | ARCH + właściciel | przed M14 |
+ | Q-17 | Który dokument jest „główną instrukcją” (ID bez przedrostka) dla `TAB-` i `CON-`. `TAB-` ma regułę z M9a: bez przedrostka dla każdego dokumentu `rules`, więc dwa dokumenty `rules` z tabelą o tej samej etykiecie dają to samo ID. `CON-` bierze dokument `rules` o najmniejszym `SRC-` (ADR-0030), co zakłada nazewnictwo `wgc source init`: ręcznie dopisany `SRC-dsk.advanced` przejąłby tę rolę i zmienił ID. Propozycja: jawne pole w inwentarzu (np. `main: true` albo `seg_prefix` równy kodowi gry) jako jedno źródło dla obu prefiksów. To zmiana ID i kontraktu, więc potrzebuje decyzji | właściciel + ARCH | przed pierwszą grą z dwoma dokumentami `rules` |
+ 
+-## Ryzyka
++## Ryzyka aktualnego planu
++
++| Ryzyko | Łagodzenie |
++|---|---|
++| Poprawny JSON pomija regułę albo zakres ramki | Osobny przegląd semantyczny, ręcznie sprawdzona próbka i testy mutacyjne |
++| Różne możliwości transferu plików w aplikacjach | Ręczny round-trip M-DESK2; nie obiecywać automatycznej integracji |
++| Wynik odczytu istnieje tylko w cache | Trwałe prywatne rewizje i eksport/odtworzenie M-DESK3 |
++| Koszt obsługi ręcznej przewyższa korzyść | Pomiar czasu i korekt M-DESK5 przed kolejką/local workerem |
++| Zmienione dowody zostawiają stare reguły w KB | Manifest rewizji, blokada zależnego zakresu i Q-12 w M-DESK6b |
++| Lokalny kontroler powiela błąd premium | Ślepa ekstrakcja kontrolna, pomiar fałszywych alarmów; brak prawa akceptacji |
++
++## Rejestr wcześniejszych ryzyk
++Ryzyka kodu pozostają aktualne, jeśli dotyczą używanej funkcji. Poniższe ryzyka API/LAN, wymaganego węzła,
++akceptacji lokalnej i dawnego routingu są historyczne, odłożone przez ADR-0037.
+ | Ryzyko | Wpływ | Łagodzenie |
+ |---|---|---|
+ | Modele self-hosted nie osiągną progów jakości Stage 1 | wysoki udział premium, koszt > 2× | M-INF przed M14; routing asymetryczny; zadania drobne; lokalny multi-pass (`local_deep`) |
+diff --git a/docs/adr/ADR-0013-mcp-adapter-premium-dwie-drogi.md b/docs/adr/ADR-0013-mcp-adapter-premium-dwie-drogi.md
+index 8c0dd1a..6318436 100644
+--- a/docs/adr/ADR-0013-mcp-adapter-premium-dwie-drogi.md
++++ b/docs/adr/ADR-0013-mcp-adapter-premium-dwie-drogi.md
+@@ -1,6 +1,6 @@
+ # ADR-0013: MCP jako adapter; premium review przez API albo Claude Desktop
+ 
+-- **Status:** przyjęty
++- **Status:** zastąpiony przez [ADR-0037](ADR-0037-ekstrakcja-desktop-bez-api.md); poniżej zapis historyczny
+ - **Data:** 2026-10-05
+ - **Milestone:** M0
+ 
+diff --git a/docs/adr/README.md b/docs/adr/README.md
+index 3042b8b..b6ce937 100644
+--- a/docs/adr/README.md
++++ b/docs/adr/README.md
+@@ -4,6 +4,10 @@ ADR zapisuje decyzję, jej kontekst i konsekwencje. Rejestr tylko się dopisuje:
+ `zastępuje ADR-NNNN`, a stary dostaje status `zastąpiony`. Szablon: [TEMPLATE.md](TEMPLATE.md).
+ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. To rekordy `HD-…` w repo gry.
+ 
++**Od 2026-10-06 ADR-0037 ma pierwszeństwo w sprawach wykonawców, transportu i ingestu PDF.** Jego tabela
++określa częściowe zastąpienie ADR-0004, 0010, 0012, 0015–0018, 0020–0021 i 0028; historyczne teksty pozostają
++dla śledzenia decyzji. Bez API inferencji; aktywny plan M-DESK.
++
+ | ADR | Tytuł | Status |
+ |---|---|---|
+ | [ADR-0001](ADR-0001-czysty-start.md) | Czysty start: nowe repo, bez kompatybilności wstecznej | przyjęty |
+@@ -18,7 +22,7 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
+ | [ADR-0010](ADR-0010-routing-asymetryczny.md) | Routing asymetryczny oparty na deterministycznym ryzyku | przyjęty |
+ | [ADR-0011](ADR-0011-statusy-obliczane.md) | Statusy i widoki są obliczane, nie edytowane | przyjęty |
+ | [ADR-0012](ADR-0012-tekst-zrodla-poza-repo.md) | Tekst źródła poza repozytoriami, kotwice z hashami | przyjęty |
+-| [ADR-0013](ADR-0013-mcp-adapter-premium-dwie-drogi.md) | MCP jako adapter; premium review przez API albo Claude Desktop | przyjęty |
++| [ADR-0013](ADR-0013-mcp-adapter-premium-dwie-drogi.md) | MCP jako adapter; premium review przez API albo Claude Desktop | zastąpiony przez ADR-0037 |
+ | [ADR-0014](ADR-0014-provenance-nadawana-deterministycznie.md) | Rodzaj provenance nadaje WGC, nie model | przyjęty (obniżenie niepotwierdzonej kotwicy do `llm_inference` zastąpione przez ADR-0027) |
+ | [ADR-0015](ADR-0015-self-hosted-inference-wezel-lan.md) | Self-hosted inference na osobnym węźle w LAN (`local` = self-hosted) | przyjęty |
+ | [ADR-0016](ADR-0016-inference-gateway-i-protokol.md) | Inference Gateway (`igw`) i protokół `igw/api@0` | przyjęty |
+@@ -41,3 +45,6 @@ Decyzje domenowe konkretnej gry (interpretacje, terminologia) nie są ADR-ami. T
+ | [ADR-0033](ADR-0033-manifest-wywolania-i-swiezosc-kontekstu.md) | Manifest wywołania zadania w `prov.manifest` jako jedna definicja zależności plannera i provenance; świeżość kontekstu `kb/` przez generację; `glu receipt` | przyjęty |
+ | [ADR-0034](ADR-0034-projekcje-semantyczne-wersja-2.md) | Projekcje `wgc/projection@2`: treść nieformalizowana, definicje predykatów, rodzaje M10–M14 i E2E, bez zapasów | przyjęty |
+ | [ADR-0035](ADR-0035-kontrakt-propozycji-i-ownership-outputow.md) | Envelope `wgc/proposal@0`, dispatch etapu, lifecycle niejasności i ownership outputów; wdrożenie ADR-0027 | przyjęty |
++| [ADR-0036](ADR-0036-jawny-hybrydowy-ingest-pdf.md) | Jawny hybrydowy ingest PDF: propozycje stron, pokrycie słów i zapis zatwierdzonych dowodów | kierunek zastąpiony przez ADR-0037; kod legacy |
++| [ADR-0037](ADR-0037-ekstrakcja-desktop-bez-api.md) | Ekstrakcja premium w aplikacjach desktopowych bez API; trwałe dowody i opcjonalny lokalny kontroler | przyjęty |
++| [ADR-0038](ADR-0038-minimalne-kontrakty-desktop.md) | Minimalne koperty desktopowe, dowody, niezależny przegląd i trwałe prywatne rewizje | przyjęty |
+diff --git a/wgc/__main__.py b/wgc/__main__.py
+index dd2e00a..b62a8c0 100644
+--- a/wgc/__main__.py
++++ b/wgc/__main__.py
+@@ -1,5 +1,5 @@
+ """CLI: `python -m wgc validate <ścieżki…> [--json]`, `python -m wgc source init|scan|extract|verify|render` and
+-`python -m wgc kb recover [--dry-run]` (also installed as `wgc`)."""
++`python -m wgc kb recover [--dry-run]` and `python -m wgc desktop export` (also installed as `wgc`)."""
+ from __future__ import annotations
+ 
+ import argparse
+@@ -50,6 +50,14 @@ def _cmd_source(args) -> int:
+             messages = source.scan(args.root)
+         elif args.source_command == "render":
+             messages = source.render(args.root, args.doc, args.segment, args.pages, args.scale)
++        elif args.source_command == "hybrid":
++            from wgc.ingest.pdf_hybrid import CodexProvider, CommandProvider, ReplayProvider
++            if args.prepare:
++                messages = source.hybrid_prepare(args.root, args.doc)
++            else:
++                provider = (ReplayProvider(args.replay_dir) if args.replay_dir else
++                            CodexProvider() if args.codex else CommandProvider(args.provider_exe))
++                messages = source.hybrid(args.root, args.doc, provider)
+         else:
+             messages = source.extract(args.root)
+     except source.SourceError as e:
+@@ -80,6 +88,22 @@ def _cmd_kb(args) -> int:
+     return 0
+ 
+ 
++def _cmd_desktop(args) -> int:
++    from pathlib import Path
++    from wgc.desktop_export import ExportError, export_package, parse_pages
++    try:
++        context = None if args.context is None else [] if args.context == "none" else parse_pages(args.context)
++        package = export_package(Path(args.pdf), Path(args.output), doc=args.doc,
++                                 target_pages=parse_pages(args.pages), context_pages=context, scale=args.scale)
++    except ExportError as error:
++        print(f"BŁĄD: {error}", file=sys.stderr)
++        return 2
++    print(f"Pakiet: {Path(args.output).resolve()}\nID: {package['id']}\nHash: {package['hash']}")
++    print(f"Strony docelowe: {package['target_pages']}; kontekst: {package['context_pages']}.")
++    print("Dołącz manifest.txt i pliki z assets ręcznie w aplikacji; zapisz odpowiedź poza pakietem.")
++    return 0
++
++
+ def build_parser() -> argparse.ArgumentParser:
+     parser = argparse.ArgumentParser(prog="wgc", description="wargame-compiler: narzędzia domenowe (WGC).")
+     sub = parser.add_subparsers(dest="command", required=True, metavar="polecenie")
+@@ -88,6 +112,17 @@ def build_parser() -> argparse.ArgumentParser:
+     p.add_argument("--json", action="store_true", help="raport jako JSON (lista diagnostyk)")
+     p.set_defaults(func=_cmd_validate)
+ 
++    p = sub.add_parser("desktop", help="jawna wymiana plików z aplikacją desktopową (bez inferencji)")
++    dsub = p.add_subparsers(dest="desktop_command", required=True)
++    d = dsub.add_parser("export", help="eksportuje wybrane strony PDF i osobny kontekst do nowego katalogu")
++    d.add_argument("--pdf", required=True, metavar="plik", help="oryginalny PDF (nie jest dołączany do pakietu)")
++    d.add_argument("--doc", required=True, metavar="SRC-id", help="jawne ID źródła, bez modyfikacji inwentarza")
++    d.add_argument("--pages", required=True, metavar="zakres", help="strony docelowe, np. 1-2 albo 3,5")
++    d.add_argument("--context", metavar="zakres|none", help="osobny kontekst; domyślnie bezpośredni sąsiedzi")
++    d.add_argument("--output", required=True, metavar="nowy-katalog", help="nowy katalog pakietu (bez nadpisywania)")
++    d.add_argument("--scale", type=float, default=2.0, help="skala PNG: 0.1–4, domyślnie 2 (144 dpi)")
++    p.set_defaults(func=_cmd_desktop)
++
+     p = sub.add_parser("source", help="Stage 0: inwentarz źródeł (source/inventory.yaml) i tekst segmentów (.glu/source/)")
+     ssub = p.add_subparsers(dest="source_command", required=True, metavar="podpolecenie")
+     common = argparse.ArgumentParser(add_help=False)
+@@ -98,6 +133,13 @@ def build_parser() -> argparse.ArgumentParser:
+                    help="dokument źródłowy (ścieżka względem --root); można powtarzać")
+     ssub.add_parser("scan", parents=[common], help="odświeża present, file_hash i extractor dokumentów")
+     ssub.add_parser("extract", parents=[common], help="scan + segmentacja: rekordy SEG- w inwentarzu, tekst w .glu/source/")
++    s = ssub.add_parser("hybrid", parents=[common], help="jawny hybrydowy ingest PDF z propozycją stron i kontrolami")
++    s.add_argument("--doc", required=True, metavar="SRC-id", help="dokument PDF z inwentarza")
++    provider = s.add_mutually_exclusive_group(required=True)
++    provider.add_argument("--replay-dir", metavar="katalog", help="pliki p001.json itd. z propozycjami stron")
++    provider.add_argument("--provider-exe", metavar="program", help="program JSON stdin/stdout wywołujący LLM")
++    provider.add_argument("--codex", action="store_true", help="używa zalogowanego Codex CLI bez osobnego klucza API")
++    provider.add_argument("--prepare", action="store_true", help="eksportuje słowa i rendery do pracy asystenta w Codex/Claude Desktop")
+     s = ssub.add_parser("verify", parents=[common], help="sprawdza inwentarz, hashe plików i segmentów oraz cache tekstu")
+     s.add_argument("--json", action="store_true", help="raport jako JSON (lista diagnostyk)")
+     s = ssub.add_parser("render", parents=[common],
+diff --git a/wgc/contracts.py b/wgc/contracts.py
+index fe3a712..65c22c9 100644
+--- a/wgc/contracts.py
++++ b/wgc/contracts.py
+@@ -18,6 +18,7 @@ BASE_URI = "https://wargame-compiler.local/schemas/"
+ 
+ # document `schema` value → schema file
+ CONTRACTS = {
++    "wgc/desktop@0": "desktop.schema.json",
+     "wgc/source@0": "source.schema.json",
+     "wgc/logic@0": "logic.schema.json",
+     "wgc/digital@0": "digital.schema.json",
+diff --git a/wgc/ingest/__init__.py b/wgc/ingest/__init__.py
+index 8a5cca0..58003f2 100644
+--- a/wgc/ingest/__init__.py
++++ b/wgc/ingest/__init__.py
+@@ -27,6 +27,7 @@ class Segment:
+     pages: str | None = None
+     bbox: tuple[float, float, float, float] | None = None
+     visual_flags: tuple[str, ...] = ()
++    areas: tuple[dict, ...] = ()  # page-specific evidence for hybrid PDF segments
+ 
+ 
+ Extractor = Callable[[bytes], list[Segment]]
+diff --git a/wgc/ingest/pdf.py b/wgc/ingest/pdf.py
+index 9b8c1b1..c266ccd 100644
+--- a/wgc/ingest/pdf.py
++++ b/wgc/ingest/pdf.py
+@@ -27,6 +27,7 @@ Generated layout fields:
+ from __future__ import annotations
+ 
+ import io
++import math
+ import re
+ from collections import Counter
+ from dataclasses import dataclass, field
+@@ -355,6 +356,60 @@ def page_count(data: bytes) -> int:
+         pdf.close()
+ 
+ 
++def raw_pages(data: bytes, numbers: list[int]) -> tuple[int, list[dict]]:
++    """Desktop evidence, without legacy segmentation or inferred reading order.
++
++    Keep PDF character stream order and exact decoded strings. Consecutive glyphs
++    on the same baseline form a fragment; a wide gap or backwards move splits it.
++    No whitespace, labels, Unicode normalization or semantic blocks are invented.
++    Boxes use PDF points from the top left, rounded to 0.001 point.
++    """
++    try:
++        return _raw_pages(data, numbers)
++    except IngestError:
++        raise
++    except Exception as error:  # PDF decoding can fail after opening, as in _read_lines.
++        raise IngestError(f"Surowych dowodów PDF nie da się odczytać: {error}") from None
++
++
++def _raw_pages(data: bytes, numbers: list[int]) -> tuple[int, list[dict]]:
++    with _open_pdf(data) as document:
++        count = len(document.pages)
++        if not numbers or any(type(n) is not int or not 1 <= n <= count for n in numbers):
++            raise IngestError("Wybierz istniejące strony PDF (numeracja od 1).")
++        snapshots = []
++        for number in sorted(set(numbers)):
++            page = document.pages[number - 1]
++            width, height = round(page.width, 3), round(page.height, 3)
++            fragments, previous = [], None
++            for char in page.chars:
++                text = char["text"]
++                if not text:
++                    continue
++                box = [round(char[k], 3) for k in ("x0", "top", "x1", "bottom")]
++                if (not all(math.isfinite(v) for v in box)
++                        or not 0 <= box[0] < box[2] <= width
++                        or not 0 <= box[1] < box[3] <= height):
++                    # Do not silently drop visible text or manufacture its geometry.
++                    raise IngestError(f"Strona {number}: glif poza stroną lub z pustą geometrią; wymagany przegląd PDF.")
++                same_run = (previous is not None and abs(box[1] - previous[1]) <= .5
++                            and abs(box[3] - previous[3]) <= .5
++                            and -.01 <= box[0] - previous[2] <= CELL_GAP * max(char["size"], 1))
++                if not same_run:
++                    fragments.append({"ref": f"p{number}f{len(fragments) + 1}", "text": "", "bbox": box[:], "glyphs": []})
++                fragment = fragments[-1]
++                start = len(fragment["text"])
++                fragment["text"] += text
++                fragment["glyphs"].append({"start": start, "end": start + len(text), "bbox": box})
++                outer = fragment["bbox"]
++                fragment["bbox"] = [min(outer[0], box[0]), min(outer[1], box[1]),
++                                    max(outer[2], box[2]), max(outer[3], box[3])]
++                previous = box
++            snapshots.append({"pdf_page": number, "printed_label": None, "width": width,
++                              "height": height, "fragments": fragments})
++        return count, snapshots
++
++
+ def render_page(data: bytes, page: int, scale: float = 2.0) -> bytes:
+     """PNG of a 1-based page (pypdfium2; `scale` 1.0 = 72 dpi). For manual verification, never committed."""
+     import pypdfium2 as pdfium
+diff --git a/wgc/source.py b/wgc/source.py
+index dc9bc03..f04061a 100644
+--- a/wgc/source.py
++++ b/wgc/source.py
+@@ -35,16 +35,16 @@ DEFAULT_PRECEDENCE: dict[str, int] = {
+ 
+ # Field order in the written inventory (schema order).
+ DOCUMENT_FIELDS = ("kind", "id", "role", "title", "edition", "language", "path", "file_hash", "present", "complete",
+-                   "precedence", "edition_skew", "seg_prefix", "extractor", "notes")
+-SEGMENT_FIELDS = ("kind", "id", "doc", "label", "segment_type", "parent", "order", "pages", "bbox", "text_hash",
++                   "precedence", "edition_skew", "seg_prefix", "extractor", "hybrid_hash", "notes")
++SEGMENT_FIELDS = ("kind", "id", "doc", "label", "segment_type", "parent", "order", "pages", "bbox", "areas", "text_hash",
+                   "struct_hash", "visual_flags", "verified_by_render", "corrections")
+ # Segment fields owned by the extractor; `corrections` and `verified_by_render` are hand-set and kept
+ # (`verified_by_render` is dropped when the text or its structure changes: the render confirmed the old extraction).
+-GENERATED_SEGMENT_FIELDS = ("doc", "label", "segment_type", "parent", "order", "pages", "bbox", "text_hash",
++GENERATED_SEGMENT_FIELDS = ("doc", "label", "segment_type", "parent", "order", "pages", "bbox", "areas", "text_hash",
+                             "struct_hash", "visual_flags")
+ 
+ # Stage 0 diagnostic codes of `verify` (besides the validator's codes for the inventory itself).
+-CODES = ("source_missing", "file_hash_mismatch", "extractor_changed", "extract_error", "segment_hash_mismatch",
++CODES = ("source_missing", "file_hash_mismatch", "extractor_changed", "extract_error", "hybrid_area_mismatch", "segment_hash_mismatch",
+          "segment_struct_mismatch", "segment_missing", "segment_unlisted", "struct_hash_missing", "cache_missing",
+          "cache_mismatch")
+ 
+@@ -216,7 +216,9 @@ def _scan(root: Path, inv: Inventory) -> list[str]:
+         state = "bez zmian" if doc.get("file_hash") == h else ("zmieniony" if "file_hash" in doc else "nowy")
+         doc["present"], doc["file_hash"] = True, h
+         ext = extractor_for(doc["path"])
+-        if ext:
++        if ext and doc.get("extractor") == "wgc.ingest.pdf.hybrid@2" and ext[0].startswith("wgc.ingest.pdf@"):
++            pass  # explicit hybrid choice survives scan; source verify checks its artifact
++        elif ext:
+             doc["extractor"] = ext[0]
+         else:
+             state += ", brak ekstraktora dla tego formatu"
+@@ -240,6 +242,16 @@ def _extract_doc(root: Path, doc: dict) -> list[tuple[str, Segment]] | None:
+     ext = extractor_for(doc["path"])
+     if not p.is_file() or ext is None:
+         return None
++    if doc.get("extractor") == "wgc.ingest.pdf.hybrid@2":
++        from wgc.ingest import pdf_hybrid
++        artifact_path = cache_dir(root, doc["id"]) / "hybrid" / "approved.json"
++        try:
++            artifact = __import__("json").loads(artifact_path.read_text(encoding="utf-8"))
++        except (OSError, ValueError) as e:
++            raise IngestError(f"Brak poprawnego zatwierdzonego wyniku hybrydowego: {e}") from None
++        if doc.get("hybrid_hash") != pdf_hybrid.artifact_hash(artifact):
++            raise IngestError("Hash zatwierdzonego wyniku hybrydowego nie zgadza się z inwentarzem.")
++        return [(segment_id(doc, s.key), s) for s in pdf_hybrid.load_approved(p.read_bytes(), artifact)]
+     return [(segment_id(doc, s.key), s) for s in ext[1](p.read_bytes())]
+ 
+ 
+@@ -255,6 +267,8 @@ def _segment_record(doc: dict, sid: str, seg: Segment, old: dict | None) -> dict
+         rec["pages"] = seg.pages
+     if seg.bbox is not None:
+         rec["bbox"] = list(seg.bbox)
++    if seg.areas:
++        rec["areas"] = list(seg.areas)
+     rec["text_hash"] = text_hash(seg.text)
+     rec["struct_hash"] = struct_hash(seg.text)
+     if seg.visual_flags:
+@@ -308,6 +322,80 @@ def extract(root: Path) -> list[str]:
+     return messages
+ 
+ 
++def hybrid(root: Path, doc_id: str, provider) -> list[str]:
++    """Explicit PDF hybrid run. A review result never changes the inventory."""
++    import json
++    from wgc.ingest import pdf_hybrid
++
++    root = Path(root)
++    inv = read_inventory(root)
++    doc = inv.document(doc_id)
++    if doc is None or not doc.get("path", "").lower().endswith(".pdf"):
++        raise SourceError(f"{doc_id}: wybierz dokument PDF z inwentarza.")
++    path = root / doc["path"]
++    if not path.is_file():
++        raise SourceError(f"{doc_id}: brak pliku PDF.")
++    try:
++        result = pdf_hybrid.run(path.read_bytes(), provider)
++    except IngestError as e:
++        raise SourceError(f"{doc_id}: {e}") from None
++    directory = cache_dir(root, doc_id) / "hybrid"
++    directory.mkdir(parents=True, exist_ok=True)
++    (directory / "report.json").write_text(json.dumps(result.report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    proposal_dir = directory / "proposals"
++    proposal_dir.mkdir(exist_ok=True)
++    for item in result.page_proposals:
++        (proposal_dir / f"p{item['page']:03d}.json").write_text(json.dumps(item, ensure_ascii=False, indent=2) + "\n",
++                                                              encoding="utf-8")
++    if result.approved is None:
++        if not inv.segments_of(doc_id) and "hybrid_hash" not in doc:
++            doc["extractor"] = pdf_hybrid.NAME  # explicit selection, but no approved segments
++            write_inventory(root, inv)
++        raise SourceError(f"{doc_id}: strony do przeglądu: {result.report['review_pages']}; raport: {directory / 'report.json'}.")
++    (directory / "approved.json").write_text(json.dumps(result.approved, ensure_ascii=False, indent=2) + "\n",
++                                               encoding="utf-8")
++    doc["extractor"] = pdf_hybrid.NAME
++    doc["hybrid_hash"] = pdf_hybrid.artifact_hash(result.approved)
++    doc["present"] = True
++    doc["file_hash"] = sha256_hex(path.read_bytes())
++    old = {s["id"]: s for s in inv.segments_of(doc_id)}
++    new = [_segment_record(doc, segment_id(doc, s.key), s, old.get(segment_id(doc, s.key)))
++           for s in result.segments]
++    inv.segments = [s for s in inv.segments if s.get("doc") != doc_id] + new
++    _write_cache(root, doc_id, [(segment_id(doc, s.key), s) for s in result.segments])
++    write_inventory(root, inv)
++    return [f"{doc_id}: zatwierdzono {len(result.report['pages'])} stron i {len(new)} segmentów; raport: "
++            f"{directory / 'report.json'}." ]
++
++
++def hybrid_prepare(root: Path, doc_id: str) -> list[str]:
++    """Export word packets and renders for an assistant in Codex/Claude Desktop."""
++    import json
++    from wgc.ingest import pdf, pdf_hybrid
++
++    root = Path(root)
++    doc = read_inventory(root).document(doc_id)
++    if doc is None or not doc.get("path", "").lower().endswith(".pdf"):
++        raise SourceError(f"{doc_id}: wybierz dokument PDF z inwentarza.")
++    path = root / doc["path"]
++    if not path.is_file():
++        raise SourceError(f"{doc_id}: brak pliku PDF.")
++    data = path.read_bytes()
++    directory = cache_dir(root, doc_id) / "hybrid" / "prepared"
++    directory.mkdir(parents=True, exist_ok=True)
++    try:
++        packets = pdf_hybrid.pages(data)
++    except IngestError as e:
++        raise SourceError(f"{doc_id}: {e}") from None
++    for packet in packets:
++        stem = f"p{packet['page']:03d}"
++        (directory / f"{stem}.json").write_text(json.dumps(packet, ensure_ascii=False, indent=2) + "\n",
++                                                   encoding="utf-8")
++        (directory / f"{stem}.png").write_bytes(pdf.render_page(data, packet["page"], 2.0))
++    return [f"{doc_id}: przygotowano {len(packets)} stron w {directory}. Propozycje zapisz jako pNNN.json "
++            "w osobnym katalogu i uruchom `wgc source hybrid --replay-dir`." ]
++
++
+ def parse_pages(spec: str) -> list[int]:
+     """`"3"`, `"3-4"` or `"1,3-4"` → sorted 1-based page numbers."""
+     out: set[int] = set()
+@@ -395,7 +483,7 @@ def verify(root: Path) -> Report:
+                 add("file_hash_mismatch", ERROR, did,
+                     f"Plik {doc['path']} ma hash {h}, inwentarz: {doc.get('file_hash')}. Uruchom `wgc source extract`.")
+             ext = extractor_for(doc["path"])
+-            if ext and doc.get("extractor") != ext[0]:
++            if ext and doc.get("extractor") != ext[0] and doc.get("extractor") != "wgc.ingest.pdf.hybrid@2":
+                 add("extractor_changed", WARNING, did,
+                     f"Inwentarz zapisał ekstraktor {doc.get('extractor')}, bieżący to {ext[0]}: uruchom "
+                     "`wgc source extract`.")
+@@ -405,8 +493,9 @@ def verify(root: Path) -> Report:
+                 add("extract_error", ERROR, did, str(e))
+                 extracted = None
+             if extracted is not None:
+-                fresh = {sid: (text_hash(seg.text), struct_hash(seg.text)) for sid, seg in extracted}
+-                for sid, (h, sh) in fresh.items():
++                fresh = {sid: seg for sid, seg in extracted}
++                for sid, seg in fresh.items():
++                    h, sh = text_hash(seg.text), struct_hash(seg.text)
+                     if sid not in listed:
+                         add("segment_unlisted", ERROR, sid, f"Segment z {doc['path']} nie jest w inwentarzu.", [did])
+                     elif listed[sid].get("text_hash") != h:
+@@ -416,6 +505,13 @@ def verify(root: Path) -> Report:
+                         add("segment_struct_mismatch", ERROR, sid,
+                             f"Ten sam tekst, ale inne wiersze albo komórki: `struct_hash` {sh}, inwentarz: "
+                             f"{listed[sid]['struct_hash']}. Uruchom `wgc source extract`.", [did])
++                    elif doc.get("extractor") == "wgc.ingest.pdf.hybrid@2" and (
++                            listed[sid].get("areas") != list(seg.areas) or listed[sid].get("pages") != seg.pages
++                            or listed[sid].get("bbox") != list(seg.bbox)
++                            or listed[sid].get("segment_type") != seg.segment_type
++                            or listed[sid].get("label") != seg.label or listed[sid].get("order") != seg.order):
++                        add("hybrid_area_mismatch", ERROR, sid,
++                            "Obszary lub typ segmentu nie zgadzają się z zatwierdzonym wynikiem hybrydowym.", [did])
+                 for sid in listed.keys() - fresh.keys():
+                     add("segment_missing", ERROR, sid, f"Segmentu z inwentarza nie ma już w {doc['path']}.", [did])
+         unstructured = [sid for sid, seg in listed.items() if "struct_hash" not in seg]

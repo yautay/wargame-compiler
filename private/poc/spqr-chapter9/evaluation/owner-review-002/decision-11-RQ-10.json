@@ -1,0 +1,69 @@
+{
+  "id": "M-POC1B-owner-decision-11",
+  "card": "M-POC1B",
+  "question_id": "RQ-10",
+  "reviewer": "owner in this chat;no personalidentity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T07:58:02.040260+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response_file": "owner-answer-11.raw.txt",
+  "raw_response_sha256": "d1951f2010da63f279834a93cacdd8b7b5d50d393daf14105883b4c0992900a3",
+  "approved_question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-16 oraz krytyczność,w tym niejawną relację DEP-NEW-001 zachowującą obie bramki,z pozostawieniem opisanych braków?",
+  "basis": {
+    "presentation": "rq-10-presentation-01.json",
+    "presentation_sha256": "5fc300567b2cde6fc16fa747b99e76724c59f02b6bc370fc7caaae4817cb0fda",
+    "draft_packet": "rq-10-draft-records.json",
+    "draft_packet_sha256": "28c27cc204ba8e5097382b85df1fb954b05b728295718fd63bb197f9f3f983a0",
+    "evidence": "rq-10-evidence.json",
+    "evidence_sha256": "82c1f0c83f5bb632f87be01f1102f634ad5cc8c4cd1dcb8954d8ed43fe18c630",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-049",
+      "EXP-050",
+      "EXP-051",
+      "EXP-052"
+    ],
+    "local_readings": [
+      "EXP049:Romansprior200BCE,ScipioAfricanusnotOC;Cannaeexplicitusepergameinstruction,notnewhistoricalinference;C9.7S2explanatory",
+      "EXP050:realbattlewithoutdate/OC/AWL notresolved,requires_context",
+      "EXP051:movementgate9.71cannotmovebutmayface untiloneofORtriggers:enemycombatnotELwithin3andLOSanyTriariilineunit ORTriarii>=6fromallRoman/Alainfantrylinesexcludingallied",
+      "EXP052:move+ShockRP>=floor(AWL/2)doesnotbypass9.71;standingShockagainsttargetinownZOCper9.72withouthavingtomove"
+    ],
+    "situation": {
+      "id": "SIT-16",
+      "facts": "SyntheticRomans218BCE,ScipionotOC,AWL11,RP4or5,movementgate9.71true,enemyinZOCtrue",
+      "proposed_result": "floor11/2=5;RP4failsmove+Shockthreshold,RP5passeswithsupplied9.71gate;standingShocklocalpermission atbothRP;RP5alone doesnotlift9.71"
+    },
+    "relation": {
+      "id": "DEP-NEW-001",
+      "from": "C-9.72-01",
+      "to": "R-9.71",
+      "kind": "condition",
+      "explicitness": "implicit",
+      "rationale": "Evaluatingmove+Shock requiresretainingseparatemovementconstraint;noexplicitcrossreference orautomaticpriority merelyfromnumberorder"
+    },
+    "criticality": "criticalinshownlocalscopes",
+    "context_policy": "EXP050requires_context foractualscenario;syntheticfactsnotactualsetup"
+  },
+  "rationale_accepted_by_reference": "Sourceapplicability,ORmovementtriggers,rounddownAWLthreshold andstandingShockexception;move+Shock must retain9.71constraint. Wronggate/date/commander/distance/rounding changeslocalpermission.",
+  "owner_independent_reason_text": "Nonebeyondapproval;shownrationaleacceptedbyreference",
+  "not_approved": [
+    "Actualdate/OC/AWL/RP/line/LOS/ZOC ofrealbattle",
+    "Move-onlycaseatlowRP",
+    "FullShocklegality/otherconditions",
+    "Unshownexternalmetadata/sourceclosure",
+    "Wholeatomicinventory/graph/collection"
+  ],
+  "remaining_gaps": [
+    "Actualscenario/date/OC/AWL/RP/lineidentity/LOS/ZOCunverified",
+    "OtherfullShocklegalityconditions notdetermined",
+    "Move-onlyatlowRP nottested orresolved",
+    "No actualCannaesetupverified",
+    "Implicitlinkrequiresactualownerreview"
+  ],
+  "no_freeze": true
+}

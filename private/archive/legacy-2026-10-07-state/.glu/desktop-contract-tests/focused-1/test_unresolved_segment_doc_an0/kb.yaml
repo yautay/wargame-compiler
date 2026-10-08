@@ -1,0 +1,27 @@
+schema: wgc/source@0
+records:
+- kind: segment
+  id: SEG-x.1
+  doc: SRC-zzz
+  segment_type: rule
+  text_hash: sha256:0000000000000001
+---
+schema: wgc/logic@0
+records:
+- kind: human_decision
+  id: HD-001
+  question: q
+  answer: a
+  by: owner
+  at: '2026-10-05T12:00:00Z'
+- kind: concept
+  id: CON-a
+  category: other
+  name: CON-a
+  prov:
+    kind: explicit_source
+    by:
+      tier: deterministic
+    anchors:
+    - seg: SEG-zzz
+      seg_hash: sha256:0000000000000001

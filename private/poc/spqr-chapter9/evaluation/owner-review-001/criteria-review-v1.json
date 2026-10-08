@@ -1,0 +1,64 @@
+{
+  "artifact": "M-POC1A-criteria-review-v1",
+  "date": "2026-10-07",
+  "card": "M-POC1A",
+  "card_result": "done",
+  "milestone": "M-POC1",
+  "milestone_result": "next",
+  "next_card": "M-POC1B",
+  "next_card_started": false,
+  "agreed_owner_review_complete": true,
+  "owner_decision_count": 10,
+  "criteria": [
+    {
+      "criterion": "source existence, edition and full hash match",
+      "result": "met",
+      "evidence": "source/source-v1.json; source hash rechecked at closure"
+    },
+    {
+      "criterion": "core boundaries visually checked and owner-reviewed",
+      "result": "met",
+      "evidence": "decisions01/02 and crops; U-08"
+    },
+    {
+      "criterion": "manual area inventory with type, localID, source/page/status",
+      "result": "met",
+      "evidence": "inventory.json:190 base records,12 areas;17 supplemental spans;2 metadata overrides"
+    },
+    {
+      "criterion": "numeric/named/unnumbered candidates distinguished from verified graph",
+      "result": "met",
+      "evidence": "dependency-candidates.json; decision06a;96 candidate records,19 distinct external numeric tokens, no semantic gold"
+    },
+    {
+      "criterion": "uncertain/context-dependent material presented and actually reviewed in agreed scope",
+      "result": "met",
+      "evidence": "10 raw owner responses in review-events.jsonl; dispositions for U-01–U-09"
+    },
+    {
+      "criterion": "checks and continuity update",
+      "result": "awaiting_final_check",
+      "evidence": "final check log will be attached in completion-checks-v1.json"
+    }
+  ],
+  "interpretation": "M-POC1A working inventory and agreed boundary/uncertainty review complete. Does not certify semantic accuracy, atomic gold, exhaustive glyph transcription or all96 relations individually reviewed. Missing external context is explicitly accepted as deferred, not guessed.",
+  "owner_review_coverage": {
+    "all_groups_individually_reviewed": false,
+    "all_candidates_individually_reviewed": false,
+    "semantic_meaning_approved": false,
+    "frozen_eval": false
+  },
+  "remaining_uncertainties": [
+    "full atomic clause subdivision not verified",
+    "fine counter/marker glyph transcription not exhaustive",
+    "unshown groups/candidates not individually reviewed by owner",
+    "operative meaning and graph kinds/directions/necessity/criticality not approved",
+    "external/scenario/map context unresolved"
+  ],
+  "supplements": [
+    "inventory-supplement-05a.json",
+    "inventory-supplement-05b.json",
+    "inventory-supplement-05c.json",
+    "inventory-supplement-06c.json"
+  ]
+}

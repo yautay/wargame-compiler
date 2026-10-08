@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T13:34:58.745474+00:00",
+  "question_id": "RQ-15d",
+  "parent_question": "RQ-15",
+  "scope": {
+    "EXP-015": "Cavalry cannot voluntarily enterenemyELZOC; enteringeach enemyELFlank/Rearhex incurs2CH, samepenaltyforforcedentryELZOC; no cavalryattackenemyELFront; Flank/Rearattack doesnotgainusualAS. Nofullpositiveattackpermission.",
+    "EXP-016": "OrdinaryEL movesfromnonadjacenthex adjacentenemycavalry =>mustattemptOW; if cavalrycanwithdraw noanyReactionFire; cannotwithdraw=>immediateTQcheck. For given trigger and cannotwithdraw, routedcavalryelimwithoutDR. LeaderELexcludedfrom9.16. EXP017DR<=TQ0CH andDR>TQpositiveexcessmin1 alreadyapproved.",
+    "EXP-018": "ELvsEL neither side PositionSuperiority, including no positionalASfromFlank/Rear; notallpossibletypesofsuperiorityexcluded.",
+    "EXP-019": "Any leader maycommandEL unlessrules specificallyotherwise. Actual leaderauthorization requirescheckingexceptions; keeprequires_context, no inventedactualeligibility.",
+    "EXP-020": "WhenIndianELfightAfricanEL:AfricanEL+1PreShockDRM, inadditiontoClashofSpearsandSwords andShockSuperiority notes; notIndian+1norallEL+1norwaiveroftablenotes."
+  },
+  "linked_dependency_ids": [
+    "DEP-049-1",
+    "DEP-049-2",
+    "DEP-050-1",
+    "DEP-050-2",
+    "DEP-050-3",
+    "DEP-051",
+    "DEP-052",
+    "DEP-007",
+    "DEP-032",
+    "DEP-033"
+  ],
+  "dependency_scope": "C9.15->ZOC/facing/AS;C9.16->OW/immediateTQ/routedstate;C9.17->PositionSuperiority;C9.18->commandexceptions;C9.19->PreShock8.43 andtwonamedcharts. Targetidentity/procedurevaluesunclosed; no blanketmetadataapproval.",
+  "existing_situation_links": [
+    "SIT-07 DR=TQ boundaryalreadyapproved; actualordinaryELtrigger/OWfacts were supplied, not source of actual full OWprocedure",
+    "No dedicatedscoredSIT forEXP015/018/019/020"
+  ],
+  "review_illustration": {
+    "id": "RV-RQ15d-01",
+    "role": "explanation only,no newscoredSIT",
+    "facts": "Cavalry twoentries into suppliedenemyELFlank/Rearhexes; separate ordinaryELnonadj->adj triggerandcanwithdrawcondition supplied; IndianvsAfrican andbasePreShockDR3 supplied",
+    "local_results": [
+      "TwoFlank/Rearentries=>4CH from9.15 alone, no fullroutelegality",
+      "Canwithdraw=>noReactionFire in9.16;cannotwithdraw/unrouted=>immediateTQcheck;cannotwithdraw/routed=>elimnoDR",
+      "IndianvsAfrican:AfricanDR3+1=>4beforeothermodifiers,notIndianDR+1"
+    ]
+  },
+  "criticality": "Voluntary/forced, perhexcost, Frontattackban, OW/time/noRF/Leaderexception, positionalbonus category and AfricanDRMrecipient change legalgates/Hits/testresult. Missingcommandexception maygrantunauthorizedorder.",
+  "remaining_uncertainty": [
+    "Actual ZOC/facing/passability/route andfullShock unresolved",
+    "Full OWeligibility androutedcavalrywithdrawal/orderingnotresolved forcanwithdraw branch",
+    "Actual commandexceptions andleaderparametersunknown;EXP019requires_contextretained",
+    "8.43 andClash/ShockSuperiority chartnotesunclosed",
+    "No actual matchup/countervalues inferred fromartwork",
+    "EXP009firstLeader7-9 unresolved"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty EXP-015/016/018/019/020 wraz z krytycznością i pozostawieniem wskazanych braków kontekstu?",
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15d-draft-records.json",
+      "sha256": "c1958918808c9111df95736344f3510df2260e9a11e88ec8b94f1bc5582f6984",
+      "bytes": 42710
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15d-evidence.json",
+      "sha256": "02d633d5edba984ec300fb169053ca0448c30ccc1d465f23a845e5726f08a1a0",
+      "bytes": 3375
+    }
+  ],
+  "owner_answer": null
+}

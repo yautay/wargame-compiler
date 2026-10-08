@@ -1,0 +1,27 @@
+Data kontroli: 2026-10-07, Europe/Warsaw.
+Faktyczna aplikacja: Codex desktop, lokalny chat.
+Dowód: chat „Przygotuj response dla PDF 32”, ID 01a11505-ed75-7d51-9ed2-7701c30c0b1a.
+Prywatny snapshot: spqr-p032-codex-conversation-20261007.json; 2 ostatnie turny, bez reasoning/outputów narzędzi.
+Model w odpowiedzi: gpt sol 6.1, model_identity=reported.
+Właściciel w źródłowym czacie podał: „gpt sol 6.1 wysoki”. Jest to deklaracja, nie fingerprint dostawcy.
+producer.application=unknown; schemat nie ma wartości codex. Oryginalna koperta bez zmian.
+Odbiór: bezpośredni zapis response.json przez narzędzie plikowe Codex, do katalogu pakietu.
+Nie potwierdzono ręcznego kopiowania tekstu ani pobrania załącznika.
+Oryginał: packages/mdesk2-spqr-p032-context031-033/response.json.
+Kopia bajtowa poza pakietem: responses/spqr-p032-codex.json.
+Bajty: 149492.
+SHA-256: sha256:175dc85b63d981f9292e63b9472eeacc218da7d0f591e72d21ca010f48800177.
+Osiem pierwotnych plików pakietu zachowanych; odpowiedź jest dodatkowym plikiem, nie assetem manifestu.
+ID pakietu: desktop.47bc026cb0853f3cbce2b2b91405663cfefd592d6d4c7398cb3704179a7672bd.
+Hash pakietu: sha256:04fa79da9fe6ac10394e9a5073d75f6cc4dc78732ecb372a10b79dd6d6c7a0ea.
+Wejścia w rozmowie: manifest.txt, instructions.txt, legend.txt, example.txt, desktop.schema.json, p031.png, p032.png, p033.png.
+Alias schematu: brak widocznego aliasu w wiadomości wejściowej.
+JSON/schemat i wiązanie: poprawne. desktop.check: 23 błędy (1 desktop_table_evidence, 22 desktop_coverage_evidence).
+Nie zmieniono odpowiedzi ani walidatora. Brak formalnego zatwierdzenia znaczenia lub kompletności.
+Wizualna próbka: tabela 4x2 i jej przeniesienie między kolumnami, diagram/podpis, kierunki 1–6, napisy żetonów,
+kolorowe noty i 2 luki kontynuacji są reprezentowane spójnie z renderami. Nie zatwierdza to całej instrukcji.
+resolve_text wprowadza liczne podziały wiersza wewnątrz słów przy drobnych fragmentach tego PDF;
+to osobne ograniczenie rekonstrukcji tekstu, bez lokalnego naprawiania odczytu.
+Raport: spqr-p032-codex-review-20261007-1.json.
+ChatGPT: nie sprawdzono. Claude Desktop: nie sprawdzono.
+M-DESK2 pozostaje partial; ta próba Codex nie spełnia wymaganej ręcznej wymiany ChatGPT/Claude Desktop.

@@ -1,0 +1,1054 @@
+{
+  "question_id": "RQ-08",
+  "status": "prepared_waiting_owner_answer",
+  "expectations": [
+    {
+      "id": "EXP-041",
+      "inventory_refs": [
+        "C-9.61-01"
+      ],
+      "dimensions": [
+        "condition",
+        "number",
+        "exception"
+      ],
+      "status": "source_supported_proposal",
+      "proposition": "Roman stack: zasadniczo dwa infantry same border bez penalty, ale istnieją wyjątki jak Velites. Wspólny ruch: 2 IO, 1 IO gdy stacked OC sam rozkazuje, albo 1 LC gdy obie eligible.",
+      "criticality": "critical",
+      "criticality_reason": "Pominięcie wyjątku lub jeden IO zawsze zmienia legalność.",
+      "criticality_author": "Codex proposal, owner justification pending",
+      "local_scope_and_needed_context": "Pełny stacking chart i eligibility nie są dowiedzione regułą thumb.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "dependency_ids": [
+        "DEP-018",
+        "DEP-037",
+        "DEP-064-1",
+        "DEP-064-2"
+      ],
+      "situation_ids": []
+    },
+    {
+      "id": "EXP-042",
+      "inventory_refs": [
+        "C-9.62-01"
+      ],
+      "dimensions": [
+        "number",
+        "effect",
+        "condition"
+      ],
+      "status": "source_supported_proposal",
+      "proposition": "Roman stack sumuje Size, inne ratings top; każdy własny TQ check ale TQ top; tylko top fire, oba Shock ten sam hex. Automatic Hits każdej jednostce; Shock Hits odsyłają do 8.46 Step4 i10.13.",
+      "criticality": "critical",
+      "criticality_reason": "Zgubienie each albo użycie bottom TQ zmienia liczbę testów/stan.",
+      "criticality_author": "Codex proposal, owner justification pending",
+      "local_scope_and_needed_context": "Rozdział 9 nie domyka alokacji Shock Hits; 10.13 jest kontekstem, 6.68 nieprzejrzane.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            290.1,
+            297.017,
+            372.1
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            25
+          ],
+          "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.62-01",
+          "parent_inventory_ref": "R-9.62",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "dependency_ids": [
+        "DEP-019",
+        "DEP-020",
+        "DEP-021",
+        "DEP-022"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ]
+    },
+    {
+      "id": "EXP-043",
+      "inventory_refs": [
+        "C-9.63-01"
+      ],
+      "dimensions": [
+        "number",
+        "condition"
+      ],
+      "status": "source_supported_proposal",
+      "proposition": "Różne border colors lub same color różne classes w Roman stack: +1 DRM do wszystkich TQ checks.",
+      "criticality": "critical",
+      "criticality_reason": "Błędne and zamiast or albo tylko jeden test zmienia Hits.",
+      "criticality_author": "Codex proposal, owner justification pending",
+      "local_scope_and_needed_context": "Typy i kolory muszą być znane z danych jednostek.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            379.5,
+            297.011,
+            413.5
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            26,
+            28
+          ],
+          "transcription": "9.63 For stacked Roman units with different border colors, or of\nthe same border color and different classes, there is a +1 DRM\nto all TQ checks.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.63-01",
+          "parent_inventory_ref": "R-9.63",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "dependency_ids": [],
+      "situation_ids": [
+        "SIT-13"
+      ]
+    },
+    {
+      "id": "EXP-044",
+      "inventory_refs": [
+        "C-9.64-01"
+      ],
+      "dimensions": [
+        "negation",
+        "condition"
+      ],
+      "status": "source_supported_proposal",
+      "proposition": "Zmiana stacking order tylko IO, nie movement ani LC; LC może zmienić facing. Gdy z Roman stack rusza jedna jednostka, tylko top.",
+      "criticality": "critical",
+      "criticality_reason": "Utożsamienie facing z kolejnością stosu zmienia legalność.",
+      "criticality_author": "Codex proposal, owner justification pending",
+      "local_scope_and_needed_context": "Nie zastosować zwykłego unstack do MLE bez sprawdzenia szczególnej reguły.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            420.9,
+            297.04,
+            478.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            29,
+            33
+          ],
+          "transcription": "9.64 Roman Stacking order may be changed/switched only by\nan Individual Order; it may not be part of movement or a Line\nCommand, although facing may be changed by LC. If the player\ndesires to move only one unit from a stack, only the top unit\nmay move.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.64-01",
+          "parent_inventory_ref": "R-9.64",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "dependency_ids": [
+        "DEP-065"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ]
+    },
+    {
+      "id": "EXP-045",
+      "inventory_refs": [
+        "C-9.65-01"
+      ],
+      "dimensions": [
+        "number",
+        "effect"
+      ],
+      "status": "source_supported_proposal",
+      "proposition": "Roman infantry zmienia facing za1 MP, dowolna liczba vertices.",
+      "criticality": "critical",
+      "criticality_reason": "Per vertex zamiast per zmiana zmienia koszt.",
+      "criticality_author": "Codex proposal, owner justification pending",
+      "local_scope_and_needed_context": "Nie rozszerzać tej wartości na MLE, które zachowuje facing.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            486.3,
+            297.1,
+            508.3
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            34,
+            35
+          ],
+          "transcription": "9.65 Roman infantry pay 1 MP cost for changing facing, but,\nunlike most other units, they may change any number of vertices.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.65-01",
+          "parent_inventory_ref": "R-9.65",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "dependency_ids": [
+        "DEP-066"
+      ],
+      "situation_ids": []
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "DEP-018",
+      "candidate_ids": [
+        "DC-018"
+      ],
+      "from": "C-9.61-01",
+      "to": null,
+      "target_candidate": {
+        "identifier": "4.32",
+        "source": "same_pdf",
+        "location": "unknown",
+        "facet": "4.32"
+      },
+      "kind": "definition",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.61-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Roman lines ze spacing wymagają definicji4.32.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-041"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-019",
+      "candidate_ids": [
+        "DC-019"
+      ],
+      "from": "C-9.62-01",
+      "to": null,
+      "target_candidate": {
+        "identifier": "8.42",
+        "source": "same_pdf",
+        "location": "unknown",
+        "facet": "8.42"
+      },
+      "kind": "condition",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.62-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Oba Roman stack units mają Shock ten sam hex zgodnie8.42.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            290.1,
+            297.017,
+            372.1
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            25
+          ],
+          "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.62-01",
+          "parent_inventory_ref": "R-9.62",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-042"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-020",
+      "candidate_ids": [
+        "DC-020"
+      ],
+      "from": "C-9.62-01",
+      "to": null,
+      "target_candidate": {
+        "identifier": "6.68",
+        "source": "same_pdf",
+        "location": "unknown",
+        "facet": "6.68"
+      },
+      "kind": "modification",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.62-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Automatic Hits6.68 mają być zastosowane do każdej jednostki.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            290.1,
+            297.017,
+            372.1
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            25
+          ],
+          "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.62-01",
+          "parent_inventory_ref": "R-9.62",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-042"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-021",
+      "candidate_ids": [
+        "DC-021"
+      ],
+      "from": "C-9.62-01",
+      "to": null,
+      "target_candidate": {
+        "identifier": "8.46",
+        "source": "same_pdf",
+        "location": "unknown",
+        "facet": "8.46"
+      },
+      "kind": "procedure_use",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.62-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Hits do alokacji powstają w8.46Step4; bazowa procedura wymagana dla pełnego wyniku.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            290.1,
+            297.017,
+            372.1
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            25
+          ],
+          "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.62-01",
+          "parent_inventory_ref": "R-9.62",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-042"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-022",
+      "candidate_ids": [
+        "DC-022"
+      ],
+      "from": "C-9.62-01",
+      "to": null,
+      "target_candidate": {
+        "identifier": "10.13",
+        "source": "same_pdf",
+        "location": {
+          "pdf_page": 37,
+          "column": "right",
+          "scope": "boundary_context",
+          "content_review": "visual occurrence observed, semantic target not verified"
+        },
+        "facet": "10.13"
+      },
+      "kind": "procedure_use",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.62-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Alokacja Roman Shock Hits wprost delegowana do10.13; cel poza core, zależy dalej od6.68.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            290.1,
+            297.017,
+            372.1
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            25
+          ],
+          "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.62-01",
+          "parent_inventory_ref": "R-9.62",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "external_with_boundary_evidence_incomplete",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "10.13 visible PDF37 right in boundary context, but6.68 allocation and full8.46Step4 not reviewed: full Roman multi-stack hit assignment blocked.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "boundary_target_evidence": {
+        "scope": "context_not_chapter9_core",
+        "pdf_page": 37,
+        "printed_page": "37",
+        "column": "right",
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "render": "source/review-evidence/pdf-37.png",
+        "render_sha256": "eac35841555b17696a6dda014e9b482b91c2a15e2366c7effd30c8576f1c5d9b",
+        "bbox_pdf_points": [
+          315,
+          75,
+          567,
+          368
+        ],
+        "bbox_precision": "Approximate containing envelope for10.13, exception bullets and example; top-left PDF points.",
+        "observation": "10.13 rozdziela między units/stacks i odsyła przy alokacji wewnątrz stosu do6.68 bullet6; sam widoczny cel nie domyka całej alokacji.",
+        "owner_semantic_review": false
+      },
+      "expectation_ids": [
+        "EXP-042"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-037",
+      "candidate_ids": [
+        "DC-037"
+      ],
+      "from": "C-9.61-01",
+      "to": null,
+      "target_candidate": {
+        "name": "Stacking Charts",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Stacking Charts"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "C-9.61-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Stacking Charts nazwane for a summary. To informacyjny odsyłacz; brak charts nie blokuje jawnej liczby IO, ale pełny stacking wymaga niejawnych exceptionsDC-064.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-041"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-064-1",
+      "candidate_ids": [
+        "DC-064"
+      ],
+      "from": "C-9.61-01",
+      "to": null,
+      "target_candidate": {
+        "name": "Roman/Velites stacking exceptions and LC eligibility",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "Roman/Velites stacking exceptions"
+      },
+      "kind": "condition",
+      "explicitness": "implicit",
+      "explicitness_reason": "Need for exact base procedure/definition/table inferred from stated operation; target identity is not proven.",
+      "executable": true,
+      "direction_reason": "C-9.61-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Rule of thumb plus exceptions i both eligible wymagają niepodanych stacking/LC warunków; brak chart nie nadaje legalności.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-041"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-064-2",
+      "candidate_ids": [
+        "DC-064"
+      ],
+      "from": "C-9.61-01",
+      "to": null,
+      "target_candidate": {
+        "name": "Roman/Velites stacking exceptions and LC eligibility",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "both units LC eligible"
+      },
+      "kind": "condition",
+      "explicitness": "implicit",
+      "explicitness_reason": "Need for exact base procedure/definition/table inferred from stated operation; target identity is not proven.",
+      "executable": true,
+      "direction_reason": "C-9.61-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Rule of thumb plus exceptions i both eligible wymagają niepodanych stacking/LC warunków; brak chart nie nadaje legalności.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-041"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-065",
+      "candidate_ids": [
+        "DC-065"
+      ],
+      "from": "C-9.64-01",
+      "to": null,
+      "target_candidate": {
+        "name": "Individual Order and Line Command",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "Individual Order and Line Command"
+      },
+      "kind": "exception",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.64-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Roman stacking-order zmiana tylko IO, nie movement/LC; facing LC jest inną akcją.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            420.9,
+            297.04,
+            478.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            29,
+            33
+          ],
+          "transcription": "9.64 Roman Stacking order may be changed/switched only by\nan Individual Order; it may not be part of movement or a Line\nCommand, although facing may be changed by LC. If the player\ndesires to move only one unit from a stack, only the top unit\nmay move.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.64-01",
+          "parent_inventory_ref": "R-9.64",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Local prohibition/exception is source-supported without executing the excluded procedure; exact base target needed for graph matching or combined/full outcome.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-044"
+      ],
+      "situation_ids": [
+        "SIT-13"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-066",
+      "candidate_ids": [
+        "DC-066"
+      ],
+      "from": "C-9.65-01",
+      "to": null,
+      "target_candidate": {
+        "name": "general facing movement cost",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "general facing movement cost"
+      },
+      "kind": "modification",
+      "explicitness": "implicit",
+      "explicitness_reason": "Need for exact base procedure/definition/table inferred from stated operation; target identity is not proven.",
+      "executable": true,
+      "direction_reason": "C-9.65-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Unlike most other units wskazuje zmianę normalnego facing cost, dokładny cel nie ustalony.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            486.3,
+            297.1,
+            508.3
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            34,
+            35
+          ],
+          "transcription": "9.65 Roman infantry pay 1 MP cost for changing facing, but,\nunlike most other units, they may change any number of vertices.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.65-01",
+          "parent_inventory_ref": "R-9.65",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-045"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    }
+  ],
+  "situation": {
+    "id": "SIT-13",
+    "title": "Roman stack: order vs facing",
+    "categories": [
+      "boundary",
+      "conflict"
+    ],
+    "inventory_refs": [
+      "C-9.64-01",
+      "C-9.62-01",
+      "C-9.63-01"
+    ],
+    "facts": {
+      "stack": "Roman units różne border colors",
+      "top_TQ": 7,
+      "bottom_TQ": 5,
+      "order": "LC",
+      "requested_actions": [
+        "switch top/bottom",
+        "change facing"
+      ]
+    },
+    "facts_policy": "Synthetic supplied conditions for a local test; no real scenario/unit parameters accepted. Unstated broader legality is not inferred.",
+    "question": "Która akcja spełnia lokalny wymóg order? Jakiego TQ/DRM używa każdy test stosu przed zmianą?",
+    "expected": {
+      "kind": "local_result",
+      "result": "LC nie pozwala switch stacking order; facing może być przez LC. Każda unit własny test zTQ7 top i+1DRM za różne colors. Nie ustalono alokacji Shock Hits.",
+      "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+      "rationale": "IO only dla switch; all checks +1, każdy uses top TQ. Pełne warunki LC nadal muszą być znane.",
+      "missing_context": [],
+      "blocker": null
+    },
+    "status": "source_supported_proposal",
+    "criticality": "critical",
+    "criticality_reason": "Wrong result/block changes legality, effect, number, exception, timing or ability to resolve.",
+    "criticality_author": "Codex proposal; owner justification pending",
+    "expectation_ids": [
+      "EXP-042",
+      "EXP-043",
+      "EXP-044"
+    ],
+    "dependency_ids": [
+      "DEP-019",
+      "DEP-020",
+      "DEP-021",
+      "DEP-022",
+      "DEP-065"
+    ],
+    "evidence": [
+      {
+        "source_id": "SPQR-5E-ch9-source-v1",
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "pdf_page": 35,
+        "printed_page": "35",
+        "column": "left",
+        "render": "source/review-evidence/pdf-35.png",
+        "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+        "bbox_pdf_points": [
+          45.0,
+          420.9,
+          297.04,
+          478.9
+        ],
+        "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+        "helper_file": "source/review-evidence/pdf-35-left.txt",
+        "helper_lines_inclusive": [
+          29,
+          33
+        ],
+        "transcription": "9.64 Roman Stacking order may be changed/switched only by\nan Individual Order; it may not be part of movement or a Line\nCommand, although facing may be changed by LC. If the player\ndesires to move only one unit from a stack, only the top unit\nmay move.",
+        "reading_status": "visually_checked_by_codex",
+        "inventory_ref": "C-9.64-01",
+        "parent_inventory_ref": "R-9.64",
+        "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+        "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+      },
+      {
+        "source_id": "SPQR-5E-ch9-source-v1",
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "pdf_page": 35,
+        "printed_page": "35",
+        "column": "left",
+        "render": "source/review-evidence/pdf-35.png",
+        "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+        "bbox_pdf_points": [
+          45.0,
+          290.1,
+          297.017,
+          372.1
+        ],
+        "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+        "helper_file": "source/review-evidence/pdf-35-left.txt",
+        "helper_lines_inclusive": [
+          19,
+          25
+        ],
+        "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+        "reading_status": "visually_checked_by_codex",
+        "inventory_ref": "C-9.62-01",
+        "parent_inventory_ref": "R-9.62",
+        "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+        "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+      },
+      {
+        "source_id": "SPQR-5E-ch9-source-v1",
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "pdf_page": 35,
+        "printed_page": "35",
+        "column": "left",
+        "render": "source/review-evidence/pdf-35.png",
+        "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+        "bbox_pdf_points": [
+          45.0,
+          379.5,
+          297.011,
+          413.5
+        ],
+        "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+        "helper_file": "source/review-evidence/pdf-35-left.txt",
+        "helper_lines_inclusive": [
+          26,
+          28
+        ],
+        "transcription": "9.63 For stacked Roman units with different border colors, or of\nthe same border color and different classes, there is a +1 DRM\nto all TQ checks.",
+        "reading_status": "visually_checked_by_codex",
+        "inventory_ref": "C-9.63-01",
+        "parent_inventory_ref": "R-9.63",
+        "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+        "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+      }
+    ],
+    "human_review_status": "waiting_review",
+    "owner_confirmed": false
+  },
+  "prior_mention_review": "DEP037ownerconfirmedmentioninRQ04;notfullstackingeligibility",
+  "scope_policy": "Romanstacklocalrules/order/TQselection/DRM;fullShockHitsallocation remainsblocked by8.46Step4/10.13->6.68;10.13 boundarycontextnotcore orcompleteclosure."
+}

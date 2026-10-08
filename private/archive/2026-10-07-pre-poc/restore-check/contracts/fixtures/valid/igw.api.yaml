@@ -1,0 +1,92 @@
+# Inference Gateway wire examples (igw/api@0). Generic inference only: no task, stage or record fields.
+# The prompt content here is a placeholder; real prompts may contain source text and are never logged or stored on the node.
+schema: igw/api@0
+messages:
+  - message: capabilities
+    endpoint: GET /v1/capabilities
+    body:
+      api: igw/api@0
+      node_id: ai-node-01
+      structured_output: [json_schema, json_object]
+      json_schema_subset: llama.cpp-gbnf@1
+      embeddings: false
+      vision: false
+      streaming: [none]
+      async_jobs: false
+      max_request_bytes: 1048576
+      max_queue: 256
+  - message: models
+    endpoint: GET /v1/models
+    body:
+      node_id: ai-node-01
+      profiles:
+        - {name: fast, model_fingerprint: "sha256:00000000000000f1", model_label: "<7-14B instruct, Q6>", state: loaded,
+           pinned: false, max_context: 16384, max_output_tokens: 2048, max_concurrency: 6, est_load_seconds: 6,
+           placement: gpu, modes: [interactive, batch]}
+        - {name: semantic, model_fingerprint: "sha256:00000000000000a2", model_label: "<~30B instruct, Q4>", state: cold,
+           max_context: 16384, max_output_tokens: 2048, max_concurrency: 2, est_load_seconds: 15,
+           placement: gpu, modes: [interactive, batch]}
+        - {name: deep, model_fingerprint: "sha256:00000000000000d3", model_label: "<large MoE, experts in RAM>", state: cold,
+           max_context: 8192, max_output_tokens: 2048, max_concurrency: 1, est_load_seconds: 40,
+           placement: gpu_cpu_offload, modes: [batch]}
+  - message: health
+    endpoint: GET /v1/health
+    body:
+      status: ok
+      node_id: ai-node-01
+      api: igw/api@0
+      uptime_s: 86400
+      queue_depth: 2
+      gpus: [{name: "NVIDIA GeForce RTX 3090", vram_total_mb: 24576, vram_free_mb: 17400, utilization_pct: 63}]
+      ram_total_mb: 131072
+      ram_free_mb: 96000
+      loaded_profiles: [fast]
+      runtime: {name: llama.cpp-server, version: "<pinned build>", status: ok}
+  - message: infer_request
+    endpoint: POST /v1/infer
+    body:
+      request_id: req_0001aa
+      idempotency_key: "sha256:0000000000005002"
+      client_ref: job_0002bb
+      profile: semantic
+      messages:
+        - {role: system, content: "<task prompt>"}
+        - {role: user, content: "<segment and context>"}
+      output:
+        mode: json_schema
+        schema: {type: object, required: [modality], properties: {modality: {enum: [may, must, must_not]}}, additionalProperties: false}
+      params: {max_tokens: 1024, temperature: 0, seed: 0}
+      priority: batch
+      deadline_s: 900
+  - message: infer_result
+    body:
+      request_id: req_0001aa
+      profile: semantic
+      model_fingerprint: "sha256:00000000000000a2"
+      node_id: ai-node-01
+      output: {text: '{"modality": "must_not"}', json: {modality: must_not}, mode_used: grammar, json_valid: true}
+      finish_reason: stop
+      usage: {tokens_in: 1800, tokens_out: 12}
+      timing: {queue_ms: 4200, load_ms: 14800, infer_ms: 900, tokens_per_s: 31.5, gpu_seconds: 15.7}
+  - message: error
+    body:
+      error: {code: model_loading, message: "profile semantic is loading", retryable: true, retry_after_s: 10, request_id: req_0001ab}
+  - message: metrics
+    endpoint: GET /v1/metrics
+    body:
+      node_id: ai-node-01
+      since: "2026-10-05T08:00:00Z"
+      requests: 412
+      failures: {deadline_exceeded: 1, queue_full: 0}
+      tokens_in: 702000
+      tokens_out: 160000
+      tokens_per_s_avg: 44.2
+      queue_depth: 2
+      model_loads: 3
+      model_load_seconds_total: 41.0
+      inference_seconds_total: 3620.5
+      dedup_hits: 5
+      per_profile: {fast: {requests: 380, tokens_out: 120000}, semantic: {requests: 32, tokens_out: 40000}}
+      gpu_utilization_pct: 58
+      vram_used_mb: 7200
+      ram_used_mb: 35000

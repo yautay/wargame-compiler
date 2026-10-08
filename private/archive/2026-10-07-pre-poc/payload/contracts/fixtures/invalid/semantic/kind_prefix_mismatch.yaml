@@ -1,0 +1,8 @@
+# EXPECT: kind_prefix_mismatch
+# MUST FAIL (L1): the prefix determines the record kind; a rule must use `R-`, not `CON-`.
+schema: wgc/logic@0
+records:
+  - {kind: human_decision, id: HD-001, question: "Is this a rule?", answer: "Yes.", by: owner, at: "2026-10-05T12:00:00Z"}
+  - {kind: rule, id: CON-x, nature: prohibition, modality: must_not, formalization: none,
+     statement: {lang: en, text: "Units may not attack across rivers."},
+     prov: {kind: human_decision, by: {tier: human, person: owner}, decision: HD-001}}

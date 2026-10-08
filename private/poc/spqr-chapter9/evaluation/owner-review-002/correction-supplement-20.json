@@ -1,0 +1,48 @@
+{
+  "authorizing_decision": "decision-20-RQ-15d.json",
+  "authorizing_decision_sha256": "777d6e538fd33f9d7d51e928c419b85d81ae41d8a6bd6a254e9ef439e709706b",
+  "approved_expectation_fragments": {
+    "EXP-015": "Cavalry cannot voluntarily enterenemyELZOC; enteringeach enemyELFlank/Rearhex incurs2CH, samepenaltyforforcedentryELZOC; no cavalryattackenemyELFront; Flank/Rearattack doesnotgainusualAS. Nofullpositiveattackpermission.",
+    "EXP-016": "OrdinaryEL movesfromnonadjacenthex adjacentenemycavalry =>mustattemptOW; if cavalrycanwithdraw noanyReactionFire; cannotwithdraw=>immediateTQcheck. For given trigger and cannotwithdraw, routedcavalryelimwithoutDR. LeaderELexcludedfrom9.16. EXP017DR<=TQ0CH andDR>TQpositiveexcessmin1 alreadyapproved.",
+    "EXP-018": "ELvsEL neither side PositionSuperiority, including no positionalASfromFlank/Rear; notallpossibletypesofsuperiorityexcluded.",
+    "EXP-019": "Any leader maycommandEL unlessrules specificallyotherwise. Actual leaderauthorization requirescheckingexceptions; keeprequires_context, no inventedactualeligibility.",
+    "EXP-020": "WhenIndianELfightAfricanEL:AfricanEL+1PreShockDRM, inadditiontoClashofSpearsandSwords andShockSuperiority notes; notIndian+1norallEL+1norwaiveroftablenotes."
+  },
+  "approved_clarifications": [
+    "9.15 cavalryenteringenemyELFlank/Rear appliesalsoordinarynonRampagingEL,2CHperentry,notonlyRampage",
+    "7.21 ordinarynonroutedELFrontZOC;LeaderEL/routedunitsnoZOC;7.23entryenemyZOCstops,9.15voluntaryenemyELZOCentryforcavalryforbidden",
+    "Flank/RearoutsideordinaryELownZOC;actualmap/otherZOC/facingchangesstill matter",
+    "9.14 opposite-directionRampagecollision remainsaspreviouslyapproved;no ordinary cavalrymoveinterleavedintounfinishedRampage,OWexceptionretained"
+  ],
+  "review_illustration_overlay": {
+    "id": "RV-RQ15d-01",
+    "role": "explanation only,no newscoredSIT",
+    "facts": "Cavalry twoentries into suppliedenemyELFlank/Rearhexes; separate ordinaryELnonadj->adj triggerandcanwithdrawcondition supplied; IndianvsAfrican andbasePreShockDR3 supplied",
+    "local_results": [
+      "TwoFlank/Rearentries=>4CH from9.15 alone, no fullroutelegality",
+      "Canwithdraw=>noReactionFire in9.16;cannotwithdraw/unrouted=>immediateTQcheck;cannotwithdraw/routed=>elimnoDR",
+      "IndianvsAfrican:AfricanDR3+1=>4beforeothermodifiers,notIndianDR+1"
+    ],
+    "movement_case": "OrdinarynonRampagingEL, fixedfacing, suppliedotherwisepermittedA->BFlank->CRearroute, nootherZOCpreventingcontinuation; notduringuncompletedRampage",
+    "initial_occupancy_distinction": "StartalreadyBthenB->C:onlyoneentry2CH; not4 merelyfrominitialoccupancy"
+  },
+  "criticality": "owner confirmed in shown5 local expectations",
+  "EXP019_status": "requires_context retained foractualcommandexceptions",
+  "situation_changes": [],
+  "original_artifacts_modified": [],
+  "retained_gaps": [
+    "Actual ZOC/facing/passability/route andfullShock unresolved",
+    "Full OWeligibility androutedcavalrywithdrawal/orderingnotresolved forcanwithdraw branch",
+    "Actual commandexceptions andleaderparametersunknown;EXP019requires_contextretained",
+    "8.43 andClash/ShockSuperiority chartnotesunclosed",
+    "No actual matchup/countervalues inferred fromartwork",
+    "EXP009firstLeader7-9 unresolved",
+    "EXP-009 first Leader Elephant 7-9 unresolved",
+    "Remaining unshown clauses/criticality and relation metadata require source-specific RQ15 review",
+    "External tables, actual map/scenario parameters and target identities unclosed",
+    "Full atomic inventory and small counter glyph transcription unverified",
+    "No full game legality, extraction, graph certificate, gold or eval-v1 freeze",
+    "Known initial Git index byte mismatch retained; cause unknown"
+  ],
+  "external_target_status_overrides": []
+}

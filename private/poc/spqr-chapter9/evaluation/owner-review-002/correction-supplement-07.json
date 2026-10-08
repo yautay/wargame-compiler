@@ -1,0 +1,62 @@
+{
+  "id": "M-POC1B-correction-supplement-07",
+  "authorizing_decision": "decision-07-RQ-06.json",
+  "authorizing_decision_sha256": "ee426c36234d5088bb2f04b2c6ae965773d0be330be9a297bb31ba8ec1f4219a",
+  "original_artifacts_modified": [],
+  "approved_local_scopes": [
+    "EXP021/022:OWSKup2hexes beforeapproachingunitMA<=SKMA;SKOWHitsonlyRear,VelitesFlank/Rear",
+    "EXP023:targetSKMissile+2DRM;SK/LIArchersA noH&D;LCanymissileclass noH&DvsSK",
+    "EXP024:SKnoShockattack;mixeddefenseuseothertype,ignoreSKSize;alreadyapprovedattackerofSKalonePreShockexemptionretained",
+    "EXP025:HitsinflictedbySKhalvefloor,cap1",
+    "EXP026:PH/HI/LGdefendingFrontvsLI noPreShockevenwithattackermarker;LIstillcheck;reverseexemptionnotapplied",
+    "EXP027:SKRouteliminated,facing0MP,no repeat-moveCohesioncost;no blanketterrain/stackingimmunity",
+    "EXP028:oneSK/Velitespergap,notoneglobal;two consecutiveunits do notqualify",
+    "EXP029:LCMissileH&DstrictlowerMA,exceptSK;LCArchersfireOW via6.55;fullproceduresunknown",
+    "EXP030:attackingLCHitsvsPH/HI/MI/LG/BI halvefloor",
+    "EXP031:AS/halvingprintedresultconflict requirescontext;no newexceptioninvented"
+  ],
+  "situation_overlays": [
+    {
+      "id": "SIT-08",
+      "semantic_status": "owner_confirmed_local_result",
+      "expected": {
+        "kind": "local_result",
+        "result": "Odpowiednio0,1,1 Hits: floor(1/2)=0, floor(3/2)=1, floor(6/2)=3 ograniczone do1.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "Zastosowane round down oraz maximum1; nie obliczono pełnego wyniku CRT.",
+        "missing_context": [],
+        "blocker": null
+      },
+      "criticality": "owner_confirmed_critical_in_local_scope"
+    },
+    {
+      "id": "SIT-09",
+      "semantic_status": "owner_confirmed_local_result",
+      "expected": {
+        "kind": "local_result",
+        "result": "H&D przeciw SK zabronione mimo niższego MA. W odrębnym podanym Shock LC na HI lokalnie5→2 Hits.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "Wyjątek targetSK jest wspólny9.22/9.31;9.32 działa na Hits zadane przez atakującą LC, nie na Hits otrzymane.",
+        "missing_context": [],
+        "blocker": null
+      },
+      "criticality": "owner_confirmed_critical_in_local_scope"
+    }
+  ],
+  "expectation_ids": [
+    "EXP-021",
+    "EXP-022",
+    "EXP-023",
+    "EXP-024",
+    "EXP-025",
+    "EXP-026",
+    "EXP-027",
+    "EXP-028",
+    "EXP-029",
+    "EXP-030",
+    "EXP-031"
+  ],
+  "EXP_031_status": "requires_context retained",
+  "external_target_status_overrides": [],
+  "EXP024clarification_overlay_retained": "correction-supplement-03.json"
+}

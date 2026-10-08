@@ -1,0 +1,77 @@
+{
+  "id": "M-POC1B-owner-decision-09",
+  "card": "M-POC1B",
+  "question_id": "RQ-08",
+  "reviewer": "owner in this chat;no personalidentity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T19:12:41.155324+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response_file": "owner-answer-09.raw.txt",
+  "raw_response_sha256": "d1951f2010da63f279834a93cacdd8b7b5d50d393daf14105883b4c0992900a3",
+  "approval_context": "UnreservedapprovalaftermainRQ08questionandclarificationofcriticality;recordedforpresentedlocalreadings/SIT13/criticalitywithretainedallocationblock,notwholegraph.",
+  "basis": {
+    "presentation": "rq-08-presentation-01.json",
+    "presentation_sha256": "9aa92b3c2b75598f12186c74f97a64520b77a931204fcd5d74f4ed7fe3442b19",
+    "draft_packet": "rq-08-draft-records.json",
+    "draft_packet_sha256": "8db2a622dff753eb74a8ce1249c9990e59fc2c992c71558cb70d826a23a259c2",
+    "evidence": "rq-08-evidence.json",
+    "evidence_sha256": "2832859fb4c6a87d95b98755f840d9fbbfb9f16719e420c9677e2fb24d939d99",
+    "criticality_clarification": "workflow-question-criticality-01.json",
+    "criticality_clarification_sha256": "b50fb6e98ff9cf838a707fe6dfed2a380b0126e2bf0fff28d032241996309754",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-041",
+      "EXP-042",
+      "EXP-043",
+      "EXP-044",
+      "EXP-045"
+    ],
+    "local_readings": [
+      "EXP041:ruleofthumb2Romaninfantry sameborderwithexceptions;notfulllegaleligibility;move2IO,1IOifstackedOCgivingorders,1LCifbotheligible",
+      "EXP042:combineSize,otherratingsespeciallyTQtop,eachunitowntestusingtopTQ,onlytopfire,bothShock samehex;automaticHitsto each;Shockallocationdelegated8.46Step4/10.13",
+      "EXP043:differentbordercolors ORsamecolordifferentclasses,+1DRMtoallTQchecks",
+      "EXP044:stackorderchangeIOonly,notmovement/LC;facingcanLC;onlytopmovesifmovingoneunitfromstack",
+      "EXP045:Romaninfantryfacing1MPanynumbervertices;notMLEfacingrule"
+    ],
+    "situation": {
+      "id": "SIT-13",
+      "facts": "Romanstackdifferentbordercolors,synthetictopTQ7/bottomTQ5,LC;requestsstackorderswitchandfacing",
+      "proposed_result": "LCcannotchangeswitchtop/bottom;facinglocallypermittedbyLCorder-type;eachunitowntestusingTQ7topand+1DRMduetodifferentcolors",
+      "limits": "Othermodifiers/LCeligibility/fullactionlegality andactualtestHitsnotdetermined;ShockallocationnotaskedbySIT13"
+    },
+    "criticality": "criticalinshownlocalexpectations/results",
+    "linked_associations": [
+      "DEP018:C9.61->4.32",
+      "DEP019:C9.62->8.42",
+      "DEP020:C9.62->6.68",
+      "DEP021:C9.62->8.46Step4",
+      "DEP022:C9.62->10.13;contextpartial,6.68bullet6stillmissing",
+      "DEP037:C9.61->StackingCharts,alreadyapprovedmention",
+      "DEP064-1/2:C9.61->stackingexceptions/bothLCeligibility",
+      "DEP065:C9.64->IO/LCconstraints",
+      "DEP066:C9.65->general facingcost,implicitmodificationproposal"
+    ],
+    "association_limits": "Noactualexternalidentity/sourceclosure orunshownmetadataapproval;DEP037mentionalreadyapproved",
+    "full_Shock_allocation": "Retainnondeterminedfullallocationthrough8.46Step4/10.13->6.68bullet6"
+  },
+  "rationale_accepted_by_reference": "SourceIOonlyversusLCfacing,eachowntestwithtopTQ,+1DRMconditions,ordercounts/facingcosts;context10.13stilldelegateswithin-stackto6.68. Wrongorder/test/rating/DRM/address/cost changeslocalgamebehavior.",
+  "owner_independent_reason_text": "Nonebeyondapproval;shownrationaleacceptedbyreference",
+  "not_approved": [
+    "Actualscenario/ratings/LCeligibility/fullstackingexceptions",
+    "Full8.42/8.46/6.68procedures",
+    "Entire10.13exceptions/example meanings",
+    "FullShockHitsallocation orcompletecombat",
+    "Wholeatomicinventory/graph/collection"
+  ],
+  "remaining_gaps": [
+    "Fullstackingeligibility/exceptions,4.32andLCproceduresunclosed",
+    "Fullmulti-stackShockallocationrequires8.46Step4and10.13->6.68bullet6;contextimagealoneisnotcompleteclosure",
+    "Noactualscenario/unitparameters accepted",
+    "Noautomaticsemanticapprovalofevery10.13exception/example"
+  ],
+  "no_freeze": true
+}

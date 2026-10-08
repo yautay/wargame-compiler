@@ -1,0 +1,56 @@
+{
+  "id": "M-POC1B-change-map-decision-01",
+  "created_at_utc": "2026-10-07T12:49:10.846323+00:00",
+  "decision": "decision-01-RQ-01.json",
+  "decision_sha256": "ee89310b6a603ae6fa7e79295ab1579e4257f9f8d1a8ea5cf96f119a05de85f4",
+  "supplement": "correction-supplement-01.json",
+  "supplement_sha256": "15e1b8f08c36a5778cb2985ff59584859872c1b2bbe0299b00661eadae2f3bb6",
+  "original_parents": [
+    {
+      "path": "C:\\dev\\wargame-compiler\\private\\poc\\spqr-chapter9\\evaluation\\draft\\expectations.json",
+      "sha256": "9a17b7a56e213243525d92a1fe22973bff57f84ddd9ff98270aea471b6a1309e"
+    },
+    {
+      "path": "C:\\dev\\wargame-compiler\\private\\poc\\spqr-chapter9\\evaluation\\draft\\situations.json",
+      "sha256": "f2a5c25a596822cdbaa2ecb027bb3a9e8d934c1d1a049faa4f94a3a3a7b2a9b1"
+    }
+  ],
+  "operations": [
+    {
+      "id": "EXP-017",
+      "from": "unresolved_interpretation",
+      "to": "owner-confirmed interpretation of minimum only",
+      "change": "resolve DR<=TQ to0CH; DR>TQ condition preserved"
+    },
+    {
+      "id": "SIT-07",
+      "field": "expected",
+      "from": {
+        "kind": "justified_block",
+        "result": "Blokada liczby Hits przy równości; test jest wymagany. Nie przypisano0 ani1.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "If DR is higher i minimum1 wymagają rozstrzygnięcia zakresu. Sam rachunek różnicy nie rozstrzyga normy.",
+        "missing_context": [
+          "decyzja właściciela o minimum lub wskazany dodatkowy dowód"
+        ],
+        "blocker": "source_ambiguity"
+      },
+      "to": {
+        "kind": "local_result",
+        "result": "0 CH przy DR5=TQ5; natychmiastowy test nadal wynika z9.16.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "Właściciel wskazuje jawny warunek DR>TQ; przy równości gałąź CH nie zachodzi.",
+        "missing_context": [],
+        "blocker": null
+      }
+    }
+  ],
+  "original_artifacts_modified": [],
+  "unreviewed_affected_links": [
+    "EXP-016",
+    "DEP-050-1",
+    "DEP-050-2",
+    "DEP-050-3"
+  ],
+  "criticality_approval_inferred": false
+}

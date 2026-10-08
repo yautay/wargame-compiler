@@ -1,0 +1,85 @@
+{
+  "id": "M-POC1B-owner-decision-14",
+  "card": "M-POC1B",
+  "question_id": "RQ-13",
+  "reviewer": "owner in this chat;no personalidentity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T09:46:40.934727+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response_file": "owner-answer-14.raw.txt",
+  "raw_response_sha256": "d1951f2010da63f279834a93cacdd8b7b5d50d393daf14105883b4c0992900a3",
+  "approved_question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-20 wraz z krytycznością,z zachowaniem wymogu całej Orders Phase,while mounted oraz opisanych braków?",
+  "basis": {
+    "presentation": "rq-13-presentation-01.json",
+    "presentation_sha256": "0ae9504548df7c8aeaf06746256f8af3ebee0fcf1ff810ced860df16589b72bd",
+    "draft_packet": "rq-13-draft-records.json",
+    "draft_packet_sha256": "f3107a4f848550c8e2815cbcdd99f098b3d30bf178785c17b370eecf3e3095d9",
+    "evidence": "rq-13-evidence.json",
+    "evidence_sha256": "83d18bd0de31fd6fd8b85de8628fe727b5fbe763d11db750e91ce12f2449e9d3",
+    "source_location_supplement": "source/source-location-supplement-20261008-01.json",
+    "source_location_supplement_sha256": "7abfd334c40688c3b629bdf80d4de737c962b2b1adf5643a45419de8d60cd78c",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-066",
+      "EXP-067",
+      "EXP-068",
+      "EXP-069",
+      "EXP-070",
+      "EXP-071",
+      "EXP-072",
+      "EXP-073"
+    ],
+    "local_readings": [
+      "EXP066:GallictransportCHCombatTablesignoreinstruction retained;exacttables/entriesrequirecontext alreadyRQ05scope",
+      "EXP067:CHonlyMA,noSize/TQ;cannotmoveincludingOWwithouteligibleLI;enemycombatmovingadjacenttosolitaryCH eliminatesit;staticadjacency notthegivenmovementtrigger",
+      "EXP068:oneLIperCH,CHtopdenotesmounted,combinedsingleforstackingbutotherrestrictionsretained",
+      "EXP069:mount/dismount0MP/CH;dismountcontinueonlyifcomboMPspent<LIprintedMA,remainingdifference;mountremainingCHMAminusLIalreadyusedMP",
+      "EXP070:MovementCostChart governsCHMP/prohibitions;movementCohesionHitsLIonly,notCH;no waiverofterrainprohibitions",
+      "EXP071:repeat-movementHitexceptiononlyentireOrdersPhasemounted;partialphasemountinsufficient",
+      "EXP072:mountedLInoShockattack,mustdismount;defendsasLI,notfullattackpermissionafterdismount",
+      "EXP073:mountedLIusesMountedJavelinMRRC,MissileSupply8.17notapplywhilemounted,removeLOW/NOatmount,H&Dascavalry;no guessedpostdismountsupply"
+    ],
+    "situation": {
+      "id": "SIT-20",
+      "facts": "EligibleLIsupplied,LIprintedMA5,CHMA8,comboMPsbeforedismount4or5,LIalreadyused3MPbeforemount,LOW/NOmarkerbeforemounttrue,noothercosts",
+      "proposed_result": "dismountafter4MP=>1MPremaining;after5MP=>nocontinuedmove;mountafter3LIMP=>5mountedCHMP;mount/dismount0MP/CH,removeLOW/NOatmount;mountedShockattackforbidden,partialphasemountnotentirephaseexception"
+    },
+    "criticality": "criticalinshownlocalscopes",
+    "linked_dependency_ids": [
+      "DEP-029",
+      "DEP-038",
+      "DEP-039",
+      "DEP-040",
+      "DEP-085-1",
+      "DEP-085-2",
+      "DEP-086-1",
+      "DEP-086-2",
+      "DEP-087",
+      "DEP-088-1",
+      "DEP-088-2",
+      "DEP-089",
+      "DEP-096"
+    ],
+    "relation_limits": "Shownassociations/targetneeds;no actualexternalsourceclosure orunshownmetadataapproval"
+  },
+  "rationale_accepted_by_reference": "Strictless-than/differenceandCHMAminusLIalreadyusedMP,zero mount/dismountcost,entirephasemountedcondition,mountedattackban,andwhilemountedsupply/marker instruction. Wronglimits/scopes grantwrongmovement orfirestate.",
+  "owner_independent_reason_text": "Nonebeyondapproval;shownrationaleacceptedbyreference",
+  "not_approved": [
+    "RealeligibleLI/map/route/terrain/MCC/MRRC/CombatTablesentries",
+    "PostdismountMissileSupply state",
+    "Generalstacking/fullH&D/combatprocedures",
+    "Wholeatomicinventory/graph/collection"
+  ],
+  "remaining_gaps": [
+    "RealeligibleLIidentity/MCC/MRRC/CombatTablesentries andgeneralstacking/MPproceduresunclosed",
+    "PostdismountMissileSupplynotresolved",
+    "No actualroute/terrain/completefire/combat legality",
+    "Sourcefilelocationchangedbutcontentidentical;sourcev1retained",
+    "KnownGitindexbyteexceptionretained"
+  ],
+  "no_freeze": true
+}

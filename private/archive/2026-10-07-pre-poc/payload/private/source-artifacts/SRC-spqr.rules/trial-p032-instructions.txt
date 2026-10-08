@@ -1,0 +1,50 @@
+Ręczna próba SPQR, PDF 32 (drukowane 32), edycja 5
+Stronę zatwierdził właściciel 2026-10-06. To wybór próbki, nie zatwierdzenie treści odpowiedzi.
+
+1. Otwórz nową rozmowę w aplikacji ChatGPT albo Claude Desktop.
+2. Dołącz wszystkie osiem plików z katalogu:
+C:\dev\wargame-compiler\private\source-artifacts\SRC-spqr.rules\packages\mdesk2-spqr-p032-context031-033
+
+manifest.txt
+instructions.txt
+legend.txt
+example.txt
+desktop.schema.json
+p031.png
+p032.png
+p033.png
+
+Razem: 6806093 bajty; manifest.txt: 4415700 bajtów.
+Nie dołączaj pełnego oryginalnego PDF ani plików wcześniejszej próby CC0/Codex.
+Jeśli .json nie jest przyjmowany, dołącz kopię schematu jako desktop.schema.txt bez zmiany bajtów
+i zapisz alias w metadanych próby. Nie zmieniaj niezmiennego katalogu pakietu.
+
+3. Wklej ten prompt:
+
+Wykonaj document.read według instructions.txt dla dołączonego manifest.txt.
+Strona docelowa PDF: 32; PDF 31 i 33 służą wyłącznie jako kontekst.
+Zachowaj tabelę rozdzieloną między kolumnami jako jedną tabelę z pełną siatką i dowodami komórek.
+Uwzględnij diagram, jego podpis, napisy w grafice, kolorowe noty i kolejność czytania.
+Nie twórz bloków ani coverage na stronach kontekstowych; brak zależnego bloku oznacz jako gap z affects.
+Zwróć pełną kopertę wgc/desktop@0 kind=response jako plik response.json do pobrania.
+Nie kopiuj syntetycznego example.txt. Nie dodawaj validation, reviews ani completeness.
+Jeśli nie możesz odczytać całego manifestu albo renderów, zgłoś to jawnie zamiast udawać pełny odczyt.
+
+4. Pobierz wynik albo zapisz cały JSON z bloku kodu, bez ogrodzenia Markdown, w UTF-8:
+C:\dev\wargame-compiler\private\source-artifacts\SRC-spqr.rules\responses\spqr-p032-chatgpt.json
+albo
+C:\dev\wargame-compiler\private\source-artifacts\SRC-spqr.rules\responses\spqr-p032-claude.json
+
+5. Obok zapisz trial.txt: data/czas, faktyczna aplikacja, widoczny model i poziom rozumowania,
+osiem wysłanych nazw i ewentualny alias schematu, sposób odbioru (pobranie lub ręczny zapis),
+ścieżka odpowiedzi, prywatny dowód rozmowy (link albo zrzut/eksport), błędy/ograniczenia odczytu.
+Dla niepróbowanej drugiej aplikacji wpisz „nie sprawdzono”. Nie publikuj treści rozmowy/PDF.
+
+ID pakietu:
+desktop.47bc026cb0853f3cbce2b2b91405663cfefd592d6d4c7398cb3704179a7672bd
+Hash pakietu:
+sha256:04fa79da9fe6ac10394e9a5073d75f6cc4dc78732ecb372a10b79dd6d6c7a0ea
+
+Po zapisaniu pliku kontrola odczyta oryginalne bajty, sprawdzi JSON/schemat/wiązanie/desktop.check.
+Korekty uzyskuj w tej samej ręcznej rozmowie i zapisuj jako nowe pliki; nie nadpisuj pierwszej odpowiedzi.
+Pakiet i odpowiedź pozostają prywatne; bez importera, rewizji i zapisu KB. Próba jeszcze nie została wykonana.

@@ -1,0 +1,11 @@
+# MUST FAIL: a routing decision that chooses premium must say why (premium_reason), so availability fallback
+# (self_hosted_unavailable) can never be confused with semantic escalation.
+schema: glu/exec@0
+records:
+  - kind: routing_decision
+    id: rd_000009
+    job: job_0009aa
+    policy: routing@0
+    chosen: premium
+    signals: {risk_class: medium}
+    reasons: ["node unreachable"]

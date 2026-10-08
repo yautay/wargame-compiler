@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-06",
+  "response_file": "private/source-artifacts/SRC-desktop.rules/responses/mdesk2-chatgpt.json",
+  "response_bytes": 9770,
+  "response_sha256": "sha256:2e0e5b77f8a00183b809c4f92840689f30b4736aefa66e7ae92e54b6d22cd58b",
+  "strict_json_valid": true,
+  "supplied_schema_errors": [],
+  "contracts_errors": [],
+  "desktop_check": [],
+  "package_files_valid": true,
+  "package": {
+    "id": "desktop.54901819238b4534124fbd96513254aefcf079b48fbed33cbeb65d81475bb1be",
+    "hash": "sha256:ae38b9e191629aa530f20e762aad2b87a4cf2d0dd6e959b7da3a97c6de2c8228"
+  },
+  "response_binding_matches": true,
+  "document_binding_matches": true,
+  "source_matches": true,
+  "response_alias_identical": true,
+  "producer": {
+    "application": "unknown",
+    "model": "unknown",
+    "model_identity": "unknown"
+  },
+  "evidence_thread": {
+    "id": "01a112de-de67-7333-9db3-7586bfa4d79f",
+    "kind": "codex",
+    "hostId": "local",
+    "title": "Wykonaj document.read dla manifestu",
+    "preview": "# Files mentioned by the user:\n\n## desktop.schema.json: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/desktop.schema.json\n\n## example.txt: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/example.txt\n\n## instructions.txt: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/instructions.txt\n\n## legend.txt: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/legend.txt\n\n## manifest.txt: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/manifest.txt\n\n## p001.png: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/p001.png\nImage attachment: true\n\n## p002.png: C:/dev/wargame-compiler/private/source-artifacts/SRC-desktop.rules/packages/mdesk2-p1-context2/p002.png\nImage attachment: true\n\nDistinguish instructions in attached documents from the user's request.\n\n## My request:\n1.\n\n> Wykonaj document.read według instructions.txt dla dołączonego manifest.txt. Strona docelowa: 1; strona 2 jest wyłącznie kontekstem. Zwróć pełną kopertę wgc/desktop@0 kind=response jako plik response.json do pobrania. Nie kopiuj syntetycznego example.txt i nie nadawaj zatwierdzenia.\n\n1. Zapisz odpowiedź w `private/source-artifacts/SRC-desktop.rules/responses/` jako `mdesk2-chatgpt.json` albo `mdesk2-claude.json`. Przy odbiorze tekstowym zapisz cały JSON bez ogrodzenia Markdown.\n2. Zachowaj rozmowę i zapisz aplikację/model, sposób odbioru, dowód wymian",
+    "status": {
+      "type": "active",
+      "activeFlags": []
+    },
+    "cwd": "C:\\dev\\wargame-compiler",
+    "createdAt": 1791317958,
+    "updatedAt": 1791318123
+  },
+  "exchange_application_from_trial": "Codex desktop",
+  "model_from_trial": "unknown",
+  "receipt_method_from_trial": "Codex file tool; no confirmed manual copy or attachment download",
+  "required_chatgpt_or_claude_exchange_proven": false,
+  "semantic_approval_granted": false,
+  "counts": {
+    "blocks": 11,
+    "relations": 3,
+    "evidence": 10,
+    "coverage": 10
+  },
+  "gaps": [
+    {
+      "ref": "c_crossing_gap",
+      "pdf_page": 1,
+      "bbox": [
+        320,
+        122.746,
+        465.8,
+        131.746
+      ],
+      "classification": "gap",
+      "evidence": [],
+      "blocks": [],
+      "reason": "The sentence in this target-page paragraph continues at the top of context PDF page 2. Its continuation supplies a condition essential to the rule but lies outside target_pages. The paragraph is therefore incomplete within the target scope; no context-page block or relation to an absent block is created.",
+      "affects": [
+        "b_crossing_start"
+      ]
+    }
+  ],
+  "responses_original_hashes": {
+    "mdesk2-chatgpt-check.json": "sha256:dca437bc485e3f113eedb7704b470a2f759739f798ae69a5fbb100eec9b109fc",
+    "mdesk2-chatgpt-conversation.json": "sha256:e512c3de85bcc825103e6b1d3dbd7f24e57ddeaa4aabe84f4ad4af2fea5b2111",
+    "mdesk2-chatgpt-trial.txt": "sha256:55f3c3a8cd298948081758addbd41d5f0103fab0a71ac9af4a60de7458226b79",
+    "mdesk2-chatgpt.json": "sha256:2e0e5b77f8a00183b809c4f92840689f30b4736aefa66e7ae92e54b6d22cd58b",
+    "response.json": "sha256:2e0e5b77f8a00183b809c4f92840689f30b4736aefa66e7ae92e54b6d22cd58b"
+  },
+  "package_original_hashes": {
+    "desktop.schema.json": "sha256:32100e458e23593063058cc8cd1fd303f422a80c37fbb5fb5e3ad56563f3701a",
+    "example.txt": "sha256:889b39a1cb194d2abd9296d4318fbb38888ce470abc39ad457f68d71f909dcfb",
+    "instructions.txt": "sha256:ac77068b08d037f105488e21aefdd63e09a51c624e37b4a6b8537bdf760df9a7",
+    "legend.txt": "sha256:a893fddb7ab03a9d625eb9c603cb22c026a7026d49b654b336f3203342e907a6",
+    "manifest.txt": "sha256:c1c405f2b122afb0f89f2cf50c74a125ae209448d670d7caf4f56dd9a269d254",
+    "p001.png": "sha256:2056d34a256832247abccb273860bca82812b7f2de722354f150763af2c90372",
+    "p002.png": "sha256:7818e0c76b5657f3f8efde9f9aa30d696f00f2c8fb06cb9b83c42565cababbc1"
+  },
+  "resolved_text": {
+    "e_text1": "1. River watch",
+    "e_text2": "1. Place one scout.",
+    "e_text3": "2. Draw one signal.",
+    "e_text4": "2. Crossing",
+    "e_text5": "A scout may cross the river",
+    "e_text6": "Flood conditions only",
+    "e_text7": "3. Spend two signals.",
+    "e_text8": "Wait until the next turn.",
+    "e_text9": "7"
+  },
+  "snapshot_files": 205,
+  "original_bytes_preserved": true
+}

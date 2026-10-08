@@ -1,0 +1,272 @@
+{
+  "question_id": "RQ-15b",
+  "expectations": [
+    {
+      "id": "EXP-005",
+      "inventory_refs": [
+        "C-9.12-02",
+        "C-9.12-03"
+      ],
+      "dimensions": [
+        "condition",
+        "exception"
+      ],
+      "status": "source_supported_proposal",
+      "proposition": "Screen strzela wyłącznie Reaction Fire, wiersz Elephant Screen MRRC; własne znaczniki podaży. Leader Elephant nie ma Screen.",
+      "criticality": "critical",
+      "criticality_reason": "Zgubienie only lub wyjątku daje dodatkowy atak.",
+      "criticality_author": "Codex proposal, owner justification pending",
+      "local_scope_and_needed_context": "Pełny wynik ognia wymaga 8.2 i wiersza MRRC.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            45.0,
+            303.127,
+            297.017,
+            325.127
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            20,
+            21
+          ],
+          "transcription": "Elephant Screens can Missile Fire with Reaction Fire (8.2) only,\nusing the Elephant Screen row on the MRRC. Elephant Screens",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.12-02",
+          "parent_inventory_ref": "R-9.12",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            45.0,
+            327.127,
+            297.023,
+            361.127
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            22,
+            24
+          ],
+          "transcription": "have their own missile supply markers. Leader elephants do not\nhave screens (they usually did, but they were too small to be a\nfactor).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.12-03",
+          "parent_inventory_ref": "R-9.12",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "dependency_ids": [
+        "DEP-003",
+        "DEP-030",
+        "DEP-047"
+      ],
+      "situation_ids": []
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "DEP-003",
+      "candidate_ids": [
+        "DC-003"
+      ],
+      "from": "C-9.12-02",
+      "to": null,
+      "target_candidate": {
+        "identifier": "8.2",
+        "source": "same_pdf",
+        "location": "unknown",
+        "facet": "8.2"
+      },
+      "kind": "procedure_use",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.12-02 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Screen jest ograniczony do Reaction Fire8.2.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            45.0,
+            303.127,
+            297.017,
+            325.127
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            20,
+            21
+          ],
+          "transcription": "Elephant Screens can Missile Fire with Reaction Fire (8.2) only,\nusing the Elephant Screen row on the MRRC. Elephant Screens",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.12-02",
+          "parent_inventory_ref": "R-9.12",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-005"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-030",
+      "candidate_ids": [
+        "DC-030"
+      ],
+      "from": "C-9.12-02",
+      "to": null,
+      "target_candidate": {
+        "name": "Missile Range and Results Chart",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Missile Range and Results Chart"
+      },
+      "kind": "table_use",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.12-02 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Screen fire wybiera jawny Elephant Screen row MRRC; pełny wynik potrzebuje wiersza.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            45.0,
+            303.127,
+            297.017,
+            325.127
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            20,
+            21
+          ],
+          "transcription": "Elephant Screens can Missile Fire with Reaction Fire (8.2) only,\nusing the Elephant Screen row on the MRRC. Elephant Screens",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.12-02",
+          "parent_inventory_ref": "R-9.12",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-005"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    },
+    {
+      "id": "DEP-047",
+      "candidate_ids": [
+        "DC-047"
+      ],
+      "from": "C-9.12-03",
+      "to": null,
+      "target_candidate": {
+        "name": "missile supply and supply markers",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "missile supply and supply markers"
+      },
+      "kind": "procedure_use",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": true,
+      "direction_reason": "C-9.12-03 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Screens have their own missile supply markers wymaga sposobu supply dla realnego stanu, nie dowodzi osobnego wiersza tabeli.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            45.0,
+            327.127,
+            297.023,
+            361.127
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            22,
+            24
+          ],
+          "transcription": "have their own missile supply markers. Leader elephants do not\nhave screens (they usually did, but they were too small to be a\nfactor).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.12-03",
+          "parent_inventory_ref": "R-9.12",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "requires_context",
+      "criticality": "critical",
+      "criticality_reason": "Brak zmienia legalność, liczbę, czas, skutek lub uniemożliwia pełny wynik.",
+      "missing_target_effect": "Blocks full positive execution on a real state; local prohibitions/arithmetic with supplied facts remain assessable.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-005"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal"
+    }
+  ],
+  "scope": "Unconfirmed non-table clauses of EXP005; named MRRC row already reviewed in RQ05. No entire graph metadata approval."
+}

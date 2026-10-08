@@ -1,0 +1,50 @@
+{
+  "card": "M-POC1B",
+  "question_id": "RQ-14",
+  "recorded_at_utc": "2026-10-08T10:56:18.737636+00:00",
+  "actual_owner_message": "kierunek ruuchu EL po pierwszym rzucie jest względem orginalnego ukierunkowania żetonu a nie jest to kierunek bezwzględny na mapie",
+  "raw_message_file": "owner-direction-comment-RQ14-01.raw.txt",
+  "raw_message_sha256": "0aa36992a0accf1984e608cf3b53fd8d256e28c54bd88235245ac2d1d4b49135",
+  "classification": "Ownerdirectioninterpretation/assertion needingexactrollscopeclarification;notblanketapprovalofRQ14/SIT04/SIT06",
+  "affected_ids": [
+    "SIT-04",
+    "SIT-06",
+    "EXP-007 firstroll fragment",
+    "EXP-010",
+    "TR-02",
+    "TR-03",
+    "D-01",
+    "X-01"
+  ],
+  "source_comparison": {
+    "first7-9": "TR03:directiondirectlyawayfromunitthatcausedRampage;notnamedabsolutemapcompassandnotexplicitlyoriginalcounterfacing",
+    "1-6": "TR02:directionindicatedonCompassonthemap;X01example saysusecompass foreachbattle",
+    "original_counter_facing": "No suchcondition namedinthese two shownclauses;onlywhenactualtriggergeometrysupports it couldawayfromcausecoincidewithrear-relativeorientation. NoFront-onlytrigger assumed."
+  },
+  "comparison_policy": "Do notconflatethe first7-9 casewith1-6compasscase;do notoverride sourcewordingorfuturegoldwithoutscopeddecision/evidence. Preserveownerassertionasdata.",
+  "evidence": [
+    {
+      "path": "evidence/RQ-14-Roll-7-9.png",
+      "sha256": "04e1f2ac640f2f916a8b35f969b5a11e90b964e25075fe3acd058a6926d3e78f",
+      "ids": "TR-03",
+      "pdf_page": 32
+    },
+    {
+      "path": "evidence/RQ-14-Compass-row.png",
+      "sha256": "c9ba9537264101485e0cd0b9f9be7381f0032b44553d85a81a92a124ec653e1e",
+      "ids": "TR-02",
+      "pdf_page": 32
+    },
+    {
+      "path": "evidence/RQ-14-Compass-example.png",
+      "sha256": "43f5b3804e4b117fee62f275fba17d15ce1dcbc1f474a6ad32310163664ba890",
+      "ids": "D-01/X-01",
+      "pdf_page": 32
+    }
+  ],
+  "question": "Czy Twoja uwaga dotyczy tylko pierwszego wyniku7-9 w SIT-04,czy również wyniku1-6 w SIT-06?",
+  "semantic_expectations_changed": false,
+  "actual_owner_decisions_so_far": 14,
+  "source_interpretation_status": "waiting_for_scope_clarification",
+  "no_freeze": true
+}

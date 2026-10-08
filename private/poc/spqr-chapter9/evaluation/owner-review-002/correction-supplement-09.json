@@ -1,0 +1,33 @@
+{
+  "id": "M-POC1B-correction-supplement-09",
+  "authorizing_decision": "decision-09-RQ-08.json",
+  "authorizing_decision_sha256": "07ff6ea5ea91e18e3340da60ed6e46e7761764268bcfe6961fb0ce3982ede5dd",
+  "original_artifacts_modified": [],
+  "approved_local_readings": [
+    "EXP041:ruleofthumb2Romaninfantry sameborderwithexceptions;notfulllegaleligibility;move2IO,1IOifstackedOCgivingorders,1LCifbotheligible",
+    "EXP042:combineSize,otherratingsespeciallyTQtop,eachunitowntestusingtopTQ,onlytopfire,bothShock samehex;automaticHitsto each;Shockallocationdelegated8.46Step4/10.13",
+    "EXP043:differentbordercolors ORsamecolordifferentclasses,+1DRMtoallTQchecks",
+    "EXP044:stackorderchangeIOonly,notmovement/LC;facingcanLC;onlytopmovesifmovingoneunitfromstack",
+    "EXP045:Romaninfantryfacing1MPanynumbervertices;notMLEfacingrule"
+  ],
+  "situation_overlay": {
+    "id": "SIT-13",
+    "semantic_status": "owner_confirmed_local_result",
+    "expected": {
+      "kind": "local_result",
+      "result": "LC nie pozwala switch stacking order; facing może być przez LC. Każda unit własny test zTQ7 top i+1DRM za różne colors. Nie ustalono alokacji Shock Hits.",
+      "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+      "rationale": "IO only dla switch; all checks +1, każdy uses top TQ. Pełne warunki LC nadal muszą być znane.",
+      "missing_context": [],
+      "blocker": null
+    },
+    "criticality": "owner_confirmedcriticalinlocalscope"
+  },
+  "retained_context_gaps": [
+    "Fullstackingeligibility/exceptions,4.32andLCproceduresunclosed",
+    "Fullmulti-stackShockallocationrequires8.46Step4and10.13->6.68bullet6;contextimagealoneisnotcompleteclosure",
+    "Noactualscenario/unitparameters accepted",
+    "Noautomaticsemanticapprovalofevery10.13exception/example"
+  ],
+  "external_target_status_overrides": []
+}

@@ -1,0 +1,99 @@
+{
+  "id": "M-POC1B-owner-decision-15",
+  "card": "M-POC1B",
+  "question_id": "RQ-14",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T11:02:10.327299+00:00",
+  "user_message_timestamp": "unknown; save time separate",
+  "actual_owner_messages": [
+    "chociaż w sumie nie jestem pewien",
+    "chyba jest to kierunek bezwzględny na podstawie mapy - tak przyjmijmy",
+    "zatwierdzam Twoje początkowe sugestie"
+  ],
+  "actual_owner_response": "zatwierdzam Twoje początkowe sugestie",
+  "raw_response_file": "owner-answer-15.raw.txt",
+  "raw_response_sha256": "5ada36e16b4a560c8a4d721b04bc59bab06198f0ca170908737a2da8a799c19e",
+  "approved_question": "Czy zatwierdzasz wynik SIT-04 i blokadę SIT-06 wraz z krytycznością oraz uznajesz zestaw 17 lokalnych/3 blokad i opisane rozliczanie mianowników za użyteczny zakres tej próby — bez zbiorczej akceptacji nieprzejrzanych oczekiwań i relacji?",
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-14-presentation-01.json",
+      "sha256": "9f348942af42d79b915a14b8151fa94902cabcb993e31ccedcb25a4c0231f43e",
+      "bytes": 3707
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-14-review-basis.json",
+      "sha256": "1f5b9e56ccae18a1fc5db14566fc39145e4c2604b3fba4a4521ce9b083351fce",
+      "bytes": 8945
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-14-pending-situation-records.json",
+      "sha256": "832967e72d91dfadc6a2f2b2d8b2c900485f08c30717a60feb872609bc5f4336",
+      "bytes": 58706
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-14-evidence.json",
+      "sha256": "a2adb158934cbe0974316d200a3ceed12199f0a716987a2fd9f9beefffdbd66b",
+      "bytes": 4278
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/direction-scope-clarification-RQ14-01.json",
+      "sha256": "785750ded59d933818fcb5fee002aad025c75e514dac3f1c4cbffd33421ee377",
+      "bytes": 2227
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/owner-direction-comment-RQ14-01.raw.txt",
+      "sha256": "0aa36992a0accf1984e608cf3b53fd8d256e28c54bd88235245ac2d1d4b49135",
+      "bytes": 133
+    }
+  ],
+  "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "approved_scope": {
+    "situation_ids": [
+      "SIT-04",
+      "SIT-06"
+    ],
+    "expectation_fragments": {
+      "EXP-007": "Ordinary EL first 7-9 away from cause; subsequent 7-9 eliminates. No first Leader EL interpretation.",
+      "EXP-012": "Attempt 3 hexes per directional roll only, under supplied route/no early termination facts.",
+      "EXP-010": "1-6 uses actual battle map compass; missing compass blocks concrete direction/hexside."
+    },
+    "linked_dependency_ids": [
+      "DEP-042",
+      "DEP-043",
+      "DEP-091"
+    ],
+    "relation_limits": "Shown source associations and context need; no unshown metadata or target identity approval. DEP-043 remains mention, DEP-091 physical continuation.",
+    "source_ids": [
+      "TR-02",
+      "TR-03",
+      "C-9.14-03",
+      "D-01",
+      "X-01"
+    ],
+    "criticality": "SIT-04/SIT-06 in the shown local scopes",
+    "method_scope": [
+      "96historicalcandidates accounted as127facets,notuniqueverifiededges",
+      "113executionproposals:99explicit/14implicit;7mentionsand7physicalcontinuations separate",
+      "DEPNEW001/002/003approvedintheirshowninternal scopes,notwholegraphcertificate",
+      "Targetidentity/kind/direction/explicitness/necessity/sourceavailability assessed separately;aliases/repeatedsemantictuples notsilentlyTP",
+      "requires_context notcertainGold/FP;no frozencheckeduniquegraphdenominator;precision/recall n/a beforeextractionandcheckedgold",
+      "Rawexecution_counts_basis owner0 in reviewbasis is unchangedhistoricaldraftsnapshot,notcurrentreviewcounter;current scopeddecisions separate"
+    ],
+    "design_scope": "20 situations:17 local results/3 justified blocks after RQ01 correction. Composition only, not extraction quality."
+  },
+  "rationale_accepted_by_reference": "First/subsequent 7-9 changes movement/elimination; missing actual compass prevents choosing geographical hexside. Counts of proposals are not verified unique graph denominators; justified blocks preserve unknown context.",
+  "owner_independent_reason_text": "Owner expressed uncertainty then adopted map compass and approved initial suggestions. No separate detailed reason for every method item.",
+  "direction_clarification_resolution": "Initial original-facing assertion was tentative, then owner withdrew certainty and approved original source-based proposal. 1-6 uses actual map compass; first 7-9 remains away from causing unit. No original-facing semantic override.",
+  "remaining_gaps": [
+    "EXP-009 first Leader Elephant 7-9 unresolved",
+    "Remaining unshown clauses/criticality and relation metadata require source-specific RQ15 review",
+    "External tables, actual map/scenario parameters and target identities unclosed",
+    "Full atomic inventory and small counter glyph transcription unverified",
+    "No full game legality, extraction, graph certificate, gold or eval-v1 freeze",
+    "Known initial Git index byte mismatch retained; cause unknown"
+  ],
+  "whole_collection_or_graph_accepted": false,
+  "no_freeze": true
+}

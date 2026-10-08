@@ -1,0 +1,17 @@
+usage: glu [-h] polecenie ...
+
+wargame-compiler: wykonanie i orkiestracja (GLU).
+
+positional arguments:
+  polecenie
+    status     stan buildów i jobów z .glu/state.db
+    export     eksport rekordów stanu wykonania jako dokument glu/exec@0
+    build      planuje i wykonuje joby etapu (Tier 0: zadania
+               deterministyczne); zapis do kb/ tylko przez wgc.kb.accept
+    reconcile  recovery kb/ i uzgodnienie przerwanych buildów i jobów z kb/
+               (ADR-0031)
+    receipt    porównuje receipt akceptacji joba (kb_receipt) z bieżącym kb/;
+               tylko odczyt, bez recovery i naprawy (ADR-0033)
+
+options:
+  -h, --help   show this help message and exit

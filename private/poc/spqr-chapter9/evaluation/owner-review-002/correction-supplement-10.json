@@ -1,0 +1,47 @@
+{
+  "id": "M-POC1B-correction-supplement-10",
+  "authorizing_decision": "decision-10-RQ-09.json",
+  "authorizing_decision_sha256": "ad83fa95944d7bcb216f4d511edac3b57d36d674de36d6bc21ebfd05d684a2bf",
+  "original_artifacts_modified": [],
+  "approved_local_readings": [
+    "EXP046:topunits instackssameLine sideways tovacantflankClearoutsideenemyZOC,facingunchanged;unstackonly,notstackingTogether;diagramOriginaltop/Afterbottomillustrative",
+    "EXP047:reactiontriggerenemycombatwithin2hexes,line;maydeclinefirstopportunitywithoutlosinglatertriggers;OW/MLEdifferentunitscanwithvalidtriggers,sameunitscannotboth",
+    "EXP048:activeMLELC-only,bothunitsmaymoveafterwithMA-2,noCHforMLE;ColumnunitsnoMLE;noautomatictransferofLCpostmovepermissiontoreaction"
+  ],
+  "situation_overlays": [
+    {
+      "id": "SIT-14",
+      "semantic_status": "owner_confirmed_local_result",
+      "expected": {
+        "kind": "local_result",
+        "result": "Tylko pierwszy destination spełnia lokalne warunki; top sideways, facing zachowany, po LC obie units mogą move zMA−2, brak Hits za MLE. Pozostałe trzy destinations zabronione. Odwrócenie diagramu nie daje prawa stacking together.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "Wszystkie warunki heksu są koniunkcją; Only unstacking. Tekst9.68 określa LC post-move.",
+        "missing_context": [],
+        "blocker": null
+      },
+      "criticality": "owner_confirmedcriticalinlocalscope"
+    },
+    {
+      "id": "SIT-15",
+      "semantic_status": "owner_confirmed_local_result",
+      "expected": {
+        "kind": "local_result",
+        "result": "Te same units nie mogą wykonać obu. Różne units mogą przy spełnionych warunkach; odmowa wcześniejszej okazji nie kasuje późniejszych MLE triggers.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "Both together but not same units; source says may choose whenever enemy places itself. X-07 obrazuje różne units.",
+        "missing_context": [],
+        "blocker": null
+      },
+      "criticality": "owner_confirmedcriticalinlocalscope"
+    }
+  ],
+  "context_gaps_retained": [
+    "Actual4.32/terrain/ZOC/OW/LC/Columncontexts/mapsnotclosed",
+    "Smallcounterratingsnotexhaustivelytranscribed orused",
+    "NoautomaticpostmovepermissionforreactionMLE",
+    "No fullroute/gamelegality"
+  ],
+  "external_target_status_overrides": [],
+  "MPOC1A_structure_not_transferred_to_semantics": true
+}

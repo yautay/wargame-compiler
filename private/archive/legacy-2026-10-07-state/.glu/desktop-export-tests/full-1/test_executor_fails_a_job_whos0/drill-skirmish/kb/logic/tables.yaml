@@ -1,0 +1,11 @@
+# wgc/logic@0: rekordy KB zapisuje wyłącznie `wgc.kb.accept()` (ADR-0025). Komentarze nie są zachowywane.
+schema: wgc/logic@0
+records:
+  - kind: table
+    id: TAB-ctx
+    title: Kostka d6
+    columns: [{name: Modified result, role: key}, {name: Effect on defender, role: value}]
+    rows: [[{min: null, max: 4}, No effect], [{min: 5, max: 6}, Routed], [{min: 7, max: null}, Eliminated]]
+    complete: true
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.4.3, seg_hash: 'sha256:413ad2fef4086a7217a0fc0c162688bc05fa15660cdbed1e12e2f8287f5c088c'}], derived_from: [CON-d6], by: {tier: deterministic, tool: test.context@0}, job: job_000004, inputs_hash: 'sha256:51204e5226c94002914abc4f1de52d72c6a6c6403669d29fbce0e73841cbe863', manifest: {format: wgc/manifest@0, task: test.context@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.4.3, hash: 'sha256:95b7e6282777d283cd3ac32ad78da1eecc81e7fe5617c133dede3d77fdee836c'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}], context: [{id: CON-d6, hash: 'sha256:13b9d78c62bf9192c377628038c78d5517a8e44f9d6ed1079f3ae68e96cc8ed5'}]}, owner: {task: test.context, scope: [SEG-dsk.4.3]}}

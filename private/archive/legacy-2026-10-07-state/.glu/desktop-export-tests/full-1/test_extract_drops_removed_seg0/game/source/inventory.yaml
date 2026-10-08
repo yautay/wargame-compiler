@@ -1,0 +1,11 @@
+# wgc/source@0: inwentarz źródeł (Stage 0), commitowany. Tekst segmentów jest tylko w .glu/source/ (ADR-0012).
+# Plik zapisują `wgc source scan|extract`: pola generowane są nadpisywane, pola ręczne zostają (title, edition,
+# language, complete, precedence, edition_skew, seg_prefix, notes, corrections, verified_by_render).
+# Komentarze nie są zachowywane: notatki zapisuj w polu `notes`.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-tst.rules, role: rules, path: private/rules.md, file_hash: 'sha256:372d497d0b191629ec449b428ad6c93041249416118cc465e8b4c441433a6e25', present: true, seg_prefix: tst, extractor: wgc.ingest.markdown@1}
+  - {kind: segment, id: SEG-tst.u1, doc: SRC-tst.rules, segment_type: heading, order: 1, text_hash: 'sha256:0ad094fe8ea7715259597056289ddae45363e0688941eca5a768deb1d5828af8', struct_hash: 'sha256:1f7c4b612fbec2dace5be51da42fcb5b433ddbc923a18f5a597e9d190cef9b64'}
+  - {kind: segment, id: SEG-tst.1.0, doc: SRC-tst.rules, label: '1.0', segment_type: heading, parent: SEG-tst.u1, order: 2, text_hash: 'sha256:9fb6669a77ea48bb4c080ead0e145a11f0dea709af0d542f6ad87d27958a61a1', struct_hash: 'sha256:b5a1e35b62a314623e5621f653d4c6e8129c512b73a42b77d290bb049e9e1c1a'}
+  - {kind: segment, id: SEG-tst.1.1, doc: SRC-tst.rules, label: '1.1', segment_type: rule, parent: SEG-tst.1.0, order: 3, text_hash: 'sha256:740767796315e1c37f8d3a4f0b522a06ec6794a993653940c36b2d1477627504', struct_hash: 'sha256:71f17934ca76d8f351468dea6b5985da75a067ab21d70d95de4d14a6d87f06f4'}
+  - {kind: segment, id: SEG-tst.1.2, doc: SRC-tst.rules, label: '1.2', segment_type: rule, parent: SEG-tst.1.0, order: 4, text_hash: 'sha256:cefc8d6f4c92d9b111f89480e8e098794a0f4e3da761a7e8adb243b0ce646b60', struct_hash: 'sha256:0594cc07b3b5ff89e4a4f94dc043855bfad347e3f03582faab26a4b5531035db'}

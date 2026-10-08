@@ -1,0 +1,50 @@
+{
+  "question_id": "RQ-10",
+  "prepared_at_utc": "2026-10-08T07:45:18.144937+00:00",
+  "date": "2026-10-08",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-10-draft-records.json",
+  "draft_packet_sha256": "28c27cc204ba8e5097382b85df1fb954b05b728295718fd63bb197f9f3f983a0",
+  "evidence": "rq-10-evidence.json",
+  "evidence_sha256": "82c1f0c83f5bb632f87be01f1102f634ad5cc8c4cd1dcb8954d8ed43fe18c630",
+  "visual_QA": "Full9.7applicabilityand9.71/9.72inspected;readableoriginalpixels,completeORbulletsandCannaedirective",
+  "local_scopes": [
+    "EXP049:Romansprior200BCE,ScipioAfricanusnotOC;Cannaeexplicitusepergameinstruction,notnewhistoricalinference;C9.7S2explanatory",
+    "EXP050:realbattlewithoutdate/OC/AWL notresolved,requires_context",
+    "EXP051:movementgate9.71cannotmovebutmayface untiloneofORtriggers:enemycombatnotELwithin3andLOSanyTriariilineunit ORTriarii>=6fromallRoman/Alainfantrylinesexcludingallied",
+    "EXP052:move+ShockRP>=floor(AWL/2)doesnotbypass9.71;standingShockagainsttargetinownZOCper9.72withouthavingtomove"
+  ],
+  "situation": {
+    "id": "SIT-16",
+    "facts": "SyntheticRomans218BCE,ScipionotOC,AWL11,RP4or5,movementgate9.71true,enemyinZOCtrue",
+    "proposed_result": "floor11/2=5;RP4failsmove+Shockthreshold,RP5passeswithsupplied9.71gate;standingShocklocalpermission atbothRP;RP5alone doesnotlift9.71"
+  },
+  "relation_focus": {
+    "id": "DEP-NEW-001",
+    "from": "C-9.72-01",
+    "to": "R-9.71",
+    "kind": "condition",
+    "explicitness": "implicit",
+    "rationale": "Evaluatingmove+Shock requiresretainingseparatemovementconstraint;noexplicitcrossreference orautomaticpriority merelyfromnumberorder"
+  },
+  "other_dependencies": [
+    "DEP-070-1",
+    "DEP-070-2",
+    "DEP-071-1",
+    "DEP-071-2",
+    "DEP-072",
+    "DEP-073-1",
+    "DEP-073-2"
+  ],
+  "criticality_proposal": "critical:wrongapplicability/date/commander,OR/AND,distance/LOS,rounding orstandingexception changeslocalpermission/action",
+  "remaining_gaps": [
+    "Actualscenario/date/OC/AWL/RP/lineidentity/LOS/ZOCunverified",
+    "OtherfullShocklegalityconditions notdetermined",
+    "Move-onlyatlowRP nottested orresolved",
+    "No actualCannaesetupverified",
+    "Implicitlinkrequiresactualownerreview"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-16 oraz krytyczność, w tym niejawną relację DEP-NEW-001 zachowującą obie bramki, z pozostawieniem opisanych braków?",
+  "next_after_actual_answer": "Saveactualscope/date/reason/hash/gaps separately;thenRQ11"
+}

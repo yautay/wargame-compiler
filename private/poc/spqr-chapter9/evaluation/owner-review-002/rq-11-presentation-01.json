@@ -1,0 +1,78 @@
+{
+  "question_id": "RQ-11",
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T08:05:38.456581+00:00",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-11-draft-records.json",
+  "draft_packet_sha256": "10405cca04e0d7fc175b2ce7e59cc2cea7e559ce3346a07a98695acc262db11d",
+  "evidence": "rq-11-evidence.json",
+  "evidence_sha256": "53e6f7d0a65fa1b541ba589dc434b43b72f36b80bfca421df37f212cf3914280",
+  "visual_QA": "Modes/Firing crops and fullRampageparagraphsheet inspected; complete readable source,markerlabels visible;G03smallratings notaccepted",
+  "local_scopes": [
+    "EXP053:ScorpioBoltB,builtincrew,TQ,LIonlymovement/defense;noShockattack,offensiveMissileFireonly",
+    "EXP054:modechangeIOanyfriendlyleader;Firecannotmove,Movecannotfire;switchtoMoveblocksMoveinthesamephase,switchtoFireblocksFireinthesamephase;moveIOrequired,firedoesnotrequireorder;awersFire,rewersMove",
+    "EXP055:atmostoneScorpioperhex,otherstackingrulesretained",
+    "EXP056:nofacing;allhexesFront;range/LOS/terrainnotwaived",
+    "EXP057:ActiveFiremax2/GameTurnandmax1/friendlyOrdersPhaseinMovementMissilesegment;Once/Finished;afteractiveFire nootheractionthatphaseincludingRecovery",
+    "EXP058:specialReactionFiremax2/enemyOrdersPhasein enemyMovementMissilesegment,includingduringenemyunitmovement;ordinary8.2ReactionFireforbidden;sourceanymovementdoesnotgrantScorpiofireinMovemode",
+    "EXP059:incur/recoverHitsasgeneralunits;Routimmediateelimination"
+  ],
+  "situation": {
+    "id": "SIT-17",
+    "supplied_other_conditions": "legalrange/LOS/target, targetnotRampagingEL",
+    "variants": [
+      {
+        "facts": "switchMove->Firethisphase,0activeShotsTurn",
+        "proposed_result": "cannotfirethisphase despite no-orderfire"
+      },
+      {
+        "facts": "FiremodewithoutSwitch,1activeShotTurn,0thisfriendlyphase",
+        "proposed_result": "oneactiveShotavailable;afteritActiveFinished,noRecoverythisphase"
+      },
+      {
+        "facts": "FiremodewithoutSwitch,2activeShotsTurn",
+        "proposed_result": "noadditionalactiveShotthisTurn"
+      },
+      {
+        "facts": "Firemode,newenemyphase,1ReactionShotthisphase",
+        "proposed_result": "oneadditionalSpecialReactionShotavailable withinphasecap2;ordinary8.2notadded"
+      }
+    ],
+    "limits": "NoactualHitlookup orrealmap/unitparameterverification;othermodifiers/legalityonlysuppliedfacts"
+  },
+  "implicit_relation": {
+    "id": "DEP-NEW-003",
+    "from": "C-9.86-01",
+    "to": "C-9.14-11",
+    "kind": "condition",
+    "explicitness": "implicit",
+    "proposal": "Interpret noReactionFireofanykind forRampagingEL as covering specialScorpioReactionFire also;noexplicitnumericcross-reference;notnumericallytestedbySIT17",
+    "scope_uncertainty": "Interactionof9.86any-timepermissionwith9.14do-not-trigger wording is a proposedsourceinterpretation needingactualownerreview; no generalimmunity beyondthisReactionFireconditionclaimed"
+  },
+  "other_dependencies": [
+    "DEP-024",
+    "DEP-025",
+    "DEP-074-1",
+    "DEP-074-2",
+    "DEP-075-1",
+    "DEP-075-2",
+    "DEP-076",
+    "DEP-077-1",
+    "DEP-077-2",
+    "DEP-077-3",
+    "DEP-078-1",
+    "DEP-078-2",
+    "DEP-079-1",
+    "DEP-079-2"
+  ],
+  "criticality_proposal": "critical inshownlocalscopes:wrongmode/switch-time/cap/resetunit/orderorReactionFireexception grants extraaction orwrongstate.",
+  "remaining_gaps": [
+    "ActualLI/stacking/IO/phase/8.2/Rout/Recovery/boltMRRCcontexts unclosed",
+    "Range/LOS/targetsupplied,notrealstateverified",
+    "G03smallratingsnotexhaustivelytranscribed",
+    "Rampagecondition isseparateinterpretation nottestedbySIT17counts"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-17 wraz z krytycznością, w tym proponowaną niejawną relację DEP-NEW-003 obejmującą szczególny Reaction Fire Scorpio ograniczeniem z9.14, z zachowaniem opisanych braków?",
+  "next_after_actual_answer": "Save actualscope/date/reason/evidencehash/gapsseparately;thenRQ12"
+}

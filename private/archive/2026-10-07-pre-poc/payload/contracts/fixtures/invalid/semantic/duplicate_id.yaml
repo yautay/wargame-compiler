@@ -1,0 +1,9 @@
+# EXPECT: duplicate_id
+# MUST FAIL (L1): two records share one ID. IDs are stable and unique across the whole KB, not per file.
+schema: wgc/logic@0
+records:
+  - {kind: human_decision, id: HD-001, question: "Is the unit a concept of the game?", answer: "Yes.", by: owner, at: "2026-10-05T12:00:00Z"}
+  - {kind: concept, id: CON-unit, category: entity_type, name: unit,
+     prov: {kind: human_decision, by: {tier: human, person: owner}, decision: HD-001}}
+  - {kind: concept, id: CON-unit, category: entity_type, name: playing piece,
+     prov: {kind: human_decision, by: {tier: human, person: owner}, decision: HD-001}}

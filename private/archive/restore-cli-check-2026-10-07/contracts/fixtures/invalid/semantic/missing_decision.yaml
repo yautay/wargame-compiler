@@ -1,0 +1,20 @@
+# EXPECT: missing_decision
+# MUST FAIL (provenance): an accepted interpretation must rest on an existing human decision; HD-007 does not exist.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-x.rules, role: rules, present: true}
+  - {kind: segment, id: SEG-x.1, doc: SRC-x.rules, label: "1", segment_type: rule, text_hash: "sha256:0000000000000001"}
+---
+schema: wgc/logic@0
+records:
+  - kind: ambiguity
+    id: AMB-001
+    question: "Does 'adjacent' include hexes across a river?"
+    readings: [{id: a, gloss: "Yes."}, {id: b, gloss: "No."}]
+    impact: {semantic: true, digital: blocks, editorial: false}
+    status: accepted
+    resolution: resolved
+    prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.ambiguity.scan@0"},
+           anchors: [{seg: SEG-x.1, seg_hash: "sha256:0000000000000001"}]}
+  - {kind: interpretation, id: INT-001, ambiguity: AMB-001, reading: a, status: accepted,
+     prov: {kind: interpretation, by: {tier: human, person: owner}, derived_from: [AMB-001], decision: HD-007}}

@@ -1,0 +1,85 @@
+{
+  "id": "M-POC1B-owner-decision-19",
+  "card": "M-POC1B",
+  "question_id": "RQ-15c2",
+  "parent_question": "RQ-15",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T13:34:58.745474+00:00",
+  "user_message_timestamp": "unknown; save time separate",
+  "actual_owner_response": "Zatwierdzam",
+  "raw_response_file": "owner-answer-19.raw.txt",
+  "raw_response_sha256": "d2eab609cb7c5c53328ca2c3dcc9247942604a6cad89fb4cd27b1b0893a4faa2",
+  "approved_question": "Czy zatwierdzasz te odczyty EXP-012/014 i ich krytyczność wraz z korektą „piechota” → „jednostka zajmująca heks”?",
+  "approved_scope": {
+    "EXP-012/C-9.14-03": "Would enter occupiedhex friendlyorfoe:EL stopsadjacent. Occupantunit incurs1CH if entry through itsFront,2 if itsFlank/Rear; cavalry2 regardlessangle. Source unit not only infantry. Previously approved3hexattempt retained.",
+    "EXP-012/C-9.14-04": "Both units in affectedstack each receiveHits, no division of a pooled total. Leader in hithex aloneorstacked unablewithdraw4.72 dieswithoutDR; cannot assume inability without context.",
+    "EXP-014/C-9.14-10": "Leader stackedwithRampagingEL travelswithit. At end leadercasualty4.73; survivor stayswhereELended. If ELoffmap bothELandleader eliminated, not survival inferred fromcasualtyDR."
+  },
+  "approved_wording_correction": {
+    "id": "COR-RQ15c2-EXP012-01",
+    "original": "Trafiona piechota dostaje 1 Hit od Front lub 2 od Flank/Rear",
+    "proposed": "Jednostka zajmująca heks dostaje 1 CH od Front lub 2 od Flank/Rear; kawaleria zawsze 2",
+    "reason": "C9.14-03 says unit whetherenemyorfriendly, then explicitcavalryexception; infantry-only wording is narrower than source. No further type-specific external exception guessed.",
+    "status": "owner confirmed in this decision; original unchanged"
+  },
+  "linked_dependency_ids": [
+    "DEP-005",
+    "DEP-006"
+  ],
+  "relation_limits": "C9.14-04 needs4.72 inability condition;C9.14-10 needs4.73 casualtyprocedure. Targetsunresolved, no invented probabilities or actual withdrawal result.",
+  "approved_criticality": "critical in shown collision and leader clauses",
+  "rationale_accepted_by_reference": "Changing stophex or allegiance/angle/type changesmovement/Hits; splittingHits betweenstack units undercounts; confusingtargetleader withridingleader or omittingcasualty/offmapexception changesleaderstate.",
+  "owner_independent_reason_text": "None beyond approval; shown rationale accepted by reference",
+  "review_illustration": {
+    "id": "RV-RQ15c2-01",
+    "role": "explanation only, no scored SIT added",
+    "facts": "Occupiedtargethex geometry/type supplied; twoinfantryinstack hitRear; inabilitywithdraw oftargetleader expresslysupplied; ridingleader separately considered",
+    "local_results": [
+      "EL staysadjacent; twoinfantryeach2CH, not1each",
+      "Cavalryoccupant2CH evenFront",
+      "Targetleader expresslyunablewithdraw dieswithoutDR",
+      "Ridingleader offmap withEL=>both eliminated; otherend=>4.73 result remains unknown withoutprocedure"
+    ]
+  },
+  "scored_situation_changes": [],
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c2-presentation-01.json",
+      "sha256": "1464eef9142e4c364cb5198c43d8083323d9e84160ded616e6139854df2c6a20",
+      "bytes": 3536
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c2-draft-records.json",
+      "sha256": "38151f1ca2441e42c70cf45c670c9a569b50512f12fbb38da10193ca974e1a61",
+      "bytes": 12640
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c2-evidence.json",
+      "sha256": "92a67ba497c290caf9b92d40f94fd14271ad34eb33fe3a558e4796841da8043b",
+      "bytes": 2709
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c2-visual-QA-01.json",
+      "sha256": "e56f087d4151776af57926dd953595b02c4073d4e5fb009086753517e693312c",
+      "bytes": 612
+    }
+  ],
+  "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "remaining_gaps": [
+    "Actual geometry/passability/stacking/withdrawal eligibility unavailable",
+    "4.72 withdrawal and4.73 casualty procedures unclosed",
+    "No actual casualty outcome or probabilities",
+    "EXP009firstLeader7-9 unresolved",
+    "No new scored situations, full game result or graph certificate",
+    "EXP-009 first Leader Elephant 7-9 unresolved",
+    "Remaining unshown clauses/criticality and relation metadata require source-specific RQ15 review",
+    "External tables, actual map/scenario parameters and target identities unclosed",
+    "Full atomic inventory and small counter glyph transcription unverified",
+    "No full game legality, extraction, graph certificate, gold or eval-v1 freeze",
+    "Known initial Git index byte mismatch retained; cause unknown"
+  ],
+  "whole_collection_or_graph_accepted": false,
+  "no_freeze": true
+}

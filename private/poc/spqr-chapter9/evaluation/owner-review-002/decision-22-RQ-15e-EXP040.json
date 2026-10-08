@@ -1,0 +1,70 @@
+{
+  "id": "M-POC1B-owner-decision-22",
+  "card": "M-POC1B",
+  "question_id": "RQ-15e/EXP-040",
+  "parent_question": "RQ-15e",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T14:45:05.848533+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "Tak zatwierdzam",
+  "raw_response_file": "owner-answer-22.raw.txt",
+  "raw_response_sha256": "efbe74b5ea0f3b1d6324c96b5d6c7f095f68ec4086de0052d1ea15f568e5c90a",
+  "approved_question": "Czy zatwierdzasz dla EXP-040 ten odczyt i jego krytyczność: eliminujemy PH bez pełnego legalnego ruchu Rout, a druga wykonuje swój legalny Rout, jeśli ma taką możliwość?",
+  "approved_scope": {
+    "EXP-040/C-9.53-08": "BothPHRoutwhenoneRouts;retreatseparate. Eliminationapplies individuallytoPH unabletocompletefulllegalRoutmovement. OtherPH mayexecuteitsownlegalRoutandisnotautomaticallyeliminatedjustfromotherPHfailure.",
+    "supplementary_context": "10.24 individualinability/offmap;10.25 extrapossibilitymustchecked beforedeclaringnopossibleRout;10.23 firstsentenceallstillRoutedPH eliminatedatD1; no fullprocedureverification."
+  },
+  "approved_criticality": "critical in shown per-unit elimination scope",
+  "rationale_accepted_by_reference": "Individual versuscoupled automaticelimination changes numberofunitsremaining; missedextrahex or laterD1 rulechangesoutcome.",
+  "owner_independent_reason_text": "None beyond approval; shown rationale accepted by reference",
+  "review_illustration": {
+    "id": "RV-RQ15e-EXP040-01",
+    "role": "explanation only; no scoredSITadded",
+    "facts": "A/B PH inDD, oneactuallyRouts=>bothRout. Afteractuallegalroutes/sequence/10.25alternatives arechecked in stipulatedexample,AcancompletelegalRouttoitsend,BcannotcompleteanylegalRout. No map/numberofhexes orlegalordering guessed.",
+    "proposed_local_result": "AexecuteslegalRoutandremainsRoutedatthislocalmoment;B eliminated. No automaticeliminationofA fromBfailure. AllRoutedPH eliminatedatD1under10.23 unlessstatechangesunderapplicablerulesbeforethen."
+  },
+  "linked_dependency_ids": [
+    "DEP-062"
+  ],
+  "relation_limits": "Associationwithspecific10.24/25/23context,not fulltargetset/metadata/6.69chart closure",
+  "actual_shown_quotes": [
+    "9.53lastbullet",
+    "10.24paragraph",
+    "10.23firstsentence"
+  ],
+  "10_25_display_scope": "Relevantextrahex possibility paraphrased, not fullquotation or allprocedures approved",
+  "scored_situation_changes": [],
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15e-EXP040-text-presentation-01.json",
+      "sha256": "3a3400c1493cc33326c44fcd66670568641a07d9b976ca3915e392fcfbba33dc",
+      "bytes": 4009
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15e-EXP040-text-evidence-01.json",
+      "sha256": "afd475917fda4724584af6fdb20d0ce530d8b8c3d5395f0efe00f551a484913e",
+      "bytes": 2531
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15e-EXP040-text-validation-01.json",
+      "sha256": "a6995613a198c84179a5f3ed39fd6b9fa30ea17d35d667e6418bc0a315ccf9d6",
+      "bytes": 826
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/context-target-locator-DEP062-01.json",
+      "sha256": "ffa55bca38612a341b5fa4900e1ace136105eeb8c7c47432a9f558b718ab046f",
+      "bytes": 676
+    }
+  ],
+  "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "remaining_gaps": [
+    "Actualmap/facing/retreatedge/legalmovement andcomplete6.69/10.22 notclosed",
+    "Legalordering orselection whenbothunitscompete forsameonlyend notdecided",
+    "No fullRoutprocedure or permanent survivalscenario result inferred",
+    "Otherclosingcriticality/glyphlimits/finalBclosure remainpending"
+  ],
+  "whole_collection_or_graph_accepted": false,
+  "no_freeze": true
+}

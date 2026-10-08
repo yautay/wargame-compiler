@@ -1,0 +1,79 @@
+{
+  "id": "M-POC1B-owner-decision-18",
+  "card": "M-POC1B",
+  "question_id": "RQ-15c1",
+  "parent_question": "RQ-15",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T13:25:04.306141+00:00",
+  "user_message_timestamp": "unknown; save time separate",
+  "actual_owner_response": "Zatwierdzam",
+  "raw_response_file": "owner-answer-18.raw.txt",
+  "raw_response_sha256": "d2eab609cb7c5c53328ca2c3dcc9247942604a6cad89fb4cd27b1b0893a4faa2",
+  "approved_question": "Czy zatwierdzasz te wskazane fragmenty EXP-007/008/011/013 wraz z ich krytycznością?",
+  "approved_scope": {
+    "EXP-007": "Rout EL triggers immediate Rampage die procedure. OrdinaryEL0 towards nearest friendly unit, tie opponent choice. No invented target without map.",
+    "EXP-008": "Leader Elephant DR0 eliminated; subsequent7-9 rally already approved; first7-9 unresolvedEXP009 retained.",
+    "EXP-011": "Complete each Rampage immediately before any other mechanic except OW in its face under6.51; no concurrent Rampages. RampagingEL has noZOC. Previously approved noRF and normal noRally with laterLeaderexception retained.",
+    "EXP-013": "Repeat until offmap, elimination(ordinaryEL7-9mahout), at least8hexes from nearest unit(any allegiance) causing elimination, or if none above eliminate after4th consecutive RampageDR."
+  },
+  "linked_dependency_ids": [
+    "DEP-004",
+    "DEP-041",
+    "DEP-092"
+  ],
+  "relation_limits": "Shown source associations/context need and physical continuation only; no unshown metadata or external target closure approval.",
+  "approved_criticality": "critical in shown remaining fragments",
+  "rationale_accepted_by_reference": "Wrong Rout trigger/0 exception changes unit state; wrong scheduling permits intervening actions/ZOC; using >8 or wrong fourth count changes elimination timing.",
+  "owner_independent_reason_text": "None beyond approval; presented rationale accepted by reference",
+  "review_illustration": {
+    "id": "RV-RQ15c1-01",
+    "role": "explanation only; not scored SIT",
+    "facts": "OrdinaryEL, supplied distance to nearestunit and consecutiveRampageDRcount, no other earlier end condition; nearest target(s) supplied forDR0 example",
+    "local_results": [
+      "DR0 with two equally nearest friendly units: opponent selects",
+      "Distance7:does not trigger8hexstop;distance8:eliminated",
+      "ThreeconsecutiveDR:does not trigger4throllstop;afterfourth:eliminated if noearlierend"
+    ]
+  },
+  "scored_situation_changes": [],
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c1-presentation-01.json",
+      "sha256": "61ea01720d6c3084c1e487e0525dfabef5cf2493a9c444be3d0d8c90a4c90fe8",
+      "bytes": 3055
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c1-draft-records.json",
+      "sha256": "8ed1bed1f24ecf0875693cbae4114058fd27719155ec200782efa7760b35aecf",
+      "bytes": 37032
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c1-evidence.json",
+      "sha256": "f12320376ac7e1416f2c4ba9db3623c58703c3b6c2940cb46e360ba660e752b0",
+      "bytes": 5254
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15c1-visual-QA-01.json",
+      "sha256": "c1d39b2f5d7f58f613047931a58a406e54635dfbb858a0e17edba6350e654cfc",
+      "bytes": 633
+    }
+  ],
+  "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "remaining_gaps": [
+    "Actual map/nearest friendly vs nearestany distance unavailable",
+    "Full OW6.51 and distance/route procedures unclosed",
+    "EXP009firstLeader7-9 still unresolved",
+    "CollisionHits and stackedleader casualty reserved forRQ15c2",
+    "No full state legality or graph metadata closure",
+    "EXP-009 first Leader Elephant 7-9 unresolved",
+    "Remaining unshown clauses/criticality and relation metadata require source-specific RQ15 review",
+    "External tables, actual map/scenario parameters and target identities unclosed",
+    "Full atomic inventory and small counter glyph transcription unverified",
+    "No full game legality, extraction, graph certificate, gold or eval-v1 freeze",
+    "Known initial Git index byte mismatch retained; cause unknown"
+  ],
+  "whole_collection_or_graph_accepted": false,
+  "no_freeze": true
+}

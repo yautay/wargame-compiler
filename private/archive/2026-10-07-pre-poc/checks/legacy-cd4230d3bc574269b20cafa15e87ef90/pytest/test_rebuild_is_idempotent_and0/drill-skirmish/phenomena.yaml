@@ -1,0 +1,36 @@
+# Rule → phenomena map for Drill Skirmish (bench/minigame/rulebook.md).
+# Suites: logic, digital, editorial, translation. A phenomenon must be covered by >= 1 rule.
+rules:
+  "1.1": {logic: [definitions, numeric_limits], digital: [state_schema, invariants]}
+  "1.2": {logic: [definitions, state], digital: [state_schema], editorial: [defined_term_capitalization]}
+  "1.3": {logic: [hidden_information], digital: [hidden_information]}
+  "2.1": {logic: [sequence_of_play, scope], digital: [timing]}
+  "2.2": {logic: [sequence_of_play], digital: [timing], editorial: [numbered_steps]}
+  "3.1": {logic: [permission, numeric_limits, scope], digital: [legal_actions, decisions, derived_values]}
+  "3.2": {logic: [exceptions, numeric_limits, negation], digital: [legality_cost, exception_case, boundary_cases], editorial: [exception_convention]}
+  "3.3": {logic: [obligation, triggers], digital: [triggers, events]}
+  "3.4": {logic: [prohibition, negation, nested_conditions], digital: [illegal_actions]}
+  "3.5": {logic: [exceptions, cross_references, overrides], digital: [override_priority, triggers], translation: [cross_reference_fidelity]}
+  "3.6": {logic: [prohibition, numeric_limits], digital: [invariants, illegal_actions]}
+  "4.1": {logic: [permission, scope, prohibition, numeric_limits], digital: [legal_actions, illegal_actions]}
+  "4.2": {logic: [randomness, modifiers], digital: [randomness]}
+  "4.3": {logic: [tables, boundary], digital: [randomness, boundary_cases], editorial: [tables]}
+  "4.4": {logic: [overrides, exceptions], digital: [state_transitions, override_priority]}
+  "4.5": {logic: [effects], digital: [state_transitions, invariants]}
+  "5.1": {logic: [permission, scope, numeric_limits, nested_conditions], digital: [decisions, legality_limit]}
+  "5.2": {logic: [randomness, boundary], digital: [randomness, boundary_cases], translation: [boundary_fidelity]}
+  "6.1": {logic: [setup, numeric_limits, hidden_information], digital: [hidden_information]}
+  "6.2": {logic: [triggers, ambiguities, decisions], digital: [hidden_information, triggers, blockers]}
+  "7.1": {logic: [overrides, scenario_layer, boundary], digital: [override_priority, randomness]}
+  "7.2": {logic: [victory, definitions, state], digital: [derived_values, replay]}
+seeded:
+  ambiguities:
+    - {rule: "6.2", question: "Does passing adjacent (without stopping) reveal a Reserve marker?", readings: 2}
+  overrides:
+    - {from: "7.1", to: "5.2", basis: scenario_over_game}
+    - {from: "4.4", to: "4.3", basis: specific_over_general}
+  exceptions:
+    - {from: "3.5", to: "3.3"}
+    - {from: "3.2 (second sentence)", to: "3.2 (first sentence)"}
+  non_exceptions:
+    - {from: "3.5", to: "3.4", note: "explicitly NOT an exception: a classic trap for extractors"}

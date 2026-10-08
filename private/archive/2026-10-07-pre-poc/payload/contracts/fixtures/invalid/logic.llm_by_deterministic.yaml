@@ -1,0 +1,5 @@
+# MUST FAIL: llm_inference attributed to a deterministic executor.
+schema: wgc/logic@0
+records:
+  - {kind: concept, id: CON-x, category: other, name: x,
+     prov: {kind: llm_inference, by: {tier: deterministic, tool: "wgc.x@0"}, derived_from: [R-1.1]}}

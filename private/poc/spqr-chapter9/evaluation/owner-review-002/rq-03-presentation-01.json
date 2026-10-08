@@ -1,0 +1,45 @@
+{
+  "question_id": "RQ-03",
+  "prepared_at_utc": "2026-10-07T13:22:11.626293+00:00",
+  "presentation_status": "prepared_for_final_message_after_owner_requested_continuation",
+  "actual_owner_answer": null,
+  "scope": [
+    "SIT-01 local gates/DRM/Hits/placement",
+    "SIT-02 start-phase ZOC exclusion",
+    "SIT-03 SK final-check exception and attacker-vs-defender distinction",
+    "EXP-001/002/003/004 local tested fragments",
+    "EXP-024 SK-alone attacker PreShock fragment only"
+  ],
+  "linked_dependency_ids": [
+    "DEP-001",
+    "DEP-002",
+    "DEP-008",
+    "DEP-045-1",
+    "DEP-045-2",
+    "DEP-045-3",
+    "DEP-046",
+    "DEP-055",
+    "DEP-090"
+  ],
+  "evidence_manifest": "rq-03-evidence.json",
+  "evidence_manifest_sha256": "a7dc37b3da4f8a10bd46ea2618b7344e3d58f1a9f9dd5ba0988919f1ba9c348e",
+  "display_refinement": "rq-03-evidence-display-refinement-01.json",
+  "display_refinement_sha256": "de36b9b5cd137fdd293e32ccdf9283d98ae8c28010ade5fb6ecace3d7bd64068",
+  "draft_packet": "rq-03-draft-records.json",
+  "draft_packet_sha256": "e3a5e00cd9069ef540e1dc56ebe60f2d709da1df398116624b7c6861668e0e10",
+  "proposed_results": [
+    "SIT-01 suppliedLI/Front/ELmarker/no-coattack/no-initialZOC/freeRear/earlydecision:PassThru locally allowed;defenderPreShock+1DRM;LI5Hits->2,EL3->2;noLIrout/noELrampage permitsplacementELinfreeRear,ELplayerchoice,unchangedfacing;LIendtestseparate",
+    "SIT-02 initialZOC forbidsPassThru even whenlateroutsideZOC",
+    "SIT-03 SK exemptfinalPassThruTQ;9.23exemptsattackersofSKalonefromPreShock,notallTQchecks;defenderPreShocknotfullyresolvedwithout8.43"
+  ],
+  "criticality_proposal": "critical in these local scopes:wrong time or exception changes legal option/test obligation;sign/address/rounding changesHits;placementconditions changeunitposition",
+  "remaining_gaps": [
+    "full8.43/generalShock/CRT/geometry/marker definitions unresolved",
+    "local facts synthetic;notrealsetup orcompletecombat",
+    "baseELHits0floor notreviewed;SIT-01 uses3",
+    "othermodifiers order notsettled",
+    "wholerecord/graph review notimplied"
+  ],
+  "question": "Czy zatwierdzasz te trzy lokalne wyniki SIT-01/02/03 oraz ich proponowaną krytyczność w opisanym zakresie?",
+  "next_after_actual_answer": "Save actual decision with exactIDs/reasons/evidence/hashes/gaps separately; thenRQ-04"
+}

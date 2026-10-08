@@ -1,0 +1,66 @@
+{
+  "id": "M-POC1B-correction-supplement-08",
+  "authorizing_decision": "decision-08-RQ-07.json",
+  "authorizing_decision_sha256": "f5e91539ce6cadff46c5f9cc7ec06cdc4b016effee777dd9f52aed5b6cbd7034",
+  "original_artifacts_modified": [],
+  "approved_local_readings": [
+    "EXP032:movingFrontPHDefense2Lperqualifyingflank,HI1Lperflank;excludestartadjacentstayed,FlankRear,anyPHattacker",
+    "EXP033:scenarioDDeligibilitylistnecessary,missingblocksSIT11",
+    "EXP034:formingDDIOorLCdirectOC,backstartsbehindfront,terraincost+1MP,backunderfront,endbothmovementthisphase",
+    "EXP035:OCordersonly,2IOwhenIOmovement,PAWvia6.8,noWheel/Reverse/Column;unstacktopmoves,bottomstays,IOorLCasabove;fullLCprocedure notclosed",
+    "EXP036:readyDDMA4never5,movementHittoeach,nounitthroughorintoreadyDD;forming9.51separate",
+    "EXP037:combinedSize,topTQunlessRearthenbottom;otherchecksifselectedunitincursHits;actualTQvaluesunknown",
+    "EXP038:enemydefendingagainstDD+1PreShock,DDdefending-1;9.41conditionsstillapply",
+    "EXP039:FlankReardefenderShockHits3xinstead2x,equalallocationoddtop;missileHits topunlessRearthenbottom",
+    "EXP040:Routone=>Routboth,separate-retreathexes;exacttheuniteliminationrecipient underoccupiedhexconflictnotresolved"
+  ],
+  "situation_overlays": [
+    {
+      "id": "SIT-10",
+      "semantic_status": "owner_confirmed_local_result",
+      "expected": {
+        "kind": "local_result",
+        "result": "Moving HI:1L za każdy flank, razem2L. Started adjacent/stayed:0L z9.41. Dla moving non-HI/non-PH byłoby4L przy tych flankach.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "HI replaces2L by1L per flank; moving warunek i wyłączenia zachowane.",
+        "missing_context": [],
+        "blocker": null
+      },
+      "criticality": "owner_confirmedcriticalinlocalscope"
+    },
+    {
+      "id": "SIT-11",
+      "semantic_status": "owner_confirmed_justified_block",
+      "expected": {
+        "kind": "justified_block",
+        "result": "Blokada eligibility. Podane lokalne warunki9.51 nie zastępują listy scenario-specific.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "N-09-S2 wymaga listy; X-06 jest odesłaniem do przykładu, nie dowodem że wszystkie PH eligible.",
+        "missing_context": [
+          "konkretny scenario i lista eligible units"
+        ],
+        "blocker": "missing_critical_target"
+      },
+      "criticality": "owner_confirmedcriticalinlocalscope"
+    },
+    {
+      "id": "SIT-12",
+      "semantic_status": "owner_confirmed_local_result",
+      "expected": {
+        "kind": "local_result",
+        "result": "3×3=9 Hits, top5 i bottom4. Użycie zwykłego2× lub odd Hit bottom byłoby błędne.",
+        "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+        "rationale": "3x instead of doubled oraz equally/odd top. Pozostała procedura i Rout są poza lokalnym wynikiem.",
+        "missing_context": [],
+        "blocker": null
+      },
+      "criticality": "owner_confirmedcriticalinlocalscope"
+    }
+  ],
+  "context_states_retained": {
+    "EXP-033": "requires_contextactualscenarioeligibility",
+    "DEP-058": "requires_contextactualscenarioeligibility",
+    "EXP-040": "localRoutcouplingknown;retreatrecipient/conflictcontextunresolved"
+  },
+  "external_target_status_overrides": []
+}

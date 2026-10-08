@@ -1,0 +1,54 @@
+{
+  "authorizing_decision": "decision-24-RQ-15e-closing.json",
+  "authorizing_decision_sha256": "f94f8d52cb1fb03628c4f739b77364cb15505e4ace6f62083c6211e0570b38d7",
+  "criticality_overlays": [
+    {
+      "ids": [
+        "EXP-017",
+        "SIT-07"
+      ],
+      "criticality": "owner confirmed critical",
+      "scope": "DR<=TQ 0CH;DR>TQ positiveexcesswithmin1",
+      "reason": "0versus1CH changescohesionstate andpotentialfutureRout"
+    },
+    {
+      "ids": [
+        "EXP-008 subsequent7-9",
+        "SIT-05",
+        "DEP-NEW-002 subsequent exception"
+      ],
+      "criticality": "owner confirmed critical",
+      "scope": "LeaderEL later7-9 immediateRallyHitsTQminus2 insteadofelimination",
+      "reason": "Unitelimination versusRally changes existence/state"
+    },
+    {
+      "ids": [
+        "EXP-009 first7-9 scope"
+      ],
+      "criticality": "owner confirmed critical",
+      "scope": "FirstLeader7-9movement, laterLeader7-9Rallyonly",
+      "reason": "FirstmovementversusimmediateRally changestiming/state"
+    }
+  ],
+  "workflow_overlay": {
+    "M-POC1B": "done afterchecks",
+    "M-POC1": "next",
+    "M-POC1C": "future card, notexecuted"
+  },
+  "original_artifacts_modified": [],
+  "situation_outcome_changes": [],
+  "retained_limits": [
+    "EXP-002 base0ELHitsreductionfloor notresolved",
+    "EXP-031 AS/LC printedversushalve order context needed",
+    "DEP-031 MRRCrowidentity hypothesis unconfirmed",
+    "EXP-010/019/033/050/064/066/074 actualmap/command/scenario/CombatTables/countervalues remainrequires_context",
+    "EXP-040 actualretreatgeometry/6.69/10.22/legalordering/sharedend unclosed, butper-unitreadingaccepted",
+    "4.84triggerdie versusfirst9.14directionalDR counting notaddressed",
+    "FullexternalShockallocation/OW/leadercasualty/supply/eligibilityprocedures notclosed",
+    "Unshownperfieldrelationmetadata,aliases/deduplication/targetidentities/sourceclosure notindividuallyowneraccepted",
+    "No fullatomic/glyphcoverage, fullgamelegalresolution, graphcertificate, eval-v1 orqualitymeasurement"
+  ],
+  "whole_collection_or_graph_accepted": false,
+  "gold": false,
+  "frozen": false
+}

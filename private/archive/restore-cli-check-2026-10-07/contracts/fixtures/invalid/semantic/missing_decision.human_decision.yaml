@@ -1,0 +1,6 @@
+# EXPECT: missing_decision
+# MUST FAIL (provenance): a record whose provenance is a human decision points to an HD- record that does not exist.
+schema: wgc/logic@0
+records:
+  - {kind: concept, id: CON-unit, category: entity_type, name: unit,
+     prov: {kind: human_decision, by: {tier: human, person: owner}, decision: HD-404}}

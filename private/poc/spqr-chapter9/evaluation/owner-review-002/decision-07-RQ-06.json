@@ -1,0 +1,113 @@
+{
+  "id": "M-POC1B-owner-decision-07",
+  "card": "M-POC1B",
+  "question_id": "RQ-06",
+  "reviewer": "owner in this chat;no personal identity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T18:25:13.194545+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "zatwierdzam ile jeszcze takich decyzji nam zostało w tym etapie ?",
+  "response_parts": {
+    "review_approval": "zatwierdzam",
+    "workflow_question": "ile jeszcze takich decyzji nam zostało w tym etapie ?"
+  },
+  "raw_response_file": "owner-answer-07.raw.txt",
+  "raw_response_sha256": "170a6ef36babd6788221b2307fb63c5a18f8993966146fbd192bbda24e2ccaa8",
+  "approved_question": "Czy zatwierdzasz te lokalne odczyty,wyniki SIT-08/09 i ich krytyczność,pozostawiając konflikt AS/halving w EXP-031 jako requires_context?",
+  "basis": {
+    "presentation": "rq-06-presentation-01.json",
+    "presentation_sha256": "d723ef017ea91d75f9d8f65685f291cc21292e25b4e985fb83f82fdaa63930ac",
+    "draft_packet": "rq-06-draft-records.json",
+    "draft_packet_sha256": "22040ef09ad50d1397483096ffd85d049e22e8a8c5e2ab6f972f0386f78a1a56",
+    "evidence": "rq-06-evidence.json",
+    "evidence_sha256": "397a3f69ccfd14e3f6f0cfb005e7e387bfbddbd586e197ddba210afe128b31b2",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "contact_sheet_hashes": [
+      {
+        "path": "evidence/RQ-06-SK-source-sheet.png",
+        "sha256": "cf90079bfbf49b38f92781e8bfef0ada82bec5fd205463e969dad2dda0c6fdfa",
+        "transformation": "originalcrop pixels withneutralexternallabels"
+      },
+      {
+        "path": "evidence/RQ-06-line-LC-source-sheet.png",
+        "sha256": "a515bb4bcd2e33eee4e2033d95d78d95b44fcef2ea22b29d203ab54f002ea361",
+        "transformation": "originalcrop pixels withneutralexternallabels"
+      }
+    ]
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-021",
+      "EXP-022",
+      "EXP-023",
+      "EXP-024",
+      "EXP-025",
+      "EXP-026",
+      "EXP-027",
+      "EXP-028",
+      "EXP-029",
+      "EXP-030",
+      "EXP-031"
+    ],
+    "propositions": [
+      "EXP021/022:OWSKup2hexes beforeapproachingunitMA<=SKMA;SKOWHitsonlyRear,VelitesFlank/Rear",
+      "EXP023:targetSKMissile+2DRM;SK/LIArchersA noH&D;LCanymissileclass noH&DvsSK",
+      "EXP024:SKnoShockattack;mixeddefenseuseothertype,ignoreSKSize;alreadyapprovedattackerofSKalonePreShockexemptionretained",
+      "EXP025:HitsinflictedbySKhalvefloor,cap1",
+      "EXP026:PH/HI/LGdefendingFrontvsLI noPreShockevenwithattackermarker;LIstillcheck;reverseexemptionnotapplied",
+      "EXP027:SKRouteliminated,facing0MP,no repeat-moveCohesioncost;no blanketterrain/stackingimmunity",
+      "EXP028:oneSK/Velitespergap,notoneglobal;two consecutiveunits do notqualify",
+      "EXP029:LCMissileH&DstrictlowerMA,exceptSK;LCArchersfireOW via6.55;fullproceduresunknown",
+      "EXP030:attackingLCHitsvsPH/HI/MI/LG/BI halvefloor",
+      "EXP031:AS/halvingprintedresultconflict requirescontext;no newexceptioninvented"
+    ],
+    "situations": [
+      {
+        "id": "SIT-08",
+        "facts": "SKdefendinglegalShock;unadjustedHitsinflicted1,3,6;noothermodifiers",
+        "proposed_result": "0,1,1CH fromfloorhalvingandcap1"
+      },
+      {
+        "id": "SIT-09",
+        "facts": "MissileLCMA8,SKMA6;separateShockLCvsHI withunadjusted5Hits,noAS/othermodifiers",
+        "proposed_result": "H&DvsSKforbidden evenlowerMA;separateLCvsHI local5->2CH"
+      }
+    ],
+    "criticality": "critical in presentedlocalreadings/results",
+    "linked_relations": {
+      "ids": [
+        "DEP-010",
+        "DEP-011",
+        "DEP-012",
+        "DEP-035",
+        "DEP-053",
+        "DEP-054-1",
+        "DEP-054-2",
+        "DEP-055",
+        "DEP-056",
+        "DEP-009",
+        "DEP-057",
+        "DEP-093"
+      ],
+      "scope": "Shownassociations/needforcontext;notunshownkind/direction/explicitness orsourceclosure."
+    },
+    "EXP_031": "approvedrequires_context forAS/halving;notan acceptedresolution"
+  },
+  "rationale_accepted_by_reference": "Sourceangles/quantifiers,strictMAinequality,targetSKexception,halfrounddown/cap1,directionofFrontLIexception,andpergapexample. MissingAScontext mustnotbe guessed. Wrongconditions/numbers/exceptions/costs changelegaloption,test,state orHits.",
+  "owner_independent_reason_text": "Nonebeyondapproval;shownrationaleacceptedbyreference",
+  "not_approved": [
+    "CompletegeneralOW/H&D/PreShock/line/stackingprocedures",
+    "Fullfire/CRTlookup orcombat/routes",
+    "Sourcecounter/scenarioMAparameters",
+    "Externalidentity/alias/sourceclosure",
+    "AS/halvingresolution",
+    "Wholeatomicinventory/graph/collection"
+  ],
+  "remaining_gaps": [
+    "EXP031requires_context",
+    "Externalprocedure/targetdefinitions unchanged",
+    "EarlierEXP009,DEP031,EXP066/DEP038gaps retained"
+  ],
+  "no_freeze": true
+}

@@ -1,0 +1,39 @@
+{
+  "id": "M-POC1B-correction-supplement-12",
+  "authorizing_decision": "decision-12-RQ-11.json",
+  "authorizing_decision_sha256": "e5ef9d8b37192aafafde92c626be00d9cd3842d236d3a509aa0e5ab722a604f7",
+  "original_artifacts_modified": [],
+  "approved_local_readings": [
+    "EXP053:ScorpioBoltB,builtincrew,TQ,LIonlymovement/defense;noShockattack,offensiveMissileFireonly",
+    "EXP054:modechangeIOanyfriendlyleader;Firecannotmove,Movecannotfire;switchtoMoveblocksMoveinthesamephase,switchtoFireblocksFireinthesamephase;moveIOrequired,firedoesnotrequireorder;awersFire,rewersMove",
+    "EXP055:atmostoneScorpioperhex,otherstackingrulesretained",
+    "EXP056:nofacing;allhexesFront;range/LOS/terrainnotwaived",
+    "EXP057:ActiveFiremax2/GameTurnandmax1/friendlyOrdersPhaseinMovementMissilesegment;Once/Finished;afteractiveFire nootheractionthatphaseincludingRecovery",
+    "EXP058:specialReactionFiremax2/enemyOrdersPhasein enemyMovementMissilesegment,includingduringenemyunitmovement;ordinary8.2ReactionFireforbidden;sourceanymovementdoesnotgrantScorpiofireinMovemode",
+    "EXP059:incur/recoverHitsasgeneralunits;Routimmediateelimination"
+  ],
+  "situation_overlay": {
+    "id": "SIT-17",
+    "semantic_status": "owner_confirmed_local_result",
+    "expected": {
+      "kind": "local_result",
+      "result": "Po switch doFire brak strzału wtej phase mimo no orders. W drugiej wersji jeden active shot dostępny, marker Finished i brak recovery wphase. Przy2 active wturn brak następnego active. Nowa enemy phase ma odrębny cap2reaction, po1 dostępny jeszcze1, bez ordinary RF8.2.",
+      "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+      "rationale": "9.82 mode lock zachowany; active per Game Turn/per friendly phase≠reaction per enemy phase. Realny hit lookup nie wykonany.",
+      "missing_context": [],
+      "blocker": null
+    },
+    "criticality": "owner_confirmedcriticalinlocalscope"
+  },
+  "relation_overlay": {
+    "id": "DEP-NEW-003",
+    "semantic_status": "owner_confirmed_scoped_condition",
+    "from": "C-9.86-01",
+    "to": "C-9.14-11",
+    "kind": "condition",
+    "explicitness": "implicit",
+    "scope": "SpecialScorpioReactionFire subject to9.14ReactionFirecondition;no numericRampagecasecoverageclaimed"
+  },
+  "external_target_status_overrides": [],
+  "small_graphic_ratings_not_accepted": true
+}

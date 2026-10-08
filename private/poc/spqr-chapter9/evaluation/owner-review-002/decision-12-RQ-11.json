@@ -1,0 +1,93 @@
+{
+  "id": "M-POC1B-owner-decision-12",
+  "card": "M-POC1B",
+  "question_id": "RQ-11",
+  "reviewer": "owner in this chat;no personalidentity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T08:28:37.853299+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "podoba mi się połączenie rampaging z reaction fire scorpio to dobry test -reszta też zatwierdzam",
+  "raw_response_file": "owner-answer-12.raw.txt",
+  "raw_response_sha256": "446d4913c722e146b6748f6f368d3d89912d6b640b93a74da65ac306b196f1ef",
+  "approved_question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-17 wraz z krytycznością,w tym proponowany zakres DEP-NEW-003,z zachowaniem opisanych braków?",
+  "basis": {
+    "presentation": "rq-11-presentation-01.json",
+    "presentation_sha256": "e9e51eac59980b283030785ef7040a4d94063c0484c46219b2bf0499bea78c3b",
+    "draft_packet": "rq-11-draft-records.json",
+    "draft_packet_sha256": "10405cca04e0d7fc175b2ce7e59cc2cea7e559ce3346a07a98695acc262db11d",
+    "evidence": "rq-11-evidence.json",
+    "evidence_sha256": "53e6f7d0a65fa1b541ba589dc434b43b72f36b80bfca421df37f212cf3914280",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-053",
+      "EXP-054",
+      "EXP-055",
+      "EXP-056",
+      "EXP-057",
+      "EXP-058",
+      "EXP-059"
+    ],
+    "local_readings": [
+      "EXP053:ScorpioBoltB,builtincrew,TQ,LIonlymovement/defense;noShockattack,offensiveMissileFireonly",
+      "EXP054:modechangeIOanyfriendlyleader;Firecannotmove,Movecannotfire;switchtoMoveblocksMoveinthesamephase,switchtoFireblocksFireinthesamephase;moveIOrequired,firedoesnotrequireorder;awersFire,rewersMove",
+      "EXP055:atmostoneScorpioperhex,otherstackingrulesretained",
+      "EXP056:nofacing;allhexesFront;range/LOS/terrainnotwaived",
+      "EXP057:ActiveFiremax2/GameTurnandmax1/friendlyOrdersPhaseinMovementMissilesegment;Once/Finished;afteractiveFire nootheractionthatphaseincludingRecovery",
+      "EXP058:specialReactionFiremax2/enemyOrdersPhasein enemyMovementMissilesegment,includingduringenemyunitmovement;ordinary8.2ReactionFireforbidden;sourceanymovementdoesnotgrantScorpiofireinMovemode",
+      "EXP059:incur/recoverHitsasgeneralunits;Routimmediateelimination"
+    ],
+    "situation": {
+      "id": "SIT-17",
+      "supplied_other_conditions": "legalrange/LOS/target, targetnotRampagingEL",
+      "variants": [
+        {
+          "facts": "switchMove->Firethisphase,0activeShotsTurn",
+          "proposed_result": "cannotfirethisphase despite no-orderfire"
+        },
+        {
+          "facts": "FiremodewithoutSwitch,1activeShotTurn,0thisfriendlyphase",
+          "proposed_result": "oneactiveShotavailable;afteritActiveFinished,noRecoverythisphase"
+        },
+        {
+          "facts": "FiremodewithoutSwitch,2activeShotsTurn",
+          "proposed_result": "noadditionalactiveShotthisTurn"
+        },
+        {
+          "facts": "Firemode,newenemyphase,1ReactionShotthisphase",
+          "proposed_result": "oneadditionalSpecialReactionShotavailable withinphasecap2;ordinary8.2notadded"
+        }
+      ],
+      "limits": "NoactualHitlookup orrealmap/unitparameterverification;othermodifiers/legalityonlysuppliedfacts"
+    },
+    "relation": {
+      "id": "DEP-NEW-003",
+      "from": "C-9.86-01",
+      "to": "C-9.14-11",
+      "kind": "condition",
+      "explicitness": "implicit",
+      "proposal": "Interpret noReactionFireofanykind forRampagingEL as covering specialScorpioReactionFire also;noexplicitnumericcross-reference;notnumericallytestedbySIT17",
+      "scope_uncertainty": "Interactionof9.86any-timepermissionwith9.14do-not-trigger wording is a proposedsourceinterpretation needingactualownerreview; no generalimmunity beyondthisReactionFireconditionclaimed"
+    },
+    "criticality": "criticalinshownlocalscopes",
+    "relation_limits": "ReactionFireconditiononly;no generaltargetimmunity,externalidentity/fullprocedureclosure or unshownmetadataapproval"
+  },
+  "owner_independent_reason_text": "podoba mi się połączenie rampaging z reaction fire scorpio to dobry test",
+  "rationale_accepted_by_reference": "Mode/switchlock preserved despite no-orderfire, separateActiveTurn/Phase andReactionEnemyPhase caps,ordinary8.2exclusion,and broad9.14ReactionFirecondition applied to particularScorpioReactionFire.",
+  "test_coverage_note": "Owner calls the link a good test; relation/expectation accepted. SIT17 explicitly excludesRampagingEL and does not numerically exercise that condition; no newSIT was added or run.",
+  "not_approved": [
+    "ActualShotHits/MRRC/range/LOS/map/setup/counterratings",
+    "FullLI/stacking/IO/phase/8.2/Rout/Recoveryprocedures",
+    "Wholegraph/atomicinventory/collection",
+    "ClaimthatSIT17numericallytestedRampagingEL"
+  ],
+  "remaining_gaps": [
+    "ActualLI/stacking/IO/phase/8.2/Rout/Recovery/boltMRRCcontexts unclosed",
+    "Range/LOS/targetsupplied,notrealstateverified",
+    "G03smallratingsnotexhaustivelytranscribed",
+    "Rampagecondition isseparateinterpretation nottestedbySIT17counts"
+  ],
+  "no_freeze": true
+}

@@ -1,0 +1,6 @@
+# MUST FAIL: partial formalization must say what is not captured.
+schema: wgc/logic@0
+records:
+  - {kind: rule, id: R-6.2, nature: automatic_effect, modality: is, formalization: partial,
+     statement: {lang: en, text: "A Reserve marker is revealed when an enemy unit moves adjacent to it."},
+     prov: {kind: llm_inference, by: {tier: local, profile: local_semantic}, derived_from: [SEG-dsk.6.2]}}

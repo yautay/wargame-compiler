@@ -1,0 +1,34 @@
+{
+  "id": "M-POC1B-git-index-discrepancy-01",
+  "recorded_at_utc": "2026-10-08T08:08:51.865145+00:00",
+  "expected_initial_index_sha256": "6197ec7c5718aed38ecde9e66dd35a51a7dcd8ab715409faf7237c1c3d21c211",
+  "observed_index_sha256": "369bda48ddc735b07402251208d78bdafd699ae779f9c13c6bdc7d4b04b5cdba",
+  "observed_index_bytes": 17634,
+  "observed_last_write_utc": "2026-10-08T08:03:28.882314+00:00",
+  "observed_snapshot": "git-index-observed-01.bin",
+  "observed_snapshot_sha256": "369bda48ddc735b07402251208d78bdafd699ae779f9c13c6bdc7d4b04b5cdba",
+  "head": "0bd88a739f22f8bb8a1bebb0101a177bd05552c1",
+  "head_unchanged": true,
+  "current_cached_diff_exit": 0,
+  "current_staging_matches_HEAD": true,
+  "historical_status_lines_checked": 178,
+  "historical_staged_changes": [],
+  "staging_semantic_comparison": "Historicalstatushasnostagedchanges;currentindexstagingequals sameHEAD. Logicalstagingunchanged. Exactindexbytedifferencecauseunproven.",
+  "cause": "unknown;stat-cache/formatmetadata or another process plausible;do notattribute without evidence",
+  "all_other_prior_protected_unique_files_unchanged": 297,
+  "protected_file_mismatches": {
+    ".git/index": {
+      "actual_sha256": "369bda48ddc735b07402251208d78bdafd699ae779f9c13c6bdc7d4b04b5cdba",
+      "historical_sha256s": [
+        "6197ec7c5718aed38ecde9e66dd35a51a7dcd8ab715409faf7237c1c3d21c211"
+      ]
+    }
+  },
+  "no_index_restore_or_overwrite": true,
+  "read_only_followups_use_GIT_OPTIONAL_LOCKS": "0",
+  "technical_attempts": [
+    "Initialprotected-byteauditstoppedonindexSHA mismatch",
+    "Athrowawayread-onlyfollowuphadPython syntaxerror;no filesmodified;correctedauditthencheckedallprotectedentries"
+  ],
+  "scope_impact": "Source/draft/reviewbytes unaffected;ownerreviewcancontinue,integrityreportmustretainindexbytediscrepancy."
+}

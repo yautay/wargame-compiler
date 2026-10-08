@@ -1,0 +1,13 @@
+# wgc/source@0: inwentarz źródeł (Stage 0), commitowany. Tekst segmentów jest tylko w .glu/source/ (ADR-0012).
+# Plik zapisują `wgc source scan|extract`: pola generowane są nadpisywane, pola ręczne zostają (title, edition,
+# language, complete, precedence, edition_skew, seg_prefix, notes, corrections, verified_by_render).
+# Komentarze nie są zachowywane: notatki zapisuj w polu `notes`.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-tst.rules, role: rules, path: private/rules.md, file_hash: 'sha256:3e6649e0a8c217179b86e7a68c584221e7a97287d5eaf9621d84879846495e70', present: true, seg_prefix: tst, extractor: wgc.ingest.markdown@1}
+  - {kind: segment, id: SEG-tst.u1, doc: SRC-tst.rules, segment_type: heading, order: 1, text_hash: 'sha256:0ad094fe8ea7715259597056289ddae45363e0688941eca5a768deb1d5828af8', struct_hash: 'sha256:1f7c4b612fbec2dace5be51da42fcb5b433ddbc923a18f5a597e9d190cef9b64'}
+  - {kind: segment, id: SEG-tst.1.0, doc: SRC-tst.rules, label: '1.0', segment_type: heading, parent: SEG-tst.u1, order: 2, text_hash: 'sha256:9fb6669a77ea48bb4c080ead0e145a11f0dea709af0d542f6ad87d27958a61a1', struct_hash: 'sha256:b5a1e35b62a314623e5621f653d4c6e8129c512b73a42b77d290bb049e9e1c1a'}
+  - {kind: segment, id: SEG-tst.1.1, doc: SRC-tst.rules, label: '1.1', segment_type: rule, parent: SEG-tst.1.0, order: 3, text_hash: 'sha256:740767796315e1c37f8d3a4f0b522a06ec6794a993653940c36b2d1477627504', struct_hash: 'sha256:71f17934ca76d8f351468dea6b5985da75a067ab21d70d95de4d14a6d87f06f4'}
+  - {kind: segment, id: SEG-tst.1.2, doc: SRC-tst.rules, label: '1.2', segment_type: rule, parent: SEG-tst.1.0, order: 4, text_hash: 'sha256:cefc8d6f4c92d9b111f89480e8e098794a0f4e3da761a7e8adb243b0ce646b60', struct_hash: 'sha256:0594cc07b3b5ff89e4a4f94dc043855bfad347e3f03582faab26a4b5531035db'}
+  - {kind: segment, id: SEG-tst.2.0, doc: SRC-tst.rules, label: '2.0', segment_type: heading, parent: SEG-tst.u1, order: 5, text_hash: 'sha256:49fcf2c78b506b3e32115f752124e4ee1b998f4f578cc2d35425e6ee3eb203a6', struct_hash: 'sha256:9c88c34f51cbc3471ee3f1dc7d97c7e320d96133a3e9552859df4f705a3a4a3c'}
+  - {kind: segment, id: SEG-tst.2.1, doc: SRC-tst.rules, label: '2.1', segment_type: table, parent: SEG-tst.2.0, order: 6, text_hash: 'sha256:60c92696958c89c6aca72ad19da73730a659da3e55c3c85d890f1fc9c3e44743', struct_hash: 'sha256:5b22ea69fb1d42ad3acbde6ee254af556aa0717ec63eb1d16db7fd2b73c7fcaf'}

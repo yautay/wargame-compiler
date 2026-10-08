@@ -1,0 +1,54 @@
+{
+  "id": "M-POC1B-owner-decision-01",
+  "question_id": "RQ-01",
+  "card": "M-POC1B",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T12:49:10.846323+00:00",
+  "user_message_timestamp": "unknown; timestamp above is recording time",
+  "actual_owner_response": "jeśli DR<=TQ wówczas nie ma CH. Instrukcja mówi wyrażnie że musi być DR > TQ i wówczas CH (zawsze min 1) czasami stosuje się taki zapis, ale nie wiem gdzie może być wyjątek w takiej logice. ",
+  "raw_response_file": "owner-answer-01.raw.txt",
+  "raw_response_sha256": "30b68ce4dbd068dc7459ee07bef014836b0e7adf9ecc2629350ce819754c3460",
+  "review_basis": {
+    "presentation": "rq-01-presentation-01.json",
+    "presentation_sha256": "d27f5f5024dd8137b20819a37426a701cbd1835e3779208870cf265b1d87b242",
+    "draft_records": "rq-01-draft-records.json",
+    "draft_records_sha256": "5ab26784d868142b92a03919a96e03fb88da752a19049ff7ba5eb5f4bf67cda7",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "source_pdf_page": 33,
+    "source_inventory_id": "C-9.16-01",
+    "crop": "evidence/RQ-01-rule-9-16.png",
+    "crop_sha256": "bf446af4a1d2ac88d9497c2a93e4cfb6f838cb00e15c65da2f63c7cf7cd9feb4",
+    "parent_render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d"
+  },
+  "decision": {
+    "semantic_scope": [
+      "EXP-017:scope of minimum for DR<=TQ and DR>TQ",
+      "SIT-07:local CH result at DR5=TQ5"
+    ],
+    "interpretation": "For9.16, DR<=TQ gives0 CH. Only DR>TQ activates Cohesion Hits, equal to DR-TQ with minimum1.",
+    "local_result": "SIT-07 immediate TQ check gives0 CH at DR5,TQ5 under supplied non-routed/cannot-withdraw conditions.",
+    "rationale_by_owner": "The instruction explicitly requires DR>TQ before Cohesion Hits; minimum1 applies within that branch.",
+    "classification": "actual owner semantic decision; not eval freeze"
+  },
+  "scope_not_approved": [
+    "All other conditions/time/Leader Elephant exception/routed elimination of EXP-016",
+    "DEP-050-1/2/3 target identity/kind/direction/necessity or complete source closure",
+    "Any other expectation/situation/relation",
+    "Whole collection or general logic across the rulebook"
+  ],
+  "criticality": {
+    "proposal": "critical:0vs1 CH changes cohesion state and may affect later Rout",
+    "proposal_author": "Codex; already shown in RQ-01",
+    "owner_explicit_criticality_decision": "not separately stated; do not attribute explicit approval of criticality",
+    "owner_reason_for_outcome": "strict DR>TQ condition"
+  },
+  "remaining_gaps": [
+    "Owner notes this wording is sometimes used but does not know where exceptions might occur; no exception located/accepted by this answer",
+    "Real-state OW eligibility, immediate-test external target identity and routed-state procedure remain unresolved",
+    "Broader legal outcome and all EXP-016 content remain unreviewed",
+    "Criticality label has no separate explicit owner confirmation"
+  ],
+  "no_acceptance_transferred_from_M_POC1A": true
+}

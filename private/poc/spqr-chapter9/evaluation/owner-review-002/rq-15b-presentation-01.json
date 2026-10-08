@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T11:07:35.089597+00:00",
+  "question_id": "RQ-15b",
+  "parent_question": "RQ-15",
+  "scope": {
+    "EXP-005/C-9.12-02": "Elephant Screen fires only as Reaction Fire; no active fire permission. Named Elephant Screen MRRC row retained from RQ05.",
+    "EXP-005/C-9.12-03": "Screen has its own missile supply markers; Leader Elephant has no Screen. No automatic supply state or replenishment inferred."
+  },
+  "linked_dependency_ids": [
+    "DEP-003",
+    "DEP-030",
+    "DEP-047"
+  ],
+  "dependency_scope": "Source to needed Reaction Fire8.2 procedure, named MRRC row, and supply handling. Targets unresolved; metadata not blanket approved.",
+  "scored_situation_ids": [],
+  "review_illustration": {
+    "id": "RV-RQ15b-01",
+    "role": "explanation only, not scored SIT or new denominator item",
+    "supplied_facts": [
+      "ordinary EL with Screen",
+      "separately Leader EL",
+      "request for active Screen shot vs Reaction Fire"
+    ],
+    "proposed_local_results": [
+      "Screen active shot forbidden",
+      "Screen Reaction Fire mode permitted subject to 8.2, MRRC, target/range/LOS/supply conditions; complete shot unresolved",
+      "Leader EL has no Screen shot source; Tower Rider rule remains separate"
+    ],
+    "no_real_scenario_parameter": true
+  },
+  "criticality": "Losing only grants extra active shot; assigning Screen to Leader grants nonexistent fire source; losing own supply markers merges independent supply state.",
+  "remaining_uncertainty": [
+    "8.2 full procedure",
+    "MRRC values and target/range/LOS",
+    "actual missile supply state and supply procedure",
+    "No dedicated existing SIT covers EXP005; no coverage claimed"
+  ],
+  "question": "Czy zatwierdzasz uzupełnienie EXP-005 wraz z krytycznością: Screen strzela wyłącznie jako Reaction Fire, ma własne znaczniki podaży, a Leader Elephant nie ma Screen?",
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15b-draft-records.json",
+      "sha256": "242db6c9dc1b7475432c877c50e467453e7515b61134b596c3aad9a032e26d3f",
+      "bytes": 11787
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15b-evidence.json",
+      "sha256": "f4f6a4da1e82adb52c7e813f22944ed59bb18d1445afc75d2c1038d896d56b8f",
+      "bytes": 1435
+    }
+  ],
+  "owner_answer": null
+}

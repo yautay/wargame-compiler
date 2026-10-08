@@ -1,0 +1,11 @@
+schema: wgc/desktop@0
+kind: revision
+id: rev.invalid
+hash: &hash 'sha256:0000000000000000000000000000000000000000000000000000000000000000'
+package: {id: river.p1-2, hash: *hash}
+response: {path: responses/fixture.yaml, hash: *hash}
+document: {path: documents/fixture.yaml, hash: *hash}
+validation: valid
+reviews:
+  - {subject: b.invented, status: approved}
+completeness: partial

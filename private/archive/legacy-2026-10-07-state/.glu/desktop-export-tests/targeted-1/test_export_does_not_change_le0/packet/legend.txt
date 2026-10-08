@@ -1,0 +1,18 @@
+wgc/desktop@0 — legenda dowodów eksportera @0.1
+manifest.txt jest pełnym manifestem JSON, razem z surowym tekstem i geometrią.
+source.file_hash dotyczy oryginalnego PDF; sam PDF nie jest przesyłany.
+pages obejmuje wyłącznie sumę target_pages i context_pages. Nazwy PNG zawierają
+numer oryginalnej strony PDF (od 1), nie numer drukowany ani numer nowego pliku.
+printed_label=null: eksporter nie zgaduje etykiety drukowanej. Model może zapisać
+widoczną etykietę bloku; numerację stron rozlicza jako obszar, nie zmienia manifestu.
+bbox=[x0,top,x1,bottom]: punkty PDF (72 na cal), początek w lewym górnym rogu.
+Render ma skalę wybraną przy eksporcie; do przeliczenia pikseli użyj jego rozmiaru
+i pages.width/height. Geometria PDF jest zaokrąglona do 0.001 punktu.
+Fragmenty pNfK zachowują kolejność strumienia znaków PDF. Są technicznymi seriami
+glifów na zbliżonej linii; nie są blokami, tabelami ani kolejnością czytania.
+Tekst pozostaje surowy: bez NFC, usuwania łączników, normalizacji białych znaków,
+deduplikacji lub dopisywania spacji. Wieloznakowy glif obejmuje cały [start,end).
+Glif z pustą geometrią lub poza stroną powoduje błąd eksportu, nie ciche pominięcie.
+Rendery zachowują kolory, ramki i tekst obrazowy nieobecny w warstwie PDF.
+assets.hash dotyczy bajtów pliku; package.hash to kanoniczny hash koperty bez hash.
+Instrukcja i schemat są dostarczone w pakiecie; nie potrzebujesz repo ani sieci.

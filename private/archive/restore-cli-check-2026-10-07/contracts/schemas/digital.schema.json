@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/digital.schema.json",
+  "title": "wgc/digital@0: Stage 1.5 Digitalization Model (engine-agnostic spec)",
+  "description": "DRAFT @0. Primary input is the Stage 1 Logic Model only. Every record `realizes` logic records (traceability). Expressions and effect atoms reuse the Rule IR grammar from logic.schema.json. Ambiguity that affects semantics becomes a blocker, never a silent choice.",
+  "type": "object",
+  "required": ["schema", "records"],
+  "properties": {
+    "schema": {"const": "wgc/digital@0"},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {"kind": {"enum": ["entity", "derived", "action", "legality", "event", "trigger", "sequence", "decision_point", "random_source", "modifier", "hidden_info", "invariant", "priority", "blocker", "test"]}},
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "entity"}}}, "then": {"$ref": "#/$defs/entity"}},
+        {"if": {"properties": {"kind": {"const": "derived"}}}, "then": {"$ref": "#/$defs/derived"}},
+        {"if": {"properties": {"kind": {"const": "action"}}}, "then": {"$ref": "#/$defs/action"}},
+        {"if": {"properties": {"kind": {"const": "legality"}}}, "then": {"$ref": "#/$defs/legality"}},
+        {"if": {"properties": {"kind": {"const": "event"}}}, "then": {"$ref": "#/$defs/event"}},
+        {"if": {"properties": {"kind": {"const": "trigger"}}}, "then": {"$ref": "#/$defs/trigger"}},
+        {"if": {"properties": {"kind": {"const": "sequence"}}}, "then": {"$ref": "#/$defs/sequence"}},
+        {"if": {"properties": {"kind": {"const": "decision_point"}}}, "then": {"$ref": "#/$defs/decision_point"}},
+        {"if": {"properties": {"kind": {"const": "random_source"}}}, "then": {"$ref": "#/$defs/random_source"}},
+        {"if": {"properties": {"kind": {"const": "modifier"}}}, "then": {"$ref": "#/$defs/modifier"}},
+        {"if": {"properties": {"kind": {"const": "hidden_info"}}}, "then": {"$ref": "#/$defs/hidden_info"}},
+        {"if": {"properties": {"kind": {"const": "invariant"}}}, "then": {"$ref": "#/$defs/invariant"}},
+        {"if": {"properties": {"kind": {"const": "priority"}}}, "then": {"$ref": "#/$defs/priority"}},
+        {"if": {"properties": {"kind": {"const": "blocker"}}}, "then": {"$ref": "#/$defs/blocker"}},
+        {"if": {"properties": {"kind": {"const": "test"}}}, "then": {"$ref": "#/$defs/test"}}
+      ]
+    },
+    "ref": {"$ref": "common.schema.json#/$defs/id"},
+    "ids": {"$ref": "common.schema.json#/$defs/ids"},
+    "expr": {"$ref": "logic.schema.json#/$defs/expr"},
+    "term": {"$ref": "logic.schema.json#/$defs/term"},
+    "effect": {"$ref": "logic.schema.json#/$defs/effect"},
+    "role": {"enum": ["active_player", "opponent", "both_players", "owner", "scenario", "system", "random_process"]},
+    "value_type": {"enum": ["int", "bool", "enum", "string", "ref", "set", "list", "map_location"]},
+
+    "common_fields": {
+      "description": "allowed on every digital record",
+      "type": "object",
+      "properties": {
+        "realizes": {"$ref": "#/$defs/ids", "description": "logic records (R-, CON-, TAB-, PROC-, REL-, CASE-, INT-) this element implements"},
+        "blocked_by": {"$ref": "#/$defs/ids"},
+        "status": {"$ref": "common.schema.json#/$defs/lifecycle"},
+        "prov": {"$ref": "common.schema.json#/$defs/provenance"},
+        "notes": {"type": "string"}
+      }
+    },
+
+    "entity": {
+      "type": "object",
+      "description": "ENT-…: part of the Game State Schema. Only canonical STORED state lives here; derivable values go to `derived`.",
+      "required": ["kind", "id", "concept", "fields", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "entity"}, "id": {"$ref": "#/$defs/ref"},
+        "concept": {"$ref": "#/$defs/ref"},
+        "cardinality": {"enum": ["singleton", "collection"]},
+        "fields": {"type": "array", "items": {"type": "object", "required": ["name", "type"],
+          "properties": {
+            "name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}, "type": {"$ref": "#/$defs/value_type"},
+            "concept": {"$ref": "#/$defs/ref"}, "values": {"type": "array"}, "range": {"type": "array", "minItems": 2, "maxItems": 2},
+            "ref_to": {"$ref": "#/$defs/ref"}, "nullable": {"type": "boolean"},
+            "visibility": {"enum": ["public", "owner", "hidden"]},
+            "stored_reason": {"type": "string", "description": "why a value that looks derivable is stored (e.g. history-dependent)"},
+            "realizes": {"$ref": "#/$defs/ids"}}, "additionalProperties": false}},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "derived": {
+      "type": "object",
+      "description": "DRV-…: value computed from canonical state (movement allowance left, control, combat value). Never stored unless an entity field says why.",
+      "required": ["kind", "id", "of", "value_type", "compute", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "derived"}, "id": {"$ref": "#/$defs/ref"}, "of": {"$ref": "#/$defs/ref"},
+        "value_type": {"$ref": "#/$defs/value_type"}, "compute": {"$ref": "#/$defs/term"}, "modifiers": {"$ref": "#/$defs/ids"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "action": {
+      "type": "object",
+      "description": "ACT-…: an operation a participant (or the system) can perform. Legality is separate (`legality` records) so can_perform can be tested without perform.",
+      "required": ["kind", "id", "actor", "timing", "effects", "emits", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "action"}, "id": {"$ref": "#/$defs/ref"},
+        "actor": {"$ref": "#/$defs/role"},
+        "params": {"type": "array", "items": {"type": "object", "required": ["name", "type"], "properties": {
+          "name": {"type": "string"}, "type": {"$ref": "#/$defs/value_type"}, "ref_to": {"$ref": "#/$defs/ref"}, "domain": {"$ref": "#/$defs/expr"}}, "additionalProperties": false}},
+        "timing": {"$ref": "#/$defs/ids", "description": "SEQ- states / windows in which the action may be offered"},
+        "legality": {"$ref": "#/$defs/ids"},
+        "decisions": {"$ref": "#/$defs/ids"},
+        "random": {"$ref": "#/$defs/ids"},
+        "effects": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "emits": {"$ref": "#/$defs/ids"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "legality": {
+      "type": "object",
+      "description": "LEG-…: one predicate of can_perform_action. `reason_code` is what an engine returns on rejection and what illegal-action tests assert.",
+      "required": ["kind", "id", "applies_to", "check", "predicate", "reason_code", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "legality"}, "id": {"$ref": "#/$defs/ref"},
+        "applies_to": {"$ref": "#/$defs/ids"},
+        "check": {"enum": ["precondition", "prohibition", "limit", "timing", "cost"]},
+        "predicate": {"$ref": "#/$defs/expr", "description": "must hold for the action to be legal"},
+        "reason_code": {"type": "string", "pattern": "^[a-z][a-z0-9_.]*$"},
+        "unless": {"$ref": "#/$defs/ids", "description": "legality records or relations that lift this check (from REL exception_to)"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "description": "EVT-…: a fact that happened in a game (UnitMoved, DieRolled). Rules define dependencies; events record history and drive replay.",
+      "required": ["kind", "id", "name", "payload", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "event"}, "id": {"$ref": "#/$defs/ref"},
+        "name": {"type": "string", "pattern": "^[A-Z][A-Za-z0-9]*$"},
+        "payload": {"type": "array", "items": {"type": "object", "required": ["name", "type"], "properties": {
+          "name": {"type": "string"}, "type": {"$ref": "#/$defs/value_type"}, "ref_to": {"$ref": "#/$defs/ref"}}, "additionalProperties": false}},
+        "visibility": {"enum": ["public", "owner", "hidden"]},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "trigger": {
+      "type": "object",
+      "description": "TRG-…: when X happens (event or timing window) and condition holds, then response. Ordering is explicit, never 'order of ifs'.",
+      "required": ["kind", "id", "fires_on", "response", "mandatory", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "trigger"}, "id": {"$ref": "#/$defs/ref"},
+        "class": {"type": "string", "description": "e.g. on_action, on_enter_location, after_combat, when_routed, on_phase_start (open set)"},
+        "fires_on": {"$ref": "#/$defs/ref", "description": "EVT- or SEQ- window (not `on`: YAML 1.1 reads it as a boolean)"},
+        "condition": {"$ref": "#/$defs/expr"},
+        "response": {"type": "object", "properties": {
+          "effects": {"type": "array", "items": {"$ref": "#/$defs/effect"}}, "action": {"$ref": "#/$defs/ref"}, "decision": {"$ref": "#/$defs/ref"}}, "additionalProperties": false},
+        "mandatory": {"type": "boolean"},
+        "timing": {"enum": ["immediate", "interrupt", "reaction", "end_of_step", "end_of_phase", "start_of_phase"]},
+        "order": {"type": "integer", "description": "resolution order among simultaneous triggers (lower first)"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "sequence": {
+      "type": "object",
+      "description": "SEQ-…: Timing Model as a state machine (turn → player turn → phase → step) with named windows (start_of, end_of, reaction, interrupt).",
+      "required": ["kind", "id", "nodes", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "sequence"}, "id": {"$ref": "#/$defs/ref"},
+        "nodes": {"type": "array", "items": {"type": "object", "required": ["id", "level"], "properties": {
+          "id": {"$ref": "#/$defs/ref"}, "level": {"enum": ["game", "game_turn", "player_turn", "phase", "subphase", "step"]},
+          "concept": {"$ref": "#/$defs/ref"}, "parent": {"$ref": "#/$defs/ref"}, "next": {"$ref": "#/$defs/ref"},
+          "repeat": {"type": "string"}, "exit_when": {"$ref": "#/$defs/expr"},
+          "windows": {"type": "array", "items": {"enum": ["start_of", "end_of", "reaction", "interrupt", "during"]}}}, "additionalProperties": false}},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "decision_point": {
+      "type": "object",
+      "description": "DP-…: a place where someone chooses. All participant input enters the engine as an answer to a DecisionRequest with enumerated legal options.",
+      "required": ["kind", "id", "who", "when", "options", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "decision_point"}, "id": {"$ref": "#/$defs/ref"},
+        "who": {"$ref": "#/$defs/role"},
+        "when": {"$ref": "#/$defs/ids"},
+        "options": {"type": "object", "properties": {"actions": {"$ref": "#/$defs/ids"}, "choice": {"type": "string"}, "pass_allowed": {"type": "boolean"}}, "additionalProperties": false},
+        "simultaneous": {"type": "boolean"}, "secret": {"type": "boolean"},
+        "default": {"type": "string"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "random_source": {
+      "type": "object",
+      "description": "RNG-…: every random process. The engine draws through an injectable RNG port; outcomes are recorded in events so replay never re-rolls.",
+      "required": ["kind", "id", "mechanism", "spec", "recorded_as", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "random_source"}, "id": {"$ref": "#/$defs/ref"},
+        "mechanism": {"enum": ["dice", "deck", "draw", "shuffle", "table_lookup", "reroll", "random_selection"]},
+        "spec": {"type": "string"}, "table": {"$ref": "#/$defs/ref"}, "modifiers": {"$ref": "#/$defs/ids"},
+        "order": {"type": "integer", "description": "fixed draw order when several draws are simultaneous"},
+        "recorded_as": {"$ref": "#/$defs/ref", "description": "EVT- carrying the outcome"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "modifier": {
+      "type": "object",
+      "description": "MOD-…: contribution to a computed value; stacking and order explicit.",
+      "required": ["kind", "id", "applies_to", "value", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "modifier"}, "id": {"$ref": "#/$defs/ref"},
+        "applies_to": {"$ref": "#/$defs/ref", "description": "DRV- or RNG- it modifies"},
+        "value": {"$ref": "#/$defs/term"}, "condition": {"$ref": "#/$defs/expr"},
+        "stacking": {"enum": ["cumulative", "max_only", "non_cumulative", "replace"]},
+        "order": {"type": "integer"}, "cap": {"type": "array", "minItems": 2, "maxItems": 2},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "hidden_info": {
+      "type": "object",
+      "description": "HID-…: what is hidden, from whom, and what reveals it. Engines expose state through per-observer views.",
+      "required": ["kind", "id", "subject", "owner", "visible_to", "reveal_on", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "hidden_info"}, "id": {"$ref": "#/$defs/ref"},
+        "subject": {"type": "string", "description": "entity field path, e.g. ENT-reserve.represents"},
+        "owner": {"$ref": "#/$defs/role"},
+        "visible_to": {"type": "array", "items": {"$ref": "#/$defs/role"}},
+        "reveal_on": {"$ref": "#/$defs/ids"},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "invariant": {
+      "type": "object",
+      "description": "INV-…: must hold in every reachable state. Checked by tests and engine debug builds; not a theorem prover.",
+      "required": ["kind", "id", "holds", "severity", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "invariant"}, "id": {"$ref": "#/$defs/ref"},
+        "holds": {"$ref": "#/$defs/expr"}, "severity": {"enum": ["error", "warning"]},
+        "forall": {"type": "object", "propertyNames": {"pattern": "^\\$[a-z_][a-z0-9_]*$"}, "additionalProperties": {"$ref": "#/$defs/ref"}},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "priority": {
+      "type": "object",
+      "description": "PRI-…: explicit priority/override model: ordered layers and resolved conflicts, derived from REL- records.",
+      "required": ["kind", "id", "layers", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "priority"}, "id": {"$ref": "#/$defs/ref"},
+        "layers": {"type": "array", "items": {"enum": ["general_rule", "specific_rule", "exception", "series", "game", "scenario_override", "errata", "temporary_effect"]}, "description": "lowest first"},
+        "resolutions": {"type": "array", "items": {"type": "object", "required": ["relation", "winner", "loser"], "properties": {
+          "relation": {"$ref": "#/$defs/ref"}, "winner": {"$ref": "#/$defs/ref"}, "loser": {"$ref": "#/$defs/ref"}, "when": {"$ref": "#/$defs/expr"}}, "additionalProperties": false}},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+    "blocker": {
+      "type": "object",
+      "description": "BLK-…: Stage 1.5 cannot decide implementation semantics. Points back to the cause (ambiguity, incomplete table, missing source).",
+      "required": ["kind", "id", "cause", "affects", "needed", "status"],
+      "properties": {
+        "kind": {"const": "blocker"}, "id": {"$ref": "#/$defs/ref"},
+        "cause": {"$ref": "#/$defs/ids"}, "affects": {"$ref": "#/$defs/ids"},
+        "needed": {"type": "string"}, "status": {"enum": ["open", "resolved"]},
+        "resolved_by": {"$ref": "#/$defs/ref"}, "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "test": {
+      "type": "object",
+      "description": "TST-…: engine-agnostic Given/When/Then. `given` is a canonical state snapshot (wgc/state@0) or fixture path; `when` lists decisions/actions and injected random outcomes; `then` asserts acceptance or reason_code, events in order and state paths.",
+      "required": ["kind", "id", "category", "given", "when", "then", "realizes"],
+      "allOf": [{"$ref": "#/$defs/common_fields"}],
+      "properties": {
+        "kind": {"const": "test"}, "id": {"$ref": "#/$defs/ref"},
+        "category": {"enum": ["legal", "illegal", "boundary", "exception", "override", "random", "trigger", "hidden_info", "invariant", "replay"]},
+        "from_case": {"$ref": "#/$defs/ref"},
+        "covers": {"$ref": "#/$defs/ids", "description": "digital records exercised"},
+        "given": {"type": "object", "properties": {"fixture": {"type": "string"}, "state": {"type": "object"}, "at": {"$ref": "#/$defs/ref"}, "scenario": {"$ref": "#/$defs/ref"}}, "additionalProperties": false},
+        "when": {"type": "object", "properties": {
+          "steps": {"type": "array", "items": {"type": "object", "properties": {
+            "by": {"$ref": "#/$defs/role"}, "decision": {"$ref": "#/$defs/ref"}, "action": {"$ref": "#/$defs/ref"}, "params": {"type": "object"}}, "additionalProperties": false}},
+          "random": {"type": "array", "items": {"type": "object", "required": ["source", "outcome"], "properties": {
+            "source": {"$ref": "#/$defs/ref"}, "outcome": {}}, "additionalProperties": false}}}, "additionalProperties": false},
+        "then": {"type": "object", "properties": {
+          "accepted": {"type": "boolean"}, "reason_code": {"type": "string"},
+          "events": {"type": "array", "items": {"type": "string"}},
+          "state": {"type": "array", "items": {"type": "object", "required": ["path"], "properties": {"path": {"type": "string"}, "equals": {}, "absent": {"type": "boolean"}}, "additionalProperties": false}}},
+          "additionalProperties": false},
+        "realizes": true, "blocked_by": true, "status": true, "prov": true, "notes": true
+      },
+      "additionalProperties": false
+    }
+  }
+}

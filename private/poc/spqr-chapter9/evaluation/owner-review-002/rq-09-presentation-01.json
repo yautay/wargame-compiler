@@ -1,0 +1,49 @@
+{
+  "question_id": "RQ-09",
+  "prepared_at_utc": "2026-10-07T19:20:12.504561+00:00",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-09-draft-records.json",
+  "draft_packet_sha256": "9a99461cef3e16f393ce810bbd153a39ccd1e34685b83d10470ff35118efdd90",
+  "evidence": "rq-09-evidence.json",
+  "evidence_sha256": "e341ba4a98615b9fb83c3fb80fd422240d011bcc3646e2878646b62c91aaf359",
+  "visual_QA": "Diagramwithbothcompletecaptions,full9.66columncontinuation,and9.67/9.68/exampleinspected;readableoriginalpixels,no ratingparametersinferred",
+  "local_scopes": [
+    "EXP046:topunits instackssameLine sideways tovacantflankClearoutsideenemyZOC,facingunchanged;unstackonly,notstackingTogether;diagramOriginaltop/Afterbottomillustrative",
+    "EXP047:reactiontriggerenemycombatwithin2hexes,line;maydeclinefirstopportunitywithoutlosinglatertriggers;OW/MLEdifferentunitscanwithvalidtriggers,sameunitscannotboth",
+    "EXP048:activeMLELC-only,bothunitsmaymoveafterwithMA-2,noCHforMLE;ColumnunitsnoMLE;noautomatictransferofLCpostmovepermissiontoreaction"
+  ],
+  "situations": [
+    {
+      "id": "SIT-14",
+      "facts": "RomanstackssameLine established,eligibleLC,noColumn;4destinationvariants:vacantClearoutsideZOC,occupiedClear,vacantnonClear,vacantClearinZOC",
+      "proposed_result": "Onlyfirstdestinationpasseslocalconditions;topsideways,facingunchanged,afterLCbothcanmovewithMA-2,0CHforMLE;other3forbidden;reversingdiagramnotstackingpermission"
+    },
+    {
+      "id": "SIT-15",
+      "facts": "Enemycombatcomeswithin2hexes,bothtriggerssupplied,sameunitswouldOWandMLE",
+      "proposed_result": "Sameunitscannotdoboth;differentunitscanwithconditions;decliningfirsttriggernotcancel laterMLEtriggers"
+    }
+  ],
+  "dependency_ids": [
+    "DEP-023",
+    "DEP-044",
+    "DEP-067-1",
+    "DEP-067-2",
+    "DEP-067-3",
+    "DEP-068",
+    "DEP-069-1",
+    "DEP-069-2",
+    "DEP-094"
+  ],
+  "dependency_context": "4.32definition,Clear/ZOC,OWtriggersequence,LCeligibility/Columnunclosed;044/067-1alreadyapprovedmentions;094physicalcontinuation",
+  "criticality_proposal": "critical:wrongdestination/negation/facing/order/budget/reaction-combination grantsillegalaction orchangesunitposition/state. SourcegraphicstructureapprovalbyMPOC1Anotmeaningacceptance.",
+  "remaining_gaps": [
+    "Actual4.32/terrain/ZOC/OW/LC/Columncontexts/mapsnotclosed",
+    "Smallcounterratingsnotexhaustivelytranscribed orused",
+    "NoautomaticpostmovepermissionforreactionMLE",
+    "No fullroute/gamelegality"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty i wyniki SIT-14/15 oraz ich krytyczność,bez przenoszenia prawa ruchu po MLE zLC na reakcję i z zachowaniem opisanych braków?",
+  "next_after_actual_answer": "Save actualscope/date/reason/evidencehash/gapsseparately;thenRQ10"
+}

@@ -1,0 +1,62 @@
+{
+  "authorizing_decision": "decision-15-RQ-14.json",
+  "authorizing_decision_sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+  "original_artifacts_modified": [],
+  "situation_overlays": [
+    {
+      "id": "SIT-04",
+      "semantic_status": "owner_confirmed_local_result",
+      "result": "First8:awayfromcause,attempt3hexes,noteliminatedbyDR8alone;subsequent8:eliminated. DoesnotresolvefirstLeader7-9(EXP009).",
+      "criticality": "owner_confirmed in shown scope"
+    },
+    {
+      "id": "SIT-06",
+      "semantic_status": "owner_confirmed_block",
+      "result": "Specificmapdirection/hexside cannotchosenwithoutactualcompass;examplenotuniversal orientation",
+      "criticality": "owner_confirmed in shown scope"
+    }
+  ],
+  "approved_scope": {
+    "situation_ids": [
+      "SIT-04",
+      "SIT-06"
+    ],
+    "expectation_fragments": {
+      "EXP-007": "Ordinary EL first 7-9 away from cause; subsequent 7-9 eliminates. No first Leader EL interpretation.",
+      "EXP-012": "Attempt 3 hexes per directional roll only, under supplied route/no early termination facts.",
+      "EXP-010": "1-6 uses actual battle map compass; missing compass blocks concrete direction/hexside."
+    },
+    "linked_dependency_ids": [
+      "DEP-042",
+      "DEP-043",
+      "DEP-091"
+    ],
+    "relation_limits": "Shown source associations and context need; no unshown metadata or target identity approval. DEP-043 remains mention, DEP-091 physical continuation.",
+    "source_ids": [
+      "TR-02",
+      "TR-03",
+      "C-9.14-03",
+      "D-01",
+      "X-01"
+    ],
+    "criticality": "SIT-04/SIT-06 in the shown local scopes",
+    "method_scope": [
+      "96historicalcandidates accounted as127facets,notuniqueverifiededges",
+      "113executionproposals:99explicit/14implicit;7mentionsand7physicalcontinuations separate",
+      "DEPNEW001/002/003approvedintheirshowninternal scopes,notwholegraphcertificate",
+      "Targetidentity/kind/direction/explicitness/necessity/sourceavailability assessed separately;aliases/repeatedsemantictuples notsilentlyTP",
+      "requires_context notcertainGold/FP;no frozencheckeduniquegraphdenominator;precision/recall n/a beforeextractionandcheckedgold",
+      "Rawexecution_counts_basis owner0 in reviewbasis is unchangedhistoricaldraftsnapshot,notcurrentreviewcounter;current scopeddecisions separate"
+    ],
+    "design_scope": "20 situations:17 local results/3 justified blocks after RQ01 correction. Composition only, not extraction quality."
+  },
+  "no_original_facing_override": true,
+  "retained_gaps": [
+    "EXP-009 first Leader Elephant 7-9 unresolved",
+    "Remaining unshown clauses/criticality and relation metadata require source-specific RQ15 review",
+    "External tables, actual map/scenario parameters and target identities unclosed",
+    "Full atomic inventory and small counter glyph transcription unverified",
+    "No full game legality, extraction, graph certificate, gold or eval-v1 freeze",
+    "Known initial Git index byte mismatch retained; cause unknown"
+  ]
+}

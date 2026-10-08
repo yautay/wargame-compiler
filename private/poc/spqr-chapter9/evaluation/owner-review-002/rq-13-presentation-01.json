@@ -1,0 +1,54 @@
+{
+  "question_id": "RQ-13",
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T09:04:19.504957+00:00",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-13-draft-records.json",
+  "draft_packet_sha256": "f3107a4f848550c8e2815cbcdd99f098b3d30bf178785c17b370eecf3e3095d9",
+  "evidence": "rq-13-evidence.json",
+  "evidence_sha256": "83d18bd0de31fd6fd8b85de8628fe727b5fbe763d11db750e91ce12f2449e9d3",
+  "source_location_supplement": "source/source-location-supplement-20261008-01.json",
+  "source_location_supplement_sha256": "7abfd334c40688c3b629bdf80d4de737c962b2b1adf5643a45419de8d60cd78c",
+  "visual_QA": "Bothcrops inspected:full9.96/N14acrossPDF36/37 andcomplete3bullets,endsbefore10.0;sourcepixelsunmodified",
+  "local_scopes": [
+    "EXP066:GallictransportCHCombatTablesignoreinstruction retained;exacttables/entriesrequirecontext alreadyRQ05scope",
+    "EXP067:CHonlyMA,noSize/TQ;cannotmoveincludingOWwithouteligibleLI;enemycombatmovingadjacenttosolitaryCH eliminatesit;staticadjacency notthegivenmovementtrigger",
+    "EXP068:oneLIperCH,CHtopdenotesmounted,combinedsingleforstackingbutotherrestrictionsretained",
+    "EXP069:mount/dismount0MP/CH;dismountcontinueonlyifcomboMPspent<LIprintedMA,remainingdifference;mountremainingCHMAminusLIalreadyusedMP",
+    "EXP070:MovementCostChart governsCHMP/prohibitions;movementCohesionHitsLIonly,notCH;no waiverofterrainprohibitions",
+    "EXP071:repeat-movementHitexceptiononlyentireOrdersPhasemounted;partialphasemountinsufficient",
+    "EXP072:mountedLInoShockattack,mustdismount;defendsasLI,notfullattackpermissionafterdismount",
+    "EXP073:mountedLIusesMountedJavelinMRRC,MissileSupply8.17notapplywhilemounted,removeLOW/NOatmount,H&Dascavalry;no guessedpostdismountsupply"
+  ],
+  "situation": {
+    "id": "SIT-20",
+    "facts": "EligibleLIsupplied,LIprintedMA5,CHMA8,comboMPsbeforedismount4or5,LIalreadyused3MPbeforemount,LOW/NOmarkerbeforemounttrue,noothercosts",
+    "proposed_result": "dismountafter4MP=>1MPremaining;after5MP=>nocontinuedmove;mountafter3LIMP=>5mountedCHMP;mount/dismount0MP/CH,removeLOW/NOatmount;mountedShockattackforbidden,partialphasemountnotentirephaseexception"
+  },
+  "criticality_proposal": "critical:wronginequality/budget/while-or-entirephase scope,negation/unitaddress/eligibility grantswrongmove/attack orchangesMP/Hits/firestate",
+  "dependency_ids": [
+    "DEP-029",
+    "DEP-038",
+    "DEP-039",
+    "DEP-040",
+    "DEP-085-1",
+    "DEP-085-2",
+    "DEP-086-1",
+    "DEP-086-2",
+    "DEP-087",
+    "DEP-088-1",
+    "DEP-088-2",
+    "DEP-089",
+    "DEP-096"
+  ],
+  "remaining_gaps": [
+    "RealeligibleLIidentity/MCC/MRRC/CombatTablesentries andgeneralstacking/MPproceduresunclosed",
+    "PostdismountMissileSupplynotresolved",
+    "No actualroute/terrain/completefire/combat legality",
+    "Sourcefilelocationchangedbutcontentidentical;sourcev1retained",
+    "KnownGitindexbyteexceptionretained"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-20 wraz z krytycznością, z zachowaniem wymogu całej Orders Phase i while mounted oraz opisanych braków?",
+  "next_after_actual_answer": "Saveactualscope/date/reason/evidencehash/gapsseparately;thenRQ14"
+}

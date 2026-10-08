@@ -1,0 +1,12 @@
+# wgc/source@0: inwentarz źródeł (Stage 0), commitowany. Tekst segmentów jest tylko w .glu/source/ (ADR-0012).
+# Plik zapisują `wgc source scan|extract`: pola generowane są nadpisywane, pola ręczne zostają (title, edition,
+# language, complete, precedence, edition_skew, seg_prefix, notes, corrections, verified_by_render).
+# Komentarze nie są zachowywane: notatki zapisuj w polu `notes`.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-tst.rules, role: rules, path: private/rules.pdf, file_hash: 'sha256:e72f294a19855dd1461546cd7f8a6fb131b94225bc25f280beaf1d9cf1140d5e', present: true, seg_prefix: tst, extractor: wgc.ingest.pdf@1}
+  - {kind: segment, id: SEG-tst.1.1, doc: SRC-tst.rules, label: '1.1', segment_type: rule, order: 1, pages: '1', bbox: [50.0, 92.7, 141.8, 101.7], text_hash: 'sha256:e4785e90d43c39273a77106c163d44d6c361f41d5435ebe12720f71919e231ef', struct_hash: 'sha256:e9e44820b3f4fe058bfaf38c10c2a0868bedb8d88a92fbbff3b611a5155f3b0b', visual_flags: [strikethrough], verified_by_render: true}
+  - {kind: segment, id: SEG-tst.1.2, doc: SRC-tst.rules, label: '1.2', segment_type: rule, order: 2, pages: '1', bbox: [50.0, 107.7, 147.2, 116.7], text_hash: 'sha256:c9d8d8b253a62e7675e4fcc0640f0c31ae05d44e835d5d20cb186c14298afa14', struct_hash: 'sha256:03d8515dae22b7d98736e1baec087b686ab27a98b4c5ac63acaf2e23acb47bda'}
+  - {kind: segment, id: SEG-tst.1.3, doc: SRC-tst.rules, label: '1.3', segment_type: rule, order: 3, pages: '1', bbox: [50.0, 122.7, 147.2, 131.7], text_hash: 'sha256:c9d8d8b253a62e7675e4fcc0640f0c31ae05d44e835d5d20cb186c14298afa14', struct_hash: 'sha256:03d8515dae22b7d98736e1baec087b686ab27a98b4c5ac63acaf2e23acb47bda'}
+  - {kind: segment, id: SEG-tst.1.4, doc: SRC-tst.rules, label: '1.4', segment_type: rule, order: 4, pages: '1', bbox: [50.0, 137.7, 147.2, 146.7], text_hash: 'sha256:c9d8d8b253a62e7675e4fcc0640f0c31ae05d44e835d5d20cb186c14298afa14', struct_hash: 'sha256:03d8515dae22b7d98736e1baec087b686ab27a98b4c5ac63acaf2e23acb47bda'}
+  - {kind: segment, id: SEG-tst.1.5, doc: SRC-tst.rules, label: '1.5', segment_type: rule, order: 5, pages: '1', bbox: [50.0, 152.7, 147.2, 161.7], text_hash: 'sha256:c9d8d8b253a62e7675e4fcc0640f0c31ae05d44e835d5d20cb186c14298afa14', struct_hash: 'sha256:03d8515dae22b7d98736e1baec087b686ab27a98b4c5ac63acaf2e23acb47bda'}

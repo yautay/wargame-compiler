@@ -1,0 +1,7 @@
+# MUST FAIL: a manifest entry without the hash of what the job read (ADR-0033).
+schema: wgc/logic@0
+records:
+  - {kind: table, id: TAB-x, title: X, columns: [{name: a}, {name: b}], rows: [[1, x]], complete: true, status: accepted,
+     prov: {kind: deterministic_derivation, by: {tier: deterministic, tool: "wgc.x@0"}, derived_from: [SEG-x.1],
+            manifest: {format: wgc/manifest@0, task: wgc.x@0, projection: wgc/projection@2,
+                       inputs: [{id: SEG-x.1}], authority: []}}}

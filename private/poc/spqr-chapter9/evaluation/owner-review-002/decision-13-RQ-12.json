@@ -1,0 +1,87 @@
+{
+  "id": "M-POC1B-owner-decision-13",
+  "card": "M-POC1B",
+  "question_id": "RQ-12",
+  "reviewer": "owner in this chat;no personalidentity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T08:52:31.435011+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response_file": "owner-answer-13.raw.txt",
+  "raw_response_sha256": "d1951f2010da63f279834a93cacdd8b7b5d50d393daf14105883b4c0992900a3",
+  "approved_question": "Czy zatwierdzasz te lokalne odczyty,blokadę SIT-18,wynik SIT-19 i ich krytyczność,z zachowaniem braków oraz bez automatycznego utożsamiania eliminacji depleted BI z Rout dla Ferocity?",
+  "basis": {
+    "presentation": "rq-12-presentation-01.json",
+    "presentation_sha256": "b56366a58b0ad277c9d76f532b7696be16e544caeca5ce1a19c3bf1cfffdb22c",
+    "draft_packet": "rq-12-draft-records.json",
+    "draft_packet_sha256": "8efef0bf350e1635abf0bb336d0d9c3b89a89335c749c0a11e2031cdd4dca3d3",
+    "evidence": "rq-12-evidence.json",
+    "evidence_sha256": "5d8533d64028a3771fd6a4a730d1f336e95a154fafa908761254fa7ef05cf4ee",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-060",
+      "EXP-061",
+      "EXP-062",
+      "EXP-063",
+      "EXP-064",
+      "EXP-065"
+    ],
+    "local_readings": [
+      "EXP060:BI no terrainCohesionHits crossing/enteringpassableterrain or facingRough;MP/passabilitynotwaived;noColumn/PAW/OW",
+      "EXP061:Recoveryorderonly1CH;depletedBIeliminatedinsteadofRout;do notautomaticallytreatthateliminationasRoutforFerocity;fulltriggerorderingnotresolved",
+      "EXP062:BI startFerocity;BI PreShock-1DRM and defenders+2DRM inshownscope,othermodifiers/procedureunknown",
+      "EXP063:EachordinaryBI RouttriggersFerocitycheckagainstscenarioassignedleaderInitiative;DR<=retains,>losespermanentlyforthatleaderBIcommand,othersunaffected",
+      "EXP064:Actualleader/Initiative/membership requires scenariosetup;no nearest/favorable default",
+      "EXP065:BI startMA+1 and commandingLeader-1allfirsttryMomentum;after>=2distinctBIofsamecommandenterenemyZOC,Impetuosity lastsrestofthatGameTurn thenlostforthatcommandonly"
+    ],
+    "situations": [
+      {
+        "id": "SIT-18",
+        "facts": "OrdinaryBI Routgiven;nearbyA Initiative5,B7,DR6,commandmappingmissing",
+        "proposed_block": "CannotchooseInitiative/affectedBIcommand. If assignedA then6>5loss;assignedB then6<=7retention;mappingiscritical."
+      },
+      {
+        "id": "SIT-19",
+        "facts": "SyntheticA=[BI1,BI2,BI3],B=[BI4];secondBIofA entersenemyZOCinGameTurn2;baseMA5;firsttryMomentum",
+        "proposed_result": "A stillMA6 andleader-1firsttryMomentumrestofTurn2;ImpetuosityAexpiresafterTurn2;Bnotautomaticallylostwithoutitsowntrigger"
+      }
+    ],
+    "criticality": "criticalinshownlocalscopes",
+    "depleted_Ferocity_scope": "Do notautomaticallyequatedepletedeliminationwithRout;fulltriggerorderingstillunassessed",
+    "linked_dependency_ids": [
+      "DEP-026",
+      "DEP-027",
+      "DEP-028",
+      "DEP-080",
+      "DEP-081-1",
+      "DEP-081-2",
+      "DEP-082",
+      "DEP-083-1",
+      "DEP-083-2",
+      "DEP-084-1",
+      "DEP-084-2",
+      "DEP-095"
+    ],
+    "relation_limits": "Shownlocalassociations/contextneeds;no actualexternalsourceclosure orunshownmetadataapproval"
+  },
+  "rationale_accepted_by_reference": "TerrainCohesionexceptionnotMP/passabilitywaiver,only1RecoveryHit,sourceRouttriggerversuselimination,assignedleaderinequalityandcommandscope,rest-of-currentTurnImp timing. Missingmappingchangesresult atDR6 against5/7.",
+  "owner_independent_reason_text": "Nonebeyondapproval;shownrationaleacceptedbyreference",
+  "not_approved": [
+    "Actualleader/Initiative/commandmapping",
+    "FullRecovery/Rout/depletion/Momentum/terrainprocedures",
+    "DepletedeliminationFerocityfullorder/outcome",
+    "Actualmap/route/setup/fullgameoutcome",
+    "Wholeatomicinventory/graph/collection"
+  ],
+  "remaining_gaps": [
+    "Actualcommandmapping/Initiative andgeneralMomentum/Recovery/Rout/depletion/terrain contexts notclosed",
+    "Depletedelimination vsFerocity trigger-order remains unassessed;noautomaticRoutassumption",
+    "SIT18 testsordinaryRoutnotdepletedcombination",
+    "Syntheticmappingnotactualscenarioapproval",
+    "No fullmovement/gameoutcome"
+  ],
+  "no_freeze": true
+}

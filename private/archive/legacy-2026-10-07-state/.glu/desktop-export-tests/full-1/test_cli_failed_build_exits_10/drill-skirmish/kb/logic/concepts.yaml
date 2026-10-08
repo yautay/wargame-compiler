@@ -1,0 +1,45 @@
+# wgc/logic@0: rekordy KB zapisuje wyłącznie `wgc.kb.accept()` (ADR-0025). Komentarze nie są zachowywane.
+schema: wgc/logic@0
+records:
+  - kind: concept
+    id: CON-combat_phase
+    category: phase
+    name: Combat Phase
+    source_terms: [Combat Phase]
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.2.2, seg_hash: 'sha256:543a91690cd1620d964be4fcc521e359093e09d4e8aa5dc3afc24b27b2e4c895', quote: Combat Phase}], by: {tier: deterministic, tool: wgc.terms.harvest@0}, job: job_01M49B93S0C161Z3X7TDFZRHVG, inputs_hash: 'sha256:0b24f7094cbf46879f72f5ea5280a94216abb2059abaee3fb02af75f8ab2c28b', manifest: {format: wgc/manifest@0, task: wgc.terms.harvest@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.2.2, hash: 'sha256:94df7cc5096e381b7dada3069555834c460df2ba70d09ef44c905f3fe0cc476f'}, {id: SEG-dsk.4.2, hash: 'sha256:88fb8522e77f3ffbac9e50d4972b668670d047b1e9417b59d94b1a17034336ec'}, {id: SEG-dsk.5.2, hash: 'sha256:14d0aa83052fe514d41b1a9888ebc4e9d8b0806b626e680960d1dac34620a9c7'}, {id: SEG-dsk.7.0, hash: 'sha256:ea332f0bfe31d67af67bf63d2a2a594f48bd98f4720043dcd98b56fb763567b1'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}}
+  - kind: concept
+    id: CON-d6
+    category: die
+    name: d6
+    source_terms: [1d6]
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.4.2, seg_hash: 'sha256:62cc48bb440a024a05450e37dc17298738768a79fb51105e932d974bf3a58aeb', quote: 1d6}], by: {tier: deterministic, tool: wgc.terms.harvest@0}, job: job_01M49B93S0C161Z3X7TDFZRHVG, inputs_hash: 'sha256:db4c506790881f9ea8c3ab31bbdf228cbb7323b372400c4b1ad12417f0b9d67f', manifest: {format: wgc/manifest@0, task: wgc.terms.harvest@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.2.2, hash: 'sha256:94df7cc5096e381b7dada3069555834c460df2ba70d09ef44c905f3fe0cc476f'}, {id: SEG-dsk.4.2, hash: 'sha256:88fb8522e77f3ffbac9e50d4972b668670d047b1e9417b59d94b1a17034336ec'}, {id: SEG-dsk.5.2, hash: 'sha256:14d0aa83052fe514d41b1a9888ebc4e9d8b0806b626e680960d1dac34620a9c7'}, {id: SEG-dsk.7.0, hash: 'sha256:ea332f0bfe31d67af67bf63d2a2a594f48bd98f4720043dcd98b56fb763567b1'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}}
+  - kind: concept
+    id: CON-end_phase
+    category: phase
+    name: End Phase
+    source_terms: [End Phase]
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.2.2, seg_hash: 'sha256:543a91690cd1620d964be4fcc521e359093e09d4e8aa5dc3afc24b27b2e4c895', quote: End Phase}], by: {tier: deterministic, tool: wgc.terms.harvest@0}, job: job_01M49B93S0C161Z3X7TDFZRHVG, inputs_hash: 'sha256:0b24f7094cbf46879f72f5ea5280a94216abb2059abaee3fb02af75f8ab2c28b', manifest: {format: wgc/manifest@0, task: wgc.terms.harvest@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.2.2, hash: 'sha256:94df7cc5096e381b7dada3069555834c460df2ba70d09ef44c905f3fe0cc476f'}, {id: SEG-dsk.4.2, hash: 'sha256:88fb8522e77f3ffbac9e50d4972b668670d047b1e9417b59d94b1a17034336ec'}, {id: SEG-dsk.5.2, hash: 'sha256:14d0aa83052fe514d41b1a9888ebc4e9d8b0806b626e680960d1dac34620a9c7'}, {id: SEG-dsk.7.0, hash: 'sha256:ea332f0bfe31d67af67bf63d2a2a594f48bd98f4720043dcd98b56fb763567b1'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}}
+  - kind: concept
+    id: CON-movement_phase
+    category: phase
+    name: Movement Phase
+    source_terms: [Movement Phase]
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.2.2, seg_hash: 'sha256:543a91690cd1620d964be4fcc521e359093e09d4e8aa5dc3afc24b27b2e4c895', quote: Movement Phase}], by: {tier: deterministic, tool: wgc.terms.harvest@0}, job: job_01M49B93S0C161Z3X7TDFZRHVG, inputs_hash: 'sha256:0b24f7094cbf46879f72f5ea5280a94216abb2059abaee3fb02af75f8ab2c28b', manifest: {format: wgc/manifest@0, task: wgc.terms.harvest@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.2.2, hash: 'sha256:94df7cc5096e381b7dada3069555834c460df2ba70d09ef44c905f3fe0cc476f'}, {id: SEG-dsk.4.2, hash: 'sha256:88fb8522e77f3ffbac9e50d4972b668670d047b1e9417b59d94b1a17034336ec'}, {id: SEG-dsk.5.2, hash: 'sha256:14d0aa83052fe514d41b1a9888ebc4e9d8b0806b626e680960d1dac34620a9c7'}, {id: SEG-dsk.7.0, hash: 'sha256:ea332f0bfe31d67af67bf63d2a2a594f48bd98f4720043dcd98b56fb763567b1'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}}
+  - kind: concept
+    id: CON-rally_phase
+    category: phase
+    name: Rally Phase
+    source_terms: [Rally Phase]
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.2.2, seg_hash: 'sha256:543a91690cd1620d964be4fcc521e359093e09d4e8aa5dc3afc24b27b2e4c895', quote: Rally Phase}], by: {tier: deterministic, tool: wgc.terms.harvest@0}, job: job_01M49B93S0C161Z3X7TDFZRHVG, inputs_hash: 'sha256:0b24f7094cbf46879f72f5ea5280a94216abb2059abaee3fb02af75f8ab2c28b', manifest: {format: wgc/manifest@0, task: wgc.terms.harvest@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.2.2, hash: 'sha256:94df7cc5096e381b7dada3069555834c460df2ba70d09ef44c905f3fe0cc476f'}, {id: SEG-dsk.4.2, hash: 'sha256:88fb8522e77f3ffbac9e50d4972b668670d047b1e9417b59d94b1a17034336ec'}, {id: SEG-dsk.5.2, hash: 'sha256:14d0aa83052fe514d41b1a9888ebc4e9d8b0806b626e680960d1dac34620a9c7'}, {id: SEG-dsk.7.0, hash: 'sha256:ea332f0bfe31d67af67bf63d2a2a594f48bd98f4720043dcd98b56fb763567b1'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}}
+  - kind: concept
+    id: CON-scn.the_ford
+    category: scenario
+    name: The Ford
+    source_terms: [The Ford]
+    status: accepted
+    prov: {kind: explicit_source, anchors: [{seg: SEG-dsk.7.0, seg_hash: 'sha256:1021f0dc90a57dbcd121d2e6e20b0cd7a5874fba93830d82c703b9efdb9b6e33', quote: 'Scenario: The Ford'}], by: {tier: deterministic, tool: wgc.terms.harvest@0}, job: job_01M49B93S0C161Z3X7TDFZRHVG, inputs_hash: 'sha256:1b0c3f2a5b359a4f2902a16bbff3c8c02ef91d7a35ec8157eb5f9072374b43ab', manifest: {format: wgc/manifest@0, task: wgc.terms.harvest@0, projection: wgc/projection@3, inputs: [{id: SEG-dsk.2.2, hash: 'sha256:94df7cc5096e381b7dada3069555834c460df2ba70d09ef44c905f3fe0cc476f'}, {id: SEG-dsk.4.2, hash: 'sha256:88fb8522e77f3ffbac9e50d4972b668670d047b1e9417b59d94b1a17034336ec'}, {id: SEG-dsk.5.2, hash: 'sha256:14d0aa83052fe514d41b1a9888ebc4e9d8b0806b626e680960d1dac34620a9c7'}, {id: SEG-dsk.7.0, hash: 'sha256:ea332f0bfe31d67af67bf63d2a2a594f48bd98f4720043dcd98b56fb763567b1'}], authority: [{id: SRC-dsk.rules, hash: 'sha256:dc0baa0e252db2676d805c56bb2aa715578034b4791bccade93f83f3f9b76ada'}]}, owner: {task: wgc.terms.harvest, scope: [SRC-dsk.rules]}}

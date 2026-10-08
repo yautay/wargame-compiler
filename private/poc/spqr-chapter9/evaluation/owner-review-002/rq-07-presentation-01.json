@@ -1,0 +1,67 @@
+{
+  "prepared_at_utc": "2026-10-07T18:30:49.067877+00:00",
+  "question_id": "RQ-07",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-07-draft-records.json",
+  "draft_packet_sha256": "01cb3dcd73302acf6bf189570acfc1acc324cdc2af3491db10a8299822affd3a",
+  "evidence": "rq-07-evidence.json",
+  "evidence_sha256": "1a64371452d70c4a0f28dd44dcf4e672b1d2f409c9c9404e2aa3ba078a90100e",
+  "visual_QA": "Bothsheetsinspected:full9.41/eligible-note/9.51/9.52/9.53,readableoriginalpixels",
+  "local_scopes": [
+    "EXP032:movingFrontPHDefense2Lperqualifyingflank,HI1Lperflank;excludestartadjacentstayed,FlankRear,anyPHattacker",
+    "EXP033:scenarioDDeligibilitylistnecessary,missingblocksSIT11",
+    "EXP034:formingDDIOorLCdirectOC,backstartsbehindfront,terraincost+1MP,backunderfront,endbothmovementthisphase",
+    "EXP035:OCordersonly,2IOwhenIOmovement,PAWvia6.8,noWheel/Reverse/Column;unstacktopmoves,bottomstays,IOorLCasabove;fullLCprocedure notclosed",
+    "EXP036:readyDDMA4never5,movementHittoeach,nounitthroughorintoreadyDD;forming9.51separate",
+    "EXP037:combinedSize,topTQunlessRearthenbottom;otherchecksifselectedunitincursHits;actualTQvaluesunknown",
+    "EXP038:enemydefendingagainstDD+1PreShock,DDdefending-1;9.41conditionsstillapply",
+    "EXP039:FlankReardefenderShockHits3xinstead2x,equalallocationoddtop;missileHits topunlessRearthenbottom",
+    "EXP040:Routone=>Routboth,separate-retreathexes;exacttheuniteliminationrecipient underoccupiedhexconflictnotresolved"
+  ],
+  "dependency_ids": [
+    "DEP-017",
+    "DEP-036",
+    "DEP-058",
+    "DEP-059-1",
+    "DEP-059-2",
+    "DEP-059-3",
+    "DEP-060-1",
+    "DEP-060-2",
+    "DEP-061",
+    "DEP-062",
+    "DEP-013",
+    "DEP-014",
+    "DEP-015",
+    "DEP-016",
+    "DEP-063"
+  ],
+  "situations": [
+    {
+      "id": "SIT-10",
+      "facts": "PHdefender,bothflanksqualify,FrontHIattack,noPHattacker;movingvsstartadjacentstayed",
+      "proposed_result": "movingHI1Lperflank=>2L;startadjacentstayed0Lfrom9.41. SourcegenericnonHI/nonPHwould4Lwithsameflanks"
+    },
+    {
+      "id": "SIT-11",
+      "facts": "twoPH,OCorder/rearposition/MPsprovided;scenarioeligiblelistmissing",
+      "proposed_result": "justifiedblock ofactualDDformation eligibility;localgeometric/MPfactsnotenough"
+    },
+    {
+      "id": "SIT-12",
+      "facts": "legalreadyDD,ShockFlank,base3defenderHitsbeforedirectionalmultiplier,noothermodifiers",
+      "proposed_result": "3x3=9CH,top5/bottom4;noRoutresolution"
+    }
+  ],
+  "facts_policy": "Synthetic/giveninputs;notrealmap/scenario/parameteracceptance",
+  "criticality_proposal": "critical:wrongperflank/type/time/eligibility/order/MA/DRM/multiplier/test orallocation changeslocallegality,Hits orunitstate",
+  "remaining_gaps": [
+    "scenarioeligibility/OCidentity/terraincost target sourcesmissing",
+    "fullCRT/TQ/retreatproceduresunclosed",
+    "LCexecutionnotfullyreviewed",
+    "EX040theunit recipient andoccupiedhexconflictunresolved",
+    "nofullcombat/travellegality"
+  ],
+  "question": "Czy zatwierdzasz pokazane lokalne odczyty, wyniki/blokadę SIT-10/11/12 i ich krytyczność, z zachowaniem opisanych braków kontekstu?",
+  "next_after_actual_answer": "Save actualscope/date/reason/hash/gapsseparately beforeRQ08"
+}

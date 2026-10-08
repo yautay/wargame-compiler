@@ -1,0 +1,6 @@
+{
+  "result": "failed_before_record_write",
+  "phase": "completion_record",
+  "cause": "diff-check.log not created when git diff --check has no output; tests and diff exit codes were 0",
+  "fix": "record absent empty-output log explicitly, preserve result.json as exit-code evidence"
+}

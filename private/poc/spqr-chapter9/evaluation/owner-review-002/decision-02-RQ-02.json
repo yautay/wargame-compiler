@@ -1,0 +1,97 @@
+{
+  "id": "M-POC1B-owner-decision-02",
+  "question_id": "RQ-02",
+  "card": "M-POC1B",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T13:19:00.222468+00:00",
+  "user_message_timestamp": "unknown; timestamp above is recording time",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response_file": "owner-answer-02.raw.txt",
+  "raw_response_sha256": "d1951f2010da63f279834a93cacdd8b7b5d50d393daf14105883b4c0992900a3",
+  "approved_question": "Czy zatwierdzasz dla SIT-05 natychmiastowy rally z4CH jako szczególny wyjątek od zakazu rally, pozostawiając pierwszy7-9 w EXP-009 nierozstrzygnięty?",
+  "review_basis": {
+    "presentation": "rq-02-presentation-01.json",
+    "presentation_sha256": "760b73c464286770449a636f1e00b351ecf5df6dd0308f2e69ba3626dc4da791",
+    "draft_records": "rq-02-draft-records.json",
+    "draft_records_sha256": "e90e22f164c24c60d7855bccd65316a3c5b14b90489d6f945e3fd29d2dc56347",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "evidence_manifest": "rq-02-evidence.json",
+    "evidence_manifest_sha256": "4ec460c82543707e4b017cf6da348c5415dcd8212be5881bbf76dbe5ecd9d435",
+    "crops": [
+      {
+        "path": "evidence/RQ-02-table-start.png",
+        "sha256": "919472d2df88aed23cc4ca2c91ad2b5d7fe3226b7885dd69c5bab317af105edb"
+      },
+      {
+        "path": "evidence/RQ-02-table-7-9.png",
+        "sha256": "04e1f2ac640f2f916a8b35f969b5a11e90b964e25075fe3acd058a6926d3e78f"
+      },
+      {
+        "path": "evidence/RQ-02-no-rally-start.png",
+        "sha256": "0b2248644d0acb11adb020b14d46c4172411edbb55460b36b5c7c266e0131b7a"
+      },
+      {
+        "path": "evidence/RQ-02-no-rally-continuation.png",
+        "sha256": "ae5560afe0d5eb2bf656dfbbd5ae1aeabf15c3b793fe0a6dde607e6f648b1fc4"
+      }
+    ],
+    "shown_crops": [
+      "RQ-02-table-7-9.png",
+      "RQ-02-no-rally-start.png",
+      "RQ-02-no-rally-continuation.png"
+    ],
+    "source_ids": [
+      "TR-03",
+      "C-9.14-11"
+    ],
+    "pdf_pages": [
+      32,
+      33
+    ]
+  },
+  "decision": {
+    "semantic_scopes": [
+      "SIT-05 local outcome:2nd Rampage DR8,syntheticTQ6=>immediate rally with4CH instead of elimination",
+      "EXP-008 subsequent7-9 rally clause only",
+      "EXP-011 general no-rally clause subject to the approved particular exception",
+      "DEP-NEW-002 TR-03->C-9.14-11:particular subsequent7-9 Leader Elephant exception"
+    ],
+    "reason_accepted_by_reference": "The shown table says instead/immediately rallied directly after elimination on a subsequent7-9. Accepted by zatwierdzam in response to that concrete question.",
+    "owner_independent_reason_text": "none supplied beyond approval",
+    "relation_review": {
+      "id": "DEP-NEW-002",
+      "direction": "TR-03 -> C-9.14-11",
+      "kind": "exception",
+      "explicitness": "implicit semantic connection between source clauses; no numeric cross-reference",
+      "necessity": "reconcile special local table result with general prohibition for this outcome",
+      "scope": "subsequent7-9 only; no complete-graph approval"
+    },
+    "deferral": [
+      "EXP-009 first7-9 remains unresolved; no result accepted for that case"
+    ]
+  },
+  "criticality": {
+    "proposal": "critical:elimination versus rally changes unit existence/state and Hits",
+    "proposal_author": "Codex, explained in shown RQ-02",
+    "owner_separate_explicit_criticality_decision": "not stated; no separate owner criticality justification attributed"
+  },
+  "not_approved": [
+    "Whole EXP-007/008/011",
+    "SIT-04 or SIT-06 outcome",
+    "Leader Elephant result0",
+    "DEP-004/041/042/091/092 full semantic scope",
+    "Map/scenario/counter parameters",
+    "Any relief from ZOC/reaction-fire/Rampage exclusivity by this particular rally exception",
+    "Other expectations/relations/situations or whole collection"
+  ],
+  "remaining_gaps": [
+    "EXP-009 first7-9 unresolved",
+    "criticality labels require separate owner justification/review",
+    "TQ6 is synthetic, not source counter read",
+    "external procedures/maps/scenarios remain unclosed",
+    "full game legality/result not established"
+  ],
+  "no_eval_freeze": true
+}

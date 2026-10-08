@@ -1,0 +1,7 @@
+# wgc/source@0: inwentarz źródeł (Stage 0), commitowany. Tekst segmentów jest tylko w .glu/source/ (ADR-0012).
+# Plik zapisują `wgc source scan|extract`: pola generowane są nadpisywane, pola ręczne zostają (title, edition,
+# language, complete, precedence, edition_skew, seg_prefix, notes, corrections, verified_by_render).
+# Komentarze nie są zachowywane: notatki zapisuj w polu `notes`.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-dtp.rules, role: rules, path: private/rules.pdf, file_hash: 'sha256:1e851ff7c5468b3972ed9d95e2631634739030e34546588cc23e45c8ec02682d', present: true, seg_prefix: dtp, extractor: wgc.ingest.pdf.hybrid@2}

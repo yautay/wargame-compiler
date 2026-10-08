@@ -1,0 +1,44 @@
+{
+  "prepared_at_utc": "2026-10-07T18:57:30.944898+00:00",
+  "question_id": "RQ-08",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-08-draft-records.json",
+  "draft_packet_sha256": "8db2a622dff753eb74a8ce1249c9990e59fc2c992c71558cb70d826a23a259c2",
+  "evidence": "rq-08-evidence.json",
+  "evidence_sha256": "2832859fb4c6a87d95b98755f840d9fbbfb9f16719e420c9677e2fb24d939d99",
+  "visual_QA": "Bothcropsinspected,full9.61..65and10.13includingexceptions/example readable,no relevantclipping;10.13markedboundarycontext",
+  "local_scopes": [
+    "EXP041:ruleofthumb2Romaninfantry sameborderwithexceptions;notfulllegaleligibility;move2IO,1IOifstackedOCgivingorders,1LCifbotheligible",
+    "EXP042:combineSize,otherratingsespeciallyTQtop,eachunitowntestusingtopTQ,onlytopfire,bothShock samehex;automaticHitsto each;Shockallocationdelegated8.46Step4/10.13",
+    "EXP043:differentbordercolors ORsamecolordifferentclasses,+1DRMtoallTQchecks",
+    "EXP044:stackorderchangeIOonly,notmovement/LC;facingcanLC;onlytopmovesifmovingoneunitfromstack",
+    "EXP045:Romaninfantryfacing1MPanynumbervertices;notMLEfacingrule"
+  ],
+  "situation": {
+    "id": "SIT-13",
+    "facts": "Romanstackdifferentbordercolors,synthetictopTQ7/bottomTQ5,LC;requestsstackorderswitchandfacing",
+    "proposed_result": "LCcannotchangeswitchtop/bottom;facinglocallypermittedbyLCorder-type;eachunitowntestusingTQ7topand+1DRMduetodifferentcolors",
+    "limits": "Othermodifiers/LCeligibility/fullactionlegality andactualtestHitsnotdetermined;ShockallocationnotaskedbySIT13"
+  },
+  "relation_directions": [
+    "DEP018:C9.61->4.32",
+    "DEP019:C9.62->8.42",
+    "DEP020:C9.62->6.68",
+    "DEP021:C9.62->8.46Step4",
+    "DEP022:C9.62->10.13;contextpartial,6.68bullet6stillmissing",
+    "DEP037:C9.61->StackingCharts,alreadyapprovedmention",
+    "DEP064-1/2:C9.61->stackingexceptions/bothLCeligibility",
+    "DEP065:C9.64->IO/LCconstraints",
+    "DEP066:C9.65->general facingcost,implicitmodificationproposal"
+  ],
+  "criticality_proposal": "critical inlocalexpectations/results:wrongordertype,testnumber/TQselection/DRM,unitaddressorcost changeslegality/Hits/state. DEP037mentionnoncriticalalreadyapproved.",
+  "remaining_gaps": [
+    "Fullstackingeligibility/exceptions,4.32andLCproceduresunclosed",
+    "Fullmulti-stackShockallocationrequires8.46Step4and10.13->6.68bullet6;contextimagealoneisnotcompleteclosure",
+    "Noactualscenario/unitparameters accepted",
+    "Noautomaticsemanticapprovalofevery10.13exception/example"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty i wynik SIT-13 wraz z krytycznością,pozostawiając pełną alokację Shock Hits jako niedomkniętą przez brak wskazanych procedur?",
+  "next_after_actual_answer": "Save actualdecision/scope/date/reason/hash/gaps separately;thenRQ09"
+}

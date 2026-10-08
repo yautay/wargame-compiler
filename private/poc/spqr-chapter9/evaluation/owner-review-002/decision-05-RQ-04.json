@@ -1,0 +1,151 @@
+{
+  "id": "M-POC1B-owner-decision-05",
+  "card": "M-POC1B",
+  "question_id": "RQ-04",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T13:47:52.741458+00:00",
+  "user_message_timestamp": "unknown; save time is separate",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response_file": "owner-answer-05.raw.txt",
+  "raw_response_sha256": "d1951f2010da63f279834a93cacdd8b7b5d50d393daf14105883b4c0992900a3",
+  "approved_question": "Czy zatwierdzasz klasyfikację tych siedmiu konkretnych odsyłaczy jako niekrytyczne wzmianki(mention),bez dodatkowego kroku wykonania,przy zachowaniu wskazanych potrzeb kontekstu?",
+  "basis": {
+    "presentation": "rq-04-presentation-01.json",
+    "presentation_sha256": "58bba3a06c25701202b3da7a3c6a58ac79f66b370ceedc2c918b4a32a6574d1d",
+    "draft_packet": "rq-04-draft-records.json",
+    "draft_packet_sha256": "ecc713927d6f284a32a199e794d303d1624a3fa95d6317270afb1f7ccc997c1b",
+    "evidence_manifest": "rq-04-evidence.json",
+    "evidence_manifest_sha256": "a2dff12db0935f2dcb0eca14bb8ca88ebf9f056b31631c6ae0dceed90ddeb032",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "contact_sheet_hashes": [
+      {
+        "path": "evidence/RQ-04-examples-sheet.png",
+        "sha256": "35929a0a978a89b739af4c8b02ad9419b99be69803af534501247c4cd39809e1",
+        "transformation": "originalsizecrop pixels with neutral external labels; no sourcepixelretouch"
+      },
+      {
+        "path": "evidence/RQ-04-rule-references-sheet.png",
+        "sha256": "7d6307f08549c573ffdce047d0ed03bbe3cc2f416708610f67eda688b617b594",
+        "transformation": "originalsizecrop pixels with neutral external labels; no sourcepixelretouch"
+      }
+    ]
+  },
+  "approved_scope": {
+    "ids": [
+      "DEP-034",
+      "DEP-035",
+      "DEP-037",
+      "DEP-043",
+      "DEP-044",
+      "DEP-063",
+      "DEP-067-1"
+    ],
+    "candidate_ids": [
+      "DC-034",
+      "DC-035",
+      "DC-037",
+      "DC-043",
+      "DC-044",
+      "DC-063",
+      "DC-067 facet1 only"
+    ],
+    "kind": "mention",
+    "explicitness": "explicit as presented",
+    "executable": false,
+    "criticality": "noncritical at these specific reference occurrences",
+    "directions": [
+      {
+        "id": "DEP-034",
+        "from": "X-02",
+        "to_or_target_candidate": {
+          "name": "Shock Combat Results Table",
+          "identifier": "unknown",
+          "alias_resolution": "provisional",
+          "facet": "Shock Combat Results Table"
+        }
+      },
+      {
+        "id": "DEP-035",
+        "from": "X-04",
+        "to_or_target_candidate": {
+          "name": "Shock Combat Results Table",
+          "identifier": "unknown",
+          "alias_resolution": "provisional",
+          "facet": "Shock Combat Results Table"
+        }
+      },
+      {
+        "id": "DEP-037",
+        "from": "C-9.61-01",
+        "to_or_target_candidate": {
+          "name": "Stacking Charts",
+          "identifier": "unknown",
+          "alias_resolution": "provisional",
+          "facet": "Stacking Charts"
+        }
+      },
+      {
+        "id": "DEP-043",
+        "from": "X-01",
+        "to_or_target_candidate": {
+          "name": "battle-specific map compass",
+          "identifier": "unknown",
+          "alias_resolution": "provisional",
+          "facet": "battle-specific map compass"
+        }
+      },
+      {
+        "id": "DEP-044",
+        "from": "C-9.66-01",
+        "to_or_target_candidate": "D-02"
+      },
+      {
+        "id": "DEP-063",
+        "from": "X-06",
+        "to_or_target_candidate": {
+          "name": "Cynoscephalae scenario rules",
+          "identifier": "unknown",
+          "target_source": "unknown",
+          "facet": "Cynoscephalae scenario rules"
+        }
+      },
+      {
+        "id": "DEP-067-1",
+        "from": "C-9.66-01",
+        "to_or_target_candidate": {
+          "name": "Orderly Withdrawal, Clear terrain, ZOC",
+          "identifier": "unknown",
+          "target_source": "unknown",
+          "facet": "Orderly Withdrawal alternative"
+        }
+      }
+    ],
+    "rationale_accepted_by_reference": "Illustrative examples,summary/diagram references or alternativeOW do not create a new execution step at these occurrences. Underlying realcompass/eligibility/stacking/terrain/ZOC needs remain separately represented.",
+    "owner_independent_reason_text": "None beyond zatwierdzam; presented rationale accepted by reference",
+    "preserved_context_needs": [
+      "DEP-042",
+      "DEP-058",
+      "DEP-064-1",
+      "DEP-064-2",
+      "DEP-067-2",
+      "DEP-067-3"
+    ]
+  },
+  "not_approved": [
+    "Externaltarget identities/aliases orsourceclosure",
+    "OtherfacetsDEP-067-2/3",
+    "Allclausesof9.61/9.66",
+    "SIT-06/SIT-11 full expectedblock evaluation",
+    "EXP-031 AS/halvingconflict resolution",
+    "Wholecollection orverifiedexecutiongraph"
+  ],
+  "remaining_gaps": [
+    "Externaltargets/aliasesunresolved",
+    "Underlyingcriticalexecutiontargetsneedcontext",
+    "EXP-031 remainsrequires_context",
+    "EXP-009 first7-9unresolved"
+  ],
+  "no_freeze": true
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-07",
+  "hash_checks": {
+    "snapshot": 392,
+    "initial_restore": 392,
+    "delivered_restore_tool": 392,
+    "post_move_after_tests": 392
+  },
+  "mismatches": [],
+  "bytes_per_copy": 81319086,
+  "public_original_files": 237,
+  "private_original_files": 155,
+  "unchanged_source_artifact_files": 41,
+  "public_archive_matches_original_public_inventory": true,
+  "private_files_only_in_private_destinations": true,
+  "private_not_tracked_and_ignored": true,
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "git_diff_check": "passed",
+  "new_active_file_whitespace_check": "passed",
+  "new_active_files_checked": 34,
+  "existing_restore_destination_refused": true,
+  "limitations": [
+    "Snapshot excludes .git and .venv; original Git history remains in place",
+    "No external/off-device backup made",
+    "Legacy original gitattributes can normalize CRLF on future staging; snapshot preserves raw bytes",
+    "Global user ignore unreadable in sandbox; filesystem inventory independent of Git ignore"
+  ]
+}

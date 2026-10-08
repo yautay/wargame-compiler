@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-08",
+  "recorded_at_utc": "2026-10-08T13:40:48.656138+00:00",
+  "raw_response_file": "owner-clarification-RQ15d-01.raw.txt",
+  "raw_response_sha256": "37cfe4c8df8ce58f1bc757e490e411768a3c7a69dcee3afedcbff1cb50bbe1ec",
+  "actual_owner_request": "Jeśli chodzi o dwa wejścia kawaleri w zadane heksy weź wyjaśnij z przykładem",
+  "type": "request for explanation, not approval",
+  "question_id": "RQ-15d",
+  "scope": [
+    "EXP-015/C-9.15-01",
+    "RV-RQ15d-01 two entries"
+  ],
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15d-presentation-01.json",
+      "sha256": "d2625374d82aff4da346b358b084dc3bc510d5f36d2a1702ca516f338b11ce3b",
+      "bytes": 3734
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15d-evidence.json",
+      "sha256": "02d633d5edba984ec300fb169053ca0448c30ccc1d465f23a845e5726f08a1a0",
+      "bytes": 3375
+    }
+  ],
+  "explanation": {
+    "source_clause": "at the cost of 2 Cohesion Hits for each such hex entered",
+    "synthetic_example": "Given an otherwise allowed A->B->C route alongside one enemy EL: A outside its Flank/Rear, B a Flankhex, C a Rearhex. EntryB adds2CH; entryC addsanother2CH; total4CH from9.15 if cavalrycancontinueafterfirstentry.",
+    "start_in_flank_example": "Start alreadyBFlank then enterCRear:one countedentry=>2CH from9.15; not4 merelybecauseunitwasinitiallyB.",
+    "limits": [
+      "No actual map/facing/adjacency/route inferred; B/C classifications and allowed route are supplied illustrative facts",
+      "Further movement depends on actual remaining MP/cohesion/state/passability and other rules",
+      "Only9.15 CH increment; not full movement/combat legality or global CH total",
+      "No scored SIT added"
+    ],
+    "criticality": "Per enteredhex ratherthanonechargeperOrdersPhase orperElephant encounter."
+  },
+  "remaining_decision": "RQ15d approval still pending; explanation doesnotapproveotherIDs",
+  "no_original_modifications": true
+}

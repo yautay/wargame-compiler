@@ -1,0 +1,105 @@
+{
+  "id": "M-POC1B-owner-decision-08",
+  "card": "M-POC1B",
+  "question_id": "RQ-07",
+  "reviewer": "owner in this chat;no personalidentity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T18:53:06.927363+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "ok, to wszystko się zgadza, nie widzę błędów logicznych",
+  "raw_response_file": "owner-answer-08.raw.txt",
+  "raw_response_sha256": "e553af021eafd7dc6a34e322603f8a9c62a442ec20785cdcd0eee19844ec6ce7",
+  "approval_context": "MainRQ07question askedacceptanceofshownlocalreadings/results/block/criticality. OwneraskedwhereSIT11scenarioeligibilityappeared; focusedsourceandclarification supplied. Ownerthen states everythingagrees andno logicalerrors. RecordedasscopedRQ07approvalafterthatclarification,notwholecollection.",
+  "basis": {
+    "presentation": "rq-07-presentation-01.json",
+    "presentation_sha256": "01bd1c95f8479b6306123c70fbee2e90674eabebd83dcccc0f54b709c24ff557",
+    "draft_packet": "rq-07-draft-records.json",
+    "draft_packet_sha256": "01cb3dcd73302acf6bf189570acfc1acc324cdc2af3491db10a8299822affd3a",
+    "evidence": "rq-07-evidence.json",
+    "evidence_sha256": "1a64371452d70c4a0f28dd44dcf4e672b1d2f409c9c9404e2aa3ba078a90100e",
+    "clarification": "clarification-RQ07-01.json",
+    "clarification_sha256": "365be52b98612a03cfeb80e11724095e4daa29c4f48ba2ca21ca22577822a4c3",
+    "focused_evidence": "rq-07-N-09-clarification-evidence.json",
+    "focused_evidence_sha256": "a182f4aa31bc782502eea8669ad1232237c76c5b535b99ede297fcb94ce4d8aa",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "expectation_ids": [
+      "EXP-032",
+      "EXP-033",
+      "EXP-034",
+      "EXP-035",
+      "EXP-036",
+      "EXP-037",
+      "EXP-038",
+      "EXP-039",
+      "EXP-040"
+    ],
+    "local_readings": [
+      "EXP032:movingFrontPHDefense2Lperqualifyingflank,HI1Lperflank;excludestartadjacentstayed,FlankRear,anyPHattacker",
+      "EXP033:scenarioDDeligibilitylistnecessary,missingblocksSIT11",
+      "EXP034:formingDDIOorLCdirectOC,backstartsbehindfront,terraincost+1MP,backunderfront,endbothmovementthisphase",
+      "EXP035:OCordersonly,2IOwhenIOmovement,PAWvia6.8,noWheel/Reverse/Column;unstacktopmoves,bottomstays,IOorLCasabove;fullLCprocedure notclosed",
+      "EXP036:readyDDMA4never5,movementHittoeach,nounitthroughorintoreadyDD;forming9.51separate",
+      "EXP037:combinedSize,topTQunlessRearthenbottom;otherchecksifselectedunitincursHits;actualTQvaluesunknown",
+      "EXP038:enemydefendingagainstDD+1PreShock,DDdefending-1;9.41conditionsstillapply",
+      "EXP039:FlankReardefenderShockHits3xinstead2x,equalallocationoddtop;missileHits topunlessRearthenbottom",
+      "EXP040:Routone=>Routboth,separate-retreathexes;exacttheuniteliminationrecipient underoccupiedhexconflictnotresolved"
+    ],
+    "situations": [
+      {
+        "id": "SIT-10",
+        "facts": "PHdefender,bothflanksqualify,FrontHIattack,noPHattacker;movingvsstartadjacentstayed",
+        "proposed_result": "movingHI1Lperflank=>2L;startadjacentstayed0Lfrom9.41. SourcegenericnonHI/nonPHwould4Lwithsameflanks"
+      },
+      {
+        "id": "SIT-11",
+        "facts": "twoPH,OCorder/rearposition/MPsprovided;scenarioeligiblelistmissing",
+        "proposed_result": "justifiedblock ofactualDDformation eligibility;localgeometric/MPfactsnotenough"
+      },
+      {
+        "id": "SIT-12",
+        "facts": "legalreadyDD,ShockFlank,base3defenderHitsbeforedirectionalmultiplier,noothermodifiers",
+        "proposed_result": "3x3=9CH,top5/bottom4;noRoutresolution"
+      }
+    ],
+    "criticality": "criticalinshownlocalscopes asasked",
+    "linked_dependency_ids": [
+      "DEP-017",
+      "DEP-036",
+      "DEP-058",
+      "DEP-059-1",
+      "DEP-059-2",
+      "DEP-059-3",
+      "DEP-060-1",
+      "DEP-060-2",
+      "DEP-061",
+      "DEP-062",
+      "DEP-013",
+      "DEP-014",
+      "DEP-015",
+      "DEP-016",
+      "DEP-063"
+    ],
+    "linked_dependency_scope": "Shownlocalassociations/needforcontext;notunshownmetadata/actualexternaltargetclosure.",
+    "source_eligibility_interpretation": "N09-S2 lists eligibleunitsin scenario-specificrules; missinglistblocksSIT11despitesuppliedlocalconditions"
+  },
+  "owner_independent_reason_text": "nie widzę błędów logicznych",
+  "source_rationale_accepted_by_reference": "Perflank/HI/movingFrontconditions,scenariolistrequirement,DDlocalformation/movement/test/DRM/allocationrules,andtripled/oddtop9Hitscase.",
+  "not_approved": [
+    "Actualscenarioeligibilitylist/OCidentity/terrainparameters",
+    "CompleteCRT/TQ/movement/retreatprocedures",
+    "FullLCexecution",
+    "EXP040theunitrecipient andoccupiedhexconflictresolution",
+    "Wholeatomicinventory/graph/collection"
+  ],
+  "remaining_gaps": [
+    "scenarioeligibility/OCidentity/terraincost target sourcesmissing",
+    "fullCRT/TQ/retreatproceduresunclosed",
+    "LCexecutionnotfullyreviewed",
+    "EX040theunit recipient andoccupiedhexconflictunresolved",
+    "nofullcombat/travellegality"
+  ],
+  "no_freeze": true
+}

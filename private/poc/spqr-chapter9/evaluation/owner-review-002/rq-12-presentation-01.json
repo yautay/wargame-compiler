@@ -1,0 +1,56 @@
+{
+  "question_id": "RQ-12",
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T08:34:57.720059+00:00",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-12-draft-records.json",
+  "draft_packet_sha256": "8efef0bf350e1635abf0bb336d0d9c3b89a89335c749c0a11e2031cdd4dca3d3",
+  "evidence": "rq-12-evidence.json",
+  "evidence_sha256": "5d8533d64028a3771fd6a4a730d1f336e95a154fafa908761254fa7ef05cf4ee",
+  "visual_QA": "Both sheets inspected:complete9.91columncontinuation,9.93/9.94 includingnote,9.95;readableoriginalsourcepixels",
+  "local_scopes": [
+    "EXP060:BI no terrainCohesionHits crossing/enteringpassableterrain or facingRough;MP/passabilitynotwaived;noColumn/PAW/OW",
+    "EXP061:Recoveryorderonly1CH;depletedBIeliminatedinsteadofRout;do notautomaticallytreatthateliminationasRoutforFerocity;fulltriggerorderingnotresolved",
+    "EXP062:BI startFerocity;BI PreShock-1DRM and defenders+2DRM inshownscope,othermodifiers/procedureunknown",
+    "EXP063:EachordinaryBI RouttriggersFerocitycheckagainstscenarioassignedleaderInitiative;DR<=retains,>losespermanentlyforthatleaderBIcommand,othersunaffected",
+    "EXP064:Actualleader/Initiative/membership requires scenariosetup;no nearest/favorable default",
+    "EXP065:BI startMA+1 and commandingLeader-1allfirsttryMomentum;after>=2distinctBIofsamecommandenterenemyZOC,Impetuosity lastsrestofthatGameTurn thenlostforthatcommandonly"
+  ],
+  "situations": [
+    {
+      "id": "SIT-18",
+      "facts": "OrdinaryBI Routgiven;nearbyA Initiative5,B7,DR6,commandmappingmissing",
+      "proposed_block": "CannotchooseInitiative/affectedBIcommand. If assignedA then6>5loss;assignedB then6<=7retention;mappingiscritical."
+    },
+    {
+      "id": "SIT-19",
+      "facts": "SyntheticA=[BI1,BI2,BI3],B=[BI4];secondBIofA entersenemyZOCinGameTurn2;baseMA5;firsttryMomentum",
+      "proposed_result": "A stillMA6 andleader-1firsttryMomentumrestofTurn2;ImpetuosityAexpiresafterTurn2;Bnotautomaticallylostwithoutitsowntrigger"
+    }
+  ],
+  "criticality_proposal": "critical:wrongcost/negation/recovery/Routtrigger,leaderselection/inequality/commandscope orend-of-turn timingchangeslocalstate/benefit",
+  "dependency_ids": [
+    "DEP-026",
+    "DEP-027",
+    "DEP-028",
+    "DEP-080",
+    "DEP-081-1",
+    "DEP-081-2",
+    "DEP-082",
+    "DEP-083-1",
+    "DEP-083-2",
+    "DEP-084-1",
+    "DEP-084-2",
+    "DEP-095"
+  ],
+  "remaining_gaps": [
+    "Actualcommandmapping/Initiative andgeneralMomentum/Recovery/Rout/depletion/terrain contexts notclosed",
+    "Depletedelimination vsFerocity trigger-order remains unassessed;noautomaticRoutassumption",
+    "SIT18 testsordinaryRoutnotdepletedcombination",
+    "Syntheticmappingnotactualscenarioapproval",
+    "No fullmovement/gameoutcome"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty, blokadę SIT-18, wynik SIT-19 i ich krytyczność, z zachowaniem braków oraz bez automatycznego utożsamiania eliminacji depleted BI z Rout dla Ferocity?",
+  "next_after_actual_answer": "Save actualscope/date/reason/evidencehash/gapsseparately;thenRQ13"
+}

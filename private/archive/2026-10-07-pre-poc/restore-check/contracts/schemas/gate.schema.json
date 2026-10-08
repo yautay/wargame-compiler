@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/gate.schema.json",
+  "title": "wgc/gate@0: stage status (computed, never hand-edited)",
+  "description": "DRAFT @0. A gate report is COMPUTED by `wgc gate <stage> --scope …` from artifacts, validation results, open issues and freshness hashes. Stage 1.5 and Stage 2 have independent statuses; both depend only on Stage 1.",
+  "type": "object",
+  "required": ["schema", "stage", "scope", "state", "computed_at", "inputs_hash", "criteria"],
+  "properties": {
+    "schema": {"const": "wgc/gate@0"},
+    "stage": {"enum": ["stage0", "stage1", "stage1_5", "stage2", "stage3"]},
+    "scope": {"type": "object", "required": ["kind"], "properties": {
+      "kind": {"enum": ["game", "chapter", "record_set"]}, "ref": {"type": "string"}}, "additionalProperties": false},
+    "state": {"enum": ["not_started", "in_progress", "awaiting_review", "blocked", "stale", "validated_with_open_issues", "validated", "complete"],
+      "description": "Precedence when several apply: blocked > stale > awaiting_review > in_progress; validated* only when every required criterion is met."},
+    "requires": {"type": "array", "items": {"type": "object", "required": ["stage", "min_state"], "properties": {
+      "stage": {"type": "string"}, "min_state": {"type": "string"}, "actual": {"type": "string"}}, "additionalProperties": false}},
+    "computed_at": {"type": "string", "format": "date-time"},
+    "inputs_hash": {"$ref": "common.schema.json#/$defs/hash"},
+    "policy": {"type": "string", "description": "gate policy id and version, e.g. gate.stage1@0 (thresholds per project in project.yaml)"},
+    "criteria": {"type": "array", "items": {"type": "object", "required": ["id", "required", "met"], "properties": {
+      "id": {"type": "string"}, "description": {"type": "string"}, "required": {"type": "boolean"}, "met": {"type": "boolean"},
+      "value": {"type": ["number", "string", "null"]}, "threshold": {"type": ["number", "string", "null"]}}, "additionalProperties": false}},
+    "metrics": {"type": "object", "additionalProperties": {"type": "number"}},
+    "open_issues": {"$ref": "common.schema.json#/$defs/ids"},
+    "blockers": {"$ref": "common.schema.json#/$defs/ids"},
+    "stale_records": {"$ref": "common.schema.json#/$defs/ids"}
+  },
+  "additionalProperties": false
+}

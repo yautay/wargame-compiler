@@ -1,0 +1,64 @@
+schema: glu/exec@0
+records:
+- kind: build
+  id: build_000001
+  project: bench-minigame
+  target:
+    stage: stage1
+    scope: chapter:3
+  state: waiting_inference
+  started_at: '2026-10-05T10:00:00Z'
+- kind: job
+  id: job_000001
+  build: build_000001
+  task: logic.rule.extract
+  inputs:
+  - SEG-mg.3.1
+  state: waiting_inference
+  tier: local
+  cache_key:
+    task: logic.rule.extract
+    task_version: '0'
+    output_schema: wgc/logic@0#rule
+    input_hash: sha256:0000000000000000
+    context_hash: sha256:1111111111111111
+  cache_hit: false
+  attempts:
+  - att_000001
+- kind: job
+  id: job_000002
+  build: build_000001
+  task: logic.rule.extract
+  inputs:
+  - SEG-mg.3.2
+  state: pending
+  tier: local
+  cache_key:
+    task: logic.rule.extract
+    task_version: '0'
+    output_schema: wgc/logic@0#rule
+    input_hash: sha256:0000000000000000
+    context_hash: sha256:1111111111111111
+- kind: attempt
+  id: att_000001
+  job: job_000001
+  tier: local
+  outcome: unavailable
+  error_class: network
+  endpoint: ai-node
+- kind: routing_decision
+  id: rd_000001
+  job: job_000001
+  policy: routing@0
+  chosen: local
+  signals:
+    risk_class: low
+  reasons:
+  - low risk
+- kind: build
+  id: build_000002
+  project: bench-minigame
+  target:
+    stage: stage0
+  state: planning
+  started_at: '2026-10-05T10:00:00Z'

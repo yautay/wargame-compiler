@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/desktop.schema.json",
+  "title": "wgc/desktop@0: private file exchange and document revisions",
+  "description": "Draft, ADR-0037. Shape validation is not semantic approval. References are package-local, not KB IDs.",
+  "oneOf": [
+    {"$ref": "#/$defs/package"}, {"$ref": "#/$defs/response"},
+    {"$ref": "#/$defs/document"}, {"$ref": "#/$defs/revision"}
+  ],
+  "$defs": {
+    "key": {"type": "string", "pattern": "^[a-z][a-z0-9._-]*$"},
+    "keys": {"type": "array", "items": {"$ref": "#/$defs/key"}, "uniqueItems": true},
+    "hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"},
+    "page_number": {"type": "integer", "minimum": 1},
+    "page_numbers": {"type": "array", "items": {"$ref": "#/$defs/page_number"}, "uniqueItems": true},
+    "bbox": {"type": "array", "items": {"type": "number", "minimum": 0}, "minItems": 4, "maxItems": 4},
+    "artifact": {
+      "type": "object", "required": ["path", "hash"],
+      "properties": {"path": {"$ref": "#/$defs/path"}, "hash": {"$ref": "#/$defs/hash"}},
+      "additionalProperties": false
+    },
+    "binding": {
+      "type": "object", "required": ["id", "hash"],
+      "properties": {"id": {"$ref": "#/$defs/key"}, "hash": {"$ref": "#/$defs/hash"}},
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object", "required": ["doc", "file_hash", "page_count"],
+      "properties": {
+        "doc": {"type": "string", "pattern": "^SRC-[A-Za-z0-9][A-Za-z0-9._:-]*$"},
+        "file_hash": {"$ref": "#/$defs/hash"}, "page_count": {"$ref": "#/$defs/page_number"}
+      }, "additionalProperties": false
+    },
+    "fragment": {
+      "type": "object", "required": ["ref", "text", "bbox", "glyphs"],
+      "properties": {
+        "ref": {"$ref": "#/$defs/key"}, "text": {"type": "string", "minLength": 1},
+        "bbox": {"$ref": "#/$defs/bbox"},
+        "glyphs": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["start", "end", "bbox"],
+            "properties": {
+              "start": {"type": "integer", "minimum": 0}, "end": {"type": "integer", "minimum": 1},
+              "bbox": {"$ref": "#/$defs/bbox"}
+            }, "additionalProperties": false
+          }
+        }
+      }, "additionalProperties": false
+    },
+    "page": {
+      "type": "object", "required": ["pdf_page", "printed_label", "width", "height", "render", "fragments"],
+      "properties": {
+        "pdf_page": {"$ref": "#/$defs/page_number"}, "printed_label": {"type": ["string", "null"]},
+        "width": {"type": "number", "exclusiveMinimum": 0},
+        "height": {"type": "number", "exclusiveMinimum": 0},
+        "render": {"$ref": "#/$defs/artifact"},
+        "fragments": {"type": "array", "items": {"$ref": "#/$defs/fragment"}}
+      }, "additionalProperties": false
+    },
+    "asset": {
+      "type": "object", "required": ["path", "hash", "role"],
+      "properties": {
+        "path": {"$ref": "#/$defs/path"}, "hash": {"$ref": "#/$defs/hash"},
+        "role": {"enum": ["source", "page_pdf", "render", "crop", "instructions", "schema", "legend", "example"]},
+        "pdf_page": {"$ref": "#/$defs/page_number"}
+      }, "additionalProperties": false
+    },
+    "package": {
+      "type": "object",
+      "required": ["schema", "kind", "id", "hash", "task", "source", "target_pages", "context_pages", "instructions", "response_schema", "assets", "pages"],
+      "properties": {
+        "schema": {"const": "wgc/desktop@0"}, "kind": {"const": "package"},
+        "id": {"$ref": "#/$defs/key"}, "hash": {"$ref": "#/$defs/hash"},
+        "task": {"const": "document.read@0"}, "source": {"$ref": "#/$defs/source"},
+        "target_pages": {"$ref": "#/$defs/page_numbers", "minItems": 1},
+        "context_pages": {"$ref": "#/$defs/page_numbers"},
+        "instructions": {
+          "type": "object", "required": ["version", "artifact"],
+          "properties": {"version": {"type": "string", "minLength": 1}, "artifact": {"$ref": "#/$defs/artifact"}},
+          "additionalProperties": false
+        },
+        "response_schema": {"const": "wgc/desktop@0#response"},
+        "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}, "minItems": 1},
+        "pages": {"type": "array", "items": {"$ref": "#/$defs/page"}, "minItems": 1}
+      }, "additionalProperties": false
+    },
+    "text_evidence": {
+      "type": "object", "required": ["ref", "kind", "spans"],
+      "properties": {
+        "ref": {"$ref": "#/$defs/key"}, "kind": {"const": "text_layer"},
+        "spans": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["fragment", "start", "end"],
+            "properties": {
+              "fragment": {"$ref": "#/$defs/key"}, "start": {"type": "integer", "minimum": 0},
+              "end": {"type": "integer", "minimum": 1}
+            }, "additionalProperties": false
+          }
+        }
+      }, "additionalProperties": false
+    },
+    "image_evidence": {
+      "type": "object", "required": ["ref", "kind", "pdf_page", "bbox", "image", "text"],
+      "properties": {
+        "ref": {"$ref": "#/$defs/key"},
+        "kind": {"enum": ["image_transcription", "diagram_description", "visual_scope"]},
+        "pdf_page": {"$ref": "#/$defs/page_number"}, "bbox": {"$ref": "#/$defs/bbox"},
+        "image": {"$ref": "#/$defs/artifact"}, "text": {"type": "string", "minLength": 1},
+        "discrepancy": {"type": "string", "minLength": 1}
+      }, "additionalProperties": false
+    },
+    "evidence": {"oneOf": [{"$ref": "#/$defs/text_evidence"}, {"$ref": "#/$defs/image_evidence"}]},
+    "cell": {
+      "type": "object", "required": ["row", "column", "row_span", "column_span", "role", "evidence"],
+      "properties": {
+        "row": {"type": "integer", "minimum": 0}, "column": {"type": "integer", "minimum": 0},
+        "row_span": {"type": "integer", "minimum": 1}, "column_span": {"type": "integer", "minimum": 1},
+        "role": {"enum": ["header", "data"]}, "evidence": {"$ref": "#/$defs/keys", "minItems": 1}
+      }, "additionalProperties": false
+    },
+    "block": {
+      "type": "object", "required": ["ref", "type", "evidence"],
+      "properties": {
+        "ref": {"$ref": "#/$defs/key"},
+        "type": {"enum": ["heading", "paragraph", "list", "list_item", "table", "box", "illustration", "caption", "note", "example"]},
+        "printed_label": {"type": "string"}, "parent": {"$ref": "#/$defs/key"},
+        "evidence": {"$ref": "#/$defs/keys", "minItems": 1},
+        "table": {
+          "type": "object", "required": ["rows", "columns", "cells", "notes"],
+          "properties": {
+            "rows": {"type": "integer", "minimum": 1}, "columns": {"type": "integer", "minimum": 1},
+            "cells": {"type": "array", "items": {"$ref": "#/$defs/cell"}, "minItems": 1},
+            "notes": {"$ref": "#/$defs/keys"}
+          }, "additionalProperties": false
+        }
+      },
+      "allOf": [{"if": {"properties": {"type": {"const": "table"}}}, "then": {"required": ["table"]}, "else": {"not": {"required": ["table"]}}}],
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object", "required": ["ref", "type", "from", "to", "evidence"],
+      "properties": {
+        "ref": {"$ref": "#/$defs/key"}, "type": {"enum": ["continuation", "caption_of", "legend_of", "scope"]},
+        "from": {"$ref": "#/$defs/key"}, "to": {"$ref": "#/$defs/key"},
+        "evidence": {"$ref": "#/$defs/keys", "minItems": 1}, "cue": {"enum": ["frame", "color"]}
+      },
+      "allOf": [{"if": {"properties": {"type": {"const": "scope"}}}, "then": {"required": ["cue"]}, "else": {"not": {"required": ["cue"]}}}],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "type": "object", "required": ["ref", "pdf_page", "bbox", "classification", "evidence", "blocks"],
+      "properties": {
+        "ref": {"$ref": "#/$defs/key"}, "pdf_page": {"$ref": "#/$defs/page_number"},
+        "bbox": {"$ref": "#/$defs/bbox"}, "classification": {"enum": ["content", "excluded", "gap"]},
+        "evidence": {"$ref": "#/$defs/keys"}, "blocks": {"$ref": "#/$defs/keys"},
+        "reason": {"type": "string", "minLength": 1}, "affects": {"$ref": "#/$defs/keys"}
+      },
+      "allOf": [{"if": {"properties": {"classification": {"const": "content"}}},
+        "then": {"properties": {"blocks": {"minItems": 1}, "evidence": {"minItems": 1}}},
+        "else": {"required": ["reason"], "properties": {"blocks": {"maxItems": 0}}}},
+        {"if": {"properties": {"classification": {"const": "gap"}}}, "then": {"required": ["affects"]}, "else": {"not": {"required": ["affects"]}}}],
+      "additionalProperties": false
+    },
+    "document": {
+      "type": "object", "required": ["schema", "kind", "source", "package", "blocks", "reading_order", "relations", "evidence", "coverage"],
+      "properties": {
+        "schema": {"const": "wgc/desktop@0"}, "kind": {"const": "document"},
+        "source": {"$ref": "#/$defs/source"}, "package": {"$ref": "#/$defs/binding"},
+        "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}},
+        "reading_order": {"$ref": "#/$defs/keys"},
+        "relations": {"type": "array", "items": {"$ref": "#/$defs/relation"}},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "coverage": {"type": "array", "items": {"$ref": "#/$defs/coverage"}, "minItems": 1}
+      }, "additionalProperties": false
+    },
+    "response": {
+      "type": "object", "required": ["schema", "kind", "package", "producer", "document"],
+      "properties": {
+        "schema": {"const": "wgc/desktop@0"}, "kind": {"const": "response"},
+        "package": {"$ref": "#/$defs/binding"}, "document": {"$ref": "#/$defs/document"},
+        "producer": {
+          "type": "object", "required": ["application", "model", "model_identity"],
+          "properties": {
+            "application": {"enum": ["chatgpt", "claude_desktop", "unknown"]},
+            "model": {"type": "string", "minLength": 1}, "model_identity": {"enum": ["reported", "unknown"]}
+          }, "additionalProperties": false
+        }
+      }, "additionalProperties": false
+    },
+    "review": {
+      "type": "object", "required": ["subject", "status"],
+      "properties": {
+        "subject": {"$ref": "#/$defs/key"}, "status": {"enum": ["pending", "approved", "rejected", "stale"]},
+        "reviewer": {"type": "string", "minLength": 1}, "note": {"type": "string"},
+        "basis": {
+          "type": "object", "required": ["document_hash", "render_hashes"],
+          "properties": {
+            "document_hash": {"$ref": "#/$defs/hash"},
+            "render_hashes": {"type": "array", "items": {"$ref": "#/$defs/hash"}, "uniqueItems": true, "minItems": 1}
+          }, "additionalProperties": false
+        }
+      },
+      "allOf": [{"if": {"properties": {"status": {"const": "approved"}}}, "then": {"required": ["reviewer", "basis"]}}],
+      "additionalProperties": false
+    },
+    "revision": {
+      "type": "object", "required": ["schema", "kind", "id", "hash", "package", "response", "document", "validation", "reviews", "completeness"],
+      "properties": {
+        "schema": {"const": "wgc/desktop@0"}, "kind": {"const": "revision"},
+        "id": {"$ref": "#/$defs/key"}, "hash": {"$ref": "#/$defs/hash"},
+        "parent": {"$ref": "#/$defs/binding"}, "package": {"$ref": "#/$defs/binding"},
+        "changes": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["before", "after", "reason"],
+            "properties": {"before": {"$ref": "#/$defs/keys"}, "after": {"$ref": "#/$defs/keys"}, "reason": {"type": "string", "minLength": 1}},
+            "anyOf": [{"properties": {"before": {"minItems": 1}}}, {"properties": {"after": {"minItems": 1}}}],
+            "additionalProperties": false
+          }
+        },
+        "response": {"$ref": "#/$defs/artifact"}, "document": {"$ref": "#/$defs/artifact"},
+        "validation": {"enum": ["unchecked", "valid", "invalid"]},
+        "reviews": {"type": "array", "items": {"$ref": "#/$defs/review"}},
+        "completeness": {"enum": ["partial", "complete"]}
+      },
+      "allOf": [{"if": {"required": ["parent"]}, "then": {"required": ["changes"]}, "else": {"not": {"required": ["changes"]}}}],
+      "additionalProperties": false
+    }
+  }
+}

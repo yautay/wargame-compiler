@@ -1,0 +1,12 @@
+# MUST FAIL: every inference result must report the model fingerprint (GLU cache keys depend on it).
+schema: igw/api@0
+messages:
+  - message: infer_result
+    body:
+      request_id: req_0003aa
+      profile: fast
+      node_id: ai-node-01
+      output: {text: "{}"}
+      finish_reason: stop
+      usage: {tokens_in: 10, tokens_out: 2}
+      timing: {infer_ms: 100}

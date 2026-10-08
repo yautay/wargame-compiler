@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/proposal.schema.json",
+  "title": "wgc/proposal@0: task output envelope",
+  "type": "object",
+  "required": ["schema", "task", "output_schema", "proposals"],
+  "properties": {
+    "schema": {"const": "wgc/proposal@0"},
+    "task": {"type": "string", "minLength": 1},
+    "output_schema": {"type": "string", "pattern": "^wgc/(logic|digital)@[0-9]+#[a-z_]+$"},
+    "proposals": {"type": "array", "items": {"$ref": "#/$defs/proposal"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "proposal": {
+      "type": "object",
+      "required": ["record"],
+      "properties": {
+        "record": {"type": "object", "required": ["kind", "id"],
+                   "properties": {"kind": {"type": "string"}, "id": {"$ref": "common.schema.json#/$defs/id"}},
+                   "not": {"anyOf": [{"required": ["prov"]}, {"required": ["status"]},
+                                     {"required": ["risk"]}]}},
+        "anchors": {"type": "array", "items": {"type": "object", "required": ["seg"],
+                    "properties": {"seg": {"$ref": "common.schema.json#/$defs/id"},
+                                   "quote": {"type": "string", "minLength": 1},
+                                   "span": {"type": "array", "items": {"type": "integer", "minimum": 0},
+                                            "minItems": 2, "maxItems": 2}},
+                    "additionalProperties": false}},
+        "derived_from": {"$ref": "common.schema.json#/$defs/ids"}
+      },
+      "anyOf": [
+        {"required": ["anchors"], "properties": {"anchors": {"minItems": 1}}},
+        {"required": ["derived_from"], "properties": {"derived_from": {"minItems": 1}}}
+      ],
+      "additionalProperties": false
+    }
+  }
+}

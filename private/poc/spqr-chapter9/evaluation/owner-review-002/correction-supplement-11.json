@@ -1,0 +1,43 @@
+{
+  "id": "M-POC1B-correction-supplement-11",
+  "authorizing_decision": "decision-11-RQ-10.json",
+  "authorizing_decision_sha256": "bed066762f4bdd1b243ffbe25b2cd5692c3bddf3ca4eb7e607a36238334694a9",
+  "original_artifacts_modified": [],
+  "approved_local_readings": [
+    "EXP049:Romansprior200BCE,ScipioAfricanusnotOC;Cannaeexplicitusepergameinstruction,notnewhistoricalinference;C9.7S2explanatory",
+    "EXP050:realbattlewithoutdate/OC/AWL notresolved,requires_context",
+    "EXP051:movementgate9.71cannotmovebutmayface untiloneofORtriggers:enemycombatnotELwithin3andLOSanyTriariilineunit ORTriarii>=6fromallRoman/Alainfantrylinesexcludingallied",
+    "EXP052:move+ShockRP>=floor(AWL/2)doesnotbypass9.71;standingShockagainsttargetinownZOCper9.72withouthavingtomove"
+  ],
+  "situation_overlay": {
+    "id": "SIT-16",
+    "semantic_status": "owner_confirmed_local_result",
+    "expected": {
+      "kind": "local_result",
+      "result": "Próg floor(11/2)=5:RP4 nie spełnia move+Shock gate,RP5 spełnia przy podanej bramce9.71. Standing Shock na enemy wZOC możliwy w zakresie9.72 przy obu RP. SamRP5 nie uchyla9.71.",
+      "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+      "rationale": "At least half round down, without moving exception. Propozycja łącznego czytania bramek ma osobną niejawna relację do review.",
+      "missing_context": [],
+      "blocker": null
+    },
+    "criticality": "owner_confirmedcriticalinlocalscope"
+  },
+  "relation_overlay": {
+    "id": "DEP-NEW-001",
+    "semantic_status": "owner_confirmed_scoped_condition",
+    "from": "C-9.72-01",
+    "to": "R-9.71",
+    "kind": "condition",
+    "explicitness": "implicit",
+    "scope": "Move+Shocktwo-gatesconstraintonly"
+  },
+  "EXP050_status": "requires_contextactualscenario retained",
+  "remaining_gaps": [
+    "Actualscenario/date/OC/AWL/RP/lineidentity/LOS/ZOCunverified",
+    "OtherfullShocklegalityconditions notdetermined",
+    "Move-onlyatlowRP nottested orresolved",
+    "No actualCannaesetupverified",
+    "Implicitlinkrequiresactualownerreview"
+  ],
+  "external_target_status_overrides": []
+}

@@ -1,0 +1,9 @@
+# wgc/source@0: inwentarz źródeł (Stage 0), commitowany. Tekst segmentów jest tylko w .glu/source/ (ADR-0012).
+# Plik zapisują `wgc source scan|extract`: pola generowane są nadpisywane, pola ręczne zostają (title, edition,
+# language, complete, precedence, edition_skew, seg_prefix, notes, corrections, verified_by_render).
+# Komentarze nie są zachowywane: notatki zapisuj w polu `notes`.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-g1.rules, role: rules, path: a.md, present: false, seg_prefix: g1}
+  - {kind: source_document, id: SRC-g1.rules.2, role: rules, path: b.md, present: false}
+  - {kind: source_document, id: SRC-g1.errata, role: errata, path: c.md, present: false}

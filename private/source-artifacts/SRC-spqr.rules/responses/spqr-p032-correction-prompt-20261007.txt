@@ -1,0 +1,47 @@
+W poprzedniej odpowiedzi response.json JSON i schemat są poprawne, ale istniejący wgc.desktop.check
+wykrywa 23 błędy strukturalne. Popraw kopertę w tej rozmowie, zachowując ten sam pakiet i zakres.
+Nie nadpisuj pierwotnej odpowiedzi i nie zmieniaj manifestu, schematu, eksportera ani walidatora.
+Zwróć kompletny poprawiony JSON jako nowy plik; zapisz go poza katalogiem pakietu.
+
+Pakiet: desktop.47bc026cb0853f3cbce2b2b91405663cfefd592d6d4c7398cb3704179a7672bd
+Hash: sha256:04fa79da9fe6ac10394e9a5073d75f6cc4dc78732ecb372a10b79dd6d6c7a0ea
+Docelowa PDF 32, kontekst PDF 31/33.
+
+1. desktop_table_evidence, subject blk.rampage.table:
+Komórki nie przypisują wszystkich dowodów tabeli.
+Istniejący checker wymaga dokładnie:
+set(table_block.evidence) == union(cell.evidence for cell in table_block.table.cells).
+Dowody ev.table.left-frame i ev.table.right-frame są w table_block.evidence, ale nie w żadnej komórce.
+Nadaj dowodom ramek jawne, semantycznie właściwe zastosowanie bez udawania dowodu tekstowego.
+Zachowaj jedną tabelę 4x2 z nagłówkiem i trzema wierszami danych, pełną siatką oraz poprawnymi spanami.
+
+2. desktop_coverage_evidence, 22 obszary:
+cov.pass-thru.item3, cov.pass-thru.item4,
+cov.table.die-roll, cov.table.result, cov.table.zero.roll, cov.table.zero.result,
+cov.table.one-six.roll, cov.table.one-six.result, cov.table.seven-nine.roll, cov.table.seven-nine.result,
+cov.table.left-frame, cov.table.right-frame,
+cov.direction.1, cov.direction.2, cov.direction.3, cov.direction.4, cov.direction.5, cov.direction.6,
+cov.stop.off-map, cov.stop.mahout, cov.stop.eight-hexes, cov.stop.four-rolls.
+
+Dla każdego regionu coverage klasy content i KAŻDEGO wymienionego w nim bloku istniejący checker wymaga:
+set(block.evidence) <= set(region.evidence).
+Obecne regiony zawierają dowód pojedynczej pozycji/komórki, lecz blocks wymienia też całą listę lub tabelę,
+której evidence obejmuje więcej elementów. Przebuduj rozliczenie logicznych grup, np. scalając odpowiadające
+im regiony i wskazując odpowiednie bloki, zgodnie z tym wymaganiem.
+Nie rozwiązuj problemu przez dopisanie pełnego tekstu do każdego dotychczasowego regionu:
+każdy niebiały znak warstwy tekstowej celu nadal ma być rozliczony dokładnie raz.
+Każdy blok musi mieć jawne coverage content; dowody obrazowe muszą zachować zastosowanie.
+
+Zachowaj wszystkie widoczne treści i dwie luki kontynuacji z affects, kolejność kolumn, opis diagramu,
+podpis, numery kierunków i transkrypcje obrazowe. Nie dopisuj bloków lub coverage dla PDF 31/33.
+Nie kopiuj fixture'ów ani example.txt. Nie dodawaj validation, reviews ani completeness.
+Nie zmieniaj surowych znaków/spans w celu zamaskowania podziałów wiersza przy resolve_text.
+
+Jeśli pracujesz w Codex, application pozostaje unknown (schemat nie dopuszcza codex); model gpt sol 6.1
+jest reported zgodnie z deklaracją właściciela. Nie nazywaj aplikacji ChatGPT lub Claude, jeśli to Codex.
+
+Jeśli masz lokalny dostęp do WGC, sprawdź zarówno contracts.errors, jak i desktop.check(package, response),
+a nie tylko zgodność JSON Schema. Jeśli nie możesz wykonać desktop.check, napisz to jawnie.
+Po zapisaniu poprawionej odpowiedzi właściciel przekaże plik do niezależnej kontroli.
+Docelowa nazwa kopii poprawki dla obecnej próby Codex:
+C:\dev\wargame-compiler\private\source-artifacts\SRC-spqr.rules\responses\spqr-p032-codex-correction-1.json

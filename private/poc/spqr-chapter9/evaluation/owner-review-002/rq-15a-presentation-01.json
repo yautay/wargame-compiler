@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-08",
+  "prepared_at_utc": "2026-10-08T11:02:10.327299+00:00",
+  "question_id": "RQ-15a",
+  "parent_question": "RQ-15",
+  "status": "prepared for final after visual QA",
+  "scope": {
+    "EXP-001": "Two defenders: both must meet earlier Pass-Thru conditions; one eligible is insufficient. Other conditions already shown, not reopened.",
+    "EXP-004": "Final non-SK Pass-Thru Check: positive excess DR-TQ gives hits; DR<=TQ gives no excess. Distinct from Pre-Shock; SK exception already approved. No imported min1 from9.16."
+  },
+  "situation_links": [
+    "SIT-01/02:single-defender gates, not evidence of two-defender conjunction",
+    "SIT-03:SK final exemption, not numerical coverage of non-SK arithmetic"
+  ],
+  "linked_dependency_ids": [
+    "DEP-001",
+    "DEP-045-1",
+    "DEP-045-2",
+    "DEP-045-3",
+    "DEP-008"
+  ],
+  "numeric_illustration": {
+    "status": "explanation only; no new scored SIT",
+    "synthetic_TQ": 5,
+    "DR7_hits": 2,
+    "DR5_hits": 0,
+    "DR3_hits": 0
+  },
+  "criticality": "Missing both creates illegal Pass-Thru; wrong subtraction or applying min1 changes final Hits.",
+  "remaining_uncertainty": "Actual TQ/DR modifiers, full Shock and all external prerequisites unclosed; no full game outcome. Existing EL base0 reduction gap retained.",
+  "question": "Czy zatwierdzasz te dwa uzupełnienia EXP-001/004 wraz z ich krytycznością: obaj obrońcy muszą spełniać warunki Pass-Thru, a końcowy test obrońcy innego niż SK daje tylko dodatni nadmiar DR ponad TQ?",
+  "not_approved_yet": true,
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15a-draft-records.json",
+      "sha256": "6d0f57c8d2030c334480771b80edec3428cbb747dbb5174c21dba37adb8ca396",
+      "bytes": 11587
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15a-evidence.json",
+      "sha256": "22098123dcfd18da7403cf654ab1792ebd978adaf84d1c52df526c526cf6a667",
+      "bytes": 2529
+    }
+  ],
+  "further_closing_scopes": [
+    "EXP-005 remaining Screen clauses",
+    "EXP-007/008/011/012-016/018-020 remaining elephant/cavalry clauses",
+    "EXP-009 unresolved first Leader 7-9",
+    "EXP-074 parameter limitation",
+    "Unshown relation metadata/target closure cannot be silently approved"
+  ]
+}

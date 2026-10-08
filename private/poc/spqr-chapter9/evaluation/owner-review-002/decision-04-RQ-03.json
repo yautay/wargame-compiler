@@ -1,0 +1,74 @@
+{
+  "id": "M-POC1B-owner-decision-04",
+  "question_id": "RQ-03",
+  "card": "M-POC1B",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-07",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-07T13:35:05.324974+00:00",
+  "user_message_timestamp": "unknown; save time is separate",
+  "actual_owner_response": "zatwierdzam całe RQ3",
+  "raw_response_file": "owner-answer-04.raw.txt",
+  "raw_response_sha256": "a5811ee0624d99e0972cd188a92e118ac16cce6cba193db1896437637e132b40",
+  "basis": {
+    "presentation": "rq-03-presentation-01.json",
+    "presentation_sha256": "b34d4c86827c58e5f20e095680ce9bc09366284e459e6bbfe82c4bc9f37a6a4d",
+    "draft_packet": "rq-03-draft-records.json",
+    "draft_packet_sha256": "e3a5e00cd9069ef540e1dc56ebe60f2d709da1df398116624b7c6861668e0e10",
+    "evidence_manifest": "rq-03-evidence.json",
+    "evidence_manifest_sha256": "a7dc37b3da4f8a10bd46ea2618b7344e3d58f1a9f9dd5ba0988919f1ba9c348e",
+    "display_refinement": "rq-03-evidence-display-refinement-01.json",
+    "display_refinement_sha256": "de36b9b5cd137fdd293e32ccdf9283d98ae8c28010ade5fb6ecace3d7bd64068",
+    "clarification": "clarification-RQ03-01.json",
+    "clarification_sha256": "16805cbd99fffbead2339f0b52949125707bdeaf9d9e77cafe767a6f1e6ebc8f",
+    "preceding_scoped_decision": "decision-03-RQ-03-interpretation.json",
+    "preceding_scoped_decision_sha256": "d0f866fe8a4971c58d8f615ba1c5d0a2ca35c18dd51ddf89d27e67e9836b9c18",
+    "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "approved_scope": {
+    "local_situations": {
+      "SIT-01": "Given local gates:PassThru allowed,+1DRM defenderPreShock,LI5Hits->2 andEL3->2;given noRout/noRampage permitsELplacementfreeRear,ELplayerchoice,facingunchanged;LIendtestseparate",
+      "SIT-02": "InitialphaseenemyZOC excludesPassThru despite laterexit",
+      "SIT-03": "SK nofinalPassThruTQ;PreShockexemption9.23 addresses unitsattackingSKas soledefendingtype,notalltests ofdefender"
+    },
+    "expectation_scopes": [
+      "EXP-001 local gates/time in tested suppliedcases",
+      "EXP-002 +1DRM and5->2/3->2 arithmetic",
+      "EXP-003 placement conditions in suppliedcase",
+      "EXP-004 separatefinalcheck andSKexception",
+      "EXP-024 SK-alone defender/attackerPreShock fragment only"
+    ],
+    "shown_relations_scope": {
+      "ids": [
+        "DEP-001",
+        "DEP-002",
+        "DEP-008",
+        "DEP-045-1",
+        "DEP-045-2",
+        "DEP-045-3",
+        "DEP-046",
+        "DEP-055",
+        "DEP-090"
+      ],
+      "approval": "Shown local associations/directions and their stated limitations as part ofRQ03; notunshownmetadata,externaltarget identity orcompletegraph closure."
+    },
+    "criticality": "Approved criticality in the shown local scopes as explicitly requested in originalRQ03question",
+    "rationale_accepted_by_reference": "Sourceconditionsstart-of-phase/time,halve-rounddown/reduce1,placementrequiresnoRout/noRampage,and distincttests/addresses. Criticality:wrongtime/exception changesoption/test,wrong numbers/address/sign/rounding changeHits,andplacementconditions changeposition.",
+    "owner_independent_reason_text": "No independent reason beyond approval; rationale accepted by reference to shown question/explanation"
+  },
+  "not_approved": [
+    "Completeatomic/fullrecordcoverage ofEXP-001..004/024",
+    "External8.43/generalShock/CRT/facing/ZOC/marker target source closure",
+    "BaseELHits0lowerfloor ororderofothermodifiers",
+    "Realmap/scenario/unitparameters orfullcombat legality",
+    "OtherRQ orwholecollection",
+    "EXP-009 first7-9 result"
+  ],
+  "remaining_gaps": [
+    "Externalprocedure/definition/targetidentities unchangedrequires_context",
+    "No proof offullgame outcome",
+    "BaseELHits0bound not evaluated",
+    "Othercriticality labels notconfirmed bythisdecision"
+  ],
+  "no_freeze": true
+}

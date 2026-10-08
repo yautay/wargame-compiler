@@ -1,0 +1,72 @@
+{
+  "prepared_at_utc": "2026-10-07T18:08:22.273688+00:00",
+  "question_id": "RQ-06",
+  "presentation_status": "prepared_for_final_message",
+  "evidence_manifest": "rq-06-evidence.json",
+  "evidence_manifest_sha256": "397a3f69ccfd14e3f6f0cfb005e7e387bfbddbd586e197ddba210afe128b31b2",
+  "draft_packet": "rq-06-draft-records.json",
+  "draft_packet_sha256": "22040ef09ad50d1397483096ffd85d049e22e8a8c5e2ab6f972f0386f78a1a56",
+  "visual_QA": "Bothsheets inspected:complete9.21..24,physicalcontinuation/X03,9.31/9.32/X04;readable unchangedsourcepixels",
+  "expectation_ids": [
+    "EXP-021",
+    "EXP-022",
+    "EXP-023",
+    "EXP-024",
+    "EXP-025",
+    "EXP-026",
+    "EXP-027",
+    "EXP-028",
+    "EXP-029",
+    "EXP-030",
+    "EXP-031"
+  ],
+  "dependency_ids": [
+    "DEP-010",
+    "DEP-011",
+    "DEP-012",
+    "DEP-035",
+    "DEP-053",
+    "DEP-054-1",
+    "DEP-054-2",
+    "DEP-055",
+    "DEP-056",
+    "DEP-009",
+    "DEP-057",
+    "DEP-093"
+  ],
+  "local_proposals": [
+    "EXP021/022:OWSKup2hexes beforeapproachingunitMA<=SKMA;SKOWHitsonlyRear,VelitesFlank/Rear",
+    "EXP023:targetSKMissile+2DRM;SK/LIArchersA noH&D;LCanymissileclass noH&DvsSK",
+    "EXP024:SKnoShockattack;mixeddefenseuseothertype,ignoreSKSize;alreadyapprovedattackerofSKalonePreShockexemptionretained",
+    "EXP025:HitsinflictedbySKhalvefloor,cap1",
+    "EXP026:PH/HI/LGdefendingFrontvsLI noPreShockevenwithattackermarker;LIstillcheck;reverseexemptionnotapplied",
+    "EXP027:SKRouteliminated,facing0MP,no repeat-moveCohesioncost;no blanketterrain/stackingimmunity",
+    "EXP028:oneSK/Velitespergap,notoneglobal;two consecutiveunits do notqualify",
+    "EXP029:LCMissileH&DstrictlowerMA,exceptSK;LCArchersfireOW via6.55;fullproceduresunknown",
+    "EXP030:attackingLCHitsvsPH/HI/MI/LG/BI halvefloor",
+    "EXP031:AS/halvingprintedresultconflict requirescontext;no newexceptioninvented"
+  ],
+  "situations": [
+    {
+      "id": "SIT-08",
+      "facts": "SKdefendinglegalShock;unadjustedHitsinflicted1,3,6;noothermodifiers",
+      "proposed_result": "0,1,1CH fromfloorhalvingandcap1"
+    },
+    {
+      "id": "SIT-09",
+      "facts": "MissileLCMA8,SKMA6;separateShockLCvsHI withunadjusted5Hits,noAS/othermodifiers",
+      "proposed_result": "H&DvsSKforbidden evenlowerMA;separateLCvsHI local5->2CH"
+    }
+  ],
+  "facts_policy": "SyntheticMA/Hitinputs,not sourcecounter/scenario verification",
+  "criticality_proposal": "critical inlocal scopes:wronginequality,target,attackdirection,rounding/cap,exception orcostchangeslocallegality/test/Hits/unitstate",
+  "remaining_gaps": [
+    "EXP031AS/halvingrequirescontext",
+    "generalOW/H&D/PreShock/stacking/lineprocedures andtabletargetsunclosed",
+    "no completecombat/travellegality",
+    "previousunresolvedEXP009andothersretained"
+  ],
+  "question": "Czy zatwierdzasz te lokalne odczyty,wyniki SIT-08/09 i ich krytyczność,pozostawiając konflikt AS/halving w EXP-031 jako requires_context?",
+  "actual_owner_answer": null,
+  "next_after_actual_answer": "Saveactualscope/date/reason/evidencehash/gaps separately withmap;thenRQ07"
+}

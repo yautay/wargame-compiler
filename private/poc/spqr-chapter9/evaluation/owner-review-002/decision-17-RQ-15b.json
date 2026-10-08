@@ -1,0 +1,81 @@
+{
+  "id": "M-POC1B-owner-decision-17",
+  "card": "M-POC1B",
+  "question_id": "RQ-15b",
+  "parent_question": "RQ-15",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T13:18:06.267096+00:00",
+  "user_message_timestamp": "unknown;save time separate",
+  "actual_owner_response": "Zatwierdzam",
+  "raw_response_file": "owner-answer-17.raw.txt",
+  "raw_response_sha256": "d2eab609cb7c5c53328ca2c3dcc9247942604a6cad89fb4cd27b1b0893a4faa2",
+  "approved_question": "Czy zatwierdzasz te trzy odczyty EXP-005 wraz z ich krytycznością?",
+  "approved_scope": {
+    "EXP-005/C-9.12-02": "Elephant Screen fires only as Reaction Fire; no active fire permission. Named Elephant Screen MRRC row retained from RQ05.",
+    "EXP-005/C-9.12-03": "Screen has its own missile supply markers; Leader Elephant has no Screen. No automatic supply state or replenishment inferred."
+  },
+  "linked_dependency_ids": [
+    "DEP-003",
+    "DEP-030",
+    "DEP-047"
+  ],
+  "relation_limits": "Source to needed Reaction Fire8.2 procedure, named MRRC row, and supply handling. Targets unresolved; metadata not blanket approved.",
+  "approved_criticality": "critical in the three shown local clauses",
+  "rationale_accepted_by_reference": "Losing only grants extra active shot; assigning Screen to Leader grants nonexistent fire source; losing own supply markers merges independent supply state.",
+  "owner_independent_reason_text": "None beyond approval; shown rationale accepted by reference",
+  "review_illustration": {
+    "id": "RV-RQ15b-01",
+    "role": "explanation only, not scored SIT or new denominator item",
+    "supplied_facts": [
+      "ordinary EL with Screen",
+      "separately Leader EL",
+      "request for active Screen shot vs Reaction Fire"
+    ],
+    "proposed_local_results": [
+      "Screen active shot forbidden",
+      "Screen Reaction Fire mode permitted subject to 8.2, MRRC, target/range/LOS/supply conditions; complete shot unresolved",
+      "Leader EL has no Screen shot source; Tower Rider rule remains separate"
+    ],
+    "no_real_scenario_parameter": true
+  },
+  "scored_situation_changes": [],
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15b-presentation-01.json",
+      "sha256": "fef7484ad684cbc0b3d823dba0ca0579e68208ac9a1a9fd881afe4cd52bb276e",
+      "bytes": 2386
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15b-draft-records.json",
+      "sha256": "242db6c9dc1b7475432c877c50e467453e7515b61134b596c3aad9a032e26d3f",
+      "bytes": 11787
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15b-evidence.json",
+      "sha256": "f4f6a4da1e82adb52c7e813f22944ed59bb18d1445afc75d2c1038d896d56b8f",
+      "bytes": 1435
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/rq-15b-visual-QA-01.json",
+      "sha256": "c66e11429d8c4b4b510945a58f7e6014cb83dc89da64024fb7491fb1504a2639",
+      "bytes": 389
+    }
+  ],
+  "source_pdf_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "remaining_gaps": [
+    "8.2 full procedure",
+    "MRRC values and target/range/LOS",
+    "actual missile supply state and supply procedure",
+    "No dedicated existing SIT covers EXP005; no coverage claimed",
+    "EXP-009 first Leader Elephant 7-9 unresolved",
+    "Remaining unshown clauses/criticality and relation metadata require source-specific RQ15 review",
+    "External tables, actual map/scenario parameters and target identities unclosed",
+    "Full atomic inventory and small counter glyph transcription unverified",
+    "No full game legality, extraction, graph certificate, gold or eval-v1 freeze",
+    "Known initial Git index byte mismatch retained; cause unknown"
+  ],
+  "whole_collection_or_graph_accepted": false,
+  "no_freeze": true
+}

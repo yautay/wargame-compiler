@@ -1,0 +1,55 @@
+{
+  "question_id": "RQ-05",
+  "prepared_at_utc": "2026-10-07T13:53:35.163722+00:00",
+  "presentation_status": "prepared_for_final_message",
+  "actual_owner_answer": null,
+  "draft_packet": "rq-05-draft-records.json",
+  "draft_packet_sha256": "3cec94a0468896d5633ac8d6931ab6053941bb4859c3284975572a79b2b7b8bb",
+  "evidence": "rq-05-evidence.json",
+  "evidence_sha256": "bf4b61341eff24e11719467d560147a039b9ec19ca8656c1eb1a534a7a6ae34e",
+  "visual_QA": "Both sheets inspected:complete sourceparagraphs/notes,readable originalpixels;no clipping relevanttext",
+  "MRRC_explanation": "MissileRangeandResultsChart. DEP031 is an unconfirmedtable/rowidentity hypothesis inferred fromMountedJavelinists classification; noMRRCname in9.13. Sourceclassification not ownerconfirmed yet.",
+  "shown_scopes": [
+    {
+      "expectation": "EXP-005",
+      "dependency": "DEP-030",
+      "scope": "Screen namedElephantScreenMRRC reference;table/row notprovided,requires_context"
+    },
+    {
+      "expectation": "EXP-006",
+      "dependency": "DEP-031",
+      "scope": "Riders treatedMountedJavelinists, separateDRjavelins/screen; N03towerabsence doesnotchangetherule. MRRC/rowidentity forriders remains implicitunconfirmedhypothesis"
+    },
+    {
+      "expectation": "EXP-021",
+      "scope": "N07VelitesareLI,notSK;no automaticSKexception byfunctionalresemblance. OWcostpart notreviewedhere"
+    },
+    {
+      "expectation": "EXP-066",
+      "dependency": "DEP-038",
+      "scope": "KeepN14ignoreChariots-onCombatTables instruction inGallictransportCHscope;exacttables/entriesneedcontext,notallhistoricalchariots. Sentinum/Telamonmention noteligibilitylist"
+    },
+    {
+      "expectation": "EXP-073",
+      "dependency": "DEP-040",
+      "scope": "MountedLIonCH namedMountedJavelinMRRCrow isexplicitcontrast; source9.96doesnotbyitselfprove9.13rowidentity. Supply/H&D/fullmountscenario notreviewedhere"
+    }
+  ],
+  "dependency_directions": [
+    "C-9.12-02->MRRC/ElephantScreen:explicit table_use,targetunresolved",
+    "C-9.13-01->candidateMRRC/row:implicit table_usehypothesis,unresolved_interpretation",
+    "N-14/N-14-S2->CombatTablesaggregate:explicitmodification,requires_context",
+    "C-9.96-07->MRRC/MountedJavelin:explicit table_use,targetunresolved"
+  ],
+  "criticality_proposal": "critical in statedscopes:unitclassification/separateDR/towerapplicability orwrongtable/ignoreinstruction scope canchangefire/combat result; missingrow meansno completefire outcome",
+  "related_situation": "SIT-20 throughEXP073/DEP040;syntheticeligibleLI,MA5,CHMA8,LOW/NOmarkerbeforemount. SIT20is localbudget/mount test,not a firelookup test;wholeSIT20 notapprovedbythisquestion",
+  "remaining_gaps": [
+    "MRRCfulltable/row/aliasidentityunverified",
+    "DEP031hypothesis not promoted togold",
+    "EXP066/DEP038exactCombatTables/entriesrequires_context",
+    "No realmap/scenario/parameter acceptance",
+    "MPOC1Anotesplitting approvalnotsemantic acceptance"
+  ],
+  "question": "Czy zatwierdzasz przedstawione lokalne odczyty i ich krytyczność, pozostawiając DEP-031 niepotwierdzoną hipotezą, a EXP-066/DEP-038 jako requires_context co do dokładnych tabel i wpisów?",
+  "next_after_actual_answer": "Record actualscopeddecision/reason/date/evidence/hashes/gaps separately;thenRQ06"
+}

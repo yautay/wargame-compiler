@@ -1,0 +1,13 @@
+# EXPECT: anchor_hash_mismatch
+# MUST FAIL (provenance): the anchor's seg_hash differs from the segment's text_hash, so the anchor is stale
+# (the source text changed after the record was anchored). Two documents in one file: Stage 0 and Stage 1.
+schema: wgc/source@0
+records:
+  - {kind: source_document, id: SRC-x.rules, role: rules, present: true}
+  - {kind: segment, id: SEG-x.1, doc: SRC-x.rules, label: "1", segment_type: rule, text_hash: "sha256:0000000000000001"}
+---
+schema: wgc/logic@0
+records:
+  - {kind: concept, id: CON-unit, category: entity_type, name: unit,
+     prov: {kind: explicit_source, by: {tier: deterministic, tool: "wgc.terms.harvest@0"},
+            anchors: [{seg: SEG-x.1, seg_hash: "sha256:0000000000000002", quote: "unit"}]}}

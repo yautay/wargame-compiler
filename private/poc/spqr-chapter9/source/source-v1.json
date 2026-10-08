@@ -1,0 +1,250 @@
+{
+  "id": "SPQR-5E-ch9-source-v1",
+  "version": "source-v1",
+  "card": "M-POC1A",
+  "source": {
+    "path": "C:\\dev\\spqr\\sources\\SPQR+Deluxe_Rule+book_WEB.pdf",
+    "exists": true,
+    "bytes": 3965827,
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "page_count": 44,
+    "pdf_version": "1.7",
+    "page_size_points": [
+      612,
+      792
+    ],
+    "publisher": "GMT Games, LLC",
+    "title": "SPQR: Great Battles of the Roman Republic",
+    "edition": "5th Edition",
+    "edition_evidence": {
+      "pdf_page": 1,
+      "render": "source/review-evidence/edition-01.png",
+      "sha256": "5d156813697b755c0a50bedf744f53262f8eab80b752810173724fc2d901da75",
+      "observed_text": "RULE BOOK / 5th Edition"
+    },
+    "copyright_year_visible_in_core_headers": 2026
+  },
+  "historical_input_comparison": {
+    "path": "private/source-artifacts/SRC-spqr.rules/poc-scope-20261007/scope-candidates-v2.json",
+    "manifest_sha256": "de1c33b9211a8be9ce8e7587346a5c5170df4e3e11d28a8418ebce9b2295cd46",
+    "recorded_source_sha256": "sha256:e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "full_hash_match": true,
+    "discrepancy": null,
+    "proposal_path": "private/source-artifacts/SRC-spqr.rules/poc-scope-20261007/poc-plan-proposal.txt",
+    "proposal_sha256": "17c83d89dc6e7e8efb327977d5d54ecf5c506ccefabf00511b7c98c4bd870bde"
+  },
+  "scope": {
+    "chapter": "9.0 SPECIAL COMBAT UNITS",
+    "pdf_pages_inclusive": [
+      31,
+      37
+    ],
+    "numbering": "one-based PDF physical pages; printed labels31–37 agree",
+    "start": {
+      "pdf_page": 31,
+      "column": "right",
+      "heading": "9.0",
+      "core_bbox": [
+        315,
+        309.4529,
+        567,
+        744
+      ],
+      "glyph_top_pdfplumber": 311.4529
+    },
+    "end": {
+      "pdf_page": 37,
+      "column": "left",
+      "before_heading": "10.0",
+      "core_bbox": [
+        45,
+        45,
+        297,
+        392.6396
+      ],
+      "heading_glyph_top_pdfplumber": 393.6396
+    },
+    "boundary_coordinate_note": "Historical scope coordinates are valid whitespace cuts around headings; glyph envelopes differ by1–2 points due to text metrics. No source/hash or scope discrepancy.",
+    "column_order": "31 right core →32 left →32 right →33 left →33 right →34 left →34 right →35 left →35 right →36 left →36 right →37 left core",
+    "excluded_context": [
+      {
+        "pdf_page": 31,
+        "regions": [
+          "entire left column",
+          "right column before9.0"
+        ],
+        "reason": "chapter8 context; no core labels or candidate occurrences counted"
+      },
+      {
+        "pdf_page": 37,
+        "regions": [
+          "left column from10.0 onward",
+          "entire right column"
+        ],
+        "reason": "chapter10 context; target10.13 visible here but outside chapter9"
+      }
+    ],
+    "boundary_verification": "visually_checked_by_codex",
+    "owner_review": "pending"
+  },
+  "provenance": {
+    "application": "Codex desktop",
+    "actual_model_visible_name": "unknown",
+    "reasoning_level": "unknown",
+    "available_system_description": "Codex based on GPT-6; UI model selector not inspected",
+    "read_is_inventory_session": true,
+    "M_POC2B_run": false,
+    "not_a_blind_extraction_session": true,
+    "source_verification_time_utc": "2026-10-07T09:18:55Z",
+    "author": "Codex",
+    "human_reviewer": null
+  },
+  "tools": {
+    "renderer": "pdftoppm26.07.0",
+    "render_dpi_core": 150,
+    "render_dpi_cover": 100,
+    "helper": "pdfplumber0.11.10",
+    "text_policy": "Auxiliary locator/transcription only; renders and logical column order determine observations"
+  },
+  "git_baseline": {
+    "branch": "master",
+    "head": "0bd88a739f22f8bb8a1bebb0101a177bd05552c1",
+    "index_sha256": "6197ec7c5718aed38ecde9e66dd35a51a7dcd8ab715409faf7237c1c3d21c211",
+    "existing_changes": "M-POC0 reorganization; preserved",
+    "status_evidence": "source/review-evidence/git-status-before.txt",
+    "warning": "User-global ignore file inaccessible; per-command safe.directory used, no global configuration changed"
+  },
+  "evidence_files": [
+    {
+      "path": "source/review-evidence/edition-01.png",
+      "sha256": "5d156813697b755c0a50bedf744f53262f8eab80b752810173724fc2d901da75",
+      "bytes": 373220
+    },
+    {
+      "path": "source/review-evidence/git-diff-before.txt",
+      "sha256": "60cf450cf6775b7af6c2b9da04b6dba398ea6cc44bf985632a3a3f6a87651327",
+      "bytes": 6670
+    },
+    {
+      "path": "source/review-evidence/git-status-before.txt",
+      "sha256": "7055ff2fb694d502c65395dd3de16011bec85ee4c1fed81967e329a5e1b939a6",
+      "bytes": 6485
+    },
+    {
+      "path": "source/review-evidence/helper-text-positions.json",
+      "sha256": "66a1de727e086753491a59e747c67223dabfb2152924d3d4200b94280ea105a9",
+      "bytes": 2095418
+    },
+    {
+      "path": "source/review-evidence/historical-baseline.json",
+      "sha256": "3dbcdcc0b034a67b3a26131496932a81dff51e325beed9be71540fe561fdfcc6",
+      "bytes": 2729670
+    },
+    {
+      "path": "source/review-evidence/pdf-31-left.txt",
+      "sha256": "f14e76e6047b506ea79f18c9e9493d5a416f4530a603b969101b0dc338faa8bd",
+      "bytes": 2817
+    },
+    {
+      "path": "source/review-evidence/pdf-31-right.txt",
+      "sha256": "52d0d1f3c8717c3e5b3f22d54e02bdb9260bfb54f0c7b3e06d105b38431052ed",
+      "bytes": 2636
+    },
+    {
+      "path": "source/review-evidence/pdf-31.png",
+      "sha256": "39f86ad053725088e9c571f43d1e8ecc4dbf21f5b191cc1e7d99cc854ddc34ba",
+      "bytes": 767872
+    },
+    {
+      "path": "source/review-evidence/pdf-32-left.txt",
+      "sha256": "3d59993c0eeb2da39a929ed8b59deebad100b0944d1e44d90f80a89a45d5d761",
+      "bytes": 2460
+    },
+    {
+      "path": "source/review-evidence/pdf-32-right.txt",
+      "sha256": "f71610520dff903eb29ddfe46908136f09b430ee2a69489fbc52791d632e2ffc",
+      "bytes": 2487
+    },
+    {
+      "path": "source/review-evidence/pdf-32.png",
+      "sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+      "bytes": 703003
+    },
+    {
+      "path": "source/review-evidence/pdf-33-left.txt",
+      "sha256": "9240592963415e696b2d0e017d4329bedc7825c80871328f353150affc01aee9",
+      "bytes": 3089
+    },
+    {
+      "path": "source/review-evidence/pdf-33-right.txt",
+      "sha256": "27dcf70eff921993af22c59915b6931496a516d2c5b77d698d17d6fc8fb54d59",
+      "bytes": 2947
+    },
+    {
+      "path": "source/review-evidence/pdf-33.png",
+      "sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+      "bytes": 838938
+    },
+    {
+      "path": "source/review-evidence/pdf-34-left.txt",
+      "sha256": "9f6590b59cbf1996f34ef346d241f33020e90797e9b399a9f479842b6a9ee56a",
+      "bytes": 2187
+    },
+    {
+      "path": "source/review-evidence/pdf-34-right.txt",
+      "sha256": "bfdd3f0f564fc562ef098c033ca66d868c936eeb5d2683c22be8ddca8589be0f",
+      "bytes": 2887
+    },
+    {
+      "path": "source/review-evidence/pdf-34.png",
+      "sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+      "bytes": 700701
+    },
+    {
+      "path": "source/review-evidence/pdf-35-left.txt",
+      "sha256": "8d73864dcc7d0a59a42e762c0032141f56c9e5764f4170199c00f5f273b1b7e8",
+      "bytes": 2412
+    },
+    {
+      "path": "source/review-evidence/pdf-35-right.txt",
+      "sha256": "bed2769077c3583ee734562d2f1495e61916357d2d974e1507fa8b15e2837045",
+      "bytes": 2373
+    },
+    {
+      "path": "source/review-evidence/pdf-35.png",
+      "sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+      "bytes": 719265
+    },
+    {
+      "path": "source/review-evidence/pdf-36-left.txt",
+      "sha256": "4094b7944e58ae36fc669427601ec822b0cabfb441007ca56e8a30c018dd28f9",
+      "bytes": 2722
+    },
+    {
+      "path": "source/review-evidence/pdf-36-right.txt",
+      "sha256": "87664daab49d57dad9e05c64cc64c65ec94ea2c2e981c2d8541ec270e4f713f1",
+      "bytes": 2949
+    },
+    {
+      "path": "source/review-evidence/pdf-36.png",
+      "sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+      "bytes": 804731
+    },
+    {
+      "path": "source/review-evidence/pdf-37-left.txt",
+      "sha256": "e0479ce59d7b1faca244577eafa54dd5e90f853d1c5600acd00bddc0c4e34421",
+      "bytes": 2936
+    },
+    {
+      "path": "source/review-evidence/pdf-37-right.txt",
+      "sha256": "eed73b11d8938b756e692a47b4691da1b9743bd247331edc85ccff50fafcb13f",
+      "bytes": 2699
+    },
+    {
+      "path": "source/review-evidence/pdf-37.png",
+      "sha256": "eac35841555b17696a6dda014e9b482b91c2a15e2366c7effd30c8576f1c5d9b",
+      "bytes": 723172
+    }
+  ],
+  "status": "source_verified_by_codex_waiting_owner_boundary_review"
+}

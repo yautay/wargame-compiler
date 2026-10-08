@@ -1,0 +1,23 @@
+# Synthetic contract example; no publisher content.
+schema: wgc/source@0
+records:
+  - kind: source_document
+    id: SRC-hyb.rules
+    role: rules
+    path: private/sample.pdf
+    present: true
+    file_hash: sha256:1111111111111111
+    extractor: wgc.ingest.pdf.hybrid@2
+    hybrid_hash: sha256:2222222222222222
+  - kind: segment
+    id: SEG-hyb.p1s1
+    doc: SRC-hyb.rules
+    segment_type: list_item
+    order: 1
+    pages: '1-2'
+    bbox: [40, 50, 180, 80]
+    areas:
+      - {page: 1, bbox: [40, 50, 180, 80], word_ids: [p1w1, p1w2]}
+      - {page: 2, bbox: [40, 60, 170, 75], word_ids: [p2w1]}
+    text_hash: sha256:3333333333333333
+    struct_hash: sha256:4444444444444444

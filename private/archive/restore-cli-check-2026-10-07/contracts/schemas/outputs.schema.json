@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/outputs.schema.json",
+  "title": "wgc/outputs@0: owned output set and tombstones",
+  "type": "object",
+  "required": ["schema", "owner", "active", "hashes", "retired"],
+  "properties": {
+    "schema": {"const": "wgc/outputs@0"},
+    "owner": {"$ref": "common.schema.json#/$defs/owner"},
+    "active": {"$ref": "common.schema.json#/$defs/ids"},
+    "hashes": {"type": "object", "propertyNames": {"$ref": "common.schema.json#/$defs/id"},
+               "additionalProperties": {"$ref": "common.schema.json#/$defs/hash"}},
+    "retired": {"$ref": "common.schema.json#/$defs/ids"}
+  },
+  "additionalProperties": false
+}

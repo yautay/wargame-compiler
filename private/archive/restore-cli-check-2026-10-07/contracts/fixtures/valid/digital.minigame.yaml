@@ -1,0 +1,235 @@
+# Stage 1.5 fixture: Drill Skirmish digitalization slice. Input = logic.minigame.yaml only.
+# Traceability example (docs/DIGITALIZATION.md#sledzenie-regul):
+#   SEG-dsk.3.4 → R-3.4 → LEG-move.routed_adjacent → ACT-move → TST-001 (reason_code move.routed_adjacent)
+# This is a SLICE of the digitalization, but the fixture set contracts/fixtures/valid/ is CLOSED: every reference
+# checked by `wgc validate` (M1) resolves within it. The full gold model comes in M3 and M17–M21.
+schema: wgc/digital@0
+records:
+  # ---- Game State Schema ----------------------------------------------------------------------
+  - kind: entity
+    id: ENT-unit
+    concept: CON-unit
+    cardinality: collection
+    fields:
+      - {name: id, type: string, visibility: public}
+      - {name: side, type: enum, values: [first, second], visibility: public}
+      - {name: unit_type, type: enum, values: [infantry, light], visibility: public, realizes: [CON-light]}
+      - {name: strength, type: int, range: [1, 4], visibility: public, realizes: [CON-strength]}
+      - {name: cohesion, type: enum, values: [formed, routed], visibility: public, realizes: [CON-routed]}
+      - {name: location, type: map_location, nullable: true, visibility: public, realizes: [R-4.5]}
+      - {name: mp_spent, type: int, range: [0, 6], visibility: public,
+         stored_reason: "History-dependent within the phase (path costs); cannot be recomputed from position."}
+      - {name: moved_this_phase, type: bool, visibility: public, stored_reason: "Needed by the 3.2 first-hex exception."}
+    realizes: [CON-unit]
+    status: proposed
+  - kind: entity
+    id: ENT-game
+    concept: CON-game
+    cardinality: singleton
+    fields:
+      - {name: game_turn, type: int, range: [1, 6]}
+      - {name: active_player, type: enum, values: [first, second]}
+      - {name: phase, type: ref, ref_to: SEQ-turn}
+      - {name: scenario, type: ref, ref_to: CON-scn.ford, nullable: true}
+      - {name: rally_attempted, type: bool, stored_reason: "Limit 'one rally attempt per Rally Phase' (5.1).", realizes: [R-5.1]}
+    realizes: [CON-game, R-2.1]
+    status: proposed
+  - kind: derived
+    id: DRV-mp_left
+    of: ENT-unit
+    value_type: int
+    compute: {sub: [{val: CON-ma, of: $unit}, {val: CON-mp_spent, of: $unit}]}
+    realizes: [R-3.1]
+    status: proposed
+
+  # ---- Timing Model ---------------------------------------------------------------------------
+  - kind: sequence
+    id: SEQ-turn
+    nodes:
+      - {id: SEQ-game_turn, level: game_turn, repeat: "6 times", exit_when: {cmp: [{val: CON-game_turn}, ">", 6]}}
+      - {id: SEQ-player_turn, level: player_turn, parent: SEQ-game_turn, repeat: "first player, then second player"}
+      - {id: SEQ-rally, level: phase, parent: SEQ-player_turn, next: SEQ-movement, windows: [start_of, during]}
+      - {id: SEQ-movement, level: phase, parent: SEQ-player_turn, next: SEQ-combat, windows: [start_of, during, reaction]}
+      - {id: SEQ-combat, level: phase, parent: SEQ-player_turn, next: SEQ-end, windows: [during]}
+      - {id: SEQ-end, level: phase, parent: SEQ-player_turn, windows: [end_of]}
+    realizes: [R-2.1, R-2.2]
+    status: proposed
+
+  # ---- Actions, legality, events --------------------------------------------------------------
+  - kind: action
+    id: ACT-move
+    actor: active_player
+    params:
+      - {name: unit, type: ref, ref_to: ENT-unit}
+      - {name: to, type: map_location}
+    timing: [SEQ-movement]
+    legality: [LEG-move.own_unit, LEG-move.routed_adjacent, LEG-move.mp_cost, LEG-move.stacking]
+    effects:
+      - {op: move, of: $unit, to: $to}
+      - {op: inc, var: CON-mp_spent, of: $unit, by: {text: "terrain cost of $to (3.2)"}}
+    emits: [EVT-UnitMoved]
+    decisions: [DP-movement]
+    realizes: [R-3.1, R-3.2, CON-move]
+    status: proposed
+  - kind: action
+    id: ACT-rally
+    actor: active_player
+    params:
+      - {name: unit, type: ref, ref_to: ENT-unit}
+    timing: [SEQ-rally]
+    random: [RNG-rally]
+    effects:
+      - {op: random, source: CON-d6, spec: "1d6", bind: $roll}
+      - {op: leave_state, of: $unit, state: CON-routed, when: {cmp: [$roll, "<=", {val: DRV-rally_threshold, of: $unit}]}}
+    emits: [EVT-DieRolled, EVT-UnitRallied]
+    realizes: [R-5.1, R-5.2, CON-rally]
+    status: proposed
+    notes: "Legality of 5.1 (Routed, not adjacent, one attempt per phase) is not modelled in this slice."
+  - kind: legality
+    id: LEG-move.routed_adjacent
+    applies_to: [ACT-move]
+    check: prohibition
+    predicate: {not: {all: [{is: [$unit, CON-routed]}, {pred: CON-adjacent_to_enemy, args: [$to]}]}}
+    reason_code: move.routed_adjacent
+    realizes: [R-3.4, REL-002]
+    status: proposed
+    prov: {kind: deterministic_derivation, by: {tier: deterministic, tool: "wgc.digital.legality_from_prohibition@0"}, derived_from: [R-3.4]}
+  - kind: legality
+    id: LEG-move.mp_cost
+    applies_to: [ACT-move]
+    check: cost
+    predicate: {any: [{cmp: [{val: DRV-mp_left, of: $unit}, ">=", {text: "terrain cost of $to"}]}, {not: {val: CON-moved_this_phase, of: $unit}}]}
+    reason_code: move.not_enough_mp
+    realizes: [R-3.2]
+    status: proposed
+  - {kind: legality, id: LEG-move.own_unit, applies_to: [ACT-move], check: precondition,
+     predicate: {pred: CON-owned_by_active, args: [$unit]}, reason_code: move.not_own_unit, realizes: [R-3.1], status: proposed}
+  - {kind: legality, id: LEG-move.stacking, applies_to: [ACT-move], check: prohibition,
+     predicate: {not: {pred: CON-occupied, args: [$to]}}, reason_code: move.stacking, realizes: [R-3.6], status: proposed}
+  - kind: event
+    id: EVT-UnitMoved
+    name: UnitMoved
+    payload: [{name: unit, type: ref, ref_to: ENT-unit}, {name: from, type: map_location}, {name: to, type: map_location}, {name: mp_spent, type: int}]
+    visibility: public
+    realizes: [CON-enter_hex]
+    status: proposed
+  - {kind: event, id: EVT-UnitStopped, name: UnitStopped, payload: [{name: unit, type: ref, ref_to: ENT-unit}, {name: rule, type: string}],
+     visibility: public, realizes: [R-3.3], status: proposed}
+  - {kind: event, id: EVT-UnitRallied, name: UnitRallied, payload: [{name: unit, type: ref, ref_to: ENT-unit}],
+     visibility: public, realizes: [R-5.2], status: proposed, notes: "Emitted only when the rally succeeds."}
+  - {kind: event, id: EVT-DieRolled, name: DieRolled, payload: [{name: source, type: string}, {name: result, type: int}],
+     visibility: public, realizes: [CON-d6], status: proposed}
+
+  # ---- Triggers -------------------------------------------------------------------------------
+  - kind: trigger
+    id: TRG-zoc_stop
+    class: on_enter_location
+    fires_on: EVT-UnitMoved
+    condition: {all: [{pred: CON-adjacent_to_enemy, args: [$to]}, {not: {is: [$unit, CON-light]}}]}
+    response: {effects: [{op: end_activity, of: $unit}]}
+    mandatory: true
+    timing: immediate
+    order: 10
+    realizes: [R-3.3, R-3.5, REL-001]
+    status: proposed
+  - kind: trigger
+    id: TRG-reserve_reveal
+    class: on_enter_location
+    fires_on: EVT-UnitMoved
+    response: {effects: [{op: reveal, of: {text: "adjacent enemy Reserve markers"}}]}
+    mandatory: true
+    timing: immediate
+    order: 20
+    realizes: [R-6.2]
+    blocked_by: [BLK-001]
+    status: proposed
+
+  # ---- Decisions, randomness, modifiers, hidden information -----------------------------------
+  - {kind: decision_point, id: DP-movement, who: active_player, when: [SEQ-movement],
+     options: {actions: [ACT-move], pass_allowed: true}, realizes: [R-3.1], status: proposed}
+  - {kind: random_source, id: RNG-rally, mechanism: dice, spec: "1d6", modifiers: [], recorded_as: EVT-DieRolled,
+     realizes: [R-5.2, CON-d6], status: proposed}
+  - {kind: derived, id: DRV-rally_threshold, of: ENT-unit, value_type: int, compute: {val: CON-strength, of: $unit},
+     modifiers: [MOD-ford_rally], realizes: [R-5.2], status: proposed,
+     notes: "Rally succeeds when the RNG-rally outcome <= this value (5.2)."}
+  - {kind: modifier, id: MOD-ford_rally, applies_to: DRV-rally_threshold, value: 1, condition: {pred: CON-scn.ford},
+     stacking: cumulative, order: 1, realizes: [R-7.1, REL-003], status: proposed,
+     notes: "Raises the success THRESHOLD (7.1). It must never be added to the die roll: +1 to the roll would make rallying harder."}
+  - {kind: hidden_info, id: HID-reserve, subject: "ENT-reserve.represents", owner: owner, visible_to: [owner],
+     reveal_on: [TRG-reserve_reveal], realizes: [R-1.3, R-6.2], status: proposed}
+
+  # ---- Invariants, priority -------------------------------------------------------------------
+  - {kind: invariant, id: INV-one_unit_per_hex, severity: error, forall: {$hex: CON-hex},
+     holds: {cmp: [{count: CON-unit, where: {pred: CON-at, args: [$hex]}}, "<=", 1]}, realizes: [R-3.6], status: proposed}
+  - {kind: invariant, id: INV-strength_range, severity: error, forall: {$unit: CON-unit},
+     holds: {all: [{cmp: [{val: CON-strength, of: $unit}, ">=", 1]}, {cmp: [{val: CON-strength, of: $unit}, "<=", 4]}]},
+     realizes: [R-1.1], status: proposed}
+  - kind: priority
+    id: PRI-dsk
+    layers: [general_rule, specific_rule, exception, scenario_override, temporary_effect]
+    resolutions:
+      - {relation: REL-001, winner: R-3.5, loser: R-3.3, when: {is: [$unit, CON-light]}}
+      - {relation: REL-003, winner: R-7.1, loser: R-5.2, when: {pred: CON-scn.ford}}
+    realizes: [REL-001, REL-003]
+    status: proposed
+
+  # ---- Blockers -------------------------------------------------------------------------------
+  - {kind: blocker, id: BLK-001, cause: [AMB-001], affects: [TRG-reserve_reveal, HID-reserve], status: open,
+     needed: "Human interpretation of AMB-001 (reading a or b), or a FAQ (SRC-dsk.faq is missing)."}
+
+  # ---- Tests (Given / When / Then) ------------------------------------------------------------
+  - kind: test
+    id: TST-001
+    category: illegal
+    from_case: CASE-001
+    covers: [ACT-move, LEG-move.routed_adjacent]
+    given:
+      at: SEQ-movement
+      state:
+        units:
+          - {id: u1, side: first, unit_type: infantry, strength: 3, cohesion: routed, location: "0101", mp_spent: 0, moved_this_phase: false}
+          - {id: e1, side: second, unit_type: infantry, strength: 2, cohesion: formed, location: "0303", mp_spent: 0, moved_this_phase: false}
+    when:
+      steps: [{by: active_player, decision: DP-movement, action: ACT-move, params: {unit: u1, to: "0202"}}]
+    then:
+      accepted: false
+      reason_code: move.routed_adjacent
+      events: []
+      state: [{path: "units[u1].location", equals: "0101"}]
+    realizes: [R-3.4]
+    status: proposed
+  - kind: test
+    id: TST-002
+    category: boundary
+    from_case: CASE-002
+    covers: [RNG-rally]
+    given:
+      at: SEQ-rally
+      state: {units: [{id: u1, side: first, unit_type: infantry, strength: 3, cohesion: routed, location: "0101", mp_spent: 0, moved_this_phase: false}]}
+    when:
+      steps: [{by: active_player, action: ACT-rally, params: {unit: u1}}]
+      random: [{source: RNG-rally, outcome: 3}]
+    then:
+      accepted: true
+      events: [DieRolled, UnitRallied]
+      state: [{path: "units[u1].cohesion", equals: formed}]
+    realizes: [R-5.2]
+    status: proposed
+  - kind: test
+    id: TST-003
+    category: override
+    from_case: CASE-003
+    covers: [RNG-rally, DRV-rally_threshold, MOD-ford_rally]
+    given:
+      scenario: CON-scn.ford
+      at: SEQ-rally
+      state: {units: [{id: u1, side: first, unit_type: infantry, strength: 3, cohesion: routed, location: "0101", mp_spent: 0, moved_this_phase: false}]}
+    when:
+      steps: [{by: active_player, action: ACT-rally, params: {unit: u1}}]
+      random: [{source: RNG-rally, outcome: 4}]
+    then:
+      accepted: true
+      events: [DieRolled, UnitRallied]
+      state: [{path: "units[u1].cohesion", equals: formed}]
+    realizes: [R-7.1, REL-003]
+    status: proposed

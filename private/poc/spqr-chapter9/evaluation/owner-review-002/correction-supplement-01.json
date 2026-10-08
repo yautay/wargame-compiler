@@ -1,0 +1,37 @@
+{
+  "id": "M-POC1B-correction-supplement-01",
+  "authorizing_decision": "decision-01-RQ-01.json",
+  "authorizing_decision_sha256": "ee89310b6a603ae6fa7e79295ab1579e4257f9f8d1a8ea5cf96f119a05de85f4",
+  "original_artifacts_modified": [],
+  "scope_policy": "Field-level overlay only; semantic result confirmed, criticality not separately confirmed, full EXP-016/dependencies untouched",
+  "overrides": [
+    {
+      "id": "EXP-017",
+      "fields": {
+        "proposition": "W9.16 przy DR<=TQ kawaleria nie otrzymuje CH; przy DR>TQ otrzymuje DR-TQ CH, z minimum1. Minimum nie wyłącza warunku DR>TQ.",
+        "status": "owner_confirmed_local_semantic_scope",
+        "owner_confirmed_semantic_scope": "minimum boundary only",
+        "human_review_status": "reviewed_in_scoped_owner_decision",
+        "criticality_review": "owner justification/label not separately confirmed",
+        "local_scope_and_needed_context": "Conditional9.16 arithmetic only. Unknown external exceptions not invented; real-state OW/TQ/Rout target closure still missing."
+      }
+    },
+    {
+      "id": "SIT-07",
+      "fields": {
+        "expected": {
+          "kind": "local_result",
+          "result": "0 CH przy DR5=TQ5; natychmiastowy test nadal wynika z9.16.",
+          "scope": "Only requested local gate/transformation; never a complete combat/movement resolution.",
+          "rationale": "Właściciel wskazuje jawny warunek DR>TQ; przy równości gałąź CH nie zachodzi.",
+          "missing_context": [],
+          "blocker": null
+        },
+        "status": "owner_confirmed_local_semantic_scope",
+        "owner_confirmed_semantic_scope": "local CH result for supplied facts",
+        "human_review_status": "reviewed_in_scoped_owner_decision",
+        "criticality_review": "not separately explicitly confirmed"
+      }
+    }
+  ]
+}

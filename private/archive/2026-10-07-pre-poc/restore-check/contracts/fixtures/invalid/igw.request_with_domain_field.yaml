@@ -1,0 +1,10 @@
+# MUST FAIL: the gateway is domain-agnostic; an inference request must not carry WGC task/stage fields (only opaque client_ref).
+schema: igw/api@0
+messages:
+  - message: infer_request
+    body:
+      request_id: req_0002aa
+      profile: semantic
+      task: logic.rule.extract
+      messages: [{role: user, content: "<segment>"}]
+      output: {mode: json_object}

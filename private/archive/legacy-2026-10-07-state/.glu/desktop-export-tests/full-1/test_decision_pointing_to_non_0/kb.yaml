@@ -1,0 +1,26 @@
+schema: wgc/logic@0
+records:
+- kind: human_decision
+  id: HD-001
+  question: q
+  answer: a
+  by: owner
+  at: '2026-10-05T12:00:00Z'
+- kind: concept
+  id: CON-a
+  category: other
+  name: CON-a
+  prov:
+    kind: human_decision
+    by: &id001
+      tier: human
+      person: owner
+    decision: HD-001
+- kind: concept
+  id: CON-b
+  category: other
+  name: CON-b
+  prov:
+    kind: human_decision
+    by: *id001
+    decision: CON-a

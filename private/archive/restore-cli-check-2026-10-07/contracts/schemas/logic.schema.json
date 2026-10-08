@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wargame-compiler.local/schemas/logic.schema.json",
+  "title": "wgc/logic@0: Stage 1 Logic Model (Rule IR)",
+  "description": "DRAFT @0. Canonical, language-independent model of how the game works. Glosses are in the KB language (default: the source language). Exceptions and overrides live ONLY in relation records (single source of truth); views derive them.",
+  "type": "object",
+  "required": ["schema", "records"],
+  "properties": {
+    "schema": {"const": "wgc/logic@0"},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "record": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {"kind": {"enum": ["concept", "rule", "relation", "table", "procedure", "ambiguity", "interpretation", "case", "change", "human_decision", "review_request"]}},
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "concept"}}}, "then": {"$ref": "#/$defs/concept"}},
+        {"if": {"properties": {"kind": {"const": "rule"}}}, "then": {"$ref": "#/$defs/rule"}},
+        {"if": {"properties": {"kind": {"const": "relation"}}}, "then": {"$ref": "#/$defs/relation"}},
+        {"if": {"properties": {"kind": {"const": "table"}}}, "then": {"$ref": "#/$defs/table"}},
+        {"if": {"properties": {"kind": {"const": "procedure"}}}, "then": {"$ref": "#/$defs/procedure"}},
+        {"if": {"properties": {"kind": {"const": "ambiguity"}}}, "then": {"$ref": "#/$defs/ambiguity"}},
+        {"if": {"properties": {"kind": {"const": "interpretation"}}}, "then": {"$ref": "#/$defs/interpretation"}},
+        {"if": {"properties": {"kind": {"const": "case"}}}, "then": {"$ref": "#/$defs/case"}},
+        {"if": {"properties": {"kind": {"const": "change"}}}, "then": {"$ref": "#/$defs/change"}},
+        {"if": {"properties": {"kind": {"const": "human_decision"}}}, "then": {"$ref": "common.schema.json#/$defs/human_decision"}},
+        {"if": {"properties": {"kind": {"const": "review_request"}}}, "then": {"$ref": "common.schema.json#/$defs/review_request"}}
+      ]
+    },
+
+    "var": {"type": "string", "pattern": "^\\$[a-z_][a-z0-9_]*$", "description": "bound variable, e.g. $unit"},
+    "ref": {"$ref": "common.schema.json#/$defs/id"},
+    "term": {
+      "description": "Value-level term: number, boolean, variable, concept id, or a structured term.",
+      "anyOf": [
+        {"type": "number"}, {"type": "boolean"}, {"$ref": "#/$defs/var"}, {"$ref": "#/$defs/ref"},
+        {"type": "object", "required": ["val"], "properties": {"val": {"$ref": "#/$defs/ref"}, "of": {"$ref": "#/$defs/term"}}, "additionalProperties": false},
+        {"type": "object", "required": ["count"], "properties": {"count": {"$ref": "#/$defs/ref"}, "where": {"$ref": "#/$defs/expr"}}, "additionalProperties": false},
+        {"type": "object", "required": ["add"], "properties": {"add": {"type": "array", "items": {"$ref": "#/$defs/term"}, "minItems": 2}}, "additionalProperties": false},
+        {"type": "object", "required": ["sub"], "properties": {"sub": {"type": "array", "items": {"$ref": "#/$defs/term"}, "minItems": 2, "maxItems": 2}}, "additionalProperties": false},
+        {"type": "object", "required": ["text"], "properties": {"text": {"type": "string"}}, "additionalProperties": false}
+      ]
+    },
+    "expr": {
+      "description": "Boolean expression. Domain predicates are concepts (category predicate/state), so the grammar stays tiny. {text} is an explicit unformalized leaf.",
+      "oneOf": [
+        {"type": "boolean"},
+        {"type": "object", "required": ["all"], "properties": {"all": {"type": "array", "items": {"$ref": "#/$defs/expr"}, "minItems": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["any"], "properties": {"any": {"type": "array", "items": {"$ref": "#/$defs/expr"}, "minItems": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["not"], "properties": {"not": {"$ref": "#/$defs/expr"}}, "additionalProperties": false},
+        {"type": "object", "required": ["cmp"], "properties": {"cmp": {"type": "array", "prefixItems": [{"$ref": "#/$defs/term"}, {"enum": ["<", "<=", "=", "!=", ">=", ">"]}, {"$ref": "#/$defs/term"}], "minItems": 3, "maxItems": 3}}, "additionalProperties": false},
+        {"type": "object", "required": ["is"], "properties": {"is": {"type": "array", "prefixItems": [{"$ref": "#/$defs/term"}, {"$ref": "#/$defs/ref"}], "minItems": 2, "maxItems": 2}}, "additionalProperties": false},
+        {"type": "object", "required": ["pred"], "properties": {"pred": {"$ref": "#/$defs/ref"}, "args": {"type": "array", "items": {"$ref": "#/$defs/term"}}}, "additionalProperties": false},
+        {"type": "object", "required": ["val"], "description": "boolean state variable", "properties": {"val": {"$ref": "#/$defs/ref"}, "of": {"$ref": "#/$defs/term"}}, "additionalProperties": false},
+        {"type": "object", "required": ["text"], "properties": {"text": {"type": "string"}}, "additionalProperties": false}
+      ]
+    },
+    "effect": {
+      "type": "object",
+      "description": "Effect atom. `bind` names the result for later atoms (e.g. a die roll).",
+      "required": ["op"],
+      "properties": {
+        "op": {"enum": ["set", "inc", "dec", "enter_state", "leave_state", "place", "remove", "move", "random", "lookup", "choose", "reveal", "hide", "invoke", "end_activity", "text"]},
+        "of": {"$ref": "#/$defs/term"}, "var": {"$ref": "#/$defs/ref"}, "value": {"$ref": "#/$defs/term"}, "by": {"$ref": "#/$defs/term"},
+        "state": {"$ref": "#/$defs/ref"}, "to": {"$ref": "#/$defs/term"},
+        "source": {"$ref": "#/$defs/ref"}, "spec": {"type": "string", "pattern": "^[0-9]*d[0-9]+([+-][0-9]+)?$|^draw:[a-z0-9_]+$"},
+        "table": {"$ref": "#/$defs/ref"}, "key": {"$ref": "#/$defs/term"},
+        "chooser": {"$ref": "#/$defs/term"}, "options": {"type": "string"},
+        "procedure": {"$ref": "#/$defs/ref"}, "bind": {"$ref": "#/$defs/var"}, "when": {"$ref": "#/$defs/expr"},
+        "text": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "window": {"enum": ["during", "start_of", "end_of", "before", "after", "immediate", "any_time", "setup", "end_of_game"]},
+        "of": {"$ref": "#/$defs/ref", "description": "phase/step/event concept the window refers to"},
+        "step": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "limit": {
+      "type": "object",
+      "required": ["quantity", "op", "value"],
+      "properties": {
+        "quantity": {"$ref": "#/$defs/term"},
+        "op": {"enum": ["<", "<=", "=", ">=", ">"]},
+        "value": {"$ref": "#/$defs/term"},
+        "per": {"enum": ["action", "activation", "unit", "attack", "step", "phase", "player_turn", "game_turn", "game", "hex", "stack", "player"]}
+      },
+      "additionalProperties": false
+    },
+
+    "base": {
+      "type": "object",
+      "description": "Fields every logic record may carry.",
+      "properties": {
+        "status": {"$ref": "common.schema.json#/$defs/lifecycle"},
+        "prov": {"$ref": "common.schema.json#/$defs/provenance"},
+        "risk": {"$ref": "common.schema.json#/$defs/risk"},
+        "refs": {"$ref": "common.schema.json#/$defs/ids"},
+        "notes": {"type": "string"}
+      }
+    },
+
+    "concept": {
+      "type": "object",
+      "description": "CON-…: a typed concept of the game (entity type, state, state variable, phase, action, event, role, predicate…). The translation glossary links to these ids.",
+      "required": ["kind", "id", "category", "name", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "concept"}, "id": {"$ref": "#/$defs/ref"},
+        "category": {"enum": ["entity_type", "state", "state_var", "resource", "action", "event", "phase", "step", "role", "place", "terrain", "marker", "predicate", "die", "deck", "scenario", "other"]},
+        "name": {"type": "string", "description": "canonical source-language term"},
+        "source_terms": {"type": "array", "items": {"type": "string"}, "description": "every surface form used in the sources"},
+        "definition": {"$ref": "common.schema.json#/$defs/text"},
+        "disambiguation": {"type": "string"},
+        "defined_by": {"$ref": "common.schema.json#/$defs/ids"},
+        "parent": {"$ref": "#/$defs/ref"},
+        "of": {"$ref": "#/$defs/ref", "description": "owning entity type for state / state_var"},
+        "params": {"type": "array", "items": {"$ref": "#/$defs/ref"}, "description": "argument types of a predicate"},
+        "value_type": {"enum": ["int", "bool", "enum", "string", "ref", "set"]},
+        "range": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+        "values": {"type": "array", "items": {"type": ["string", "number"]}},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+
+    "rule": {
+      "type": "object",
+      "description": "R-…: one atomic rule. Structured fields carry the mechanics; `statement` is a gloss; `formalization` says how much of the meaning the structure captures.",
+      "required": ["kind", "id", "nature", "statement", "formalization", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "rule"}, "id": {"$ref": "#/$defs/ref"},
+        "label": {"type": "string", "description": "rule number as printed"},
+        "section": {"$ref": "#/$defs/ref", "description": "SEC-… section-level id (mapping atomic ↔ section ids)"},
+        "title": {"type": "string"},
+        "layer": {"enum": ["core", "advanced", "optional", "series", "game", "scenario", "errata"]},
+        "applies_in": {"$ref": "common.schema.json#/$defs/ids", "description": "scenario concepts for layer scenario"},
+        "nature": {"enum": ["definition", "permission", "obligation", "prohibition", "automatic_effect", "constraint", "procedure_step", "modifier", "table_application", "setup", "victory", "sequence", "commentary"]},
+        "modality": {"enum": ["may", "must", "must_not", "need_not", "is", "none"]},
+        "statement": {"$ref": "common.schema.json#/$defs/text"},
+        "bind": {"type": "object", "propertyNames": {"pattern": "^\\$[a-z_][a-z0-9_]*$"}, "additionalProperties": {"$ref": "#/$defs/ref"}, "description": "typed variables, e.g. {$unit: CON-unit}"},
+        "actor": {"$ref": "#/$defs/term"},
+        "action": {"$ref": "#/$defs/ref"},
+        "target": {"$ref": "#/$defs/term"},
+        "timing": {"$ref": "#/$defs/timing"},
+        "conditions": {"$ref": "#/$defs/expr"},
+        "effects": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "limits": {"type": "array", "items": {"$ref": "#/$defs/limit"}},
+        "triggers": {"type": "array", "items": {"type": "object", "required": ["event"], "properties": {"event": {"$ref": "#/$defs/ref"}, "when": {"$ref": "#/$defs/expr"}}, "additionalProperties": false}},
+        "formalization": {"enum": ["none", "partial", "full"]},
+        "unformalized": {"type": "string", "description": "what the structure does not capture (required when partial)"},
+        "ambiguities": {"$ref": "common.schema.json#/$defs/ids"},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "if": {"properties": {"formalization": {"const": "partial"}}}, "then": {"required": ["unformalized"]},
+      "additionalProperties": false
+    },
+
+    "relation": {
+      "type": "object",
+      "description": "REL-…: the ONLY place where exceptions, overrides and precedence are recorded.",
+      "required": ["kind", "id", "type", "from", "to", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "relation"}, "id": {"$ref": "#/$defs/ref"},
+        "type": {"enum": ["overrides", "exception_to", "requires", "modifies", "precedes", "replaces", "refines", "defines", "conflicts_with", "see"]},
+        "from": {"$ref": "#/$defs/ref"}, "to": {"$ref": "#/$defs/ref"},
+        "when": {"$ref": "#/$defs/expr"},
+        "priority_basis": {"enum": ["specific_over_general", "exception_over_rule", "scenario_over_game", "game_over_series", "errata_over_original", "later_edition", "explicit_statement", "interpretation"]},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+
+    "cell": {"anyOf": [{"type": "number"}, {"type": "string"}, {"type": "null"},
+      {"type": "object", "required": ["min"], "properties": {"min": {"type": ["number", "null"]}, "max": {"type": ["number", "null"]}}, "additionalProperties": false}]},
+    "table": {
+      "type": "object",
+      "description": "TAB-…: mechanical table in machine-readable form. Values are data, never prose.",
+      "required": ["kind", "id", "title", "columns", "rows", "complete", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "table"}, "id": {"$ref": "#/$defs/ref"}, "title": {"type": "string"},
+        "columns": {"type": "array", "items": {"type": "object", "required": ["name"], "properties": {"name": {"type": "string"}, "concept": {"$ref": "#/$defs/ref"}, "role": {"enum": ["key", "value"]}}, "additionalProperties": false}},
+        "rows": {"type": "array", "items": {"type": "array", "items": {"$ref": "#/$defs/cell"}}},
+        "complete": {"type": "boolean"},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+
+    "procedure": {
+      "type": "object",
+      "description": "PROC-…: ordered steps (sequence of play, combat procedure…). Player aids and the Stage 1.5 timing model derive from these.",
+      "required": ["kind", "id", "category", "steps", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "procedure"}, "id": {"$ref": "#/$defs/ref"}, "title": {"type": "string"},
+        "category": {"enum": ["sequence_of_play", "procedure", "subprocedure"]},
+        "repeat": {"type": "string", "description": "e.g. 'per player turn, first player then second'"},
+        "steps": {"type": "array", "items": {"type": "object", "required": ["n", "concept"],
+          "properties": {"n": {"type": "string"}, "concept": {"$ref": "#/$defs/ref"}, "rules": {"$ref": "common.schema.json#/$defs/ids"},
+            "markers": {"type": "array", "items": {"enum": ["decision", "reaction", "roll", "loop", "pitfall", "hidden"]}},
+            "invokes": {"$ref": "#/$defs/ref"}}, "additionalProperties": false}},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+
+    "ambiguity": {
+      "type": "object",
+      "description": "AMB-…: something the sources do not settle. Never resolved silently; `requires_human_interpretation` is a valid end state for automation.",
+      "required": ["kind", "id", "question", "readings", "status", "resolution", "impact", "prov"],
+      "properties": {
+        "kind": {"const": "ambiguity"}, "id": {"$ref": "#/$defs/ref"},
+        "scope": {"enum": ["original", "edition_skew", "translation", "digital"]},
+        "question": {"type": "string"},
+        "readings": {"type": "array", "minItems": 2, "items": {"type": "object", "required": ["id", "gloss"],
+          "properties": {"id": {"type": "string"}, "gloss": {"type": "string"}, "consequence": {"type": "string"}}, "additionalProperties": false}},
+        "recommendation": {"type": "object", "required": ["reading", "strength"], "properties": {
+          "reading": {"type": "string"}, "strength": {"enum": ["certain", "probable", "speculative"]}, "by": {"$ref": "common.schema.json#/$defs/executor"}}, "additionalProperties": false},
+        "impact": {"type": "object", "properties": {
+          "semantic": {"type": "boolean"}, "digital": {"enum": ["none", "affects", "blocks"]}, "editorial": {"type": "boolean"}}, "additionalProperties": false},
+        "status": {"$ref": "common.schema.json#/$defs/lifecycle"},
+        "resolution": {"enum": ["open", "requires_human_interpretation", "resolved", "house_rule", "wont_fix"],
+                       "description": "Disposition of the ambiguity; independent of record lifecycle."},
+        "resolved_by": {"$ref": "#/$defs/ref", "description": "HD-…, CHG-… or INT-…"},
+        "prov": {"$ref": "common.schema.json#/$defs/provenance"}, "risk": {"$ref": "common.schema.json#/$defs/risk"},
+        "refs": {"$ref": "common.schema.json#/$defs/ids"}, "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+
+    "interpretation": {
+      "type": "object",
+      "description": "INT-…: a chosen reading of an ambiguity. Accepted only with a human decision.",
+      "required": ["kind", "id", "ambiguity", "reading", "status", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "interpretation"}, "id": {"$ref": "#/$defs/ref"},
+        "ambiguity": {"$ref": "#/$defs/ref"}, "reading": {"type": "string"},
+        "statement": {"$ref": "common.schema.json#/$defs/text"},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "if": {"properties": {"status": {"const": "accepted"}}}, "then": {"properties": {"prov": {"required": ["decision"]}}},
+      "additionalProperties": false
+    },
+
+    "case": {
+      "type": "object",
+      "description": "CASE-…: control case (situation at the table → expected verdict + rule chain). Stage 1.5 turns them into executable test specs. Not a game scenario (those are concepts of category scenario).",
+      "required": ["kind", "id", "polarity", "question", "verdict", "chain", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "case"}, "id": {"$ref": "#/$defs/ref"},
+        "polarity": {"enum": ["positive", "negative", "boundary", "exception", "override", "random", "hidden_info", "ambiguity"]},
+        "question": {"type": "string"},
+        "expected": {"type": "string"},
+        "verdict": {"enum": ["legal", "illegal", "value", "outcome", "requires_human_interpretation"]},
+        "chain": {"$ref": "common.schema.json#/$defs/ids", "description": "rules, tables, relations in reasoning order"},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "additionalProperties": false
+    },
+
+    "change": {
+      "type": "object",
+      "description": "CHG-…: errata, FAQ answer, designer clarification, or edition difference.",
+      "required": ["kind", "id", "change_kind", "affects", "summary", "prov"],
+      "allOf": [{"$ref": "#/$defs/base"}],
+      "properties": {
+        "kind": {"const": "change"}, "id": {"$ref": "#/$defs/ref"},
+        "change_kind": {"enum": ["errata", "faq", "designer_clarification", "version"]},
+        "affects": {"$ref": "common.schema.json#/$defs/ids"},
+        "summary": {"type": "string"},
+        "from_edition": {"type": "string"}, "to_edition": {"type": "string"},
+        "status": true, "prov": true, "risk": true, "refs": true, "notes": true
+      },
+      "additionalProperties": false
+    }
+  }
+}

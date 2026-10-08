@@ -1,0 +1,18 @@
+schema: wgc/logic@0
+records:
+- kind: human_decision
+  id: HD-001
+  question: q
+  answer: a
+  by: owner
+  at: '2026-10-05T12:00:00Z'
+- kind: concept
+  id: CON-a
+  category: other
+  name: a
+  prov:
+    kind: llm_inference
+    by:
+      tier: local
+    derived_from:
+    - CON-zzz
