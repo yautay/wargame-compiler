@@ -29,4 +29,26 @@ W nowym klonie pracować bezpośrednio na feature/tests; historyczne lokalne
 ścieżki i informacje o master/shared objects są snapshotami poprzedniej maszyny.
 Nie kopiować środowiska. Istniejący lokalny Python z pytest jest wystarczający.
 
+## Notatka po nagłym zakończeniu — 2026-10-09
+
+Właściciel zakończył pracę niespodziewanie i zlecił wyłącznie zapis tej notatki,
+commit i push na feature/tests. Na tym kończymy; dalszych kart nie rozpoczęto.
+
+Ostatni checkpoint został opublikowany na origin/feature/tests jako
+`ce7a27bee18ab606a7a0cc719b2d1aae76ea4b0d`.
+M-POC1A/B/C są zakończone. eval-v1 jest zamrożone; zgody 06/07 są zapisane
+i nie wymagają ponownego potwierdzenia. Kontrole checkpointu: 96 passed.
+
+Stan wznowienia: M-POC2A jeszcze nierozpoczęte. Następna sesja ma przygotować
+pakiet źródłowy, minimalny format, syntetyczny przykład, prompt i transfer-list,
+bez klucza oceny w pakiecie. M-POC2B i pierwsza ekstrakcja jeszcze niewykonane.
+M-POC2B wymaga późniejszej, osobnej czystej sesji otwieranej przez właściciela.
+
+Na tym laptopie użyć kopii wskazanej w
+`C:/dev/wargame-compiler/private/poc/active-feature-workspace.json`.
+Lokalna .venv jest gotowa; interpreter kontroli:
+`C:/dev/wargame-compiler/.venv/Scripts/python.exe`.
+W świeżym klonie użyć bezpośrednio feature/tests i lokalnego środowiska.
+Wznowienie zacząć od bootstrapu CLAUDE, STATUS, tego HANDOFF i karty M-POC2A.
+
 [STATUS](STATUS.md), [ROADMAP](ROADMAP.md), [plan](POC-PLAN.md).
