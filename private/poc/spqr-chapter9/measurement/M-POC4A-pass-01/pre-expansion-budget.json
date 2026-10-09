@@ -1,0 +1,70 @@
+{
+  "id": "M-POC4A-pass-01-pre-expansion",
+  "recorded_at_utc": "2026-10-09T19:24:05.772912+00:00",
+  "baseline_extra_pages": 0,
+  "baseline_context_responses": 0,
+  "proposed_unique_additional_pdf_pages": [
+    27
+  ],
+  "proposed_unique_additional_rule_ids": [
+    "8.46"
+  ],
+  "proposed_additional_table_ids": [],
+  "counts": {
+    "pages": 1,
+    "rules": 1,
+    "tables": 0,
+    "selected_dependency_depth": 1,
+    "longest_considered_path_depth": 2,
+    "prepared_passes": 1,
+    "inference_rounds": 0,
+    "reserved_rounds": 1
+  },
+  "paths": [
+    {
+      "nodes": [
+        "9.32",
+        "8.46/Step-4"
+      ],
+      "depth": 1,
+      "status": "selected"
+    },
+    {
+      "nodes": [
+        "9.32",
+        "8.46/Step-4",
+        "CTX-TBL-SHOCK-CRT"
+      ],
+      "depth": 2,
+      "status": "blocked_source"
+    }
+  ],
+  "limits": {
+    "pages": 8,
+    "rules": 20,
+    "tables": 4,
+    "depth": 2,
+    "rounds": 2
+  },
+  "first_reached_limit_applies": true,
+  "stop": {
+    "first_reached_limit": "dependency_depth",
+    "at_depth": 2,
+    "action": "Do not recursively extend targets reached at depth 2. Missing CRT stays blocked; no implicit third step or pass-02."
+  },
+  "rationale": "Existing requires_context EXP-031 and declarations G932/G-D932CRT ask for the numerical AS/LC procedure. Select only 8.46 Step 4; do not acquire unrelated ordinary procedures for synthetic local tests.",
+  "scope_rule": "Rule counted once even for a partial clause; shared page once; references are not supplied rules or tables. Full reviewer renders remain outside extractor allowlist.",
+  "remaining_headroom": {
+    "pages": 7,
+    "rules": 19,
+    "tables": 4,
+    "depth": 0,
+    "rounds_after_reserved": 1
+  },
+  "active_user_time": "unknown",
+  "active_model_time": "unknown",
+  "remaining_active_budget": "unknown",
+  "time_budget_compliance": "unknown",
+  "scope_limit_compliance": true,
+  "decision": "prepare_for_human_review_only; do not infer budget compliance or dispatch inference"
+}

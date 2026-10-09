@@ -10,8 +10,35 @@
 - **Wynik M-POC2A:** done — pakiet przygotowany
 - **Wynik M-POC2B:** done — odbiór istniejącej first-001 z brakami unknown
 - **Wynik M-POC3:** done — baseline zamknięty przed korektami, bez semantycznej akceptacji
-- **Wynik M-POC4A:** planned — nie rozpoczęto
-- **Blokady:** znaczenie waiting_review; konfiguracja/czas/historyczne przekazanie/czysty kontekst unknown; zgłoszone braki i błędy pozostają w raporcie
+- **Wynik M-POC4A:** partial — pass-01 przygotowany, źródła krytyczne waiting_review
+- **Blokady:** review źródła krytycznego i znaczenia; brak dokładnych tabel oraz identyfikacji mapy/scenariusza/żetonu; konfiguracja/czas/historyczne przekazanie/czysty kontekst i aktywny budżet unknown
+
+M-POC4A zweryfikowało integralność baseline: 32/32 artefakty wejść,
+33/33 pliki transferu, 7/7 artefakty eval-v1, 10/10 artefakty raportu
+i 16 768 zakresów provenance zgodne. Zweryfikowana stabilna kopia PDF
+w repo ma hash source-v1; historyczna ścieżka nie istnieje i nie jest wymagana.
+Oryginały, pierwsze wejścia, eval-v1 i raporty M-POC3 zachowano.
+
+context/pass-01 zawiera targets.json, manifest.json, prompt.txt, dowody
+i review.md. Pakiet draft, niezamrożony i nieprzekazany. Przyrost policzony
+przed rozszerzeniem: 1 strona, 1 reguła, 0 tabel; dostarczona ścieżka 1 krok,
+rozważana 2 kroki do blocked_source. Na granicy głębokości zatrzymano
+dalszy wybór, zgodnie z pierwszym osiągniętym limitem. Limity 8/20/4/2/2
+bez zmian; 1 pass przygotowany, 0 rund odpowiedzi, 0 inferencji i 0 korekt.
+Zgodność aktywnego budżetu czasu unknown, bez deklaracji zaliczenia.
+
+Rozliczono 8 potwierdzonych relacji wewnętrznych (źródła już w baseline),
+8 wymagań kontekstu oraz 105 niepotwierdzonych kandydatur. 79 deklaracji:
+3 z częściowym źródłem, 56 z kandydatami lokalizacji, 20 blocked_source.
+Nie są to potwierdzone błędy ani zaakceptowane źródła. Brakujące wewnętrzne
+pary nie spowodowały automatycznej ekspansji. Znaczenie i sytuacje pozostają
+pending/not_assessable; syntetyczne fakty nie ustalają rzeczywistego setupu.
+
+Dokładne wznowienie: M-POC4A, review pakietu i jawny nowy zapis decyzji
+człowieka z zakresem/hashami; dopiero potem freeze i osobna M-POC4B.
+M-POC4 pozostaje jedynym next. Nowe pomiary i dowody integralności:
+measurement/M-POC4A-pass-01/ oraz dopisany rekord measurement/sessions.jsonl.
+Kontrole M-POC4A: scripts/check.ps1 **105 passed**, git diff --check bez błędów.
 
 Zapisano wszystkie wymagane artefakty proposals/first-001/ i reports/first-001/
 pod private/poc/spqr-chapter9/, mapę do surowych bajtów oraz manifest i closure.
@@ -51,12 +78,12 @@ Kontrole zamknięcia: scripts/check.ps1 **104 passed**, git diff --check bez bł
 Pomiary i rzeczywiste logi scripts/check.ps1 oraz git diff --check:
 measurement/M-POC3-first-001/completion.json i nowy rekord
 M-POC3-first-001-baseline w measurement/sessions.jsonl. Baseline pozostaje zamknięty.
-Dokładny następny krok: osobna M-POC4A od run.json, report.md,
+Historyczny punkt wznowienia po M-POC3 (zastąpiony powyższym): od run.json, report.md,
 dependency-comparison.json i zadeklarowanych braków w errors.json wybiera
 potrzebne blokujące cele, sprawdza źródła i liczy przyrost stron/reguł/tabel,
 głębokość oraz limity przed context/pass-01. Brakujące pary wewnętrzne
 nie uzasadniają automatycznie nowego kontekstu. M-POC4 jedyny next;
-M-POC4A–M-POC7 nierozpoczęte. Progi i limity bez zmian.
+M-POC4B–M-POC7 nierozpoczęte. Progi i limity bez zmian.
 
 ## Historia wcześniejszego przygotowania i przekazania
 

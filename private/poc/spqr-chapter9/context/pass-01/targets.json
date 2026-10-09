@@ -1,0 +1,219 @@
+{
+  "id": "M-POC4A-pass-01",
+  "status": "prepared_waiting_review",
+  "card_outcome": "partial",
+  "parent_run": "first-001",
+  "parent_response": {
+    "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+    "bytes": 617941,
+    "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+  },
+  "baseline_closure": {
+    "path": "private/poc/spqr-chapter9/reports/first-001/closure.json",
+    "bytes": 881,
+    "sha256": "bda1f7b3a4b91a2491afb345b6ff222dab7173e403f1c4901691932e659b0a17"
+  },
+  "evaluation_id": "eval-v1",
+  "evaluation_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+    "bytes": 4116,
+    "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+  },
+  "source": {
+    "path": "private/poc/spqr-chapter9/source/source-v1.json",
+    "bytes": 9008,
+    "sha256": "4d76467eaaff5ea582fc95fcac1464bf889448759beed49ffb6533ed175a7640"
+  },
+  "budget_before_expansion": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC4A-pass-01/pre-expansion-budget.json",
+    "bytes": 2076,
+    "sha256": "07a6ca31679eda1a71796c0f5513d0b312ac71c5623268bcffb421f15e30e9c3"
+  },
+  "budget": {
+    "id": "M-POC4A-pass-01-pre-expansion",
+    "recorded_at_utc": "2026-10-09T19:24:05.772912+00:00",
+    "baseline_extra_pages": 0,
+    "baseline_context_responses": 0,
+    "proposed_unique_additional_pdf_pages": [
+      27
+    ],
+    "proposed_unique_additional_rule_ids": [
+      "8.46"
+    ],
+    "proposed_additional_table_ids": [],
+    "counts": {
+      "pages": 1,
+      "rules": 1,
+      "tables": 0,
+      "selected_dependency_depth": 1,
+      "longest_considered_path_depth": 2,
+      "prepared_passes": 1,
+      "inference_rounds": 0,
+      "reserved_rounds": 1
+    },
+    "paths": [
+      {
+        "nodes": [
+          "9.32",
+          "8.46/Step-4"
+        ],
+        "depth": 1,
+        "status": "selected"
+      },
+      {
+        "nodes": [
+          "9.32",
+          "8.46/Step-4",
+          "CTX-TBL-SHOCK-CRT"
+        ],
+        "depth": 2,
+        "status": "blocked_source"
+      }
+    ],
+    "limits": {
+      "pages": 8,
+      "rules": 20,
+      "tables": 4,
+      "depth": 2,
+      "rounds": 2
+    },
+    "first_reached_limit_applies": true,
+    "stop": {
+      "first_reached_limit": "dependency_depth",
+      "at_depth": 2,
+      "action": "Stop this pass at the depth-2 boundary. No additional branches or automatic pass-02; missing sources remain explicit."
+    },
+    "rationale": "Existing requires_context EXP-031 and declarations G932/G-D932CRT ask for the numerical AS/LC procedure. Select only 8.46 Step 4; do not acquire unrelated ordinary procedures for synthetic local tests.",
+    "scope_rule": "Rule counted once even for a partial clause; shared page once; references are not supplied rules or tables. Full reviewer renders remain outside extractor allowlist.",
+    "remaining_headroom": {
+      "pages": 7,
+      "rules": 19,
+      "tables": 4,
+      "depth": 0,
+      "rounds_after_reserved": 1
+    },
+    "active_user_time": "unknown",
+    "active_model_time": "unknown",
+    "remaining_active_budget": "unknown",
+    "time_budget_compliance": "unknown",
+    "scope_limit_compliance": true,
+    "decision": "prepare_for_human_review_only; do not infer budget compliance or dispatch inference"
+  },
+  "selected": [
+    {
+      "id": "CTX-RULE-8.46-S4",
+      "rule": "8.46",
+      "scope": "Step 4 only, PDF27 left [40,413,300,650]",
+      "reason": "EXP-031 context requirement; G932/G-D932CRT and shared G-D962shock procedure component.",
+      "path": [
+        "9.32",
+        "8.46/Step-4"
+      ],
+      "depth": 1,
+      "delta": {
+        "unique_pages": [
+          27
+        ],
+        "unique_rules": [
+          "8.46"
+        ],
+        "unique_tables": []
+      },
+      "affected_situations": [
+        "SIT-09",
+        "SIT-13"
+      ],
+      "impact": "Source component supplied; synthetic local outputs unchanged; real AS/CRT case still blocked and human interpretation pending.",
+      "source_status": "located_visually_by_codex",
+      "human_acceptance": "waiting_review"
+    }
+  ],
+  "blocked": [
+    {
+      "id": "CTX-TBL-SHOCK-CRT",
+      "name": "Shock CRT",
+      "status": "blocked_source",
+      "path": [
+        "9.32",
+        "8.46/Step-4",
+        "CTX-TBL-SHOCK-CRT"
+      ],
+      "depth": 2,
+      "reason": "Exact table rows/headers/notes not supplied; references do not establish the actual table. No lookup values invented.",
+      "impact": "Real base-result/AS lookup remains unavailable. SIT-09 supplied unadjusted result and local result retain frozen scope; no blanket new block."
+    }
+  ],
+  "source_audit": {
+    "path": "private/poc/spqr-chapter9/context/pass-01/critical-source-audit.json",
+    "bytes": 258863,
+    "sha256": "e1a1985f2d7e4d16054cd01d21bcd88233efb65460facec87d92b4f7e357da25"
+  },
+  "declarations_audit": {
+    "path": "private/poc/spqr-chapter9/context/pass-01/declaration-review.json",
+    "bytes": 263261,
+    "sha256": "6d17facf9ad5b26afa0ef4cbf92bf0603b372251a565d35af8f569301a03ea3a"
+  },
+  "table_and_unnumbered_id_policy": "CTX-TBL-SHOCK-CRT names the blocked chart; CTX-EXP-010/019/033/050/064/066/074 name exact unnumbered context requests.",
+  "review_gate": "Critical sources and interpretation require human review before package freeze/transfer; no human approval recorded.",
+  "time_compliance": "unknown",
+  "new_inference_responses": 0,
+  "new_corrective_responses": 0,
+  "planned_context_response_round": 1,
+  "performed_context_response_rounds": 0,
+  "semantic_result": "not_assessable",
+  "final_path_audit": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC4A-pass-01/final-path-audit.json",
+    "bytes": 1162,
+    "sha256": "426a991bf5aa4a2c91108276f37547c1c9a6771e89c984e97a29e9a693a8cfa2"
+  },
+  "named_target_registry": [
+    {
+      "id": "CTX-TBL-CLASH",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-COHESION-TQ",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-COMBAT-UNRESOLVED",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-MOVEMENT-COST",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-MRRC",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-SHOCK-CRT",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-SHOCK-SUPERIORITY",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    },
+    {
+      "id": "CTX-TBL-STACKING",
+      "status": "blocked_source",
+      "reason": "Exact chart rows/headers/notes unavailable in the bounded verified source set; lookup-request label is not an accepted alias.",
+      "scope": "Exact named table/row requested; no additional table supplied"
+    }
+  ]
+}

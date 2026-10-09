@@ -1,0 +1,46 @@
+{
+  "selected": [
+    "9.32",
+    "8.46/Step-4"
+  ],
+  "selected_depth": 1,
+  "considered": [
+    {
+      "nodes": [
+        "9.32",
+        "8.46/Step-4",
+        "CTX-TBL-SHOCK-CRT"
+      ],
+      "depth": 2,
+      "status": "blocked_source"
+    },
+    {
+      "nodes": [
+        "9.32",
+        "8.46/Step-4",
+        "8.45"
+      ],
+      "depth": 2,
+      "status": "source_locator_candidate_deferred",
+      "reason": "Not supplied; applicability/selection procedure outside chosen Step 4. Stop here."
+    },
+    {
+      "nodes": [
+        "9.32",
+        "8.46/Step-4",
+        "10.13"
+      ],
+      "depth": 2,
+      "status": "source_already_in_baseline",
+      "reason": "Existing boundary context reference only; do not follow to 6.68 as a third step."
+    }
+  ],
+  "longest": 2,
+  "delta_unchanged": {
+    "pages": 1,
+    "rules": 1,
+    "tables": 0
+  },
+  "reason": "Final accounting of explicit cross-references in the selected fragment; no additional source materialization or changed pre-expansion cost.",
+  "stop": "All depth-2 nodes terminal for this pass; no further branch or automatic round"
+}

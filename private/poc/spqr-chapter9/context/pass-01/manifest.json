@@ -1,0 +1,205 @@
+{
+  "id": "M-POC4A-pass-01-manifest",
+  "status": "draft_waiting_human_review",
+  "frozen": false,
+  "parent_response": {
+    "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+    "bytes": 617941,
+    "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+  },
+  "baseline_closure": {
+    "path": "private/poc/spqr-chapter9/reports/first-001/closure.json",
+    "bytes": 881,
+    "sha256": "bda1f7b3a4b91a2491afb345b6ff222dab7173e403f1c4901691932e659b0a17"
+  },
+  "verified_source": {
+    "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "bytes": 3965827,
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "files": [
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/critical-source-audit.json",
+      "bytes": 258863,
+      "sha256": "e1a1985f2d7e4d16054cd01d21bcd88233efb65460facec87d92b4f7e357da25",
+      "role": "evaluator_only",
+      "reason": "Account for frozen critical scopes and unconfirmed candidates",
+      "scope": "8 confirmed relations, 8 context requirements, 105 candidates"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/declaration-review.json",
+      "bytes": 263261,
+      "sha256": "6d17facf9ad5b26afa0ef4cbf92bf0603b372251a565d35af8f569301a03ea3a",
+      "role": "evaluator_only",
+      "reason": "Account for all 79 declarations without making them gold",
+      "scope": "First-001 declared gaps, locators and impacts"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-helper.txt",
+      "bytes": 886,
+      "sha256": "5bb9c43565dba73617ddf0234f46401d197ee3be8d12a8a1c3f18b33610a330a",
+      "role": "extractor_source_draft",
+      "reason": "Auxiliary transcription/locator for source image",
+      "scope": "Same exact crop; not an interpretation"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-pdf-27.png",
+      "bytes": 67087,
+      "sha256": "87ca4e8f337861b2116317ab8cecdebbc0ebdda10c3af8236c0689a5f9e2df1b",
+      "role": "extractor_source_draft",
+      "reason": "Source image of the requested numerical procedure",
+      "scope": "PDF27 left, [40,413,300,650], 8.46 Step 4"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-scope.json",
+      "bytes": 1376,
+      "sha256": "8860cc20a06f2b4cbd84829c4b40eac3e61a4d5b386334a9adadc62be4a32090",
+      "role": "extractor_source_draft",
+      "reason": "Source hash, coordinates and scope limits",
+      "scope": "Same exact crop; critical source acceptance pending"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/prompt.txt",
+      "bytes": 2352,
+      "sha256": "c9310cbd997a63379abbe8535aa7e47b6d04c609254612632bde98292ba16395",
+      "role": "extractor_prompt_draft",
+      "reason": "Exact proposed future manual request; not executed",
+      "scope": "Original chapter9 scope plus one partial source"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/review.md",
+      "bytes": 5317,
+      "sha256": "2ef86ab49b4d84c087449b92660a4bfe2695d5229e21b341476b241c0ff2eeef",
+      "role": "evaluator_only",
+      "reason": "Concrete human review scope and resumable gate",
+      "scope": "No human acceptance recorded"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/targets.json",
+      "bytes": 8530,
+      "sha256": "a42e1d0f199651daf00518c0f5fc9da60f76a4f30805020ae2b47f32c2584f6f",
+      "role": "evaluator_only",
+      "reason": "Bounded selection, parent lineage, costs and remaining blockers",
+      "scope": "One pass; selected 8.46 Step 4 only"
+    }
+  ],
+  "extractor_additional_allowlist": [
+    "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-helper.txt",
+    "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-pdf-27.png",
+    "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-scope.json"
+  ],
+  "inherited_input_references": [
+    {
+      "path": "private/poc/spqr-chapter9/inputs/v1/manifest.json",
+      "bytes": 6835,
+      "sha256": "39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a",
+      "reason": "Immutable original prepared source package; historical transfer remains unknown",
+      "scope": "Only original input allowlist"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/formats/proposal-format-v1.md",
+      "bytes": 7453,
+      "sha256": "e26b5c49e8b3306740b5d84aaef5976aea5fcfb6d1e4bdd09ef08ca491fa0c92",
+      "reason": "Original proposal format",
+      "scope": "No format correction"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+      "bytes": 617941,
+      "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307",
+      "reason": "Immutable parent answer",
+      "scope": "Parent only, no reports or evaluation"
+    }
+  ],
+  "extractor_exclusions": [
+    "evaluation/",
+    "reports/first-001/",
+    "targets.json",
+    "critical-source-audit.json",
+    "declaration-review.json",
+    "review.md",
+    "measurement/",
+    "full PDF",
+    "reviewer full-page renders"
+  ],
+  "budget": {
+    "id": "M-POC4A-pass-01-pre-expansion",
+    "recorded_at_utc": "2026-10-09T19:24:05.772912+00:00",
+    "baseline_extra_pages": 0,
+    "baseline_context_responses": 0,
+    "proposed_unique_additional_pdf_pages": [
+      27
+    ],
+    "proposed_unique_additional_rule_ids": [
+      "8.46"
+    ],
+    "proposed_additional_table_ids": [],
+    "counts": {
+      "pages": 1,
+      "rules": 1,
+      "tables": 0,
+      "selected_dependency_depth": 1,
+      "longest_considered_path_depth": 2,
+      "prepared_passes": 1,
+      "inference_rounds": 0,
+      "reserved_rounds": 1
+    },
+    "paths": [
+      {
+        "nodes": [
+          "9.32",
+          "8.46/Step-4"
+        ],
+        "depth": 1,
+        "status": "selected"
+      },
+      {
+        "nodes": [
+          "9.32",
+          "8.46/Step-4",
+          "CTX-TBL-SHOCK-CRT"
+        ],
+        "depth": 2,
+        "status": "blocked_source"
+      }
+    ],
+    "limits": {
+      "pages": 8,
+      "rules": 20,
+      "tables": 4,
+      "depth": 2,
+      "rounds": 2
+    },
+    "first_reached_limit_applies": true,
+    "stop": {
+      "first_reached_limit": "dependency_depth",
+      "at_depth": 2,
+      "action": "Stop this pass at the depth-2 boundary. No additional branches or automatic pass-02; missing sources remain explicit."
+    },
+    "rationale": "Existing requires_context EXP-031 and declarations G932/G-D932CRT ask for the numerical AS/LC procedure. Select only 8.46 Step 4; do not acquire unrelated ordinary procedures for synthetic local tests.",
+    "scope_rule": "Rule counted once even for a partial clause; shared page once; references are not supplied rules or tables. Full reviewer renders remain outside extractor allowlist.",
+    "remaining_headroom": {
+      "pages": 7,
+      "rules": 19,
+      "tables": 4,
+      "depth": 0,
+      "rounds_after_reserved": 1
+    },
+    "active_user_time": "unknown",
+    "active_model_time": "unknown",
+    "remaining_active_budget": "unknown",
+    "time_budget_compliance": "unknown",
+    "scope_limit_compliance": true,
+    "decision": "prepare_for_human_review_only; do not infer budget compliance or dispatch inference"
+  },
+  "human_source_acceptance": "waiting_review",
+  "semantic_acceptance": "not_performed",
+  "self_hash_policy": "Manifest cannot hash itself; its full hash/bytes, reason and scope are recorded in the separate measurement package seal/completion.",
+  "reason": "Integrity/allowlist for one bounded draft context package",
+  "scope": "8.46 Step 4 only; all missing targets remain explicit",
+  "final_path_audit": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC4A-pass-01/final-path-audit.json",
+    "bytes": 1162,
+    "sha256": "426a991bf5aa4a2c91108276f37547c1c9a6771e89c984e97a29e9a693a8cfa2"
+  }
+}

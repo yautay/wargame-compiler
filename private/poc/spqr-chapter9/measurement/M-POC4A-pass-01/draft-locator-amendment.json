@@ -1,0 +1,50 @@
+{
+  "before": [
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/critical-source-audit.json",
+      "bytes": 207795,
+      "sha256": "7f429f4c87d07e25f1a74cecef3d8bb6106014ca8e4e222c173edf770f419e91"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/declaration-review.json",
+      "bytes": 226412,
+      "sha256": "c4d1decafd074612cc3133b3b14614a807b745cdcd44089b09a5b0750de3c049"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/targets.json",
+      "bytes": 5776,
+      "sha256": "0a7d6da9b9c8e7c6c6cb5b07676ea7392c0090f2c5797d61d525675efca03f4b"
+    }
+  ],
+  "after": [
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/critical-source-audit.json",
+      "bytes": 236256,
+      "sha256": "12304ec0695e00a3234993bc204aedbce6e728aa595f8bfb661beecf07469834"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/declaration-review.json",
+      "bytes": 247268,
+      "sha256": "a385fb5c464f47d36f4380e8e73faa304cd2ebc81b245cb6e775b740ad551c38"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/targets.json",
+      "bytes": 5778,
+      "sha256": "0607753b0c3d919da8894d5984428aa93e6d3bedc722ec9cf52d2ad2dba5deb9"
+    }
+  ],
+  "reason": "Before manifest/freeze: corrected helper-only LOS and Recovery lookup candidates against source text; attached exact internal target evidence and direct baseline evidence source fields. No protected baseline or human decision changed.",
+  "source_checks": [
+    {
+      "rule": "8.14",
+      "pdf_page": 22,
+      "method": "read full left-column helper source; heading and LOS content checked"
+    },
+    {
+      "rule": "10.16",
+      "pdf_page": 38,
+      "method": "actual Recovery heading checked"
+    }
+  ],
+  "semantic_acceptance": "not_performed"
+}

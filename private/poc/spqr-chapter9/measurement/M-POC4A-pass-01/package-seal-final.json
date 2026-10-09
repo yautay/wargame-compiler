@@ -1,0 +1,83 @@
+{
+  "previous_draft_manifest": {
+    "path": "private/poc/spqr-chapter9/context/pass-01/manifest.json",
+    "bytes": 7893,
+    "sha256": "21d1f1185310f898378f1f8d961f2bca4cd4cd8df13f283fb477537d0f9f0b48"
+  },
+  "manifest": {
+    "path": "private/poc/spqr-chapter9/context/pass-01/manifest.json",
+    "bytes": 8118,
+    "sha256": "c794e2ae32a0cd1ec31972e60bd9070327bd31c79cc97cbd06019b8e6fcd029d",
+    "reason": "Final integrity/allowlist of reviewable draft",
+    "scope": "One pass; no approval or freeze"
+  },
+  "files": [
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/critical-source-audit.json",
+      "bytes": 258863,
+      "sha256": "e1a1985f2d7e4d16054cd01d21bcd88233efb65460facec87d92b4f7e357da25",
+      "role": "evaluator_only",
+      "reason": "Account for frozen critical scopes and unconfirmed candidates",
+      "scope": "8 confirmed relations, 8 context requirements, 105 candidates"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/declaration-review.json",
+      "bytes": 263261,
+      "sha256": "6d17facf9ad5b26afa0ef4cbf92bf0603b372251a565d35af8f569301a03ea3a",
+      "role": "evaluator_only",
+      "reason": "Account for all 79 declarations without making them gold",
+      "scope": "First-001 declared gaps, locators and impacts"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-helper.txt",
+      "bytes": 886,
+      "sha256": "5bb9c43565dba73617ddf0234f46401d197ee3be8d12a8a1c3f18b33610a330a",
+      "role": "extractor_source_draft",
+      "reason": "Auxiliary transcription/locator for source image",
+      "scope": "Same exact crop; not an interpretation"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-pdf-27.png",
+      "bytes": 67087,
+      "sha256": "87ca4e8f337861b2116317ab8cecdebbc0ebdda10c3af8236c0689a5f9e2df1b",
+      "role": "extractor_source_draft",
+      "reason": "Source image of the requested numerical procedure",
+      "scope": "PDF27 left, [40,413,300,650], 8.46 Step 4"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/evidence/8.46-step-4-scope.json",
+      "bytes": 1376,
+      "sha256": "8860cc20a06f2b4cbd84829c4b40eac3e61a4d5b386334a9adadc62be4a32090",
+      "role": "extractor_source_draft",
+      "reason": "Source hash, coordinates and scope limits",
+      "scope": "Same exact crop; critical source acceptance pending"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/prompt.txt",
+      "bytes": 2352,
+      "sha256": "c9310cbd997a63379abbe8535aa7e47b6d04c609254612632bde98292ba16395",
+      "role": "extractor_prompt_draft",
+      "reason": "Exact proposed future manual request; not executed",
+      "scope": "Original chapter9 scope plus one partial source"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/review.md",
+      "bytes": 5317,
+      "sha256": "2ef86ab49b4d84c087449b92660a4bfe2695d5229e21b341476b241c0ff2eeef",
+      "role": "evaluator_only",
+      "reason": "Concrete human review scope and resumable gate",
+      "scope": "No human acceptance recorded"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/context/pass-01/targets.json",
+      "bytes": 8530,
+      "sha256": "a42e1d0f199651daf00518c0f5fc9da60f76a4f30805020ae2b47f32c2584f6f",
+      "role": "evaluator_only",
+      "reason": "Bounded selection, parent lineage, costs and remaining blockers",
+      "scope": "One pass; selected 8.46 Step 4 only"
+    }
+  ],
+  "human_source_acceptance": "waiting_review",
+  "frozen": false,
+  "metadata_amendment": "Added distinct lookup IDs for named tables and unnamed targets; explicit terminal path audit. Source payload/cost/prompt unchanged."
+}
