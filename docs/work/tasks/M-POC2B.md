@@ -11,8 +11,13 @@ Uzyskać pierwszy wynik bez znajomości oczekiwanych odpowiedzi. Jakiej jakości
 
 ## Dokładne pliki do przeczytania
 
-[CLAUDE](../../../CLAUDE.md), [playbook](../../SESSION-PLAYBOOK.md), [STATUS](../../STATUS.md), [HANDOFF](../../HANDOFF.md) i wskazany tam handoff, [ROADMAP](../../ROADMAP.md), [POC-PLAN](../../POC-PLAN.md), [ADR-0039](../../adr/ADR-0039-archiwum-i-poc-przed-architektura.md).
-Ścieżki poniżej liczone od repo; `P/` oznacza dokładnie `private/poc/spqr-chapter9/`.
+Wyjątek od bootstrapu: ekstraktor czyta **wyłącznie odseparowany pakiet**.
+Nie otwiera STATUS, HANDOFF, planu z podsumowaniem ocen ani repo z evaluation/.
+Przygotowanie i późniejszą ocenę prowadzi osobna sesja według
+[playbooka](../../SESSION-PLAYBOOK.md); jego treści nie przekazujemy ekstraktorowi.
+Ścieżki poniżej opisują kanoniczne artefakty; `P/` oznacza
+`private/poc/spqr-chapter9/`. W odseparowanym katalogu przekazania są tylko
+`inputs/`, `formats/` i `prompts/`; metadane freeze skopiowano bajtowo do inputs/v1/.
 Plik przyszłego etapu musi istnieć przed wykonaniem zależnej czynności;
 brak zapisujemy jako blokadę, nie uzupełniamy wynikiem modelu.
 
@@ -20,7 +25,8 @@ brak zapisujemy jako blokadę, nie uzupełniamy wynikiem modelu.
 - `P/inputs/v1/transfer-list.txt`
 - `P/prompts/first-v1.txt`
 - `P/formats/proposal-format-v1.md`
-- `P/evaluation/freeze-public-v1.json`
+- `P/formats/synthetic-example-v1.json`
+- `P/inputs/v1/freeze-public-v1.json`
 
 ## Wejścia i wersja oceny
 

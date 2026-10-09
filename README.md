@@ -14,7 +14,9 @@ Bez programowych API inferencji i automatyzacji GUI. Źródła i odpowiedzi są 
 Znaczenie reguł i dalszy kierunek zatwierdza człowiek na podstawie dowodów.
 
 Publiczne są metody, plan i karty. Tekst wydawcy, rendery, cytaty, reguły, graf,
-surowe odpowiedzi i szczegółowe sytuacje pozostają w ignorowanym `private/`.
+surowe odpowiedzi i szczegółowe sytuacje pozostają w `private/`.
+Na polecenie właściciela katalog jest wersjonowany; środowiska i pliki generowane
+pozostają ignorowane przez Git.
 Nazwy gry i wydawcy służą identyfikacji; projekt nie nadaje praw do ich materiałów.
 
 ## Dokumenty

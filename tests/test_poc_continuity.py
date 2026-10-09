@@ -51,6 +51,20 @@ def check_poc1_card_progress(card: str, results: dict[str, str]) -> None:
     assert results.get(card) != 'done', 'Completed card cannot remain current'
 
 
+def check_completed_card_handoff(milestone: str, completed: str, current: str,
+                                 results: dict[str, str]) -> None:
+    orders = {
+        'M-POC1': ['M-POC1A', 'M-POC1B', 'M-POC1C'],
+        'M-POC2': ['M-POC2A', 'M-POC2B'],
+    }
+    assert milestone in orders, 'Unsupported within-milestone handoff'
+    order = orders[milestone]
+    assert completed in order and current in order, 'Cards must belong to milestone'
+    assert order.index(current) == order.index(completed) + 1, 'Handoff must advance one card'
+    assert all(results.get(card) == 'done' for card in order[:order.index(current)]), 'Previous cards must be done'
+    assert results.get(current) != 'done', 'Completed card cannot remain current'
+
+
 def anchors(body: str) -> set[str]:
     body = FENCE.sub('', body)
     result = set(re.findall(r'<a id="([^"]+)">', body))
@@ -105,12 +119,10 @@ def test_roadmap_status_handoff_and_current_card_agree():
     if outcome == 'done':
         if rows[milestone] != 'done':
             # Completing one card does not complete its containing milestone.
-            assert milestone == current == 'M-POC1'
+            assert milestone == current
             completed = field(handoff, 'Karta')
-            order = ['M-POC1A', 'M-POC1B', 'M-POC1C']
-            assert completed in order and card in order
-            assert order.index(card) == order.index(completed) + 1, 'Handoff must advance one card'
-            assert field(status, f'Wynik {completed}') == 'done'
+            results = dict(re.findall(r'^- \*\*Wynik (M-POC\d+[A-C]):\*\*\s*(\w+)', status, re.M))
+            check_completed_card_handoff(milestone, completed, card, results)
     else:
         assert milestone == current
     if current == 'M-POC1':
@@ -190,10 +202,10 @@ def test_collection_is_only_active_tests(request):
     assert all(not path.is_relative_to(LEGACY) for path in paths)
 
 
-def test_private_and_generated_files_are_ignored():
+def test_generated_files_are_ignored_and_private_is_versionable():
     lines = {line.strip() for line in read(ROOT / '.gitignore').splitlines()}
-    assert {'/private/', '.venv/', '__pycache__/', '.pytest_cache/', '.glu/'} <= lines
-    assert not any(line.startswith('!') for line in lines), 'Review exceptions to private isolation'
+    assert {'.venv/', '__pycache__/', '.pytest_cache/', '.glu/'} <= lines
+    assert '/private/' not in lines, 'Owner authorized versioning private artifacts'
 
 
 def test_broken_link_and_anchor_are_detected(tmp_path):
@@ -234,3 +246,18 @@ def test_poc1_card_progress_accepts_completed_prerequisites(card, results):
 def test_poc1_card_progress_rejects_skips_and_completed_current_card(card, results):
     with pytest.raises(AssertionError):
         check_poc1_card_progress(card, results)
+
+
+def test_poc2_handoff_accepts_completed_preparation():
+    check_completed_card_handoff('M-POC2', 'M-POC2A', 'M-POC2B', {'M-POC2A': 'done'})
+
+
+@pytest.mark.parametrize('completed,current,results', [
+    ('M-POC2A', 'M-POC2B', {}),
+    ('M-POC2A', 'M-POC2A', {'M-POC2A': 'done'}),
+    ('M-POC2A', 'M-POC2B', {'M-POC2A': 'done', 'M-POC2B': 'done'}),
+    ('M-POC1C', 'M-POC2B', {'M-POC1C': 'done'}),
+])
+def test_poc2_handoff_rejects_incomplete_repeated_or_wrong_cards(completed, current, results):
+    with pytest.raises(AssertionError):
+        check_completed_card_handoff('M-POC2', completed, current, results)

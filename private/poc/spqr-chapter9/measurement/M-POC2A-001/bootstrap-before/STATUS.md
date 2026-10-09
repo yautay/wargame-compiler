@@ -2,47 +2,41 @@
 
 - **Data aktualizacji:** 2026-10-09
 - **Bieżący milestone:** M-POC2
-- **Bieżąca karta:** M-POC2B
+- **Bieżąca karta:** M-POC2A
 - **Wynik M-POC0:** done
-- **Blokady:** brak technicznych; M-POC2B czeka na ręczne otwarcie czystej sesji i przekazanie pakietu przez właściciela
+- **Blokady:** brak dla M-POC2A; lokalny pakiet ekstrakcji jeszcze nieprzygotowany
 - **Wynik M-POC1A:** done — przegląd struktury źródła zakończony w zapisanym zakresie
-- **Wynik M-POC1B:** done — przegląd oczekiwań i sytuacji zakończony
-- **Wynik M-POC1C:** done — decyzje 06/07 zapisane, eval-v1 zamrożone
-- **Wynik M-POC2A:** done — pakiet przygotowany, oględziny właściciela potwierdzone
-- **Wynik M-POC2B:** planned — pierwsza ekstrakcja niewykonana
+- **Wynik M-POC1B:** done — przygotowanie i przegląd oczekiwań oraz sytuacji zakończone
+- **Wynik M-POC1C:** done — decyzje 06 o zakresie i 07 o freeze zapisane; eval-v1 zamrożone
 
-M-POC2A zakończono na feature/tests w C:/repo/wargame-compiler. Pakiet zawiera
-7 pełnych renderów 200 dpi, 12 wycinków core, 4 wycinki kontekstu granicznego,
-tekst pomocniczy, mapę zakresu, minimalny format, syntetyczny przykład, prompt,
-metadane freeze, manifest i transfer-list — łącznie 33 pliki.
-Główny zakres i kontekst są oddzielone; nie dodano stron poza PDF 31–37.
+Zamrożono eval-v1 z zatwierdzonego kandydata 03. Zakres i politykę pomiaru
+zatwierdzono decyzją 06; osobna decyzja 07 zatwierdziła zamrożenie.
+Nie powtarzać zakończonych przeglądów ani pytań o ten sam zakres/freeze.
+Źródła, kandydaci, odpowiedzi, decyzje i historyczne handoffy pozostają zachowane.
 
-Kanoniczne artefakty pod private/poc/spqr-chapter9/: inputs/v1/, formats/
-i prompts/first-v1.txt. Odseparowany katalog dla czystej sesji:
-transfer/first-v1/ — wyłącznie pliki z transfer-list; bez klucza oceny,
-raportów, handoffów, historii decyzji i pełnego 44-stronicowego PDF.
-Manifest wejść SHA-256: 39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a.
-Przekazanie jeszcze nie nastąpiło; plików pakietu nie zmieniać po wysłaniu.
+Zamrożony zakres: 66 lokalnych grup treści, 8 wymagań kontekstu, 20 sytuacji
+(17 wyników lokalnych / 3 blokady), 5 relacji jawnych i 3 niejawne.
+105 pozostałych propozycji nie jest gold; 7 wzmianek i 7 kontynuacji osobno.
+Progi i limity bez zmian; zero krytycznych błędów jest nadrzędne wobec 95%.
+Dotychczasowy aktywny czas i dostępny budżet pozostają unknown.
 
-Codex obejrzał wszystkie pełne strony, granice, tabelę i diagramy. Właściciel
-potwierdził oględziny odpowiedzią „jest ok”. Techniczne kontrole hashy,
-odseparowania, 16 wycinków i tekstów oraz przykładu syntetycznego passed.
-722 zastane chronione pliki, w tym zamrożona ocena i indeks Git, bez zmian.
-Wstępne scripts/check.ps1: 101 passed. Końcowy wynik i logi prowadzi
-measurement/M-POC2A-001/completion.json; nie jest to pomiar jakości ekstrakcji.
+Artefakty pod private/poc/spqr-chapter9/: evaluation/eval-v1/,
+evaluation/freeze-public-v1.json i evaluation/M-POC1C-review-008/.
+Prywatny manifest i completion prowadzą pełne SHA-256, decyzje i kontrole.
+Metadane freeze nie zawierają treści oczekiwań ani odpowiedzi.
 
-Zamrożony eval-v1 i zgody 06/07 zachowane. Zakres: 66 lokalnych grup treści,
-8 wymagań kontekstu, 20 sytuacji (17/3), 5 relacji jawnych i 3 niejawne.
-105 pozostałych propozycji poza gold; 7 wzmianek i 7 kontynuacji osobno.
-Progi/limity bez zmian. Aktywny czas człowieka, tokeny i cena nadal unknown.
-Lokalna .venv zawiera pytest; Poppler/pdfplumber/Pillow z runtime Codex.
+Kontrole przed zamrożeniem: scripts/check.ps1 — 94 passed, diff check poprawny.
+Końcowe kontrole zapisuje completion sesji. Utworzono lokalną .venv w głównym
+repo na zgodnym interpreterze z pytest; środowisko i narzędzia pozostają lokalne.
+Praca jest w osobnej kopii feature/tests od ae8f6f0 wskazanej w locatorze;
+główny HEAD/indeks pozostają zachowane. Właściciel zlecił commit i push
+checkpointu na origin/feature/tests. Zakres i dowody publikacji prowadzi
+evaluation/M-POC1C-publication-20261009-01/; środowisko pozostaje lokalne.
 
-Dokładny następny krok: właściciel otwiera czystą sesję w odseparowanym
-transfer/first-v1/ i przekazuje tylko transfer-list, manifest, prompt, format
-i wymienione pliki. Ekstraktor nie otwiera głównego repo ani dokumentów oceny.
-Model/rozumowanie zapisuje się z faktycznie widocznej konfiguracji albo unknown.
-Ten czat jest sesją przygotowania, nie ślepą pierwszą ekstrakcją.
-M-POC2B i dalsze karty niewykonane; jakość n/a. M-POC2 jedyny next.
+Dokładny następny krok: M-POC2A — wejścia, minimalny format, prompt i transfer-list.
+M-POC2A/B i pierwsza ekstrakcja niewykonane; wyniki jakości n/a.
+Ekstraktor w M-POC2B dostaje wyłącznie odseparowany pakiet bez klucza oceny.
+M-POC2 jest jedynym next. Docelowa architektura czeka na wynik M-POC7.
 
 ## Historia wcześniejszego przygotowania i przekazania
 
@@ -130,7 +124,7 @@ Po przeglądzie właściciela: **61 passed**, w tym kontrole postępu kart;
 audyt integralności uzupełnień i ponowny audyt 9298 historycznych plików passed.
 Propozycja ekstrakcji: ręczna sesja Codex, GPT 6.1 Sol / wysoki.
 
-## Historyczny stan otwartych kwestii przed freeze (zastąpiony powyżej)
+## Niewykonane i otwarte
 
 - M-POC1: M-POC1A/B done w zapisanych zakresach; M-POC1C partial/waiting_review.
   M-POC2–M-POC7 niewykonane. Brak eval-v1, nowej odpowiedzi ekstrakcji
