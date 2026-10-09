@@ -1,0 +1,42 @@
+M-POC2B / first-001 — odbiór i rejestracja, 2026-10-09, Europe/Warsaw
+Ten plik powstał w sesji odbioru. Nie jest transkryptem ekstrakcji ani rekonstrukcją jej historii.
+
+Źródło E1: bieżąca instrukcja właściciela w tym czacie (czas wysłania unknown).
+Dokładne fragmenty otrzymanej instrukcji:
+„Ekstrakcja została już wykonana. Nie powtarzaj jej.”
+„Oryginalna odpowiedź:
+private/poc/spqr-chapter9/transfer/first-v1/first-001.json”
+„SHA-256 odpowiedzi:
+3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307”
+„SHA-256 manifestu wejść:
+39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a”
+Instrukcja potwierdza istnienie wykonanej ekstrakcji i wskazuje plik do odbioru.
+Nie zawiera historycznej listy przekazanych plików, dokładnego promptu użytego w sesji,
+konfiguracji, czasów, ID czatu ani niezależnego potwierdzenia czystego kontekstu.
+
+Źródło E2: odczyt faktycznych bajtów oryginału oraz kanonicznego i przekazanego manifestu.
+Podane hashe są zgodne. Odpowiedź: 617941 bajtów. Kopia runs/first-001/first-001.json
+jest bajtowo identyczna. Wszystkie 33 pliki allowlisty istnieją i są identyczne
+w obu katalogach; 32 artefakty manifestu mają zgodne hashe i rozmiary.
+Pakiet transfer zawiera dodatkowo wskazany oryginał first-001.json.
+To kontrola stanu w chwili odbioru, nie dowód sposobu historycznego przekazania.
+Manifest nadal zawiera historyczne prepared_not_sent; nie zmieniono jego bajtów.
+Lista plików i hashe są w run.json. Nie otwarto evaluation/eval-v1.
+
+Źródło E3: wyłącznie metadane provenance oryginalnej odpowiedzi.
+Samoopis ekstraktora: application = Codex desktop, model = unknown,
+reasoning = unknown, model_family_statement = GPT-6,
+assessment_exposure = not_exposed; podstawę deklaruje jako wyłącznie pliki transfer-list.
+Dokładne dostępne pola konfiguracji i podstawę deklaracji zachowano w run.json.
+Samoopis nie jest niezależnym dowodem wybranych selektorów ani ślepej próby.
+Nie oceniono poprawności mechanicznych deklaracji ani znaczenia odpowiedzi.
+
+Źródło E4: zegar narzędzia sesji odbioru: 2026-10-09 18:34:35 UTC.
+To pierwszy zarejestrowany zegar tej sesji, już po bootstrapie; nie początek ekstrakcji.
+Czasy rejestracji i zakończenia odbioru: run.json oraz nowy wpis sessions.jsonl.
+Czasy ekstrakcji, użytkownika i modelu, tokeny i cena: unknown.
+Nie użyto mtime/ctime jako czasu sesji, nie odtworzono transkryptu ani zdarzeń przekazania.
+
+Kontrole zamknięcia i ich rzeczywiste logi/hash są powiązane w nowym wpisie pomiarowym.
+Następny krok: osobna sesja M-POC3 od run.json i kopii o zachowanym SHA-256,
+z jawnymi brakami dokumentacji pochodzenia. M-POC3 nie rozpoczęto przy rejestracji.

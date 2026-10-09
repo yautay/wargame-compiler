@@ -1,48 +1,52 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-09
-- **Bieżący milestone:** M-POC2
-- **Bieżąca karta:** M-POC2B
+- **Bieżący milestone:** M-POC3
+- **Bieżąca karta:** M-POC3
 - **Wynik M-POC0:** done
-- **Blokady:** brak technicznych; M-POC2B czeka na ręczne otwarcie czystej sesji i przekazanie pakietu przez właściciela
+- **Blokady:** brak technicznych odbioru; braki dowodów pochodzenia/konfiguracji/czasu zapisane jako unknown, niezależność próby niepotwierdzona
 - **Wynik M-POC1A:** done — przegląd struktury źródła zakończony w zapisanym zakresie
 - **Wynik M-POC1B:** done — przegląd oczekiwań i sytuacji zakończony
 - **Wynik M-POC1C:** done — decyzje 06/07 zapisane, eval-v1 zamrożone
 - **Wynik M-POC2A:** done — pakiet przygotowany, oględziny właściciela potwierdzone
-- **Wynik M-POC2B:** planned — pierwsza ekstrakcja niewykonana
+- **Wynik M-POC2B:** done — odbiór i rejestracja już wykonanej first-001, bez powtarzania ekstrakcji; z jawnymi brakami dokumentacji
+- **Wynik M-POC3:** planned — nie rozpoczęto raportu pierwszego wyniku
 
-M-POC2A zakończono na feature/tests w C:/repo/wargame-compiler. Pakiet zawiera
-7 pełnych renderów 200 dpi, 12 wycinków core, 4 wycinki kontekstu granicznego,
-tekst pomocniczy, mapę zakresu, minimalny format, syntetyczny przykład, prompt,
-metadane freeze, manifest i transfer-list — łącznie 33 pliki.
-Główny zakres i kontekst są oddzielone; nie dodano stron poza PDF 31–37.
+Właściciel potwierdził wykonanie ekstrakcji i wskazał oryginał
+private/poc/spqr-chapter9/transfer/first-v1/first-001.json. Zweryfikowany SHA-256:
+3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307.
+Bajtowo identyczna kopia (617941 bajtów) zachowana w runs/first-001/first-001.json
+pod private/poc/spqr-chapter9/, obok run.json i session-evidence.txt.
+Nowy wpis odbioru: measurement/sessions.jsonl, ID M-POC2B-first-001-receipt.
 
-Kanoniczne artefakty pod private/poc/spqr-chapter9/: inputs/v1/, formats/
-i prompts/first-v1.txt. Odseparowany katalog dla czystej sesji:
-transfer/first-v1/ — wyłącznie pliki z transfer-list; bez klucza oceny,
-raportów, handoffów, historii decyzji i pełnego 44-stronicowego PDF.
-Manifest wejść SHA-256: 39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a.
-Przekazanie jeszcze nie nastąpiło; plików pakietu nie zmieniać po wysłaniu.
+Manifest wejść SHA-256:
+39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a.
+Obie kopie manifestu zgodne. Wszystkie 33 pliki transfer-list istnieją i są
+bajtowo identyczne z kanonicznym pakietem; 32 artefakty manifestu mają zgodne
+hashe i rozmiary. Kontrola dotyczy chwili odbioru. Oryginał odpowiedzi,
+wejścia, formaty, prompt i manifesty zachowane bez zmian, także historyczne
+pole prepared_not_sent. Fakt późniejszego odbioru zapisany wyłącznie osobno.
 
-Codex obejrzał wszystkie pełne strony, granice, tabelę i diagramy. Właściciel
-potwierdził oględziny odpowiedzią „jest ok”. Techniczne kontrole hashy,
-odseparowania, 16 wycinków i tekstów oraz przykładu syntetycznego passed.
-722 zastane chronione pliki, w tym zamrożona ocena i indeks Git, bez zmian.
-Wstępne scripts/check.ps1: 101 passed. Końcowy wynik i logi prowadzi
-measurement/M-POC2A-001/completion.json; nie jest to pomiar jakości ekstrakcji.
+Brakuje historycznego transkryptu/ID sesji, faktycznej listy przekazanych/odczytanych
+plików i użytego promptu, niezależnego potwierdzenia czystego kontekstu,
+widocznej konfiguracji, czasów ekstrakcji i aktywnych czasów człowieka/modelu,
+sposobu pierwotnego eksportu, tokenów i ceny: unknown. Samoopis odpowiedzi
+(Codex desktop, model/rozumowanie unknown, not_exposed) zachowano jako deklarację,
+bez niezależnego potwierdzenia. Nie poświadczono ślepej próby ani skażenia.
+Znany pakiet i jego obecne hashe nie dowodzą historycznego użycia plików.
+Zapisany czas odbioru nie jest czasem ekstrakcji; zużycie aktywnego budżetu unknown.
 
-Zamrożony eval-v1 i zgody 06/07 zachowane. Zakres: 66 lokalnych grup treści,
-8 wymagań kontekstu, 20 sytuacji (17/3), 5 relacji jawnych i 3 niejawne.
-105 pozostałych propozycji poza gold; 7 wzmianek i 7 kontynuacji osobno.
-Progi/limity bez zmian. Aktywny czas człowieka, tokeny i cena nadal unknown.
-Lokalna .venv zawiera pytest; Poppler/pdfplumber/Pillow z runtime Codex.
+Nie powtórzono ekstrakcji, nie poprawiono odpowiedzi, nie otwarto klucza
+oceny evaluation/eval-v1 i nie rozpoczęto M-POC3. Znaczenie i jakość nieocenione.
+Kontrole scripts/check.ps1, git diff --check i integralność odbioru prowadzi
+nowy wpis pomiarowy z rzeczywistymi logami i hashami; nie jest to raport jakości.
 
-Dokładny następny krok: właściciel otwiera czystą sesję w odseparowanym
-transfer/first-v1/ i przekazuje tylko transfer-list, manifest, prompt, format
-i wymienione pliki. Ekstraktor nie otwiera głównego repo ani dokumentów oceny.
-Model/rozumowanie zapisuje się z faktycznie widocznej konfiguracji albo unknown.
-Ten czat jest sesją przygotowania, nie ślepą pierwszą ekstrakcją.
-M-POC2B i dalsze karty niewykonane; jakość n/a. M-POC2 jedyny next.
+Dokładny następny krok: osobna sesja M-POC3 najpierw sprawdza
+runs/first-001/run.json, session-evidence.txt oraz SHA-256 kopii first-001.json,
+zachowuje braki pochodzenia/unknown, a następnie oceniający otwiera eval-v1
+zgodnie z kartą i zapisuje raport pierwszego wyniku przed jakąkolwiek korektą.
+M-POC2 done w zakresie przygotowania i rejestracji; M-POC3 jedyny next.
+M-POC3–M-POC7 niewykonane. Progi i limity eksperymentu bez zmian.
 
 ## Historia wcześniejszego przygotowania i przekazania
 
