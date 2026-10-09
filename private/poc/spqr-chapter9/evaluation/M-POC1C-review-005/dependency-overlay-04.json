@@ -1,0 +1,105 @@
+{
+  "id": "M-POC1C-dependency-overlay-04",
+  "authorizing_decision": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-005/decision-04-DEP024.json",
+    "sha256": "41ea260651cb4b6752c806f88fe850aff8d325ca23afc7c35dbea280b1857c87",
+    "bytes": 3047
+  },
+  "base_candidate_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+    "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+    "bytes": 4032
+  },
+  "previous_overlay": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-004/dependency-overlay-03.json",
+    "sha256": "1ca40581ffc22f10457d5f2490d9617f3aa173c90a7c5ecdec2c487a09624cd3",
+    "bytes": 4985
+  },
+  "operation": "add DEP-024 in confirmed set and remove it from unconfirmed set during materialization",
+  "confirmed_relation": {
+    "id": "DEP-024",
+    "from": "C-9.82-01",
+    "to": "R-9.85",
+    "kind": "procedure_use",
+    "explicitness": "explicit",
+    "necessity_scope": "9.82 invokes the Active Fire schedule of 9.85 for firing without orders. This does not waive Fire mode or the no-fire-in-the-phase-of-switching restriction in 9.82.",
+    "target_scope": "Local procedure invocation, schedule and retained mode/switch restrictions only; no map, targets, general missile procedure or full game result.",
+    "retain_all_target_conditions": true,
+    "executable": true,
+    "target_status": "internal",
+    "review_status": "owner_confirmed_exact_scope",
+    "criticality": "critical in previously approved local mode/schedule scope",
+    "criticality_basis": {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-12-RQ-11.json",
+      "sha256": "e5ef9d8b37192aafafde92c626be00d9cd3842d236d3a509aa0e5ab722a604f7",
+      "bytes": 5198
+    },
+    "source_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 36,
+      "printed_page": "36",
+      "column": "left",
+      "render": "source/review-evidence/pdf-36.png",
+      "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+      "bbox_pdf_points": [
+        45.0,
+        146.597,
+        297.55,
+        252.597
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-36-left.txt",
+      "helper_lines_inclusive": [
+        8,
+        16
+      ],
+      "transcription": "9.82 A Scorpio is in either Fire or Move mode. It requires an\nIndividual Order from any friendly leader to change its mode.\nScorpios in Move mode cannot fire, and conversely, cannot\nmove in Fire mode. A Scorpio that has had its mode changed to\nMove cannot move in that Orders Phase, nor can a Scorpio that\nhas had its mode switched to Fire, fire in that Orders Phase. A\nScorpio unit in Move mode requires an Individual Order from\nany friendly leader to move. Scorpio units do not need orders to\nfire (see 9.85 below).",
+      "reading_status": "visually_checked_by_codex",
+      "inventory_ref": "C-9.82-01",
+      "parent_inventory_ref": "R-9.82",
+      "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+      "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+    },
+    "target_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 36,
+      "printed_page": "36",
+      "column": "left",
+      "render": "source/review-evidence/pdf-36.png",
+      "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+      "bbox_pdf_points": [
+        44.997,
+        363.14,
+        297.024,
+        481.14
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-36-left.txt",
+      "helper_lines_inclusive": [
+        24,
+        33
+      ],
+      "transcription": "9.85 Active Fire: Scorpios may fire of-\nfensively twice per Game Turn (not Orders\nPhase) during any friendly Orders Phase.\nThey do not need an order to fire and can\nfire at any time during the active player’s Movement and Missile\nFire Segment, no more than one shot per Orders Phase. The first\ntime a Scorpio unit fires, place an ACTIVE FIRE ONCE mark-\ner on it. The second time it fires, flip the marker to its ACTIVE\nFIRE FINISHED side. A Scorpio that fires cannot do anything\nelse that Orders Phase (such as recover Hits).",
+      "reading_status": "visually_checked_by_codex",
+      "human_review": "pending"
+    },
+    "owner_decision": {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-005/decision-04-DEP024.json",
+      "sha256": "41ea260651cb4b6752c806f88fe850aff8d325ca23afc7c35dbea280b1857c87",
+      "bytes": 3047
+    }
+  },
+  "counts_after_overlay": {
+    "confirmed_explicit_execution": 4,
+    "confirmed_implicit_execution": 3,
+    "unconfirmed_explicit_execution": 95,
+    "unconfirmed_implicit_execution": 11,
+    "mentions_separate": 7,
+    "continuations_separate": 7,
+    "parent_facets": 127
+  },
+  "original_artifacts_modified": [],
+  "freeze_authorized": false
+}

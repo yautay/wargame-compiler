@@ -1,0 +1,66 @@
+{
+  "id": "M-POC1C-owner-decision-04",
+  "card": "M-POC1C",
+  "question_id": "M-POC1C-RQ-04-DEP024",
+  "date": "2026-10-09",
+  "date_source": "client time context",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-09T06:28:47.100564+00:00",
+  "user_message_timestamp": "unknown",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-005/owner-answer-04.raw.txt",
+    "sha256": "4dd19e37af131807df651e42894f1174637e779b3effdd33edeecc2af0e986de",
+    "bytes": 12
+  },
+  "capture_method": "Verbatim user message copied from this conversation with a terminal LF.",
+  "approved_question": "Czy zatwierdzasz to powiązanie?",
+  "shown_proposal": "9.82 odsyła do zasad Active Fire w 9.85 — maksymalnie dwa strzały na turę, najwyżej jeden na przyjazną fazę rozkazów, we wskazanym segmencie. Brak wymogu rozkazu nie znosi ograniczeń 9.82: Scorpio musi być w trybie Fire i nie może strzelać w fazie, w której właśnie przełączono go na Fire.",
+  "shown_source_excerpt": "Scorpio units do not need orders to fire (see 9.85 below).",
+  "approved_scope": {
+    "id": "DEP-024",
+    "from": "C-9.82-01",
+    "to": "R-9.85",
+    "kind": "procedure_use",
+    "explicitness": "explicit",
+    "necessity_scope": "9.82 invokes the Active Fire schedule of 9.85 for firing without orders. This does not waive Fire mode or the no-fire-in-the-phase-of-switching restriction in 9.82.",
+    "target_scope": "Local procedure invocation, schedule and retained mode/switch restrictions only; no map, targets, general missile procedure or full game result.",
+    "retain_all_target_conditions": true
+  },
+  "criticality": "critical in previously approved local mode/schedule scope",
+  "criticality_basis": {
+    "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-12-RQ-11.json",
+    "sha256": "e5ef9d8b37192aafafde92c626be00d9cd3842d236d3a509aa0e5ab722a604f7",
+    "bytes": 5198
+  },
+  "new_separate_criticality_statement_by_owner": false,
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-004/pending-question-04-DEP024.json",
+      "sha256": "5f53fcc41b121a6c1f5424b4afe3f03f541b31d2263e0b838e11158b56e2e299",
+      "bytes": 3821
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+      "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+      "bytes": 4032
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+      "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+      "bytes": 454946
+    }
+  ],
+  "not_approved": [
+    "Other proposed relation tuples",
+    "Actual CRT/geometry/full game outcomes",
+    "Whole target record or metadata",
+    "Scoring grouping/rubrics",
+    "eval-v1 freeze",
+    "M-POC2A/B"
+  ],
+  "new_situations": [],
+  "freeze_authorized": false,
+  "frozen": false
+}

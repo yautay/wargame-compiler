@@ -1,0 +1,66 @@
+{
+  "id": "M-POC1C-owner-decision-02",
+  "card": "M-POC1C",
+  "question_id": "M-POC1C-RQ-02-DEP002",
+  "date": "2026-10-09",
+  "date_source": "client time context",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-09T06:11:03.514874+00:00",
+  "user_message_timestamp": "unknown",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-003/owner-answer-02.raw.txt",
+    "sha256": "4dd19e37af131807df651e42894f1174637e779b3effdd33edeecc2af0e986de",
+    "bytes": 12
+  },
+  "capture_method": "Verbatim user message copied from this conversation with a terminal LF.",
+  "approved_question": "Czy zatwierdzasz to powiązanie jako kolejny element oceny?",
+  "shown_proposal": "9.11 korzysta z reguły Rampage 9.14, ponieważ przesunięcie słonia do tylnego heksu obrońcy wymaga, żeby słoń nie wpadł w Rampage.",
+  "shown_source_excerpt": "if the infantry unit did not rout and the Elephant unit has not rampaged (9.14)",
+  "approved_scope": {
+    "id": "DEP-002",
+    "from": "C-9.11-09",
+    "to": "R-9.14",
+    "kind": "condition",
+    "explicitness": "explicit",
+    "necessity_scope": "9.11 uses 9.14 to check absence of Elephant Rampage before the stated post-Pass-Thru placement.",
+    "target_scope": "Absence of Rampage for this placement only; full Rampage outcomes are not collectively certified.",
+    "remaining_conditions": "Infantry not routed, free Rear, Elephant player choice and unchanged facing remain required; no invented Rampage outcome or external Rout procedure."
+  },
+  "criticality": "critical in previously approved local placement scope",
+  "criticality_basis": {
+    "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-04-RQ-03.json",
+    "sha256": "6b8a1312162aa64ee294d200a100a93950686173386ebe8f3807dd814898dba4",
+    "bytes": 3982
+  },
+  "new_separate_criticality_statement_by_owner": false,
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-002/pending-question-02-DEP002.json",
+      "sha256": "9a5119c5e8c4c25b09e1a534da486f0675c6c0f5c085965a82d5cc758741139d",
+      "bytes": 3164
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+      "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+      "bytes": 4032
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+      "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+      "bytes": 454946
+    }
+  ],
+  "not_approved": [
+    "Other proposed relation tuples",
+    "Full external procedures, map/parameters",
+    "All 9.14 clauses together",
+    "Scoring grouping/rubrics",
+    "eval-v1 freeze",
+    "M-POC2A/B"
+  ],
+  "new_situations": [],
+  "freeze_authorized": false,
+  "frozen": false
+}

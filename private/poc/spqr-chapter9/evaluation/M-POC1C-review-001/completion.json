@@ -1,0 +1,161 @@
+{
+  "id": "M-POC1C-review-001-partial",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T20:53:41.851158+00:00",
+  "card": "M-POC1C",
+  "outcome": "partial",
+  "workflow_status": "waiting_review",
+  "milestone": "M-POC1",
+  "milestone_status": "next",
+  "next_card": "M-POC1C",
+  "branch": "feature/tests",
+  "head": "90535261a4498cabcd6abc0af33b56a4267b6193",
+  "source": {
+    "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "bytes": 3965827
+  },
+  "candidate_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+    "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+    "bytes": 4032
+  },
+  "audit": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-001/audit.json",
+    "sha256": "7f770ac2afc9755c964274ace6c7cf1dab8fe754837c343341ee9a2a267a4ea7",
+    "bytes": 2122
+  },
+  "validation": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-001/validation.json",
+    "sha256": "f13b55a2a39bedcd368ac3e180270fe6dfe40b4a1243c2ff09885408320ff7e0",
+    "bytes": 123154
+  },
+  "pending_question": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-001/pending-question.json",
+    "sha256": "2bd476b0627f03dec66d1ce3e9570603317cf50fb4f6d59c0e9a53ec9c13502e",
+    "bytes": 3007
+  },
+  "actual_new_owner_decisions": [],
+  "freeze_authorized": false,
+  "frozen": false,
+  "previous_freeze_question_disposition": "withdrawn as premature; candidate 01 was not a complete scoring basis",
+  "latest_user_message": "Podbiłem model na sol",
+  "latest_message_is_approval": false,
+  "counts": {
+    "reference_inventory": 207,
+    "local_content_scope_groups_proposed": 66,
+    "context_requirement_groups": 8,
+    "situations": 20,
+    "local_results": 17,
+    "blocks": 3,
+    "confirmed_explicit_execution": 0,
+    "confirmed_implicit_execution": 3,
+    "mentions_separate": 7,
+    "continuations_separate": 7
+  },
+  "open_gates": [
+    "explicit execution relation tuple review",
+    "grouping and category rubrics",
+    "actual owner freeze decision"
+  ],
+  "limitations": "Detailed retained source/semantic limits and exact ID scopes are in the candidate review and JSON files; no external parameter was invented.",
+  "checks": {
+    "invocation": "scripts/check.ps1 -Python C:/dev/wargame-compiler/.venv/Scripts/python.exe",
+    "actual_result": {
+      "tests_exit": 0,
+      "diff_exit": 0,
+      "basetemp": "C:\\dev\\wargame-compiler\\private\\poc\\_checks\\active-0d5188fc3b364cb2bd6dd5576ba6b14c\\pytest"
+    },
+    "pytest": "87 passed",
+    "local_TMP_and_TEMP": "C:\\dev\\wargame-compiler\\private\\poc\\_checks\\active-0d5188fc3b364cb2bd6dd5576ba6b14c\\temp",
+    "new_basetemp": true,
+    "logs": [
+      {
+        "path": "private/poc/_checks/active-0d5188fc3b364cb2bd6dd5576ba6b14c/pytest.log",
+        "sha256": "0eaef0d62451ce4233bc3d28b607e2af950ec30c65d51c62848b6eb9b149255d",
+        "bytes": 182
+      },
+      {
+        "path": "private/poc/_checks/active-0d5188fc3b364cb2bd6dd5576ba6b14c/result.json",
+        "sha256": "fe45663a900ba6364647c587725c419ed2fd51670da3f1cb3a9e1cbfe8ccbfb7",
+        "bytes": 160
+      }
+    ],
+    "diff_check_log": "not created because successful git diff --check emitted no output",
+    "separate_final_git_diff_check": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "preservation": {
+    "baseline_checked": 569,
+    "unchanged_files": 566,
+    "intentional_public_updates": [
+      {
+        "before": {
+          "path": "docs/HANDOFF.md",
+          "sha256": "411f07910065457afc02e1008ab7dff24b9b64625d36fde3315ad1906a53edd7",
+          "bytes": 1319
+        },
+        "after": {
+          "path": "docs/HANDOFF.md",
+          "sha256": "a748147225187bd51cddb2608833c44b5bf3ee8e42146cbcd91f2713e1971b59",
+          "bytes": 1292
+        }
+      },
+      {
+        "before": {
+          "path": "docs/ROADMAP.md",
+          "sha256": "55954d83303b8cedfca1c9d19baa10fad2334cf6fc60633e3757e55f9520d6bc",
+          "bytes": 2495
+        },
+        "after": {
+          "path": "docs/ROADMAP.md",
+          "sha256": "683aec239615d5eba06c0fd6f7e7a73ae340e69d37aed60fc547c9088aacb9aa",
+          "bytes": 2507
+        }
+      },
+      {
+        "before": {
+          "path": "docs/STATUS.md",
+          "sha256": "fe00abf152b2022af847bff97eba6b6e3b17bfbdff38d7e1dc050c11b5cea41f",
+          "bytes": 7208
+        },
+        "after": {
+          "path": "docs/STATUS.md",
+          "sha256": "523be478229f57e75d5ccd335b4c7325f80e8cc9aa3d52592cdb1ab22cab440e",
+          "bytes": 8580
+        }
+      }
+    ],
+    "historical_and_candidate01_files_preserved": true,
+    "all_prior_B_manifest_references_verified": 440,
+    "historical_archive_9298_file_audit_repeated": false,
+    "Git_index_unchanged_against_current_session_baseline": true,
+    "historical_Git_index_hashes": "Historical only; later authorized commits/pushes are not reversions to perform.",
+    "staged_diff_exit": 0,
+    "new_private_files": "Ignored by /private/ despite existing tracked private files; no staging/commit/push performed."
+  },
+  "measurement": {
+    "application": "Codex",
+    "model_selector_owner_report": "sol",
+    "exact_model_visible_version": "unknown",
+    "reasoning_selector": "unknown",
+    "user_active_time": "unknown",
+    "model_active_time": "unknown",
+    "tokens": "unknown",
+    "cost": "unknown",
+    "remaining_user_budget": "unknown",
+    "calendar_time_is_active_work": false,
+    "M_POC0_cost_included": false
+  },
+  "quality_metrics": "n/a: no eval freeze or extractor response",
+  "plan_thresholds_changed": false,
+  "plan_limits_changed": false,
+  "MPOC2A_executed": false,
+  "MPOC2B_executed": false,
+  "semantic_extraction_run": false,
+  "forbidden_work_performed": []
+}

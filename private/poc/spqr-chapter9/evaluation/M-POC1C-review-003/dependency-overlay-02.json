@@ -1,0 +1,105 @@
+{
+  "id": "M-POC1C-dependency-overlay-02",
+  "authorizing_decision": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-003/decision-02-DEP002.json",
+    "sha256": "ed2db2547ed3b285d1ad04d53ea01eb2a1c3b26000f0b975f8c36072436557f1",
+    "bytes": 2936
+  },
+  "base_candidate_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+    "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+    "bytes": 4032
+  },
+  "previous_overlay": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-002/dependency-overlay-01.json",
+    "sha256": "649571ee938fcfdf9c25278aab816ab02ab47d5f11ea805659cb8d4d11c22a55",
+    "bytes": 4370
+  },
+  "operation": "add DEP-002 in confirmed set and remove it from unconfirmed set during materialization",
+  "confirmed_relation": {
+    "id": "DEP-002",
+    "from": "C-9.11-09",
+    "to": "R-9.14",
+    "kind": "condition",
+    "explicitness": "explicit",
+    "necessity_scope": "9.11 uses 9.14 to check absence of Elephant Rampage before the stated post-Pass-Thru placement.",
+    "target_scope": "Absence of Rampage for this placement only; full Rampage outcomes are not collectively certified.",
+    "remaining_conditions": "Infantry not routed, free Rear, Elephant player choice and unchanged facing remain required; no invented Rampage outcome or external Rout procedure.",
+    "executable": true,
+    "target_status": "internal",
+    "review_status": "owner_confirmed_exact_scope",
+    "criticality": "critical in previously approved local placement scope",
+    "criticality_basis": {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-04-RQ-03.json",
+      "sha256": "6b8a1312162aa64ee294d200a100a93950686173386ebe8f3807dd814898dba4",
+      "bytes": 3982
+    },
+    "source_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 32,
+      "printed_page": "32",
+      "column": "left",
+      "render": "source/review-evidence/pdf-32.png",
+      "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+      "bbox_pdf_points": [
+        45.0,
+        54.004,
+        297.084,
+        100.004
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-32-left.txt",
+      "helper_lines_inclusive": [
+        1,
+        4
+      ],
+      "transcription": "3. After the Shock Combat is resolved, if the infantry unit did\nnot rout and the Elephant unit has not rampaged (9.14), place\nthe Elephant unit in either one of the defender’s unoccupied\nRear hexes (Elephant player’s choice), maintaining its facing.",
+      "reading_status": "visually_checked_by_codex",
+      "inventory_ref": "C-9.11-09",
+      "parent_inventory_ref": "R-9.11",
+      "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+      "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+    },
+    "target_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 32,
+      "printed_page": "32",
+      "column": "left",
+      "render": "source/review-evidence/pdf-32.png",
+      "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+      "bbox_pdf_points": [
+        45.0,
+        466.27,
+        297.01,
+        512.27
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-32-left.txt",
+      "helper_lines_inclusive": [
+        32,
+        35
+      ],
+      "transcription": "9.14 Elephant Rampage: When an Elephant unit routs, it Ram-\npages. Leader Elephants also Rampage, but they have less of a\nchance of doing so. Each time an Elephant unit routs, its player\nrolls the die and does one of the following, depending on the DR:",
+      "reading_status": "visually_checked_by_codex",
+      "human_review": "pending"
+    },
+    "owner_decision": {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-003/decision-02-DEP002.json",
+      "sha256": "ed2db2547ed3b285d1ad04d53ea01eb2a1c3b26000f0b975f8c36072436557f1",
+      "bytes": 2936
+    }
+  },
+  "counts_after_overlay": {
+    "confirmed_explicit_execution": 2,
+    "confirmed_implicit_execution": 3,
+    "unconfirmed_explicit_execution": 97,
+    "unconfirmed_implicit_execution": 11,
+    "mentions_separate": 7,
+    "continuations_separate": 7,
+    "parent_facets": 127
+  },
+  "original_artifacts_modified": [],
+  "freeze_authorized": false
+}

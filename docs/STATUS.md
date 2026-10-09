@@ -1,13 +1,41 @@
 # STATUS
 
-- **Data aktualizacji:** 2026-10-08
+- **Data aktualizacji:** 2026-10-09
 - **Bieżący milestone:** M-POC1
 - **Bieżąca karta:** M-POC1C
 - **Wynik M-POC0:** done
-- **Blokady:** M-POC1C niewykonane; podstawa oceny i zamrożenie wymagają osobnego przeglądu/decyzji
+- **Blokady:** M-POC1C waiting_review — gotowy lokalny zakres, grupowanie i rubryki oceny wymagają akceptacji, następnie osobna decyzja freeze
 - **Wynik M-POC1A:** done — uzgodniony przegląd właściciela zakończony
 - **Wynik M-POC1B:** done — przygotowanie i rzeczywisty przegląd w zapisanym zakresie zakończone
-- **Wynik M-POC1C:** planned — karta przyszła, nieuruchomiona
+- **Wynik M-POC1C:** partial — audyt i poprawiony pakiet kandydacki przygotowane; waiting_review, eval-v1 niezamrożone
+
+M-POC1C rozpoczęto 2026-10-08 na feature/tests. Zweryfikowano źródło,
+440 referencji finalnego manifestu B oraz pochodzenie decyzji/overlay/map.
+Pierwszy kandydat zachowany; jego licznik 86 nakładających się fragmentów
+nie jest sprawdzonym mianownikiem. Poprawiony kandydat 02 prowadzi 74 ID:
+66 grup lokalnej treści i 8 wymagań kontekstu, bez zbiorczej akceptacji rodziców.
+Grupowanie pozostaje propozycją C. Zestaw sytuacji zachowuje 20 pozycji (17/3).
+
+W M-POC1C właściciel udzielił pięciu rzeczywistych decyzji: zatwierdził pięć
+lokalnych wzorców relacji jawnych. Nowa decyzja, dowody, overlay i mapa zmian
+są w evaluation/M-POC1C-review-006/ pod korzeniem POC; kandydat 02 pozostaje
+niezmienionym rodzicem z pięcioma kolejnymi overlay. Złożono nowy kandydat 03
+z mapą rodziców i jawnymi propozycjami rubryk kategorii. Aktualne zakresy: 5 relacji jawnych, 3 niejawne,
+7 oddzielnych wzmianek i 7 kontynuacji. Pozostałe 105 wykonawczych kandydatur
+nie jest gold. Metryki jakości mają n/a przed freeze i odpowiedzią ekstraktora.
+Najbliższe pytanie dotyczy zakresu i polityki pomiaru gotowego kandydata 03.
+Rubryki oraz ograniczenia wymagają przeglądu właściciela; decyzja o relacji nie jest
+zgodą na freeze. Nie zmieniono progów i limitów. Nowy rejestr kontroli i pomiaru
+jest osobnym artefaktem. M-POC1 pozostaje jedynym next.
+
+2026-10-09 właściciel zlecił zapis przez commit i push na feature/tests,
+aby kontynuować po sklonowaniu repozytorium na drugim laptopie. To osobna zgoda
+publikacyjna, nie akceptacja zakresu ani freeze. Nowe prywatne artefakty C oraz
+niezbędne logi są objęte jawnym zakresem publikacji; .venv i katalogi tymczasowe
+pozostają lokalne. Przekazanie migracyjne prowadzi HANDOFF. Wznowienie od pytania
+06 o zakres kandydata 03; pięciu powiązań nie przeglądać ponownie.
+
+Poniżej zachowano przekazanie B i historyczne wyniki przygotowania.
 
 Przegląd M-POC1B 2026-10-07–08 zakończono po 24 rzeczywistych decyzjach
 właściciela. Ostatnia decyzja RQ-15e/closing potwierdza krytyczność wskazanych
@@ -93,15 +121,17 @@ Propozycja ekstrakcji: ręczna sesja Codex, GPT 6.1 Sol / wysoki.
 
 ## Niewykonane i otwarte
 
-- M-POC1: M-POC1A/B done w zapisanych zakresach; M-POC1C niewykonane.
+- M-POC1: M-POC1A/B done w zapisanych zakresach; M-POC1C partial/waiting_review.
   M-POC2–M-POC7 niewykonane. Brak eval-v1, nowej odpowiedzi ekstrakcji
   i pomiarów jej jakości. Nie rozpoczęto zamrożenia ani implementacji.
 - Nieprzejrzane zakresy relacji/aliasów/parametrów i zewnętrzne źródła
   pozostają niepotwierdzone. Pełny podział atomowy i wszystkie drobne
   wartości ilustracji niepotwierdzone; stosować katalog zakresów decyzji.
-- Przyszłe wznowienie M-POC1C: odczytać decyzję 24 (RQ-15e/closing),
-  finalny manifest, podsumowanie, katalog i listę pozostałych ID.
-  Wybór podstawy oceny, progów i freeze to osobna praca i decyzja właściciela.
+- Wznowienie M-POC1C: odczytać review-state-after-decision-05.json,
+  dependency-overlay-05.json i pending-question-06-scope.json z rejestru
+  evaluation/M-POC1C-review-006/ oraz eval-v1-candidate-20261009-03/ (manifest,
+  review.md, measurement-policy.json). Akceptacja zakresu i polityki oceny,
+  dopiero potem osobna zgoda freeze; wcześniejsze relacje nie wymagają ponownego review.
 - Hipoteza jednostki rozdziału i użyteczność formatu czekają na pomiar.
 - M-DESK2 historycznie partial; jego dawny backlog pozostaje poza kolejką.
 - Snapshot i odtworzenie lokalne; brak kopii na odrębny nośnik.

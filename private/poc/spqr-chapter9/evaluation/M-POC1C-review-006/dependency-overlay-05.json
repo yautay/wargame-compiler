@@ -1,0 +1,156 @@
+{
+  "id": "M-POC1C-dependency-overlay-05",
+  "authorizing_decision": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-006/decision-05-DEP041.json",
+    "sha256": "c2ecdba94d3d873591c56a6f54d4d4b7249cd87d10a58009a0c1e14ea26e6ba0",
+    "bytes": 3589
+  },
+  "base_candidate_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+    "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+    "bytes": 4032
+  },
+  "previous_overlay": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-005/dependency-overlay-04.json",
+    "sha256": "675d7e5ccc31eef5396c4a0a3511c885783f5514ad0da4cc8d3aa2e8ffb1bff6",
+    "bytes": 5345
+  },
+  "operation": "add DEP-041 in confirmed set and remove it from unconfirmed set during materialization",
+  "confirmed_relation": {
+    "id": "DEP-041",
+    "from": "C-9.14-01",
+    "to": "T-01",
+    "kind": "table_use",
+    "explicitness": "explicit",
+    "necessity_scope": "The die procedure in 9.14 uses the local Die Roll/Result table T-01 on PDF32, spanning left rows 0 and 1–6 and right row 7–9. Retain the first/subsequent Rampage DR distinction and existing approved Leader Elephant exceptions, without guessing actual compass/map directions or equating the 4.84 trigger die with this first directional die.",
+    "target_scope": "Internal table identity/use only, respecting separately approved row scopes and limitations. No whole-table metadata/glyph certificate, actual map/nearest-unit/compass, general Rout or 4.84-to-9.14 roll sequencing approval.",
+    "retain_all_target_conditions": true,
+    "local_target_identity": "Local unnumbered Die Roll/Result table under 9.14; T-01 is a local reference, not a printed publisher table number.",
+    "executable": true,
+    "target_status": "internal",
+    "review_status": "owner_confirmed_exact_scope",
+    "criticality": "critical in previously approved local Rampage-table scope",
+    "criticality_basis": {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-18-RQ-15c1.json",
+      "sha256": "130cfaecd85e0c759dde0f488151cfccd9559d4a336997471ba62c5ff58fed5f",
+      "bytes": 4401
+    },
+    "source_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 32,
+      "printed_page": "32",
+      "column": "left",
+      "render": "source/review-evidence/pdf-32.png",
+      "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+      "bbox_pdf_points": [
+        45.0,
+        466.27,
+        297.01,
+        512.27
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-32-left.txt",
+      "helper_lines_inclusive": [
+        32,
+        35
+      ],
+      "transcription": "9.14 Elephant Rampage: When an Elephant unit routs, it Ram-\npages. Leader Elephants also Rampage, but they have less of a\nchance of doing so. Each time an Elephant unit routs, its player\nrolls the die and does one of the following, depending on the DR:",
+      "reading_status": "visually_checked_by_codex",
+      "inventory_ref": "C-9.14-01",
+      "parent_inventory_ref": "R-9.14",
+      "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+      "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+    },
+    "target_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 32,
+      "printed_page": "32",
+      "column": "left",
+      "render": "source/review-evidence/pdf-32.png",
+      "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+      "bbox_pdf_points": [
+        53.562,
+        523.318,
+        292.421,
+        647.178
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-32-left.txt",
+      "helper_lines_inclusive": [
+        36,
+        45
+      ],
+      "transcription": "Die Roll Result\n0 The Elephant unit heads in the direction of the\nnearest friendly unit, opposing player’s choice\nif there is more than one nearest unit. A Leader\nElephant is eliminated.\n1–6 The Elephant unit heads in the direction indicated\non the Compass on the map, an example of which\nis given below. Note that geographical direction\nis represented at the vertex; the direction in which\nthe Elephant is to Rampage is by hexside.",
+      "reading_status": "visually_checked_by_codex",
+      "human_review": "pending"
+    },
+    "target_evidence_all": [
+      {
+        "source_id": "SPQR-5E-ch9-source-v1",
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "pdf_page": 32,
+        "printed_page": "32",
+        "column": "left",
+        "render": "source/review-evidence/pdf-32.png",
+        "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+        "bbox_pdf_points": [
+          53.562,
+          523.318,
+          292.421,
+          647.178
+        ],
+        "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+        "helper_file": "source/review-evidence/pdf-32-left.txt",
+        "helper_lines_inclusive": [
+          36,
+          45
+        ],
+        "transcription": "Die Roll Result\n0 The Elephant unit heads in the direction of the\nnearest friendly unit, opposing player’s choice\nif there is more than one nearest unit. A Leader\nElephant is eliminated.\n1–6 The Elephant unit heads in the direction indicated\non the Compass on the map, an example of which\nis given below. Note that geographical direction\nis represented at the vertex; the direction in which\nthe Elephant is to Rampage is by hexside.",
+        "reading_status": "visually_checked_by_codex",
+        "human_review": "pending"
+      },
+      {
+        "source_id": "SPQR-5E-ch9-source-v1",
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "pdf_page": 32,
+        "printed_page": "32",
+        "column": "right",
+        "render": "source/review-evidence/pdf-32.png",
+        "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+        "bbox_pdf_points": [
+          333.145,
+          58.343,
+          562.471,
+          164.503
+        ],
+        "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+        "helper_file": "source/review-evidence/pdf-32-right.txt",
+        "helper_lines_inclusive": [
+          1,
+          9
+        ],
+        "transcription": "7–9 On the first Rampage DR, the Elephant heads\nin the direction directly away from the unit that\ncaused the rampage. A 7-9 on any subsequent\ndie roll means the elephant’s mahout has been\nsuccessful in stopping the rampage by driving a\nwedge into the beast’s brain; the Elephant unit is\neliminated. If it is a Leader Elephant, the unit is,\ninstead, immediately rallied with Cohesion Hits\nequal to its TQ minus 2.",
+        "reading_status": "visually_checked_by_codex",
+        "human_review": "pending"
+      }
+    ],
+    "owner_decision": {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-006/decision-05-DEP041.json",
+      "sha256": "c2ecdba94d3d873591c56a6f54d4d4b7249cd87d10a58009a0c1e14ea26e6ba0",
+      "bytes": 3589
+    }
+  },
+  "counts_after_overlay": {
+    "confirmed_explicit_execution": 5,
+    "confirmed_implicit_execution": 3,
+    "unconfirmed_explicit_execution": 94,
+    "unconfirmed_implicit_execution": 11,
+    "mentions_separate": 7,
+    "continuations_separate": 7,
+    "parent_facets": 127
+  },
+  "original_artifacts_modified": [],
+  "freeze_authorized": false
+}

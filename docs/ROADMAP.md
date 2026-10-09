@@ -7,7 +7,7 @@ Metoda i bramki: [POC-PLAN](POC-PLAN.md); szczegóły: [indeks kart](work/tasks/
 | Milestone | Status | Wynik / bramka | Karty w kolejności |
 |---|---|---|---|
 | M-POC0 | done | Zweryfikowane archiwum, wnioski, plan, ADR i bootstrap | [M-POC0](work/tasks/M-POC0.md) |
-| M-POC1 | next | M-POC1A/B done w zapisanych zakresach; B: 24 decyzje właściciela, 20 lokalnych wyników/blokad z jawnymi ograniczeniami; brak certyfikatu całego grafu/gold; M-POC1C niewykonane, eval-v1 niezamrożone | [M-POC1A](work/tasks/M-POC1A.md), [M-POC1B](work/tasks/M-POC1B.md), [M-POC1C](work/tasks/M-POC1C.md) |
+| M-POC1 | next | M-POC1A/B done w zapisanych zakresach; M-POC1C partial/waiting_review: kandydat 03 i pięć decyzji C, 5 relacji jawnych/3 niejawne; 20 sytuacji (17/3); przekazanie na drugi laptop, wznowienie od akceptacji zakresu/rubryk, następnie osobna zgoda freeze; eval-v1 niezamrożone | [M-POC1A](work/tasks/M-POC1A.md), [M-POC1B](work/tasks/M-POC1B.md), [M-POC1C](work/tasks/M-POC1C.md) |
 | M-POC2 | planned | Niezmienne wejścia, format i pierwsza ręczna ekstrakcja | [M-POC2A](work/tasks/M-POC2A.md), [M-POC2B](work/tasks/M-POC2B.md) |
 | M-POC3 | planned | Raport pierwszego wyniku przed korektą | [M-POC3](work/tasks/M-POC3.md) |
 | M-POC4 | planned | Ograniczone domknięcie zależności i wynik po kontekście | [M-POC4A](work/tasks/M-POC4A.md), [M-POC4B](work/tasks/M-POC4B.md) |

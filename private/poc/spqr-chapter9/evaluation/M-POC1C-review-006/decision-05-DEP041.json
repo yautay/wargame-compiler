@@ -1,0 +1,67 @@
+{
+  "id": "M-POC1C-owner-decision-05",
+  "card": "M-POC1C",
+  "question_id": "M-POC1C-RQ-05-DEP041",
+  "date": "2026-10-09",
+  "date_source": "client time context",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-09T06:34:59.991680+00:00",
+  "user_message_timestamp": "unknown",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "actual_owner_response": "zatwierdzam",
+  "raw_response": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-006/owner-answer-05.raw.txt",
+    "sha256": "4dd19e37af131807df651e42894f1174637e779b3effdd33edeecc2af0e986de",
+    "bytes": 12
+  },
+  "capture_method": "Verbatim user message copied from this conversation with a terminal LF.",
+  "approved_question": "Czy zatwierdzasz powiązanie 9.14 → ta lokalna tabela?",
+  "shown_proposal": "9.14 korzysta z lokalnej tabeli Die Roll / Result — wiersze 0 i 1–6 są w lewej kolumnie, a 7–9 w prawej. Zachowujemy już uzgodnione rozróżnienie pierwszego i kolejnych rzutów Rampage oraz wyjątki dla Leader Elephant. Nie zatwierdzamy przy tym rzeczywistych kierunków na mapie ani utożsamienia rzutu wyzwalającego z 4.84 z pierwszym rzutem kierunkowym 9.14.",
+  "shown_source_excerpt": "Each time an Elephant unit routs, its player rolls the die and does one of the following, depending on the DR:",
+  "approved_scope": {
+    "id": "DEP-041",
+    "from": "C-9.14-01",
+    "to": "T-01",
+    "kind": "table_use",
+    "explicitness": "explicit",
+    "necessity_scope": "The die procedure in 9.14 uses the local Die Roll/Result table T-01 on PDF32, spanning left rows 0 and 1–6 and right row 7–9. Retain the first/subsequent Rampage DR distinction and existing approved Leader Elephant exceptions, without guessing actual compass/map directions or equating the 4.84 trigger die with this first directional die.",
+    "target_scope": "Internal table identity/use only, respecting separately approved row scopes and limitations. No whole-table metadata/glyph certificate, actual map/nearest-unit/compass, general Rout or 4.84-to-9.14 roll sequencing approval.",
+    "retain_all_target_conditions": true,
+    "local_target_identity": "Local unnumbered Die Roll/Result table under 9.14; T-01 is a local reference, not a printed publisher table number."
+  },
+  "criticality": "critical in previously approved local Rampage-table scope",
+  "criticality_basis": {
+    "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-18-RQ-15c1.json",
+    "sha256": "130cfaecd85e0c759dde0f488151cfccd9559d4a336997471ba62c5ff58fed5f",
+    "bytes": 4401
+  },
+  "new_separate_criticality_statement_by_owner": false,
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-005/pending-question-05-DEP041.json",
+      "sha256": "d896f3436d990ceb598c2ab09ad0c7db160e5e2fa2d0fad55d00987dd1c6e598",
+      "bytes": 6410
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+      "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+      "bytes": 4032
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+      "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+      "bytes": 454946
+    }
+  ],
+  "not_approved": [
+    "Other proposed relation tuples",
+    "Actual CRT/geometry/full game outcomes",
+    "Whole target record or metadata",
+    "Scoring grouping/rubrics",
+    "eval-v1 freeze",
+    "M-POC2A/B"
+  ],
+  "new_situations": [],
+  "freeze_authorized": false,
+  "frozen": false
+}

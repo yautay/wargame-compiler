@@ -1,0 +1,72 @@
+{
+  "id": "M-POC1C-RQ-03-DEP017",
+  "status": "waiting_owner_decision",
+  "source_evidence": {
+    "source_id": "SPQR-5E-ch9-source-v1",
+    "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "pdf_page": 34,
+    "printed_page": "34",
+    "column": "right",
+    "render": "source/review-evidence/pdf-34.png",
+    "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+    "bbox_pdf_points": [
+      315.0,
+      548.0,
+      567.102,
+      570.0
+    ],
+    "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+    "helper_file": "source/review-evidence/pdf-34-right.txt",
+    "helper_lines_inclusive": [
+      39,
+      40
+    ],
+    "transcription": "• Defending units at Double Depth earn a –1 DRM to their Pre-\nShock TQ check die rolls. Phalanx Defense (9.41) also applies.",
+    "reading_status": "visually_checked_by_codex",
+    "inventory_ref": "C-9.53-05",
+    "parent_inventory_ref": "R-9.53",
+    "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+    "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+  },
+  "target_evidence": {
+    "source_id": "SPQR-5E-ch9-source-v1",
+    "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "pdf_page": 34,
+    "printed_page": "34",
+    "column": "left",
+    "render": "source/review-evidence/pdf-34.png",
+    "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+    "bbox_pdf_points": [
+      45.0,
+      309.044,
+      297.032,
+      427.044
+    ],
+    "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+    "helper_file": "source/review-evidence/pdf-34-left.txt",
+    "helper_lines_inclusive": [
+      19,
+      28
+    ],
+    "transcription": "9.41 In any Shock Resolution in which a unit moves adjacent to\nand Shock attacks a Phalanx from the defender’s Front hex, the\nPhalanx earns a 2L shift on the Shock Combat CRT for each of\nits Flank hexes either occupied by another friendly Phalanx unit\nor in the ZOC of a friendly Phalanx unit. If the attacker is Heavy\nInfantry (any Class), the shift is 1L instead. This applies only to\nmoving attacks, not to attacks in which the attacking unit started\nadjacent to the Phalanx unit and stayed in that hex to Shock. It\nalso does not apply to Flank/Rear attacks, or if any attacker is\nalso a Phalanx unit.",
+    "reading_status": "visually_checked_by_codex",
+    "human_review": "pending"
+  },
+  "shown_source_excerpt": "Phalanx Defense (9.41) also applies.",
+  "plain_language_proposal": "9.53 invokes Phalanx Defense from 9.41 for defending Double Depth only when the conditions of 9.41 hold; it does not grant the defensive CRT shift unconditionally.",
+  "proposed_tuple": {
+    "id": "DEP-017",
+    "from": "C-9.53-05",
+    "to": "R-9.41",
+    "kind": "procedure_use",
+    "explicitness": "explicit"
+  },
+  "criticality_basis": {
+    "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-08-RQ-07.json",
+    "sha256": "f5e91539ce6cadff46c5f9cc7ec06cdc4b016effee777dd9f52aed5b6cbd7034",
+    "bytes": 5151
+  },
+  "scope_limits": "Local invocation and retained target conditions only; actual CRT/geometry and full game outcome unclosed.",
+  "actual_owner_answer": null,
+  "freeze_authorization_requested": false
+}

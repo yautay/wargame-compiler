@@ -1,0 +1,3224 @@
+{
+  "artifact": "M-POC1C-eval-v1-candidate-dependencies-20261008-01",
+  "status": "candidate_waiting_owner_freeze_decision",
+  "frozen": false,
+  "gold": false,
+  "recorded_at_utc": "2026-10-08T20:40:18.038312+00:00",
+  "source": {
+    "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "bytes": 3965827
+  },
+  "parents": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+      "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+      "bytes": 454946
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/review-catalog-final-24.json",
+      "sha256": "d43f0668db1285ebd1e741681fabb46f7dca901719695e20a7011f5cf072ed69",
+      "bytes": 47294
+    }
+  ],
+  "direction_convention": "from = user/modifier/mention source; to = used/mutated target. Physical continuations start fragment→later fragment. Never reverse because target supplies the fact.",
+  "candidate_audit_counts": {
+    "historical_candidates_dispositioned": 96,
+    "facets_total": 127,
+    "execution_proposals": 113,
+    "execution_explicit_proposals": 99,
+    "execution_implicit_proposals": 14,
+    "mentions": 7,
+    "physical_continuations": 7
+  },
+  "frozen_candidate_denominators": {
+    "confirmed_execution_total": 3,
+    "confirmed_execution_explicit": 0,
+    "confirmed_execution_implicit": 3,
+    "confirmed_mentions_separate": 7,
+    "physical_continuations_separate_non_scoring": 7,
+    "excluded_execution_total": 110,
+    "excluded_execution_explicit": 99,
+    "excluded_execution_implicit": 11
+  },
+  "measurement_policy": {
+    "explicit_precision_recall": "n/a: zero fully field-scoped confirmed explicit execution relations",
+    "implicit_precision_recall": "measurable only on three narrow internal relations; not representative of all implicit proposals",
+    "mentions": "assess separately; never execution TP/FN",
+    "continuations": "count separately; excluded from execution relation denominator",
+    "new_output_relations": "pending human review is neither TP nor certain FP",
+    "whole_graph_certified": false
+  },
+  "confirmed_execution_relations": [
+    {
+      "id": "DEP-NEW-001",
+      "candidate_ids": [],
+      "from": "C-9.72-01",
+      "to": "R-9.71",
+      "kind": "condition",
+      "explicitness": "implicit",
+      "executable": true,
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "direction_reason": "Ocena move+Shock musi nadal spełniać bramkę ruchu9.71; próg9.72 nie uchyla wcześniejszego cannot move. Kierunek9.72→9.71 to potrzeba warunku, nie reguła pierwszeństwa z samej kolejności.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            315.0,
+            447.573,
+            567.0,
+            469.573
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            31,
+            32
+          ],
+          "transcription": "9.71 Triarii units cannot move, but may change facing, until and\nunless one of the following occurs:",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.71-01",
+          "parent_inventory_ref": "R-9.71",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            315.0,
+            474.453,
+            567.03,
+            508.453
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            33,
+            35
+          ],
+          "transcription": "• There is an enemy combat unit, other than an Elephant unit,\nwhich is within 3 hexes and LOS of any unit in the Triarii line,\nor",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.71-02",
+          "parent_inventory_ref": "R-9.71",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            315.0,
+            511.893,
+            567.022,
+            545.893
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            36,
+            38
+          ],
+          "transcription": "• The Triarii units are at least 6 hexes from all other Roman or\nAla—but not allied–infantry lines, be they Hastati, Principes\nor whatever.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.71-03",
+          "parent_inventory_ref": "R-9.71",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            315.0,
+            553.113,
+            567.008,
+            611.113
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            39,
+            43
+          ],
+          "transcription": "9.72 Triarii units cannot move and Shock attack unless and until\nthe Roman army has Rout Points equal to at least one-half of\nits Army Withdrawal Level (round down). They may always,\nhowever, Shock attack (without moving) against enemy units\nin their ZOC.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.72-01",
+          "parent_inventory_ref": "R-9.72",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "criticality": "critical",
+      "criticality_reason": "Sam próg RP mógłby nieuprawnienie odblokować ruch.",
+      "missing_target_effect": "Internal source available; inferred conjunction requires owner semantic review; does not establish full Shock legality.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-050",
+        "EXP-052"
+      ],
+      "situation_ids": [
+        "SIT-16"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-NEW-001"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_execution_relation",
+        "scoring_eligible": true,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-11-RQ-10.json",
+            "sha256": "bed066762f4bdd1b243ffbe25b2cd5692c3bddf3ca4eb7e607a36238334694a9",
+            "bytes": 3519
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-11.json",
+            "sha256": "0dc05785907adff7a9f5f3897f79f4015f5f0441a25a3cd8fa356c316bda6b36",
+            "bytes": 2139
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-NEW-002",
+      "candidate_ids": [],
+      "from": "TR-03",
+      "to": "C-9.14-11",
+      "kind": "exception",
+      "explicitness": "implicit",
+      "executable": true,
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "direction_reason": "Późniejszy7–9 Leader Elephant ma instead/immediately rallied, szczególny skutek wobec ogólnego no rally Rampage. Kierunek szczególnego wiersza→ogólny zakaz; zakres pierwszego rzutu osobno unresolved.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "right",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            333.145,
+            58.343,
+            562.471,
+            164.503
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            9
+          ],
+          "transcription": "7–9 On the first Rampage DR, the Elephant heads\nin the direction directly away from the unit that\ncaused the rampage. A 7-9 on any subsequent\ndie roll means the elephant’s mahout has been\nsuccessful in stopping the rampage by driving a\nwedge into the beast’s brain; the Elephant unit is\neliminated. If it is a Leader Elephant, the unit is,\ninstead, immediately rallied with Cohesion Hits\nequal to its TQ minus 2.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "TR-03",
+          "M_POC1B_read": "manual Codex source review; owner meaning review pending"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "right",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            315.0,
+            697.799,
+            567.008,
+            719.799
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-right.txt",
+          "helper_lines_inclusive": [
+            43,
+            44
+          ],
+          "transcription": "Rampaging elephants have no ZOC, do not trigger Reaction\nFire of any kind, and they may not be rallied. Each Rampage is",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.14-11",
+          "M_POC1B_read": "manual Codex source review; owner meaning review pending"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "left",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            45.0,
+            54.004,
+            297.048,
+            76.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            2
+          ],
+          "transcription": "undertaken until its conclusion, so there may never be more than\none rampaging Elephant unit at any one time.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.14-11",
+          "M_POC1B_read": "manual Codex source review; owner meaning review pending"
+        }
+      ],
+      "criticality": "critical",
+      "criticality_reason": "Błędne pierwszeństwo/zakres wyjątku zmienia rally lub legalność dodatkowego ognia.",
+      "missing_target_effect": "Internal chapter source available; proposed conflict reading requires actual owner review.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-007",
+        "EXP-008",
+        "EXP-009"
+      ],
+      "situation_ids": [
+        "SIT-04",
+        "SIT-05"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-NEW-002"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_execution_relation",
+        "scoring_eligible": true,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-02-RQ-02.json",
+            "sha256": "ee2a60b212439a734d96e3d696cf8b74d0fa7b2e92a2c0ebd62e899c1344779b",
+            "bytes": 4264
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-24-RQ-15e-closing.json",
+            "sha256": "f94f8d52cb1fb03628c4f739b77364cb15505e4ace6f62083c6211e0570b38d7",
+            "bytes": 6667
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-02.json",
+            "sha256": "ec426558de876dadc66c5cff8f1a5ba09d76b2a480546418e35f2340cb6cb1e5",
+            "bytes": 1490
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-24.json",
+            "sha256": "fa046455d15ee13440fabf97dfeecbf1cf83c3651fb92d75eac1275ca2e8ed1f",
+            "bytes": 2138
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-NEW-003",
+      "candidate_ids": [],
+      "from": "C-9.86-01",
+      "to": "C-9.14-11",
+      "kind": "condition",
+      "explicitness": "implicit",
+      "executable": true,
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "direction_reason": "Dopuszczenie szczególnej Scorpio reaction nie uchyla no Reaction Fire of any kind dla Rampaging EL. Ocena dostępności ognia potrzebuje tego ograniczenia celu; kierunek procedury ognia→warunek targeta, brak jawnego odsyłacza numerycznego.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "left",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            45.0,
+            489.54,
+            297.053,
+            583.54
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-36-left.txt",
+          "helper_lines_inclusive": [
+            34,
+            41
+          ],
+          "transcription": "9.86 Reaction Fire: Scorpios may fire twice per enemy Orders\nPhase at any time during the enemy Movement and Missile Seg-\nment—and we mean “any”; they may fire even during enemy\nmovement! The first time the Scorpio unit fires, place\na REACTION FIRE ONCE marker on it. The second\ntime it fires, flip the marker to its REACTION FIRE\nFINISHED side. Scorpios, however, cannot use any\ntype of ordinary Reaction Fire (8.2).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.86-01",
+          "M_POC1B_read": "manual Codex source review; owner meaning review pending"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "right",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            315.0,
+            697.799,
+            567.008,
+            719.799
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-right.txt",
+          "helper_lines_inclusive": [
+            43,
+            44
+          ],
+          "transcription": "Rampaging elephants have no ZOC, do not trigger Reaction\nFire of any kind, and they may not be rallied. Each Rampage is",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.14-11",
+          "M_POC1B_read": "manual Codex source review; owner meaning review pending"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "left",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            45.0,
+            54.004,
+            297.048,
+            76.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            2
+          ],
+          "transcription": "undertaken until its conclusion, so there may never be more than\none rampaging Elephant unit at any one time.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.14-11",
+          "M_POC1B_read": "manual Codex source review; owner meaning review pending"
+        }
+      ],
+      "criticality": "critical",
+      "criticality_reason": "Błędne pierwszeństwo/zakres wyjątku zmienia rally lub legalność dodatkowego ognia.",
+      "missing_target_effect": "Internal chapter source available; proposed conflict reading requires actual owner review.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-058"
+      ],
+      "situation_ids": [
+        "SIT-17"
+      ],
+      "necessity_scope": "Full real-state execution",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-NEW-003"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_execution_relation",
+        "scoring_eligible": true,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-12-RQ-11.json",
+            "sha256": "e5ef9d8b37192aafafde92c626be00d9cd3842d236d3a509aa0e5ab722a604f7",
+            "bytes": 5198
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-12.json",
+            "sha256": "8d94cff5016e2a05730f77ed84e40fe011f1689041ee0b2da1d0e24729262acb",
+            "bytes": 2380
+          }
+        ]
+      }
+    }
+  ],
+  "confirmed_mentions": [
+    {
+      "id": "DEP-034",
+      "candidate_ids": [
+        "DC-034"
+      ],
+      "from": "X-02",
+      "to": null,
+      "target_candidate": {
+        "name": "Shock Combat Results Table",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Shock Combat Results Table"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "X-02 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. X-02 podaje bazowy wynik dla ilustracji połowy; sam przykład nie poleca wykonania tabeli.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            314.995,
+            596.6,
+            567.007,
+            630.6
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-right.txt",
+          "helper_lines_inclusive": [
+            43,
+            45
+          ],
+          "transcription": "EXAMPLE: Thus, if a Light Infantry attacking a Skirmisher\nwould produce an unadjusted result on the Shock Results Table\nof 1(4), the actual result would be 0(4).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-02",
+          "parent_inventory_ref": "R-9.23",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [],
+      "situation_ids": [],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-034"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-035",
+      "candidate_ids": [
+        "DC-035"
+      ],
+      "from": "X-04",
+      "to": null,
+      "target_candidate": {
+        "name": "Shock Combat Results Table",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Shock Combat Results Table"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "X-04 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. X-04 mówi printed CRT result; wzmianka w przykładzie nie rozstrzyga kolejności AS/halving.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            249.084,
+            297.009,
+            283.084
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            15,
+            17
+          ],
+          "transcription": "EXAMPLE: A Light Cavalry unit with Attack Superiority (AS)\nagainst a Heavy Infantry unit would use the printed result on\nthe Shock CRT.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-04",
+          "parent_inventory_ref": "R-9.32",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-031"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-035"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-037",
+      "candidate_ids": [
+        "DC-037"
+      ],
+      "from": "C-9.61-01",
+      "to": null,
+      "target_candidate": {
+        "name": "Stacking Charts",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Stacking Charts"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "C-9.61-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Stacking Charts nazwane for a summary. To informacyjny odsyłacz; brak charts nie blokuje jawnej liczby IO, ale pełny stacking wymaga niejawnych exceptionsDC-064.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-041"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-037"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-043",
+      "candidate_ids": [
+        "DC-043"
+      ],
+      "from": "X-01",
+      "to": null,
+      "target_candidate": {
+        "name": "battle-specific map compass",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "battle-specific map compass"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "X-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. X-01 poucza o map compass i charakterze przykładu; nie wykonywać oddzielnego drugiego lookup ani podwajaćDC-042.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "right",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            315.0,
+            303.779,
+            567.012,
+            337.779
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-right.txt",
+          "helper_lines_inclusive": [
+            13,
+            15
+          ],
+          "transcription": "EXAMPLE: The above diagram shows the elephant unit refaced\nafter a Rampage die roll of 1. This is just an example; use the\ncompass on the map for each battle.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-01",
+          "parent_inventory_ref": "R-9.14",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-010"
+      ],
+      "situation_ids": [
+        "SIT-06"
+      ],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-043"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-044",
+      "candidate_ids": [
+        "DC-044"
+      ],
+      "from": "C-9.66-01",
+      "to": "D-02",
+      "target_candidate": {
+        "name": "local MLE diagram",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "inventory_id": "D-02",
+        "facet": "local MLE diagram"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "C-9.66-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. See diagram jest ilustracyjnym odsyłaczem; D-02 wspiera ruch boczny, nie niezależną procedurę ani nowe bonusy.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "Internal source present; apply target conditions within local scope. General external procedures remain unresolved where needed.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-046"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-044"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-063",
+      "candidate_ids": [
+        "DC-063"
+      ],
+      "from": "X-06",
+      "to": null,
+      "target_candidate": {
+        "name": "Cynoscephalae scenario rules",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "Cynoscephalae scenario rules"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "X-06 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. Example See scenario Cynoscephalae informacyjny; nie utożsamiać z wykonawczą listą eligibilityDC-058.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            701.54,
+            533.58,
+            711.54
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            51,
+            51
+          ],
+          "transcription": "EXAMPLE: See the scenario rules for Cynoscephalae.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-06",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-033"
+      ],
+      "situation_ids": [
+        "SIT-11"
+      ],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-063"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-067-1",
+      "candidate_ids": [
+        "DC-067"
+      ],
+      "from": "C-9.66-01",
+      "to": null,
+      "target_candidate": {
+        "name": "Orderly Withdrawal, Clear terrain, ZOC",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "Orderly Withdrawal alternative"
+      },
+      "kind": "mention",
+      "explicitness": "explicit",
+      "explicitness_reason": "Named in the source without requiring a numeric token; original flags are retained in candidate_audit.",
+      "executable": false,
+      "direction_reason": "C-9.66-01 korzysta z/modyfikuje/wskazuje cel; nie odwrotnie. MLE wymaga vacant Clear outside ZOC; OW to alternatywa, Clear/ZOC to warunki, rozdzielić.",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "unresolved",
+      "status": "source_supported_proposal",
+      "criticality": "noncritical",
+      "criticality_reason": "Informacyjna wzmianka; liczyć osobno od execution graph.",
+      "missing_target_effect": "No execution dependency; missing illustration/summary does not alone block local stated result.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-046"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Informational mention only",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-067-1"
+      },
+      "candidate_review": {
+        "status": "owner_confirmed_scoped_nonexecution_mention",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+            "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+            "bytes": 5193
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/correction-supplement-05.json",
+            "sha256": "5dddaaa4265ba5de4e5ddd21fbd406422bc3b31288779f70e49f470145acd7d2",
+            "bytes": 2809
+          }
+        ]
+      }
+    }
+  ],
+  "physical_continuations": [
+    {
+      "id": "DEP-090",
+      "candidate_ids": [
+        "DC-090"
+      ],
+      "from": "K-01#start",
+      "to": "K-01#continuation",
+      "from_inventory_ref": "C-9.11-08",
+      "to_inventory_ref": "C-9.11-09",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "procedure step 2 → step 3, same rule across pages",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 31,
+          "printed_page": "31",
+          "column": "right",
+          "render": "source/review-evidence/pdf-31.png",
+          "render_sha256": "39f86ad053725088e9c571f43d1e8ecc4dbf21f5b191cc1e7d99cc854ddc34ba",
+          "bbox_pdf_points": [
+            315.0,
+            706.82,
+            567.12,
+            740.82
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-31-right.txt",
+          "helper_lines_inclusive": [
+            48,
+            50
+          ],
+          "transcription": "2. Proceed with the Shock resolution procedure but halve (round\ndown) Cohesion Hits to the defending unit and reduce the\nCohesion Hits to the Elephant unit by 1.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-01",
+          "parent_inventory_ref": "R-9.11",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            45.0,
+            54.004,
+            297.084,
+            100.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            4
+          ],
+          "transcription": "3. After the Shock Combat is resolved, if the infantry unit did\nnot rout and the Elephant unit has not rampaged (9.14), place\nthe Elephant unit in either one of the defender’s unoccupied\nRear hexes (Elephant player’s choice), maintaining its facing.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-01",
+          "parent_inventory_ref": "R-9.11",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-002"
+      ],
+      "situation_ids": [
+        "SIT-01"
+      ],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-090"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-091",
+      "candidate_ids": [
+        "DC-091"
+      ],
+      "from": "K-02#start",
+      "to": "K-02#continuation",
+      "from_inventory_ref": "TR-02",
+      "to_inventory_ref": "TR-03",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "same table, left → right columns",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "left",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            63.142,
+            589.018,
+            292.388,
+            647.178
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-left.txt",
+          "helper_lines_inclusive": [
+            41,
+            45
+          ],
+          "transcription": "1–6 The Elephant unit heads in the direction indicated\non the Compass on the map, an example of which\nis given below. Note that geographical direction\nis represented at the vertex; the direction in which\nthe Elephant is to Rampage is by hexside.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-02",
+          "parent_inventory_ref": "T-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "right",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            333.145,
+            58.343,
+            562.471,
+            164.503
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            9
+          ],
+          "transcription": "7–9 On the first Rampage DR, the Elephant heads\nin the direction directly away from the unit that\ncaused the rampage. A 7-9 on any subsequent\ndie roll means the elephant’s mahout has been\nsuccessful in stopping the rampage by driving a\nwedge into the beast’s brain; the Elephant unit is\neliminated. If it is a Leader Elephant, the unit is,\ninstead, immediately rallied with Cohesion Hits\nequal to its TQ minus 2.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-02",
+          "parent_inventory_ref": "T-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-007",
+        "EXP-010"
+      ],
+      "situation_ids": [
+        "SIT-06"
+      ],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-091"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-092",
+      "candidate_ids": [
+        "DC-092"
+      ],
+      "from": "K-03#start",
+      "to": "K-03#continuation",
+      "from_inventory_ref": "C-9.14-11",
+      "to_inventory_ref": "C-9.14-11",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "same paragraph, page break",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 32,
+          "printed_page": "32",
+          "column": "right",
+          "render": "source/review-evidence/pdf-32.png",
+          "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+          "bbox_pdf_points": [
+            315.0,
+            697.799,
+            567.008,
+            719.799
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-32-right.txt",
+          "helper_lines_inclusive": [
+            43,
+            44
+          ],
+          "transcription": "Rampaging elephants have no ZOC, do not trigger Reaction\nFire of any kind, and they may not be rallied. Each Rampage is",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-03",
+          "parent_inventory_ref": "R-9.14",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "left",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            45.0,
+            54.004,
+            297.048,
+            76.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            2
+          ],
+          "transcription": "undertaken until its conclusion, so there may never be more than\none rampaging Elephant unit at any one time.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-03",
+          "parent_inventory_ref": "R-9.14",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-008",
+        "EXP-009",
+        "EXP-011"
+      ],
+      "situation_ids": [
+        "SIT-05"
+      ],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-092"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-093",
+      "candidate_ids": [
+        "DC-093"
+      ],
+      "from": "K-04#start",
+      "to": "K-04#continuation",
+      "from_inventory_ref": "C-9.24-05",
+      "to_inventory_ref": "C-9.24-05",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "same bullet, page break",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            314.995,
+            717.2,
+            567.002,
+            739.2
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-right.txt",
+          "helper_lines_inclusive": [
+            52,
+            53
+          ],
+          "transcription": "• When determining lines for a Line Command (4.32), the pres-\nence of a Velites or Skirmisher unit does not disrupt the line if",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-04",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            54.0,
+            54.004,
+            245.93,
+            64.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            1
+          ],
+          "transcription": "the interruption is caused by only one such unit.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-04",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-028"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-093"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-094",
+      "candidate_ids": [
+        "DC-094"
+      ],
+      "from": "K-05#start",
+      "to": "K-05#continuation",
+      "from_inventory_ref": "C-9.66-01",
+      "to_inventory_ref": "C-9.66-01",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "same paragraph, left → right columns",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-05",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-05",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-046"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-094"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-095",
+      "candidate_ids": [
+        "DC-095"
+      ],
+      "from": "K-06#start",
+      "to": "K-06#continuation",
+      "from_inventory_ref": "C-9.91-02",
+      "to_inventory_ref": "C-9.91-02",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "same paragraph, left → right columns",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "left",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            45.0,
+            698.844,
+            297.12,
+            732.844
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-36-left.txt",
+          "helper_lines_inclusive": [
+            49,
+            51
+          ],
+          "transcription": "Barbarian Infantry (BI) units do not incur Cohesion Hits for\ncrossing or entering any type of passable terrain, nor do they\nincur Cohesion Hits for changing facing in Rough terrain. BI units",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-06",
+          "parent_inventory_ref": "R-9.91",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "right",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            315.0,
+            54.004,
+            567.0,
+            76.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-36-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            2
+          ],
+          "transcription": "cannot use Column Movement (6.7), Pre-Arranged Withdrawal\n(6.8), or Orderly Withdrawal (6.5).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-06",
+          "parent_inventory_ref": "R-9.91",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-060"
+      ],
+      "situation_ids": [],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-095"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEP-096",
+      "candidate_ids": [
+        "DC-096"
+      ],
+      "from": "K-07#start",
+      "to": "K-07#continuation",
+      "from_inventory_ref": "C-9.96-03",
+      "to_inventory_ref": "C-9.96-03",
+      "kind": "continuation",
+      "explicitness": "explicit",
+      "executable": false,
+      "direction_reason": "same paragraph, page break; continues to bullets before 10.0",
+      "evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "right",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            315.0,
+            705.49,
+            567.026,
+            739.49
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-36-right.txt",
+          "helper_lines_inclusive": [
+            50,
+            52
+          ],
+          "transcription": "Each CH unit may carry one Light Infantry (LI) unit. To denote\nthat a LI unit is mounted on the CH unit, place the CH on top of\nthe LI unit. The combined CH and LI unit is treated as a single",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-07",
+          "parent_inventory_ref": "R-9.96",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 37,
+          "printed_page": "37",
+          "column": "left",
+          "render": "source/review-evidence/pdf-37.png",
+          "render_sha256": "eac35841555b17696a6dda014e9b482b91c2a15e2366c7effd30c8576f1c5d9b",
+          "bbox_pdf_points": [
+            45.0,
+            54.004,
+            297.469,
+            220.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-37-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            14
+          ],
+          "transcription": "unit for stacking purposes. All other stacking restrictions apply\nto both a CH+LI stack and a CH alone in the hex. There is no MP\nor Cohesion Hit cost to the LI unit to either mount or dismount\nfrom a CH. However, a dismounting LI unit may continue to\nmove only if the LI+CH combination moved less than the LI’s\nprinted Movement Allowance. The number of MP allowed is\nequal to the difference. Conversely, an LI unit mounting a CH\ncan continue to move (as a mounted CH) up to the MA of the\nCH unit less the number of MP already used by the LI prior to\nmounting the CH. While stacked with an LI, the CH expends\nMP to enter/cross terrain or is prohibited from entering/crossing\nterrain per the Movement Cost Chart. However, Cohesion Hits\nfor movement are applied to the LI only; CH units do not suffer\nHits for Movement/Terrain.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "K-07",
+          "parent_inventory_ref": "R-9.96",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "target_status": "internal",
+      "status": "source_supported_proposal",
+      "criticality": "critical",
+      "criticality_reason": "Ominięcie dalszego fragmentu pomija warunki/skutki; to porządek odczytu, nie zależność wykonawcza.",
+      "missing_target_effect": "Incomplete source read blocks affected expectation; both fragments present.",
+      "human_review_status": "waiting_review",
+      "owner_confirmed": false,
+      "expectation_ids": [
+        "EXP-068",
+        "EXP-069",
+        "EXP-070"
+      ],
+      "situation_ids": [
+        "SIT-20"
+      ],
+      "necessity_scope": "Physical source completeness",
+      "relation_basis_status": "source_grounded_classification_proposal",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-096"
+      },
+      "candidate_review": {
+        "status": "physical_continuation_candidate_kept_separate_not_execution_gold",
+        "scoring_eligible": false,
+        "whole_parent_graph_accepted": false,
+        "provenance": [
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-001/review-summary.md",
+            "sha256": "1787aedd759e76f7ec60075078931d27f6967df2eca29dec43de7e34ffabf9e6",
+            "bytes": 8703
+          },
+          {
+            "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-15-RQ-14.json",
+            "sha256": "7976d5ad64da51bb498833ecbc710bb45726d1bae409cf89e60df70d4e0e81ac",
+            "bytes": 5468
+          }
+        ]
+      }
+    }
+  ],
+  "excluded_execution_candidates": [
+    {
+      "id": "DEP-001",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-001"
+      }
+    },
+    {
+      "id": "DEP-002",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "unreviewed_source_supported_proposal_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-002"
+      }
+    },
+    {
+      "id": "DEP-003",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-003"
+      }
+    },
+    {
+      "id": "DEP-004",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-004"
+      }
+    },
+    {
+      "id": "DEP-005",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-005"
+      }
+    },
+    {
+      "id": "DEP-006",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-006"
+      }
+    },
+    {
+      "id": "DEP-007",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-007"
+      }
+    },
+    {
+      "id": "DEP-008",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "unreviewed_source_supported_proposal_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-008"
+      }
+    },
+    {
+      "id": "DEP-009",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-009"
+      }
+    },
+    {
+      "id": "DEP-010",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-010"
+      }
+    },
+    {
+      "id": "DEP-011",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-011"
+      }
+    },
+    {
+      "id": "DEP-012",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-012"
+      }
+    },
+    {
+      "id": "DEP-013",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-013"
+      }
+    },
+    {
+      "id": "DEP-014",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-014"
+      }
+    },
+    {
+      "id": "DEP-015",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-015"
+      }
+    },
+    {
+      "id": "DEP-016",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-016"
+      }
+    },
+    {
+      "id": "DEP-017",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "unreviewed_source_supported_proposal_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-017"
+      }
+    },
+    {
+      "id": "DEP-018",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-018"
+      }
+    },
+    {
+      "id": "DEP-019",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-019"
+      }
+    },
+    {
+      "id": "DEP-020",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-020"
+      }
+    },
+    {
+      "id": "DEP-021",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-021"
+      }
+    },
+    {
+      "id": "DEP-022",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-022"
+      }
+    },
+    {
+      "id": "DEP-023",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-023"
+      }
+    },
+    {
+      "id": "DEP-024",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "unreviewed_source_supported_proposal_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-024"
+      }
+    },
+    {
+      "id": "DEP-025",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-025"
+      }
+    },
+    {
+      "id": "DEP-026",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-026"
+      }
+    },
+    {
+      "id": "DEP-027",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-027"
+      }
+    },
+    {
+      "id": "DEP-028",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-028"
+      }
+    },
+    {
+      "id": "DEP-029",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-029"
+      }
+    },
+    {
+      "id": "DEP-030",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-030"
+      }
+    },
+    {
+      "id": "DEP-031",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "unresolved_target_identity_hypothesis",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-031"
+      }
+    },
+    {
+      "id": "DEP-032",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-032"
+      }
+    },
+    {
+      "id": "DEP-033",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-033"
+      }
+    },
+    {
+      "id": "DEP-036",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-036"
+      }
+    },
+    {
+      "id": "DEP-038",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-038"
+      }
+    },
+    {
+      "id": "DEP-039",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-039"
+      }
+    },
+    {
+      "id": "DEP-040",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-040"
+      }
+    },
+    {
+      "id": "DEP-041",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "unreviewed_source_supported_proposal_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-041"
+      }
+    },
+    {
+      "id": "DEP-042",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-042"
+      }
+    },
+    {
+      "id": "DEP-045-1",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-045-1"
+      }
+    },
+    {
+      "id": "DEP-045-2",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-045-2"
+      }
+    },
+    {
+      "id": "DEP-045-3",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-045-3"
+      }
+    },
+    {
+      "id": "DEP-046",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-046"
+      }
+    },
+    {
+      "id": "DEP-047",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-047"
+      }
+    },
+    {
+      "id": "DEP-048",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-048"
+      }
+    },
+    {
+      "id": "DEP-049-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-049-1"
+      }
+    },
+    {
+      "id": "DEP-049-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-049-2"
+      }
+    },
+    {
+      "id": "DEP-050-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-050-1"
+      }
+    },
+    {
+      "id": "DEP-050-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-050-2"
+      }
+    },
+    {
+      "id": "DEP-050-3",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-050-3"
+      }
+    },
+    {
+      "id": "DEP-051",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-051"
+      }
+    },
+    {
+      "id": "DEP-052",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-052"
+      }
+    },
+    {
+      "id": "DEP-053",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-053"
+      }
+    },
+    {
+      "id": "DEP-054-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-054-1"
+      }
+    },
+    {
+      "id": "DEP-054-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-054-2"
+      }
+    },
+    {
+      "id": "DEP-055",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-055"
+      }
+    },
+    {
+      "id": "DEP-056",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-056"
+      }
+    },
+    {
+      "id": "DEP-057",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-057"
+      }
+    },
+    {
+      "id": "DEP-058",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-058"
+      }
+    },
+    {
+      "id": "DEP-059-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-059-1"
+      }
+    },
+    {
+      "id": "DEP-059-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-059-2"
+      }
+    },
+    {
+      "id": "DEP-059-3",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-059-3"
+      }
+    },
+    {
+      "id": "DEP-060-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-060-1"
+      }
+    },
+    {
+      "id": "DEP-060-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-060-2"
+      }
+    },
+    {
+      "id": "DEP-061",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-061"
+      }
+    },
+    {
+      "id": "DEP-062",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-062"
+      }
+    },
+    {
+      "id": "DEP-064-1",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-064-1"
+      }
+    },
+    {
+      "id": "DEP-064-2",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-064-2"
+      }
+    },
+    {
+      "id": "DEP-065",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-065"
+      }
+    },
+    {
+      "id": "DEP-066",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-066"
+      }
+    },
+    {
+      "id": "DEP-067-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-067-2"
+      }
+    },
+    {
+      "id": "DEP-067-3",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-067-3"
+      }
+    },
+    {
+      "id": "DEP-068",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-068"
+      }
+    },
+    {
+      "id": "DEP-069-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-069-1"
+      }
+    },
+    {
+      "id": "DEP-069-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-069-2"
+      }
+    },
+    {
+      "id": "DEP-070-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-070-1"
+      }
+    },
+    {
+      "id": "DEP-070-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-070-2"
+      }
+    },
+    {
+      "id": "DEP-071-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-071-1"
+      }
+    },
+    {
+      "id": "DEP-071-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-071-2"
+      }
+    },
+    {
+      "id": "DEP-072",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-072"
+      }
+    },
+    {
+      "id": "DEP-073-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-073-1"
+      }
+    },
+    {
+      "id": "DEP-073-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-073-2"
+      }
+    },
+    {
+      "id": "DEP-074-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-074-1"
+      }
+    },
+    {
+      "id": "DEP-074-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "table_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-074-2"
+      }
+    },
+    {
+      "id": "DEP-075-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-075-1"
+      }
+    },
+    {
+      "id": "DEP-075-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-075-2"
+      }
+    },
+    {
+      "id": "DEP-076",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-076"
+      }
+    },
+    {
+      "id": "DEP-077-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-077-1"
+      }
+    },
+    {
+      "id": "DEP-077-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-077-2"
+      }
+    },
+    {
+      "id": "DEP-077-3",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-077-3"
+      }
+    },
+    {
+      "id": "DEP-078-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-078-1"
+      }
+    },
+    {
+      "id": "DEP-078-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-078-2"
+      }
+    },
+    {
+      "id": "DEP-079-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-079-1"
+      }
+    },
+    {
+      "id": "DEP-079-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-079-2"
+      }
+    },
+    {
+      "id": "DEP-080",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-080"
+      }
+    },
+    {
+      "id": "DEP-081-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "definition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-081-1"
+      }
+    },
+    {
+      "id": "DEP-081-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-081-2"
+      }
+    },
+    {
+      "id": "DEP-082",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-082"
+      }
+    },
+    {
+      "id": "DEP-083-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-083-1"
+      }
+    },
+    {
+      "id": "DEP-083-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-083-2"
+      }
+    },
+    {
+      "id": "DEP-084-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-084-1"
+      }
+    },
+    {
+      "id": "DEP-084-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-084-2"
+      }
+    },
+    {
+      "id": "DEP-085-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-085-1"
+      }
+    },
+    {
+      "id": "DEP-085-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-085-2"
+      }
+    },
+    {
+      "id": "DEP-086-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-086-1"
+      }
+    },
+    {
+      "id": "DEP-086-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "modification",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-086-2"
+      }
+    },
+    {
+      "id": "DEP-087",
+      "explicitness": "implicit",
+      "proposal_kind_not_confirmed_for_gold": "exception",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-087"
+      }
+    },
+    {
+      "id": "DEP-088-1",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-088-1"
+      }
+    },
+    {
+      "id": "DEP-088-2",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "condition",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-088-2"
+      }
+    },
+    {
+      "id": "DEP-089",
+      "explicitness": "explicit",
+      "proposal_kind_not_confirmed_for_gold": "procedure_use",
+      "disposition": "requires_context_not_gold",
+      "parent_record": {
+        "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+        "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+        "bytes": 454946,
+        "id": "DEP-089"
+      }
+    }
+  ],
+  "excluded_execution_breakdown": [
+    {
+      "explicitness": "explicit",
+      "disposition": "requires_context_not_gold",
+      "count": 94
+    },
+    {
+      "explicitness": "explicit",
+      "disposition": "unreviewed_source_supported_proposal_not_gold",
+      "count": 5
+    },
+    {
+      "explicitness": "implicit",
+      "disposition": "requires_context_not_gold",
+      "count": 10
+    },
+    {
+      "explicitness": "implicit",
+      "disposition": "unresolved_target_identity_hypothesis",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "M-POC1C-dependency-overlay-01",
+  "authorizing_decision": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-002/decision-01-DEP008.json",
+    "sha256": "56e403c56795b889b1edf51e32d1826bff7b8227130e1b456f808dd9787e9c79",
+    "bytes": 3366
+  },
+  "base_candidate_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+    "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+    "bytes": 4032
+  },
+  "original_parent": {
+    "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+    "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+    "bytes": 454946,
+    "id": "DEP-008"
+  },
+  "operation": "add one scoped confirmed explicit execution relation; remove it from the unconfirmed set when materializing",
+  "confirmed_relation": {
+    "id": "DEP-008",
+    "from": "C-9.24-03",
+    "to": "C-9.11-10",
+    "kind": "exception",
+    "explicitness": "explicit",
+    "original_target_reference": "9.11",
+    "target_refinement": "Final Pass-Thru TQ check in step 4, not the whole 9.11 procedure.",
+    "necessity_scope": "Preserve the SK exemption from that final check only.",
+    "source_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 33,
+      "printed_page": "33",
+      "column": "right",
+      "render": "source/review-evidence/pdf-33.png",
+      "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+      "bbox_pdf_points": [
+        314.995,
+        666.32,
+        566.897,
+        676.32
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-33-right.txt",
+      "helper_lines_inclusive": [
+        48,
+        48
+      ],
+      "transcription": "• Skirmishers do not make an Elephant Pass-Thru Check (9.11).",
+      "reading_status": "visually_checked_by_codex",
+      "inventory_ref": "C-9.24-03",
+      "parent_inventory_ref": "R-9.24",
+      "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+      "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+    },
+    "criticality": "critical in this scope: omitting exception changes whether the final test is required",
+    "criticality_attribution": "Concrete consequence was shown in the clarification and accepted; the technical label is a mapping under POC-PLAN, not claimed as a verbatim owner statement.",
+    "executable": true,
+    "target_status": "internal",
+    "review_status": "owner_confirmed_exact_scope",
+    "target_evidence": {
+      "source_id": "SPQR-5E-ch9-source-v1",
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "pdf_page": 32,
+      "printed_page": "32",
+      "column": "left",
+      "render": "source/review-evidence/pdf-32.png",
+      "render_sha256": "fe980a86fe41c88c191f49842d896385f9c855ee7534581d446f97ff3f3e9fa3",
+      "bbox_pdf_points": [
+        45.0,
+        104.164,
+        297.0,
+        150.164
+      ],
+      "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+      "helper_file": "source/review-evidence/pdf-32-left.txt",
+      "helper_lines_inclusive": [
+        5,
+        8
+      ],
+      "transcription": "4. The defending unit, other than a Skirmisher unit, now un-\ndergoes a Pass-Thru TQ Check. Subtract the unit’s TQ from\nthe DR, with any excess being the number of Cohesion Hits\nnow applied (DR–TQ=Hits).",
+      "reading_status": "visually_checked_by_codex",
+      "human_review": "pending"
+    },
+    "owner_decision": {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-002/decision-01-DEP008.json",
+      "sha256": "56e403c56795b889b1edf51e32d1826bff7b8227130e1b456f808dd9787e9c79",
+      "bytes": 3366
+    }
+  },
+  "counts_after_overlay": {
+    "confirmed_explicit_execution": 1,
+    "confirmed_implicit_execution": 3,
+    "unconfirmed_explicit_execution": 98,
+    "unconfirmed_implicit_execution": 11,
+    "mentions_separate": 7,
+    "continuations_separate": 7,
+    "parent_facets": 127
+  },
+  "original_artifacts_modified": [],
+  "no_freeze": true
+}

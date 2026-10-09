@@ -1,0 +1,73 @@
+{
+  "id": "M-POC1C-owner-decision-01",
+  "card": "M-POC1C",
+  "question_id": "M-POC1C-RQ-01-DEP008",
+  "date": "2026-10-08",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-08T20:59:11.067897+00:00",
+  "user_message_timestamp": "unknown",
+  "reviewer": "owner in this chat; no personal identity attributed",
+  "actual_owner_response": "Tak zatwierdzam",
+  "raw_response": {
+    "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-002/owner-answer-01.raw.txt",
+    "sha256": "2ac8d9e70bfc6d5e6b8489a30433d0c63874474402b42e6d0f7c18753dd5602a",
+    "bytes": 16
+  },
+  "raw_capture_method": "Exact user text copied from this conversation; file has a terminal LF, not an original downloaded file.",
+  "preceding_owner_clarification": "Nie rozumiem ?",
+  "clarified_question": "Czy zatwierdzasz taki element oceny: „9.24 ustanawia dla SK wyjątek od końcowego testu Pass-Thru opisanego w 9.11”?",
+  "shown_explanation": "9.11 describes the final Pass-Thru test; 9.24 exempts SK. The link will be used as a comparison standard to check whether extraction ties the exception to its test. Losing the exception could wrongly require a SK test.",
+  "approved_scope": {
+    "id": "DEP-008",
+    "from": "C-9.24-03",
+    "to": "C-9.11-10",
+    "kind": "exception",
+    "explicitness": "explicit",
+    "original_target_reference": "9.11",
+    "target_refinement": "Final Pass-Thru TQ check in step 4, not the whole 9.11 procedure.",
+    "necessity_scope": "Preserve the SK exemption from that final check only.",
+    "source_evidence": "The quoted 9.24 sentence explicitly references (9.11); the shown step 4 excludes a Skirmisher unit.",
+    "criticality": "critical in this scope: omitting exception changes whether the final test is required",
+    "criticality_attribution": "Concrete consequence was shown in the clarification and accepted; the technical label is a mapping under POC-PLAN, not claimed as a verbatim owner statement."
+  },
+  "basis": [
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/M-POC1C-review-001/pending-question.json",
+      "sha256": "2bd476b0627f03dec66d1ce3e9570603317cf50fb4f6d59c0e9a53ec9c13502e",
+      "bytes": 3007
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261008-02/manifest.json",
+      "sha256": "ae223df6bc81c5eeae77584b868a02ebb339855c22a04a0702f8bd2f42fa5281",
+      "bytes": 4032
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+      "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+      "bytes": 454946
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/draft/inventory.json",
+      "sha256": "89a9fc0a198082bcd525db40fd2b1d72e1fa0d10a912ab900028593f6582729f",
+      "bytes": 441906
+    },
+    {
+      "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-04-RQ-03.json",
+      "sha256": "6b8a1312162aa64ee294d200a100a93950686173386ebe8f3807dd814898dba4",
+      "bytes": 3982
+    }
+  ],
+  "not_approved": [
+    "Other TQ tests",
+    "Full external Pre-Shock/Shock procedure",
+    "Other proposed relation fields or aliases",
+    "All expectations/relations collectively",
+    "Scoring grouping/categories",
+    "eval-v1 freeze",
+    "M-POC2A/B"
+  ],
+  "new_situations": [],
+  "situation_changes": [],
+  "freeze_authorized": false,
+  "frozen": false
+}

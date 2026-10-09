@@ -1,25 +1,33 @@
 # HANDOFF
 
-- **Ostatnia sesja:** [2026-10-08-M-POC1B-Final](handoff/2026-10-08-M-POC1B-Final.md)
-- **Wynik:** done
+- **Ostatnia sesja:** [2026-10-09-M-POC1C-transfer](handoff/2026-10-09-M-POC1C-transfer.md)
+- **Wynik:** partial
 - **Następny milestone:** M-POC1
 - **Następna karta:** M-POC1C
 
-M-POC1B zakończone w rzeczywiście przejrzanym zakresie po 24 decyzjach
-właściciela: 20 sytuacji, 17 wyników lokalnych i 3 blokady, bez nowych próbek.
-Katalog 74 propozycji prowadzi do dokładnych zakresów i ograniczeń;
-127 facetów nie jest certyfikatem grafu ani gold.
+M-POC1C partial/waiting_review po pięciu rzeczywistych decyzjach C. Właściciel
+zatwierdził ostatni potrzebny lokalny wzorzec relacji jawnej. Zapisano decyzję,
+overlay 05 i mapę do rodziców; złożono nowy kandydat 03 z rubrykami pomiaru.
+Aktualny zakres relacji: 5 jawnych i 3 niejawne; 20 sytuacji (17/3) bez zmian.
 
-Przyszła karta M-POC1C zaczyna od decyzji 24 (RQ-15e/closing), finalnego
-podsumowania, manifestu i katalogu w prywatnym `evaluation/owner-review-002/`
-pod korzeniem `private/poc/spqr-chapter9/`. Dokładne ID braków wskazuje handoff.
-M-POC1C/M-POC2B niewykonane, eval-v1 niezamrożone. M-POC1 jedyny next;
-M-POC0/M-POC1A done, M-DESK2 historycznie partial poza aktywną kolejką.
+Właściciel jawnie zlecił commit/push na feature/tests i zakończenie pracy na tym
+laptopie. Upoważnienie dotyczy publikacji bieżących prac i przekazania,
+nie akceptacji oceny/freeze. Na nowym laptopie sklonować feature/tests i wykonać
+bootstrap CLAUDE; wznowić M-POC1C od nieodpowiedzianego pytania 06 o zakres.
+Nie powtarzać zakończonych przeglądów. .venv i katalogi tymczasowe nie są pakietem
+migracyjnym; interpreter do kontroli wskazać lokalnie. Pełny audyt publikacji
+i hashe: prywatny `evaluation/M-POC1C-transfer-20261009-01/` pod korzeniem POC.
 
-Oryginalne artefakty zachowano, korekty i decyzje zapisano osobno.
-Źródło zachowało identyczny SHA-256; stabilna kopia i mapa lokalizacji prywatnie.
-Znany wyjątek bajtów indeksu Git względem początkowej bazy pozostał jawny;
-staging/HEAD zgodne, pozostałe chronione pliki bez zmian.
-Kontrole, hashe i ograniczenia w bieżącym handoffie oraz prywatnym pomiarze zamknięcia.
+Wznowienie: prywatny `evaluation/M-POC1C-review-006/` — stan po decyzji 05,
+overlay 05, walidacja i pytanie 06 o zakres — oraz
+`evaluation/eval-v1-candidate-20261009-03/` pod korzeniem `private/poc/spqr-chapter9/`.
+Manifest, review.md i measurement-policy.json wskazują konkretne pliki, liczniki,
+ograniczenia oraz proponowane rubryki. Potrzebne akceptacja tej polityki/zakresu
+i odrębna decyzja freeze. Decyzja 05 nie pozwala zamrozić całej podstawy.
+M-POC2A/B niewykonane, eval-v1 niezamrożone. M-POC1 jedyny next;
+M-POC0/M-POC1A/B done w zapisanych zakresach, M-DESK2 historycznie partial poza kolejką.
+
+Hashe, kontrole i zakres ochrony bajtów zapisuje nowy prywatny rejestr.
+Historyczne HEAD/indeksy manifestów B nie są poleceniem przywrócenia Git.
 
 Aktywny przebieg prowadzą [STATUS](STATUS.md), [ROADMAP](ROADMAP.md) i [plan](POC-PLAN.md).
