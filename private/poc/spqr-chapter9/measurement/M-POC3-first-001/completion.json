@@ -1,0 +1,394 @@
+{
+  "id": "M-POC3-first-001-baseline",
+  "date": "2026-10-09",
+  "timezone": "Europe/Warsaw",
+  "card": "M-POC3",
+  "milestone": "M-POC3",
+  "outcome": "done",
+  "run_id": "first-001",
+  "phase": "first_result_format_evidence_inventory_report",
+  "workflow_status": "closed_baseline_waiting_semantic_review",
+  "milestone_status": "done",
+  "next_card": "M-POC4A",
+  "next_action": "Separate M-POC4A: read run.json and closed report/dependency comparison/errors; select necessary blocking targets, verify source availability, count unique added pages/rules/tables/depth and limits before context/pass-01. Do not infer external context need from missing internal graph tuples.",
+  "first_recorded_clock_utc": "2026-10-09T18:47:33+00:00",
+  "completed_at_utc": "2026-10-09T19:07:57.552374+00:00",
+  "recorded_calendar_elapsed_seconds": 1224.552374,
+  "time_limitation": "First recorded clock is after bootstrap. Calendar evaluation time is neither extraction time nor active user/model time and does not prove total budget compliance.",
+  "app": "Codex desktop",
+  "app_metadata_source": "Current developer desktop context; current evaluator only, not extractor configuration proof",
+  "actual_model_visible_name": "unknown",
+  "reasoning_level": "unknown",
+  "extraction_configuration": "unknown",
+  "user_active_time": "unknown",
+  "model_active_time": "unknown",
+  "extraction_started_at_utc": "unknown",
+  "extraction_completed_at_utc": "unknown",
+  "tokens": "unknown",
+  "price": "unknown",
+  "budget_compliance": "unknown",
+  "blind_session": "unknown",
+  "assessment_exposure": "unknown",
+  "actual_historical_transfer_list": "unknown",
+  "actual_prompt_sent": "unknown",
+  "assessment_version": "eval-v1",
+  "assessment_manifest_sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce",
+  "assessment_key_opened": true,
+  "assessment_access_scope": "M-POC3 evaluator explicitly authorized by owner instruction and task card; frozen assessment unchanged",
+  "quality": "structural_and_locational_baseline_only; semantic not_assessable",
+  "semantic_acceptance": "not_performed",
+  "human_review": {
+    "semantic_acceptance": "not_performed",
+    "scope_decisions_for_frozen_evaluation": "Existing owner decisions retained; no new semantic approval in M-POC3"
+  },
+  "response": {
+    "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+    "bytes": 617941,
+    "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+  },
+  "input_manifest_sha256": "39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a",
+  "counters": {
+    "new_extraction_responses": 0,
+    "new_context_rounds": 0,
+    "new_corrective_responses": 0,
+    "accepted_semantic_errors": "not_assessable"
+  },
+  "summary_metrics": {
+    "inventory": {
+      "checked_denominator": 207,
+      "located_candidates": 205,
+      "unassessed_locators": 2,
+      "semantic_unassessed": 207,
+      "correct": "not_assessable",
+      "incorrect": "not_assessable",
+      "omitted": "not_assessable",
+      "blocked": "not_assessable",
+      "percentage": "n/a",
+      "by_type": {
+        "chapter_heading": 1,
+        "section_heading": 9,
+        "rule_label": 41,
+        "clause_group": 98,
+        "note": 14,
+        "caption": 3,
+        "example": 6,
+        "table": 1,
+        "table_row": 3,
+        "diagram": 2,
+        "counter_illustration": 3,
+        "marker_illustration": 2,
+        "continuation": 7,
+        "note_text_span": 9,
+        "clause_text_span": 8
+      },
+      "distinct_printed_rule_labels": {
+        "located": 41,
+        "checked_denominator": 41,
+        "semantic_correct": "not_assessable",
+        "method": "Exact label string and mapped rule evidence overlap; 9.96 splits counted once, no invented 9.92."
+      }
+    },
+    "image_locators": {
+      "checked_denominator": 105,
+      "hash_dimensions_valid_coordinates": 105,
+      "strict_contained_quote_matches": 41,
+      "graphic_label_visual_matches": 5,
+      "quote_area_failure": 1,
+      "boundary_clipping_pending_review": 58,
+      "fully_valid_content_areas": "not_assessable"
+    },
+    "source_quotes": {
+      "checked_denominator": 105,
+      "normalized_helper_matches": 103,
+      "additional_visual_matches": 2,
+      "supported_short_quotes": 105,
+      "transcription_error_count": "not_assessable",
+      "limitation": "Quote verification does not certify all output transcription or meaning."
+    },
+    "relations": {
+      "output_counts": {
+        "explicit:execution": 72,
+        "explicit:mention": 21,
+        "implicit:execution": 26,
+        "explicit:continuation": 7
+      },
+      "explicit": {
+        "checked_frozen_denominator": 5,
+        "tuple_candidates": 5,
+        "missing_tuples": 0,
+        "output_execution_denominator": 72,
+        "output_pending_review": 72,
+        "TP_gold": "not_assessable",
+        "TP_output": "not_assessable",
+        "FP": "not_assessable",
+        "FN": "not_assessable",
+        "precision": "not_assessable",
+        "recall": "not_assessable"
+      },
+      "implicit": {
+        "checked_frozen_denominator": 3,
+        "tuple_candidates": 0,
+        "missing_tuples": 3,
+        "output_execution_denominator": 26,
+        "output_pending_review": 26,
+        "TP_gold": "not_assessable",
+        "TP_output": "not_assessable",
+        "FP": "not_assessable",
+        "FN": "not_assessable",
+        "precision": "not_assessable",
+        "recall": "not_assessable"
+      },
+      "direction_and_kind": {
+        "exact_tuple_candidates": 5,
+        "checked_execution_denominator": 8,
+        "missing_exact_tuples": 3,
+        "confirmed_semantic_direction_or_kind_errors": "not_assessable"
+      },
+      "mentions": {
+        "checked_frozen_denominator": 7,
+        "occurrence_candidates": 2,
+        "different_kind_candidate": 1,
+        "missing_tuples": 4,
+        "output_pending_review": 21,
+        "semantic_quality": "not_assessable"
+      },
+      "continuations": {
+        "checked_frozen_denominator": 7,
+        "physical_order_candidates": 7,
+        "output_pending_review": 7,
+        "semantic_quality": "not_assessable"
+      },
+      "outside_confirmed_execution_set": {
+        "explicit_pending": 67,
+        "implicit_pending": 26,
+        "not_certain_FP": true,
+        "unconfirmed_eval_candidates": 105
+      },
+      "complete_graph_certified": false
+    },
+    "six_error_classes": [
+      {
+        "class": "format",
+        "confirmed_observations": 1,
+        "logged_observations_or_claims": 1,
+        "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+      },
+      {
+        "class": "pominięcie",
+        "confirmed_observations": 7,
+        "logged_observations_or_claims": 7,
+        "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+      },
+      {
+        "class": "błędny odczyt",
+        "confirmed_observations": "not_assessable",
+        "logged_observations_or_claims": 0,
+        "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+      },
+      {
+        "class": "błędna interpretacja",
+        "confirmed_observations": "not_assessable",
+        "logged_observations_or_claims": 1,
+        "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+      },
+      {
+        "class": "brak kontekstu",
+        "confirmed_observations": "not_assessable",
+        "logged_observations_or_claims": 79,
+        "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+      },
+      {
+        "class": "niejednoznaczność",
+        "confirmed_observations": "not_assessable",
+        "logged_observations_or_claims": 60,
+        "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+      }
+    ]
+  },
+  "baseline_closed_at_utc": "2026-10-09T19:01:08.524692+00:00",
+  "closure": {
+    "path": "private/poc/spqr-chapter9/reports/first-001/closure.json",
+    "bytes": 881,
+    "sha256": "bda1f7b3a4b91a2491afb345b6ff222dab7173e403f1c4901691932e659b0a17"
+  },
+  "outputs": [
+    {
+      "path": "private/poc/spqr-chapter9/proposals/first-001/proposal.json",
+      "bytes": 617941,
+      "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/proposals/first-001/provenance.json",
+      "bytes": 3349458,
+      "sha256": "d7e1b11505ebc21429f08aa3bc11a53f2650c5d3b28d903413404fd576b5355e"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/closure.json",
+      "bytes": 881,
+      "sha256": "bda1f7b3a4b91a2491afb345b6ff222dab7173e403f1c4901691932e659b0a17"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/dependency-comparison.json",
+      "bytes": 83068,
+      "sha256": "b1021978d2b864aaf122dc884084fcd6967f4366a8b47540d6a66d656c4000dd"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/errors.json",
+      "bytes": 140626,
+      "sha256": "4c62e34ad0eabfc31c95f8d9018d05bf87a669817a1e51695015a3e223d90f94"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/format.json",
+      "bytes": 563773,
+      "sha256": "4d908cad821c7bc641f48ac9c0e2abf2fe0347f17c1db23c1354361da5192739"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/image-areas.json",
+      "bytes": 82923,
+      "sha256": "9900a8933c5fb2eac91baa8b487d8e5690001d13abc8ff47344e4fe890282d20"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/inventory.json",
+      "bytes": 285003,
+      "sha256": "0dd74155a69f22fb25b70ce4b6674245472c0f15eb662e45f47ec78bb262b018"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/manifest.json",
+      "bytes": 2846,
+      "sha256": "22c0d5c523a2b6ab352d857ac69f4092f82ff7d6bd111b419a9d386262d3f253"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/metrics.json",
+      "bytes": 84176,
+      "sha256": "086ca8d894f9815d671c2c68f94f8c5342cdd74f17e4868d978e0c680533e173"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/quotes.json",
+      "bytes": 206850,
+      "sha256": "2639108af6f6e2468c1a10c394d1ff8add43aad351f2c2b72abc08e69d19dff1"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reports/first-001/report.md",
+      "bytes": 8032,
+      "sha256": "b49cb3fdd687dd4e748cbd10da772dc46d2d3758e3332d717669c01e74d98c5e"
+    }
+  ],
+  "audit_evidence": [
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/analysis.json",
+      "bytes": 4240880,
+      "sha256": "45051940904cd4ed3b95ac7eca6cc5e7f7f5edaf8fa570dc4051763db59f76c5"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/audit.py",
+      "bytes": 20435,
+      "sha256": "84514d5461901bdcd8d17eb315be16f4caebc3ab032a5a17d31e13da6a10c525"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/bbox-analysis.json",
+      "bytes": 123516,
+      "sha256": "210b0b88bfc1393ae323bbc131f5307967ef8fd67b13cedb7d47ffc8f6aebc47"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/bbox_audit.py",
+      "bytes": 3229,
+      "sha256": "55ebbd357218f6b85b591f3d7dbb3e10ca8170dcc4ee4e5ecd0b2a98ab4a0cee"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/close_baseline.py",
+      "bytes": 31959,
+      "sha256": "f541b1ce8f4662f3fed288616f64eb170a785a697e90375dee684fc321b7a69b"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/complete_measurement.py",
+      "bytes": 9298,
+      "sha256": "f287c9b9fe67d965f4556a0c8e9fd8e8fe1f99405fab7b652b32539367b9bf9a"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/diff-check.log",
+      "bytes": 217,
+      "sha256": "33760858a6d95fb5319e1ea4b40b8218bbafc9e2cf07803a48e00f6e33e0f415"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/protected-after.json",
+      "bytes": 9139,
+      "sha256": "e8d03b118895c31d00dd729b493be74f9a89b24edaffe418476c4cd2be176e83"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/protected-before.json",
+      "bytes": 8583,
+      "sha256": "ecf84013e484fbef0648d8b4e20ddb86527aae2987cc99b683bbcd1ddcbdf655"
+    }
+  ],
+  "protected_byte_verification": {
+    "checked_file_count": 45,
+    "all_unchanged": true,
+    "report_lineage_spans_verified": 16768,
+    "all_span_values_and_hashes_match_raw": true,
+    "transfer_files": 33,
+    "eval_manifest_artifacts": 7
+  },
+  "checks": {
+    "script": "scripts/check.ps1",
+    "result": {
+      "path": "private/poc/_checks/active-6c5bcb2f017c4e378b4262461799028f/result.json",
+      "bytes": 161,
+      "sha256": "f87c58cd52c91b58259294f3a71cd4e3603c8a21448add146d69eab57b89e981"
+    },
+    "pytest_log": {
+      "path": "private/poc/_checks/active-6c5bcb2f017c4e378b4262461799028f/pytest.log",
+      "bytes": 183,
+      "sha256": "14cdf8d732c1050ef9ff945f6a6507aed2e8fc347709943ac8de98bae55c19f8"
+    },
+    "diff_check_log": {
+      "path": "private/poc/_checks/active-6c5bcb2f017c4e378b4262461799028f/diff-check.log",
+      "bytes": 217,
+      "sha256": "33760858a6d95fb5319e1ea4b40b8218bbafc9e2cf07803a48e00f6e33e0f415"
+    },
+    "passed": 104,
+    "tests_exit": 0,
+    "diff_exit": 0,
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\poc\\_checks\\active-6c5bcb2f017c4e378b4262461799028f\\pytest",
+    "tmp_temp_policy": "scripts/check.ps1 creates local runRoot/temp and a previously nonexistent GUID basetemp",
+    "final_standalone_diff_check": {
+      "exit": 0,
+      "log": {
+        "path": "private/poc/spqr-chapter9/measurement/M-POC3-first-001/diff-check.log",
+        "bytes": 217,
+        "sha256": "33760858a6d95fb5319e1ea4b40b8218bbafc9e2cf07803a48e00f6e33e0f415"
+      },
+      "warning": "Git line-ending notices for public documents; no whitespace errors"
+    }
+  },
+  "operational_events": [
+    {
+      "operation": "Initial baseline materialization",
+      "exit": 1,
+      "reason": "KeyError for R-9.85 crosswalk key; stopped before reports; proposal bytes/provenance staged and subsequently preserved unchanged. Crosswalk corrected."
+    },
+    {
+      "operation": "Baseline materialization after crosswalk correction",
+      "exit": 1,
+      "reason": "All reports and closure written successfully; final console print failed with cp1252 UnicodeEncodeError. UTF-8 console setting fixed in script; closed reports not rerun/overwritten. All manifest, span and closure hashes independently verified."
+    },
+    {
+      "operation": "Public document patch preparation",
+      "result": "invalid patch rejected before mutation",
+      "reason": "Multiple patch operations targeted HANDOFF.md. Reissued as separate valid operations; no partial document mutation from rejected patch."
+    }
+  ],
+  "documentation_gaps": [
+    "historical extraction transcript/session ID",
+    "actual transferred/read file list and exact prompt used",
+    "independent clean-context confirmation",
+    "visible application/model/reasoning confirmation",
+    "extraction start/end and active times",
+    "original export/save method",
+    "tokens and price"
+  ],
+  "sessions_append_baseline": {
+    "path": "private/poc/spqr-chapter9/measurement/sessions.jsonl",
+    "bytes": 34580,
+    "sha256": "d573380a5374d0fbfb4ad55464a913e8a4f1443981b26b48f73067351765d934"
+  }
+}

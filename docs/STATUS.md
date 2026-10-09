@@ -1,52 +1,62 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-09
-- **Bieżący milestone:** M-POC3
-- **Bieżąca karta:** M-POC3
+- **Bieżący milestone:** M-POC4
+- **Bieżąca karta:** M-POC4A
 - **Wynik M-POC0:** done
-- **Blokady:** brak technicznych odbioru; braki dowodów pochodzenia/konfiguracji/czasu zapisane jako unknown, niezależność próby niepotwierdzona
-- **Wynik M-POC1A:** done — przegląd struktury źródła zakończony w zapisanym zakresie
-- **Wynik M-POC1B:** done — przegląd oczekiwań i sytuacji zakończony
-- **Wynik M-POC1C:** done — decyzje 06/07 zapisane, eval-v1 zamrożone
-- **Wynik M-POC2A:** done — pakiet przygotowany, oględziny właściciela potwierdzone
-- **Wynik M-POC2B:** done — odbiór i rejestracja już wykonanej first-001, bez powtarzania ekstrakcji; z jawnymi brakami dokumentacji
-- **Wynik M-POC3:** planned — nie rozpoczęto raportu pierwszego wyniku
+- **Wynik M-POC1A:** done — przegląd struktury w zapisanym zakresie
+- **Wynik M-POC1B:** done — przegląd oczekiwań i sytuacji
+- **Wynik M-POC1C:** done — zakres zatwierdzony, eval-v1 zamrożone
+- **Wynik M-POC2A:** done — pakiet przygotowany
+- **Wynik M-POC2B:** done — odbiór istniejącej first-001 z brakami unknown
+- **Wynik M-POC3:** done — baseline zamknięty przed korektami, bez semantycznej akceptacji
+- **Wynik M-POC4A:** planned — nie rozpoczęto
+- **Blokady:** znaczenie waiting_review; konfiguracja/czas/historyczne przekazanie/czysty kontekst unknown; zgłoszone braki i błędy pozostają w raporcie
 
-Właściciel potwierdził wykonanie ekstrakcji i wskazał oryginał
-private/poc/spqr-chapter9/transfer/first-v1/first-001.json. Zweryfikowany SHA-256:
-3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307.
-Bajtowo identyczna kopia (617941 bajtów) zachowana w runs/first-001/first-001.json
-pod private/poc/spqr-chapter9/, obok run.json i session-evidence.txt.
-Nowy wpis odbioru: measurement/sessions.jsonl, ID M-POC2B-first-001-receipt.
+Zapisano wszystkie wymagane artefakty proposals/first-001/ i reports/first-001/
+pod private/poc/spqr-chapter9/, mapę do surowych bajtów oraz manifest i closure.
+Odpowiedź runs/first-001/first-001.json zachowana (617941 bajtów).
+SHA-256: 3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307.
+Manifest wejść: 39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a.
+Oba zgodne, 32/32 artefakty i 33/33 pliki pakietu zgodne. Eval-v1 otwarto
+zgodnie z kartą M-POC3; 7/7 artefaktów zgodnych z zamrożonym manifestem.
+Oryginałów, wejść, promptu i zamrożonej oceny nie zmieniono.
 
-Manifest wejść SHA-256:
-39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a.
-Obie kopie manifestu zgodne. Wszystkie 33 pliki transfer-list istnieją i są
-bajtowo identyczne z kanonicznym pakietem; 32 artefakty manifestu mają zgodne
-hashe i rozmiary. Kontrola dotyczy chwili odbioru. Oryginał odpowiedzi,
-wejścia, formaty, prompt i manifesty zachowane bez zmian, także historyczne
-pole prepared_not_sent. Fakt późniejszego odbioru zapisany wyłącznie osobno.
+Format czytelny; 454 ID rekordów i 154 ID klauzul unikalnych, 3401 referencji
+rozwiązanych. Rozliczono wszystkie 207 ID inwentarza: 205 kandydatów lokalizacji,
+2 lokatory nieocenione; znaleziono 41/41 różnych oznaczeń. 105 krótkich cytatów
+podpartych, lecz 1 wskazany obszar nie obejmuje cytatu i 58 granic glifów czeka
+na review. Geometria/hash/wymiary wszystkich 105 obszarów poprawne.
 
-Brakuje historycznego transkryptu/ID sesji, faktycznej listy przekazanych/odczytanych
-plików i użytego promptu, niezależnego potwierdzenia czystego kontekstu,
-widocznej konfiguracji, czasów ekstrakcji i aktywnych czasów człowieka/modelu,
-sposobu pierwotnego eksportu, tokenów i ceny: unknown. Samoopis odpowiedzi
-(Codex desktop, model/rozumowanie unknown, not_exposed) zachowano jako deklarację,
-bez niezależnego potwierdzenia. Nie poświadczono ślepej próby ani skażenia.
-Znany pakiet i jego obecne hashe nie dowodzą historycznego użycia plików.
-Zapisany czas odbioru nie jest czasem ekstrakcji; zużycie aktywnego budżetu unknown.
+Relacje: 5/5 jawnych kandydatów, 0/3 niejawnych i 3 brakujące krytyczne pary.
+Wzmianki 2/7 kandydatów, 1 różnica rodzaju pending, 4 brakujące pary;
+kontynuacje 7/7 kandydatów kolejności. Wszystkie 126 propozycji rozliczone.
+Sześć klas: format 1 potwierdzony błąd; pominięcie 7 brakujących par;
+błędny odczyt not_assessable; błędna interpretacja 1 kandydat; brak kontekstu
+79 deklaracji; niejednoznaczność 2 deklaracje i 58 granic do review.
+Twierdzenia ekstraktora i pending nie są potwierdzonymi błędami semantycznymi.
 
-Nie powtórzono ekstrakcji, nie poprawiono odpowiedzi, nie otwarto klucza
-oceny evaluation/eval-v1 i nie rozpoczęto M-POC3. Znaczenie i jakość nieocenione.
-Kontrole scripts/check.ps1, git diff --check i integralność odbioru prowadzi
-nowy wpis pomiarowy z rzeczywistymi logami i hashami; nie jest to raport jakości.
+66 grup treści, 8 wymagań kontekstu, 20 sytuacji i rubryki mają sprawdzone
+mianowniki i not_assessable dla znaczenia. TP/FP/FN, semantyczna precyzja
+oraz kompletność nieocenione; nowe relacje nie są pewnymi FP. Brak pełnego gold,
+certyfikatu całego grafu i semantycznej akceptacji. Ocena człowieka waiting_review.
 
-Dokładny następny krok: osobna sesja M-POC3 najpierw sprawdza
-runs/first-001/run.json, session-evidence.txt oraz SHA-256 kopii first-001.json,
-zachowuje braki pochodzenia/unknown, a następnie oceniający otwiera eval-v1
-zgodnie z kartą i zapisuje raport pierwszego wyniku przed jakąkolwiek korektą.
-M-POC2 done w zakresie przygotowania i rejestracji; M-POC3 jedyny next.
-M-POC3–M-POC7 niewykonane. Progi i limity eksperymentu bez zmian.
+Nieznane konfiguracja/czasy ekstrakcji, historyczna lista przekazania/prompt,
+czysty kontekst, ekspozycja na ocenę, eksport, tokeny i cena nadal unknown.
+Samoopis nie jest niezależnym dowodem. Nie potwierdzono ślepej próby ani skażenia.
+Czas kalendarzowy oceny nie ustala aktywnego budżetu; zgodność z limitami unknown.
+Nie wykonano ekstrakcji, korekt, nowych inferencji ani dalszych kart.
+
+Kontrole zamknięcia: scripts/check.ps1 **104 passed**, git diff --check bez błędów.
+Pomiary i rzeczywiste logi scripts/check.ps1 oraz git diff --check:
+measurement/M-POC3-first-001/completion.json i nowy rekord
+M-POC3-first-001-baseline w measurement/sessions.jsonl. Baseline pozostaje zamknięty.
+Dokładny następny krok: osobna M-POC4A od run.json, report.md,
+dependency-comparison.json i zadeklarowanych braków w errors.json wybiera
+potrzebne blokujące cele, sprawdza źródła i liczy przyrost stron/reguł/tabel,
+głębokość oraz limity przed context/pass-01. Brakujące pary wewnętrzne
+nie uzasadniają automatycznie nowego kontekstu. M-POC4 jedyny next;
+M-POC4A–M-POC7 nierozpoczęte. Progi i limity bez zmian.
 
 ## Historia wcześniejszego przygotowania i przekazania
 

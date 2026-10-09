@@ -1,0 +1,2365 @@
+{
+  "run_id": "first-001",
+  "evaluation_id": "eval-v1",
+  "response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307",
+  "evaluation_manifest_sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce",
+  "execution_relations": [
+    {
+      "evaluation_id": "DEP-NEW-001",
+      "evaluation_pointer": "/confirmed_execution_relations/0",
+      "frozen_from": "C-9.72-01",
+      "frozen_to": "R-9.71",
+      "kind": "condition",
+      "explicitness": "implicit",
+      "mapped_output_endpoints": [
+        "R972",
+        "R971"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [],
+      "tuple_status": "missing_tuple",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [],
+      "raw_spans": [],
+      "criticality": "critical_in_reviewed_scope",
+      "error_id": "ERR-first-001-002"
+    },
+    {
+      "evaluation_id": "DEP-NEW-002",
+      "evaluation_pointer": "/confirmed_execution_relations/1",
+      "frozen_from": "TR-03",
+      "frozen_to": "C-9.14-11",
+      "kind": "exception",
+      "explicitness": "implicit",
+      "mapped_output_endpoints": [
+        "N914table",
+        "R914"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [],
+      "tuple_status": "missing_tuple",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [],
+      "raw_spans": [],
+      "criticality": "critical_in_reviewed_scope",
+      "error_id": "ERR-first-001-003"
+    },
+    {
+      "evaluation_id": "DEP-NEW-003",
+      "evaluation_pointer": "/confirmed_execution_relations/2",
+      "frozen_from": "C-9.86-01",
+      "frozen_to": "C-9.14-11",
+      "kind": "condition",
+      "explicitness": "implicit",
+      "mapped_output_endpoints": [
+        "R986",
+        "R914"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [],
+      "tuple_status": "missing_tuple",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [],
+      "raw_spans": [],
+      "criticality": "critical_in_reviewed_scope",
+      "error_id": "ERR-first-001-004"
+    },
+    {
+      "evaluation_id": "DEP-008",
+      "evaluation_pointer": "/confirmed_execution_relations/3",
+      "frozen_from": "C-9.24-03",
+      "frozen_to": "C-9.11-10",
+      "kind": "exception",
+      "explicitness": "explicit",
+      "mapped_output_endpoints": [
+        "R924",
+        "R911"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [
+        "D924911"
+      ],
+      "tuple_status": "candidate_tuple_match",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [
+        "/dependencies/3"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 419805,
+          "end_byte_exclusive": 420533,
+          "sha256": "98d8bc545e4afcec22f063e16bf1da0781d4ad22e424d0879b3a9cf60d4b6186"
+        }
+      ],
+      "criticality": "critical in this scope: omitting exception changes whether the final test is required",
+      "error_id": null
+    },
+    {
+      "evaluation_id": "DEP-002",
+      "evaluation_pointer": "/confirmed_execution_relations/4",
+      "frozen_from": "C-9.11-09",
+      "frozen_to": "R-9.14",
+      "kind": "condition",
+      "explicitness": "explicit",
+      "mapped_output_endpoints": [
+        "R911",
+        "R914"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [
+        "D911914"
+      ],
+      "tuple_status": "candidate_tuple_match",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [
+        "/dependencies/34"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 443469,
+          "end_byte_exclusive": 444133,
+          "sha256": "52cd2f6dd3b1b0bcb714e3aa767d8b0ae477b4c473171b6ee7912de58ea56298"
+        }
+      ],
+      "criticality": "critical in previously approved local placement scope",
+      "error_id": null
+    },
+    {
+      "evaluation_id": "DEP-017",
+      "evaluation_pointer": "/confirmed_execution_relations/5",
+      "frozen_from": "C-9.53-05",
+      "frozen_to": "R-9.41",
+      "kind": "procedure_use",
+      "explicitness": "explicit",
+      "mapped_output_endpoints": [
+        "R953",
+        "R941"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [
+        "D953941"
+      ],
+      "tuple_status": "candidate_tuple_match",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [
+        "/dependencies/2"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 419111,
+          "end_byte_exclusive": 419799,
+          "sha256": "0ba0d177b17d0de528b2e0c8bfcbd7f5911fe5950abbcad4998651afb7e9763f"
+        }
+      ],
+      "criticality": "critical in previously approved local defensive scope",
+      "error_id": null
+    },
+    {
+      "evaluation_id": "DEP-024",
+      "evaluation_pointer": "/confirmed_execution_relations/6",
+      "frozen_from": "C-9.82-01",
+      "frozen_to": "R-9.85",
+      "kind": "procedure_use",
+      "explicitness": "explicit",
+      "mapped_output_endpoints": [
+        "R982",
+        "R985"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [
+        "D982985"
+      ],
+      "tuple_status": "candidate_tuple_match",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [
+        "/dependencies/10"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 425002,
+          "end_byte_exclusive": 425652,
+          "sha256": "9e35a08cf2649c5a1cf1fa4be902e5fa43bb5f9ace3b866eaaabc58c0709a63d"
+        }
+      ],
+      "criticality": "critical in previously approved local mode/schedule scope",
+      "error_id": null
+    },
+    {
+      "evaluation_id": "DEP-041",
+      "evaluation_pointer": "/confirmed_execution_relations/7",
+      "frozen_from": "C-9.14-01",
+      "frozen_to": "T-01",
+      "kind": "table_use",
+      "explicitness": "explicit",
+      "mapped_output_endpoints": [
+        "R914",
+        "N914table"
+      ],
+      "mapping_policy": "Exact printed-rule/object identity; source and target child scope retained in the frozen record, whole output rule mapping is a candidate only.",
+      "candidate_output_ids": [
+        "D914table"
+      ],
+      "tuple_status": "candidate_tuple_match",
+      "scope_necessity_semantic_status": "not_assessable",
+      "reason": "Retained constraints and exact necessity scope require human semantic review in M-POC5; tuple presence earns no semantic TP.",
+      "output_pointers": [
+        "/dependencies/0"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417649,
+          "end_byte_exclusive": 418377,
+          "sha256": "67d120fecb7b3722b48d27278cd13c5dd81236759ee78319fdb366b444e72cf1"
+        }
+      ],
+      "criticality": "critical in previously approved local Rampage-table scope",
+      "error_id": null
+    }
+  ],
+  "mentions": [
+    {
+      "evaluation_id": "DEP-034",
+      "evaluation_pointer": "/mentions/0",
+      "from": "X-02",
+      "target_candidate": {
+        "name": "Shock Combat Results Table",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Shock Combat Results Table"
+      },
+      "output_ids": [],
+      "tuple_status": "missing_tuple",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": "ERR-first-001-005",
+      "raw_spans": []
+    },
+    {
+      "evaluation_id": "DEP-035",
+      "evaluation_pointer": "/mentions/1",
+      "from": "X-04",
+      "target_candidate": {
+        "name": "Shock Combat Results Table",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Shock Combat Results Table"
+      },
+      "output_ids": [],
+      "tuple_status": "missing_tuple",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": "ERR-first-001-006",
+      "raw_spans": []
+    },
+    {
+      "evaluation_id": "DEP-037",
+      "evaluation_pointer": "/mentions/2",
+      "from": "C-9.61-01",
+      "target_candidate": {
+        "name": "Stacking Charts",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "Stacking Charts"
+      },
+      "output_ids": [
+        "D961stack"
+      ],
+      "tuple_status": "different_kind_candidate",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": "ERR-first-001-007",
+      "raw_spans": [
+        {
+          "start_byte": 487500,
+          "end_byte_exclusive": 488469,
+          "sha256": "6a302f1a60d0ed6085bd1caff398a75a6fa04cc2533632d1ecd4c684c8aaff8b"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "DEP-043",
+      "evaluation_pointer": "/mentions/3",
+      "from": "X-01",
+      "target_candidate": {
+        "name": "battle-specific map compass",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "facet": "battle-specific map compass"
+      },
+      "output_ids": [],
+      "tuple_status": "missing_tuple",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": "ERR-first-001-008",
+      "raw_spans": []
+    },
+    {
+      "evaluation_id": "DEP-044",
+      "evaluation_pointer": "/mentions/4",
+      "from": "C-9.66-01",
+      "target_candidate": {
+        "name": "local MLE diagram",
+        "identifier": "unknown",
+        "alias_resolution": "provisional",
+        "inventory_id": "D-02",
+        "facet": "local MLE diagram"
+      },
+      "output_ids": [
+        "D966diag"
+      ],
+      "tuple_status": "candidate_occurrence_match",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": null,
+      "raw_spans": [
+        {
+          "start_byte": 424273,
+          "end_byte_exclusive": 424996,
+          "sha256": "0ec648dcfb0ced480050c19fd2ab9814f16763f1d18bdeaefc314c6ed8812e89"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "DEP-063",
+      "evaluation_pointer": "/mentions/5",
+      "from": "X-06",
+      "target_candidate": {
+        "name": "Cynoscephalae scenario rules",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "Cynoscephalae scenario rules"
+      },
+      "output_ids": [
+        "D953scenario"
+      ],
+      "tuple_status": "candidate_occurrence_match",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": null,
+      "raw_spans": [
+        {
+          "start_byte": 486504,
+          "end_byte_exclusive": 487494,
+          "sha256": "cf35bd0512341efb62fe4761b31c3aabfc52616cb8180107a7bbcafa9c409f5f"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "DEP-067-1",
+      "evaluation_pointer": "/mentions/6",
+      "from": "C-9.66-01",
+      "target_candidate": {
+        "name": "Orderly Withdrawal, Clear terrain, ZOC",
+        "identifier": "unknown",
+        "target_source": "unknown",
+        "facet": "Orderly Withdrawal alternative"
+      },
+      "output_ids": [],
+      "tuple_status": "missing_tuple",
+      "external_target_alias_identity": "not_assessable",
+      "semantic_status": "not_assessable",
+      "error_id": "ERR-first-001-009",
+      "raw_spans": []
+    }
+  ],
+  "continuations": [
+    {
+      "evaluation_id": "DEP-090",
+      "evaluation_pointer": "/continuations/0",
+      "output_id": "Dcont-R911",
+      "from": "N911first",
+      "to": "N911next",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 429313,
+        "end_byte_exclusive": 430071,
+        "sha256": "435030eea0dd47bbdcc6ad4b167b2e3296043cc4b311e796cd57c6b63bbcff96"
+      }
+    },
+    {
+      "evaluation_id": "DEP-091",
+      "evaluation_pointer": "/continuations/1",
+      "output_id": "Dcont-table914",
+      "from": "N914tablefirst",
+      "to": "N914tablenext",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 528179,
+        "end_byte_exclusive": 528962,
+        "sha256": "fc37581d9ad327c872614216f2893b35bf57d4836734cfe0c16a33812fb8ced0"
+      }
+    },
+    {
+      "evaluation_id": "DEP-092",
+      "evaluation_pointer": "/continuations/2",
+      "output_id": "Dcont-R914",
+      "from": "N914first",
+      "to": "N914next",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 430077,
+        "end_byte_exclusive": 430841,
+        "sha256": "cf1408d4f1bd3158bf11065ad95faabf5f44e1792a5884159e0d2f9297a8fd9d"
+      }
+    },
+    {
+      "evaluation_id": "DEP-093",
+      "evaluation_pointer": "/continuations/3",
+      "output_id": "Dcont-R924",
+      "from": "N924first",
+      "to": "N924next",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 430847,
+        "end_byte_exclusive": 431607,
+        "sha256": "6cf932a5f193d3217e8ee3a113647989fcd545e1b8e1643babd2ca97fa4fa546"
+      }
+    },
+    {
+      "evaluation_id": "DEP-094",
+      "evaluation_pointer": "/continuations/4",
+      "output_id": "Dcont-R966",
+      "from": "N966first",
+      "to": "N966next",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 431613,
+        "end_byte_exclusive": 432371,
+        "sha256": "387bdd8ef3f0d070450579538aa92840ac8f6da6d10309dfaf16e21a55379545"
+      }
+    },
+    {
+      "evaluation_id": "DEP-095",
+      "evaluation_pointer": "/continuations/5",
+      "output_id": "Dcont-R991",
+      "from": "N991first",
+      "to": "N991next",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 432377,
+        "end_byte_exclusive": 433135,
+        "sha256": "f55d61a3b4eef45e79eb1fb0b95c2600e6f6707efac45cd1ef0dc998ceede90b"
+      }
+    },
+    {
+      "evaluation_id": "DEP-096",
+      "evaluation_pointer": "/continuations/6",
+      "output_id": "Dcont-R996b",
+      "from": "N996first",
+      "to": "N996next",
+      "tuple_status": "candidate_physical_order_match",
+      "semantic_status": "not_assessable",
+      "raw_span": {
+        "start_byte": 433141,
+        "end_byte_exclusive": 433900,
+        "sha256": "5067dc80227b97faf4c6cdc9035c0bd5dd4455f1f857518d6732529e1603c7f7"
+      }
+    }
+  ],
+  "all_output_edges": [
+    {
+      "id": "D914table",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/0",
+      "raw_span": {
+        "start_byte": 417649,
+        "end_byte_exclusive": 418377,
+        "sha256": "67d120fecb7b3722b48d27278cd13c5dd81236759ee78319fdb366b444e72cf1"
+      }
+    },
+    {
+      "id": "D914diagram",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/1",
+      "raw_span": {
+        "start_byte": 418383,
+        "end_byte_exclusive": 419105,
+        "sha256": "eaafb54511601b5bce478b1d2430fff236520dea99125b1e87da8781d5abb699"
+      }
+    },
+    {
+      "id": "D953941",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/2",
+      "raw_span": {
+        "start_byte": 419111,
+        "end_byte_exclusive": 419799,
+        "sha256": "0ba0d177b17d0de528b2e0c8bfcbd7f5911fe5950abbcad4998651afb7e9763f"
+      }
+    },
+    {
+      "id": "D924911",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/3",
+      "raw_span": {
+        "start_byte": 419805,
+        "end_byte_exclusive": 420533,
+        "sha256": "98d8bc545e4afcec22f063e16bf1da0781d4ad22e424d0879b3a9cf60d4b6186"
+      }
+    },
+    {
+      "id": "D931922",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/4",
+      "raw_span": {
+        "start_byte": 420539,
+        "end_byte_exclusive": 421333,
+        "sha256": "ea31ad25ca07ae14e92a6f5d88ea964287d83543af23d0442eaf591dfee0eadf"
+      }
+    },
+    {
+      "id": "D971app",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/5",
+      "raw_span": {
+        "start_byte": 421339,
+        "end_byte_exclusive": 422083,
+        "sha256": "3c6028ef639cdccc8b0e20a5eacb9b45131d24b4ba6e844870a054e5a15fba57"
+      }
+    },
+    {
+      "id": "D972app",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/6",
+      "raw_span": {
+        "start_byte": 422089,
+        "end_byte_exclusive": 422791,
+        "sha256": "7c728d2f62a80319a01f2921e3e3c9d98c27eb83a7bc26be062cfb1e8e5e68de"
+      }
+    },
+    {
+      "id": "D967966",
+      "explicitness": "implicit",
+      "kind": "procedure_use",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/7",
+      "raw_span": {
+        "start_byte": 422797,
+        "end_byte_exclusive": 423544,
+        "sha256": "08bf36ff38833cf82c7bd7eadc11261d3f61bce013b7896f4204db78a86df772"
+      }
+    },
+    {
+      "id": "D968966",
+      "explicitness": "implicit",
+      "kind": "modification",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/8",
+      "raw_span": {
+        "start_byte": 423550,
+        "end_byte_exclusive": 424267,
+        "sha256": "06657a4bd26a66518e4f7c571ef773d79a28f0341e145efc12869227d09570f2"
+      }
+    },
+    {
+      "id": "D966diag",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/9",
+      "raw_span": {
+        "start_byte": 424273,
+        "end_byte_exclusive": 424996,
+        "sha256": "0ec648dcfb0ced480050c19fd2ab9814f16763f1d18bdeaefc314c6ed8812e89"
+      }
+    },
+    {
+      "id": "D982985",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/10",
+      "raw_span": {
+        "start_byte": 425002,
+        "end_byte_exclusive": 425652,
+        "sha256": "9e35a08cf2649c5a1cf1fa4be902e5fa43bb5f9ace3b866eaaabc58c0709a63d"
+      }
+    },
+    {
+      "id": "D985982",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/11",
+      "raw_span": {
+        "start_byte": 425658,
+        "end_byte_exclusive": 426387,
+        "sha256": "3f9a719fa03738e50c4c97a59a7675d0e68a0778471c76a07efb56984c9a443d"
+      }
+    },
+    {
+      "id": "D986982",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/12",
+      "raw_span": {
+        "start_byte": 426393,
+        "end_byte_exclusive": 427078,
+        "sha256": "44c5e3c7ab4c7e866242786eb751e5fafa52a08745ae90ed59883644e695a515"
+      }
+    },
+    {
+      "id": "D996ratings",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/13",
+      "raw_span": {
+        "start_byte": 427084,
+        "end_byte_exclusive": 427830,
+        "sha256": "e842cc2827f18d0d88492eeede7a594058a8a42bc7c348f06e392b16076a2a6b"
+      }
+    },
+    {
+      "id": "D996def",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/14",
+      "raw_span": {
+        "start_byte": 427836,
+        "end_byte_exclusive": 428581,
+        "sha256": "357f37a5617ce9e33d98ddfe5b3ddb63323218f18031e28b2b8b331e2f74723b"
+      }
+    },
+    {
+      "id": "D996fire",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/15",
+      "raw_span": {
+        "start_byte": 428587,
+        "end_byte_exclusive": 429307,
+        "sha256": "10c9036df012795aaa27d4ca51f5da816c0da3c61995ea104b29979fb38f8f64"
+      }
+    },
+    {
+      "id": "Dcont-R911",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/16",
+      "raw_span": {
+        "start_byte": 429313,
+        "end_byte_exclusive": 430071,
+        "sha256": "435030eea0dd47bbdcc6ad4b167b2e3296043cc4b311e796cd57c6b63bbcff96"
+      }
+    },
+    {
+      "id": "Dcont-R914",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/17",
+      "raw_span": {
+        "start_byte": 430077,
+        "end_byte_exclusive": 430841,
+        "sha256": "cf1408d4f1bd3158bf11065ad95faabf5f44e1792a5884159e0d2f9297a8fd9d"
+      }
+    },
+    {
+      "id": "Dcont-R924",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/18",
+      "raw_span": {
+        "start_byte": 430847,
+        "end_byte_exclusive": 431607,
+        "sha256": "6cf932a5f193d3217e8ee3a113647989fcd545e1b8e1643babd2ca97fa4fa546"
+      }
+    },
+    {
+      "id": "Dcont-R966",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/19",
+      "raw_span": {
+        "start_byte": 431613,
+        "end_byte_exclusive": 432371,
+        "sha256": "387bdd8ef3f0d070450579538aa92840ac8f6da6d10309dfaf16e21a55379545"
+      }
+    },
+    {
+      "id": "Dcont-R991",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/20",
+      "raw_span": {
+        "start_byte": 432377,
+        "end_byte_exclusive": 433135,
+        "sha256": "f55d61a3b4eef45e79eb1fb0b95c2600e6f6707efac45cd1ef0dc998ceede90b"
+      }
+    },
+    {
+      "id": "Dcont-R996b",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/21",
+      "raw_span": {
+        "start_byte": 433141,
+        "end_byte_exclusive": 433900,
+        "sha256": "5067dc80227b97faf4c6cdc9035c0bd5dd4455f1f857518d6732529e1603c7f7"
+      }
+    },
+    {
+      "id": "D9621013",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/22",
+      "raw_span": {
+        "start_byte": 433906,
+        "end_byte_exclusive": 434668,
+        "sha256": "121a149de55cb0de8218605312898793a7aa5310f7886b1f2eec97d652d0ab09"
+      }
+    },
+    {
+      "id": "D1013stack",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/23",
+      "raw_span": {
+        "start_byte": 434674,
+        "end_byte_exclusive": 435636,
+        "sha256": "a210457dc5059864350df6e33f5430059791bf46150555b9d9a7c979cbb4f6d2"
+      }
+    },
+    {
+      "id": "D1011chart",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/24",
+      "raw_span": {
+        "start_byte": 435642,
+        "end_byte_exclusive": 436638,
+        "sha256": "02c77bad09babfc13be614fa43fa689ec6f740abd03edcdf519cef5c7d811183"
+      }
+    },
+    {
+      "id": "D1011descriptor",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/25",
+      "raw_span": {
+        "start_byte": 436644,
+        "end_byte_exclusive": 437389,
+        "sha256": "8e72600dc9c92372356715c6177ed1b0b4ffc71b2e2d4849e5ad48ab0142c991"
+      }
+    },
+    {
+      "id": "D9161011",
+      "explicitness": "implicit",
+      "kind": "definition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/26",
+      "raw_span": {
+        "start_byte": 437395,
+        "end_byte_exclusive": 438165,
+        "sha256": "040798ce6af1cfca803ee6c5b668aee59f6f24def6d77f90583a0300056fea59"
+      }
+    },
+    {
+      "id": "D911rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/27",
+      "raw_span": {
+        "start_byte": 438171,
+        "end_byte_exclusive": 438922,
+        "sha256": "80bdf532d2d054a256e7ffb3172204ede4af435f4e8f748d4144238ac90ecdee"
+      }
+    },
+    {
+      "id": "D914rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/28",
+      "raw_span": {
+        "start_byte": 438928,
+        "end_byte_exclusive": 439683,
+        "sha256": "7af07a12f887d7281dec1edb6b867f45018fcb1803e9d9748bca9b5cff1df541"
+      }
+    },
+    {
+      "id": "D924rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/29",
+      "raw_span": {
+        "start_byte": 439689,
+        "end_byte_exclusive": 440439,
+        "sha256": "286024105730d45fea4573dcc5181018af7e7a8199c61d57ca4849524054a981"
+      }
+    },
+    {
+      "id": "D953rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/30",
+      "raw_span": {
+        "start_byte": 440445,
+        "end_byte_exclusive": 441195,
+        "sha256": "b3ae794987fa0c9ad4c0c73be6389a068dce33d544ff9dfd73aefaff245e2d33"
+      }
+    },
+    {
+      "id": "D987rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/31",
+      "raw_span": {
+        "start_byte": 441201,
+        "end_byte_exclusive": 441951,
+        "sha256": "a2aadc1332c980815eb5e2a018f7cb783e4e89f10c81491aa87b15089dcab834"
+      }
+    },
+    {
+      "id": "D993rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/32",
+      "raw_span": {
+        "start_byte": 441957,
+        "end_byte_exclusive": 442707,
+        "sha256": "f429f6df134c112e9ed52e05ebbe37e0395d9af4109e0446e68aee7fc4f84b50"
+      }
+    },
+    {
+      "id": "D994rout",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/33",
+      "raw_span": {
+        "start_byte": 442713,
+        "end_byte_exclusive": 443463,
+        "sha256": "cf5bf40915502483ef5523cb7e13f4d020ee24b6432af797c9a07c9ffef180d4"
+      }
+    },
+    {
+      "id": "D911914",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/34",
+      "raw_span": {
+        "start_byte": 443469,
+        "end_byte_exclusive": 444133,
+        "sha256": "52cd2f6dd3b1b0bcb714e3aa767d8b0ae477b4c473171b6ee7912de58ea56298"
+      }
+    },
+    {
+      "id": "D919chartdef",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/35",
+      "raw_span": {
+        "start_byte": 444139,
+        "end_byte_exclusive": 444886,
+        "sha256": "e2a563018d8e57c3a4a4bda78adb00767b9023b01ed78e4f63b10f27f894caaa"
+      }
+    },
+    {
+      "id": "D919clashdef",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/36",
+      "raw_span": {
+        "start_byte": 444892,
+        "end_byte_exclusive": 445605,
+        "sha256": "f50d58f6e481b1f1c98c1521a007b8f8c64bb80ac911c1f5ce538ac9439ca5ff"
+      }
+    },
+    {
+      "id": "D912MRRCdef",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "external_with_source",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/37",
+      "raw_span": {
+        "start_byte": 445611,
+        "end_byte_exclusive": 446300,
+        "sha256": "ac5874d5f9639b2848f65c01a9eed791ba552592beb66e84b9e7313685f27c5e"
+      }
+    },
+    {
+      "id": "D932ex",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/38",
+      "raw_span": {
+        "start_byte": 446306,
+        "end_byte_exclusive": 447001,
+        "sha256": "cc9475d15261fdb557c7ca8ab2c060784e976233b90b37dac2e0fd7de938abe3"
+      }
+    },
+    {
+      "id": "D941ex",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/39",
+      "raw_span": {
+        "start_byte": 447007,
+        "end_byte_exclusive": 447674,
+        "sha256": "6ba6fda994dd5796926e41bbe18ac34523543fedbf043b65403eb564e8a835c0"
+      }
+    },
+    {
+      "id": "D924ex",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/40",
+      "raw_span": {
+        "start_byte": 447680,
+        "end_byte_exclusive": 448348,
+        "sha256": "db61f4012ae0296b4864959df5056e0fdf0b5abb4a7fce6f92f5598471fabf02"
+      }
+    },
+    {
+      "id": "D923ex",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/41",
+      "raw_span": {
+        "start_byte": 448354,
+        "end_byte_exclusive": 449025,
+        "sha256": "fe373ce5c1dae9f9f10c01a814d0f01b880e0fba6ab22c21cca874c8ac604396"
+      }
+    },
+    {
+      "id": "D967ex",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/42",
+      "raw_span": {
+        "start_byte": 449031,
+        "end_byte_exclusive": 449701,
+        "sha256": "e83c1ce95717a119e50e62d570341a8872f9a9a4fecba46eb6a2f3533250a3d3"
+      }
+    },
+    {
+      "id": "D985markers",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/43",
+      "raw_span": {
+        "start_byte": 449707,
+        "end_byte_exclusive": 450402,
+        "sha256": "fb900a1f81f504ad2c420cde5b11784ac3de03ed75d91fb056019789a5b737cf"
+      }
+    },
+    {
+      "id": "D986marker",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/44",
+      "raw_span": {
+        "start_byte": 450408,
+        "end_byte_exclusive": 451112,
+        "sha256": "535037eb3d53321c9dfe800a22644bc7ac453ea6e3675159736908999698a61f"
+      }
+    },
+    {
+      "id": "D911pre",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/45",
+      "raw_span": {
+        "start_byte": 451118,
+        "end_byte_exclusive": 452028,
+        "sha256": "389bc985d2d58b34835c75e8f0c6a28f117bafd8d6b0c6e4b057abf701c443e7"
+      }
+    },
+    {
+      "id": "D911shock",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/46",
+      "raw_span": {
+        "start_byte": 452034,
+        "end_byte_exclusive": 453068,
+        "sha256": "863d5df0b7b68933f7c5ab1346e9b227ee7c9b0f694140f2868018ea9d1c95c6"
+      }
+    },
+    {
+      "id": "D912react",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/47",
+      "raw_span": {
+        "start_byte": 453074,
+        "end_byte_exclusive": 453991,
+        "sha256": "33232c5c5f3b1135fb3d671916a22e97476d5130e5049cdc1d6b784e045f523c"
+      }
+    },
+    {
+      "id": "D912MRRC",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/48",
+      "raw_span": {
+        "start_byte": 453997,
+        "end_byte_exclusive": 454981,
+        "sha256": "def8a8ec219272cbefe09da69f79d803b121824d126b810983b49e75c01b82a0"
+      }
+    },
+    {
+      "id": "D913react",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/49",
+      "raw_span": {
+        "start_byte": 454987,
+        "end_byte_exclusive": 455960,
+        "sha256": "41ad1f246de30962eeb1a2180eabeb8201d42472751932f096eddccc5b25fa8a"
+      }
+    },
+    {
+      "id": "D913mounted",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/50",
+      "raw_span": {
+        "start_byte": 455966,
+        "end_byte_exclusive": 456959,
+        "sha256": "4c12dad7714b21b5243f8562d0ea337e9db1ca288e1be76fd0d9f7d56833edf8"
+      }
+    },
+    {
+      "id": "D914OW",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/51",
+      "raw_span": {
+        "start_byte": 456965,
+        "end_byte_exclusive": 457910,
+        "sha256": "2783511113076fc854f3a522797b8f352d9f7bf2389e19c59db98dfe47b5e2f9"
+      }
+    },
+    {
+      "id": "D914leaderwithdraw",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/52",
+      "raw_span": {
+        "start_byte": 457916,
+        "end_byte_exclusive": 458866,
+        "sha256": "eecaac90550a327244c90f476f2aaa94654edff3ebed80f79ca55d09f942ebd0"
+      }
+    },
+    {
+      "id": "D914casualty",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/53",
+      "raw_span": {
+        "start_byte": 458872,
+        "end_byte_exclusive": 459789,
+        "sha256": "05463617bc0536387e3b5b142c3c97b2e76c43738b49c76004e6cd539939daa7"
+      }
+    },
+    {
+      "id": "D914compass",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/54",
+      "raw_span": {
+        "start_byte": 459795,
+        "end_byte_exclusive": 460817,
+        "sha256": "2329eef178fde36656363601a0b0a8e0c12bd5ee1a33b15a6b1197b0e34d607e"
+      }
+    },
+    {
+      "id": "D915superiority",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/55",
+      "raw_span": {
+        "start_byte": 460823,
+        "end_byte_exclusive": 461910,
+        "sha256": "2c97e5aaa751de5025942f3aab2bb569d66d50579d6903b70ef27edd4815b8a8"
+      }
+    },
+    {
+      "id": "D916OW",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/56",
+      "raw_span": {
+        "start_byte": 461916,
+        "end_byte_exclusive": 462881,
+        "sha256": "7561986e666489d58bee19ec254573774cb3d4897e050b2b24ef7d26208ea4aa"
+      }
+    },
+    {
+      "id": "D917position",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/57",
+      "raw_span": {
+        "start_byte": 462887,
+        "end_byte_exclusive": 464004,
+        "sha256": "0ce96bd3c947272c658299593bd1b2ac360c551af10d7c580ba4bc51f43c7de0"
+      }
+    },
+    {
+      "id": "D918specific",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/58",
+      "raw_span": {
+        "start_byte": 464010,
+        "end_byte_exclusive": 465079,
+        "sha256": "46bc37098ddd17b19bb35251ad26ded1fe92ed25c86c4c900e3c2438c05dff5b"
+      }
+    },
+    {
+      "id": "D919pre",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/59",
+      "raw_span": {
+        "start_byte": 465085,
+        "end_byte_exclusive": 466009,
+        "sha256": "b0f67748e7541b061f298d687b5970a754a5dac62ed2f2fd42c9ca15b36ebd17"
+      }
+    },
+    {
+      "id": "D919clash",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/60",
+      "raw_span": {
+        "start_byte": 466015,
+        "end_byte_exclusive": 467053,
+        "sha256": "1fa54f24d5fd43511577e8727fce95980d0bbab7e99f491866a732ee373f78fe"
+      }
+    },
+    {
+      "id": "D919shock",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/61",
+      "raw_span": {
+        "start_byte": 467059,
+        "end_byte_exclusive": 468094,
+        "sha256": "b1e04abfcffe4bc13d21e5862f058a17cedd9cf8c2ef8a421d29c35c6d171601"
+      }
+    },
+    {
+      "id": "D921OW",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/62",
+      "raw_span": {
+        "start_byte": 468100,
+        "end_byte_exclusive": 469141,
+        "sha256": "80ab1224bf1b51e8765d74dddb5ebca7692d3948bc57604dd898864400a971a0"
+      }
+    },
+    {
+      "id": "D922missile",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/63",
+      "raw_span": {
+        "start_byte": 469147,
+        "end_byte_exclusive": 470139,
+        "sha256": "591716eb6af883fa29d76a75b7b7f05dc34362571c706fd81a2ec0c1dcdf7c41"
+      }
+    },
+    {
+      "id": "D922HD",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/64",
+      "raw_span": {
+        "start_byte": 470145,
+        "end_byte_exclusive": 471118,
+        "sha256": "bc236c79c6247558117c7e7b3203070ba6577a409c1dfef29e11835c040090d5"
+      }
+    },
+    {
+      "id": "D923pre",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/65",
+      "raw_span": {
+        "start_byte": 471124,
+        "end_byte_exclusive": 472135,
+        "sha256": "4cf94cf694f0e376a2a50f56dfe9ae4f961249b2e6100de7a4a7434eb3b23de0"
+      }
+    },
+    {
+      "id": "D923shock",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/66",
+      "raw_span": {
+        "start_byte": 472141,
+        "end_byte_exclusive": 473131,
+        "sha256": "14cd5e30b3f348dfff39355a06e9ee8c3ff606190246537d7d86323c052d15ef"
+      }
+    },
+    {
+      "id": "D924stack",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/67",
+      "raw_span": {
+        "start_byte": 473137,
+        "end_byte_exclusive": 474031,
+        "sha256": "2f356812069d163bd331d87755522b166c5647e1630c172bc0d198e9b0161ac3"
+      }
+    },
+    {
+      "id": "D924line",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/68",
+      "raw_span": {
+        "start_byte": 474037,
+        "end_byte_exclusive": 475039,
+        "sha256": "20fb6dd43e031f4e04849a4a72fb2792971973f4fe5f734fd578f8fbc0007bd5"
+      }
+    },
+    {
+      "id": "D931HD",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/69",
+      "raw_span": {
+        "start_byte": 475045,
+        "end_byte_exclusive": 475924,
+        "sha256": "e4e90e9f0899363da17174c4d177df333a9f7470d9f9aadca8da05df2952943a"
+      }
+    },
+    {
+      "id": "D931OW",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/70",
+      "raw_span": {
+        "start_byte": 475930,
+        "end_byte_exclusive": 476818,
+        "sha256": "27f35934512788a7e31916539f5bbe3c0db4ea55b9869b641ab47bfb76873803"
+      }
+    },
+    {
+      "id": "D932CRT",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/71",
+      "raw_span": {
+        "start_byte": 476824,
+        "end_byte_exclusive": 477811,
+        "sha256": "86005b6142d8684bd97d9ec22d9360aca5337060adf2fd40e51e012b08614537"
+      }
+    },
+    {
+      "id": "D941CRT",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/72",
+      "raw_span": {
+        "start_byte": 477817,
+        "end_byte_exclusive": 478798,
+        "sha256": "d8c5ecf02ca39bf7b762be84356bbd6303ee2cb130197835cf7a1c997b73c90d"
+      }
+    },
+    {
+      "id": "D95scenario",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/73",
+      "raw_span": {
+        "start_byte": 478804,
+        "end_byte_exclusive": 479782,
+        "sha256": "85fedc25fa72e70325645416f45fe0e6b01796887985e6949c8dcd54e3d58d9c"
+      }
+    },
+    {
+      "id": "D951OC",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/74",
+      "raw_span": {
+        "start_byte": 479788,
+        "end_byte_exclusive": 480836,
+        "sha256": "a4d2fb0a39a0c6d88ca454fca25432f2a1199545c05ad351bf284a287dc88f37"
+      }
+    },
+    {
+      "id": "D951terrain",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/75",
+      "raw_span": {
+        "start_byte": 480842,
+        "end_byte_exclusive": 481785,
+        "sha256": "f03a2672b549a48d99475cdf13727ab139c4f881b606dd478b06470138664b58"
+      }
+    },
+    {
+      "id": "D952PAW",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/76",
+      "raw_span": {
+        "start_byte": 481791,
+        "end_byte_exclusive": 482698,
+        "sha256": "e685a537846a4c65a9baa744caac807dbca558aa290c90dc38df0083bc6ccf36"
+      }
+    },
+    {
+      "id": "D952wheel",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/77",
+      "raw_span": {
+        "start_byte": 482704,
+        "end_byte_exclusive": 483642,
+        "sha256": "914a0acd44d566f2c56e89fbe9e02bfccf0e4a71a98a6b81b485840d5183acff"
+      }
+    },
+    {
+      "id": "D952reverse",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/78",
+      "raw_span": {
+        "start_byte": 483648,
+        "end_byte_exclusive": 484594,
+        "sha256": "db2cbcaccd82484eb7f2c98ba3711ca944c6124e30033d393fdddb7f67ae47de"
+      }
+    },
+    {
+      "id": "D952column",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/79",
+      "raw_span": {
+        "start_byte": 484600,
+        "end_byte_exclusive": 485539,
+        "sha256": "1eb65d06586190484be1c211389f90930759a58093b42967d578d423c7738378"
+      }
+    },
+    {
+      "id": "D953pre",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/80",
+      "raw_span": {
+        "start_byte": 485545,
+        "end_byte_exclusive": 486498,
+        "sha256": "a66e9fdfc373fd815a07309efad0ada203198249997a9ee88eac4a3a3d57e64b"
+      }
+    },
+    {
+      "id": "D953scenario",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/81",
+      "raw_span": {
+        "start_byte": 486504,
+        "end_byte_exclusive": 487494,
+        "sha256": "cf35bd0512341efb62fe4761b31c3aabfc52616cb8180107a7bbcafa9c409f5f"
+      }
+    },
+    {
+      "id": "D961stack",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "different_kind_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/82",
+      "raw_span": {
+        "start_byte": 487500,
+        "end_byte_exclusive": 488469,
+        "sha256": "6a302f1a60d0ed6085bd1caff398a75a6fa04cc2533632d1ecd4c684c8aaff8b"
+      }
+    },
+    {
+      "id": "D961line",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/83",
+      "raw_span": {
+        "start_byte": 488475,
+        "end_byte_exclusive": 489373,
+        "sha256": "4f8e2d0136fac22322de0d248076482a9fe95c7d35c6bbcaa38ba9b3ecee937b"
+      }
+    },
+    {
+      "id": "D962target",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/84",
+      "raw_span": {
+        "start_byte": 489379,
+        "end_byte_exclusive": 490267,
+        "sha256": "e42ca7da39f4e144b19f3f3c2ffbf0e594f6fa96907649c0ab777738998c6194"
+      }
+    },
+    {
+      "id": "D962auto",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/85",
+      "raw_span": {
+        "start_byte": 490273,
+        "end_byte_exclusive": 491153,
+        "sha256": "054da6a651c90eab00d6b52e670877eff7c0eccf5caf802f2314fb41d6b5dad6"
+      }
+    },
+    {
+      "id": "D962shock",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/86",
+      "raw_span": {
+        "start_byte": 491159,
+        "end_byte_exclusive": 492109,
+        "sha256": "3c908d4ef58625aa4246c0c74394c38d248d7395d859cbe232853e1f16fd6e84"
+      }
+    },
+    {
+      "id": "D963TQ",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/87",
+      "raw_span": {
+        "start_byte": 492115,
+        "end_byte_exclusive": 493097,
+        "sha256": "9cc9a7f6cd42567f87a7db6d17f660804e7f132ea1eb3063f894a975ea51d899"
+      }
+    },
+    {
+      "id": "D964order",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/88",
+      "raw_span": {
+        "start_byte": 493103,
+        "end_byte_exclusive": 494081,
+        "sha256": "5d4d7b6efa10aedb7a067cf23541153558cf3e153dea1aad2b748130bd48756b"
+      }
+    },
+    {
+      "id": "D966line",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/89",
+      "raw_span": {
+        "start_byte": 494087,
+        "end_byte_exclusive": 494996,
+        "sha256": "1d759a2be5d89e80fde69d0f74bf238ce22a0f13d391cf533cbea664d2097e08"
+      }
+    },
+    {
+      "id": "D967OW",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/90",
+      "raw_span": {
+        "start_byte": 495002,
+        "end_byte_exclusive": 496020,
+        "sha256": "9cbe3a7124fb5b40779c6c31e86a5f000182d5d0cdd9871f85233f00c131a1da"
+      }
+    },
+    {
+      "id": "D968LC",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/91",
+      "raw_span": {
+        "start_byte": 496026,
+        "end_byte_exclusive": 496970,
+        "sha256": "010f18148fa2853a17c417012e6747ad9482f27bbe88ac9a48aa201cc65bb750"
+      }
+    },
+    {
+      "id": "D968column",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/92",
+      "raw_span": {
+        "start_byte": 496976,
+        "end_byte_exclusive": 497900,
+        "sha256": "9df97bd060d2c444d88bb601df07f217462c5ae40506ceac419c6c1d27f6bc3c"
+      }
+    },
+    {
+      "id": "D971LOS",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/93",
+      "raw_span": {
+        "start_byte": 497906,
+        "end_byte_exclusive": 498828,
+        "sha256": "31cfc93016392d406779554ef335816ca3844664873b455596251a866060cd26"
+      }
+    },
+    {
+      "id": "D972AWL",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/94",
+      "raw_span": {
+        "start_byte": 498834,
+        "end_byte_exclusive": 499824,
+        "sha256": "4a21ff6572b64f4de714510485713fa79f1ce767c3c9c9aac8a19764461efee9"
+      }
+    },
+    {
+      "id": "D972RP",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/95",
+      "raw_span": {
+        "start_byte": 499830,
+        "end_byte_exclusive": 500811,
+        "sha256": "90e0205d9990fe39f8bf0fdae54155743fbc23224c3c38aec98a1b877bc6890f"
+      }
+    },
+    {
+      "id": "D983stack",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/96",
+      "raw_span": {
+        "start_byte": 500817,
+        "end_byte_exclusive": 501770,
+        "sha256": "6b4a95b49a6c08a4e6483ad868d737cb785fcef19e1e38f712aafc9e08bbf4be"
+      }
+    },
+    {
+      "id": "D986react",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/97",
+      "raw_span": {
+        "start_byte": 501776,
+        "end_byte_exclusive": 502737,
+        "sha256": "c5654f08ee0cca6a5dc37ab6962713027d53595236e9b4a7e8729f7098934250"
+      }
+    },
+    {
+      "id": "D987recovery",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/98",
+      "raw_span": {
+        "start_byte": 502743,
+        "end_byte_exclusive": 503772,
+        "sha256": "747ee76868b936260cd81aabf8f2f2cd620b037983be6b0363d9af3f4f95ef32"
+      }
+    },
+    {
+      "id": "D991column",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/99",
+      "raw_span": {
+        "start_byte": 503778,
+        "end_byte_exclusive": 504693,
+        "sha256": "f4ee226a2f696464f91209cdaa16f77306a6ef4f3d2e15bad383d016695bb8e4"
+      }
+    },
+    {
+      "id": "D991PAW",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/100",
+      "raw_span": {
+        "start_byte": 504699,
+        "end_byte_exclusive": 505624,
+        "sha256": "be3f4fc13c0c76728e805352a60876ab0fbe09275603625b55918d4fd25fe536"
+      }
+    },
+    {
+      "id": "D991OW",
+      "explicitness": "explicit",
+      "kind": "mention",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/101",
+      "raw_span": {
+        "start_byte": 505630,
+        "end_byte_exclusive": 506511,
+        "sha256": "86d3bd60448ef5e6663b5ef43d8e3ca6bf0b2889f8fb20acc2abccc3d8666994"
+      }
+    },
+    {
+      "id": "D993recovery",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/102",
+      "raw_span": {
+        "start_byte": 506517,
+        "end_byte_exclusive": 507482,
+        "sha256": "9942daeb76589b47734b6a5bb4ed6a16d0b4634210cdb5074dad0e29f57f6ea7"
+      }
+    },
+    {
+      "id": "D993depleted",
+      "explicitness": "explicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/103",
+      "raw_span": {
+        "start_byte": 507488,
+        "end_byte_exclusive": 508455,
+        "sha256": "dbbddecac8ebaa216b3a11f4cf0dd15f363c6caf3638fa5874ca4aa60c2e0a8e"
+      }
+    },
+    {
+      "id": "D994scenario",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/104",
+      "raw_span": {
+        "start_byte": 508461,
+        "end_byte_exclusive": 509525,
+        "sha256": "41294f6f2e6a5a90e4479605f0d0c4fe1c0b4becf753f74623ec8e12c81651db"
+      }
+    },
+    {
+      "id": "D994pre",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/105",
+      "raw_span": {
+        "start_byte": 509531,
+        "end_byte_exclusive": 510509,
+        "sha256": "28970ea22c2c2cfb5a9f9809dfb669ebc75478fd288c9c5e141607d0df6853ba"
+      }
+    },
+    {
+      "id": "D995momentum",
+      "explicitness": "explicit",
+      "kind": "modification",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/106",
+      "raw_span": {
+        "start_byte": 510515,
+        "end_byte_exclusive": 511549,
+        "sha256": "202d8df482e6837e00aca86137c2850a8f7f6c192a5a9f13116c33834167b098"
+      }
+    },
+    {
+      "id": "D995scenario",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/107",
+      "raw_span": {
+        "start_byte": 511555,
+        "end_byte_exclusive": 512521,
+        "sha256": "4aba09db3b479f7ac90ea468848dffcfa0ead16dcf5d42d2f5802480e9513276"
+      }
+    },
+    {
+      "id": "D996tables",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/108",
+      "raw_span": {
+        "start_byte": 512527,
+        "end_byte_exclusive": 513635,
+        "sha256": "1f7003a3d4d4e84827c18ca49ade9e7bb6d3e7bf41627b4af176911bda5c0b8a"
+      }
+    },
+    {
+      "id": "D996eligible",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/109",
+      "raw_span": {
+        "start_byte": 513641,
+        "end_byte_exclusive": 514649,
+        "sha256": "f1374439128dfafa072c15172dcc9546910c88ccd735d529c287a2054667b5ad"
+      }
+    },
+    {
+      "id": "D996OW",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/110",
+      "raw_span": {
+        "start_byte": 514655,
+        "end_byte_exclusive": 515584,
+        "sha256": "d5d4bc0775d54b59bae7ca3e2b3bf301124158fac2cf2cb7cb56c7c25612afb9"
+      }
+    },
+    {
+      "id": "D996stack",
+      "explicitness": "explicit",
+      "kind": "condition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/111",
+      "raw_span": {
+        "start_byte": 515590,
+        "end_byte_exclusive": 516560,
+        "sha256": "9c9d6ae570ccdf8cd358baa88a3e720a3c73ae2dda769bb7514877c4046d5a14"
+      }
+    },
+    {
+      "id": "D996movement",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/112",
+      "raw_span": {
+        "start_byte": 516566,
+        "end_byte_exclusive": 517532,
+        "sha256": "c34587c10bb4689a8f90b552edaf73f23d174f6a8d49b9b674904286b9032299"
+      }
+    },
+    {
+      "id": "D996MRRC",
+      "explicitness": "explicit",
+      "kind": "table_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/113",
+      "raw_span": {
+        "start_byte": 517538,
+        "end_byte_exclusive": 518516,
+        "sha256": "14d464152bcf580228f1e7095cbef23920006955a9703a60d6fc5f7c157f52d9"
+      }
+    },
+    {
+      "id": "D996supply",
+      "explicitness": "explicit",
+      "kind": "exception",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/114",
+      "raw_span": {
+        "start_byte": 518522,
+        "end_byte_exclusive": 519504,
+        "sha256": "fcda4987da387113f835575815542c6a3136b6825e9eeda7240e6a8ca0154157"
+      }
+    },
+    {
+      "id": "D996HD",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/115",
+      "raw_span": {
+        "start_byte": 519510,
+        "end_byte_exclusive": 520576,
+        "sha256": "63d35f1e5a6195a9b190d5f3e070197e638df80a1a89516cac95be7d0f3dfcd2"
+      }
+    },
+    {
+      "id": "D952951",
+      "explicitness": "explicit",
+      "kind": "procedure_use",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/116",
+      "raw_span": {
+        "start_byte": 520582,
+        "end_byte_exclusive": 521278,
+        "sha256": "617cb684341d5c9fe8a9c3d874861655a83d6e01803de0caef4cd475b7a57242"
+      }
+    },
+    {
+      "id": "D951elig",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/117",
+      "raw_span": {
+        "start_byte": 521284,
+        "end_byte_exclusive": 521987,
+        "sha256": "60700a4d5879715f9dcec36b24e496a95ed18db049d3c0ee47dd8d7fdce4d8f4"
+      }
+    },
+    {
+      "id": "D953elig",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/118",
+      "raw_span": {
+        "start_byte": 521993,
+        "end_byte_exclusive": 522691,
+        "sha256": "3a1b3ac3547de8ff724e3c3ee95e74155f7634b0d9fe3886a132b94a32e1609c"
+      }
+    },
+    {
+      "id": "D913screen",
+      "explicitness": "implicit",
+      "kind": "condition",
+      "target_status": "internal",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/119",
+      "raw_span": {
+        "start_byte": 522697,
+        "end_byte_exclusive": 523432,
+        "sha256": "4b442335e9ee1bffa9c3a8ff18e49f728e63977989a88d48d6b9ddbd7c59f0b4"
+      }
+    },
+    {
+      "id": "D-ZOC-R911",
+      "explicitness": "implicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/120",
+      "raw_span": {
+        "start_byte": 523438,
+        "end_byte_exclusive": 524391,
+        "sha256": "1676fe4b675a0d7702c66cf902de18bd65f7421d1babef6caa59860c914b1792"
+      }
+    },
+    {
+      "id": "D-ZOC-R915",
+      "explicitness": "implicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/121",
+      "raw_span": {
+        "start_byte": 524397,
+        "end_byte_exclusive": 525332,
+        "sha256": "fc7b6f104c24b359bae521f2a84eab52f89dd9ddec2e342ee61201e548e9604f"
+      }
+    },
+    {
+      "id": "D-ZOC-R966",
+      "explicitness": "implicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/122",
+      "raw_span": {
+        "start_byte": 525338,
+        "end_byte_exclusive": 526291,
+        "sha256": "7725bbe6b7efc3ce0b34dbdbabb517ae1dc9522afa93456dba8635592d90711c"
+      }
+    },
+    {
+      "id": "D-ZOC-R972",
+      "explicitness": "implicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/123",
+      "raw_span": {
+        "start_byte": 526297,
+        "end_byte_exclusive": 527232,
+        "sha256": "760b9efa18bb205fcded64ee4a102461667fbc08a6f268aa178ac64bbf65bf96"
+      }
+    },
+    {
+      "id": "D-ZOC-R995",
+      "explicitness": "implicit",
+      "kind": "definition",
+      "target_status": "unresolved",
+      "classification": "outside_confirmed_tuple_set_pending_review",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/124",
+      "raw_span": {
+        "start_byte": 527238,
+        "end_byte_exclusive": 528173,
+        "sha256": "c601359ff3ef69054b29881bfbd14cea8a4a3a8eb2240250ea3d0e7157890be8"
+      }
+    },
+    {
+      "id": "Dcont-table914",
+      "explicitness": "explicit",
+      "kind": "continuation",
+      "target_status": "internal",
+      "classification": "frozen_tuple_candidate",
+      "semantic_result": "not_assessable",
+      "review_status": "waiting_review",
+      "pointer": "/dependencies/125",
+      "raw_span": {
+        "start_byte": 528179,
+        "end_byte_exclusive": 528962,
+        "sha256": "fc37581d9ad327c872614216f2893b35bf57d4836734cfe0c16a33812fb8ced0"
+      }
+    }
+  ],
+  "review_rule": "Tuple candidate presence and physical order do not prove exact necessity scope or accept meaning. Every unique edge requires review before final precision."
+}

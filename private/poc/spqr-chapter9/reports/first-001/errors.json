@@ -1,0 +1,3685 @@
+{
+  "run_id": "first-001",
+  "response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307",
+  "six_classes": [
+    {
+      "class": "format",
+      "confirmed_observations": 1,
+      "logged_observations_or_claims": 1,
+      "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+    },
+    {
+      "class": "pominięcie",
+      "confirmed_observations": 7,
+      "logged_observations_or_claims": 7,
+      "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+    },
+    {
+      "class": "błędny odczyt",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 0,
+      "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+    },
+    {
+      "class": "błędna interpretacja",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 1,
+      "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+    },
+    {
+      "class": "brak kontekstu",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 79,
+      "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+    },
+    {
+      "class": "niejednoznaczność",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 60,
+      "scope": "Locator/tuple audit and separately labeled output claims; counts are not accepted semantic errors."
+    }
+  ],
+  "count_policy": "Observations, self-reported claims and pending classification are distinguished; absence of assessed semantic errors is not zero semantic errors.",
+  "errors": [
+    {
+      "id": "ERR-first-001-001",
+      "class": "format",
+      "criticality": "unknown",
+      "detail": "E916 quotes \"This rule does not apply to Leader Elephants.\" but bbox ends at y=1000 px = 360 PDF pt; source final line extends below this box. Exact quote is supported on full page and in helper, not entirely in the asserted image area.",
+      "response_pointers": [
+        "/evidence/15/quote/value",
+        "/evidence/15/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 28933,
+          "end_byte_exclusive": 28980,
+          "sha256": "d7f4685fc12f57b4efa53487758dad7b4fd040575cb2bdfb31a8701a8477cbb5"
+        },
+        {
+          "start_byte": 29149,
+          "end_byte_exclusive": 29554,
+          "sha256": "c8ad13ac212a237da060f7a8e7e389fb5191b8d3fe32155b3dcbf5447a4c2866"
+        }
+      ],
+      "evaluation_refs": [
+        "inventory:C-9.16-01",
+        "expectation:EXP-016"
+      ],
+      "status": "confirmed_locator_failure",
+      "impact": "Evidence trace is incomplete for the quoted exception; bbox validity alone cannot pass quote-in-area. Source exception criticality is frozen, semantic error criticality remains unknown.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-002",
+      "class": "pominięcie",
+      "criticality": "critical_in_reviewed_scope",
+      "detail": "No output dependency has frozen source/target/direction/kind/explicitness tuple ('R972', 'R971', 'condition', 'implicit'). Prose presence does not supply a dependency record.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "dependency:DEP-NEW-001"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Critical scoped graph link absent; no full executable-graph or semantic verdict.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-003",
+      "class": "pominięcie",
+      "criticality": "critical_in_reviewed_scope",
+      "detail": "No output dependency has frozen source/target/direction/kind/explicitness tuple ('N914table', 'R914', 'exception', 'implicit'). Prose presence does not supply a dependency record.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "dependency:DEP-NEW-002"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Critical scoped graph link absent; no full executable-graph or semantic verdict.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-004",
+      "class": "pominięcie",
+      "criticality": "critical_in_reviewed_scope",
+      "detail": "No output dependency has frozen source/target/direction/kind/explicitness tuple ('R986', 'R914', 'condition', 'implicit'). Prose presence does not supply a dependency record.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "dependency:DEP-NEW-003"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Critical scoped graph link absent; no full executable-graph or semantic verdict.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-005",
+      "class": "pominięcie",
+      "criticality": "noncritical_at_this_occurrence",
+      "detail": "No separate mention relation for frozen occurrence DEP-034 from X-02 to Shock Combat Results Table. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "mention:DEP-034"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-006",
+      "class": "pominięcie",
+      "criticality": "noncritical_at_this_occurrence",
+      "detail": "No separate mention relation for frozen occurrence DEP-035 from X-04 to Shock Combat Results Table. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "mention:DEP-035"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-007",
+      "class": "błędna interpretacja",
+      "criticality": "noncritical_at_this_occurrence",
+      "detail": "Frozen mention occurrence of Stacking Charts is output as D961stack table_use execution; same source/reference, different kind. Candidate classification discrepancy, not an owner verdict.",
+      "response_pointers": [
+        "/dependencies/82"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 487500,
+          "end_byte_exclusive": 488469,
+          "sha256": "6a302f1a60d0ed6085bd1caff398a75a6fa04cc2533632d1ecd4c684c8aaff8b"
+        }
+      ],
+      "evaluation_refs": [
+        "mention:DEP-037"
+      ],
+      "status": "pending_human_classification",
+      "impact": "Requires scoped review; no automatic semantic acceptance.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-008",
+      "class": "pominięcie",
+      "criticality": "noncritical_at_this_occurrence",
+      "detail": "No separate mention relation for frozen occurrence DEP-043 from X-01 to battle-specific map compass. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "mention:DEP-043"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-009",
+      "class": "pominięcie",
+      "criticality": "noncritical_at_this_occurrence",
+      "detail": "No separate mention relation for frozen occurrence DEP-067-1 from C-9.66-01 to Orderly Withdrawal, Clear terrain, ZOC. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 417643,
+          "end_byte_exclusive": 528966,
+          "sha256": "b43a2763ffbfcfa87a504b85523cf55d2131eff79e98328bdf672f42b3c2764f"
+        }
+      ],
+      "evaluation_refs": [
+        "mention:DEP-067-1"
+      ],
+      "status": "confirmed_structural_omission",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-010",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G916: The minimum-1 phrase follows the DR>TQ condition; the text does not explicitly state the result for DR<=TQ. No unconditional minimum imposed.",
+      "response_pointers": [
+        "/gaps/0"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 528984,
+          "end_byte_exclusive": 529510,
+          "sha256": "5ace56915486ab06bd226069e9c9402e84707a60d8700dfad4c22e4c0da8059c"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R916"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Clarification of whether minimum applies only when DR>TQ.",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-011",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G932: The printed example uses printed CRT result with AS, while clause prescribes halving. Supplied 8.72 describes augmentation but not numerical AS procedure.",
+      "response_pointers": [
+        "/gaps/1"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 529516,
+          "end_byte_exclusive": 530113,
+          "sha256": "43cf016d3697d9674abe943581db6ce085b1bd34d93ebff98716ba95c28cb7db"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R932",
+          "N932ex"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Attack Superiority resolution and Shock CRT, including order of hit multipliers.",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-012",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G953: The shared-rout paragraph uses singular “the unit” when separate retreat hexes are impossible; it does not explicitly identify one or both units for elimination.",
+      "response_pointers": [
+        "/gaps/2"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 530119,
+          "end_byte_exclusive": 530709,
+          "sha256": "e7acbacfb4fb7b0f9a12bc3d1bf41019f7507987177c49efc34ba8b596816a21"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R953"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Clarification of elimination scope when only part/all of stack cannot retreat to separate hexes.",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-013",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D1013stack: Within-stack Cohesion Hit distribution is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/3"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 530715,
+          "end_byte_exclusive": 531188,
+          "sha256": "c3b24ba681ffea0e45bac775e196ea4f5351df7e7351972c4ff0a70ae4375f23"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "N1013",
+          "D1013stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.68 bullet #6, including qualifications.",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-014",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D1011chart: TQ check chart timing and results is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/4"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 531194,
+          "end_byte_exclusive": 531724,
+          "sha256": "a2cab347eafbc92e330f064922a531306b18bb2d5f2da7bd549789204c7f6533"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "N1011",
+          "D1011chart"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual Cohesion Hit and TQ Check Chart.",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-015",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D911pre: Pre-Shock TQ Check procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/5"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 531730,
+          "end_byte_exclusive": 532179,
+          "sha256": "3f44da130e9065b05585fa541af4175c3c8b6522a060e434a5d8bf68fa3e78b5"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R911",
+          "D911pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.43 including marker/check/DRM rules",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-016",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D911shock: Base Shock resolution needed before Pass-Thru hit adjustments is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/6"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 532185,
+          "end_byte_exclusive": 532681,
+          "sha256": "edc4cc7dc9859cde944c1fea2e86b6801d2cd37034930f595e8739ba0a68714e"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R911",
+          "D911shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Full Shock resolution procedure and used tables",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-017",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D912react: Ordinary Reaction Fire timing/eligibility is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/7"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 532687,
+          "end_byte_exclusive": 533131,
+          "sha256": "e9fb23797284f37fdb8228746a96d25f5e447f90b80d8b010c119743049c9fba"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R912",
+          "D912react"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.2 Reaction Fire",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-018",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D912MRRC: Elephant Screen missile results is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/8"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 533137,
+          "end_byte_exclusive": 533606,
+          "sha256": "40315b9fde190d4c1887d9e52f2d37e0fedb33f9e57f3931b70bdc52581d7d61"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R912",
+          "D912MRRC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "MRRC Elephant Screen row, headers, modifiers and notes",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-019",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D913react: Reaction Fire eligibility/timing for javelins and screen is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/9"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 533612,
+          "end_byte_exclusive": 534077,
+          "sha256": "ad8f144f57df8f1eb8e978fecf3365c2e8cf21f41632853c34528ce4c28fc886"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R913",
+          "D913react"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Reaction Fire procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-020",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D913mounted: Mounted Javelinist missile characteristics is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/10"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 534083,
+          "end_byte_exclusive": 534573,
+          "sha256": "3f241fb574c5b25f8a3e5423fe4322ac983f73ff5d902de3ebc6ec5ca9addf2c"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R913",
+          "D913mounted"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Mounted Javelinist definition and missile resolution table",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-021",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D914OW: Orderly Withdrawal exception during Rampage is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/11"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 534579,
+          "end_byte_exclusive": 535052,
+          "sha256": "3b0c08072a48371b1a447c9658bfbe278fc69ab0f94d02635ee82a3efdcd5427"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R914",
+          "D914OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.51 including eligibility and resolution",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-022",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D914leaderwithdraw: Leader withdrawal eligibility before automatic death is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/12"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 535058,
+          "end_byte_exclusive": 535523,
+          "sha256": "0d954b143b2b41635a8d1075774ab07de4cf399500a32a4a26a33a143bc72d87"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R914",
+          "D914leaderwithdraw"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.72",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-023",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D914casualty: Stacked leader casualty roll after Rampage is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/13"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 535529,
+          "end_byte_exclusive": 535971,
+          "sha256": "a0638e24d2ac9670124cb2b20b24ade6057327f8e56ce0024b5f29b2933dcb76"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R914",
+          "D914casualty"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.73",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-024",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D914compass: Battle-specific directions for 1–6 Rampage rolls is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/14"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 535977,
+          "end_byte_exclusive": 536514,
+          "sha256": "4bda56919fefbc95954ea322fb5af5bea3f9a0e539c36dfc6e7ca2f8bec75c8d"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "N914table",
+          "D914compass"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual selected battle map compass",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-025",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D915superiority: General Attack Superiority rule qualified by cavalry/Elephant attack restriction is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/15"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 536520,
+          "end_byte_exclusive": 537057,
+          "sha256": "0166e6a3747fb3232f7d83d1c6dd535e3421caa123eb0001b7a1e7e8a2312cd0"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R915",
+          "D915superiority"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Position/Attack Superiority definitions and numeric effects",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-026",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D916OW: Mandatory cavalry withdrawal procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/16"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 537063,
+          "end_byte_exclusive": 537528,
+          "sha256": "38314adf9e5cfe34e9a9876f932847e009d09bec341c7dc5af355f1227c733bf"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R916",
+          "D916OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Orderly Withdrawal eligibility, paths and costs",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-027",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D917position: General Position/Attack Superiority qualified by Elephant-versus-Elephant prohibition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/17"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 537534,
+          "end_byte_exclusive": 538062,
+          "sha256": "20cb453169eb77dcabff23eaa64db0ca399ef13f2988c86728dbac8602f88533"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R917",
+          "D917position"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Position/Attack Superiority definitions and effects",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-028",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D918specific: Unenumerated specific command exceptions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/18"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 538068,
+          "end_byte_exclusive": 538573,
+          "sha256": "c3847703ebaacf82f8fe34d6c7bcf04b9a8a1eb02391ac68d50382088fd5f932"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R918",
+          "D918specific"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Specific Elephant command restrictions, if any, in other rules/scenarios",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-029",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D919pre: Pre-Shock roll procedure to receive African modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/19"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 538579,
+          "end_byte_exclusive": 539017,
+          "sha256": "95a395bef2b29b73685d6d45c4fbcd2658fe89a87f4760859d0a37edde1ba1ea"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R919",
+          "D919pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.43",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-030",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D919clash: Indian/African Elephant chart notes is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/20"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 539023,
+          "end_byte_exclusive": 539514,
+          "sha256": "629fc77cd62c6a5520c669e72029b03eb9f5754ab6bf19c3007e175f470f5c75"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R919",
+          "D919clash"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Clash of Spears and Swords Chart including Elephant distinctions/notes",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-031",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D919shock: Indian/African Elephant superiority chart notes is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/21"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 539520,
+          "end_byte_exclusive": 540014,
+          "sha256": "cab9053740c7f1954c8490a23cff2342c9d18d5dec335e023563dbe7371005e7"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R919",
+          "D919shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Shock Superiority Chart including Elephant distinctions/notes",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-032",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D921OW: General OW modified by Skirmisher distance/MA and directional penalties is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/22"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 540020,
+          "end_byte_exclusive": 540530,
+          "sha256": "06aebcd033f30bd18efcca29e2017e3df6d9222e9f8f9d43074a281ef3f7b30a"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R921",
+          "D921OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Orderly Withdrawal procedure and normal Cohesion Hit costs",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-033",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D922missile: Base missile resolution to receive Skirmisher modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/23"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 540536,
+          "end_byte_exclusive": 541020,
+          "sha256": "73aa1acd0b9d73f51437cc890424615e12356950e33f7422efa0eba54fe42e31"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R922",
+          "D922missile"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Missile Fire procedure and result chart",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-034",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D922HD: Prohibited H&D capabilities for specified units is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/24"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 541026,
+          "end_byte_exclusive": 541503,
+          "sha256": "d97db70f3801480085e6819bbd8c410e7bbf409f7966a2ac84142f5e3d81dae2"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R922",
+          "D922HD"
+        ],
+        "blocking_claim": false,
+        "needed_context": "H&D definition to distinguish it from other fire",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-035",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D923pre: General Pre-Shock checks qualified by SK and LI front-attack exemptions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/25"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 541509,
+          "end_byte_exclusive": 542004,
+          "sha256": "1575b8f2a07ded3e2fec1e85c2286d17e9f5934dfe951a39bb981c0f92a063f6"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R923",
+          "D923pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Pre-Shock TQ procedure/marker definitions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-036",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D923shock: Base Shock defender/type/Size/hit rules modified here is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/26"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 542010,
+          "end_byte_exclusive": 542499,
+          "sha256": "817fdf4ff8ec6464e260fafc7f8b9157792d3e1f6658e0ffe412fb3506cd0f06"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R923",
+          "D923shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Shock resolution and base defender/Size selection",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-037",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D924stack: Special Skirmisher/Velites stacking is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/27"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 542505,
+          "end_byte_exclusive": 542931,
+          "sha256": "ccdde3b5f2d8f7e6c1922e96c7db57a8ab9e0ffd783e104c4dc3bda65d190d73"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R924",
+          "D924stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.69",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-038",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D924line: Line Command line eligibility qualified by one intervening unit is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/28"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 542937,
+          "end_byte_exclusive": 543472,
+          "sha256": "fbe5a395d294a2c6d617c8f97ae85bb1be477c3a40ea84099b1e05fda40f8acc"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R924",
+          "D924line"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.32 including Line Command definitions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-039",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D931HD: Light Cavalry H&D fire procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/29"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 543478,
+          "end_byte_exclusive": 543893,
+          "sha256": "2b90486bc6e03d015c15ffcd9bd09c76fd4016afe3c329ff5db971a0672dec0d"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R931",
+          "D931HD"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.3",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-040",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D931OW: Light Cavalry Archer fire during OW is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/30"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 543899,
+          "end_byte_exclusive": 544318,
+          "sha256": "ac9c52a45168476dae4587507e917b40d153a4a65595ed7c2dd8fbf7e70389cd"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R931",
+          "D931OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.55",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-041",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D932CRT: Shock CRT values and AS interaction for LC halving is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/31"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 544324,
+          "end_byte_exclusive": 544821,
+          "sha256": "6970d43b5b4db2196250e770c147d8d38a824b6e73e3fdbf6c6204633783ffb9"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R932",
+          "D932CRT"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Shock CRT and Attack Superiority hit adjustment",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-042",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D941CRT: Base Shock columns/results to shift left is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/32"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 544827,
+          "end_byte_exclusive": 545314,
+          "sha256": "b72e9183d1151c884f6f6ebab4c2726334c7b1bf1ea1969401f22c514ce2bdc5"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R941",
+          "D941CRT"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Shock Combat CRT and column-selection procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-043",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D95scenario: Eligible Double Depth Phalanxes is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/33"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 545320,
+          "end_byte_exclusive": 545797,
+          "sha256": "ffc2b8f02e837a46b5e9af729d8cbb8bf17509c59767c860a00a3e04b0ee9259"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R95note",
+          "D95scenario"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario Double Depth eligible-unit list",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-044",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D951OC: OC command eligibility/range and order procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/34"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 545803,
+          "end_byte_exclusive": 546270,
+          "sha256": "525b99613cbe19a9ab7c5707bdc92327ae84557272e54e91ff0df54c1d7d3338"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R951",
+          "D951OC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Individual Order/Line Command/OC rules",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-045",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D951terrain: Cost of entering front PH hex is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/35"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 546276,
+          "end_byte_exclusive": 546729,
+          "sha256": "a98b24fb3775981ead76b52e809d596cb33a9df9950cb2ed7771ddceca512b62"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R951",
+          "D951terrain"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Movement Cost Chart terrain costs",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-046",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D952PAW: Permitted Pre-Arranged Withdrawal of DD stack is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/36"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 546735,
+          "end_byte_exclusive": 547166,
+          "sha256": "9e67f68b2db5700d0bb058b793d64e30a858b2535cea6c875c8248badbb854b5"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952PAW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.8",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-047",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D952wheel: Wheel maneuver prohibited for DD is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/37"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 547172,
+          "end_byte_exclusive": 547637,
+          "sha256": "9181ab0d1916bcd05ac419ac9bdc4db4f2bdc7ad249c1a14a7038e7b1dae52b6"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952wheel"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.44 definition only; no execution permission",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-048",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D952reverse: Reverse maneuver prohibited for DD is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/38"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 547643,
+          "end_byte_exclusive": 548114,
+          "sha256": "ccccd42916267896825b3698de49b3c8177c6a266a6474ca77a6561c0d29edb5"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952reverse"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.45 definition only; no execution permission",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-049",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D952column: Column maneuver prohibited for DD is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/39"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 548120,
+          "end_byte_exclusive": 548587,
+          "sha256": "74c6c9241f31d267b425b70deb35a9766e583ab472c1f666049123e6d8ee8e1c"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952column"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.7 definition only; no execution permission",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-050",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D953pre: Base Pre-Shock check to receive DD modifiers is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/40"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 548593,
+          "end_byte_exclusive": 549042,
+          "sha256": "a8f8c0a5d358412230b2f9f96b1e27a9ec142a6d168a21976297997b2b84cc3b"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R953",
+          "D953pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Pre-Shock TQ procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-051",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D953scenario: Unavailable referenced example is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/41"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 549048,
+          "end_byte_exclusive": 549509,
+          "sha256": "818fa0f5fdad4c5ce884354592bd05bb8d2ccc7fab32b89f5afcbadee4f4b5a4"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "N953ex",
+          "D953scenario"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Cynoscephalae scenario DD example",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-052",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D961stack: Roman stacking summary and exceptions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/42"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 549515,
+          "end_byte_exclusive": 549995,
+          "sha256": "5afb03ce063a6c4ad067be2c29f4d0c9a986a504c5bc35afcafd3e3301fa6411"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R961",
+          "D961stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual Stacking Charts including Roman/Velites exceptions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-053",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D961line: Line gaps and Line Command eligibility is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/43"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 550001,
+          "end_byte_exclusive": 550427,
+          "sha256": "4ef43c18001417bedb2da196c118d4048d1247ee1b68e264bc095ce915eec5c0"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R961",
+          "D961line"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.32",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-054",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D962target: Same-hex Shock attack targeting is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/44"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 550433,
+          "end_byte_exclusive": 550856,
+          "sha256": "6c5853bf9b92c47a85bc6a27d0a0a7ba417ef70e6309a415bad5ab91c73ef189"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R962",
+          "D962target"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.42",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-055",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D962auto: Automatic stack Cohesion Hits is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/45"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 550862,
+          "end_byte_exclusive": 551279,
+          "sha256": "3ca2ac50b5c2181ff8da245e64eb2b70c4fa2480d1f00cc617baec99a622bba5"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R962",
+          "D962auto"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.68",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-056",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D962shock: Base Shock Hit calculation before allocation is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/46"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 551285,
+          "end_byte_exclusive": 551743,
+          "sha256": "feddccd1eae798c1109af40a1131d66402bdffbae6842f125ea7599830635945"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R962",
+          "D962shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.46 Step 4 and Shock tables",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-057",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D963TQ: General TQ check processing to receive stacked-Roman modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/47"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 551749,
+          "end_byte_exclusive": 552219,
+          "sha256": "8e18bfd14e87774fd7176fd0c379a20eb8057132d74f84bd6ee79e5360c088e1"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R963",
+          "D963TQ"
+        ],
+        "blocking_claim": true,
+        "needed_context": "TQ check timing and modifiers",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-058",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D964order: Individual Order for Roman stack-order change is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/48"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 552225,
+          "end_byte_exclusive": 552700,
+          "sha256": "23d9178984c91313af1fe2af03a629ef8f21bac689fd392c79d01e9dac11741f"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R964",
+          "D964order"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Individual Order eligibility/range/procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-059",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D966line: Same-Line eligibility for MLE is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/49"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 552706,
+          "end_byte_exclusive": 553156,
+          "sha256": "36994bcf700bb738722bb1a53f9df4bac4b29635010cf8868b6ac10d2afd1f3c"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R966",
+          "D966line"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.32 Line definition and eligibility",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-060",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D967OW: OW potentially concurrent with MLE by different units is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/50"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 553162,
+          "end_byte_exclusive": 553666,
+          "sha256": "a30fe8bcb34ccca4301d6e65df2035d7d582ba7ed191981515fe3413cea0f42e"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R967",
+          "D967OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "OW procedure, including trigger and withdrawal paths",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-061",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D968LC: Line Command eligibility for active MLE is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/51"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 553672,
+          "end_byte_exclusive": 554114,
+          "sha256": "c3228047ab59c5caaa33db9f0e2f7e74cb5dda3e5562e22870cde321bef93495"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R968",
+          "D968LC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Line Command procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-062",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D968column: Column status excluded from MLE is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/52"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 554120,
+          "end_byte_exclusive": 554568,
+          "sha256": "31e1c0b7526c50ab952bf2e1e2de2ebbaf4e71ed1ba1c13f8416ef0c5891b728"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R968",
+          "D968column"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Column formation definition",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-063",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D971LOS: LOS test necessary for enemy proximity release is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/53"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 554574,
+          "end_byte_exclusive": 555022,
+          "sha256": "0fbbec450f17ca03c3aabeaeee56e5ba736da2a160154409128713bb125171b7"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R971",
+          "D971LOS"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Line of Sight rules",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-064",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D972AWL: Scenario value for Triarii half-withdrawal threshold is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/54"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 555028,
+          "end_byte_exclusive": 555502,
+          "sha256": "7b2a49345eb5abfd06e09555c1a797ca2d0960cac20429a52f04434614135c9c"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R972",
+          "D972AWL"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario Army Withdrawal Level",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-065",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D972RP: Roman Rout Point accounting needed for Triarii release is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/55"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 555508,
+          "end_byte_exclusive": 555991,
+          "sha256": "ecd85583d0a2f8ae358a010ae1bdbd73965717a64fd61fa126755e49e065078c"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R972",
+          "D972RP"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Rout Point calculation and army withdrawal rules",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-066",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D983stack: Other Scorpio stacking constraints is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/56"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 555997,
+          "end_byte_exclusive": 556446,
+          "sha256": "2601f6668acf6d9ad7da7796f0daec6d1ddeca0042706531540d45ba973b2edd"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R983",
+          "D983stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General stacking restrictions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-067",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D986react: Ordinary Reaction Fire prohibited for Scorpio is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/57"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 556452,
+          "end_byte_exclusive": 556928,
+          "sha256": "5c69aa8c8b0faba50fa29d8c9273e2b22b62a835695ea49e08a452e3058eb9c8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R986",
+          "D986react"
+        ],
+        "blocking_claim": false,
+        "needed_context": "8.2 to distinguish prohibited ordinary modes",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-068",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D987recovery: Normal Scorpio Hits/recovery processing is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/58"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 556934,
+          "end_byte_exclusive": 557400,
+          "sha256": "f05e5cf84dbdbec0e8bcd4f8e06ff594e8d2905045f6e8871d7f21675b6073bb"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R987",
+          "D987recovery"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Cohesion Hit and Recovery procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-069",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D991column: Column Movement prohibited for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/59"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 557406,
+          "end_byte_exclusive": 557849,
+          "sha256": "21c7908a31249062fd79298c49cfa5ffc171fb65ba371f1fb3e9d75d91c5ae93"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R991",
+          "D991column"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.7 definition only",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-070",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D991PAW: Pre-Arranged Withdrawal prohibited for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/60"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 557855,
+          "end_byte_exclusive": 558300,
+          "sha256": "40455f6e8efd482cb56671bc8b25c967ddc33317159ffccbeff0a89d09900951"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R991",
+          "D991PAW"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.8 definition only",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-071",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D991OW: OW prohibited for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/61"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 558306,
+          "end_byte_exclusive": 558728,
+          "sha256": "4faa4ac08561677b7abc26d31318f745f9632dd5ea870a19688ba0be5069a2fa"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R991",
+          "D991OW"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.5 definition only",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-072",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D993recovery: Normal Recovery modified to 1 Hit for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/62"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 558734,
+          "end_byte_exclusive": 559207,
+          "sha256": "e97246cb8c85acdf2b718f201480216826a1d7309f7055376dc6be6bff64c43e"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R993",
+          "D993recovery"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Recovery order eligibility and procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-073",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D993depleted: Depleted status necessary for rout replacement is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/63"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 559213,
+          "end_byte_exclusive": 559690,
+          "sha256": "eed856d3e7aef25bab157896c5fe33fd9f5c71ae62f878fe5598bafe8cb973a3"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R993",
+          "D993depleted"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Depletion definition and determination",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-074",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D994scenario: Leader assignment and Initiative needed for command-specific Ferocity checks is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/64"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 559696,
+          "end_byte_exclusive": 560235,
+          "sha256": "5d919573808660c9c61d0d2b42e5ecf28e405da46551b15f001669dfe748d17b"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R994",
+          "D994scenario"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario BI command assignments and leader Initiative Ratings",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-075",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D994pre: Base Pre-Shock process to receive Ferocity modifiers is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/65"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 560241,
+          "end_byte_exclusive": 560701,
+          "sha256": "21dadb238612c398fba0ce48743e0ec9cacb2d701e63cfa3b618d33628bfe9b1"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R994",
+          "D994pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Pre-Shock check procedure",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-076",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D995momentum: First-try Momentum process to receive Impetuosity modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/66"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 560707,
+          "end_byte_exclusive": 561203,
+          "sha256": "0b956ea1ee6e93dea84faa748e30ad5008539edbd9c7469466919ced64317394"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R995",
+          "D995momentum"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Momentum rules including first-try definition",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-077",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D995scenario: BI command assignment for Impetuosity loss is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/67"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 561209,
+          "end_byte_exclusive": 561684,
+          "sha256": "bc53604b790254e2d489ca478c98c24fcc36710fa8c84e6f25661986168ce51f"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R995",
+          "D995scenario"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario BI command assignments",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-078",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996tables: Combat Table Chariot references ignored for transport chariots is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/68"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 561690,
+          "end_byte_exclusive": 562253,
+          "sha256": "4d25580273e2f47e9861742228dfda824e123a8c160529580af039237d78a715"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996note",
+          "D996tables"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Actual combat tables only to identify suppressed Chariot entries; no execution permitted by this clause",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-079",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996eligible: Which LI may ride Gallic chariots is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/69"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 562259,
+          "end_byte_exclusive": 562746,
+          "sha256": "df15b414492d3ff7584de296e2e75cdb7e512d2f27a6aa4f5071d82a9a858612"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996a",
+          "D996eligible"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Eligibility definition/scenario restrictions for mounted LI",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-080",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996OW: CH+LI OW eligibility if mounted is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/70"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 562752,
+          "end_byte_exclusive": 563192,
+          "sha256": "944770eed560ae9641d3051e9ff3259ade7097efe43a0e7dc5d5339f1fc9a707"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996a",
+          "D996OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "OW rules for mounted LI/CH",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-081",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996stack: Other limits on CH+LI and CH alone is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/71"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 563198,
+          "end_byte_exclusive": 563649,
+          "sha256": "bf41413a42bd0e7d25d3d7f180563c0a6c429035e320f39ff69d3edf2ad56257"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996b",
+          "D996stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General stacking restrictions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-082",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996movement: CH terrain MP costs/prohibitions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/72"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 563655,
+          "end_byte_exclusive": 564128,
+          "sha256": "4267159f9288b55b5002b10abe01544cafb49a8d74ce044503319c1e06467024"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996b",
+          "D996movement"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual Movement Cost Chart with CH restrictions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-083",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996MRRC: Mounted LI missile range/results is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/73"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 564134,
+          "end_byte_exclusive": 564595,
+          "sha256": "934d66d30d35a94c45856227f8e3616a3fae4a79ab4fae504d1c5e8bd3817df4"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996d",
+          "D996MRRC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "MRRC Mounted Javelin row, headers and notes",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-084",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996supply: Missile Supply exception while mounted is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/74"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 564601,
+          "end_byte_exclusive": 565114,
+          "sha256": "3b31e94db3242b9d49df2af266767a52fdec31456cdc1bb2993614c8b347a2e8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996d",
+          "D996supply"
+        ],
+        "blocking_claim": false,
+        "needed_context": "8.17 including normal supply state rules; mounting marker removal itself is explicit",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-085",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D996HD: Mounted LI cavalry-style H&D procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/75"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 565120,
+          "end_byte_exclusive": 565603,
+          "sha256": "e9cd457881123a9018b83c9e54ba89d7cd19db348e4d85e9a0bde6dda08ca994"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R996d",
+          "D996HD"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Harassment and Dispersal procedure including cavalry conditions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-086",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D-ZOC-R911: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/76"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 565609,
+          "end_byte_exclusive": 566115,
+          "sha256": "eb7769858751f056e3bd0ad6c0f86ba9c3503cfb3f0cd7fb6c36c7fcdb66cebf"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R911",
+          "D-ZOC-R911"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-087",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D-ZOC-R915: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/77"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 566121,
+          "end_byte_exclusive": 566580,
+          "sha256": "1535449fc46887f4fa1997135240f21eb2302f166528e1cfa77c0d5ef3a6238a"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R915",
+          "D-ZOC-R915"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-088",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D-ZOC-R966: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/78"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 566586,
+          "end_byte_exclusive": 567092,
+          "sha256": "2e703e31f704ab2c48680351bf3c08ef6386df79852d79e5817953ae49ca4d19"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R966",
+          "D-ZOC-R966"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-089",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D-ZOC-R972: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/79"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 567098,
+          "end_byte_exclusive": 567558,
+          "sha256": "a4d67be1b5ec9d51a406e372f6202fce147a18184e5a5f18a6425518640595a8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R972",
+          "D-ZOC-R972"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-090",
+      "class": "brak kontekstu",
+      "criticality": "unknown",
+      "detail": "Extractor-declared gap G-D-ZOC-R995: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/80"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 567564,
+          "end_byte_exclusive": 568024,
+          "sha256": "d47024d75386d2415530f183f901e005786e4f49d319ad6c14f96e4e64a6ca82"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "reported_claim_requires_review",
+      "impact": {
+        "affected_ids": [
+          "R995",
+          "D-ZOC-R995"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "independent_semantic_confirmation": "not_assessable"
+      },
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-091",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E911a matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/0/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 13424,
+          "end_byte_exclusive": 13831,
+          "sha256": "d32b609d1c5d45240539a803f51ecfd6174f862c0292b672237f25c3f5907213"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-092",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E912 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/2/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 15554,
+          "end_byte_exclusive": 15959,
+          "sha256": "920ae4ed419b816d1710237a1c6abe7c25cb4595d2d4fbf10d40fc10855205db"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-093",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E913 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/3/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 16630,
+          "end_byte_exclusive": 17036,
+          "sha256": "1185da517e45b18abc0a8dcf0c9fbd39f1aa94ee8e418e81585eda9f89f976f2"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-094",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E914start matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/5/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 18704,
+          "end_byte_exclusive": 19110,
+          "sha256": "e8272261d3568432ac91c01551caa1d507171b2dd41ad71c39e1b3b0bc8888fa"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-095",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E914priority matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/8/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 21887,
+          "end_byte_exclusive": 22292,
+          "sha256": "4037ac9168af217e0a66657458e1c61be2395fc2ad1fdc3729eb703b4d0420c8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-096",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E914diagram matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/9/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 22919,
+          "end_byte_exclusive": 23324,
+          "sha256": "9941cd534d731a0d4c127b302c71c2b6b5938a980615958b05308e07ef40c251"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-097",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E914move matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/10/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 23939,
+          "end_byte_exclusive": 24345,
+          "sha256": "a473647e146251425624de4c6d3f02d3637cf6eb179083800313eceb68c627ce"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-098",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E914end matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/11/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 24989,
+          "end_byte_exclusive": 25396,
+          "sha256": "5064a964aa7c97ed557af34f3e8ea9396f7117570c0608f135a9e9f9b21532f9"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-099",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E914cont matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/13/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 27120,
+          "end_byte_exclusive": 27524,
+          "sha256": "22128851338ffe46226af2684ec5940fb2c45d6c9aca5eb1921c86aa46d74114"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-100",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E915 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/14/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 28152,
+          "end_byte_exclusive": 28556,
+          "sha256": "8eee098189505292b53a7da4447a0d39eab62fe6f73fa0e4a51eb16e0d9bc7ee"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-101",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E918 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/17/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 31192,
+          "end_byte_exclusive": 31598,
+          "sha256": "01fd3980c771fed143a8908b6778e1c0c05d4da99b9a19e8c8a13c85e0db3fb0"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-102",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E919 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/18/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 32215,
+          "end_byte_exclusive": 32621,
+          "sha256": "adca56be4c86648cf71e5193c6ac049df2dba85f68f8c9b772693f31ca52cd13"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-103",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E921 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/20/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 34331,
+          "end_byte_exclusive": 34736,
+          "sha256": "bf9e561e9fe10e3798160dee994120e1c7e2bce9ad187cffc2df1b0c37433b16"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-104",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E922 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/21/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 35367,
+          "end_byte_exclusive": 35773,
+          "sha256": "f8f902f7100a2f8d243279290d29577e736662020e94754ce077daea4be8325e"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-105",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E923 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/22/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 36438,
+          "end_byte_exclusive": 36845,
+          "sha256": "eab21416239b01b5d692c9c3d64818d03b5b5d17daee6f0d08f60a6a781f5ec7"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-106",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E923ex matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/23/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 37437,
+          "end_byte_exclusive": 37844,
+          "sha256": "9481e5d6a549d205c5c1b1740bfb3aa191c16a689fef5681347e39c7a9969fce"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-107",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E924cont matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/25/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 39460,
+          "end_byte_exclusive": 39864,
+          "sha256": "a1830f83b123fda5977d4087b1c8a5a1382039e36798a4e3dcd62a990fa21204"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-108",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E924ex matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/26/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 40444,
+          "end_byte_exclusive": 40848,
+          "sha256": "e6c2941c45d8b3317b64bc9b723a7b9a75969f43e0f7fa4dfb044eb0db962250"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-109",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E931 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/27/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 41467,
+          "end_byte_exclusive": 41871,
+          "sha256": "74a14b479debc37559075f2d0d6052405e9a84d6af21b9f2860516d8a0c8c03a"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-110",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E932ex matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/29/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 43523,
+          "end_byte_exclusive": 43927,
+          "sha256": "1b1f4f055372b07d4d32e3e67e20bc26a8c4039a9718920707b461c464450fd8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-111",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E941 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/30/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 44546,
+          "end_byte_exclusive": 44951,
+          "sha256": "5f09c036b28d4010d0db9b2f212dd59650ef0e0dba15b4ec5d57e7412a112f3b"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-112",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E941ex matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/31/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 45541,
+          "end_byte_exclusive": 45947,
+          "sha256": "9c7bf6aeefe923b24f3ded056f1bebebbde500fce2223f4e6251c5304f5c178a"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-113",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E951 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/33/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 47575,
+          "end_byte_exclusive": 47980,
+          "sha256": "fe7d183fec318ee878442b6d10de7b3839de4a9a7bc6466b3eb7cb497d951805"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-114",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E952 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/34/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 48601,
+          "end_byte_exclusive": 49007,
+          "sha256": "84aeb412cd6d674f3cc9cdbabbc6beda898e59970d9cbc235bb0236dc5a1fa0b"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-115",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E962 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/38/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 52615,
+          "end_byte_exclusive": 53020,
+          "sha256": "e2bc3d2ce1836fbf0e6981cf34701d5b5e03cef01d51fdd08a434e3322a7c54b"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-116",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E963 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/39/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 53603,
+          "end_byte_exclusive": 54009,
+          "sha256": "3f26daab8d479a87578c4ed891c199199e6d779c0bb870e7fdacdb65316054e1"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-117",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E964 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/40/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 54642,
+          "end_byte_exclusive": 55048,
+          "sha256": "26da2c4e6e741aaf0d283a44bf7ebcc59e7da66fe41d86158b780be8ce6ecd8e"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-118",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E965 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/41/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 55715,
+          "end_byte_exclusive": 56121,
+          "sha256": "d0f425554ec3cd60d63702f3798536f139355e17891daf721e0eefeb8aced741"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-119",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E966a matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/43/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 57712,
+          "end_byte_exclusive": 58118,
+          "sha256": "b49ced637964514b6facd2b0337536941f68af1bee96662477e78f63687e4812"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-120",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E966b matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/44/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 58729,
+          "end_byte_exclusive": 59134,
+          "sha256": "5e597f62b7c09afd8f071a3969de23a61b52a3c70d891585138d9acfa2c56cd9"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-121",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E967 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/45/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 59741,
+          "end_byte_exclusive": 60146,
+          "sha256": "4ffd60656342c6634e331de95843f65b3cfb92b64d09ce0e821fb5443bf38654"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-122",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E968 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/47/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 61731,
+          "end_byte_exclusive": 62136,
+          "sha256": "6e2b299e1e5ae8c0a86b9a8fa69a7a9ff99cada50bd9de2811adcf92643ab3aa"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-123",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E97intro matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/48/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 62708,
+          "end_byte_exclusive": 63115,
+          "sha256": "d376ebc902e39fd6056edf90a0f02dbcb5872d84d7ec40cb23a4bcf6a3f519a4"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-124",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E972 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/50/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 64804,
+          "end_byte_exclusive": 65211,
+          "sha256": "ccfcef5dd3262e9dcc1f4b1105cb88f05d280b86fca2304426855b900e86ddf8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-125",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E981 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/51/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 65858,
+          "end_byte_exclusive": 66262,
+          "sha256": "2181692e9f0e7afdcdedbce639a784e755765d5d5179b66268e6cbce04ade43b"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-126",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E983 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/54/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 68942,
+          "end_byte_exclusive": 69346,
+          "sha256": "9529dec672fd936fac84d7ada46bcdae424b3446d6716d3c3a10200d6efec673"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-127",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E984 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/55/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 69931,
+          "end_byte_exclusive": 70335,
+          "sha256": "08ba9ba2ea98a8e6f80d10024354018c96b8501420ae76a821b14444b1ea5a69"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-128",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E986 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/57/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 71949,
+          "end_byte_exclusive": 72355,
+          "sha256": "9f1f1275e17b5c9344bf56dfd5c2bc6bdc764b12128ce451bcfafa14a6acbf34"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-129",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E991a matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/59/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 73974,
+          "end_byte_exclusive": 74380,
+          "sha256": "64ee26c464402e25b4924a231b92bcdf2901ab9ac1a1d4cf43096c3e3fdd3867"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-130",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E994 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/62/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 77052,
+          "end_byte_exclusive": 77458,
+          "sha256": "a030bae1cc6b148668b3626a8561e91f3cff04356878f28128fd90cd7810f5ec"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-131",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E995 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/63/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 78092,
+          "end_byte_exclusive": 78499,
+          "sha256": "6869f432b46c8ca7cb4ef41eac60b22963dd52b0094799d1f52d31bde00a8a5a"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-132",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E996a matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/65/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 80162,
+          "end_byte_exclusive": 80569,
+          "sha256": "b3a57c798ea1cef0fc69d8d28bf8181e20307d0417d2188d25951e687b83a672"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-133",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E996c matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/67/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 82216,
+          "end_byte_exclusive": 82620,
+          "sha256": "3e18207abb2cf002d67d667e52c7cf3cfacc25ef5c1580493ebf042d42ef24eb"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-134",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E996d matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/68/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 83255,
+          "end_byte_exclusive": 83659,
+          "sha256": "7c694bb3a9206620e071cd1abbfc3c7cb3a99ea47a7ed02badcfb02163e70f67"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-135",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E996e matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/69/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 84274,
+          "end_byte_exclusive": 84679,
+          "sha256": "f59d71e1d582971d719c6656964df956f10e5749e54da1f3bb9e3809c0a2c904"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-136",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E92 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/72/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 87218,
+          "end_byte_exclusive": 87623,
+          "sha256": "f217feb542bd0b850437a744fed65e9b63dde8de2d27612682d0a9cdfcc99870"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-137",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E95 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/75/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 90135,
+          "end_byte_exclusive": 90540,
+          "sha256": "d768ae8bca55e3543e2f1cc81bc97ad16b01d239a68347b00e9aad8571cf6674"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-138",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E96 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/76/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 91117,
+          "end_byte_exclusive": 91521,
+          "sha256": "addd05b1753757d6d9364cf23f3b6e355936d175d58de0e1650b5cc94b956076"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-139",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E97 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/77/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 92104,
+          "end_byte_exclusive": 92510,
+          "sha256": "6bfe26cc113d2d9572e489dcc267aed2728043515b5ba22c0c559157d1845b76"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-140",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E98 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/78/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 93070,
+          "end_byte_exclusive": 93474,
+          "sha256": "29e1668fd88e7a631276f8ad6931b4d4d608c8e11bf4a6043f0fee54e07b7816"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-141",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E99 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/79/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 94039,
+          "end_byte_exclusive": 94445,
+          "sha256": "eb8e083eff31b1acc0cab1bd3d3a3775c4b6c37ba75ba67a1f4e2978521d98a8"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-142",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E871 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/97/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 112213,
+          "end_byte_exclusive": 112618,
+          "sha256": "0e03101dbf0c6610cdeb03cfdc0f8e86bbf6cb4cdae0334103085a1e5682ca03"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-143",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E873 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/99/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 114328,
+          "end_byte_exclusive": 114733,
+          "sha256": "f9e464ced36c561eeb353b4dab2212a0c29e5c99f3bc6460a3dad4970d7d0a57"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-144",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E874 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/100/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 115393,
+          "end_byte_exclusive": 115798,
+          "sha256": "52e3786cf575ab3141e2cf9a01774c0b99e063a15a840c69167c639f715ca0da"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-145",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E875 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/101/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 116445,
+          "end_byte_exclusive": 116850,
+          "sha256": "5875fb45ef210c40102285a605929900901312142ac57ea074d329ff58e83af3"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-146",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E1011 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/102/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 117481,
+          "end_byte_exclusive": 117887,
+          "sha256": "0ecfebe2a9c15fa3b0ad04e883d6304478f20ca677c3331f02ba05465e86ebf2"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-147",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E1013 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/103/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 118501,
+          "end_byte_exclusive": 118906,
+          "sha256": "8b74025baf337859d22d96230f2e1c511fb6c98687c111d591287729760ccc6d"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    {
+      "id": "ERR-first-001-148",
+      "class": "niejednoznaczność",
+      "criticality": "unknown",
+      "detail": "Quote E1014 matches overlapping glyph extraction but not whole contained glyph extraction; bbox clips some quote-edge glyphs. Exact crop legibility/full quote containment remains unconfirmed.",
+      "response_pointers": [
+        "/evidence/104/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 119551,
+          "end_byte_exclusive": 119958,
+          "sha256": "8f722da2c21cb675f88bbdcb55c8418aca6303ab9fbb74f3b4973ba494de86e5"
+        }
+      ],
+      "evaluation_refs": [],
+      "status": "pending_locator_review",
+      "impact": "Do not count this locator as a strict full-quote-area pass.",
+      "raw_response_sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    }
+  ],
+  "operational_limitations": [
+    "historical extraction transcript/session ID",
+    "actual transferred/read file list and exact prompt used",
+    "independent clean-context confirmation",
+    "visible application/model/reasoning confirmation",
+    "extraction start/end and active times",
+    "original export/save method",
+    "tokens and price"
+  ]
+}
