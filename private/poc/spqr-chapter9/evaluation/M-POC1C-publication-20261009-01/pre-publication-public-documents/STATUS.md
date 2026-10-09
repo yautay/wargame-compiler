@@ -29,9 +29,7 @@ Kontrole przed zamrożeniem: scripts/check.ps1 — 94 passed, diff check poprawn
 Końcowe kontrole zapisuje completion sesji. Utworzono lokalną .venv w głównym
 repo na zgodnym interpreterze z pytest; środowisko i narzędzia pozostają lokalne.
 Praca jest w osobnej kopii feature/tests od ae8f6f0 wskazanej w locatorze;
-główny HEAD/indeks pozostają zachowane. Właściciel zlecił commit i push
-checkpointu na origin/feature/tests. Zakres i dowody publikacji prowadzi
-evaluation/M-POC1C-publication-20261009-01/; środowisko pozostaje lokalne.
+główny HEAD/indeks pozostają zachowane. Brak commita/pusha tego zapisu.
 
 Dokładny następny krok: M-POC2A — wejścia, minimalny format, prompt i transfer-list.
 M-POC2A/B i pierwsza ekstrakcja niewykonane; wyniki jakości n/a.

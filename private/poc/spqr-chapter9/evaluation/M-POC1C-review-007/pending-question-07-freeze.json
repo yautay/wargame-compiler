@@ -1,0 +1,61 @@
+{
+    "id":  "M-POC1C-RQ-07-freeze",
+    "status":  "waiting_owner_decision",
+    "candidate_manifest":  {
+                               "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/manifest.json",
+                               "sha256":  "178b0e3ec40b43cbb4feef2ce35362b7376caf1dadb5052d211807c7f0f9ac8b",
+                               "bytes":  6097
+                           },
+    "scope_decision":  {
+                           "path":  "private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/decision-06-scope.json",
+                           "sha256":  "0bc66f1cc624f97e213f50e56f72fb2ad7ceb897363ebd7a25df2a0daf1bf98f",
+                           "bytes":  6403
+                       },
+    "candidate_artifacts":  [
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/change-map.json",
+                                    "sha256":  "e48771e7d554d1a91e7bc9d17e43f351f01b571188ca2d3d99b1189da343be27",
+                                    "bytes":  3748
+                                },
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/dependencies.json",
+                                    "sha256":  "5559dccf8972d3d8ce13fc901a784685843b9db7f73103db1e4d8f2c222c47cd",
+                                    "bytes":  133885
+                                },
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/expectations.json",
+                                    "sha256":  "fd51c1e3a8ce37eea33b2943f4cc2a6b0810ecce635bbe40290d3eb913f9ac1b",
+                                    "bytes":  393575
+                                },
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/inventory.json",
+                                    "sha256":  "76cd31b11281e02285a0097b11223139ab6f599633b65e3303ef3608f5816c7b",
+                                    "bytes":  507533
+                                },
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/measurement-policy.json",
+                                    "sha256":  "52acaa184dafd3f3810554fc168ebba78d9a89747cb5bfc2cd13d5d7f98dd1dc",
+                                    "bytes":  230938
+                                },
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/review.md",
+                                    "sha256":  "7d460cc25abea46c00924e5bdbd4da20b1ff3133f0da641a22e9ac1a6ad5cd83",
+                                    "bytes":  9127
+                                },
+                                {
+                                    "path":  "private/poc/spqr-chapter9/evaluation/eval-v1-candidate-20261009-03/situations.json",
+                                    "sha256":  "ee0cc3703cc94bd23c6d3be905b0d517343f2208bec91a49eeff229b766b099f",
+                                    "bytes":  158742
+                                }
+                            ],
+    "plain_language_question":  "Czy zatwierdzasz zamrożenie zaakceptowanego kandydata 03 jako eval-v1, z zachowaniem zatwierdzonego zakresu, progów, limitów i wyłączeń?",
+    "actual_owner_answer":  null,
+    "freeze_authorization_requested":  true,
+    "intended_operations":  [
+                                "Verify required checks and preserved hashes",
+                                "Create new eval-v1 without overwriting candidate or historical artifacts",
+                                "Record approval and complete SHA-256 manifest",
+                                "Create freeze-public-v1 containing only freeze metadata for the later extraction package"
+                            ],
+    "extraction_is_separate":  true
+}
