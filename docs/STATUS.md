@@ -40,6 +40,14 @@ M-POC4 pozostaje jedynym next. Nowe pomiary i dowody integralności:
 measurement/M-POC4A-pass-01/ oraz dopisany rekord measurement/sessions.jsonl.
 Kontrole M-POC4A: scripts/check.ps1 **105 passed**, git diff --check bez błędów.
 
+Zapis Git: commit M-POC4A `0e016e4` utworzony lokalnie. Push do origin,
+feature/tests, zablokowany dwukrotnie przez automatyczną kontrolę zgód.
+Kontrola nie uznała stałej zgody w bootstrapie ani potwierdzenia odczytanego
+z wcześniejszego czatu za zaufaną autoryzację tego prywatnego pakietu i celu.
+Wymaga bezpośredniego potwierdzenia tutaj przed kolejną próbą. Dowód stanu:
+measurement/M-POC4A-publication-01/state.json. To blokada publikacji Git;
+M-POC4A nadal partial/waiting_review, pakiet niezamrożony.
+
 Zapisano wszystkie wymagane artefakty proposals/first-001/ i reports/first-001/
 pod private/poc/spqr-chapter9/, mapę do surowych bajtów oraz manifest i closure.
 Odpowiedź runs/first-001/first-001.json zachowana (617941 bajtów).

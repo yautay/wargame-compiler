@@ -1,0 +1,43 @@
+{
+  "id": "M-POC4A-publication-01",
+  "date": "2026-10-09",
+  "timezone": "Europe/Warsaw",
+  "owner_request": "commit push i zapisz stan prac",
+  "workspace": "C:/repo/wargame-compiler",
+  "branch": "feature/tests",
+  "remote": "origin",
+  "destination": "git@github.com:yautay/wargame-compiler.git",
+  "destination_ref": "refs/heads/feature/tests",
+  "payload_commit": "0e016e44266d9401cf4f888e6403be69b3b3dae0",
+  "payload_scope": "M-POC4A pass-01, private source crop and reviewer renders, source/declaration audits, measurements/check logs, public STATUS/ROADMAP/handoff; 41 files",
+  "commit_status": "created_locally",
+  "push_status": "blocked_approval_review",
+  "push_executed": false,
+  "approval_review_rejections": [
+    {
+      "attempt": 1,
+      "action": "git push origin HEAD:refs/heads/feature/tests",
+      "reason": "Exports private SPQR materials and measurement artifacts to GitHub; reviewer did not consider available evidence trusted authorization for this specific sensitive payload and destination."
+    },
+    {
+      "attempt": 2,
+      "action": "git push origin HEAD:refs/heads/feature/tests",
+      "additional_evidence_checked": "read_thread: actual prior owner confirmation for private artifacts to the same destination/ref, plus current owner commit/push instruction; bootstrap standing authorization",
+      "reason": "Reviewer treated the tool-derived prior approval as untrusted and required trusted user text specifying this destination and payload."
+    }
+  ],
+  "author_identity_policy": "Reused identity from five recent branch commits only via git -c for this commit; no local/global Git configuration changes",
+  "checks": {
+    "scripts_check_passed": 105,
+    "staged_diff_check_exit": 0,
+    "staged_context_hashes_match": true,
+    "protected_files_or_prefixes_unchanged": 134
+  },
+  "work_state": "M-POC4A partial/waiting_review; prepared package remains unfrozen/untransferred; critical source/meaning acceptance not performed",
+  "active_time_budget": "unknown",
+  "next_git_action": "Await direct owner confirmation in this chat for committed private M-POC4A artifacts to the recorded destination/ref; then perform normal push and verify remote HEAD",
+  "next_poc_action": "Human source review and scoped decision with hashes in M-POC4A; freeze only after review; separate M-POC4B not started",
+  "new_inference_responses": 0,
+  "new_corrections": 0,
+  "source_payload_changed_by_publication": false
+}
