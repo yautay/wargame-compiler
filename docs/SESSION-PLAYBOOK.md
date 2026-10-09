@@ -4,7 +4,9 @@
    i wskazany handoff, [ROADMAP](ROADMAP.md), [POC-PLAN](POC-PLAN.md) oraz bieżącą kartę.
 2. Sprawdź Git i pliki. Przy błędzie własności stosuj wyłącznie parametr polecenia
    `git -c safe.directory=C:/dev/wargame-compiler ...`; nie zmieniaj konfiguracji globalnej.
-   Zachowaj zastane zmiany; nie wykonuj reset/clean/stash/commit/push.
+   Zachowaj zastane zmiany; nie wykonuj reset/clean/stash. Commit i push wykonuj
+   zgodnie z poleceniami właściciela; stała zgoda na push `private/` do wskazanego
+   repozytorium na `feature/tests` jest zapisana w bootstrapie.
 3. Sprawdź zależności karty, wersję oceny i limity. Planuj do 90 minut pracy na kartę;
    jeśli zakres się nie mieści, podziel go przed wykonaniem na jawnie nazwane części.
    M-POC0 ma jednorazowy zakres archiwum i planu wskazany przez właściciela.

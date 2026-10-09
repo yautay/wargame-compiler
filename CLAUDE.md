@@ -29,8 +29,13 @@ M-DESK2 pozostaje partial; nie kończyć go automatycznie i nie rozpoczynać M-D
   rozstrzygnięcie, nie uzasadnia zgadywania. Akceptacja wymaga rzeczywistego przeglądu człowieka.
 - Nie importuj archiwum ani jego schematów do aktywnego POC. Ponowne użycie wymaga
   uzasadnienia wynikami M-POC7 i jawnej decyzji, nie kopiowania na zapas.
-- Zachowuj cudze zmiany i historię. Bez `git reset`, `clean`, `stash`, commita, pusha
-  i zmian globalnej konfiguracji Git w tej pracy. Innych repozytoriów nie modyfikuj.
+- Zachowuj cudze zmiany i historię. Bez `git reset`, `clean`, `stash`
+  i zmian globalnej konfiguracji Git. Innych repozytoriów nie modyfikuj.
+- Stała zgoda właściciela z 2026-10-09 obejmuje push zawartości `private/`
+  do `git@github.com:yautay/wargame-compiler.git` na gałąź `feature/tests`.
+  Właściciel potwierdził konkretny cel po odrzuceniu przez automatyczną kontrolę
+  zgód, a następnie rozszerzył zgodę na przyszłe pushe tej gałęzi.
+  Nie pytaj ponownie o tę samą zgodę. Inny cel lub gałąź nie jest nią objęty.
 - Testy offline, lokalne TMP/TEMP i zawsze wcześniej nieistniejący `--basetemp`.
   Używaj [scripts/check.ps1](scripts/check.ps1); wykonaj `git diff --check`.
   Nigdy nie zmieniaj testów legacy, żeby uzyskać zielony wynik aktywnego projektu.
