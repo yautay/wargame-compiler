@@ -75,3 +75,12 @@ polecenia commit/push za bezpośrednią autoryzację nowego prywatnego payloadu
 do tego konkretnego celu; wymaga potwierdzenia w tym czacie.
 Stan blokady: measurement/M-POC4B-publication-01/state.json. Nie blokuje
 to lokalnego przeglądu M-POC5A i nie zmienia akceptacji ograniczonego wyniku.
+
+Aktualizacja publikacji 2026-10-10: właściciel bezpośrednio potwierdził push
+obu commitów wraz z prywatnymi odpowiedziami, materiałami SPQR, raportami
+i pomiarami do wskazanego repozytorium na feature/tests. Push
+`316f9b8..a54ab3b` zakończony powodzeniem; git ls-remote potwierdził
+`a54ab3b0a4dc33812dfc437ef03bba7d2340e981`. Blokada publikacji zniesiona.
+Historycznego state.json nie nadpisano; wynik jest w osobnym
+measurement/M-POC4B-publication-01/completion.json. Następna karta M-POC5A;
+brak nowych inferencji, korekt lub decyzji semantycznych przy publikacji.
