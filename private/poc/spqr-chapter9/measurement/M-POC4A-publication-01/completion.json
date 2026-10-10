@@ -1,0 +1,46 @@
+{
+  "id": "M-POC4A-publication-01-completion",
+  "date": "2026-10-10",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-10T08:52:25.006780+00:00",
+  "supersedes_workflow_state": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC4A-publication-01/state.json",
+    "bytes": 2453,
+    "sha256": "46f4bc2f47217f2f87d8d569dba200142dca2660d15fb95126bfeb37546f1347"
+  },
+  "owner_confirmation": {
+    "text": "ok możemy kontynuować",
+    "basis": "Direct user reply in this chat to explicit request for both commits including private SPQR materials/measurements to the recorded destination/ref",
+    "scope": "Git publication only; not source or meaning acceptance"
+  },
+  "destination": "git@github.com:yautay/wargame-compiler.git",
+  "destination_ref": "refs/heads/feature/tests",
+  "push_status": "succeeded",
+  "push_executed": true,
+  "published_commits": [
+    "0e016e44266d9401cf4f888e6403be69b3b3dae0",
+    "8ec04d7d15bb8a4a5703a54219f235b763ffdd22"
+  ],
+  "push_output": "2207a5b..8ec04d7 HEAD -> feature/tests",
+  "remote_verification": {
+    "command": "git ls-remote origin refs/heads/feature/tests",
+    "head": "8ec04d7d15bb8a4a5703a54219f235b763ffdd22",
+    "exit": 0
+  },
+  "operational_event": "Initial read-only remote verification in sandbox could not initialize SSH named objects; same verification succeeded with escalation.",
+  "source_payload_unchanged": true,
+  "protected_files_or_prefixes_unchanged": 134,
+  "context_manifest": {
+    "path": "private/poc/spqr-chapter9/context/pass-01/manifest.json",
+    "bytes": 8118,
+    "sha256": "c794e2ae32a0cd1ec31972e60bd9070327bd31c79cc97cbd06019b8e6fcd029d"
+  },
+  "work_state": "M-POC4A partial/waiting_review; context unfrozen; M-POC4B not started",
+  "human_source_acceptance": "waiting_review",
+  "semantic_acceptance": "not_performed",
+  "active_time_budget": "unknown",
+  "new_inference_responses": 0,
+  "new_corrections": 0,
+  "next_poc_action": "Human review of bounded evidence and scoped decision with hashes, then freeze and separate M-POC4B",
+  "checkpoint_scope": "This receipt and public publication-state update are a follow-up checkpoint; no baseline/context/previous measurement rewrite"
+}

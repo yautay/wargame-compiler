@@ -1,6 +1,6 @@
 # STATUS
 
-- **Data aktualizacji:** 2026-10-09
+- **Data aktualizacji:** 2026-10-10
 - **Bieżący milestone:** M-POC4
 - **Bieżąca karta:** M-POC4A
 - **Wynik M-POC0:** done
@@ -40,13 +40,13 @@ M-POC4 pozostaje jedynym next. Nowe pomiary i dowody integralności:
 measurement/M-POC4A-pass-01/ oraz dopisany rekord measurement/sessions.jsonl.
 Kontrole M-POC4A: scripts/check.ps1 **105 passed**, git diff --check bez błędów.
 
-Zapis Git: commit M-POC4A `0e016e4` utworzony lokalnie. Push do origin,
-feature/tests, zablokowany dwukrotnie przez automatyczną kontrolę zgód.
-Kontrola nie uznała stałej zgody w bootstrapie ani potwierdzenia odczytanego
-z wcześniejszego czatu za zaufaną autoryzację tego prywatnego pakietu i celu.
-Wymaga bezpośredniego potwierdzenia tutaj przed kolejną próbą. Dowód stanu:
-measurement/M-POC4A-publication-01/state.json. To blokada publikacji Git;
-M-POC4A nadal partial/waiting_review, pakiet niezamrożony.
+Zapis Git, aktualizacja 2026-10-10: po bezpośrednim potwierdzeniu właściciela
+wypchnięto `0e016e4` (pakiet) i `8ec04d7` (zapis stanu) do origin/feature/tests,
+wraz z prywatnymi artefaktami. Zdalny HEAD `8ec04d7` potwierdzono przez
+git ls-remote. Wcześniejsza blokada publikacji zniesiona; historyczne odrzucenia
+zachowane w measurement/M-POC4A-publication-01/state.json, wynik publikacji
+w osobnym completion.json. M-POC4A nadal partial/waiting_review;
+zgoda na push nie oznacza akceptacji źródła krytycznego ani znaczenia.
 
 Zapisano wszystkie wymagane artefakty proposals/first-001/ i reports/first-001/
 pod private/poc/spqr-chapter9/, mapę do surowych bajtów oraz manifest i closure.
