@@ -1,0 +1,42 @@
+{
+  "id": "M-POC4B-context-01-reference-lineage",
+  "context_dependency_comparison": {
+    "path": "private/poc/spqr-chapter9/reports/context-01/dependency-comparison.json",
+    "bytes": 91330,
+    "sha256": "cc99f695f059e7f9ce9cd918244b86d9aa40edc4a65626d1ca6ce42077f7d4b6"
+  },
+  "context_errors": {
+    "path": "private/poc/spqr-chapter9/reports/context-01/errors.json",
+    "bytes": 144950,
+    "sha256": "eceee22cd3b34bd251b870e87b5383e7330f3398bdad6c3b265186c7103c1e10"
+  },
+  "parent_dependency_comparison": {
+    "path": "private/poc/spqr-chapter9/reports/first-001/dependency-comparison.json",
+    "bytes": 83068,
+    "sha256": "b1021978d2b864aaf122dc884084fcd6967f4366a8b47540d6a66d656c4000dd"
+  },
+  "parent_errors": {
+    "path": "private/poc/spqr-chapter9/reports/first-001/errors.json",
+    "bytes": 140626,
+    "sha256": "4c62e34ad0eabfc31c95f8d9018d05bf87a669817a1e51695015a3e223d90f94"
+  },
+  "reason": "Inherited tuple observations retain their explicit ERR-first-001 lineage IDs; this supplement maps them to the current observation IDs without rewriting the sealed report.",
+  "referenced_parent_ids": [
+    "ERR-first-001-002",
+    "ERR-first-001-003",
+    "ERR-first-001-004"
+  ],
+  "baseline_to_context_error_id": {
+    "ERR-first-001-001": "ERR-context-01-001",
+    "ERR-first-001-002": "ERR-context-01-002",
+    "ERR-first-001-003": "ERR-context-01-003",
+    "ERR-first-001-004": "ERR-context-01-004",
+    "ERR-first-001-005": "ERR-context-01-005",
+    "ERR-first-001-006": "ERR-context-01-006",
+    "ERR-first-001-007": "ERR-context-01-007",
+    "ERR-first-001-008": "ERR-context-01-008",
+    "ERR-first-001-009": "ERR-context-01-009"
+  },
+  "payload_or_semantic_change": false,
+  "scope": "Report-reference lineage only"
+}

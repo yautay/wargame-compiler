@@ -1,0 +1,75 @@
+Wykonaj M-POC5A: wspólny przegląd znaczenia reguł.
+
+Pracuj w C:\repo\wargame-compiler na feature/tests. To sesja oceniająca.
+Przeczytaj CLAUDE.md, docs/SESSION-PLAYBOOK.md, STATUS, HANDOFF i wskazany
+aktualny handoff, ROADMAP, POC-PLAN, ADR-0039 oraz kartę M-POC5A.
+
+M-POC4A/B zakończono w ograniczonym zakresie. Właściciel przyjął częściowy
+efekt źródła i jawne blokady: 0 pełnych domknięć, 4 częściowe uzupełnienia,
+4 nowe deklaracje luk. Nie zaakceptowano znaczenia, TP/FP/FN, sytuacji ani
+zgodności aktywnego budżetu czasu. Nie traktuj zakończenia M-POC4 jako pełnego
+sukcesu ekstrakcji. Nie powtarzaj ekstrakcji ani nie poprawiaj odpowiedzi.
+
+Korzeń prywatnych danych: private/poc/spqr-chapter9/.
+Najpierw zweryfikuj oryginalne bajty i hashe obu wyników:
+- runs/first-001/first-001.json: 617941 bajtów, SHA-256
+  3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307.
+- runs/context-01/response.raw.txt: 712014 bajtów, SHA-256
+  95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b.
+- evaluation/eval-v1/manifest.json: SHA-256
+  7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce.
+
+Przeczytaj oba run.json/session-evidence.txt, proposals/*/proposal.json
+i provenance.json, oba zamknięte report.md, errors.json, inventory.json,
+metrics.json, dependency-comparison.json, manifest.json i closure.json.
+Dodatkowo reports/context-01/context-comparison.json,
+measurement/M-POC4B-context-01/report-reference-supplement.json,
+reviews/context-source-01/decision-01.json i review-closure-01.json.
+Źródła prowadzą source/source-v1.json, zweryfikowana kopia
+source/original-pdf-20261008-01.pdf, inputs/v1/manifest.json,
+context/pass-01/manifest.json i freeze-v1.json oraz faktyczny manifest
+transfer/context-v1/context/pass-01/manifest.json. Nie zakładaj C:\dev.
+
+W roli oceniającego przeczytaj evaluation/eval-v1/expectations.json,
+inventory.json, dependencies.json i measurement-policy.json. Eval-v1 jest
+zamrożone; nie poprawiaj go ani oczekiwań pod wynik. Akceptacja dotyczy tylko
+dokładnych zakresów człowieka: 66 grup treści, 8 kontekstu i rubryk;
+nieprzejrzane pola/aliasy i 105 kandydatur nie stają się gold.
+
+Przygotuj reviews/semantic-01/checklist.json, review.md i issues.json.
+Oceniaj first-001 i context-01 osobno, z hashami, na tym samym eval-v1.
+Dla każdego krytycznego oczekiwania i reszty inwentarza zestaw dokładny
+zakres źródła z oboma wynikami: warunki, skutek, wyjątek, liczba/jednostka,
+negacja, czas, tabela, diagram i nota. Oddziel transkrypcję od interpretacji.
+Każda proponowana ocena ma dowód, recenzenta, zakres i niepewności.
+Pokazuj właścicielowi konkretne porównania do rzeczywistego review; model
+nie nadaje akceptacji za człowieka. Brak review pozostaje pending/waiting_review.
+
+Uwzględnij dawne brakujące krytyczne pary, G916/G953, zmiany R932/N932ex,
+nową niejawną relację z R923 oraz zakres wyjątku i nierozstrzygniętą kolejność
+AS/LC. 111 krótkich cytatów/valid geometry nie certyfikuje pełnego znaczenia.
+Dawny błąd E916 i 64 granice glifów nadal wymagają właściwego zakresu review.
+Nowe/pending krawędzie nie są pewnymi FP ani TP. Zachowaj osobno błędny
+odczyt, interpretację, brak kontekstu i niejednoznaczność, bez napraw historii.
+
+Krytyczny brak źródła blokuje zależne pełne rozstrzygnięcie; nie zgaduj.
+Lokalne wyniki z zadanymi syntetycznymi faktami nie są automatycznie blokowane
+brakiem pełnego rzeczywistego setupu. Nie dokładaj nowych źródeł ani pass-02:
+1 strona/1 reguła/0 tabel, 1 runda kontekstu, 0 korekt. Nowa połączona ścieżka
+3 krawędzi kończy się brakującym celem; stop rozszerzania na granicy 2 zachowany.
+Nie poświadczaj zgodności całego grafu lub czasu. Aktywny budżet unknown.
+
+W kontekstowej sesji ekstrakcji niezależnie potwierdzono listing/path discovery
+poza allowlistą. Brak potwierdzenia odczytu oceny; ekspozycja i czysty kontekst
+unknown, bez dowodu pełnej izolacji lub skażenia. Samoopis nie jest niezależnym
+dowodem. Historyczne unknown first-001 i nieznane selektory/czasy/tokeny/cena
+pozostają jawne. Kalendarzowe czasy turnu nie mierzą aktywnego budżetu.
+
+Wykonuj tylko M-POC5A. 20 sytuacji jest dla osobnej M-POC5B; nie rozstrzygaj
+ich teraz. Nie uruchamiaj nowej ekstrakcji, API inferencji ani korekt,
+M-POC6/7 lub architektury.
+Jeśli zakres nie mieści się w 90 minutach, podziel go jawnie przed wykonaniem,
+aktualizując karty/ROADMAP/STATUS, bez ukrytego pomijania oczekiwań.
+Zachowaj źródła, odpowiedzi, wejścia, eval-v1 i zamknięte raporty bajtowo.
+Zaktualizuj STATUS, ROADMAP, handoff i append-only pomiary według faktycznego
+zakresu. Uruchom scripts/check.ps1 oraz git diff --check, zapisz logi i ograniczenia.

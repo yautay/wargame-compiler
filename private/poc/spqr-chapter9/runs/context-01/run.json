@@ -1,0 +1,925 @@
+{
+  "run_id": "context-01",
+  "card": "M-POC4B",
+  "phase": "receipt_of_existing_manual_response",
+  "registered_at_utc": "2026-10-10T16:35:00.909066+00:00",
+  "timezone": "Europe/Warsaw",
+  "response": {
+    "original": {
+      "path": "private/poc/spqr-chapter9/transfer/context-v1/context-01.json",
+      "bytes": 712014,
+      "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    "preserved": {
+      "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+      "bytes": 712014,
+      "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    "byte_identical": true,
+    "original_save_method": "Transcript contains a local PowerShell write; exact bytes verified at receipt. Filesystem timestamps not used."
+  },
+  "parent_response": {
+    "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+    "bytes": 617941,
+    "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+  },
+  "input_manifest": {
+    "path": "private/poc/spqr-chapter9/transfer/context-v1/context/pass-01/manifest.json",
+    "bytes": 15712,
+    "sha256": "1140a43519ae60646ea783bb24ec4dacc2f608e88d80efd83a206427aa45eff4"
+  },
+  "original_input_manifest": {
+    "path": "private/poc/spqr-chapter9/inputs/v1/manifest.json",
+    "bytes": 6835,
+    "sha256": "39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a"
+  },
+  "freeze": {
+    "path": "private/poc/spqr-chapter9/context/pass-01/freeze-v1.json",
+    "bytes": 6208,
+    "sha256": "7609c1c41455094e2fc59af11400c551bf32f4c8ccca3a707c9418f6dba25fad"
+  },
+  "prompt": {
+    "path": "private/poc/spqr-chapter9/transfer/context-v1/prompts/context-v1.txt",
+    "bytes": 2986,
+    "sha256": "95ca07536431d2ab6f5ae9642872ec1bfb3186a107635a8cb47468897b57fc36"
+  },
+  "actual_prompt_evidence": "Transcript shows allowlisted prompt read; user kickoff preserved in the snapshot.",
+  "assessment_id": "eval-v1",
+  "evaluation_manifest": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+    "bytes": 4116,
+    "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+  },
+  "input_integrity": {
+    "context_artifacts": 41,
+    "original_artifacts": 32,
+    "allowlisted_input_files": 42,
+    "all_match": true,
+    "verification_scope": "Independent current byte checks; extraction-time hash statements compared as claims, not accepted wholesale."
+  },
+  "session_evidence": {
+    "snapshot": {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC4B-context-01/extractor-thread-snapshot.json",
+      "bytes": 69614,
+      "sha256": "c65271bc7430477022f4f227588b8e71eb5dcf886703c7404a62b856319b9adf"
+    },
+    "thread_id": "01a12690-583e-77b3-a182-1c83498a26ba",
+    "turn_id": "01a12690-8475-7a53-87cb-6ef5ffdce084",
+    "snapshot_provider": "Codex app read_thread",
+    "commands_observed": 15,
+    "independent_scope_deviation": true,
+    "evidence_commands": [
+      {
+        "id": "exec-92357c37-ceec-4c94-9516-dfe4b34a348e",
+        "command": "\"C:\\\\Users\\\\yauta\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\repo\\\\wargame-compiler\\\\transfer-list.txt'\"",
+        "cwd": "C:\\repo\\wargame-compiler",
+        "status": "failed",
+        "exit_code": 1
+      },
+      {
+        "id": "exec-483845ad-3b42-4454-a69a-d9154ae738ca",
+        "command": "\"C:\\\\Users\\\\yauta\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -LiteralPath 'C:\\\\repo\\\\wargame-compiler' -Force | Select-Object Mode,Name\"",
+        "cwd": "C:\\repo\\wargame-compiler",
+        "status": "completed",
+        "exit_code": 0
+      },
+      {
+        "id": "exec-06fccb8f-92a6-41f0-ba4f-d9bc37925f10",
+        "command": "\"C:\\\\Users\\\\yauta\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"rg --files --hidden -g transfer-list.txt -g '\"'!'\"\\\\.git/**' -g '\"'!.venv/**'\"' 'C:\\\\repo\\\\wargame-compiler'\"",
+        "cwd": "C:\\repo\\wargame-compiler",
+        "status": "completed",
+        "exit_code": 0
+      }
+    ],
+    "scope": "Attempted absent root transfer-list read, root entry-name listing and path search outside allowlist are observed. Names/path metadata access is not itself proof of reading evaluation content.",
+    "assessment_content_read_observed": false,
+    "assessment_exposure": "unknown",
+    "clean_context_verified": false,
+    "no_proven_contamination": true,
+    "no_proven_full_isolation": true,
+    "limitations": "Transcript outputs can be truncated; prior context/UI selector and all implicit environment access are not independently established."
+  },
+  "extraction_configuration": {
+    "application": "Codex task in desktop app",
+    "application_evidence": "App thread metadata and command history",
+    "actual_model_visible_name": "unknown",
+    "reasoning_level": "unknown",
+    "configuration_selectors": "unknown"
+  },
+  "timing": {
+    "turn_started_at_utc": "2026-10-10T16:06:07+00:00",
+    "turn_completed_at_utc": "2026-10-10T16:18:37+00:00",
+    "turn_calendar_elapsed_seconds": 749.348,
+    "actual_extraction_start_end": "unknown",
+    "user_active_time": "unknown",
+    "model_active_time": "unknown",
+    "tokens": "unknown",
+    "price": "unknown",
+    "active_budget_remaining": "unknown",
+    "time_budget_compliance": "unknown",
+    "limitation": "App turn timings independently recorded; not active user/model/inference time. Receipt is not a repeat extraction."
+  },
+  "extractor_self_report": {
+    "assessment_exposure_basis": "No evaluation/reports or assessment content read; only evaluation IDs/hashes in supplied manifests/freeze. No semantic TP/FP/FN or quality claim against unseen evaluation.",
+    "typographic_normalization": "New Step 4 quotes join line wraps/remove end-of-line word splits, preserving numbers, labels, punctuation/operators. Original normalization claims are historical parent data.",
+    "assessment_exposure": "not_exposed",
+    "source_selection": {
+      "sha256": "4e4a83b611df3b75a1099be82df55eae3c566cfeb1d61572fd30d60be5d3081e",
+      "semantic_acceptance": "not_performed",
+      "status": "owner_approved_exact_scope",
+      "draft_waiting_review_resolution": "Superseded for source selection only",
+      "fragment": "Only complete 8.46 Step 4",
+      "evidence_path": "context/pass-01/freeze-public-v1.json"
+    },
+    "current_manifest": {
+      "path": "context/pass-01/manifest.json",
+      "status": "Current response used actual verified manifest",
+      "sha256": "1140a43519ae60646ea783bb24ec4dacc2f608e88d80efd83a206427aa45eff4"
+    },
+    "response_completeness": "complete JSON object including retained parent records and bounded-context changes",
+    "historical_first_run_provenance": {
+      "original_provenance": {
+        "application": "Codex desktop",
+        "actual_model_visible_name": "unknown",
+        "reasoning_level": "unknown",
+        "metadata_source": {
+          "application": "Developer-provided desktop context",
+          "model": "Developer identity states an agent based on GPT-6; exact active model name/selector is not exposed.",
+          "reasoning": "Not exposed"
+        },
+        "assessment_exposure": "not_exposed",
+        "assessment_exposure_basis": "Only transfer-listed files read. freeze-public-v1.json and manifest contain assessment hashes and metadata only; no assessment content encountered.",
+        "active_time_seconds": "unknown",
+        "tokens": "unknown",
+        "price": "unknown",
+        "extraction_method": "Manual inspection of all seven full-page renders and all sixteen region crops; auxiliary text used only after visual comparison. No internet, game-memory reconstruction, inference API, GUI automation, or other conversations.",
+        "typographic_normalization": "Quotes join source line wraps and remove end-of-line word splits; printed capitalization, numbers, negations and labels retained. Small capitals may be represented with ordinary capitals. A short quote is an excerpt, not a complete transcription of the illustrated evidence area.",
+        "input_integrity": {
+          "algorithm": "SHA-256",
+          "artifact_count": 30,
+          "all_artifact_hashes_match": true,
+          "manifest_hash_computed_from_actual_bytes": true,
+          "missing_files": []
+        },
+        "review_status": "unreviewed",
+        "mechanical_checks": {
+          "json_parses": true,
+          "duplicate_ids": [],
+          "duplicate_clause_ids": [],
+          "unresolved_references": [],
+          "field_or_image_issues": [],
+          "duplicate_edges": [],
+          "core_region_count": 12,
+          "core_reading_order_matches": true,
+          "all_core_regions_mapped": true,
+          "counts": {
+            "rules": 50,
+            "nodes": 58,
+            "evidence": 105,
+            "dependencies": 126,
+            "gaps": 81
+          },
+          "characters": 617636,
+          "meaning_review": "not_performed",
+          "review_status": "unreviewed"
+        },
+        "model_family_statement": "GPT-6"
+      },
+      "claims_are_parent_data": true,
+      "verification_status": "not_verified"
+    },
+    "active_time_seconds": "unknown",
+    "parent_response": {
+      "path": "parent/first-001.json",
+      "status": "Current bytes verified; retained unreviewed data. Historical execution/clean context not verified.",
+      "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    "context_changes": {
+      "actual_applicability": "not_assessable",
+      "deleted_parent_records": [],
+      "changed_records": {
+        "gaps": [
+          "G932",
+          "G-D923shock",
+          "G-D932CRT",
+          "G-D962shock"
+        ],
+        "nodes": [
+          "N932ex"
+        ],
+        "dependencies": [
+          "D932CRT",
+          "D962shock"
+        ],
+        "evidence": [],
+        "rules": [
+          "R932"
+        ]
+      },
+      "additional_context_pages": [
+        27
+      ],
+      "actual_base_results": "not_assessable",
+      "added_records": {
+        "gaps": [
+          "GCTX-CRT",
+          "GCTX-applicability",
+          "GCTX-order",
+          "GCTX-845"
+        ],
+        "nodes": [
+          "NCTX846S4",
+          "NCTX-ShockCRT"
+        ],
+        "dependencies": [
+          "DCTX846S4-CRT",
+          "DCTX846S4-845",
+          "DCTX846S4-1013",
+          "DCTX932-S4",
+          "DCTX923-S4"
+        ],
+        "evidence": [
+          "ECTX846S4-header",
+          "ECTX846S4-AS",
+          "ECTX846S4-DS",
+          "ECTX846S4-SK",
+          "ECTX846S4-LC",
+          "ECTX846S4-distribution"
+        ],
+        "rules": []
+      },
+      "status_changes": [
+        {
+          "evidence_ids": [
+            "ECTX846S4-header",
+            "ECTX846S4-AS",
+            "ECTX846S4-DS",
+            "ECTX846S4-SK",
+            "ECTX846S4-LC",
+            "ECTX846S4-distribution"
+          ],
+          "after": "external_with_source to NCTX846S4",
+          "id": "D962shock",
+          "execution_status": "blocked_source",
+          "before": "unresolved/null target"
+        },
+        {
+          "evidence_ids": [
+            "ECTX846S4-AS",
+            "ECTX846S4-LC"
+          ],
+          "after": "Context-qualified Routed exception/cumulative-AS interpretation; literal transcription retained",
+          "id": "R932",
+          "execution_status": "pending",
+          "before": "No local exception stated"
+        },
+        {
+          "evidence_ids": [
+            "ECTX846S4-AS",
+            "ECTX846S4-LC"
+          ],
+          "after": "unknown interpretation with supplied conditional operators/narrowed reason",
+          "id": "N932ex",
+          "execution_status": "pending",
+          "before": "unknown interpretation"
+        }
+      ],
+      "remaining_result_status": "blocked_source",
+      "additional_fragment": "8.46 Step 4 only",
+      "actual_final_outcomes": "not_assessable",
+      "added_core_rules": 0
+    },
+    "model_family_statement": "GPT-6",
+    "mechanical_checks": {
+      "core_boundaries_unchanged": true,
+      "dependency_target_issues": [],
+      "review_status": "unreviewed",
+      "duplicate_ids": [],
+      "duplicate_clause_ids": [],
+      "json_parses": true,
+      "core_reading_order_matches": true,
+      "field_issues": [],
+      "all_core_regions_mapped": true,
+      "inherited_semantic_quality": "not_assessable",
+      "image_issues": [],
+      "meaning_review": "not_performed",
+      "core_region_count": 12,
+      "counts": {
+        "rules": 50,
+        "gaps": 85,
+        "evidence": 111,
+        "dependencies": 131,
+        "nodes": 60
+      },
+      "unresolved_references": [],
+      "duplicate_edges": []
+    },
+    "reasoning_level": "unknown",
+    "review_status": "unreviewed",
+    "clean_context_verification": "not_verified",
+    "cost": "unknown",
+    "metadata_source": {
+      "model_family": "Developer identity states agent based on GPT-6",
+      "model": "Exact active model name/selector unavailable",
+      "reasoning": "Not exposed",
+      "application": "Developer-provided desktop context"
+    },
+    "instruction_source": {
+      "path": "prompts/context-v1.txt",
+      "status": "Current response used this prompt",
+      "sha256": "95ca07536431d2ab6f5ae9642872ec1bfb3186a107635a8cb47468897b57fc36",
+      "historical_first_prompt": "Hashed only as preserved historical input; not executed as current instruction."
+    },
+    "price": "unknown",
+    "input_integrity": {
+      "absent_full_page_pdf27_render": "not_read",
+      "absent_original_pdf_hash_verification": "not_assessable",
+      "parent_binding_matches": true,
+      "context_artifact_count": 41,
+      "artifact_checks": 73,
+      "original_manifest_binding_matches": true,
+      "allowlisted_file_count": 42,
+      "algorithm": "SHA-256",
+      "verification_records": [
+        {
+          "path": "context/pass-01/evidence/8.46-step-4-helper.txt",
+          "bytes": 886,
+          "sha256": "5bb9c43565dba73617ddf0234f46401d197ee3be8d12a8a1c3f18b33610a330a",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "context/pass-01/evidence/8.46-step-4-pdf-27.png",
+          "bytes": 67087,
+          "sha256": "87ca4e8f337861b2116317ab8cecdebbc0ebdda10c3af8236c0689a5f9e2df1b",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "context/pass-01/evidence/8.46-step-4-scope.json",
+          "bytes": 1376,
+          "sha256": "8860cc20a06f2b4cbd84829c4b40eac3e61a4d5b386334a9adadc62be4a32090",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "context/pass-01/freeze-public-v1.json",
+          "bytes": 1548,
+          "sha256": "4e4a83b611df3b75a1099be82df55eae3c566cfeb1d61572fd30d60be5d3081e",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "formats/context-addendum-v1.md",
+          "bytes": 1004,
+          "sha256": "b506fc6f46f338df5a54ef2295378a5d138f80abdf8ab217c69e1a3f37923f5b",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "formats/proposal-format-v1.md",
+          "bytes": 7453,
+          "sha256": "e26b5c49e8b3306740b5d84aaef5976aea5fcfb6d1e4bdd09ef08ca491fa0c92",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "formats/synthetic-example-v1.json",
+          "bytes": 9766,
+          "sha256": "c72039ebe3e799094fd9f02ce8a89df80f121da62175ee7501fc0626d3551b77",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/freeze-public-v1.json",
+          "bytes": 1149,
+          "sha256": "5d155d93542dbe0434242c751cb09ee934325ad57a6d8c0cef9ce8a8a7ce7a68",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/helper-boundary-context.txt",
+          "bytes": 8160,
+          "sha256": "94f369caefec6324ab64fe39a2f7e291b4a03fcfc55acbe971fa9212651dcb56",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/helper-core.txt",
+          "bytes": 29956,
+          "sha256": "e5360f9fced13699509c7830e5b9ef968cfebda07d741231f5b8c51662162f2f",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/helper-regions.json",
+          "bytes": 45465,
+          "sha256": "0244829f403e4ed6da125404afaa6dc600bb48c037792c70f1fdc8bb6ffa1b34",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/manifest.json",
+          "bytes": 6835,
+          "sha256": "39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-31.png",
+          "bytes": 1111653,
+          "sha256": "9edf269af78629a8bbfd809c75695e6353f7614d82d217d48ea2ecca0fd06712",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-32.png",
+          "bytes": 1007836,
+          "sha256": "e80ea90e4a3a441416fd4624be73b2f97ca7185e6bb552d89454b6121fca394a",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-33.png",
+          "bytes": 1206955,
+          "sha256": "ac53150f19a795383afe05e4fc668105b2b04d54fb9b2488e6557b12bd683983",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-34.png",
+          "bytes": 1017006,
+          "sha256": "653859bf1527710121aa51435b5cc410801700bc2a2ddd6739713234e0099dc2",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-35.png",
+          "bytes": 1039036,
+          "sha256": "283b9f650fbdb38f990f8642c93cc81ba276928321fc1a7225ac23ad2c372044",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-36.png",
+          "bytes": 1146453,
+          "sha256": "097cf84a4e768c89f6b1ae2e87ddca2ed0aab68f41b8da015106e1062a0b6809",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-37.png",
+          "bytes": 1029963,
+          "sha256": "d8357bce4db3a20324fc23e471ef121b29d5cd2c8e37c6aabc7949cc0fa03b6d",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-31-context-left.png",
+          "bytes": 531436,
+          "sha256": "8d5e84e2b9f9f734c5926322e8ce334e8d002fc66afca2d004a2023fc3e1b15e",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-31-context-right-before-9.png",
+          "bytes": 184846,
+          "sha256": "26170d273a16c6da980e6484b014a6b0ff69d5798253829841f8eea2d974d399",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-31-core-right.png",
+          "bytes": 343684,
+          "sha256": "45cfc233922543166f6209e485d61932cb2ebd9f403e05d1b94eaf07e714ae1c",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-32-core-left.png",
+          "bytes": 445614,
+          "sha256": "3f9799bcb90a9959b2c0130292c11174d5fc7b326e5103e2ac8e5b1b7d3e2925",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-32-core-right.png",
+          "bytes": 487508,
+          "sha256": "33cb18a7bbe4a4f125512a1b85ec62dd1b2be9997b61ae9f76a3c339635da3ce",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-33-core-left.png",
+          "bytes": 574155,
+          "sha256": "17ebedec5f5da47ed6a4d32d24b35463cc9b18a3641da64e971214a67ab883dd",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-33-core-right.png",
+          "bytes": 582359,
+          "sha256": "17a14e42dcb037b4defa3b81b9aca828a89f9725c94d7903393018225a6fe05f",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-34-core-left.png",
+          "bytes": 432681,
+          "sha256": "a5fe1c2a90f39ab28961a37cfc5e9278cb71fa4ba18eae94df17f6b1dc31f95d",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-34-core-right.png",
+          "bytes": 514386,
+          "sha256": "2ed88aa22a00d2b1bc3ed6f9d49ba1139be1459234d12998f11825060e4eaf91",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-35-core-left.png",
+          "bytes": 552553,
+          "sha256": "93eeecb25f6b5361697e406a5b08dbb560fddcfd776f4437b216ac8aca2d9a1c",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-35-core-right.png",
+          "bytes": 419353,
+          "sha256": "f2aef5cdffaa554fd818ac6c8b2f003367ae02d909084c88f3683aeb4e1f59a9",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-36-core-left.png",
+          "bytes": 541724,
+          "sha256": "1a8914331237987eeb5edf183604af093bec57b987864ae4505863b42c58a7cb",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-36-core-right.png",
+          "bytes": 528591,
+          "sha256": "a5807f3754ad6c29a9ee70685098c94cc22a008b5b30149dd0b5ce85d4e1d3ca",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-37-context-left-from-10.png",
+          "bytes": 266180,
+          "sha256": "1bbe9301170285f8f38b5bbdffdcdc1a6fcae91fb793dec71f892021dccc1e13",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-37-context-right.png",
+          "bytes": 468290,
+          "sha256": "62b6873f19bd95b0dea87c987344115272b39be48d0f8af977ab66ccf2801ef6",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-37-core-left.png",
+          "bytes": 250528,
+          "sha256": "6240f16064be55fd7c340b4f3cd9ee4da0754b9e76cb4369cbb450a234600571",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/scope.json",
+          "bytes": 9017,
+          "sha256": "cad98764c3160ee046fd0a1a706d153ea9bd7f657d78012bd362d0f604a112d4",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "inputs/v1/transfer-list.txt",
+          "bytes": 1134,
+          "sha256": "67417b6ae1c596f699e143158cfa69806efe06a052c84ba49635c8fecdc85d84",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "parent/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "prompts/context-v1.txt",
+          "bytes": 2986,
+          "sha256": "95ca07536431d2ab6f5ae9642872ec1bfb3186a107635a8cb47468897b57fc36",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "prompts/first-v1.txt",
+          "bytes": 4074,
+          "sha256": "3e37f034662436dc84eeae4f4c6fac5b6307350156a0c14a3cc0731fdfab5489",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "transfer-list.txt",
+          "bytes": 1482,
+          "sha256": "0a7eef3e2953307136bfdddc2a0886877da6e1eef40310131c47901e420e18bc",
+          "status": "verified",
+          "manifest": "context/pass-01/manifest.json"
+        },
+        {
+          "path": "formats/proposal-format-v1.md",
+          "bytes": 7453,
+          "sha256": "e26b5c49e8b3306740b5d84aaef5976aea5fcfb6d1e4bdd09ef08ca491fa0c92",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "formats/synthetic-example-v1.json",
+          "bytes": 9766,
+          "sha256": "c72039ebe3e799094fd9f02ce8a89df80f121da62175ee7501fc0626d3551b77",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/freeze-public-v1.json",
+          "bytes": 1149,
+          "sha256": "5d155d93542dbe0434242c751cb09ee934325ad57a6d8c0cef9ce8a8a7ce7a68",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/helper-boundary-context.txt",
+          "bytes": 8160,
+          "sha256": "94f369caefec6324ab64fe39a2f7e291b4a03fcfc55acbe971fa9212651dcb56",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/helper-core.txt",
+          "bytes": 29956,
+          "sha256": "e5360f9fced13699509c7830e5b9ef968cfebda07d741231f5b8c51662162f2f",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/helper-regions.json",
+          "bytes": 45465,
+          "sha256": "0244829f403e4ed6da125404afaa6dc600bb48c037792c70f1fdc8bb6ffa1b34",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-31.png",
+          "bytes": 1111653,
+          "sha256": "9edf269af78629a8bbfd809c75695e6353f7614d82d217d48ea2ecca0fd06712",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-32.png",
+          "bytes": 1007836,
+          "sha256": "e80ea90e4a3a441416fd4624be73b2f97ca7185e6bb552d89454b6121fca394a",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-33.png",
+          "bytes": 1206955,
+          "sha256": "ac53150f19a795383afe05e4fc668105b2b04d54fb9b2488e6557b12bd683983",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-34.png",
+          "bytes": 1017006,
+          "sha256": "653859bf1527710121aa51435b5cc410801700bc2a2ddd6739713234e0099dc2",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-35.png",
+          "bytes": 1039036,
+          "sha256": "283b9f650fbdb38f990f8642c93cc81ba276928321fc1a7225ac23ad2c372044",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-36.png",
+          "bytes": 1146453,
+          "sha256": "097cf84a4e768c89f6b1ae2e87ddca2ed0aab68f41b8da015106e1062a0b6809",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/pages/pdf-37.png",
+          "bytes": 1029963,
+          "sha256": "d8357bce4db3a20324fc23e471ef121b29d5cd2c8e37c6aabc7949cc0fa03b6d",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-31-context-left.png",
+          "bytes": 531436,
+          "sha256": "8d5e84e2b9f9f734c5926322e8ce334e8d002fc66afca2d004a2023fc3e1b15e",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-31-context-right-before-9.png",
+          "bytes": 184846,
+          "sha256": "26170d273a16c6da980e6484b014a6b0ff69d5798253829841f8eea2d974d399",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-31-core-right.png",
+          "bytes": 343684,
+          "sha256": "45cfc233922543166f6209e485d61932cb2ebd9f403e05d1b94eaf07e714ae1c",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-32-core-left.png",
+          "bytes": 445614,
+          "sha256": "3f9799bcb90a9959b2c0130292c11174d5fc7b326e5103e2ac8e5b1b7d3e2925",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-32-core-right.png",
+          "bytes": 487508,
+          "sha256": "33cb18a7bbe4a4f125512a1b85ec62dd1b2be9997b61ae9f76a3c339635da3ce",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-33-core-left.png",
+          "bytes": 574155,
+          "sha256": "17ebedec5f5da47ed6a4d32d24b35463cc9b18a3641da64e971214a67ab883dd",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-33-core-right.png",
+          "bytes": 582359,
+          "sha256": "17a14e42dcb037b4defa3b81b9aca828a89f9725c94d7903393018225a6fe05f",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-34-core-left.png",
+          "bytes": 432681,
+          "sha256": "a5fe1c2a90f39ab28961a37cfc5e9278cb71fa4ba18eae94df17f6b1dc31f95d",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-34-core-right.png",
+          "bytes": 514386,
+          "sha256": "2ed88aa22a00d2b1bc3ed6f9d49ba1139be1459234d12998f11825060e4eaf91",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-35-core-left.png",
+          "bytes": 552553,
+          "sha256": "93eeecb25f6b5361697e406a5b08dbb560fddcfd776f4437b216ac8aca2d9a1c",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-35-core-right.png",
+          "bytes": 419353,
+          "sha256": "f2aef5cdffaa554fd818ac6c8b2f003367ae02d909084c88f3683aeb4e1f59a9",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-36-core-left.png",
+          "bytes": 541724,
+          "sha256": "1a8914331237987eeb5edf183604af093bec57b987864ae4505863b42c58a7cb",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-36-core-right.png",
+          "bytes": 528591,
+          "sha256": "a5807f3754ad6c29a9ee70685098c94cc22a008b5b30149dd0b5ce85d4e1d3ca",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-37-context-left-from-10.png",
+          "bytes": 266180,
+          "sha256": "1bbe9301170285f8f38b5bbdffdcdc1a6fcae91fb793dec71f892021dccc1e13",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-37-context-right.png",
+          "bytes": 468290,
+          "sha256": "62b6873f19bd95b0dea87c987344115272b39be48d0f8af977ab66ccf2801ef6",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/regions/pdf-37-core-left.png",
+          "bytes": 250528,
+          "sha256": "6240f16064be55fd7c340b4f3cd9ee4da0754b9e76cb4369cbb450a234600571",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/scope.json",
+          "bytes": 9017,
+          "sha256": "cad98764c3160ee046fd0a1a706d153ea9bd7f657d78012bd362d0f604a112d4",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "prompts/first-v1.txt",
+          "bytes": 4074,
+          "sha256": "3e37f034662436dc84eeae4f4c6fac5b6307350156a0c14a3cc0731fdfab5489",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        },
+        {
+          "path": "inputs/v1/transfer-list.txt",
+          "bytes": 1134,
+          "sha256": "67417b6ae1c596f699e143158cfa69806efe06a052c84ba49635c8fecdc85d84",
+          "status": "verified",
+          "manifest": "inputs/v1/manifest.json"
+        }
+      ],
+      "all_artifact_hashes_and_sizes_match": true,
+      "original_artifact_count": 32,
+      "all_allowlisted_files_present": true,
+      "manifest_hash_computed_from_actual_bytes": true
+    },
+    "extraction_method": "One complete proposal derived from immutable parent. Viewed whole supplied Step 4 crop and four relevant original crops; auxiliary text/metadata allowlisted. Original core scope, unrelated records and original evidence coordinates retained. No new full chapter extraction or external acquisition.",
+    "instruction_compliance": "partial: initial directory/path metadata discovery violated no-parent-directory restriction",
+    "session_provenance": {
+      "initial_access_deviation": {
+        "explanation": "Package location was not supplied. Discovery touched ancestor directory/path metadata before establishing transfer-root allowlist; no claim of compliance with no-parent-directory restriction.",
+        "outside_allowlist_content_read": false,
+        "parent_directory_names_enumerated": true,
+        "status": "occurred",
+        "actions": [
+          "Attempted workspace-root transfer-list.txt read: absent, no content read.",
+          "Listed workspace-root entry names.",
+          "Searched transfer-list.txt path names in workspace: four locations returned; only context-v1 transfer-list content then read."
+        ],
+        "instruction_compliance": "partial"
+      },
+      "delegation_used": false,
+      "other_chats_read": false,
+      "inference_api_used": false,
+      "gui_automation_used": false,
+      "cwd_at_start": "C:\\repo\\wargame-compiler",
+      "user_timezone": "Europe/Warsaw",
+      "auxiliary_runtime_issue": "Python alias could not start; long process argument hit Windows limit. Interactive PowerShell automatically attempted denied history access outside allowlist; no history content read/written. History disabled and PSReadLine removed. A command quoting error occurred before output generation; no response resend. Mechanical processing used PowerShell; strict access isolation is not claimed.",
+      "reasoning_setting": "unknown",
+      "thread_id": "unknown",
+      "current_date": "2026-10-10",
+      "external_sources_used": false,
+      "session_id": "unknown",
+      "exact_model_id": "unknown"
+    },
+    "application": "Codex desktop",
+    "time_budget_compliance": "unknown",
+    "actual_model_visible_name": "unknown",
+    "unresolved_parent_problems": {
+      "interpretation_repair": "not_performed outside identified context-related records",
+      "instruction": "Unrelated parent format/ID/interpretation/internal dependency omissions are not silently repaired. Mechanical validity is not semantic acceptance.",
+      "status": "not_assessable beyond bounded-source changes",
+      "inherited_missing_source_gaps": "Retained except explicit partial-context descriptions in G932, G-D932CRT, G-D962shock, G-D923shock; none closed.",
+      "format_and_id_repair": "not_performed",
+      "internal_dependency_omission_repair": "not_performed"
+    },
+    "original_input_manifest": {
+      "path": "inputs/v1/manifest.json",
+      "status": "Current bytes and every artifact hash/size verified; no historical transfer verification",
+      "sha256": "39e0a65e2f7d0d991c1bd031c6a99e6c40b80fe34e5429640e150fbfbedf340a"
+    },
+    "execution_status": "completed_with_access_scope_deviation",
+    "tokens": "unknown"
+  },
+  "self_report_policy": "Preserved as claims; not independent evidence of blind session, selected model, timing, source validity or meaning.",
+  "semantic_acceptance": "not_performed",
+  "scope_selection_acceptance": "Previously owner-approved bounded source only",
+  "counters": {
+    "context_response_rounds_total": 1,
+    "new_inference_responses_in_receipt": 0,
+    "corrective_responses": 0
+  },
+  "not_performed": [
+    "new extraction",
+    "response edits",
+    "correction",
+    "pass-02",
+    "M-POC5"
+  ],
+  "receipt_owner_instruction": "Current owner says the other session performed the response and instructs continuing the M-POC4B evaluation."
+}

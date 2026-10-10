@@ -1,0 +1,3791 @@
+{
+  "run_id": "context-01",
+  "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+  "six_classes": [
+    {
+      "class": "format",
+      "confirmed_observations": 1,
+      "logged_observations_or_claims": 1,
+      "scope": "Structural/source-locator observations separate from declarations and semantic review."
+    },
+    {
+      "class": "pominięcie",
+      "confirmed_observations": 7,
+      "logged_observations_or_claims": 7,
+      "scope": "Structural/source-locator observations separate from declarations and semantic review."
+    },
+    {
+      "class": "błędny odczyt",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 0,
+      "scope": "Structural/source-locator observations separate from declarations and semantic review."
+    },
+    {
+      "class": "błędna interpretacja",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 1,
+      "scope": "Structural/source-locator observations separate from declarations and semantic review."
+    },
+    {
+      "class": "brak kontekstu",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 82,
+      "scope": "Structural/source-locator observations separate from declarations and semantic review."
+    },
+    {
+      "class": "niejednoznaczność",
+      "confirmed_observations": "not_assessable",
+      "logged_observations_or_claims": 67,
+      "scope": "Structural/source-locator observations separate from declarations and semantic review."
+    }
+  ],
+  "errors": [
+    {
+      "id": "ERR-context-01-001",
+      "class": "format",
+      "detail": "E916 quotes \"This rule does not apply to Leader Elephants.\" but bbox ends at y=1000 px = 360 PDF pt; source final line extends below this box. Exact quote is supported on full page and in helper, not entirely in the asserted image area.",
+      "response_pointers": [
+        "/evidence/15/quote/value"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 65162,
+          "end_byte_exclusive": 65209,
+          "sha256": "d7f4685fc12f57b4efa53487758dad7b4fd040575cb2bdfb31a8701a8477cbb5"
+        }
+      ],
+      "status": "confirmed_locator_failure",
+      "criticality": "unknown",
+      "impact": "Evidence trace is incomplete for the quoted exception; bbox validity alone cannot pass quote-in-area. Source exception criticality is frozen, semantic error criticality remains unknown.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-001",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-002",
+      "class": "pominięcie",
+      "detail": "No output dependency has frozen source/target/direction/kind/explicitness tuple ('R972', 'R971', 'condition', 'implicit'). Prose presence does not supply a dependency record.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "critical_in_reviewed_scope",
+      "impact": "Critical scoped graph link absent; no full executable-graph or semantic verdict.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-002",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-003",
+      "class": "pominięcie",
+      "detail": "No output dependency has frozen source/target/direction/kind/explicitness tuple ('N914table', 'R914', 'exception', 'implicit'). Prose presence does not supply a dependency record.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "critical_in_reviewed_scope",
+      "impact": "Critical scoped graph link absent; no full executable-graph or semantic verdict.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-003",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-004",
+      "class": "pominięcie",
+      "detail": "No output dependency has frozen source/target/direction/kind/explicitness tuple ('R986', 'R914', 'condition', 'implicit'). Prose presence does not supply a dependency record.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "critical_in_reviewed_scope",
+      "impact": "Critical scoped graph link absent; no full executable-graph or semantic verdict.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-004",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-005",
+      "class": "pominięcie",
+      "detail": "No separate mention relation for frozen occurrence DEP-034 from X-02 to Shock Combat Results Table. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "noncritical_at_this_occurrence",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-005",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-006",
+      "class": "pominięcie",
+      "detail": "No separate mention relation for frozen occurrence DEP-035 from X-04 to Shock Combat Results Table. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "noncritical_at_this_occurrence",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-006",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-007",
+      "class": "błędna interpretacja",
+      "detail": "Frozen mention occurrence of Stacking Charts is output as D961stack table_use execution; same source/reference, different kind. Candidate classification discrepancy, not an owner verdict.",
+      "response_pointers": [
+        "/dependencies/82"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 565169,
+          "end_byte_exclusive": 566165,
+          "sha256": "5a64c6a711196f8edc448674e353defd2d3b14e7940528e15e8d0cc130f421b9"
+        }
+      ],
+      "status": "pending_human_classification",
+      "criticality": "noncritical_at_this_occurrence",
+      "impact": "Requires scoped review; no automatic semantic acceptance.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-007",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-008",
+      "class": "pominięcie",
+      "detail": "No separate mention relation for frozen occurrence DEP-043 from X-01 to battle-specific map compass. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "noncritical_at_this_occurrence",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-008",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-009",
+      "class": "pominięcie",
+      "detail": "No separate mention relation for frozen occurrence DEP-067-1 from C-9.66-01 to Orderly Withdrawal, Clear terrain, ZOC. Other source/kind facets do not replace this occurrence.",
+      "response_pointers": [
+        "/dependencies"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 493061,
+          "end_byte_exclusive": 612446,
+          "sha256": "43ae9bea2b28b92af0a42a42ff0524d21bccfa49e493ab70cdbbbb2f682138e4"
+        }
+      ],
+      "status": "confirmed_structural_omission",
+      "criticality": "noncritical_at_this_occurrence",
+      "impact": "Missing separate non-execution occurrence; external target alias identity remains unconfirmed.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b",
+      "inherited_baseline_error_id": "ERR-first-001-009",
+      "observation_unchanged": true
+    },
+    {
+      "id": "ERR-context-01-010",
+      "class": "niejednoznaczność",
+      "detail": "Extractor declaration G916: The minimum-1 phrase follows the DR>TQ condition; the text does not explicitly state the result for DR<=TQ. No unconditional minimum imposed.",
+      "response_pointers": [
+        "/gaps/0"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 612466,
+          "end_byte_exclusive": 613008,
+          "sha256": "1149bf75c9e07c293ae890ad880b22c217a1da8ed02d6a180000371aa8fa8a56"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R916"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Clarification of whether minimum applies only when DR>TQ.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-011",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G932: Step 4 supplies AS doubling, LC halving round down, Routed exception and cumulability with bullet #1. Exact table, applicability and combined operation/rounding order needed to execute or reconcile printed example remain unresolved.",
+      "response_pointers": [
+        "/gaps/1"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 613015,
+          "end_byte_exclusive": 613877,
+          "sha256": "40ca31a42e0dc11f02dc67847683cb0ede5435964a848312c5b720bfbb8bc5d4"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R932",
+          "N932ex"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Exact Shock CRT, needed selection/applicability and source-backed combined numeric/rounding order.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-012",
+      "class": "niejednoznaczność",
+      "detail": "Extractor declaration G953: The shared-rout paragraph uses singular “the unit” when separate retreat hexes are impossible; it does not explicitly identify one or both units for elimination.",
+      "response_pointers": [
+        "/gaps/2"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 613884,
+          "end_byte_exclusive": 614490,
+          "sha256": "7924b01b3b0ac91dbac0c788b1ec6d730954bca49cca180b5737da725e4c05ba"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R953"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Clarification of elimination scope when only part/all of stack cannot retreat to separate hexes.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-013",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D1013stack: Within-stack Cohesion Hit distribution is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/3"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 614497,
+          "end_byte_exclusive": 614987,
+          "sha256": "af0f94321ede501e1a2b2d4f5d68fe44b378b6f1db530acc6dbe1817b2f255ad"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "N1013",
+          "D1013stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.68 bullet #6, including qualifications.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-014",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D1011chart: TQ check chart timing and results is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/4"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 614994,
+          "end_byte_exclusive": 615543,
+          "sha256": "7b460591b5290f000f7d8f3b305d6e0bd786fafb6d92afde5dfa0e60b8bdf357"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "N1011",
+          "D1011chart"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual Cohesion Hit and TQ Check Chart.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-015",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D911pre: Pre-Shock TQ Check procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/5"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 615550,
+          "end_byte_exclusive": 616016,
+          "sha256": "4c61fe5194e55c5fecf435f5886f0f4b5a4a28b06218aa2b20becb31c7e5c5b8"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R911",
+          "D911pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.43 including marker/check/DRM rules",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-016",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D911shock: Base Shock resolution needed before Pass-Thru hit adjustments is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/6"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 616023,
+          "end_byte_exclusive": 616536,
+          "sha256": "be9ca541c73780b0512a5dca90fe52e42df15664a6f6d1709805ef68a3de89b2"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R911",
+          "D911shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Full Shock resolution procedure and used tables",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-017",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D912react: Ordinary Reaction Fire timing/eligibility is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/7"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 616543,
+          "end_byte_exclusive": 617004,
+          "sha256": "406ce096c787c166ae1ed27a08cf17360543eaa9d6e2e78cc7b362224b689308"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R912",
+          "D912react"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.2 Reaction Fire",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-018",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D912MRRC: Elephant Screen missile results is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/8"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 617011,
+          "end_byte_exclusive": 617497,
+          "sha256": "f6ec59cceca62352efc05699d01c90694fc4da09afe8a82cd0fd9b4bdc1353a0"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R912",
+          "D912MRRC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "MRRC Elephant Screen row, headers, modifiers and notes",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-019",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D913react: Reaction Fire eligibility/timing for javelins and screen is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/9"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 617504,
+          "end_byte_exclusive": 617986,
+          "sha256": "4b4df2621839702e4f5f259f65f49d383f849e6af0fd1b929cb76b4de3e10f73"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R913",
+          "D913react"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Reaction Fire procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-020",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D913mounted: Mounted Javelinist missile characteristics is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/10"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 617993,
+          "end_byte_exclusive": 618500,
+          "sha256": "8d48e5439f613ce3e5576e772b3c91e1ba4308188639dc1f35904f9a19c1b919"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R913",
+          "D913mounted"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Mounted Javelinist definition and missile resolution table",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-021",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D914OW: Orderly Withdrawal exception during Rampage is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/11"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 618507,
+          "end_byte_exclusive": 618997,
+          "sha256": "a14760b1698b9ae5fe2b527070fa3307801d8ad8068be1a28935be3a925ef24e"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R914",
+          "D914OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.51 including eligibility and resolution",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-022",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D914leaderwithdraw: Leader withdrawal eligibility before automatic death is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/12"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 619004,
+          "end_byte_exclusive": 619486,
+          "sha256": "0077541dc605521c4c4cdd3a428c9825509e24f6ffca1e61a77ba842ffafcd29"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R914",
+          "D914leaderwithdraw"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.72",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-023",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D914casualty: Stacked leader casualty roll after Rampage is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/13"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 619493,
+          "end_byte_exclusive": 619952,
+          "sha256": "2d23a39e9bbb78487cfaa801fc3d7e64fc5c1484f7900487bcc8339d2bf837bf"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R914",
+          "D914casualty"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.73",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-024",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D914compass: Battle-specific directions for 1–6 Rampage rolls is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/14"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 619959,
+          "end_byte_exclusive": 620515,
+          "sha256": "7f06c6d840f91c9e11ef9a94e541fc052df74c92e799572526b83b4978785600"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "N914table",
+          "D914compass"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual selected battle map compass",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-025",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D915superiority: General Attack Superiority rule qualified by cavalry/Elephant attack restriction is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/15"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 620522,
+          "end_byte_exclusive": 621076,
+          "sha256": "4a9c5173730d09031883462870255e67f1323e46abdd8bbf5c4af796d41ada00"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R915",
+          "D915superiority"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Position/Attack Superiority definitions and numeric effects",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-026",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D916OW: Mandatory cavalry withdrawal procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/16"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 621083,
+          "end_byte_exclusive": 621565,
+          "sha256": "dc3e80a6f63c6230655d15c587ee14f8804ddb27a62325408cb93134a4a1e109"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R916",
+          "D916OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Orderly Withdrawal eligibility, paths and costs",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-027",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D917position: General Position/Attack Superiority qualified by Elephant-versus-Elephant prohibition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/17"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 621572,
+          "end_byte_exclusive": 622117,
+          "sha256": "73bb08bd5f10a655b2fbca8c4741caba8c5f05fb7082537c2d2603e2a75a390d"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R917",
+          "D917position"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Position/Attack Superiority definitions and effects",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-028",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D918specific: Unenumerated specific command exceptions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/18"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 622124,
+          "end_byte_exclusive": 622646,
+          "sha256": "2a3d8899a381c03d274291d16e984507b2e5d63d9fc7fa52cb05cb734fce6d9a"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R918",
+          "D918specific"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Specific Elephant command restrictions, if any, in other rules/scenarios",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-029",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D919pre: Pre-Shock roll procedure to receive African modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/19"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 622653,
+          "end_byte_exclusive": 623108,
+          "sha256": "eaddf168fa605e965c012a0e93c3a1d190bca00eda2c3d0db810b5323f8ea006"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R919",
+          "D919pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.43",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-030",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D919clash: Indian/African Elephant chart notes is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/20"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 623115,
+          "end_byte_exclusive": 623623,
+          "sha256": "2c2f988da5f6d3eca655cb4b718581156d2aa61aa2aeeb1d8a34fce430221d6e"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R919",
+          "D919clash"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Clash of Spears and Swords Chart including Elephant distinctions/notes",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-031",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D919shock: Indian/African Elephant superiority chart notes is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/21"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 623630,
+          "end_byte_exclusive": 624141,
+          "sha256": "c6aecc60ac5569a70f99b07e3a002b2f985525d94e2ab00c2810e44b0c0be786"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R919",
+          "D919shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Shock Superiority Chart including Elephant distinctions/notes",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-032",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D921OW: General OW modified by Skirmisher distance/MA and directional penalties is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/22"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 624148,
+          "end_byte_exclusive": 624675,
+          "sha256": "10f593f94198ff44e9c27168ebc1c1c7f8dcca74fd00feb101b7f45ded7769b0"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R921",
+          "D921OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Orderly Withdrawal procedure and normal Cohesion Hit costs",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-033",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D922missile: Base missile resolution to receive Skirmisher modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/23"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 624682,
+          "end_byte_exclusive": 625183,
+          "sha256": "e58ca48c50f95096a6b649d718d06ec0a942bc02588f3531d3fb21c0ba1439dc"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R922",
+          "D922missile"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Missile Fire procedure and result chart",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-034",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D922HD: Prohibited H&D capabilities for specified units is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/24"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 625190,
+          "end_byte_exclusive": 625684,
+          "sha256": "8d71bb35030400900dbf8bde966de95cda6f2aa4cda7a533d08bdc73c7532cc2"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R922",
+          "D922HD"
+        ],
+        "blocking_claim": false,
+        "needed_context": "H&D definition to distinguish it from other fire",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-035",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D923pre: General Pre-Shock checks qualified by SK and LI front-attack exemptions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/25"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 625691,
+          "end_byte_exclusive": 626203,
+          "sha256": "6dcae69677a9d947b62a301fbf8b7271468b643875d12b8a1591cb8d91ca4d7c"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R923",
+          "D923pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Pre-Shock TQ procedure/marker definitions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-036",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D923shock: Step 4 bullet #3 now explicitly supplies attacker-Hits half, round down, cap 1 when defender Skirmisher; general defender/type/Size selection and exact base results absent.",
+      "response_pointers": [
+        "/gaps/26"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 626210,
+          "end_byte_exclusive": 626981,
+          "sha256": "5b55f160a0b6027498c20ddade7492e97ad7a49cda83e66ffed7d152b175b012"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R923",
+          "D923shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Earlier general Shock defender/type/Size selection and exact Shock CRT.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-037",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D924stack: Special Skirmisher/Velites stacking is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/27"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 626988,
+          "end_byte_exclusive": 627431,
+          "sha256": "72c5ded1dd55d5c0831ca906353b308efbbbfea44f7b00b41e6679dd56c4305a"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R924",
+          "D924stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.69",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-038",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D924line: Line Command line eligibility qualified by one intervening unit is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/28"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 627438,
+          "end_byte_exclusive": 627992,
+          "sha256": "1c72907529fd643d150619472f6e80d13e81f8ff931bc93b3a2cc513bad94f73"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R924",
+          "D924line"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.32 including Line Command definitions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-039",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D931HD: Light Cavalry H&D fire procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/29"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 627999,
+          "end_byte_exclusive": 628431,
+          "sha256": "ac7d840ffba6d142373031c3a173f55a9b08b5d53300337487aab1c04f1342d0"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R931",
+          "D931HD"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.3",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-040",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D931OW: Light Cavalry Archer fire during OW is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/30"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 628438,
+          "end_byte_exclusive": 628874,
+          "sha256": "2306747a64cfc9e291653665c8cd734df6b883caf3933c6a07af2b20fec33470"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R931",
+          "D931OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.55",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-041",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D932CRT: Conditional AS/LC operators now supplied; actual Shock CRT headers/rows/notes, base numeric results and combined order unresolved.",
+      "response_pointers": [
+        "/gaps/31"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 628881,
+          "end_byte_exclusive": 629677,
+          "sha256": "df80e5352a4b0ac423b1063f2a79a9b4569f31643631b76b52d1457b9b6669b1"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R932",
+          "D932CRT"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Exact Shock CRT and needed lookup/applicability/order context; no chart alias equivalence inferred.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-042",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D941CRT: Base Shock columns/results to shift left is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/32"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 629684,
+          "end_byte_exclusive": 630189,
+          "sha256": "262e118803e05ca743c7d9c0dd1e51ca5bb57dc7f170012d07e00438983e730d"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R941",
+          "D941CRT"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Shock Combat CRT and column-selection procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-043",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D95scenario: Eligible Double Depth Phalanxes is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/33"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 630196,
+          "end_byte_exclusive": 630690,
+          "sha256": "3e15292276ba3e8a68b020af426167df2b461ba730b0f23460eb69d28884545c"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R95note",
+          "D95scenario"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario Double Depth eligible-unit list",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-044",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D951OC: OC command eligibility/range and order procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/34"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 630697,
+          "end_byte_exclusive": 631181,
+          "sha256": "a90b8e20a6b5fbbb4748228a567a3e1587c78cdd8d22878bd80a2216a49e7fdd"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R951",
+          "D951OC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Individual Order/Line Command/OC rules",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-045",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D951terrain: Cost of entering front PH hex is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/35"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 631188,
+          "end_byte_exclusive": 631658,
+          "sha256": "ec3189026b8f0a5c0fff73b604db0fb6dbbfdc6525b5c5c9b47750f95f45f181"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R951",
+          "D951terrain"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Movement Cost Chart terrain costs",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-046",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D952PAW: Permitted Pre-Arranged Withdrawal of DD stack is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/36"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 631665,
+          "end_byte_exclusive": 632113,
+          "sha256": "8987767ca3b1e256458783d3ddba191e5b8f4e4c8e0baa176db0ad198d50196f"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952PAW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.8",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-047",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D952wheel: Wheel maneuver prohibited for DD is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/37"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 632120,
+          "end_byte_exclusive": 632602,
+          "sha256": "f452ad789869f6113b926de57dd9360c17171bcf81770c06f12c609a294b38e0"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952wheel"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.44 definition only; no execution permission",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-048",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D952reverse: Reverse maneuver prohibited for DD is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/38"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 632609,
+          "end_byte_exclusive": 633097,
+          "sha256": "e743980c123deba182a4477694bad076da17831a43565955c8f98f4893e2bae8"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952reverse"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.45 definition only; no execution permission",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-049",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D952column: Column maneuver prohibited for DD is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/39"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 633104,
+          "end_byte_exclusive": 633588,
+          "sha256": "41e6827234327802e086277a959bfa9ed48f8f7ff8672faba1cbb0d16f59ce5c"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R952",
+          "D952column"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.7 definition only; no execution permission",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-050",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D953pre: Base Pre-Shock check to receive DD modifiers is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/40"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 633595,
+          "end_byte_exclusive": 634061,
+          "sha256": "c10dfe25a71087f11f91d16b255c8391c5fa049753476d41eabfb02aeba97dd1"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R953",
+          "D953pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Pre-Shock TQ procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-051",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D953scenario: Unavailable referenced example is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/41"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 634068,
+          "end_byte_exclusive": 634546,
+          "sha256": "ce131ccb29a4c9a27ad8b0009b583e2aa11e81f55d21d6092c245381dc99d01e"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "N953ex",
+          "D953scenario"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Cynoscephalae scenario DD example",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-052",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D961stack: Roman stacking summary and exceptions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/42"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 634553,
+          "end_byte_exclusive": 635050,
+          "sha256": "3362f94296ac3129af6488042ee39b4164c150dc2f2859fdaf75e4a04a827482"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R961",
+          "D961stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual Stacking Charts including Roman/Velites exceptions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-053",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D961line: Line gaps and Line Command eligibility is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/43"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 635057,
+          "end_byte_exclusive": 635500,
+          "sha256": "8d75f0fdcb3802aa700ef4f4ce83ae7d7e13b3d5d9b687addb10740c35492c0e"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R961",
+          "D961line"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.32",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-054",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D962target: Same-hex Shock attack targeting is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/44"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 635507,
+          "end_byte_exclusive": 635947,
+          "sha256": "f864cc9a5639f1ef1af4929b70f1ae397a33bf12ce0584b609670653b58467fb"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R962",
+          "D962target"
+        ],
+        "blocking_claim": true,
+        "needed_context": "8.42",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-055",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D962auto: Automatic stack Cohesion Hits is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/45"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 635954,
+          "end_byte_exclusive": 636388,
+          "sha256": "b43a0393483b18a32f519aef833621f2584294e76c2c42adf83554ea7e2be625"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R962",
+          "D962auto"
+        ],
+        "blocking_claim": true,
+        "needed_context": "6.68",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-056",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D962shock: Explicit 8.46 Step 4 fragment supplied; exact table and earlier selection/applicability absent, blocking base Hits/full result. Separately 6.68 bullet #6 within-stack distribution absent.",
+      "response_pointers": [
+        "/gaps/46"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 636395,
+          "end_byte_exclusive": 637341,
+          "sha256": "509a59a82e0105d408795e67884d2c386317392861627fcc47a506f0fef47014"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R962",
+          "D962shock"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Exact Shock CRT and needed earlier determination context; G-D1013stack covers within-stack distribution.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-057",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D963TQ: General TQ check processing to receive stacked-Roman modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/47"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 637348,
+          "end_byte_exclusive": 637835,
+          "sha256": "6212fa8300b3d9109e019b711f2367afecafa232ce8ab43efb019b0516814402"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R963",
+          "D963TQ"
+        ],
+        "blocking_claim": true,
+        "needed_context": "TQ check timing and modifiers",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-058",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D964order: Individual Order for Roman stack-order change is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/48"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 637842,
+          "end_byte_exclusive": 638334,
+          "sha256": "17a8bd6c833d19e347ce15a3d6bd74460106a3cf2e87ee11b08c63f5672ad348"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R964",
+          "D964order"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Individual Order eligibility/range/procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-059",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D966line: Same-Line eligibility for MLE is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/49"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 638341,
+          "end_byte_exclusive": 638808,
+          "sha256": "bee2eb96ffb8d82a0c1c1bbd585e610689b5481517c23b09544b42b91532194e"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R966",
+          "D966line"
+        ],
+        "blocking_claim": true,
+        "needed_context": "4.32 Line definition and eligibility",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-060",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D967OW: OW potentially concurrent with MLE by different units is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/50"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 638815,
+          "end_byte_exclusive": 639337,
+          "sha256": "e8e1c4044f70d9da03cef0a05a13f7649299a2ce8e7dba19a2e919136bdb199e"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R967",
+          "D967OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "OW procedure, including trigger and withdrawal paths",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-061",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D968LC: Line Command eligibility for active MLE is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/51"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 639344,
+          "end_byte_exclusive": 639803,
+          "sha256": "1cff62c90933f3c5d18771c97169c5e1eea356ec85f9d7ce7f187bf7afc66624"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R968",
+          "D968LC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Line Command procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-062",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D968column: Column status excluded from MLE is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/52"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 639810,
+          "end_byte_exclusive": 640275,
+          "sha256": "e9a4b856ae18994e988c060e7142a3c16cc284af3c0366253b90db3009b850ef"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R968",
+          "D968column"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Column formation definition",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-063",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D971LOS: LOS test necessary for enemy proximity release is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/53"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 640282,
+          "end_byte_exclusive": 640747,
+          "sha256": "30bef8bfaae34c6d93008a0e4a476c3a60dd69b4aaaad592022e14b733622c12"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R971",
+          "D971LOS"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Line of Sight rules",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-064",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D972AWL: Scenario value for Triarii half-withdrawal threshold is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/54"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 640754,
+          "end_byte_exclusive": 641245,
+          "sha256": "4501dab342ed343a618bfbff3bc2c2a58e0037d4bb0ec51b1ce768d66008b659"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R972",
+          "D972AWL"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario Army Withdrawal Level",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-065",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D972RP: Roman Rout Point accounting needed for Triarii release is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/55"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 641252,
+          "end_byte_exclusive": 641752,
+          "sha256": "f55d0cda36ede2f89e9a06f65931deb0783be55f592e897fdf842846f390abca"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R972",
+          "D972RP"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Rout Point calculation and army withdrawal rules",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-066",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D983stack: Other Scorpio stacking constraints is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/56"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 641759,
+          "end_byte_exclusive": 642225,
+          "sha256": "ce88ae13d5292724dbb7bb023a8021b917b69a71f72ac40d3693dab72de74ace"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R983",
+          "D983stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General stacking restrictions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-067",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D986react: Ordinary Reaction Fire prohibited for Scorpio is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/57"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 642232,
+          "end_byte_exclusive": 642725,
+          "sha256": "45e1f6dd8be4e7d1cef1f01dad4a06508b05e1d1f6481cbfc5c1c91423b06949"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R986",
+          "D986react"
+        ],
+        "blocking_claim": false,
+        "needed_context": "8.2 to distinguish prohibited ordinary modes",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-068",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D987recovery: Normal Scorpio Hits/recovery processing is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/58"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 642732,
+          "end_byte_exclusive": 643215,
+          "sha256": "bb0c068ff4e763a593c93bb17c8317e14f6459174ef40d45e192c2ce816db360"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R987",
+          "D987recovery"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Cohesion Hit and Recovery procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-069",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D991column: Column Movement prohibited for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/59"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 643222,
+          "end_byte_exclusive": 643682,
+          "sha256": "e00f043865aa4198721e59d3236abd096a7a37262bb6e862aa77311703e62b92"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R991",
+          "D991column"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.7 definition only",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-070",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D991PAW: Pre-Arranged Withdrawal prohibited for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/60"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 643689,
+          "end_byte_exclusive": 644151,
+          "sha256": "d7f08e71c1cc07c87e8e1533bbf883c8e2f08e3eb81313bb09067428e67f4010"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R991",
+          "D991PAW"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.8 definition only",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-071",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D991OW: OW prohibited for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/61"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 644158,
+          "end_byte_exclusive": 644597,
+          "sha256": "0d27fe434550bc8f13cd6a227585090b06c3852a1d7a95d6c6f1e7e147f9841a"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R991",
+          "D991OW"
+        ],
+        "blocking_claim": false,
+        "needed_context": "6.5 definition only",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-072",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D993recovery: Normal Recovery modified to 1 Hit for BI is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/62"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 644604,
+          "end_byte_exclusive": 645094,
+          "sha256": "837c301fff02606dca51181a6dac5eb9de810deadc48840a33793f4a1dae2a9c"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R993",
+          "D993recovery"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Recovery order eligibility and procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-073",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D993depleted: Depleted status necessary for rout replacement is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/63"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 645101,
+          "end_byte_exclusive": 645595,
+          "sha256": "f761def146a8386ceaeed18b8712253451c0275245b4e3e13d05ab12485f9be1"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R993",
+          "D993depleted"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Depletion definition and determination",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-074",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D994scenario: Leader assignment and Initiative needed for command-specific Ferocity checks is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/64"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 645602,
+          "end_byte_exclusive": 646158,
+          "sha256": "e99c36601e444c56865de2229bbbc9901fea5df5b1d04556fa4885f1ae9b13e3"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R994",
+          "D994scenario"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario BI command assignments and leader Initiative Ratings",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-075",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D994pre: Base Pre-Shock process to receive Ferocity modifiers is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/65"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 646165,
+          "end_byte_exclusive": 646642,
+          "sha256": "f0664691c0576667258d6f0baf116aa7bcc5a7f8a043000596482572a7323116"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R994",
+          "D994pre"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Pre-Shock check procedure",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-076",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D995momentum: First-try Momentum process to receive Impetuosity modifier is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/66"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 646649,
+          "end_byte_exclusive": 647162,
+          "sha256": "5d49adeccbcf512657b27df883cae3717612a4a46771c714b339e43d411033cc"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R995",
+          "D995momentum"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Momentum rules including first-try definition",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-077",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D995scenario: BI command assignment for Impetuosity loss is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/67"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 647169,
+          "end_byte_exclusive": 647661,
+          "sha256": "3042e55550aa4d0b3526b7091ee210120cd7c48bcb016610a6aa8e1105b39d5d"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R995",
+          "D995scenario"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Selected scenario BI command assignments",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-078",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996tables: Combat Table Chariot references ignored for transport chariots is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/68"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 647668,
+          "end_byte_exclusive": 648248,
+          "sha256": "709d00bec15889990cc4d425d9ee7b2f041b8814b8f0bf029e59286bcc067d4b"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996note",
+          "D996tables"
+        ],
+        "blocking_claim": false,
+        "needed_context": "Actual combat tables only to identify suppressed Chariot entries; no execution permitted by this clause",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-079",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996eligible: Which LI may ride Gallic chariots is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/69"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 648255,
+          "end_byte_exclusive": 648759,
+          "sha256": "8629e6ef134412ea98deedeed877f24fc9870a1f9443622bb33ca561d74fc6eb"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996a",
+          "D996eligible"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Eligibility definition/scenario restrictions for mounted LI",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-080",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996OW: CH+LI OW eligibility if mounted is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/70"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 648766,
+          "end_byte_exclusive": 649223,
+          "sha256": "5c985cf30073bd5ccb7177de97f9abd0690725aa886d12f9f902de6a99810a46"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996a",
+          "D996OW"
+        ],
+        "blocking_claim": true,
+        "needed_context": "OW rules for mounted LI/CH",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-081",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996stack: Other limits on CH+LI and CH alone is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/71"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 649230,
+          "end_byte_exclusive": 649698,
+          "sha256": "fb8324b1213f928731abeedab089ab055e0cd3f9c30c7d3c9a993461c5dcdac3"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996b",
+          "D996stack"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General stacking restrictions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-082",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996movement: CH terrain MP costs/prohibitions is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/72"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 649705,
+          "end_byte_exclusive": 650195,
+          "sha256": "cb9781836ad589de1610924b04d5a6648d48dd66ff3f9c1033a5953339116bbf"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996b",
+          "D996movement"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Actual Movement Cost Chart with CH restrictions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-083",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996MRRC: Mounted LI missile range/results is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/73"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 650202,
+          "end_byte_exclusive": 650680,
+          "sha256": "d4cd93bfb3b34d1c4d42807d7e86bd230b7fd04870f9e60c9bc25a9c9f2f7e67"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996d",
+          "D996MRRC"
+        ],
+        "blocking_claim": true,
+        "needed_context": "MRRC Mounted Javelin row, headers and notes",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-084",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996supply: Missile Supply exception while mounted is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/74"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 650687,
+          "end_byte_exclusive": 651217,
+          "sha256": "e2167a6c172ffdd5821cad595bfd289e50d03c8b1aaa1ce1e5a3cf6a5a21e43b"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996d",
+          "D996supply"
+        ],
+        "blocking_claim": false,
+        "needed_context": "8.17 including normal supply state rules; mounting marker removal itself is explicit",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-085",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D996HD: Mounted LI cavalry-style H&D procedure is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/75"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 651224,
+          "end_byte_exclusive": 651724,
+          "sha256": "58c5259ac1031c46f4a3d39de79bf3e18c74adff512368a5d0004c9083f2ea4f"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R996d",
+          "D996HD"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Harassment and Dispersal procedure including cavalry conditions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-086",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D-ZOC-R911: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/76"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 651731,
+          "end_byte_exclusive": 652256,
+          "sha256": "4ca52947403e27451b3f6cd3a5aca982464fcb0766a61b862b26bcd2e6f50df4"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R911",
+          "D-ZOC-R911"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-087",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D-ZOC-R915: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/77"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 652263,
+          "end_byte_exclusive": 652739,
+          "sha256": "992ee4adf336f5ad215e7199a3eccb73b1188e45955e299ea211a1f3593e7d8d"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R915",
+          "D-ZOC-R915"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-088",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D-ZOC-R966: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/78"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 652746,
+          "end_byte_exclusive": 653271,
+          "sha256": "3c69b7e30dee26cd143d249fc103a1db6a2400d3b59b045165f01857b1e8ddef"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R966",
+          "D-ZOC-R966"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-089",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D-ZOC-R972: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/79"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 653278,
+          "end_byte_exclusive": 653755,
+          "sha256": "f4316df191200527106f5fdd44db596d27ef4f4760e20d7f5d07f53eae494b36"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R972",
+          "D-ZOC-R972"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-090",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration G-D-ZOC-R995: General ZOC test in rule condition is referenced but unavailable.",
+      "response_pointers": [
+        "/gaps/80"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 653762,
+          "end_byte_exclusive": 654239,
+          "sha256": "60d830f90cce5dc09348508a78b8687b9d873c9573527169061b07c277d90069"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "R995",
+          "D-ZOC-R995"
+        ],
+        "blocking_claim": true,
+        "needed_context": "General ZOC definition and exceptions",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-091",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration GCTX-CRT: Only application fragment supplied; actual Shock CRT headers/rows/notes/results absent. No names treated as verified aliases.",
+      "response_pointers": [
+        "/gaps/81"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 654246,
+          "end_byte_exclusive": 654895,
+          "sha256": "8e27610295c92326327400f3f16ecf988ee330a3f1ec315b6613c0daecf012f4"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "NCTX846S4",
+          "NCTX-ShockCRT",
+          "R932",
+          "R962",
+          "R923"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Exact Shock CRT and source-backed lookup context; no further acquisition.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-092",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration GCTX-applicability: Readable conditional factors do not establish AS/DS entitlement, attacker selection or actual application.",
+      "response_pointers": [
+        "/gaps/82"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 654902,
+          "end_byte_exclusive": 655691,
+          "sha256": "4f1fccbc0c612ae5f0e302a72a43b91f0074917362efaaf8cd435f1b678e416a"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "NCTX846S4",
+          "R932",
+          "R962",
+          "R923"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Required earlier Shock procedure and exact named tables; identified ratings, map and scenario facts where needed.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-093",
+      "class": "niejednoznaczność",
+      "detail": "Extractor declaration GCTX-order: Cumulative with bullet #1 stated; combined operation/rounding order and execution of printed 9.32 example unresolved. No unconditional 2x/half cancellation asserted.",
+      "response_pointers": [
+        "/gaps/83"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 655698,
+          "end_byte_exclusive": 656455,
+          "sha256": "7ea64d068bd2de762893fa0cac6b4289b306931c72163ab9d5a1cdc40cfbdc5a"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "NCTX846S4",
+          "R932",
+          "N932ex"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Source-backed combined numeric/rounding procedure where needed and exact base-result context.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-094",
+      "class": "brak kontekstu",
+      "detail": "Extractor declaration GCTX-845: Bullet #4 refers to 8.45 attacker determination; that procedure not included.",
+      "response_pointers": [
+        "/gaps/84"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 656462,
+          "end_byte_exclusive": 656998,
+          "sha256": "82df09b3d20929b3292560f787e921f94ff019d5e9a9ded987a32e07a64676f9"
+        }
+      ],
+      "status": "reported_claim_requires_review",
+      "criticality": "unknown",
+      "impact": {
+        "affected_ids": [
+          "NCTX846S4",
+          "R932"
+        ],
+        "blocking_claim": true,
+        "needed_context": "Exact needed 8.45 selection procedure; no reconstruction from reference.",
+        "semantic_confirmation": "not_assessable"
+      },
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-095",
+      "class": "niejednoznaczność",
+      "detail": "Quote E911a matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/0/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 49208,
+          "end_byte_exclusive": 49627,
+          "sha256": "d9961346c707cd17411ae0b11ef491d40a09f57a17ce33ccb4c3e0fcc3bec13b"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-096",
+      "class": "niejednoznaczność",
+      "detail": "Quote E912 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/2/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 51398,
+          "end_byte_exclusive": 51815,
+          "sha256": "30951c950c978084acc5165c80da9b8925c550a92276be77b25afa27db90f706"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-097",
+      "class": "niejednoznaczność",
+      "detail": "Quote E913 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/3/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 52504,
+          "end_byte_exclusive": 52922,
+          "sha256": "d6d833a1fca43ae2ec097ac3fed9e8ef64beb98be892625c592157f36b04864e"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-098",
+      "class": "niejednoznaczność",
+      "detail": "Quote E914start matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/5/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 54638,
+          "end_byte_exclusive": 55056,
+          "sha256": "a66b80963f4cffebeca84cd26b03bae39c1f28c926bdd27fdde04b340adaef64"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-099",
+      "class": "niejednoznaczność",
+      "detail": "Quote E914priority matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/8/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 57911,
+          "end_byte_exclusive": 58328,
+          "sha256": "0d016a300a745eabc46f6f3b837098bc140747c7de31aba7b1a78306957e99b6"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-100",
+      "class": "niejednoznaczność",
+      "detail": "Quote E914diagram matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/9/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 58973,
+          "end_byte_exclusive": 59390,
+          "sha256": "5ac682763f28c4506b0fc2eae64ccdef4a0b562decbe1c1f0c5294825851ae9c"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-101",
+      "class": "niejednoznaczność",
+      "detail": "Quote E914move matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/10/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 60023,
+          "end_byte_exclusive": 60441,
+          "sha256": "b73f0617db19bff9a865a267f34cf70a04d9e894bd9e25cb32a00e9e1fbd10ce"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-102",
+      "class": "niejednoznaczność",
+      "detail": "Quote E914end matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/11/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 61103,
+          "end_byte_exclusive": 61522,
+          "sha256": "b33ebcbd7190fcfd7266980df8f562a28322becf7f7635f5e123580f28091e5d"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-103",
+      "class": "niejednoznaczność",
+      "detail": "Quote E914cont matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/13/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 63294,
+          "end_byte_exclusive": 63710,
+          "sha256": "b6946cc2704b26f1f2d40c9777058295275026e6f336d9e288090fbf8b4fb00e"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-104",
+      "class": "niejednoznaczność",
+      "detail": "Quote E915 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/14/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 64356,
+          "end_byte_exclusive": 64772,
+          "sha256": "4e83c0f30d1ef45e1e98819ddab02c216931d824c361685912dfd23ec37a0212"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-105",
+      "class": "niejednoznaczność",
+      "detail": "Quote E918 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/17/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 67486,
+          "end_byte_exclusive": 67904,
+          "sha256": "718fb988bb2258187739530eae79f86281233faf5a5650a014117490f8906f19"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-106",
+      "class": "niejednoznaczność",
+      "detail": "Quote E919 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/18/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 68539,
+          "end_byte_exclusive": 68957,
+          "sha256": "31fdce1cd2424eb8e86d368d0249546021de26a859de68f8557c3c99eb0acdac"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-107",
+      "class": "niejednoznaczność",
+      "detail": "Quote E921 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/20/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 70715,
+          "end_byte_exclusive": 71132,
+          "sha256": "66887e2e3288b2ec747e7a6c94bf7fff388f5274b048c787cbec99095c568b01"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-108",
+      "class": "niejednoznaczność",
+      "detail": "Quote E922 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/21/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 71781,
+          "end_byte_exclusive": 72199,
+          "sha256": "aef54997bc52f4e05bb93b6e649437ab4ecc931fbdf581924633baeb48bcd949"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-109",
+      "class": "niejednoznaczność",
+      "detail": "Quote E923 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/22/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 72882,
+          "end_byte_exclusive": 73301,
+          "sha256": "3b271e4f02abf88cd3e0af43c354ebbed52eba90d40cea077d484b368901171c"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-110",
+      "class": "niejednoznaczność",
+      "detail": "Quote E923ex matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/23/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 73911,
+          "end_byte_exclusive": 74330,
+          "sha256": "a146f49f68326be58abef3609deaa11c10c70197837854579e670f30f9acdbcb"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-111",
+      "class": "niejednoznaczność",
+      "detail": "Quote E924cont matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/25/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 75994,
+          "end_byte_exclusive": 76410,
+          "sha256": "540cfc7c44b01d0cbe7c89fb0024c298b01e9cd8186e4814e184554b400a4d9d"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-112",
+      "class": "niejednoznaczność",
+      "detail": "Quote E924ex matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/26/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 77008,
+          "end_byte_exclusive": 77424,
+          "sha256": "b180ead4eec051b01a1d318f15c2ac40def7ae17b7dc7c03d7504c4b67770e35"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-113",
+      "class": "niejednoznaczność",
+      "detail": "Quote E931 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/27/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 78061,
+          "end_byte_exclusive": 78477,
+          "sha256": "fdacc9a2aebf675b2146887c8e4bbbd094203e96d9e9b382d78b4c31b6d5216e"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-114",
+      "class": "niejednoznaczność",
+      "detail": "Quote E932ex matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/29/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 80177,
+          "end_byte_exclusive": 80593,
+          "sha256": "6438f997709dc5b0839f8131924e8db66a58543d3b398876114503adc923281c"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-115",
+      "class": "niejednoznaczność",
+      "detail": "Quote E941 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/30/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 81230,
+          "end_byte_exclusive": 81647,
+          "sha256": "ca793745813b0a49af67c90ad2458f4e4b59409378ed76c4fcde115bd64b1e93"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-116",
+      "class": "niejednoznaczność",
+      "detail": "Quote E941ex matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/31/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 82255,
+          "end_byte_exclusive": 82673,
+          "sha256": "a0742689fd668b5e8e84439fac72a27156d81db97aa23a882454cf960b1d93e2"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-117",
+      "class": "niejednoznaczność",
+      "detail": "Quote E951 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/33/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 84349,
+          "end_byte_exclusive": 84766,
+          "sha256": "4809d319c11da18d44d9013c9c9d8e1baf33d518f7ee832b98ae6825cb942473"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-118",
+      "class": "niejednoznaczność",
+      "detail": "Quote E952 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/34/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 85405,
+          "end_byte_exclusive": 85823,
+          "sha256": "ba518ce5192e9b2153ce02a37e0a8c3d0d5671f5e3cf1ef6555ce314e09c4f8c"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-119",
+      "class": "niejednoznaczność",
+      "detail": "Quote E962 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/38/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 89539,
+          "end_byte_exclusive": 89956,
+          "sha256": "afcdd01b19e2f4807cd1a95c48e2279fafb94a973d059bf5c2861a6d831340e0"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-120",
+      "class": "niejednoznaczność",
+      "detail": "Quote E963 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/39/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 90557,
+          "end_byte_exclusive": 90975,
+          "sha256": "f2c9e12449f97fa4c8ca5bf1a3113a9fdc2abbe64efb558aa93c33095d2dfaea"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-121",
+      "class": "niejednoznaczność",
+      "detail": "Quote E964 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/40/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 91626,
+          "end_byte_exclusive": 92044,
+          "sha256": "44a5260682e3497bcf6970d56af116d1c80a2d39db8ecedc7d34a8585d681be4"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-122",
+      "class": "niejednoznaczność",
+      "detail": "Quote E965 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/41/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 92729,
+          "end_byte_exclusive": 93147,
+          "sha256": "0b249842cafed63b67ecfc0b9eab6c54598c216d5cf3b9a72825813583505ecd"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-123",
+      "class": "niejednoznaczność",
+      "detail": "Quote E966a matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/43/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 94786,
+          "end_byte_exclusive": 95204,
+          "sha256": "80c7d2fd8a5c938b4992f1851ff5f40d769337913527d2faa8a798cfede07b4e"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-124",
+      "class": "niejednoznaczność",
+      "detail": "Quote E966b matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/44/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 95833,
+          "end_byte_exclusive": 96250,
+          "sha256": "59844a36b2433a62b0d2ca03ea3762cf4e45068f4047d6bba71cbb9ff997c83a"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-125",
+      "class": "niejednoznaczność",
+      "detail": "Quote E967 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/45/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 96875,
+          "end_byte_exclusive": 97292,
+          "sha256": "5922d1e5fe1227fd41fd30024fcb277f26359a626b62f5488d0ec474c267ef4a"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-126",
+      "class": "niejednoznaczność",
+      "detail": "Quote E968 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/47/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 98925,
+          "end_byte_exclusive": 99342,
+          "sha256": "876700b89b7475e5c172261740aefabf128eac30853484c7db46a5e5b5c57acf"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-127",
+      "class": "niejednoznaczność",
+      "detail": "Quote E97intro matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/48/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 99932,
+          "end_byte_exclusive": 100351,
+          "sha256": "8ba5e5f0c0c04889020ee2333f307f294841af3656ccb3bfa2b47c6b82c259bd"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-128",
+      "class": "niejednoznaczność",
+      "detail": "Quote E972 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/50/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 102088,
+          "end_byte_exclusive": 102507,
+          "sha256": "b3730dfec0607bbe673485b743750ad8252ee9b848a041d9f5310afbdc7c5320"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-129",
+      "class": "niejednoznaczność",
+      "detail": "Quote E981 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/51/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 103172,
+          "end_byte_exclusive": 103588,
+          "sha256": "31e66026871b65a602c5b2c4bea9bb4a9aac6f7a8b72f771f94146998238f50c"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-130",
+      "class": "niejednoznaczność",
+      "detail": "Quote E983 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/54/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 106346,
+          "end_byte_exclusive": 106762,
+          "sha256": "78cd83568b53fcdc1eca3499e182c0d6e015c7e802fc29e6934c0162f295483e"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-131",
+      "class": "niejednoznaczność",
+      "detail": "Quote E984 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/55/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 107365,
+          "end_byte_exclusive": 107781,
+          "sha256": "c2db5e02cbf2b6a0c08a655d066b703e0d2e97670991cde8aa0bb37505ded3fe"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-132",
+      "class": "niejednoznaczność",
+      "detail": "Quote E986 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/57/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 109443,
+          "end_byte_exclusive": 109861,
+          "sha256": "e6a9eae0a8ebe4a7d837c1e1cb481d362e713bc19fd51707c1e20b8989bbbd4c"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-133",
+      "class": "niejednoznaczność",
+      "detail": "Quote E991a matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/59/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 111528,
+          "end_byte_exclusive": 111946,
+          "sha256": "eff318ad76b9590de29d84dc283581795f7f3c33fc5b3b689d6621eb43245852"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-134",
+      "class": "niejednoznaczność",
+      "detail": "Quote E994 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/62/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 114696,
+          "end_byte_exclusive": 115114,
+          "sha256": "3246f979101c5135554ccf8b1770f7d0cb24845d40fd73650ea4aebad9ae1771"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-135",
+      "class": "niejednoznaczność",
+      "detail": "Quote E995 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/63/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 115766,
+          "end_byte_exclusive": 116185,
+          "sha256": "33d1aaa76ccb44c30fa91e8ed96f6d700e2329ae6df50deb8bdc47e9877299bd"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-136",
+      "class": "niejednoznaczność",
+      "detail": "Quote E996a matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/65/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 117896,
+          "end_byte_exclusive": 118315,
+          "sha256": "fbc921cf56b3404090f0ada4c7e10e5c9e9aebfe17a65305fb2a0e4f56999c11"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-137",
+      "class": "niejednoznaczność",
+      "detail": "Quote E996c matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/67/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 120010,
+          "end_byte_exclusive": 120426,
+          "sha256": "cdb8c51cf9ed7455734552741301971844b470cbe54626a0db588c8f6e6b71ca"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-138",
+      "class": "niejednoznaczność",
+      "detail": "Quote E996d matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/68/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 121079,
+          "end_byte_exclusive": 121495,
+          "sha256": "aa1dd28b83fb2ee284f7d0e1c839d231089cff374480955545f491f557783681"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-139",
+      "class": "niejednoznaczność",
+      "detail": "Quote E996e matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/69/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 122128,
+          "end_byte_exclusive": 122545,
+          "sha256": "834ecbfce849d985ad1deee4553be3153d0318e52fc89d0beb95db72e499376a"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-140",
+      "class": "niejednoznaczność",
+      "detail": "Quote E92 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/72/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 125162,
+          "end_byte_exclusive": 125579,
+          "sha256": "7b6044f10e9462a45d4bc6c7e72dce12bc781d6e51bd493fca01af0c947df6de"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-141",
+      "class": "niejednoznaczność",
+      "detail": "Quote E95 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/75/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 128169,
+          "end_byte_exclusive": 128586,
+          "sha256": "d9de95dc245987ecb6bc01079e905009061c38edbeafdf02b436ff4c34143c3d"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-142",
+      "class": "niejednoznaczność",
+      "detail": "Quote E96 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/76/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 129181,
+          "end_byte_exclusive": 129597,
+          "sha256": "d44c9ad26323f667dc700dd81e06f7a24afe796aa0099977f81cd601745cbd75"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-143",
+      "class": "niejednoznaczność",
+      "detail": "Quote E97 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/77/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 130198,
+          "end_byte_exclusive": 130616,
+          "sha256": "40c9d476303136d319753eff7428b5034228a2176866ff5282f48c0c5e091538"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-144",
+      "class": "niejednoznaczność",
+      "detail": "Quote E98 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/78/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 131194,
+          "end_byte_exclusive": 131610,
+          "sha256": "568e982aa7a013c230222afb46158889317a8387a5e0987f0d38808892ac0675"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-145",
+      "class": "niejednoznaczność",
+      "detail": "Quote E99 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/79/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 132193,
+          "end_byte_exclusive": 132611,
+          "sha256": "de132abd3ae0bc470e7802379e48a02530b7dc71eb7c3f52f9d00a9ae04c1f43"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-146",
+      "class": "niejednoznaczność",
+      "detail": "Quote E871 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/97/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 150907,
+          "end_byte_exclusive": 151324,
+          "sha256": "e948692d54cc33c14d1a81b1c60c71f7578e3c43ab3b5a569f2ca4fa6a6dd541"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-147",
+      "class": "niejednoznaczność",
+      "detail": "Quote E873 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/99/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 153082,
+          "end_byte_exclusive": 153499,
+          "sha256": "9da06a444ddc5a2b75f4c6918b554f9f8ec621a57f266a147cc53fe443a5dec2"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-148",
+      "class": "niejednoznaczność",
+      "detail": "Quote E874 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/100/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 154177,
+          "end_byte_exclusive": 154594,
+          "sha256": "3debcc17d094c1b3435c91ba7df3f81a5acd4827f96725a869f644003c231e26"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-149",
+      "class": "niejednoznaczność",
+      "detail": "Quote E875 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/101/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 155259,
+          "end_byte_exclusive": 155676,
+          "sha256": "f84a20182a664803c71316c9a21deb8a78ed09bd01f177b0d6405efd568566e3"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-150",
+      "class": "niejednoznaczność",
+      "detail": "Quote E1011 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/102/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 156325,
+          "end_byte_exclusive": 156743,
+          "sha256": "840172c46c90f88fdf24123f5a9fb896bd285acda50992573b703539f328398a"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-151",
+      "class": "niejednoznaczność",
+      "detail": "Quote E1013 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/103/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 157375,
+          "end_byte_exclusive": 157792,
+          "sha256": "0a8f376ac5e17370cabb521efec0facdc82a329ed99389ef231e397eb9a52724"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-152",
+      "class": "niejednoznaczność",
+      "detail": "Quote E1014 matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/104/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 158455,
+          "end_byte_exclusive": 158874,
+          "sha256": "c3b7a2e8a34e59479108e22a879c3f00f3c50ba4248fa57f0b699b3ecfa13f0e"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-153",
+      "class": "niejednoznaczność",
+      "detail": "Quote ECTX846S4-header matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/105/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 159695,
+          "end_byte_exclusive": 160356,
+          "sha256": "976e86b008494716274efd8315f02a83e47165bf474935f218612cd06e496b1b"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-154",
+      "class": "niejednoznaczność",
+      "detail": "Quote ECTX846S4-AS matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/106/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 161066,
+          "end_byte_exclusive": 161729,
+          "sha256": "f383a005574a4224ec055e9525f5aa1ce5ee581601af1b88f6f6bf7ec29a6bf2"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-155",
+      "class": "niejednoznaczność",
+      "detail": "Quote ECTX846S4-DS matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/107/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 162439,
+          "end_byte_exclusive": 163103,
+          "sha256": "11e25995b12ee826c15f28daebf7016d5665d4dfc31dbcc609717cf2f05ea71f"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-156",
+      "class": "niejednoznaczność",
+      "detail": "Quote ECTX846S4-SK matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/108/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 163847,
+          "end_byte_exclusive": 164511,
+          "sha256": "174426b58ba92ab3f77051e4965343c97f638f8becb61398d108fb8d610f412d"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-157",
+      "class": "niejednoznaczność",
+      "detail": "Quote ECTX846S4-LC matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/109/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 165433,
+          "end_byte_exclusive": 166097,
+          "sha256": "7a6cba72f69c55988b76adf7ae9cbfeae78bdf57a84f0bf9cd465a7700e2f8d2"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    },
+    {
+      "id": "ERR-context-01-158",
+      "class": "niejednoznaczność",
+      "detail": "Quote ECTX846S4-distribution matches overlapping glyphs, not complete glyph envelopes; exact glyph-boundary review remains pending.",
+      "response_pointers": [
+        "/evidence/110/image"
+      ],
+      "raw_spans": [
+        {
+          "start_byte": 166854,
+          "end_byte_exclusive": 167518,
+          "sha256": "d68f06d5d4105a24adfc4bc0c5489ace5e27543563aa212db95eafb7d7c3eae8"
+        }
+      ],
+      "status": "pending_locator_review",
+      "criticality": "unknown",
+      "impact": "Do not count a strict whole-glyph-area pass. New raster areas are legible in the limited short-quote review.",
+      "response_sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    }
+  ],
+  "operational_limitations": {
+    "snapshot": {
+      "path": "private/poc/spqr-chapter9/measurement/M-POC4B-context-01/extractor-thread-snapshot.json",
+      "bytes": 69614,
+      "sha256": "c65271bc7430477022f4f227588b8e71eb5dcf886703c7404a62b856319b9adf"
+    },
+    "thread_id": "01a12690-583e-77b3-a182-1c83498a26ba",
+    "turn_id": "01a12690-8475-7a53-87cb-6ef5ffdce084",
+    "snapshot_provider": "Codex app read_thread",
+    "commands_observed": 15,
+    "independent_scope_deviation": true,
+    "evidence_commands": [
+      {
+        "id": "exec-92357c37-ceec-4c94-9516-dfe4b34a348e",
+        "command": "\"C:\\\\Users\\\\yauta\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\repo\\\\wargame-compiler\\\\transfer-list.txt'\"",
+        "cwd": "C:\\repo\\wargame-compiler",
+        "status": "failed",
+        "exit_code": 1
+      },
+      {
+        "id": "exec-483845ad-3b42-4454-a69a-d9154ae738ca",
+        "command": "\"C:\\\\Users\\\\yauta\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -LiteralPath 'C:\\\\repo\\\\wargame-compiler' -Force | Select-Object Mode,Name\"",
+        "cwd": "C:\\repo\\wargame-compiler",
+        "status": "completed",
+        "exit_code": 0
+      },
+      {
+        "id": "exec-06fccb8f-92a6-41f0-ba4f-d9bc37925f10",
+        "command": "\"C:\\\\Users\\\\yauta\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"rg --files --hidden -g transfer-list.txt -g '\"'!'\"\\\\.git/**' -g '\"'!.venv/**'\"' 'C:\\\\repo\\\\wargame-compiler'\"",
+        "cwd": "C:\\repo\\wargame-compiler",
+        "status": "completed",
+        "exit_code": 0
+      }
+    ],
+    "scope": "Attempted absent root transfer-list read, root entry-name listing and path search outside allowlist are observed. Names/path metadata access is not itself proof of reading evaluation content.",
+    "assessment_content_read_observed": false,
+    "assessment_exposure": "unknown",
+    "clean_context_verified": false,
+    "no_proven_contamination": true,
+    "no_proven_full_isolation": true,
+    "limitations": "Transcript outputs can be truncated; prior context/UI selector and all implicit environment access are not independently established."
+  },
+  "count_policy": "Declared gaps and pending cases are not confirmed semantic errors."
+}

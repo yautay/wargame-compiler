@@ -56,6 +56,7 @@ def check_completed_card_handoff(milestone: str, completed: str, current: str,
     orders = {
         'M-POC1': ['M-POC1A', 'M-POC1B', 'M-POC1C'],
         'M-POC2': ['M-POC2A', 'M-POC2B'],
+        'M-POC4': ['M-POC4A', 'M-POC4B'],
     }
     assert milestone in orders, 'Unsupported within-milestone handoff'
     order = orders[milestone]
@@ -261,3 +262,21 @@ def test_poc2_handoff_accepts_completed_preparation():
 def test_poc2_handoff_rejects_incomplete_repeated_or_wrong_cards(completed, current, results):
     with pytest.raises(AssertionError):
         check_completed_card_handoff('M-POC2', completed, current, results)
+
+
+def test_poc4_handoff_accepts_completed_context_selection():
+    check_completed_card_handoff('M-POC4', 'M-POC4A', 'M-POC4B',
+                                 {'M-POC4A': 'done', 'M-POC4B': 'planned'})
+
+
+@pytest.mark.parametrize('completed,current,results', [
+    ('M-POC4A', 'M-POC4B', {}),
+    ('M-POC4A', 'M-POC4B', {'M-POC4A': 'partial'}),
+    ('M-POC4A', 'M-POC4A', {'M-POC4A': 'done'}),
+    ('M-POC4A', 'M-POC4B', {'M-POC4A': 'done', 'M-POC4B': 'done'}),
+    ('M-POC4A', 'M-POC5A', {'M-POC4A': 'done'}),
+    ('M-POC3', 'M-POC4B', {'M-POC3': 'done'}),
+])
+def test_poc4_handoff_rejects_unreviewed_repeated_completed_or_wrong_cards(completed, current, results):
+    with pytest.raises(AssertionError):
+        check_completed_card_handoff('M-POC4', completed, current, results)

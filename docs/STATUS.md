@@ -1,8 +1,8 @@
 # STATUS
 
 - **Data aktualizacji:** 2026-10-10
-- **Bieżący milestone:** M-POC4
-- **Bieżąca karta:** M-POC4A
+- **Bieżący milestone:** M-POC5
+- **Bieżąca karta:** M-POC5A
 - **Wynik M-POC0:** done
 - **Wynik M-POC1A:** done — przegląd struktury w zapisanym zakresie
 - **Wynik M-POC1B:** done — przegląd oczekiwań i sytuacji
@@ -10,8 +10,104 @@
 - **Wynik M-POC2A:** done — pakiet przygotowany
 - **Wynik M-POC2B:** done — odbiór istniejącej first-001 z brakami unknown
 - **Wynik M-POC3:** done — baseline zamknięty przed korektami, bez semantycznej akceptacji
-- **Wynik M-POC4A:** partial — pass-01 przygotowany, źródła krytyczne waiting_review
-- **Blokady:** review źródła krytycznego i znaczenia; brak dokładnych tabel oraz identyfikacji mapy/scenariusza/żetonu; konfiguracja/czas/historyczne przekazanie/czysty kontekst i aktywny budżet unknown
+- **Wynik M-POC4A:** done — właściciel zatwierdził wybór źródła i zakres; pass-01 zamrożony osobnym zapisem
+- **Wynik M-POC4B:** done — właściciel przyjął ograniczony efekt źródła, 0 pełnych domknięć i jawne blokady; bez akceptacji znaczenia
+- **Wynik M-POC5A:** planned — wspólny przegląd znaczenia obu wyników jeszcze niewykonany
+- **Blokady:** znaczenie obu wyników waiting_review; brak dokładnych tabel oraz rzeczywistych źródeł mapy/scenariusza/żetonu; ścieżka do trzeciego nierozstrzygniętego kroku, bez jego pozyskania; izolacja dostępu naruszona, ekspozycja na ocenę unknown; konfiguracja i aktywny budżet unknown
+
+2026-10-10 właściciel potwierdził „zatwierdzam” i „akceptuje wyniki” po
+wyjaśnieniu ograniczonego rezultatu M-POC4B. Zapisano
+reviews/context-source-01/decision-01.json i review-closure-01.json.
+Akceptacja obejmuje częściowe źródło/procedurę, 0 pełnych domknięć, 4 częściowe
+aktualizacje, 4 nowe deklaracje oraz jawne ograniczenia głębokości/izolacji.
+Nie obejmuje znaczenia reguł/relacji, kolejności obliczeń, sytuacji ani budżetu.
+Nie poświadczono otwarcia całego raportu lub obrazu przez właściciela.
+
+M-POC4 done w zakresie wyboru źródła, odbioru, raportu i ograniczonego przeglądu
+efektu. Zamknięte raporty/requesty/pomiary z historycznym partial pozostają
+niezmienione; nowa decyzja i closure prowadzą aktualny workflow.
+Dokładny następny krok: osobna M-POC5A w C:/repo/wargame-compiler,
+odczyt obu run/proposal/report i eval-v1, dwa zestawy ocen z hashami,
+pokazywanie dowodów właścicielowi. Bez modelowej autoakceptacji, nowej
+ekstrakcji/korekty, pass-02 ani M-POC5B w tej samej karcie.
+M-POC5 jedyny next. Prompt: prompts/semantic-review-start-v1.txt pod
+private/poc/spqr-chapter9/. Nowy pomiar zamknięcia przeglądu:
+measurement/M-POC4B-owner-review-001/completion.json i nowy wpis sessions.jsonl.
+Kontrole zamknięcia: scripts/check.ps1 **115 passed**, git diff --check bez błędów.
+
+## Historia raportu M-POC4B przed przyjęciem ograniczonego wyniku
+
+M-POC4B odebrało istniejący plik transfer/context-v1/context-01.json
+i zachowało 712014 bajtów w runs/context-01/response.raw.txt. SHA-256:
+95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b.
+Manifest nowego pakietu zgodny; 41 artefaktów/42 wejścia oraz 7 artefaktów
+eval-v1 zweryfikowane. Rodzic first-001 i zamknięty baseline zachowane.
+Nowe run.json/session-evidence, proposal/provenance oraz reports/context-01/
+mają osobne hashe i dokładne ślady do surowych bajtów.
+
+Format czytelny: 480 ID rekordów, 154 ID klauzul, 3660 rozwiązanych referencji.
+Zmieniła się 1 reguła, 1 istniejący węzeł, 2 stare relacje i 4 stare luki.
+Dodano 2 węzły, 5 relacji, 6 dowodów i 4 luki. Wszystkie 81 dawnych deklaracji
+luk zachowane, 4 częściowo uzupełnione nadal blokują; 0 pełnych domknięć.
+Nowe cytaty poparte źródłem i czytelne w rasterze; 6 nowych granic glifów
+pending. Dziedziczony błąd obszaru i 7 brakujących par nie naprawione.
+207 ID, 66 grup treści, 8 kontekstu i 20 sytuacji zachowują mianowniki;
+znaczenie, TP/FP/FN i regresje semantyczne not_assessable.
+
+Przyrost źródła nadal 1 strona/1 reguła/0 tabel. Wykonano 1 ręczną rundę
+odpowiedzi po kontekście, 0 korekt i 0 nowych inferencji oceniającego.
+Nowe połączenie w propozycji ujawnia ścieżkę 3 kroków do brakującego celu;
+nie pozyskano trzeciego źródła, dalsze rozszerzanie zatrzymano na granicy 2.
+Nie zadeklarowano zgodności głębokości całego grafu ani aktywnego budżetu czasu.
+
+Niezależny transkrypt aplikacji potwierdza wylistowanie nazw/wyszukiwanie ścieżek
+poza allowlistą w korzeniu repo. Pełna izolacja niepoświadczona; nie dowodzi
+to odczytu klucza oceny. Ekspozycja i czysty kontekst unknown, bez dowodu skażenia.
+Zapisano kalendarzowe metadane turnu; nie utożsamiono ich z czasem aktywnym.
+Samoopis ekstraktora pozostaje deklaracją.
+
+Dokładne wznowienie: reviews/context-source-01/request.json i zamknięty
+reports/context-01/report.md prowadzą przegląd człowieka zakresu efektu.
+Po nim można zamknąć M-POC4B i przejść do M-POC5A/B z oboma hashami odpowiedzi.
+Nie powtarzać ekstrakcji ani dokładać pass-02. M-POC4 pozostaje jedynym next.
+Pomiary/kontrole: measurement/M-POC4B-context-01/completion.json i nowy wpis
+measurement/sessions.jsonl. M-POC5–M-POC7 niewykonane.
+Kontrole M-POC4B: scripts/check.ps1 **114 passed**, git diff --check bez błędów.
+
+## Historia zamknięcia M-POC4A przed odpowiedzią context-01
+
+2026-10-10 właściciel odpowiedział „Zatwierdzam” po prezentacji ograniczonego
+źródła i pomocniczego tekstu. Zapisano decyzję z zakresem/hashami w
+evaluation/M-POC4A-review-001/decision-01.json; nie poświadczono otwarcia
+obrazu przez właściciela ani akceptacji znaczenia, wyników i budżetu czasu.
+M-POC4A done dotyczy wyboru źródła i przygotowania, bez sukcesu ekstrakcji.
+
+context/pass-01/freeze-v1.json zamraża niezmieniony draft i wybrany payload;
+wcześniejszy manifest/targets/prompt/review zachowują historyczne bajty/flagę draft.
+Aktualny stan prowadzi nowy freeze i decyzja, bez nadpisania manifestów.
+Oryginały first-001, pierwsze wejścia, eval-v1 i raporty M-POC3 zachowane.
+
+Przyrost nadal 1 strona, 1 reguła, 0 tabel; dostarczona ścieżka 1 krok,
+rozważana 2; dalsze rozszerzanie zatrzymane. Limity 8/20/4/2/2 bez zmian,
+0 rund odpowiedzi, 0 nowych inferencji i 0 korekt. Aktywny budżet czasu
+i jego zgodność unknown. Pozostałe blocked_source/pending/not_assessable zachowane.
+
+Przygotowano transfer/context-v1/ z 42 plikami allowlisty: niezmienione wejścia
+pierwszej próby, rodzic odpowiedzi, wybrany fragment, metadane zamrożenia,
+nowy prompt i wąski dodatek techniczny formatu dla ID przebiegu/hashu manifestu
+oraz jawnych współrzędnych wycinka. Bez klucza oceny, raportów, całego PDF
+i materiałów oceniających. Pakiet prepared_not_sent; nie wykonano M-POC4B.
+
+Dokładny następny krok: właściciel ręcznie otwiera osobną izolowaną sesję
+w transfer/context-v1/, czyta transfer-list.txt i prompts/context-v1.txt;
+uzyskuje jedną odpowiedź context-01.json. Oceniający po odbiorze wykonuje
+M-POC4B na eval-v1, osobno od baseline. Nie generować odpowiedzi w tym czacie,
+który zna klucz oceny. M-POC4 pozostaje jedynym next.
+Zamknięcie i kontrole: measurement/M-POC4A-review-001/completion.json
+oraz dopisany rekord measurement/sessions.jsonl.
+Kontrole zamknięcia review: scripts/check.ps1 **113 passed**, git diff --check bez błędów.
+
+## Historia przygotowania M-POC4A przed decyzją właściciela
 
 M-POC4A zweryfikowało integralność baseline: 32/32 artefakty wejść,
 33/33 pliki transferu, 7/7 artefakty eval-v1, 10/10 artefakty raportu

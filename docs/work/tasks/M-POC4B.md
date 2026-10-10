@@ -17,6 +17,8 @@ Plik przyszłego etapu musi istnieć przed wykonaniem zależnej czynności;
 brak zapisujemy jako blokadę, nie uzupełniamy wynikiem modelu.
 
 - `P/context/pass-01/manifest.json`
+- `P/context/pass-01/freeze-v1.json` — aktualne zamrożenie i decyzja; wcześniejszy manifest pozostaje bajtowo niezmienionym draftem
+- `P/transfer/context-v1/context/pass-01/manifest.json` i `P/transfer/context-v1/prompts/context-v1.txt` — faktyczny pakiet/prompt nowego przebiegu; nie przekazywać ekstraktorowi materiałów oceniających
 - `P/context/pass-01/targets.json`
 - `P/context/pass-01/prompt.txt`
 - `P/runs/first-001/run.json`

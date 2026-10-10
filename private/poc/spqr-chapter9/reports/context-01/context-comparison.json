@@ -1,0 +1,904 @@
+{
+  "run_id": "context-01",
+  "parent_run_id": "first-001",
+  "parent_response": {
+    "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+    "bytes": 617941,
+    "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+  },
+  "response": {
+    "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+    "bytes": 712014,
+    "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+  },
+  "record_deltas": {
+    "rules": {
+      "before": 50,
+      "after": 50,
+      "added": [],
+      "removed": [],
+      "changed": [
+        "R932"
+      ],
+      "unchanged": 49,
+      "changed_records": [
+        {
+          "id": "R932",
+          "pointer": "/rules/16",
+          "raw_span": {
+            "start_byte": 328799,
+            "end_byte_exclusive": 333292,
+            "sha256": "064aae5db27a9bda8dd053c7d30ce2d21255bc4236946d1083acd1e2d946dabe"
+          },
+          "changes": [
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E932"
+              ],
+              "after": [
+                "E932",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/exceptions/evidence_ids",
+              "before": [
+                "E932"
+              ],
+              "after": [
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/exceptions/reason",
+              "before": "No exception stated within this identified clause; external rules may qualify it.",
+              "after": "Qualification from added bounded context; not inserted into 9.32 literal transcription."
+            },
+            {
+              "path": "/exceptions/state",
+              "before": "established_absent",
+              "after": "known"
+            },
+            {
+              "path": "/exceptions/value",
+              "before": [],
+              "after": [
+                "Supplied 8.46 Step 4 bullet #4: LC reduction does not apply if defender is Routed."
+              ]
+            },
+            {
+              "path": "/gap_ids",
+              "before": [
+                "G932",
+                "G-D932CRT"
+              ],
+              "after": [
+                "G932",
+                "G-D932CRT",
+                "GCTX-order",
+                "GCTX-845"
+              ]
+            },
+            {
+              "path": "/interpretation/evidence_ids",
+              "before": [
+                "E932"
+              ],
+              "after": [
+                "E932",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/interpretation/gap_ids",
+              "before": [],
+              "after": [
+                "G932",
+                "G-D932CRT",
+                "GCTX-order",
+                "GCTX-845"
+              ]
+            },
+            {
+              "path": "/interpretation/reason",
+              "before": "Interpretation confined to supplied source; no external procedures reconstructed.",
+              "after": "Unreviewed bounded-context interpretation; original local literal transcription and parameters unchanged."
+            },
+            {
+              "path": "/interpretation/value",
+              "before": "Halve such inflicted Cohesion Hits, round down.",
+              "after": "9.32 locally halves such LC-inflicted Cohesion Hits, round down. Added Step 4 bullet #4 qualifies reduction: attacker used in determination is LC (8.45), no reduction against a Routed defender, cumulative with bullet #1, which doubles defender result when attacker superior (AS). No actual applicability, base result, combined operation/rounding order or final result established."
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        }
+      ]
+    },
+    "nodes": {
+      "before": 58,
+      "after": 60,
+      "added": [
+        "NCTX-ShockCRT",
+        "NCTX846S4"
+      ],
+      "removed": [],
+      "changed": [
+        "N932ex"
+      ],
+      "unchanged": 57,
+      "changed_records": [
+        {
+          "id": "N932ex",
+          "pointer": "/nodes/4",
+          "raw_span": {
+            "start_byte": 173885,
+            "end_byte_exclusive": 175403,
+            "sha256": "0eb4d362032a4ff5fd28d28ce38de975b77453af7223949fec3d0d816223b27c"
+          },
+          "changes": [
+            {
+              "path": "/content/evidence_ids",
+              "before": [
+                "E932ex"
+              ],
+              "after": [
+                "E932ex",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/content/value/interpretation/evidence_ids",
+              "before": [],
+              "after": [
+                "E932ex",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/content/value/interpretation/gap_ids",
+              "before": [
+                "G932"
+              ],
+              "after": [
+                "G932",
+                "GCTX-order",
+                "G-D932CRT"
+              ]
+            },
+            {
+              "path": "/content/value/interpretation/reason",
+              "before": "Example relation to halving cannot be resolved from supplied general AS/CRT descriptions.",
+              "after": "Added source supplies AS 2x defender result and cumulative LC halving, with round down and Routed exception. Exact table, applicability and combined operation/rounding order unavailable; printed-result example retained without declaring executable equality."
+            },
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E932ex"
+              ],
+              "after": [
+                "E932ex",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        }
+      ]
+    },
+    "dependencies": {
+      "before": 126,
+      "after": 131,
+      "added": [
+        "DCTX846S4-1013",
+        "DCTX846S4-845",
+        "DCTX846S4-CRT",
+        "DCTX923-S4",
+        "DCTX932-S4"
+      ],
+      "removed": [],
+      "changed": [
+        "D932CRT",
+        "D962shock"
+      ],
+      "unchanged": 124,
+      "changed_records": [
+        {
+          "id": "D932CRT",
+          "pointer": "/dependencies/71",
+          "raw_span": {
+            "start_byte": 554020,
+            "end_byte_exclusive": 555198,
+            "sha256": "de499c5a9ae07c348e58daaf392163835bc102a1d8bcfd4d7110105e01080db4"
+          },
+          "changes": [
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E932",
+                "E932ex"
+              ],
+              "after": [
+                "E932",
+                "E932ex",
+                "ECTX846S4-header",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/impact_if_missing/reason",
+              "before": "Shock CRT values and AS interaction for LC halving is not fully supplied; no missing content reconstructed.",
+              "after": "Conditional operators supplied; exact table and base results absent. Target remains unresolved."
+            },
+            {
+              "path": "/target_candidate/description",
+              "before": "Shock CRT values and AS interaction for LC halving",
+              "after": "Actual Shock CRT values used by 9.32; conditional AS/LC operators separately supplied by NCTX846S4"
+            },
+            {
+              "path": "/target_candidate/needed_context",
+              "before": "Shock CRT and Attack Superiority hit adjustment",
+              "after": "Exact Shock CRT headers/rows/notes and base lookup; applicability and unresolved combined order"
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        },
+        {
+          "id": "D962shock",
+          "pointer": "/dependencies/86",
+          "raw_span": {
+            "start_byte": 568940,
+            "end_byte_exclusive": 569960,
+            "sha256": "4b5a3bf62cbe0d3cc8ae154e79c9b1c2a395320a952179da661102ad74d23c25"
+          },
+          "changes": [
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E962"
+              ],
+              "after": [
+                "E962",
+                "ECTX846S4-header",
+                "ECTX846S4-AS",
+                "ECTX846S4-DS",
+                "ECTX846S4-SK",
+                "ECTX846S4-LC",
+                "ECTX846S4-distribution"
+              ]
+            },
+            {
+              "path": "/gap_ids",
+              "before": [
+                "G-D962shock"
+              ],
+              "after": [
+                "G-D962shock",
+                "GCTX-CRT",
+                "GCTX-applicability"
+              ]
+            },
+            {
+              "path": "/impact_if_missing/reason",
+              "before": "Base Shock Hit calculation before allocation is not fully supplied; no missing content reconstructed.",
+              "after": "Fragment supplied, but exact table/selection/order and separate within-stack allocation still block full result."
+            },
+            {
+              "path": "/rationale",
+              "before": "Source refers to 8.46 Step 4; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result.",
+              "after": "9.62 explicitly uses 8.46 Step 4. Direction R962 to supplied complete fragment. This confirms application text, not actual Shock CRT result."
+            },
+            {
+              "path": "/target_candidate",
+              "before": {
+                "original_reference": "8.46 Step 4",
+                "description": "Base Shock Hit calculation before allocation",
+                "needed_context": "8.46 Step 4 and Shock tables"
+              },
+              "after": null
+            },
+            {
+              "path": "/target_status",
+              "before": "unresolved",
+              "after": "external_with_source"
+            },
+            {
+              "path": "/to",
+              "before": null,
+              "after": "NCTX846S4"
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        }
+      ]
+    },
+    "evidence": {
+      "before": 105,
+      "after": 111,
+      "added": [
+        "ECTX846S4-AS",
+        "ECTX846S4-DS",
+        "ECTX846S4-LC",
+        "ECTX846S4-SK",
+        "ECTX846S4-distribution",
+        "ECTX846S4-header"
+      ],
+      "removed": [],
+      "changed": [],
+      "unchanged": 105,
+      "changed_records": []
+    },
+    "gaps": {
+      "before": 81,
+      "after": 85,
+      "added": [
+        "GCTX-845",
+        "GCTX-CRT",
+        "GCTX-applicability",
+        "GCTX-order"
+      ],
+      "removed": [],
+      "changed": [
+        "G-D923shock",
+        "G-D932CRT",
+        "G-D962shock",
+        "G932"
+      ],
+      "unchanged": 77,
+      "changed_records": [
+        {
+          "id": "G-D923shock",
+          "pointer": "/gaps/26",
+          "raw_span": {
+            "start_byte": 626210,
+            "end_byte_exclusive": 626981,
+            "sha256": "5b55f160a0b6027498c20ddade7492e97ad7a49cda83e66ffed7d152b175b012"
+          },
+          "changes": [
+            {
+              "path": "/context_status",
+              "before": null,
+              "after": "partially_supplied_still_blocking"
+            },
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E923"
+              ],
+              "after": [
+                "E923",
+                "ECTX846S4-header",
+                "ECTX846S4-SK"
+              ]
+            },
+            {
+              "path": "/needed_context",
+              "before": "Shock resolution and base defender/Size selection",
+              "after": "Earlier general Shock defender/type/Size selection and exact Shock CRT."
+            },
+            {
+              "path": "/reason",
+              "before": "Base Shock defender/type/Size/hit rules modified here is referenced but unavailable.",
+              "after": "Step 4 bullet #3 now explicitly supplies attacker-Hits half, round down, cap 1 when defender Skirmisher; general defender/type/Size selection and exact base results absent."
+            },
+            {
+              "path": "/source_regions",
+              "before": [
+                "pdf-33-core-right"
+              ],
+              "after": [
+                "pdf-33-core-right",
+                "pdf-27-context-8.46-step-4"
+              ]
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        },
+        {
+          "id": "G-D932CRT",
+          "pointer": "/gaps/31",
+          "raw_span": {
+            "start_byte": 628881,
+            "end_byte_exclusive": 629677,
+            "sha256": "df80e5352a4b0ac423b1063f2a79a9b4569f31643631b76b52d1457b9b6669b1"
+          },
+          "changes": [
+            {
+              "path": "/context_status",
+              "before": null,
+              "after": "partially_supplied_still_blocking"
+            },
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E932",
+                "E932ex"
+              ],
+              "after": [
+                "E932",
+                "E932ex",
+                "ECTX846S4-header",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/needed_context",
+              "before": "Shock CRT and Attack Superiority hit adjustment",
+              "after": "Exact Shock CRT and needed lookup/applicability/order context; no chart alias equivalence inferred."
+            },
+            {
+              "path": "/reason",
+              "before": "Shock CRT values and AS interaction for LC halving is referenced but unavailable.",
+              "after": "Conditional AS/LC operators now supplied; actual Shock CRT headers/rows/notes, base numeric results and combined order unresolved."
+            },
+            {
+              "path": "/source_regions",
+              "before": [
+                "pdf-34-core-left"
+              ],
+              "after": [
+                "pdf-34-core-left",
+                "pdf-27-context-8.46-step-4"
+              ]
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        },
+        {
+          "id": "G-D962shock",
+          "pointer": "/gaps/46",
+          "raw_span": {
+            "start_byte": 636395,
+            "end_byte_exclusive": 637341,
+            "sha256": "509a59a82e0105d408795e67884d2c386317392861627fcc47a506f0fef47014"
+          },
+          "changes": [
+            {
+              "path": "/context_status",
+              "before": null,
+              "after": "referenced_fragment_supplied_onward_sources_blocked"
+            },
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E962"
+              ],
+              "after": [
+                "E962",
+                "ECTX846S4-header",
+                "ECTX846S4-AS",
+                "ECTX846S4-DS",
+                "ECTX846S4-SK",
+                "ECTX846S4-LC",
+                "ECTX846S4-distribution"
+              ]
+            },
+            {
+              "path": "/needed_context",
+              "before": "8.46 Step 4 and Shock tables",
+              "after": "Exact Shock CRT and needed earlier determination context; G-D1013stack covers within-stack distribution."
+            },
+            {
+              "path": "/reason",
+              "before": "Base Shock Hit calculation before allocation is referenced but unavailable.",
+              "after": "Explicit 8.46 Step 4 fragment supplied; exact table and earlier selection/applicability absent, blocking base Hits/full result. Separately 6.68 bullet #6 within-stack distribution absent."
+            },
+            {
+              "path": "/source_regions",
+              "before": [
+                "pdf-35-core-left"
+              ],
+              "after": [
+                "pdf-35-core-left",
+                "pdf-27-context-8.46-step-4"
+              ]
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        },
+        {
+          "id": "G932",
+          "pointer": "/gaps/1",
+          "raw_span": {
+            "start_byte": 613015,
+            "end_byte_exclusive": 613877,
+            "sha256": "40ca31a42e0dc11f02dc67847683cb0ede5435964a848312c5b720bfbb8bc5d4"
+          },
+          "changes": [
+            {
+              "path": "/context_status",
+              "before": null,
+              "after": "partially_supplied_still_blocking"
+            },
+            {
+              "path": "/evidence_ids",
+              "before": [
+                "E932",
+                "E932ex"
+              ],
+              "after": [
+                "E932",
+                "E932ex",
+                "ECTX846S4-AS",
+                "ECTX846S4-LC"
+              ]
+            },
+            {
+              "path": "/needed_context",
+              "before": "Attack Superiority resolution and Shock CRT, including order of hit multipliers.",
+              "after": "Exact Shock CRT, needed selection/applicability and source-backed combined numeric/rounding order."
+            },
+            {
+              "path": "/reason",
+              "before": "The printed example uses printed CRT result with AS, while clause prescribes halving. Supplied 8.72 describes augmentation but not numerical AS procedure.",
+              "after": "Step 4 supplies AS doubling, LC halving round down, Routed exception and cumulability with bullet #1. Exact table, applicability and combined operation/rounding order needed to execute or reconcile printed example remain unresolved."
+            },
+            {
+              "path": "/source_regions",
+              "before": [
+                "pdf-34-core-left"
+              ],
+              "after": [
+                "pdf-34-core-left",
+                "pdf-27-context-8.46-step-4"
+              ]
+            }
+          ],
+          "attribution": "Bounded-context change candidate; semantic correctness and scope require human review."
+        }
+      ]
+    }
+  },
+  "inherited_gap_ids_retained": 81,
+  "old_gap_ids_removed": 0,
+  "retained_changed_gap_ids": [
+    "G-D923shock",
+    "G-D932CRT",
+    "G-D962shock",
+    "G932"
+  ],
+  "added_gap_ids": [
+    "GCTX-845",
+    "GCTX-CRT",
+    "GCTX-applicability",
+    "GCTX-order"
+  ],
+  "full_declared_gap_closures": 0,
+  "partial_source_updates": [
+    {
+      "id": "G-D923shock",
+      "before": {
+        "id": "G-D923shock",
+        "class": "missing_context",
+        "affected_ids": [
+          "R923",
+          "D923shock"
+        ],
+        "source_regions": [
+          "pdf-33-core-right"
+        ],
+        "reason": "Base Shock defender/type/Size/hit rules modified here is referenced but unavailable.",
+        "needed_context": "Shock resolution and base defender/Size selection",
+        "blocking": true,
+        "evidence_ids": [
+          "E923"
+        ],
+        "review_status": "unreviewed"
+      },
+      "after": {
+        "id": "G-D923shock",
+        "class": "missing_context",
+        "affected_ids": [
+          "R923",
+          "D923shock"
+        ],
+        "source_regions": [
+          "pdf-33-core-right",
+          "pdf-27-context-8.46-step-4"
+        ],
+        "reason": "Step 4 bullet #3 now explicitly supplies attacker-Hits half, round down, cap 1 when defender Skirmisher; general defender/type/Size selection and exact base results absent.",
+        "needed_context": "Earlier general Shock defender/type/Size selection and exact Shock CRT.",
+        "blocking": true,
+        "evidence_ids": [
+          "E923",
+          "ECTX846S4-header",
+          "ECTX846S4-SK"
+        ],
+        "review_status": "unreviewed",
+        "context_status": "partially_supplied_still_blocking"
+      },
+      "full_gap_closed": false,
+      "partially_supplied_claim": true,
+      "necessity_and_sufficiency": "pending_human_review"
+    },
+    {
+      "id": "G-D932CRT",
+      "before": {
+        "id": "G-D932CRT",
+        "class": "missing_context",
+        "affected_ids": [
+          "R932",
+          "D932CRT"
+        ],
+        "source_regions": [
+          "pdf-34-core-left"
+        ],
+        "reason": "Shock CRT values and AS interaction for LC halving is referenced but unavailable.",
+        "needed_context": "Shock CRT and Attack Superiority hit adjustment",
+        "blocking": true,
+        "evidence_ids": [
+          "E932",
+          "E932ex"
+        ],
+        "review_status": "unreviewed"
+      },
+      "after": {
+        "id": "G-D932CRT",
+        "class": "missing_context",
+        "affected_ids": [
+          "R932",
+          "D932CRT"
+        ],
+        "source_regions": [
+          "pdf-34-core-left",
+          "pdf-27-context-8.46-step-4"
+        ],
+        "reason": "Conditional AS/LC operators now supplied; actual Shock CRT headers/rows/notes, base numeric results and combined order unresolved.",
+        "needed_context": "Exact Shock CRT and needed lookup/applicability/order context; no chart alias equivalence inferred.",
+        "blocking": true,
+        "evidence_ids": [
+          "E932",
+          "E932ex",
+          "ECTX846S4-header",
+          "ECTX846S4-AS",
+          "ECTX846S4-LC"
+        ],
+        "review_status": "unreviewed",
+        "context_status": "partially_supplied_still_blocking"
+      },
+      "full_gap_closed": false,
+      "partially_supplied_claim": true,
+      "necessity_and_sufficiency": "pending_human_review"
+    },
+    {
+      "id": "G-D962shock",
+      "before": {
+        "id": "G-D962shock",
+        "class": "missing_context",
+        "affected_ids": [
+          "R962",
+          "D962shock"
+        ],
+        "source_regions": [
+          "pdf-35-core-left"
+        ],
+        "reason": "Base Shock Hit calculation before allocation is referenced but unavailable.",
+        "needed_context": "8.46 Step 4 and Shock tables",
+        "blocking": true,
+        "evidence_ids": [
+          "E962"
+        ],
+        "review_status": "unreviewed"
+      },
+      "after": {
+        "id": "G-D962shock",
+        "class": "missing_context",
+        "affected_ids": [
+          "R962",
+          "D962shock"
+        ],
+        "source_regions": [
+          "pdf-35-core-left",
+          "pdf-27-context-8.46-step-4"
+        ],
+        "reason": "Explicit 8.46 Step 4 fragment supplied; exact table and earlier selection/applicability absent, blocking base Hits/full result. Separately 6.68 bullet #6 within-stack distribution absent.",
+        "needed_context": "Exact Shock CRT and needed earlier determination context; G-D1013stack covers within-stack distribution.",
+        "blocking": true,
+        "evidence_ids": [
+          "E962",
+          "ECTX846S4-header",
+          "ECTX846S4-AS",
+          "ECTX846S4-DS",
+          "ECTX846S4-SK",
+          "ECTX846S4-LC",
+          "ECTX846S4-distribution"
+        ],
+        "review_status": "unreviewed",
+        "context_status": "referenced_fragment_supplied_onward_sources_blocked"
+      },
+      "full_gap_closed": false,
+      "partially_supplied_claim": true,
+      "necessity_and_sufficiency": "pending_human_review"
+    },
+    {
+      "id": "G932",
+      "before": {
+        "id": "G932",
+        "class": "missing_context",
+        "affected_ids": [
+          "R932",
+          "N932ex"
+        ],
+        "source_regions": [
+          "pdf-34-core-left"
+        ],
+        "reason": "The printed example uses printed CRT result with AS, while clause prescribes halving. Supplied 8.72 describes augmentation but not numerical AS procedure.",
+        "needed_context": "Attack Superiority resolution and Shock CRT, including order of hit multipliers.",
+        "blocking": true,
+        "evidence_ids": [
+          "E932",
+          "E932ex"
+        ],
+        "review_status": "unreviewed"
+      },
+      "after": {
+        "id": "G932",
+        "class": "missing_context",
+        "affected_ids": [
+          "R932",
+          "N932ex"
+        ],
+        "source_regions": [
+          "pdf-34-core-left",
+          "pdf-27-context-8.46-step-4"
+        ],
+        "reason": "Step 4 supplies AS doubling, LC halving round down, Routed exception and cumulability with bullet #1. Exact table, applicability and combined operation/rounding order needed to execute or reconcile printed example remain unresolved.",
+        "needed_context": "Exact Shock CRT, needed selection/applicability and source-backed combined numeric/rounding order.",
+        "blocking": true,
+        "evidence_ids": [
+          "E932",
+          "E932ex",
+          "ECTX846S4-AS",
+          "ECTX846S4-LC"
+        ],
+        "review_status": "unreviewed",
+        "context_status": "partially_supplied_still_blocking"
+      },
+      "full_gap_closed": false,
+      "partially_supplied_claim": true,
+      "necessity_and_sufficiency": "pending_human_review"
+    }
+  ],
+  "source_procedure_endpoint_resolved": [
+    {
+      "id": "D962shock",
+      "before": {
+        "id": "D962shock",
+        "from": "R962",
+        "to": null,
+        "target_candidate": {
+          "original_reference": "8.46 Step 4",
+          "description": "Base Shock Hit calculation before allocation",
+          "needed_context": "8.46 Step 4 and Shock tables"
+        },
+        "kind": "procedure_use",
+        "explicitness": "explicit",
+        "rationale": "Source refers to 8.46 Step 4; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result.",
+        "evidence_ids": [
+          "E962"
+        ],
+        "target_status": "unresolved",
+        "impact_if_missing": {
+          "affected_ids": [
+            "R962"
+          ],
+          "blocks_full_result": true,
+          "reason": "Base Shock Hit calculation before allocation is not fully supplied; no missing content reconstructed."
+        },
+        "gap_ids": [
+          "G-D962shock"
+        ],
+        "review_status": "unreviewed"
+      },
+      "after": {
+        "id": "D962shock",
+        "from": "R962",
+        "to": "NCTX846S4",
+        "target_candidate": null,
+        "kind": "procedure_use",
+        "explicitness": "explicit",
+        "rationale": "9.62 explicitly uses 8.46 Step 4. Direction R962 to supplied complete fragment. This confirms application text, not actual Shock CRT result.",
+        "evidence_ids": [
+          "E962",
+          "ECTX846S4-header",
+          "ECTX846S4-AS",
+          "ECTX846S4-DS",
+          "ECTX846S4-SK",
+          "ECTX846S4-LC",
+          "ECTX846S4-distribution"
+        ],
+        "target_status": "external_with_source",
+        "impact_if_missing": {
+          "affected_ids": [
+            "R962"
+          ],
+          "blocks_full_result": true,
+          "reason": "Fragment supplied, but exact table/selection/order and separate within-stack allocation still block full result."
+        },
+        "gap_ids": [
+          "G-D962shock",
+          "GCTX-CRT",
+          "GCTX-applicability"
+        ],
+        "review_status": "unreviewed"
+      },
+      "status": "source_target_fragment_now_supplied_only",
+      "full_result_closed": false,
+      "semantic_result": "not_assessable"
+    }
+  ],
+  "confirmed_semantic_improvements": "not_assessable",
+  "semantic_regressions": "not_assessable",
+  "structural_regressions": {
+    "removed_parent_records": 0,
+    "new_key_id_reference_enum_errors": 0,
+    "inherited_locator_failure": 1,
+    "new_strict_glyph_pending_areas": 6,
+    "new_raster_areas_legible": 6
+  },
+  "scope_delta": {
+    "pages": 1,
+    "rules": 1,
+    "tables": 0,
+    "source_depth_supplied": 1,
+    "selection_depth_considered": 2,
+    "newly_linked_unresolved_context_branch_depth": 3,
+    "full_graph_depth_compliance": "not_assessable",
+    "context_response_rounds": 1,
+    "corrections": 0
+  },
+  "depth_blocked_paths": [
+    {
+      "root": "R932",
+      "path": [
+        "R932",
+        "NCTX846S4",
+        "N1013",
+        "6.68 bullet #6"
+      ],
+      "depth": 3,
+      "status": "blocked_source_beyond_context_depth_boundary",
+      "method": "New core-to-fragment edge plus new fragment-to-existing boundary node plus unchanged unresolved D1013stack.",
+      "disposition": "No third-step source acquired; stop at allowed depth-2 boundary. Not a full graph-depth compliance certificate."
+    },
+    {
+      "root": "R923",
+      "path": [
+        "R923",
+        "NCTX846S4",
+        "N1013",
+        "6.68 bullet #6"
+      ],
+      "depth": 3,
+      "status": "blocked_source_beyond_context_depth_boundary",
+      "method": "New core-to-fragment edge plus new fragment-to-existing boundary node plus unchanged unresolved D1013stack.",
+      "disposition": "No third-step source acquired; stop at allowed depth-2 boundary. Not a full graph-depth compliance certificate."
+    },
+    {
+      "root": "R962",
+      "path": [
+        "R962",
+        "NCTX846S4",
+        "N1013",
+        "6.68 bullet #6"
+      ],
+      "depth": 3,
+      "status": "blocked_source_beyond_context_depth_boundary",
+      "method": "New core-to-fragment edge plus new fragment-to-existing boundary node plus unchanged unresolved D1013stack.",
+      "disposition": "No third-step source acquired; stop at allowed depth-2 boundary. Not a full graph-depth compliance certificate."
+    }
+  ],
+  "active_time_budget": "unknown",
+  "time_budget_compliance": "unknown",
+  "first_reached_limit_applies": true,
+  "no_further_source_acquisition": true,
+  "corrections_result": "not_assessable",
+  "semantic_acceptance": "not_performed"
+}

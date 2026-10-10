@@ -1,32 +1,26 @@
 # HANDOFF
 
-- **Ostatnia sesja:** [2026-10-09-M-POC4A](handoff/2026-10-09-M-POC4A.md)
-- **Wynik:** partial
-- **Następny milestone:** M-POC4
-- **Następna karta:** M-POC4A
+- **Ostatnia sesja:** [2026-10-10-M-POC4B-close](handoff/2026-10-10-M-POC4B-close.md)
+- **Wynik:** done
+- **Następny milestone:** M-POC5
+- **Następna karta:** M-POC5A
 
-pass-01 przygotowany do przeglądu źródła krytycznego przez człowieka.
-Baseline first-001, wejścia, eval-v1 i raporty M-POC3 zachowano bajtowo;
-ponowna integralność zgodna, w tym 16 768 zakresów provenance.
-Zweryfikowano kopię PDF w repo wobec source-v1; historyczna ścieżka niedostępna.
+Właściciel przyjął opisany ograniczony wynik M-POC4B i pozostałe blokady.
+M-POC4 zakończone w zakresie wyboru źródła, odbioru, raportu i przeglądu efektu;
+bez akceptacji znaczenia reguł/relacji, wyników sytuacji lub zgodności budżetu czasu.
+Decyzja i aktualne closure są w reviews/context-source-01/ pod
+private/poc/spqr-chapter9/. Wcześniejsze raporty/requesty/pomiary zachowane.
 
-Przyrost policzony przed rozszerzeniem: 1 strona, 1 reguła, 0 tabel;
-ścieżka dostarczona 1 krok, rozważana 2 do blocked_source. Na granicy
-głębokości zatrzymano dalszy wybór; pierwszy osiągnięty limit obowiązuje.
-Limity 8/20/4/2/2 bez zmian. 79 deklaracji rozliczono jako kandydatów:
-3 z częściowym źródłem, 56 z lokatorami do sprawdzenia, 20 blocked_source.
-Brakujące relacje wewnętrzne nie uzasadniły zewnętrznego kontekstu.
+0 pełnych domknięć luk, 4 częściowe aktualizacje nadal blocking, 4 nowe
+deklaracje. 1 strona/1 reguła/0 tabel, 1 runda kontekstu, 0 korekt.
+Trzecie nierozstrzygnięte powiązanie bez pozyskania źródła; stop na granicy 2.
+Izolacja nazw/ścieżek naruszona, ekspozycja i czysty kontekst unknown,
+bez dowodu skażenia lub pełnej izolacji. Aktywny budżet/config unknown.
 
-context/pass-01/ pod private/poc/spqr-chapter9/ ma targets.json,
-manifest.json, prompt.txt, dowody i review.md. Pakiet draft, niezamrożony,
-nieprzekazany; 0 nowych inferencji, 0 rund odpowiedzi, 0 korekt.
-Konfiguracja, czasy, historyczne przekazanie, czysty kontekst i aktywny
-budżet nadal unknown; znaczenie pending/not_assessable.
-
-Dokładny następny krok: od targets.json, manifest.json i review.md
-wykonać review człowieka i zapisać nową decyzję o konkretnym zakresie/hashach.
-Dopiero potem freeze pakietu i osobna M-POC4B. Krytyczne źródła nie otrzymały
-nowej akceptacji. Brak dokładnych tabel i rzeczywistych danych mapy/scenariusza/
-żetonu pozostaje jawną blokadą. Pomiary: measurement/M-POC4A-pass-01/.
+Dokładny następny krok: osobna M-POC5A w C:/repo/wargame-compiler,
+feature/tests. Prompt: private/poc/spqr-chapter9/prompts/semantic-review-start-v1.txt.
+Oceniaj oba wyniki osobno na eval-v1, z dowodami i rzeczywistym review
+właściciela, bez autoakceptacji. Nie poprawiaj oryginałów, nie dokładaj
+pass-02 ani nowej ekstrakcji. M-POC5B dla 20 sytuacji jest osobną kartą.
 
 [STATUS](STATUS.md), [ROADMAP](ROADMAP.md), [plan](POC-PLAN.md).

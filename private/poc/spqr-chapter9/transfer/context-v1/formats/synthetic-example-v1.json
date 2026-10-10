@@ -1,0 +1,398 @@
+{
+  "format_version": "proposal-format-v1",
+  "run_id": "synthetic-example-only",
+  "input_manifest_sha256": "unknown",
+  "evaluation_id": "not_applicable_synthetic",
+  "scope": {
+    "source_id": "SYNTHETIC-ONLY",
+    "source_sha256": "0f4149d198d0f3b506cb26abf21346a791ebfb6e32f691c414762862725d0bce",
+    "pdf_pages": [
+      1
+    ],
+    "core_boundaries": "synthetic-core: whole embedded fictional paragraph",
+    "boundary_context": []
+  },
+  "provenance": {
+    "application": "authored synthetic format illustration",
+    "actual_model_visible_name": "unknown",
+    "reasoning_level": "unknown",
+    "metadata_source": "No extraction session claimed",
+    "assessment_exposure": "not_applicable_synthetic",
+    "manifest_hash_reason": "No input manifest exists for the embedded fictional example"
+  },
+  "sources": [
+    {
+      "id": "SYNTHETIC-ONLY",
+      "sha256": "0f4149d198d0f3b506cb26abf21346a791ebfb6e32f691c414762862725d0bce",
+      "embedded_utf8_text": "K.1 During movement, an active Scout may move at most 2 cells once per turn unless a storm is active. Resolve gate entry using Gate table G."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S-E1",
+      "source_id": "SYNTHETIC-ONLY",
+      "source_sha256": "0f4149d198d0f3b506cb26abf21346a791ebfb6e32f691c414762862725d0bce",
+      "pdf_page": 1,
+      "printed_page": "1",
+      "region_id": "synthetic-core",
+      "kind": "text",
+      "quote": {
+        "state": "known",
+        "value": "K.1 During movement, an active Scout may move at most 2 cells once per turn unless a storm is active. Resolve gate entry using Gate table G.",
+        "evidence_ids": [],
+        "reason": "Exact embedded fictional source; not a real PDF",
+        "gap_ids": []
+      },
+      "image": null
+    }
+  ],
+  "nodes": [],
+  "rules": [
+    {
+      "id": "S-R1",
+      "original_label": {
+        "state": "known",
+        "value": "K.1",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "scope_role": "core",
+      "clause_map": [
+        {
+          "local_clause_id": "S-C1",
+          "region_id": "synthetic-core",
+          "evidence_ids": [
+            "S-E1"
+          ],
+          "original_label_text": "K.1"
+        }
+      ],
+      "transcription": {
+        "state": "known",
+        "value": "K.1 During movement, an active Scout may move at most 2 cells once per turn unless a storm is active.",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "interpretation": {
+        "state": "known",
+        "value": "Scout may move at most 2 cells",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "conditions": {
+        "state": "known",
+        "value": [
+          "active Scout",
+          "movement phase"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "action_effect": {
+        "state": "known",
+        "value": "Scout may move at most 2 cells",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "exceptions": {
+        "state": "known",
+        "value": [
+          "storm active prevents this permission"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "parameters": {
+        "state": "known",
+        "value": [
+          {
+            "name": "movement maximum",
+            "value": 2,
+            "unit": {
+              "state": "known",
+              "value": "cell",
+              "evidence_ids": [
+                "S-E1"
+              ],
+              "reason": null,
+              "gap_ids": []
+            },
+            "evidence_ids": [
+              "S-E1"
+            ]
+          }
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "unit_types": {
+        "state": "known",
+        "value": [
+          "Scout"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "scope_limits": {
+        "state": "known",
+        "value": [
+          "Fictional movement clause; not a complete game specification"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "time_limits": {
+        "state": "known",
+        "value": [
+          "during movement",
+          "once per turn"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "evidence_ids": [
+        "S-E1"
+      ],
+      "gap_ids": [],
+      "review_status": "unreviewed"
+    },
+    {
+      "id": "S-R2",
+      "original_label": {
+        "state": "known",
+        "value": "K.1",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "scope_role": "core",
+      "clause_map": [
+        {
+          "local_clause_id": "S-C2",
+          "region_id": "synthetic-core",
+          "evidence_ids": [
+            "S-E1"
+          ],
+          "original_label_text": "K.1"
+        }
+      ],
+      "transcription": {
+        "state": "known",
+        "value": "Resolve gate entry using Gate table G.",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "interpretation": {
+        "state": "known",
+        "value": "Use Gate table G; resolution outcome unavailable",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "conditions": {
+        "state": "known",
+        "value": [
+          "gate entry"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "action_effect": {
+        "state": "known",
+        "value": "Use Gate table G; resolution outcome unavailable",
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "exceptions": {
+        "state": "established_absent",
+        "value": [],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": "No exception is stated in this fictional gate-entry clause; external table exceptions remain unknown",
+        "gap_ids": []
+      },
+      "parameters": {
+        "state": "unknown",
+        "value": null,
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": "Referenced table is not supplied",
+        "gap_ids": [
+          "S-G1"
+        ]
+      },
+      "unit_types": {
+        "state": "known",
+        "value": [
+          "Scout"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "scope_limits": {
+        "state": "known",
+        "value": [
+          "Fictional movement clause; not a complete game specification"
+        ],
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": null,
+        "gap_ids": []
+      },
+      "time_limits": {
+        "state": "unknown",
+        "value": null,
+        "evidence_ids": [
+          "S-E1"
+        ],
+        "reason": "Timing of Gate table resolution is not supplied",
+        "gap_ids": [
+          "S-G1"
+        ]
+      },
+      "evidence_ids": [
+        "S-E1"
+      ],
+      "gap_ids": [
+        "S-G1"
+      ],
+      "review_status": "unreviewed"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "S-D1",
+      "from": "S-R2",
+      "to": null,
+      "target_candidate": {
+        "original_reference": "Gate table G",
+        "description": "Referenced gate-entry resolution table",
+        "needed_context": "Gate table G, including headings and notes"
+      },
+      "kind": "table_use",
+      "explicitness": "explicit",
+      "rationale": "The gate-entry clause explicitly directs the player to use the table; direction is user clause to used table.",
+      "evidence_ids": [
+        "S-E1"
+      ],
+      "target_status": "unresolved",
+      "impact_if_missing": {
+        "affected_ids": [
+          "S-R2"
+        ],
+        "blocks_full_result": true,
+        "reason": "Actual gate-entry result cannot be determined"
+      },
+      "gap_ids": [
+        "S-G1"
+      ],
+      "review_status": "unreviewed"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "S-G1",
+      "class": "missing_context",
+      "affected_ids": [
+        "S-R2",
+        "S-D1"
+      ],
+      "source_regions": [
+        "synthetic-core"
+      ],
+      "reason": "Gate table G is referenced but absent from the fictional input",
+      "needed_context": "Gate table G and its timing/parameters/notes",
+      "blocking": true,
+      "evidence_ids": [
+        "S-E1"
+      ]
+    }
+  ],
+  "coverage": {
+    "core_regions": [
+      {
+        "region_id": "synthetic-core",
+        "status": "represented",
+        "rule_ids": [
+          "S-R1",
+          "S-R2"
+        ],
+        "node_ids": [],
+        "dependency_ids": [
+          "S-D1"
+        ],
+        "gap_ids": [
+          "S-G1"
+        ],
+        "notes": "One label split into movement permission and gate-resolution clauses; result of referenced table remains unknown."
+      }
+    ],
+    "observed_objects": [
+      {
+        "kind": "rule_label",
+        "original_label": "K.1",
+        "rule_ids": [
+          "S-R1",
+          "S-R2"
+        ],
+        "clause_ids": [
+          "S-C1",
+          "S-C2"
+        ]
+      }
+    ],
+    "boundary_context_regions": [],
+    "empty_collection_reasons": {
+      "nodes": "No target content is supplied; table remains an explicit unresolved candidate."
+    }
+  }
+}
