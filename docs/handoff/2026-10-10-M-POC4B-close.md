@@ -65,3 +65,13 @@ scripts/check.ps1: **115 passed**, git diff --check bez błędów; lokalne TMP/T
 i wcześniej nieistniejący GUID basetemp. Źródła i zamknięte raporty zachowane.
 Commit i push obejmują także prywatny pakiet i pomiary zgodnie z poleceniem
 właściciela; wynik publikacji należy sprawdzić na origin/feature/tests.
+
+Zapis publikacji: commit `6cb5129` zawiera zamknięcie M-POC4 i prompt M-POC5A
+(125 plików). 117 staged plików private/ zweryfikowano jako identyczne z
+working bytes; oba zamknięte raporty bez zmian. Push do
+git@github.com:yautay/wargame-compiler.git, feature/tests, odrzucono przed
+wykonaniem przez automatyczną kontrolę zgód. Kontrola nie uznała ogólnego
+polecenia commit/push za bezpośrednią autoryzację nowego prywatnego payloadu
+do tego konkretnego celu; wymaga potwierdzenia w tym czacie.
+Stan blokady: measurement/M-POC4B-publication-01/state.json. Nie blokuje
+to lokalnego przeglądu M-POC5A i nie zmienia akceptacji ograniczonego wyniku.

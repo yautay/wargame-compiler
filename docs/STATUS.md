@@ -34,6 +34,11 @@ M-POC5 jedyny next. Prompt: prompts/semantic-review-start-v1.txt pod
 private/poc/spqr-chapter9/. Nowy pomiar zamknięcia przeglądu:
 measurement/M-POC4B-owner-review-001/completion.json i nowy wpis sessions.jsonl.
 Kontrole zamknięcia: scripts/check.ps1 **115 passed**, git diff --check bez błędów.
+Publikacja Git: commit `6cb5129` utworzony lokalnie; push nowego prywatnego
+pakietu M-POC4A/B do origin/feature/tests odrzucony przez automatyczną kontrolę
+zgód. Wymaga ona bezpośredniego potwierdzenia dokładnego pakietu i celu
+w bieżącym czacie. Push nie wykonany; stan i prompt M-POC5A dostępne lokalnie.
+Dowód blokady: measurement/M-POC4B-publication-01/state.json.
 
 ## Historia raportu M-POC4B przed przyjęciem ograniczonego wyniku
 
