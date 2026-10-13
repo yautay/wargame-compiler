@@ -1,0 +1,17 @@
+--- private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/baseline/src/wgc/inputs/README.md
++++ src/wgc/inputs/README.md
+@@ -21,6 +21,14 @@
+ sorted by exact relative path. Files preserve original bytes, including line endings,
+ encoding, combining characters and binary data. Schema-only checks cannot establish
+ copy integrity, selected source identity or path safety; `verify_snapshot` is required.
++
++Verification inventories the complete sealed tree by names and no-follow metadata
++before opening copied blobs or the source pin. The only allowed files are the exact
++available manifest blobs, root `manifest.json`, and root `source-pin.json` for source
++snapshots. Allowed directories are precisely their required parents. Extra bytes,
++metadata, empty directories, symlinks, junctions and blobs for missing entries reject.
++This check applies to staging, published verification and existing-snapshot reuse;
++corrupt existing directories are never overwritten or silently repaired.
+ 
+ Published directories are named `sha256-<digest>` and contain canonical `manifest.json`
+ and `files/<relative-path>`. A source snapshot also contains `source-pin.json`, which

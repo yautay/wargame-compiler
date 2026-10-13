@@ -1,0 +1,460 @@
+{
+  "issues": [
+    {
+      "id": "SEM-009",
+      "expectation": "EXP-019",
+      "classification": [
+        "brak kontekstu",
+        "błędna interpretacja"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "pending",
+      "proposed_by": "Codex",
+      "human_reviewer": null,
+      "source_scope": "Any leader maycommandEL unlessrules specificallyotherwise. Actual leaderauthorization requirescheckingexceptions; keeprequires_context, no inventedactualeligibility.",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "left",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            45.0,
+            455.45,
+            297.002,
+            477.45
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-left.txt",
+          "helper_lines_inclusive": [
+            31,
+            32
+          ],
+          "transcription": "9.18 Unless the rules specifically state otherwise, Elephant units\nmay be commanded by any leader.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.18-01",
+          "parent_inventory_ref": "R-9.18",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "evidence": {
+        "first-001": {
+          "R918": {
+            "pointer": "/rules/8",
+            "raw_span": {
+              "start_byte": 223371,
+              "end_byte_exclusive": 226469,
+              "sha256": "d2ef7d501f146bfd281fbaa1eae741db574916086ba549200fddadbe2e5c5cc1"
+            },
+            "original_record": {
+              "id": "R918",
+              "original_label": {
+                "state": "known",
+                "value": "9.18",
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R918-C1",
+                  "region_id": "pdf-33-core-left",
+                  "evidence_ids": [
+                    "E918"
+                  ],
+                  "original_label_text": "9.18",
+                  "source_clause_locator": "Any leader may command Elephant units."
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "Unless the rules specifically state otherwise, Elephant units may be commanded by any leader."
+                ],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": "Any leader may command Elephant units.",
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "No additional prerequisite stated in this identified clause.",
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": "Any leader may command Elephant units.",
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "unknown",
+                "value": null,
+                "evidence_ids": [],
+                "reason": "Specific exceptions are acknowledged but not enumerated in supplied clause.",
+                "gap_ids": [
+                  "G-D918specific"
+                ]
+              },
+              "parameters": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "No numerical parameter stated within this identified clause.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Elephant",
+                  "any leader"
+                ],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Chapter 9.0; 9.18"
+                ],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "not_applicable",
+                "value": null,
+                "evidence_ids": [],
+                "reason": "No separate time restriction stated; event timing, if any, is expressed in conditions/action_effect.",
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E918"
+              ],
+              "gap_ids": [
+                "G-D918specific"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "D918specific": {
+            "pointer": "/dependencies/58",
+            "raw_span": {
+              "start_byte": 464010,
+              "end_byte_exclusive": 465079,
+              "sha256": "46bc37098ddd17b19bb35251ad26ded1fe92ed25c86c4c900e3c2438c05dff5b"
+            },
+            "original_record": {
+              "id": "D918specific",
+              "from": "R918",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Unless the rules specifically state otherwise",
+                "description": "Unenumerated specific command exceptions",
+                "needed_context": "Specific Elephant command restrictions, if any, in other rules/scenarios"
+              },
+              "kind": "mention",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Unless the rules specifically state otherwise; direction is referring clause to the unavailable target. This is a mention/prohibition reference, not an instruction to execute that procedure.",
+              "evidence_ids": [
+                "E918"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R918"
+                ],
+                "blocks_full_result": false,
+                "reason": "Unenumerated specific command exceptions is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D918specific"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D918specific": {
+            "pointer": "/gaps/18",
+            "raw_span": {
+              "start_byte": 538068,
+              "end_byte_exclusive": 538573,
+              "sha256": "c3847703ebaacf82f8fe34d6c7bcf04b9a8a1eb02391ac68d50382088fd5f932"
+            },
+            "original_record": {
+              "id": "G-D918specific",
+              "class": "missing_context",
+              "affected_ids": [
+                "R918",
+                "D918specific"
+              ],
+              "source_regions": [
+                "pdf-33-core-left"
+              ],
+              "reason": "Unenumerated specific command exceptions is referenced but unavailable.",
+              "needed_context": "Specific Elephant command restrictions, if any, in other rules/scenarios",
+              "blocking": false,
+              "evidence_ids": [
+                "E918"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        },
+        "context-01": {
+          "R918": {
+            "pointer": "/rules/8",
+            "raw_span": {
+              "start_byte": 290998,
+              "end_byte_exclusive": 294212,
+              "sha256": "d7a45288d96c2d73bc22a2bc1b20b8c03362c7d8c907b908c1b9dfae8df0ae67"
+            },
+            "original_record": {
+              "id": "R918",
+              "original_label": {
+                "state": "known",
+                "value": "9.18",
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R918-C1",
+                  "region_id": "pdf-33-core-left",
+                  "evidence_ids": [
+                    "E918"
+                  ],
+                  "original_label_text": "9.18",
+                  "source_clause_locator": "Any leader may command Elephant units."
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "Unless the rules specifically state otherwise, Elephant units may be commanded by any leader."
+                ],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": "Any leader may command Elephant units.",
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "No additional prerequisite stated in this identified clause.",
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": "Any leader may command Elephant units.",
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "unknown",
+                "value": null,
+                "evidence_ids": [],
+                "reason": "Specific exceptions are acknowledged but not enumerated in supplied clause.",
+                "gap_ids": [
+                  "G-D918specific"
+                ]
+              },
+              "parameters": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": "No numerical parameter stated within this identified clause.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Elephant",
+                  "any leader"
+                ],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Chapter 9.0; 9.18"
+                ],
+                "evidence_ids": [
+                  "E918"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "not_applicable",
+                "value": null,
+                "evidence_ids": [],
+                "reason": "No separate time restriction stated; event timing, if any, is expressed in conditions/action_effect.",
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E918"
+              ],
+              "gap_ids": [
+                "G-D918specific"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "D918specific": {
+            "pointer": "/dependencies/58",
+            "raw_span": {
+              "start_byte": 540841,
+              "end_byte_exclusive": 541937,
+              "sha256": "52edbbb6bd90058a52943715a9959a7d2fec9ad9eedc21249d17952bf12a0a27"
+            },
+            "original_record": {
+              "id": "D918specific",
+              "from": "R918",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Unless the rules specifically state otherwise",
+                "description": "Unenumerated specific command exceptions",
+                "needed_context": "Specific Elephant command restrictions, if any, in other rules/scenarios"
+              },
+              "kind": "mention",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Unless the rules specifically state otherwise; direction is referring clause to the unavailable target. This is a mention/prohibition reference, not an instruction to execute that procedure.",
+              "evidence_ids": [
+                "E918"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R918"
+                ],
+                "blocks_full_result": false,
+                "reason": "Unenumerated specific command exceptions is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D918specific"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D918specific": {
+            "pointer": "/gaps/18",
+            "raw_span": {
+              "start_byte": 622124,
+              "end_byte_exclusive": 622646,
+              "sha256": "2a3d8899a381c03d274291d16e984507b2e5d63d9fc7fa52cb05cb734fce6d9a"
+            },
+            "original_record": {
+              "id": "G-D918specific",
+              "class": "missing_context",
+              "affected_ids": [
+                "R918",
+                "D918specific"
+              ],
+              "source_regions": [
+                "pdf-33-core-left"
+              ],
+              "reason": "Unenumerated specific command exceptions is referenced but unavailable.",
+              "needed_context": "Specific Elephant command restrictions, if any, in other rules/scenarios",
+              "blocking": false,
+              "evidence_ids": [
+                "E918"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        }
+      },
+      "response_hashes": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "proposal": "R918.transcription zachowuje unless rules specifically otherwise, a exceptions=unknown wskazuje nieznane wyjątki. Jednak action_effect/interpretation brzmi Any leader may command i D918specific/G-D918specific mają blocks_full_result=false/blocking=false. Oznaczono brak źródła, lecz nie zadeklarowano blokady realnej autoryzacji. Kandydat SEM-009: właściwość deklaracji blokady w rzeczywistym użyciu wymaga decyzji; nie ma konkretnego niepoprawnie wybranego dowódcy.",
+      "impact": "Potential missing explicit block on actual commander eligibility when exceptions are unknown.",
+      "uncertainty": "Unknown exceptions and false blocking flags are observed. No concrete real-state eligibility answer exists; whether this is an unmarked critical block remains an owner decision.",
+      "excluded": "No new exact relation gold, no judgment of all command rules, no invented commander/scenario, no situation outcome."
+    }
+  ],
+  "inherited_pending": [
+    "SEM-001",
+    "SEM-002",
+    "SEM-003",
+    "SEM-004",
+    "SEM-005",
+    "SEM-006",
+    "SEM-007",
+    "SEM-008"
+  ],
+  "wrong_read_confirmed": "not_assessable",
+  "confirmed_semantic_errors": "not_assessable",
+  "owner_decisions": []
+}

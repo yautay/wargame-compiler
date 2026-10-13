@@ -1,0 +1,214 @@
+--- baseline/tests/contracts/fixtures/catalog.json
++++ tests/contracts/fixtures/catalog.json
+@@ -229,6 +229,211 @@
+         "transcription_represented": 2
+       },
+       "error_contains": null
++    },
++    {
++      "file": "invalid-coverage-gap-target-active.json",
++      "valid": false,
++      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
++      "basis": "Independent review F1; architecture: gaps never count as represented content.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "invalid-coverage-gap-target-active-mixed.json",
++      "valid": false,
++      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
++      "basis": "Independent review F1; architecture: gaps never count as represented content.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "invalid-coverage-gap-target-historical.json",
++      "valid": false,
++      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
++      "basis": "Independent review F1; architecture: gaps never count as represented content.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "invalid-coverage-gap-target-historical-mixed.json",
++      "valid": false,
++      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
++      "basis": "Independent review F1; architecture: gaps never count as represented content.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "valid-coverage-content-evidence.json",
++      "valid": true,
++      "expectation": "Evidence and relations are source-content targets; their metadata do not grant execution.",
++      "basis": "F1 allowed content families; IG-DATA-MODEL collections.",
++      "report": {
++        "transcription_represented": 2
++      },
++      "error_contains": null
++    },
++    {
++      "file": "valid-coverage-content-history-link.json",
++      "valid": true,
++      "expectation": "Evidence and relations are source-content targets; their metadata do not grant execution.",
++      "basis": "F1 allowed content families; IG-DATA-MODEL collections.",
++      "report": {
++        "transcription_represented": 2
++      },
++      "error_contains": null
++    },
++    {
++      "file": "valid-exact-coverage-exclusion.json",
++      "valid": true,
++      "expectation": "Current complete authorized composition metadata approves exactly the inventory/region/level boundary.",
++      "basis": "Independent review F2; IG-DATA-MODEL: exclusions require an approved scope boundary.",
++      "report": {
++        "transcription_represented": 1,
++        "transcription_excluded": 1
++      },
++      "error_contains": null
++    },
++    {
++      "file": "invalid-coverage-exclusion-unrelated.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: unrelated.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-coverage-exclusion-other-region.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: other-region.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-coverage-exclusion-other-level.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: other-level.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-coverage-exclusion-other-inventory.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: other-inventory.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-coverage-exclusion-partial.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: partial.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-coverage-exclusion-stale.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: stale.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-coverage-exclusion-model.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: model.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "invalid-coverage-exclusion-missing-inventory-basis.json",
++      "valid": false,
++      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: missing-inventory-basis.",
++      "basis": "Independent review F2; exact scope and review basis rules.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-required-historical-unselected.json",
++      "valid": false,
++      "expectation": "A selected required dependency requires selected exact endpoint revisions: unselected.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {},
++      "error_contains": "semantic dependency endpoint"
++    },
++    {
++      "file": "invalid-required-historical-superseded.json",
++      "valid": false,
++      "expectation": "A selected required dependency requires selected exact endpoint revisions: superseded.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {},
++      "error_contains": "semantic dependency endpoint"
++    },
++    {
++      "file": "valid-required-historical-selected.json",
++      "valid": true,
++      "expectation": "A selected required dependency requires selected exact endpoint revisions: selected.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {
++        "execution": "blocked"
++      },
++      "error_contains": null
++    },
++    {
++      "file": "invalid-required-historical-unselected-source.json",
++      "valid": false,
++      "expectation": "A selected required dependency requires selected exact endpoint revisions: unselected-source.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {},
++      "error_contains": "semantic dependency endpoint"
++    },
++    {
++      "file": "invalid-conditional-historical-unselected.json",
++      "valid": false,
++      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: unselected.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {},
++      "error_contains": "semantic dependency endpoint"
++    },
++    {
++      "file": "invalid-conditional-historical-superseded.json",
++      "valid": false,
++      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: superseded.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {},
++      "error_contains": "semantic dependency endpoint"
++    },
++    {
++      "file": "valid-conditional-historical-selected.json",
++      "valid": true,
++      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: selected.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {
++        "execution": "blocked"
++      },
++      "error_contains": null
++    },
++    {
++      "file": "invalid-conditional-historical-unselected-source.json",
++      "valid": false,
++      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: unselected-source.",
++      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
++      "report": {},
++      "error_contains": "semantic dependency endpoint"
++    },
++    {
++      "file": "valid-unresolved-conditional-dependency.json",
++      "valid": true,
++      "expectation": "An unresolved link with raw locator/gap is retained and blocks execution rather than activating history.",
++      "basis": "F3 preservation of unresolved source links; unknown applicability is not false.",
++      "report": {
++        "execution": "blocked"
++      },
++      "error_contains": null
+     }
+   ]
+ }

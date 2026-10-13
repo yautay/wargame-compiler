@@ -1,0 +1,30 @@
+{
+  "role": "executor",
+  "actor": "ig-1a-executor-20261012-0540",
+  "summary": "Claim first bounded repair cycle for independent IG-1A findings F1-F3. All input and frozen artifact hashes verified; exact prior product bytes preserved in baseline copies.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/checkpoint-claim.json",
+      "sha256": "a7ce73378ed26352dd9727c91d5e09d4575cc968290941065d078cbb6b02fd6a"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/configuration.json",
+      "sha256": "20810ac1d01121a37cbadded861f81ad6c814b721cc6572245c72b320cae33b2"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline-manifest.json",
+      "sha256": "7680bbae572b9707f66c1e36cd37c356406f5bedd0710a7a5c82a1c87f223359"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/review.json",
+      "sha256": "5dab7b6d6b2851e451ce9124d7a6aa17a44624f7b6c0f6cd5b6739d519e35a39"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Existing operator UI confirmation of this unchanged executor session; configuration.json preserves source. Independent reviewer configuration remains explicitly unknown."
+}

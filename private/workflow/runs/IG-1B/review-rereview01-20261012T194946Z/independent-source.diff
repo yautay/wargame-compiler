@@ -1,0 +1,74 @@
+--- private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/baseline/src/wgc/inputs/snapshot.py
++++ src/wgc/inputs/snapshot.py
+@@ -250,6 +250,47 @@
+     return value
+ 
+ 
++def verify_tree_names(directory, allowed_files):
++    """Inventory the exact sealed tree without following unlisted links.
++
++    Only metadata files and available manifest blobs may exist. Directories
++    must be the parents needed by those files; even extra empty directories
++    reject. No unexpected file content is opened during this inventory.
++    """
++    allowed_directories = set()
++    for name in allowed_files:
++        parent = Path(relative_path(name)).parent
++        while parent != Path('.'):
++            allowed_directories.add(parent.as_posix())
++            parent = parent.parent
++    actual_files = set()
++    actual_directories = set()
++    pending = [directory]
++    while pending:
++        current = pending.pop()
++        no_links(current)
++        with os.scandir(current) as entries:
++            for entry in entries:
++                info = entry.stat(follow_symlinks=False)
++                name = Path(entry.path).relative_to(directory).as_posix()
++                if stat.S_ISLNK(info.st_mode) or getattr(info, 'st_file_attributes', 0) & 1024:
++                    raise SnapshotError('linked path in snapshot tree: ' + name)
++                relative_path(name)
++                if stat.S_ISDIR(info.st_mode):
++                    if name not in allowed_directories:
++                        raise SnapshotError('unexpected directory in snapshot tree: ' + name)
++                    actual_directories.add(name)
++                    pending.append(Path(entry.path))
++                elif stat.S_ISREG(info.st_mode):
++                    if name not in allowed_files:
++                        raise SnapshotError('unexpected file in snapshot tree: ' + name)
++                    actual_files.add(name)
++                else:
++                    raise SnapshotError('non-regular entry in snapshot tree: ' + name)
++    if actual_files != allowed_files or actual_directories != allowed_directories:
++        raise SnapshotError('snapshot tree is missing declared files or parent directories')
++
++
+ def _verify_snapshot(directory, enforce_directory_name=True):
+     directory = Path(directory).absolute()
+     no_links(directory)
+@@ -262,6 +303,9 @@
+     expected = snapshot_manifest({k: v for k, v in manifest.items() if k != 'snapshot_id'})
+     if manifest != expected or (enforce_directory_name and directory.name != 'sha256-' + manifest['snapshot_id'][7:]):
+         raise SnapshotError('snapshot manifest integrity mismatch')
++    allowed_files = {'manifest.json'}
++    if manifest['kind'] == 'source_snapshot':
++        allowed_files.add('source-pin.json')
+     seen = set()
+     for item in manifest['files']:
+         name = relative_path(item['path'])
+@@ -274,6 +318,13 @@
+             continue
+         if item['blob_path'] != 'files/' + name:
+             raise SnapshotError('copy path differs from exact enumerated path')
++        allowed_files.add(relative_path(item['blob_path']))
++    # Reject static additions, including blobs for missing entries, before
++    # opening any copied file or source pin. This also gates staging and reuse.
++    verify_tree_names(directory, allowed_files)
++    for item in manifest['files']:
++        if item['availability'] == 'missing':
++            continue
+         path = directory / relative_path(item['blob_path'])
+         size, digest, _ = measure(path)
+         if size != item['bytes'] or digest != item['sha256']:

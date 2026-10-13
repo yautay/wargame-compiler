@@ -1,0 +1,46 @@
+{
+  "task": "IG-1A",
+  "result": "Operator-authorized technical acceptance and completion recorded",
+  "operator_decision": {
+    "path": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/operator-decision.json",
+    "sha256": "ae7e0dff3312405a69712e86a48c452cbb9e8b27c01d0da8432de4800bc0b40f"
+  },
+  "status": "done",
+  "events": [
+    {
+      "from": "review",
+      "to": "accepted",
+      "utc": "2026-10-12T18:21:03.960027+00:00",
+      "evidence": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/acceptance.json",
+      "sha256": "e74645c2789fd97a13045d4b1d11550d0b89a5d113159e75e5416ee31d11d857"
+    },
+    {
+      "from": "accepted",
+      "to": "done",
+      "utc": "2026-10-12T18:21:09.797963+00:00",
+      "evidence": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/completion.json",
+      "sha256": "afaf02a1dadde0912361556b728ddf99d09608bf3a1261809137b0df8f273563"
+    }
+  ],
+  "all_82_frozen_product_artifacts_unchanged": true,
+  "current_followup_task": "IG-1B",
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "final_project_controls": {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1B",
+    "exit_code": 0,
+    "tests_passed": 102,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 46.11,
+    "execution_context": "Default sandbox",
+    "log_root": "private/workflow/checks/active-9bb6c7d28e244ba386742e5fc3efdb43",
+    "result": {
+      "tests_exit": 0,
+      "dry_run_exit": 0,
+      "plan_exit": 0,
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-9bb6c7d28e244ba386742e5fc3efdb43\\pytest",
+      "diff_exit": 0
+    }
+  },
+  "recorded_utc": "2026-10-12T18:39:51.834326+00:00"
+}

@@ -1,0 +1,197 @@
+{
+  "id": "M-POC5A-semantic-04d4-completion-01",
+  "card": "M-POC5A.4d4",
+  "status": "partial_waiting_review",
+  "completed_at_utc": "2026-10-11T16:12:49.977139+00:00",
+  "preflight": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04d4/preflight.json",
+    "bytes": 1121,
+    "sha256": "c715535540e26702da0153f0d72865a28ccdff91e621d97d5f53b82c1303e6e9"
+  },
+  "estimate": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04d4/estimate.json",
+    "bytes": 1628,
+    "sha256": "1ddaabdb00fe2f4a815dbdb83a897e49151790006f2454c1fc26b13948acd6b6"
+  },
+  "read_inputs": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04d4/read-inputs.json",
+    "bytes": 137680,
+    "sha256": "3e8a577c64bae3dc253e3adb7ba4da5fc3c215e50519ebca5862847fcf5f9066"
+  },
+  "manifest_verification": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04d4/manifest-verification.json",
+    "bytes": 191782,
+    "sha256": "ab0b4c551dda7f2e0ce80a5f890534141608b67681177f8f260a50129a05579b"
+  },
+  "review_manifest": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04d4/manifest.json",
+    "bytes": 3383,
+    "sha256": "82b70319b2b2111ef9fc2cc6f619ded992b85cd038080aee5bf0e6714bd0dcb1"
+  },
+  "state": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/current-state-28.json",
+    "bytes": 15085,
+    "sha256": "6e3061fa4508bb7baff820a7c7e0f7d255ae0860947daf61326169ef1755de16"
+  },
+  "summary": {
+    "distinct_inventory_ids": 41,
+    "assigned_inventory_occurrences": 82,
+    "per_answer": {
+      "first-001": 41,
+      "context-01": 41
+    },
+    "evaluator_compared_occurrences": 82,
+    "owner_available_occurrences": 82,
+    "new_owner_reviewed_occurrences": 0,
+    "owner_pending_occurrences": 82,
+    "bounded_supported_inventory_occurrences": 80,
+    "mixed_clause_occurrences": 2,
+    "underlying_omitted_explanatory_clauses_per_answer": 1,
+    "facet_occurrences_by_inventory_type": {
+      "rule_label": 24,
+      "clause_group": 48,
+      "counter_illustration": 2,
+      "marker_illustration": 4,
+      "continuation": 4
+    },
+    "unique_mapped_records_per_answer": {
+      "first-001": 22,
+      "context-01": 22
+    },
+    "prior_owner_inventory_scopes": 332,
+    "total_inventory_evaluator_compared_assigned_occurrences": 414,
+    "total_inventory_distinct_ids_compared": 207,
+    "remaining_assigned_inventory_ids": 0,
+    "remaining_assigned_inventory_occurrences": 0,
+    "all_inventory_ids": 207,
+    "prior_owner_relation_scopes": 257,
+    "prior_owner_locator_scopes": 124,
+    "prior_category_units": 264,
+    "previous_pending_expectation_ids": [
+      "EXP-010",
+      "EXP-017",
+      "EXP-019",
+      "EXP-040",
+      "EXP-050",
+      "EXP-052",
+      "EXP-066",
+      "EXP-074"
+    ],
+    "previous_unresolved_issue_ids": [
+      "SEM-001",
+      "SEM-002",
+      "SEM-003",
+      "SEM-004",
+      "SEM-005",
+      "SEM-006",
+      "SEM-007",
+      "SEM-008",
+      "SEM-009",
+      "SEM-010",
+      "SEM-011",
+      "SEM-012",
+      "SEM-013"
+    ],
+    "new_issue_ids": [
+      "SEM-022"
+    ],
+    "TP_FP_FN_precision_recall": "not_assessable",
+    "actual_owner_file_open_or_read": "unknown",
+    "count_policy": "82 exact inventory scopes, not 82 full correct records/rules/TP. 80 supported and 2 mixed; one omitted explanation per answer. Prior scopes not scored again."
+  },
+  "checks": [
+    {
+      "attempt": 1,
+      "result": {
+        "diff_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\poc\\_checks\\active-89f54d12c061492785fdbdca1022e554\\pytest",
+        "tests_exit": 1
+      },
+      "result_file": {
+        "path": "private/poc/_checks/active-89f54d12c061492785fdbdca1022e554/result.json",
+        "bytes": 161,
+        "sha256": "a8bf1b2b5b2d938364171bc17fedb4bcb875d09edbb181d3fb4b793318b0d13a"
+      },
+      "pytest_log": {
+        "path": "private/poc/_checks/active-89f54d12c061492785fdbdca1022e554/pytest.log",
+        "bytes": 115,
+        "sha256": "5d4c2e797c85f208279d1e7a589a3b2a1ff06b5abda303b1cc0295d282b74254"
+      },
+      "diff_log": {
+        "path": "private/poc/_checks/active-89f54d12c061492785fdbdca1022e554/diff-check.log",
+        "bytes": 565,
+        "sha256": "66ed5585a1459bfa8818624306af67e3dc684ab34cfe6a07912b302204105c46"
+      },
+      "outcome": "failed_missing_pytest_in_bundled_runtime"
+    },
+    {
+      "attempt": 2,
+      "result": {
+        "tests_exit": 1,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\poc\\_checks\\active-f172ac93a4594483ad15c6558bf2891c\\pytest",
+        "diff_exit": 0
+      },
+      "result_file": {
+        "path": "private/poc/_checks/active-f172ac93a4594483ad15c6558bf2891c/result.json",
+        "bytes": 161,
+        "sha256": "379d11312f598630bc50a085534a06e6242d055db128e305a3764e7f3bdfdd86"
+      },
+      "pytest_log": {
+        "path": "private/poc/_checks/active-f172ac93a4594483ad15c6558bf2891c/pytest.log",
+        "bytes": 988,
+        "sha256": "1881d090fb7d8f0d854ad81e9e6c835cd7b25b5863207ddc30200e7a9c055304"
+      },
+      "diff_log": {
+        "path": "private/poc/_checks/active-f172ac93a4594483ad15c6558bf2891c/diff-check.log",
+        "bytes": 565,
+        "sha256": "66ed5585a1459bfa8818624306af67e3dc684ab34cfe6a07912b302204105c46"
+      },
+      "outcome": "failed_duplicate_latest_handoff_pointer_fixed"
+    },
+    {
+      "attempt": 3,
+      "result": {
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\poc\\_checks\\active-3149bc3887aa41878f770de95761bfb2\\pytest",
+        "diff_exit": 0,
+        "tests_exit": 0
+      },
+      "result_file": {
+        "path": "private/poc/_checks/active-3149bc3887aa41878f770de95761bfb2/result.json",
+        "bytes": 161,
+        "sha256": "6a055d771212bf53028728a9236e4164f14b55381a41f2385f5f2026480ee5c6"
+      },
+      "pytest_log": {
+        "path": "private/poc/_checks/active-3149bc3887aa41878f770de95761bfb2/pytest.log",
+        "bytes": 264,
+        "sha256": "4e2e13caeeacad3b0cb6ce21230af938e7ad1c30cf2026c9db48e15554ddd500"
+      },
+      "diff_log": {
+        "path": "private/poc/_checks/active-3149bc3887aa41878f770de95761bfb2/diff-check.log",
+        "bytes": 565,
+        "sha256": "66ed5585a1459bfa8818624306af67e3dc684ab34cfe6a07912b302204105c46"
+      },
+      "outcome": "passed_156_tests"
+    }
+  ],
+  "actual_checks": "First attempt lacked pytest; second156-test run had one continuity failure, fixed latest handoff pointer; final156 passed. Logs retained for all attempts.",
+  "operational_notes": [
+    "Read-only display helper initially assumed graphic transcription and raised KeyError; corrected fallback to original evidence object.",
+    "Console cp1252 could not encode a continuation arrow; switched output encoding to UTF-8; original files unchanged.",
+    "Large historical JSON/text output was truncated in tool display; relevant exact source/field content was re-exposed in bounded batches. Full inputs parsed; mechanical read log is not semantic proof."
+  ],
+  "model_configuration": "unknown",
+  "active_user_time": "unknown",
+  "active_model_time": "unknown",
+  "tokens": "unknown",
+  "price": "unknown",
+  "overall_budget_compliance": "unknown",
+  "calendar_start_evidence": "2026-10-11T15:55:04.872978+00:00",
+  "calendar_duration_is_active_time": false,
+  "new_sources": 0,
+  "new_extractions": 0,
+  "new_corrections": 0,
+  "new_owner_decisions": 0,
+  "other_parts_executed": [],
+  "sessions_append_policy": "Exactly one new record for this session; original prefix preserved.",
+  "next_action": "Owner decision on 80 bounded supported scopes and 2 mixed SEM-022 scopes from part-04d4; then separate .4d5 reconciliation, then M-POC5B 40 situation judgments."
+}

@@ -1,0 +1,3 @@
+# Zatwierdzenie .4c2
+
+Właściciel: „zatwierdzam i kontynuuj - powiedz ile jeszcze do końca etapu 5 ??”. Przyjęto42 ograniczone oceny: poprawne geometrie/źródłowe krótkie cytaty i czytelne rastry;40 mierzalnych ograniczeń pełnych obwiedni oraz2E962 tylko niepewność precyzji. To42 rozłączne wystąpienia, nie84 punkty lub dobre całe rekordy. Oryginały bez naprawy. Łącznie86 lokatorów z decyzjami,38 jeszcze nieprzejrzanych. Poprzednie257 ocen komponentów relacji/264 pary rubryka/EXP i8 oczekiwań oraz dawne SEM pozostają w swoim zakresie. Następna.4c3, potem.4d iM-POC5B20sytuacji; liczba dalszych sesji dopiero po oszacowaniu zakresu.

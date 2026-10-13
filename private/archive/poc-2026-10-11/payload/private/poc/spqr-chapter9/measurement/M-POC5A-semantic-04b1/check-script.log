@@ -1,0 +1,20 @@
+LOG_ROOT=C:\repo\wargame-compiler\private\poc\_checks\active-b0f1edfb7a754e1c9784558b0a9895a4
+........................................................................ [ 53%]
+...................F...........................................          [100%]
+================================== FAILURES ===================================
+_____________ test_roadmap_status_handoff_and_current_card_agree ______________
+tests\test_poc_continuity.py:109: in test_roadmap_status_handoff_and_current_card_agree
+    assert field(pointer, 'Nast\u0119pna karta') == card
+E   AssertionError: assert 'M-POC5A;' == 'M-POC5A'
+E     
+E     - M-POC5A
+E     + M-POC5A;
+E     ?        +
+=========================== short test summary info ===========================
+FAILED tests/test_poc_continuity.py::test_roadmap_status_handoff_and_current_card_agree
+1 failed, 134 passed in 4.52s
+warning: in the working copy of 'docs/HANDOFF.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/ROADMAP.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/STATUS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/M-POC5A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/README.md', CRLF will be replaced by LF the next time Git touches it

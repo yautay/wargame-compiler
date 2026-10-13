@@ -1,0 +1,76 @@
+schema: wgu/kb@1
+game:
+  id: spqr
+  title: "Great Battles of the Roman Republic (SPQR)"
+  short: SPQR
+  publisher: GMT Games
+  rules_version: "5th Edition"
+  designers: "Richard Berg, Mark Herman"
+  series: "Great Battles of History, vol. II"
+language: {source: en, target: pl, kb: pl}
+sources:
+  - {path: "docs/SPQR+Deluxe_Rule+book_WEB.pdf", role: current, version: "5th Edition", pages: 44, note: "© 2026 GMT Games; numer strony PDF = numer drukowany (sprawdzone na s. 3, 7, 16, 20); s. 42–43 — indeks zasad, s. 44 — stopka"}
+  - {path: "docs/update/*.png, docs/update/PlayerAidDisplay.jpg", role: charts, version: "karty PAC — część z numeracją 4. ed. (4.53, 8.56); część nieoficjalna", files: 34, note: "Oficjalne skany kart: MovChart (6.27), StackVol2/StackRout2 (stos), Missile (8.71), LeaderCas („4.53”), LeadChk, ShockSup (8.72), Clash (8.73), ShockCmbt1 (8.74), CohTq („8.56”), Rally (10.29), Doom, Rampage, SOP (3.0), CommSumm (5.22), Legend, Example, RomanCamp, Trebbia_Metaurus. Nieoficjalne (arkusze w stylu arkusza kalkulacyjnego): 12 × „<typ> Shock”, Missile Table, Alt Missile Table, PlayerAidDisplay — T-38…T-40, N-36."}
+  - {path: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf", role: scenarios, version: "4th Edition (2018)", pages: 32, note: "© 2018 GMT Games; numer strony PDF = numer drukowany (sprawdzone na s. 4–7, 9–10, 12–15, 19–21, 25–27); Beneventum, Bagradas, Kanny, Zama, Kynoskefalaj, scenariusz szkoleniowy; s. 28–32 — noty projektantów, bibliografia, twórcy"}
+analysis: |
+  Model: Claude Opus 5.5 (agent wgu:analityk-zasad); data: 2026-10-04; tryb: nowa baza.
+  Metoda: `wgu pdf extract` (2 kolumny; font nagłówków Trajan — tylko tytuły ozdobne; nagłówki reguł rozpoznawane po pogrubieniu i numerze),
+  lektura całości tekstu (s. 1–44, łącznie z indeksem) i renderów stron z diagramami/ramkami (s. 3, 7, 15–17, 20, 24, 26, 28, 30, 32, 35–36).
+  Kolor: `wgu pdf analyze` — #3953A4 to nagłówki rozdziałów, #ED1F24 to symbol ▲ i etykiety „IMPORTANT:”; instrukcja nie ma koloru zmian wersji.
+  Identyfikatory: R-<numer reguły>.<n> (np. R-8.43.4); tekst sekcji przed podregułami: R-<X.Y>.<n> (np. R-6.5.1) albo R-<X>.0.<n> (rozdział).
+  Zasady opcjonalne (4.9, 8.66, 10.4, uproszczenie 8.17) mają ID numeryczne i flagę `optional` (wyszukiwanie po numerze działa).
+  Tłumaczenia PL nie ma (`translation.main` puste) — pola `source.translation` pominięto.
+  Flaga `changed` nie jest używana (brak koloru zmian); jedyną zmianę wskazaną notą (7.24) oznacza `version.changed_in` w R-7.24.1 i rekord C-01.
+  Kontrola: `wgu kb lint` 0/0; skrypt porównujący `refs` z ID w tekście (0 braków); pokrycie 289 numerów nagłówków (brakują tylko nagłówki sekcji bez
+  własnego tekstu reguł — zob. ostrzeżenia); strony cytowań porównane automatycznie z położeniem nagłówków; 10 losowych rekordów zweryfikowano ręcznie
+  z tekstem (R-4.56.1, R-2.4.11, R-9.82.1, R-6.15.2, R-6.67.1, R-5.42.3, R-8.17.3, R-4.72.3, R-10.27.1, R-9.67.1 — zgodne).
+  Skrypty: strony w `source.text` = pole `pages` (3 poprawki); liczby w odpowiedziach 39 scenariuszy porównane z treścią encji z `refs`
+  (pozostałe różnice to arytmetyka na danych z pytania).
+  Aktualizacja przyrostowa 2026-10-04 (Claude Opus 5.5, agent wgu:analityk-zasad): A) 34 obrazy kart z docs/update obejrzane w całości i we fragmentach
+  powiększonych (skrypt PIL); T-20…T-29 przepisane od nowa (dawne wartości z tekstu przeniesione do podtabel „kontrola krzyżowa”), nowe T-31…T-41.
+  Kontrole: siatka CRT 8.74 i 36 wierszy Clash 8.73 przepisane dwukrotnie; 12 arkuszy nieoficjalnych „* Shock” porównane pikselowo (identyczne siatki)
+  i skryptem z kartami 8.72/8.73 (464 komórki — 2 różnice) oraz z CRT (2 różnice w kol. 13); wszystkie liczbowe przykłady instrukcji (Bagradas s. 28–29,
+  8.45 #1–#3, 9.41, 10.28, 8.15, przykład strat dowódcy) zgodne z kartami. B) księga scenariuszy 2018 (32 s.) przeczytana w całości (`wgu pdf extract`),
+  układy dwukolumnowe (karty LC, tabele rozstawienia, s. 10 z przeplecionymi tekstami dwóch bitew, tabele mgły) sprawdzone na renderach 19 stron;
+  85 reguł R-SC0…R-SC6 (kb/rules/12-…), tabele T-42…T-48, T-29, 47 relacji z `when: scenariusz…`, 23 niejasności N-23…N-45 (rozbieżności 4./5. ed.
+  i usterki księgi), 20 pytań Q-40…Q-59, 14 terminów. Kontrola progów: próg/RP armii odtwarza „Rout Ratio” z tabel księgi we wszystkich wierszach.
+  Schemat dopuszcza w `ambiguities.scope` tylko original/translation/errata/digital — niejasności księgi mają `scope: original`, grupę „Księga scenariuszy
+  (4. ed. 2018)” i `extra.scope: scenario-book` (karty: `extra.scope: charts`).
+interpretation_protocol: |
+  1. Terminy → `kb/terms.yaml` i pary „nie mylić” (np. LC = rozkaz liniowy vs lekka jazda; słoń dowódcy vs dowódca słoni; Rally vs Recovery).
+     Ustal, czy pytający używa terminu technicznie (np. „wycofanie” = OW, PW, wycofanie linii jazdy czy wycofanie armii?).
+  2. Reguły → `wgu kb show <ID>` (pokazuje relacje, niejasności, scenariusze); wyszukiwanie po `keywords`; po numerze reguły: `kb show R-8.43`.
+     Nagłówki sekcji bez własnego tekstu (np. 5.3) — szukaj po podregułach (R-5.31, R-5.32…).
+  3. Pierwszeństwo: zasady scenariusza > zasady szczególne tytułu (flaga `title-specific`) > zasady ogólne; szczególna > ogólna (graf `relations.yaml`:
+     `overrides`, `exception-to`, `replaces`); 5. edycja > wcześniejsze (R-1.0.2); zasady opcjonalne tylko po uzgodnieniu graczy.
+     Noty projektowe/do gry (Design/Play Note) traktuj jako wyjaśnienie zasady, chyba że wprost ją zmieniają (wtedy jest osobny rekord).
+  4. Liczby z tabel → `kb/tables.yaml` (T-20…T-37, T-41 — przepisane z kart PAC; T-42…T-48 i T-29 — księga scenariuszy). T-38…T-40 to pomoce
+     nieoficjalne — nie rozstrzygają (N-36). Gdy karta różni się od tekstu 5. ed., obowiązuje tekst 5. ed. (R-1.0.2; N-24…N-35). Tabele z
+     `complete: false` (obecnie brak) nie dają pełnej odpowiedzi — nie uzupełniaj ich z pamięci ani z innych tytułów serii.
+  4a. Scenariusz: reguły R-SC<nr>-<n> (kb/rules/12-…) nadpisują zasady ogólne wg relacji z `when: scenariusz …` (`kb show` pokazuje je przy regule ogólnej).
+     Księga scenariuszy jest z 4. ed. — jej odesłania do numerów reguł czytaj wg N-23.
+  5. Niejasności → `kb/ambiguities.yaml`: podaj warianty, rekomendację i jej siłę (certain/probable/speculative).
+  6. Odpowiedź: werdykt → łańcuch reguł z ID i krótkimi cytatami → założenia → ewentualna house rule oznaczona jako nieoficjalna.
+  7. Brak w bazie → wróć do źródła (strona z `source.pages`), dopisz rekord ze stabilnym ID (kolejny numer), odnotuj w `history`.
+warnings: |
+  - N-01 (dawniej BLOKER) — częściowo rozwiązane: tabele kart PAC przepisano z obrazów docs/update (T-20…T-28, T-31…T-37, T-41; wszystkie complete: true).
+    Część kart ma numerację/treść sprzed 5. ed. („4.53”, „8.56” i in. — N-24…N-35); przy rozbieżności obowiązuje tekst 5. ed. Brak skanów PAC 5. ed.
+    do porównania.
+  - Pomoce nieoficjalne z docs/update (12 arkuszy „* Shock”, Missile Table, Alt Missile Table, PlayerAidDisplay) — T-38…T-40, mają rozbieżności z kartami
+    oficjalnymi (N-36); nie używać do rozstrzygnięć.
+  - Scenariusze pochodzą z księgi 4. ed. (2018): 5 bitew + scenariusz szkoleniowy (kb/rules/12-…, T-29, T-42…T-48). Odesłania księgi do numerów reguł
+    są z 4. ed. (N-23); brak ksiąg scenariuszy 5. ed. i scenariuszy bitew wspomnianych w 5. ed. (Trebia, Metaurus — jest tylko karta terenu T-36;
+    Sentinum, Telamon).
+  - Brak parametrów żetonów (Size, TQ, MA, klasa, broń) i map (teren heksów, linie alarmu, obóz, kompas) — rozstawienia T-43…T-48 podają tylko ID jednostek
+    i heksy; do digitalizacji potrzebne są arkusze żetonów i mapy (N-01).
+  - Brak koloru zmian wersji: `pdf.accent_color` pozostaje puste; `changes.yaml` zbudowano z not (jedyna wprost oznaczona zmiana: C-01, 7.24).
+    Tekstu 4. edycji nie ma w źródłach — rejestr zmian jest niepełny z założenia.
+  - Brak reguły 9.92 w oryginale (N-18); w bazie nie ma rekordów R-9.92.x.
+  - Nagłówki sekcji bez własnego tekstu reguł (4.2, 4.3, 4.7, 4.9, 5.1–5.5, 6.0–6.3, 7.0, 7.1, 8.1, 8.3, 8.5, 8.7, 9.0, 9.1, 9.3–9.6, 9.8, 9.9, 10.2–10.4)
+    nie mają rekordów R-X.Y.n — ich treść leży w podregułach.
+  - `effect` to polskie streszczenia; cytaty angielskie są krótkie (prawa autorskie — PDF jest poza repozytorium).
+  - Polskie odpowiedniki terminów: część zatwierdzona (warstwy common/gboh), reszta to propozycje analityka (zob. `terms.yaml` → notes).
+history:
+  - {date: "2026-10-04", change: "Utworzenie bazy (tryb: nowa baza): 11 rozdziałów instrukcji (438 reguł), 120 terminów, 30 tabel (13 z complete: false — 9 kart PAC, 1 karty scenariuszy, 3 zestawienia z tekstu), 11 procedur, 186 relacji, 22 niejasności (1 bloker), 3 zmiany, 39 scenariuszy kontrolnych."}
+  - {date: "2026-10-04", change: "Aktualizacja przyrostowa (karty PAC z docs/update + księga scenariuszy 2018, 4. ed.): T-20…T-29 przepisane z kart/księgi i complete: true (T-09…T-11 też — wartości są już w bazie); nowe tabele T-31…T-48 (Doom, szał, testy dowódców, podsumowanie dowodzenia, obóz rzymski, Trebia/Metaurus, sekwencja gry, legenda żetonów, 3 pomoce nieoficjalne, 7 tabel scenariuszy); nowy rozdział 12 (85 reguł R-SC0…R-SC6); +47 relacji (scenariusz nadpisuje zasady ogólne); N-01 przeredagowane (częściowo rozwiązane), N-02/N-12/N-15 wzmocnione dowodami z kart (certain), N-06/N-07/N-08 uzupełnione; nowe niejasności N-23…N-45; Q-40…Q-59; +14 terminów i 1 para „nie mylić”. Stan: 523 reguły, 134 terminy, 48 tabel (0 niekompletnych), 233 relacje, 45 niejasności, 59 pytań kontrolnych."}
+  - {date: "2026-10-05", change: "Niejasności zgłoszone przy tłumaczeniu (translation/proposals/*.yaml, translation/reports/*.md): nowe N-46…N-79 (24 dla instrukcji 5. ed., 10 dla księgi scenariuszy; w tym dwa zbiorcze wpisy o literówkach N-46 i N-70), pole extra.translation_chunk wskazuje fragment przekładu; N-12 uzupełnione cytatem z 6.44/9.16. Stan: 79 niejasności."}

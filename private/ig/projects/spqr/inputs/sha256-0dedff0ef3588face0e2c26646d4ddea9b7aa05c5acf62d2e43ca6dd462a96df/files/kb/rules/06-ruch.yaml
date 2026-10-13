@@ -1,0 +1,679 @@
+chapter: {id: "6", title: "6.0 Ruch (Movement)"}
+rules:
+  - id: R-6.11.1
+    title: MA — limit na jeden rozkaz
+    section: "6.11"
+    source: {text: "oryg. 6.11, s. 14", pages: "14"}
+    effect: |
+      Wydrukowany limit punktów ruchu (MA) jednostki bojowej to podstawowy limit na **jeden rozkaz**. Jednostka z rozkazem może
+      ruszyć się o najwyżej MA; zawsze może mniej.
+    keywords: [MA, limit punktów ruchu, rozkaz]
+  - id: R-6.12.1
+    title: Ruch raz na fazę rozkazów, bez limitu w turze
+    section: "6.12"
+    source: {text: "oryg. 6.12 + przykład, s. 14", pages: "14"}
+    effect: |
+      Liczba ruchów jednostki w turze nie jest ograniczona, ale jednostka rusza się **tylko raz na fazę rozkazów**. Przykład: linia
+      hastatów poruszona w pierwszej fazie trybuna może ruszyć się znowu, ale dopiero na rozkaz innego dowódcy albo tego trybuna
+      w kolejnej fazie impetu.
+    keywords: [raz na fazę, ruch, impet]
+  - id: R-6.13.1
+    title: Kolejny ruch w tej samej turze — 1 trafienie
+    section: "6.13"
+    source: {text: "oryg. 6.13 + Play Note, s. 14", pages: "14"}
+    when: jednostka bojowa, która ruszała się w poprzedniej fazie rozkazów, rusza się ponownie w tej samej turze
+    effect: |
+      Po zakończeniu ruchu otrzymuje **1 trafienie** (10.1). Kara dotyczy tylko jednostek, którym wydano rozkaz ruchu (5.22 pkt 1
+      lub 5.23 pkt 1); nie dotyczy innych rodzajów ruchu. Do zapamiętania służą znaczniki MOVED.
+    exceptions: Harcownicy (SK) nie ponoszą tej kary — R-6.13.2. Falangi — R-6.41.2.
+    keywords: [drugi ruch, trafienie, MOVED, rozkaz ruchu]
+    refs: [R-6.13.2, R-6.41.2, R-10.1.1]
+  - id: R-6.13.2
+    title: Harcownicy bez kary za kolejny ruch
+    section: "6.13"
+    source: {text: "oryg. 6.13 „Exception”, s. 14", pages: "14"}
+    effect: Kara z 6.13 nie dotyczy harcowników (SK).
+    keywords: [harcownik, SK, drugi ruch]
+  - id: R-6.14.1
+    title: Ruch dowódców — dowolnie często, 9 MP na fazę
+    section: "6.14"
+    source: {text: "oryg. 6.14, s. 14", pages: "14"}
+    effect: |
+      Dowódcy (i słonie dowódców) mogą ruszać się dowolnie wiele razy w turze, ale najwyżej 9 MP na fazę rozkazów. Pozostałe
+      ograniczenia i uprawnienia obowiązują, w tym zdolność dowódców do uporządkowanego wycofania przed **każdą** jednostką
+      przeciwnika. Dowódca, który zużył 9 MP, nie jest skończony; nie może się już ruszyć w tej fazie, ale nadal może odskoczyć (4.72).
+    see: R-4.72.1, R-6.51.1
+    keywords: [ruch dowódcy, 9 MP, uporządkowane wycofanie, odskok]
+    refs: [R-4.72.1, R-6.51.1, T-03]
+  - id: R-6.15.1
+    title: Dowódcy płacą koszty jazdy (ze słoniem — słonia)
+    section: "6.15"
+    source: {text: "oryg. 6.15, s. 14", pages: "14"}
+    effect: Dowódcy poruszają się wg kosztów jazdy; dowódca ze słoniem dowódcy — wg kosztów słoni.
+    keywords: [ruch dowódcy, koszt jazdy, słoń dowódcy]
+    refs: [T-20]
+  - id: R-6.15.2
+    title: Dowódcy bez ukierunkowania; słoń dowódcy zmienia je za darmo
+    section: "6.15"
+    source: {text: "oryg. 6.15, s. 14", pages: "14"}
+    effect: Dowódcy nie mają ukierunkowania i nie płacą za jego zmianę. Słonie dowódców mają ukierunkowanie, ale jego zmiana nic nie kosztuje.
+    keywords: [ukierunkowanie, dowódca, słoń dowódcy]
+  - id: R-6.21.1
+    title: Koszt wejścia do heksu, wzniesienie, zmiana ukierunkowania
+    section: "6.21"
+    source: {text: "oryg. 6.21 + przykład (Kynoskefalaj), s. 14", pages: "14"}
+    effect: |
+      Za każdy heks, do którego wchodzi, jednostka wydaje MP wg Tabeli kosztów ruchu (6.27). Większość jednostek płaci dodatkowe MP
+      za wejście na wyższy poziom. Jednostki bojowe płacą też MP (i ewentualnie trafienia) za zmianę ukierunkowania (7.1).
+      Przykład: HI z 2322 do 2523 pod Kynoskefalajami — 4 MP (po 1 za każdy heks czysty i po 1 za każdy wyższy poziom).
+    see: R-6.27.1, R-7.12.1
+    keywords: [koszt ruchu, wzniesienie, MP]
+    refs: [R-6.27.1, R-7.12.1, T-20]
+  - id: R-6.22.1
+    title: Trafienia za teren i wzniesienie — natychmiast
+    section: "6.22"
+    source: {text: "oryg. 6.22 + przykład, s. 14", pages: "14"}
+    effect: |
+      Niektóre typy jednostek otrzymują trafienia za każde wejście lub zmianę ukierunkowania w pewnych terenach (zwykle innych niż
+      czysty) i/lub za zmianę poziomu. Niektóre jednostki otrzymują trafienia za ruch pod górę tylko, gdy w jednym ruchu zmieniają
+      więcej niż jeden poziom (zob. Tabela kosztów ruchu). Wszystkie trafienia za ruch i zmiany ukierunkowania stosuje się
+      **natychmiast**. Przykład: HI wchodząc dwa poziomy wyżej — 2 trafienia; MI — tylko 1.
+    keywords: [trafienia za teren, wzniesienie, HI, MI]
+    refs: [T-20]
+  - id: R-6.22.2
+    title: Dowódcy i jednostki uciekające nie otrzymują trafień za ruch
+    section: "6.22"
+    source: {text: "oryg. 6.22, s. 14", pages: "14"}
+    effect: Dowódcy i jednostki uciekające **nigdy** nie otrzymują trafień (w kontekście ruchu i zmiany ukierunkowania).
+    notes: |
+      [wniosek] Zakres „never” odnoszę do trafień za ruch/teren/ukierunkowanie (kontekst 6.22). Jednostka uciekająca dostaje trafienia
+      z innych źródeł (np. eliminacja wg R-10.27.1, słonie R-9.16.1).
+    keywords: [dowódca, ucieczka, trafienia za ruch]
+    refs: [R-10.27.1, R-9.16.1]
+  - id: R-6.23.1
+    title: Heks z dwoma terenami — teren przeważający
+    section: "6.23"
+    source: {text: "oryg. 6.23, s. 14", pages: "14"}
+    effect: |
+      Heks z dwoma rodzajami terenu ma teren przeważający. Przykład: heks 2900 pod Kannami (z kawałkiem rzeki) jest czysty.
+    keywords: [teren przeważający, heks mieszany]
+  - id: R-6.24.1
+    title: Heksy nieprzekraczalne
+    section: "6.24"
+    source: {text: "oryg. 6.24, s. 14", pages: "14"}
+    effect: Niektóre heksy są nieprzekraczalne — żadna jednostka nie może do nich wejść (np. rzeka Aufidus i miasto Kanny na mapie Kann).
+    keywords: [nieprzekraczalny, Aufidus, Kanny]
+  - id: R-6.24.2
+    title: Teren szczególny map — obóz, drogi
+    section: "6.24"
+    source: {text: "oryg. 6.24, s. 14", pages: "14"}
+    effect: Obóz rzymski na mapie Beneventum ma własną tabelę efektów terenu. Polna droga na mapie Zamy nie ma wpływu; droga rzymska pod Beneventum ma niewielki wpływ na ruch.
+    keywords: [obóz rzymski, droga, Beneventum, Zama]
+    flags: [title-specific]
+  - id: R-6.24.3
+    title: Teren trudny = las, teren nierówny, bagno
+    section: "6.24"
+    source: {text: "oryg. 6.24, s. 14", pages: "14"}
+    effect: Heksy lasu (Woods), terenu nierównego (Broken) i bagna (Marsh) są **terenem trudnym** (Rough Terrain).
+    keywords: [teren trudny, Rough, las, bagno, Broken]
+  - id: R-6.25.1
+    title: Brak MP na koszt terenu — brak wejścia
+    section: "6.25"
+    source: {text: "oryg. 6.25, s. 14", pages: "14"}
+    effect: Jednostka musi mieć dość MP na koszt terenu heksu; jeśli nie ma, nie może do niego wejść.
+    keywords: [koszt ruchu, MP]
+  - id: R-6.26.1
+    title: Teren a walka wręcz i ostrzał
+    section: "6.26"
+    source: {text: "oryg. 6.26, s. 14", pages: "14"}
+    effect: Teren może zmieniać kolumnę tabeli wyników walki wręcz (8.74). Jednostki w lesie mają pewną ochronę przed ostrzałem.
+    see: R-8.74.1, R-8.15.1
+    keywords: [teren, kolumna CRT, las, ostrzał]
+    refs: [R-8.74.1, R-8.15.1, T-20, T-26]
+  - id: R-6.27.1
+    title: Tabela kosztów ruchu (Movement Cost Chart)
+    section: "6.27"
+    source: {text: "oryg. 6.27, s. 15", pages: "15"}
+    effect: Tabela podaje koszt w MP i w trafieniach dla każdego typu jednostki wchodzącej do (lub zmieniającej ukierunkowanie w) danym terenie lub przekraczającej krawędź heksu.
+    keywords: [Tabela kosztów ruchu, MP, trafienia]
+    refs: [T-20]
+  - id: R-6.31.1
+    title: Ruch po ciągłej ścieżce; jednostka po jednostce; stosy razem
+    section: "6.31"
+    source: {text: "oryg. 6.31, s. 15", pages: "15"}
+    effect: |
+      Jednostka porusza się po ścieżce przyległych heksów, płacąc MP i trafienia za każdy heks. Ruch jednej jednostki musi się skończyć,
+      zanim zacznie się ruch następnej; jednostki, które mogą tworzyć stos, mogą ruszać się razem jako stos (6.69, 9.51, 9.61) —
+      **każda** płaci MP i koszty spójności.
+    see: R-6.69.1, R-9.51.1, R-9.61.1
+    keywords: [ścieżka ruchu, stos, kolejność ruchu]
+    refs: [R-6.69.1, R-9.51.1, R-9.61.1]
+  - id: R-6.32.1
+    title: Wejście tylko do heksu frontowego; zmiana kierunku przez obrót
+    section: "6.32"
+    source: {text: "oryg. 6.32, s. 15", pages: "15"}
+    effect: |
+      Jednostka może iść w dowolnym kierunku, ale wejść może **tylko do heksu ze swojego frontu** (7.11). Jednostka jednoheksowa,
+      by zmienić kierunek, najpierw zmienia ukierunkowanie, obracając się w zajmowanym heksie (7.1). Falangi nie zmieniają
+      ukierunkowania w heksie — robią to ruchem (7.13).
+    see: R-7.11.1, R-7.12.1, R-7.13.1
+    keywords: [heks frontowy, ukierunkowanie, obrót, falanga]
+    refs: [R-7.11.1, R-7.12.1, R-7.13.1]
+  - id: R-6.4.1
+    title: Falangi — szczególne ograniczenia ruchu (wstęp)
+    section: "6.4"
+    source: {text: "oryg. 6.4 „Phalanx Units” (noty), s. 15", pages: "15"}
+    effect: Falanga ma nietypowe ograniczenia i możliwości ruchu (trudno ją prowadzić inaczej niż prosto; manewr front-bok jest ryzykowny). Scenariusze mogą je dodatkowo określać.
+    keywords: [falanga, ruch]
+    flags: [summary]
+  - id: R-6.41.1
+    title: Falanga — dwa MA 4/5; pierwszy ruch na 5 MP z testem TQ
+    section: "6.41"
+    source: {text: "oryg. 6.41, s. 15", pages: "15"}
+    effect: |
+      Falanga ma dwa MA: **4/5**. Podstawowy to 4; w każdym rozkazie ruchu gracz może podnieść MA do 5. Jeśli wykorzysta 5. MP
+      **przy pierwszym ruchu jednostki w turze**, na koniec ruchu jednostka wykonuje test TQ (10.11): wynik > TQ — **1 trafienie**.
+    keywords: [falanga, MA 4/5, test TQ, rozszerzony MA]
+    refs: [R-10.11.1, T-07]
+  - id: R-6.41.2
+    title: Falanga po ruchu („Moved”) — 2 trafienia przy 5 MA, 1 przy 4 MA
+    section: "6.41"
+    source: {text: "oryg. 6.41, s. 15", pages: "15"}
+    when: falanga, która już się ruszała w tej turze („Moved”), rusza się ponownie
+    effect: Przy MA 5 otrzymuje **2 trafienia** (bez testu TQ); przy MA 4 — **1 trafienie**.
+    notes: |
+      [wniosek] Wariant 4 MA powtarza karę z 6.13 (R-6.13.1); traktuję oba zapisy jako jedną karę, nie kumulowaną — zob. N-08.
+    keywords: [falanga, Moved, drugi ruch, trafienia]
+    refs: [R-6.13.1, N-08, T-07]
+  - id: R-6.42.1
+    title: Falanga w dwóch różnych terenach — wyższy koszt
+    section: "6.42"
+    source: {text: "oryg. 6.42, s. 15", pages: "15"}
+    effect: |
+      Gdy falanga wchodzi do dwóch heksów o różnym terenie lub wysokości, płaci **wyższy** z kosztów — zarówno MP, jak i trafień.
+      Trafienia otrzymane przez jedną połowę dotyczą całej jednostki. Jeśli jedna połowa weszła już do heksu powodującego trafienia,
+      wejście drugiej połowy do heksu tego samego rodzaju nie daje dodatkowych trafień.
+    keywords: [falanga, teren mieszany, wyższy koszt]
+  - id: R-6.43.1
+    title: Manewr front-bok falangi — 1 trafienie za heks
+    section: "6.43"
+    source: {text: "oryg. 6.43 „The Front-to-Flank Maneuver” + ilustracja, s. 15", pages: "15"}
+    effect: |
+      Falanga może iść naprzód (obie połowy wchodzą do nowych heksów) albo jedna połowa wchodzi do heksu, a druga obraca się w miejscu,
+      zmieniając ukierunkowanie jednostki. Za każdy heks wejścia w tym manewrze falanga otrzymuje **1 trafienie** oprócz kosztów
+      terenu.
+    keywords: [falanga, front-bok, obrót, trafienie]
+  - id: R-6.44.1
+    title: Manewr skrętu (Wheeling) — w strefie kontroli, test TQ min. 1 trafienie
+    section: "6.44"
+    source: {text: "oryg. 6.44 „The Wheeling Maneuver” + przykład (Kanny), s. 15", pages: "15"}
+    when: jedna połowa falangi jest w strefie kontroli wroga
+    effect: |
+      Druga połowa może nadal iść naprzód manewrem front-bok (6.43). Oprócz kosztu manewru front-bok jednostka po obrocie wykonuje
+      test TQ: wynik > TQ — trafienia równe różnicy; **zawsze co najmniej 1 trafienie, bez względu na wynik**. Jeśli jedyną jednostką
+      wroga wywierającą tę strefę kontroli jest harcownik, testu nie ma. Przykład: falanga TQ 6, obrót 1 MP: 1 trafienie za front-bok,
+      potem test — wynik 5 → +1 (razem 2); wynik 8 → +2 (razem 3).
+    keywords: [falanga, skręt, Wheeling, test TQ, harcownik]
+    refs: [R-6.43.1]
+  - id: R-6.45.1
+    title: Odwrócenie falangi o 180° — 3 MP
+    section: "6.45"
+    source: {text: "oryg. 6.45 „The Reverse Face Maneuver”, s. 15", pages: "15"}
+    effect: |
+      Za **3 MP** falangę można odwrócić w przeciwnym kierunku (180°) w tych samych dwóch heksach. Bez kosztu spójności; zakazane, jeśli
+      jakakolwiek jej część jest w strefie kontroli wroga lub w terenie trudnym (6.24).
+    see: R-7.16.1
+    keywords: [falanga, odwrócenie, 3 MP, teren trudny]
+    refs: [R-7.16.1, R-6.24.3, T-07]
+  - id: R-6.5.1
+    title: Uporządkowane wycofanie — istota
+    section: "6.5"
+    source: {text: "oryg. 6.5 „Orderly Withdrawal”, s. 15", pages: "15"}
+    effect: |
+      Uporządkowane wycofanie (OW) to reakcyjny ruch w tył w segmencie ruchu i ostrzału **przeciwnika**, dzięki któremu szybsze
+      i zwrotniejsze jednostki unikają wciągnięcia w walkę wręcz.
+    keywords: [uporządkowane wycofanie, OW, reakcja]
+    refs: [P-03]
+  - id: R-6.51.1
+    title: OW — warunki i zasięg (różnica MA w MP)
+    section: "6.51"
+    source: {text: "oryg. 6.51 + przykłady #1–#2, s. 15–16", pages: "15-16"}
+    when: |
+      w segmencie ruchu i ostrzału wroga (a także w dowolnej chwili rozstrzygania szału słonia 9.14 i interakcji słoni z jazdą 9.16);
+      własna jednostka **nie jest w strefie kontroli wroga**; poruszająca się jednostka wroga właśnie weszła w odległość ≤ 2 heksów
+      (albo zaczyna ruch w odległości 2 heksów); MA jednostki nieaktywnej jest **wyższy** niż MA poruszającej się
+    effect: |
+      Jednostka może uniknąć kontaktu, wycofując się o najwyżej tyle **MP (nie heksów)**, ile wynosi różnica MA, **od** poruszającej się
+      jednostki: każdy heks musi być dalej od niej (w heksach) niż heks opuszczany. Przykład: velites (6) przed falangą (5) — 1 heks
+      czysty; hastati przed falangą — nie (równe MA); jazda (8) nie wycofa się pod górę przed słoniem (7), bo kosztuje to 2 MP.
+    exceptions: Harcownicy — R-6.51.3; uciekające i z podniesionym MA — R-6.51.4; stosy z dowódcą — R-6.65.1.
+    keywords: [uporządkowane wycofanie, różnica MA, 2 heksy, away]
+    refs: [R-9.14.1, R-9.16.1, R-6.51.3, R-6.51.4, R-6.65.1]
+  - id: R-6.51.2
+    title: OW — natychmiast albo wcale; MA falangi 4/5
+    section: "6.51"
+    source: {text: "oryg. 6.51 + Play Note, s. 16", pages: "16"}
+    effect: |
+      Wycofanie musi nastąpić **w chwili**, gdy wróg wchodzi w zasięg 2 heksów (lub zaczyna ruch w tej odległości) — ruch wroga
+      wstrzymuje się na ten czas; inaczej możliwość przepada. Dowolna uprawniona jednostka może się wycofać, gdy wróg wejdzie w 2 heksy,
+      nawet jeśli nie idzie w jej stronę. Falanga wycofująca się używa MA 4; gdy przed falangą wycofuje się przeciwnik — liczy się
+      jej MA 5.
+    keywords: [uporządkowane wycofanie, moment, falanga, MA 4/5]
+  - id: R-6.51.3
+    title: OW harcowników — 2 heksy przed jednostką o MA równym lub niższym
+    section: "6.51"
+    source: {text: "oryg. 6.51 „Exceptions” pkt 1, s. 16", pages: "16"}
+    effect: Harcownicy (SK) mogą wycofać się o najwyżej **2 heksy (nie MP)** przed każdą jednostką o MA **równym lub niższym**, bez względu na różnicę MA.
+    keywords: [harcownik, uporządkowane wycofanie, 2 heksy]
+  - id: R-6.51.4
+    title: Bez OW — uciekające i z MA podniesionym ponad wydrukowany
+    section: "6.51"
+    source: {text: "oryg. 6.51 „Exceptions” pkt 2, s. 16", pages: "16"}
+    effect: Jednostki uciekające oraz jednostki z MA podniesionym ponad wydrukowany (np. ruch w kolumnie) nie mogą wykonać uporządkowanego wycofania.
+    see: R-6.77.1
+    keywords: [uporządkowane wycofanie, ucieczka, kolumna]
+    refs: [R-6.77.1]
+  - id: R-6.51.5
+    title: OW a ostrzał nadchodzącego wroga
+    section: "6.51"
+    source: {text: "oryg. 6.51, s. 16; Play Note po 6.55, s. 16", pages: "16"}
+    effect: |
+      Wróg, który zaczyna ruch w odległości 2 heksów, może strzelić **przed** wycofaniem. Jeśli wchodzi w zasięg 2 heksów — jego ostrzał
+      następuje **po** wycofaniu. Nadchodzący wróg nie wchodzi do strefy kontroli wycofującego się, więc jego ostrzał w ruchu musi
+      nastąpić z odległości ≥ 2.
+    keywords: [uporządkowane wycofanie, ostrzał, kolejność]
+  - id: R-6.52.1
+    title: Wycofujący się zachowuje ukierunkowanie; koszty ruchu płaci
+    section: "6.52"
+    source: {text: "oryg. 6.52, s. 16", pages: "16"}
+    effect: |
+      Jednostka wycofująca się zachowuje pierwotne ukierunkowanie przez całe wycofanie, bez kosztu MP ani spójności za ukierunkowanie.
+      Płaci jednak zwykłe koszty ruchu i spójności za teren. Po wycofaniu może zmienić ukierunkowanie, ponosząc związane z tym koszty.
+    keywords: [uporządkowane wycofanie, ukierunkowanie, koszty]
+  - id: R-6.52.2
+    title: Kara OW nr 1 — legioniści (LG) test TQ
+    section: "6.52"
+    source: {text: "oryg. 6.52 pkt 1, s. 16", pages: "16"}
+    effect: Po wycofaniu rzymskie jednostki typu LG wykonują natychmiast test TQ; wynik > TQ — 1 trafienie.
+    keywords: [LG, uporządkowane wycofanie, test TQ]
+  - id: R-6.52.3
+    title: Kara OW nr 2 — inna piechota 1 trafienie automatycznie
+    section: "6.52"
+    source: {text: "oryg. 6.52 pkt 2, s. 16", pages: "16"}
+    effect: Każda inna wycofująca się **piechota** — oprócz harcowników i rzymskich velites — otrzymuje po wycofaniu automatycznie 1 trafienie.
+    notes: "[wniosek] Jazda nie ponosi kar nr 1 i nr 2 (zgodnie z przykładem na s. 17: jazda bez trafień)."
+    keywords: [piechota, uporządkowane wycofanie, trafienie, velites]
+  - id: R-6.52.4
+    title: Kara OW nr 3 — podejście z boku lub tyłu
+    section: "6.52"
+    source: {text: "oryg. 6.52 pkt 3 + diagram i przykład #3, s. 16", pages: "16"}
+    effect: |
+      Jeśli do wycofującego się podchodzono z heksu **tylnego lub bocznego**, otrzymuje on 1 trafienie **przed** wycofaniem — kumulatywnie
+      z karami nr 1 i 2. Harcownicy ponoszą tę karę tylko przy podejściu z heksu tylnego (nie bocznego). Diagram na s. 16 pokazuje
+      strefy przodu, boku i tyłu w promieniu 2 heksów od jednostki.
+    keywords: [uporządkowane wycofanie, bok, tył, trafienie, harcownik]
+  - id: R-6.53.1
+    title: Trafienia przy wycofaniu ≥ TQ — ucieczka
+    section: "6.53"
+    source: {text: "oryg. 6.53, s. 16", pages: "16"}
+    effect: Jeśli wycofująca się jednostka ma trafienia równe lub większe od TQ, natychmiast ucieka (10.2).
+    see: R-10.14.1
+    keywords: [ucieczka, uporządkowane wycofanie, TQ]
+    refs: [R-10.14.1, R-10.21.1]
+  - id: R-6.54.1
+    title: OW bez limitu, bez MP i bez rozkazu
+    section: "6.54"
+    source: {text: "oryg. 6.54, s. 16", pages: "16"}
+    effect: |
+      Jednostka może wycofywać się dowolnie wiele razy w turze; kary z 6.52 stosuje się do **każdego** wycofania. Dla limitów MA (6.1)
+      wycofanie nie zużywa MP (dotyczy też dowódców) i nie wymaga rozkazu.
+    keywords: [uporządkowane wycofanie, bez limitu, MP, rozkaz]
+  - id: R-6.55.1
+    title: Dokąd nie wolno się wycofać
+    section: "6.55"
+    source: {text: "oryg. 6.55, s. 16", pages: "16"}
+    effect: Nie wolno wycofać się do strefy kontroli wroga, do heksu lasu lub bagna ani do/przez heks lub krawędź, przez które ruch tej jednostki jest zakazany. W trakcie wycofania obowiązują ograniczenia i kary stosu (6.6).
+    keywords: [uporządkowane wycofanie, strefa kontroli, las, bagno, stos]
+    refs: [R-6.61.1]
+  - id: R-6.55.2
+    title: Konni łucznicy strzelają w czasie wycofania
+    section: "6.55"
+    source: {text: "oryg. 6.55, s. 16", pages: "16"}
+    effect: Tylko konni łucznicy (żaden inny typ jednostki strzelającej) mogą strzelać, wycofując się. Zasięg traktuje się zawsze jako 2 heksy. Jeden ostrzał na każdą wywołującą wycofanie jednostkę wroga w danej fazie rozkazów.
+    keywords: [konni łucznicy, ostrzał, uporządkowane wycofanie]
+  - id: R-6.56.1
+    title: OW tylko w segmencie ruchu i ostrzału przeciwnika
+    section: "6.56"
+    source: {text: "oryg. 6.56 + przykład (Kanny), s. 17", pages: "17"}
+    effect: |
+      Uporządkowane wycofanie odbywa się w segmencie ruchu i ostrzału przeciwnika; jednostka bojowa nie może się wycofać w segmencie
+      walki wręcz (dowódca może). Poruszająca się jednostka może dokończyć ruch mimo wycofania.
+    exceptions: Szał słonia — R-6.56.2.
+    keywords: [uporządkowane wycofanie, segment walki wręcz, dowódca]
+    refs: [R-6.56.2]
+  - id: R-6.56.2
+    title: OW przed szalejącym słoniem — zawsze, obie strony
+    section: "6.56"
+    source: {text: "oryg. 6.56 „Exception”, s. 17", pages: "17"}
+    effect: Wycofanie przed słoniem w szale (9.14) może nastąpić w dowolnej chwili i przysługuje obu graczom, bez względu na to, czyja jest faza rozkazów i czyj słoń szaleje.
+    keywords: [szał słonia, uporządkowane wycofanie]
+    refs: [R-9.14.1]
+  - id: R-6.57.1
+    title: Wycofanie linii jazdy
+    section: "6.57"
+    source: {text: "oryg. 6.57 „Cavalry Line Withdrawal”, s. 17", pages: "17"}
+    effect: |
+      Gracz może wycofać naraz całą linię jazdy (4.32 i karta uprawnień do LC) wg zwykłych zasad OW, jeśli przy podejściu wroga
+      co najmniej jedna jednostka tej linii jest w odległości ≤ 2 heksów od uprawnionego dowódcy (takiego, który może nimi dowodzić).
+      Wycofują się **wszystkie** jednostki linii — nie można wybierać. Gdy choć jedna jednostka linii użyje indywidualnego OW, linia
+      traci prawo do wycofania liniowego.
+    keywords: [wycofanie linii jazdy, jazda, linia, uporządkowane wycofanie]
+    refs: [R-4.32.1]
+  - id: R-6.6.1
+    title: Stos — zasady ogólne
+    section: "6.6"
+    source: {text: "oryg. 6.6 „Stacking” + Design Note, s. 17", pages: "17"}
+    effect: |
+      Stos to więcej niż jedna jednostka w heksie w trakcie lub na końcu ruchu. Rozróżnia się ruch **dobrowolny** (zwykle na rozkaz lub
+      OW) i **przymusowy** (prawie zawsze ruch ucieczki). Zasada podstawowa: **jedna jednostka bojowa na heks**; główny wyjątek —
+      rzymska piechota legionów/al; harcownicy mają przewagi w przechodzeniu przez inne jednostki. Zasady rzymskie wykorzystują kolor
+      obramowania żetonów.
+    keywords: [stos, ruch dobrowolny, ruch przymusowy, kolor obramowania]
+    refs: [R-2.23.2]
+  - id: R-6.61.1
+    title: Podstawowa (nierzymska) zasada stosu
+    section: "6.61"
+    source: {text: "oryg. 6.61, s. 17", pages: "17"}
+    effect: |
+      Na końcu każdego ruchu (dobrowolnego lub przymusowego) w heksie może być tylko jedna jednostka bojowa (albo połowa falangi).
+      Dowódcy (także słonie dowódców) i znaczniki nie liczą się do stosu; w heksie może być ich dowolnie wiele.
+    exceptions: Elastyczność manipularna Rzymian (tabele stosu, 6.63, 6.69) i falangi podwójnej głębokości (9.51).
+    keywords: [stos, jedna jednostka, dowódcy, znaczniki]
+    refs: [R-6.63.1, R-6.69.1, R-9.51.1]
+  - id: R-6.62.1
+    title: Nigdy przez jednostkę wroga
+    section: "6.62"
+    source: {text: "oryg. 6.62, s. 17", pages: "17"}
+    effect: Jednostka nigdy nie wchodzi do heksu z jednostką bojową wroga ani przez taki heks.
+    exceptions: Przejście słonia (Elephant Pass-Thru) — R-9.11.1.
+    keywords: [jednostka wroga, przejście]
+    refs: [R-9.11.1]
+  - id: R-6.63.1
+    title: Dwie tabele stosu i ich pojęcia
+    section: "6.63"
+    source: {text: "oryg. 6.63, s. 17", pages: "17"}
+    effect: |
+      Ograniczenia, uprawnienia i koszty spójności stosu podają **dwie Tabele stosu** — wybór zależy od rodzaju ruchu jednostki
+      ruszającej się: dobrowolny albo ucieczka. Pojęcia: **Basic** — wszystkie jednostki poza harcownikami, velites i inną piechotą
+      rzymską; **Different Color** — rzymska piechota z różnych legionów/al (kolor obramowania); jednostki I Legionu i I Ali są
+      „Same Color”; **Different Class** — HA, PR, TR itd.; **Roman** — możliwość stosu dwóch jednostek piechoty rzymskiej; gdy w heksie
+      są już dwie, trzecią wchodzącą traktuje się jak Basic. Jazda rzymska jest zawsze Basic.
+    keywords: [tabela stosu, Basic, Different Color, Different Class, Roman]
+    refs: [T-21]
+  - id: R-6.63.2
+    title: Przykłady stosu z instrukcji (częściowa treść tabel)
+    section: "6.63"
+    source: {text: "oryg. 6.63 „Example #1 (Voluntary)”, „Example #2 (Rout/Retreat)”, s. 17–18", pages: "17-18"}
+    effect: |
+      **Dobrowolny:** velites XIV Legionu przechodzą bez kary przez każdą piechotę XIV Legionu lub AS/XIV; przez inną jednostkę (także jazdę
+      XIV, inny kolor) — 1 trafienie velites i 1 trafienie jednostce stojącej; velites nie mogą zatrzymać się w zajętym heksie. Hastati XIV
+      przechodzą bez kary przez piechotę XIV Legionu/Ali; przez inną jednostkę — po 1 trafieniu obu; przez stos HA/PR/CO/TR XIV — 1 trafienie
+      hastatów; mogą zatrzymać się w heksie z inną jednostką HA/PR/CO/TR, ale wszystkie jednostki stosu mają +1 DRM do testów TQ.
+      **Ucieczka:** uciekający velites XIV — każda stojąca jednostka inna niż SK/velites otrzymuje 1 trafienie; zmuszeni zatrzymać się
+      w zajętym heksie, velites idą heks dalej; stojąca jednostka (nie SK/velites): 1 trafienie, potem rzut — trafienia = wynik − TQ, jeśli
+      wynik wyższy. Uciekający hastati XIV — przez niestosowaną HA/PR/CO/TR XIV bez skutków; przez inną jednostkę/stos — 1 trafienie
+      stojącym; zatrzymanie w zajętym heksie (poza heksem z velites tego samego koloru) — test TQ i trafienie dla stojącej jednostki.
+    notes: |
+      Przykłady oddają tylko fragment tabel stosu z kart PAC (T-21, complete: false). Nie uzupełniać z innych tytułów GBoH.
+    keywords: [stos, velites, hastati, przejście, ucieczka, przykład]
+    flags: [summary]
+    refs: [T-21]
+  - id: R-6.64.1
+    title: Dwie jednostki w stosie = 2 IO; OC jednym IO cały stos
+    section: "6.64"
+    source: {text: "oryg. 6.64, s. 18", pages: "18"}
+    effect: |
+      Dowódca musi wydać **dwa** IO, by poruszyć dwie jednostki w jednym heksie. OC może jednym IO poruszyć wszystkie jednostki (wraz
+      z sobą) w stosie w heksie, który zajmuje; OC i jednostki muszą poruszać się razem i skończyć w tym samym heksie.
+    keywords: [stos, IO, OC]
+  - id: R-6.65.1
+    title: Heks tylko z dowódcą — wejście bez kosztu
+    section: "6.65"
+    source: {text: "oryg. 6.65, s. 18", pages: "18"}
+    effect: |
+      Jednostki bojowe wchodzą do heksu zajmowanego tylko przez dowódcę bez kosztu ruchu i spójności (i odwrotnie). Jeśli jednostka
+      bojowa i dowódca w stosie wykonują razem uporządkowane wycofanie, muszą pozostać razem.
+    keywords: [dowódca, stos, uporządkowane wycofanie]
+  - id: R-6.66.1
+    title: Kolejność w stosie — zmiana tylko osobnym IO
+    section: "6.66"
+    source: {text: "oryg. 6.66, s. 18", pages: "18"}
+    effect: Kolejność jednostek w stosie (która jest na górze) można zmienić tylko rozkazem indywidualnym zmiany kolejności (5.22 pkt 6); nie może to być częścią rozkazu ruchu ani LC.
+    keywords: [kolejność w stosie, IO]
+    refs: [R-5.22.1]
+  - id: R-6.66.2
+    title: Rozdzielanie stosu i wchodzenie do stosu
+    section: "6.66"
+    source: {text: "oryg. 6.66, s. 18", pages: "18"}
+    effect: |
+      Przy rozdzielaniu stosu w danej fazie rozkazów może się ruszyć **tylko górna** jednostka (wyjątek: 9.66). Jednostka wchodząca do
+      heksu, by utworzyć stos, zawsze trafia **na spód**. Takie wejście do heksu przyległego do wroga nie wywołuje ostrzału reakcyjnego
+      przy wejściu (8.21) i nie powoduje położenia znacznika walki wręcz (7.32).
+    exceptions: Rozszerzenie linii manipularnej — R-9.66.1.
+    keywords: [stos, górna jednostka, spód, ostrzał reakcyjny, znacznik walki]
+    refs: [R-9.66.1, R-8.21.1, R-7.32.1]
+  - id: R-6.67.1
+    title: Jednostki w stosie mają to samo ukierunkowanie
+    section: "6.67"
+    source: {text: "oryg. 6.67, s. 18", pages: "18"}
+    effect: |
+      Obie jednostki w stosie muszą mieć to samo ukierunkowanie. By pozostać w stosie, jednostka wchodząca musi dostosować się do
+      ukierunkowania jednostki stojącej, płacąc MP i koszty spójności. Nie dotyczy jednostki przechodzącej przez zajęty heks.
+    keywords: [stos, ukierunkowanie]
+  - id: R-6.68.1
+    title: Skutki stosu — Size sumuje się w walce wręcz
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 1, s. 18", pages: "18"}
+    effect: Jednostki w stosie sumują swoje Size w walce wręcz.
+    keywords: [stos, Size, walka wręcz]
+    refs: [R-9.62.1]
+  - id: R-6.68.2
+    title: Skutki stosu — strzela tylko górna jednostka
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 2, s. 18", pages: "18"}
+    effect: Tylko górna jednostka stosu może prowadzić ostrzał.
+    keywords: [stos, ostrzał, górna jednostka]
+  - id: R-6.68.3
+    title: Skutki stosu — ostrzał wroga trafia górną (z tyłu — dolną)
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 3, s. 18", pages: "18"}
+    effect: Ostrzał wroga dotyczy tylko górnej jednostki stosu, chyba że strzela się przez heksy tylne — wtedy tylko dolnej.
+    keywords: [stos, ostrzał, tył]
+  - id: R-6.68.4
+    title: Skutki stosu — testy TQ z TQ górnej jednostki; trafienia automatyczne każdej
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 4, s. 18", pages: "18"}
+    effect: Każda jednostka w stosie wykonuje własny test TQ, ale używa TQ **górnej** jednostki. Trafienia automatyczne otrzymuje każda jednostka stosu.
+    keywords: [stos, test TQ, trafienia automatyczne]
+  - id: R-6.68.5
+    title: Skutki stosu — +1 DRM do testów TQ niektórych stosów
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 5, s. 18", pages: "18"}
+    effect: Niektóre stosy (wg 6.69) mają +1 DRM do wszystkich testów TQ.
+    keywords: [stos, +1 DRM, test TQ]
+    refs: [R-6.69.1, T-21]
+  - id: R-6.68.6
+    title: Skutki stosu — podział trafień z walki wręcz
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 6, s. 18", pages: "18"}
+    effect: Jeśli 10.13 nie ma pierwszeństwa, trafienia z walki wręcz dzieli się możliwie po równo; nadwyżka trafia do górnej jednostki, a przy ataku od tyłu — do dolnej.
+    see: R-10.13.1
+    keywords: [stos, podział trafień, tył]
+    refs: [R-10.13.1]
+  - id: R-6.68.7
+    title: Skutki stosu — ucieczka górnej i dolnej jednostki
+    section: "6.68"
+    source: {text: "oryg. 6.68 pkt 7, s. 18", pages: "18"}
+    effect: Gdy ucieka górna jednostka, ucieka też dolna. Gdy ucieka dolna, górna wykonuje test TQ i ucieka przy porażce.
+    keywords: [stos, ucieczka, test TQ]
+  - id: R-6.69.1
+    title: Tabela stosu — typ jednostki ruszającej się
+    section: "6.69"
+    source: {text: "oryg. 6.69 „The Stacking Chart”, s. 18", pages: "18"}
+    effect: Tabela podaje typ jednostki ruszającej się; skutki dotyczą jednostki ruszającej się i stojącej, chyba że zaznaczono inaczej.
+    keywords: [tabela stosu]
+    refs: [T-21]
+  - id: R-6.7.1
+    title: Kolumna — istota
+    section: "6.7"
+    source: {text: "oryg. 6.7 „Column Movement” (Design Note), s. 18", pages: "18"}
+    effect: Piechota (od falang po LI) może przyjąć luźny szyk marszowy — kolumnę — dla szybszego ruchu i mniejszego wpływu ruchu na spójność.
+    keywords: [kolumna, szyk]
+    flags: [summary]
+  - id: R-6.71.1
+    title: Przejście do kolumny i z niej — na koniec ruchu, 1 MP
+    section: "6.71"
+    source: {text: "oryg. 6.71, s. 18", pages: "18"}
+    effect: |
+      Jednostka piechoty, która dostała rozkaz ruchu i **nie jest w strefie kontroli wroga**, może na **koniec** swojego ruchu przejść
+      do kolumny (lub z niej wyjść). Zmiana szyku kosztuje **1 MP** w każdą stronę. Aby korzystać z ruchu w kolumnie, jednostka musi
+      **zacząć** fazę rozkazów w kolumnie. Stan oznacza znacznik IN COLUMN.
+    keywords: [kolumna, 1 MP, IN COLUMN, strefa kontroli]
+    refs: [T-07]
+  - id: R-6.71.2
+    title: Kolumna niedostępna — BI, SK, uciekające
+    section: "6.71"
+    source: {text: "oryg. 6.71 „Exceptions”, s. 18", pages: "18"}
+    effect: Piechota barbarzyńska (BI), harcownicy (SK) i jednostki uciekające nie mogą używać ruchu w kolumnie.
+    keywords: [kolumna, BI, SK, ucieczka]
+  - id: R-6.72.1
+    title: Kolumna — MA +1, mniejsze koszty spójności w terenie
+    section: "6.72"
+    source: {text: "oryg. 6.72, s. 18", pages: "18"}
+    effect: |
+      Jednostki w kolumnie mają MA +1 (falangi zwiększają wyższy ze swoich dwóch MA). Dla niektórych typów maleje koszt spójności
+      w pewnym terenie; np. falanga w kolumnie nie płaci trafień za przekroczenie strumienia ani wejście do terenu nierównego (Broken).
+    keywords: [kolumna, MA +1, falanga, strumień, Broken]
+    refs: [T-07, T-20]
+  - id: R-6.73.1
+    title: Ukierunkowanie kolumny — krawędź heksu; 1 heks frontowy
+    section: "6.73"
+    source: {text: "oryg. 6.73, s. 18–19", pages: "18-19"}
+    effect: |
+      Jednostka w kolumnie musi być zwrócona ku **krawędzi** heksu (nie wierzchołkowi); frontowy jest tylko heks bezpośrednio przed nią,
+      przeciwległy jest tylny, pozostałe — boczne. Zmianę ukierunkowania wykonuje się w chwili ogłoszenia wejścia do kolumny (lub wyjścia).
+      Dla falangi gracz wskazuje, który koniec żetonu jest przodem; inne jednostki ustawia się ku krawędzi heksu.
+    keywords: [kolumna, ukierunkowanie, krawędź heksu]
+  - id: R-6.73.2
+    title: Wyjście z kolumny — ustawienie żetonu
+    section: "6.73"
+    source: {text: "oryg. 6.73, s. 19", pages: "19"}
+    effect: |
+      Falangi przy wyjściu z kolumny nie przesuwa się — jest zwrócona w kierunku „góry” żetonu (nazwy); przesunąć/zmienić
+      ukierunkowanie można ją dopiero w kolejnej fazie rozkazów. Inne jednostki obraca się o 30° w lewo lub w prawo (wybór właściciela),
+      tak by były zwrócone ku wierzchołkowi.
+    keywords: [kolumna, wyjście z kolumny, falanga, 30°]
+  - id: R-6.74.1
+    title: Ruch w kolumnie — heks frontowy lub przednio-boczny
+    section: "6.74"
+    source: {text: "oryg. 6.74 + ilustracja, s. 19", pages: "19"}
+    effect: |
+      Jednostki w kolumnie wchodzą do heksu frontowego albo heksów bocznych przyległych do frontowego (przednio-bocznych). Jednostkę
+      jednoheksową najpierw zwraca się ku temu heksowi, potem przesuwa; falangę obraca się w ruchu tak, że przednia połowa żetonu kończy
+      w heksie przednio-bocznym, a tylna zajmuje heks dawnej przedniej połowy. Te zmiany ukierunkowania nie kosztują MP ani spójności.
+      Jednostki niebędące falangami, chcące wejść do innego heksu bocznego lub tylnego, płacą normalny koszt zmiany ukierunkowania;
+      falangi nie mogą tak zmieniać ukierunkowania.
+    keywords: [kolumna, ruch, heks przednio-boczny, falanga]
+  - id: R-6.75.1
+    title: Kolumna — TQ –2, bez walki wręcz i ostrzału
+    section: "6.75"
+    source: {text: "oryg. 6.75, s. 19", pages: "19"}
+    effect: |
+      Jednostki w kolumnie mają TQ tymczasowo obniżone o **2**. Nie mogą atakować wręcz ani strzelać. Mogą ruszać się na rozkaz i usuwać
+      trafienia przez odzyskanie spójności. Gdy zostaną zaatakowane wręcz, atakujący ma automatycznie **przewagę ataku** (Attack
+      Superior), bez względu na pozycję i broń.
+    keywords: [kolumna, TQ –2, przewaga ataku, odzyskanie spójności]
+    refs: [R-8.45.1, T-07]
+  - id: R-6.76.1
+    title: Kolumna zaatakowana wręcz — powrót do szyku z 1 trafieniem
+    section: "6.76"
+    source: {text: "oryg. 6.76, s. 19", pages: "19"}
+    effect: |
+      Jednostka w kolumnie zaatakowana wręcz automatycznie wraca do szyku normalnego (zdejmij IN COLUMN) **na koniec tej fazy rozkazów**,
+      kosztem 1 trafienia. Falangi nie zmieniają ukierunkowania; inne jednostki obraca się o 30° w lewo/prawo ku wierzchołkowi.
+    keywords: [kolumna, walka wręcz, trafienie, wyjście z kolumny]
+  - id: R-6.77.1
+    title: Kolumna — bez OW i reakcji; nikt nie przechodzi
+    section: "6.77"
+    source: {text: "oryg. 6.77, s. 19", pages: "19"}
+    effect: |
+      Jednostki w kolumnie nie mogą wykonać uporządkowanego wycofania (6.5) ani zmiany ukierunkowania w reakcji (7.15). Nie mogą przechodzić
+      przez własne jednostki bojowe, a własne jednostki nie mogą dobrowolnie przechodzić przez nie. Jednostki uciekające mogą przez nie
+      przechodzić — z wszystkimi karami stosu.
+    keywords: [kolumna, uporządkowane wycofanie, reakcja, przejście]
+    refs: [R-6.51.1, R-7.15.1]
+  - id: R-6.8.1
+    title: Uprzednio zaplanowane wycofanie (PW) — istota
+    section: "6.8"
+    source: {text: "oryg. 6.8 „Pre-Arranged Withdrawal”, s. 19", pages: "19"}
+    effect: Taktyka pozwalająca niektórym jednostkom wycofać się przed ruchem wroga, choć nie mają wyższego MA.
+    keywords: [uprzednio zaplanowane wycofanie, PW]
+    refs: [P-03]
+  - id: R-6.81.1
+    title: PW — kto może
+    section: "6.81"
+    source: {text: "oryg. 6.81, s. 19", pages: "19"}
+    effect: |
+      PW przysługuje tylko armii z **dowódcą elitarnym** albo z OC o inicjatywie **≥ 6**. Używać go mogą tylko linie piechoty (4.32 i karta
+      uprawnień do LC), ale nie typy BI ani SK. Linia musi mieć dowódcę zdolnego nią dowodzić w odległości ≤ 2 heksów i z LOS do jednostki
+      tej linii.
+    keywords: [PW, dowódca elitarny, inicjatywa 6, piechota, BI, SK]
+    refs: [R-4.32.1]
+  - id: R-6.81.2
+    title: PW ogranicza impet OC do jednej próby
+    section: "6.81"
+    source: {text: "oryg. 6.81, s. 19", pages: "19"}
+    effect: Jeśli taktyka zostaje zastosowana, OC tej strony ma w tej turze tylko **jedną** próbę impetu, nie dwie (5.14).
+    keywords: [PW, impet, OC]
+    refs: [R-5.14.1]
+  - id: R-6.82.1
+    title: PW — wyznaczenie na początku tury (znacznik, blef NO PW)
+    section: "6.82"
+    source: {text: "oryg. 6.82, s. 19", pages: "19"}
+    effect: |
+      Taktykę trzeba wyznaczyć **na początku tury, przed aktywacją jakiegokolwiek dowódcy**, kładąc znacznik PRE-ARRANGED WITHDRAWAL pod
+      dowódcą, który ją umożliwi. Gracz może położyć znacznik stroną NO PW do góry, by ukryć zamiar. Można położyć więcej znaczników, jeśli
+      więcej linii ma dowódców spełniających 6.81.
+    keywords: [PW, znacznik, NO PW, początek tury]
+  - id: R-6.83.1
+    title: PW — wykonanie (cała linia o 1 heks)
+    section: "6.83"
+    source: {text: "oryg. 6.83 pkt 1, s. 19", pages: "19"}
+    effect: |
+      Znacznik odkrywa się przy aktywacji dowódcy albo gdy gracz chce użyć PW przy podejściu wroga do uprawnionej linii — co nastąpi
+      wcześniej. Linia może wycofać się o **1 heks** w chwili, gdy jakakolwiek **piechota** wroga normalnie wywołałaby OW, jeśli jednostki
+      linii mają do tego zdolność (6.51). Wycofują się wszystkie jednostki linii razem (jak w 6.57), każda o 1 heks. Stosuje się wszystkie
+      skutki OW (6.52, 6.55 itd.). PW można wykonywać dowolnie wiele razy do końca tury.
+    keywords: [PW, wycofanie linii, piechota, 1 heks]
+    refs: [R-6.51.1, R-6.57.1, R-6.52.1, R-6.55.1, N-09]
+  - id: R-6.83.2
+    title: PW kończy dowódcę — nawet nieaktywowanego
+    section: "6.83"
+    source: {text: "oryg. 6.83 pkt 1, s. 19", pages: "19"}
+    effect: Gdy linia użyje PW, jej dowódca jest **skończony** — nawet jeśli jeszcze nie był aktywowany.
+    keywords: [PW, skończony]
+    refs: [R-5.15.1]
+  - id: R-6.83.3
+    title: Aktywacja dowódcy przed użyciem PW — tylko IO, bez ruchu
+    section: "6.83"
+    source: {text: "oryg. 6.83 pkt 2, s. 19", pages: "19"}
+    effect: Jeśli przychodzi kolej aktywacji dowódcy, zanim PW zostało użyte, może on wydawać tylko IO — ale nie rozkaz ruchu — i tylko jednostkom linii, która użyje PW.
+    keywords: [PW, aktywacja, IO, zakaz ruchu]
+  - id: R-6.83.4
+    title: PW tylko przeciw piechocie; dowolna uprawniona linia w 2 heksach
+    section: "6.83"
+    source: {text: "oryg. Play Notes #1–#2 po 6.83, s. 19", pages: "19"}
+    effect: |
+      PW nie działa przeciw jeździe ani słoniom — to manewr piechoty przeciw piechocie. Dowódca ze znacznikiem PW może go użyć dla
+      dowolnej uprawnionej linii w zasięgu 2 heksów itd. (gracze mogą dla precyzji zapisywać, której linii dotyczy).
+    keywords: [PW, jazda, słonie, piechota]

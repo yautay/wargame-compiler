@@ -1,0 +1,14 @@
+same-handle ctime changes with stable identity/size/mtime expected=rejected actual=rejected conforms=True
+independent copy corruption expected=rejected actual=rejected conforms=True
+available configured source disappears between files expected=rejected actual=rejected conforms=True
+KB file disappears after copying expected=rejected actual=rejected conforms=True
+destination overlap: same expected=rejected actual=rejected conforms=True
+destination overlap: nested expected=rejected actual=rejected conforms=True
+destination overlap: source-under-registry expected=rejected actual=rejected conforms=True
+destination overlap: parent-of-game expected=rejected actual=rejected conforms=True
+canonical but altered source pin expected=rejected actual=rejected conforms=True
+cross-root physical hardlink alias expected=rejected actual=rejected conforms=True
+unlisted source registry bytes are never opened expected=accepted actual=accepted conforms=True
+sealed tree tampering: extra-kb expected=rejected actual=accepted conforms=False
+sealed tree tampering: missing-blob expected=rejected actual=accepted conforms=False
+sealed tree tampering: extra-link expected=rejected actual=accepted conforms=False

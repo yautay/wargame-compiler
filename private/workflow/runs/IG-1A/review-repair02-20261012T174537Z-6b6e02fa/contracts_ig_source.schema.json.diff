@@ -1,0 +1,68 @@
+--- repair-01/contracts/ig/source.schema.json
++++ repair-02/contracts/ig/source.schema.json
+@@ -99,6 +99,47 @@
+         "aspect_id": {
+           "type": "string",
+           "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
++        },
++        "revision_id": {
++          "type": "string",
++          "pattern": "^sha256:[0-9a-f]{64}$"
++        }
++      },
++      "required": [
++        "mode",
++        "id",
++        "record_type",
++        "revision_id"
++      ],
++      "additionalProperties": false
++    },
++    "whole_historical_ref": {
++      "type": "object",
++      "properties": {
++        "mode": {
++          "const": "historical"
++        },
++        "id": {
++          "type": "string",
++          "maxLength": 100,
++          "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
++        },
++        "record_type": {
++          "enum": [
++            "source",
++            "region",
++            "evidence",
++            "node",
++            "relation",
++            "gap",
++            "origin_binding",
++            "coverage",
++            "profile",
++            "run",
++            "review",
++            "snapshot",
++            "identity_registry"
++          ]
+         },
+         "revision_id": {
+           "type": "string",
+@@ -2410,7 +2451,7 @@
+       "type": "object",
+       "properties": {
+         "inventory_ref": {
+-          "$ref": "#/$defs/historical_ref"
++          "$ref": "#/$defs/whole_historical_ref"
+         },
+         "region_ref": {
+           "$ref": "#/$defs/historical_ref"
+@@ -2846,7 +2887,7 @@
+               "const": "coverage_exclusion"
+             },
+             "inventory_ref": {
+-              "$ref": "#/$defs/historical_ref"
++              "$ref": "#/$defs/whole_historical_ref"
+             },
+             "region_ref": {
+               "$ref": "#/$defs/historical_ref"

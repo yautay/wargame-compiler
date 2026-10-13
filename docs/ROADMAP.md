@@ -1,31 +1,48 @@
-# Roadmapa aktywnego POC
+# WGC roadmap
 
-Statusy: `done`, `next`, `planned`. Dokładnie jeden milestone ma `next`.
-[STATUS](STATUS.md) wskazuje bieżącą kartę, [HANDOFF](HANDOFF.md) ostatnią sesję.
-Metoda i bramki: [POC-PLAN](POC-PLAN.md); szczegóły: [indeks kart](work/tasks/README.md).
+<!-- Generated from docs/work/queue.json. -->
 
-| Milestone | Status | Wynik / bramka | Karty w kolejności |
+| Task | Status | Kind | Dependencies |
 |---|---|---|---|
-| M-POC0 | done | Zweryfikowane archiwum, wnioski, plan, ADR i bootstrap | [M-POC0](work/tasks/M-POC0.md) |
-| M-POC1 | done | M-POC1A/B/C zakończone w zatwierdzonych zakresach; decyzje 06/07 i zamrożony eval-v1; 66 grup/8 wymagań kontekstu, 20 sytuacji (17/3), 5 relacji jawnych/3 niejawne; progi i limity bez zmian | [M-POC1A](work/tasks/M-POC1A.md), [M-POC1B](work/tasks/M-POC1B.md), [M-POC1C](work/tasks/M-POC1C.md) |
-| M-POC2 | done | M-POC2A/B done w zakresie przygotowania oraz odbioru już wykonanej first-001: 33 pliki pakietu zweryfikowane, oryginalne bajty i metadane zachowane; konfiguracja/czasy i niezależność próby niepotwierdzone, unknown; bez pomiaru jakości | [M-POC2A](work/tasks/M-POC2A.md), [M-POC2B](work/tasks/M-POC2B.md) |
-| M-POC3 | done | Zamknięty baseline first-001 przed korektami: integralność zgodna, format czytelny; 207 rekordów rozliczonych, 1 błąd obszaru, 7 brakujących par, sześć klas oraz pending/not_assessable; bez semantycznej akceptacji, konfiguracja/czas/niezależność unknown | [M-POC3](work/tasks/M-POC3.md) |
-| M-POC4 | done | M-POC4A/B done w zakresie wyboru źródła, raportu i przyjętego przez człowieka ograniczonego efektu: 0 pełnych domknięć/4 częściowe uzupełnienia/4 nowe luki; 1 strona/1 reguła/0 tabel, 1 runda/0 korekt; trzecia nierozstrzygnięta krawędź bez pozyskania źródła i naruszenie izolacji odnotowane; bez akceptacji znaczenia/budżetu | [M-POC4A](work/tasks/M-POC4A.md), [M-POC4B](work/tasks/M-POC4B.md) |
-| M-POC5 | next | M-POC5A planned: wspólny przegląd znaczenia first-001 i context-01 na tym samym eval-v1; osobne oceny/hash, brak autoakceptacji; potem M-POC5B sytuacje | [M-POC5A](work/tasks/M-POC5A.md), [M-POC5B](work/tasks/M-POC5B.md) |
-| M-POC6 | planned | Ograniczone korekty, regresje i koszt | [M-POC6A](work/tasks/M-POC6A.md), [M-POC6B](work/tasks/M-POC6B.md) |
-| M-POC7 | planned | Porównanie i decyzja właściciela; dopiero potem architektura | [M-POC7A](work/tasks/M-POC7A.md), [M-POC7B](work/tasks/M-POC7B.md) |
+| [IG-1A: Establish the source IG contract](work/tasks/IG-1A.md) | done | implementation | — |
+| [IG-1B: Freeze input and source manifests](work/tasks/IG-1B.md) | done | implementation | IG-1A |
+| [IG-1C: Import all WGU collections losslessly](work/tasks/IG-1C.md) | planned | implementation | IG-1B |
+| [IG-1D: Persist identities and deterministic exports](work/tasks/IG-1D.md) | planned | implementation | IG-1C |
+| [IG-1E: Accept full KB input accounting](work/tasks/IG-1E.md) | planned | implementation | IG-1D |
+| [IG-2A: Build independent source inventory tooling](work/tasks/IG-2A.md) | planned | refine | IG-1E |
+| [IG-2B01: Inventory SPQR PDF pages 01–04](work/tasks/IG-2B01.md) | planned | content | IG-2A |
+| [IG-2B02: Inventory SPQR PDF pages 05–08](work/tasks/IG-2B02.md) | planned | content | IG-2B01 |
+| [IG-2B03: Inventory SPQR PDF pages 09–12](work/tasks/IG-2B03.md) | planned | content | IG-2B02 |
+| [IG-2B04: Inventory SPQR PDF pages 13–16](work/tasks/IG-2B04.md) | planned | content | IG-2B03 |
+| [IG-2B05: Inventory SPQR PDF pages 17–20](work/tasks/IG-2B05.md) | planned | content | IG-2B04 |
+| [IG-2B06: Inventory SPQR PDF pages 21–24](work/tasks/IG-2B06.md) | planned | content | IG-2B05 |
+| [IG-2B07: Inventory SPQR PDF pages 25–28](work/tasks/IG-2B07.md) | planned | content | IG-2B06 |
+| [IG-2B08: Inventory SPQR PDF pages 29–32](work/tasks/IG-2B08.md) | planned | content | IG-2B07 |
+| [IG-2B09: Inventory SPQR PDF pages 33–36](work/tasks/IG-2B09.md) | planned | content | IG-2B08 |
+| [IG-2B10: Inventory SPQR PDF pages 37–40](work/tasks/IG-2B10.md) | planned | content | IG-2B09 |
+| [IG-2B11: Inventory SPQR PDF pages 41–44](work/tasks/IG-2B11.md) | planned | content | IG-2B10 |
+| [IG-2C: Implement reconciliation and source lookup](work/tasks/IG-2C.md) | planned | refine | IG-2B11 |
+| [IG-2D: Partition and close full-corpus reconciliation](work/tasks/IG-2D.md) | planned | refine | IG-2C |
+| [IG-3A: Define typed semantic IR and validation](work/tasks/IG-3A.md) | planned | refine | IG-2D |
+| [IG-3B: Build revision-scoped review packets](work/tasks/IG-3B.md) | planned | refine | IG-3A |
+| [IG-3C: Formalize state and causal history](work/tasks/IG-3C.md) | planned | refine | IG-3B |
+| [IG-3D: Formalize action choices and continuations](work/tasks/IG-3D.md) | planned | refine | IG-3C |
+| [IG-3E: Formalize geometry and component contracts](work/tasks/IG-3E.md) | planned | refine | IG-3D |
+| [IG-3F: Formalize calculations tables and chance](work/tasks/IG-3F.md) | planned | refine | IG-3E |
+| [IG-3G: Formalize visibility profiles and victory](work/tasks/IG-3G.md) | planned | refine | IG-3F |
+| [IG-3H: Close full semantic coverage and acceptance](work/tasks/IG-3H.md) | planned | refine | IG-3G |
+| [IG-4A: Implement reference state and expression evaluation](work/tasks/IG-4A.md) | planned | refine | IG-3H |
+| [IG-4B: Execute procedures reactions and chance by reference](work/tasks/IG-4B.md) | planned | refine | IG-4A |
+| [IG-4C: Compile reproducible rules packages](work/tasks/IG-4C.md) | planned | refine | IG-4B |
+| [IG-4D: Validate and apply actions atomically](work/tasks/IG-4D.md) | planned | refine | IG-4C |
+| [IG-4E: Generate complete dependent action domains](work/tasks/IG-4E.md) | planned | refine | IG-4D |
+| [IG-4F: Enforce player observation and explanation boundaries](work/tasks/IG-4F.md) | planned | refine | IG-4E |
+| [IG-4G: Apply source updates and replay regressions](work/tasks/IG-4G.md) | planned | refine | IG-4F |
+| [IG-4H: Establish performance and context budgets](work/tasks/IG-4H.md) | planned | refine | IG-4G |
+| [IG-4I: Optimize indexes and caches without semantic drift](work/tasks/IG-4I.md) | planned | refine | IG-4H |
+| [IG-5A: Deliver compact player decision protocol](work/tasks/IG-5A.md) | planned | refine | IG-4I |
+| [IG-5B: Integrate strategic action selection](work/tasks/IG-5B.md) | planned | refine | IG-5A |
+| [IG-5C: Accept the full SPQR profile release](work/tasks/IG-5C.md) | planned | refine | IG-5B |
 
-M-POC6A/B można wykonać wcześniej dla błędu z M-POC3–M-POC5, zachowując bieżący
-milestone i wracając do niego po korekcie. Wczesna korekta formatu liczy się do
-limitu trzech; domknięcie kontekstu ma osobny limit dwóch rund.
-
-Większą kartę dzielimy przed wykonaniem, nie rozszerzamy niejawnie sesji.
-M-POC0 kończy się tylko po wszystkich kontrolach; M-POC1–M-POC7 nie są wykonywane
-w sesji reorganizacji. Wynik POC i przyszła architektura pozostają nieznane.
-
-## Historia poza aktywną kolejką
-
-M-DESK2 pozostaje **partial**. M-DESK3 oraz dawny backlog nie są zależnością POC.
-[Archiwum](../archive/legacy-2026-10-07/README.md) zawiera starą roadmapę i wszystkie
-ADR pod niezmienionymi numerami. Ich historyczne statusy nie są drugim aktywnym `next`.
-Zakres zmiany określa [ADR-0039](adr/ADR-0039-archiwum-i-poc-przed-architektura.md).
+Stages and readiness distinctions: [implementation plan](IG-PLAN.md).
+Future `refine` cards must be narrowed before readiness. No product task has been executed by the planning session.

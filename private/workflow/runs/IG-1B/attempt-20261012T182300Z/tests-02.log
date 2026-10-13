@@ -1,0 +1,107 @@
+FF............FFFFFF...FF.F                                              [100%]
+================================== FAILURES ===================================
+_________ test_original_bytes_independent_hashes_availability_and_pin _________
+tests\inputs\test_snapshot.py:52: in test_original_bytes_independent_hashes_availability_and_pin
+    result = s.freeze_inputs(request, inputs, sources)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:338: in freeze_inputs
+    size, digest, identity = measure(origin, output)
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:179: in measure
+    raise SnapshotError('input changed during copy: ' + str(path))
+E   wgc.inputs.snapshot.SnapshotError: input changed during copy: C:\repo\wargame-compiler\private\workflow\runs\IG-1B\attempt-20261012T182300Z\test-temp-02\test_original_bytes_independen0\game\wgu.yaml
+______ test_repeatability_reuses_exact_bytes_despite_plan_order_and_time ______
+tests\inputs\test_snapshot.py:85: in test_repeatability_reuses_exact_bytes_despite_plan_order_and_time
+    first = s.freeze_inputs(request, inputs, sources)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:344: in freeze_inputs
+    copied_size, copied_digest, _ = measure(destination)
+                                    ^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:179: in measure
+    raise SnapshotError('input changed during copy: ' + str(path))
+E   wgc.inputs.snapshot.SnapshotError: input changed during copy: C:\repo\wargame-compiler\private\workflow\runs\IG-1B\attempt-20261012T182300Z\test-temp-02\test_repeatability_reuses_exac0\inputs\.pending-c096405e19d648f6930cd7391d90034d\files\wgu.yaml
+___________________ test_changed_pinned_bytes_never_publish ___________________
+tests\inputs\test_snapshot.py:137: in test_changed_pinned_bytes_never_publish
+    with pytest.raises(s.SnapshotError, match='pinned request'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'pinned request'
+E     Actual message: 'input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_changed_pinned_bytes_neve0\\inputs\\.pending-1ac0f8e0e4cc476292ecfc47a74434cc\\files\\wgu.yaml'
+_________ test_mutation_after_early_copy_is_detected_by_global_rehash _________
+tests\inputs\test_snapshot.py:158: in test_mutation_after_early_copy_is_detected_by_global_rehash
+    with pytest.raises(s.SnapshotError, match='input changed during snapshot'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'input changed during snapshot'
+E     Actual message: 'input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_mutation_after_early_copy0\\inputs\\.pending-e4117dee71d94bba93b48ab571b9edd2\\files\\wgu.yaml'
+________________ test_new_kb_file_during_copy_never_publishes _________________
+tests\inputs\test_snapshot.py:172: in test_new_kb_file_during_copy_never_publishes
+    with pytest.raises(s.SnapshotError, match='enumeration changed'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'enumeration changed'
+E     Actual message: 'input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_new_kb_file_during_copy_n0\\inputs\\.pending-0e124b8d92204819bb2d21468b721530\\files\\wgu.yaml'
+__________ test_missing_source_appearing_during_copy_never_publishes __________
+tests\inputs\test_snapshot.py:190: in test_missing_source_appearing_during_copy_never_publishes
+    with pytest.raises(s.SnapshotError, match='appeared'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'appeared'
+E     Actual message: 'input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_missing_source_appearing_0\\inputs\\.pending-0ea88ae4ae514f46b013b653c94fcad5\\files\\wgu.yaml'
+_______ test_missing_required_input_fails_but_optional_source_does_not ________
+tests\inputs\test_snapshot.py:198: in test_missing_required_input_fails_but_optional_source_does_not
+    with pytest.raises(s.SnapshotError, match='required input missing'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'required input missing'
+E     Actual message: 'input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_missing_required_input_fa0\\inputs\\.pending-29c539b010b44bfdb06f4f054e7225e1\\files\\wgu.yaml'
+_______ test_available_configured_source_is_copied_without_substitution _______
+tests\inputs\test_snapshot.py:209: in test_available_configured_source_is_copied_without_substitution
+    result = s.freeze_inputs(request, inputs, sources)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:344: in freeze_inputs
+    copied_size, copied_digest, _ = measure(destination)
+                                    ^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:179: in measure
+    raise SnapshotError('input changed during copy: ' + str(path))
+E   wgc.inputs.snapshot.SnapshotError: input changed during copy: C:\repo\wargame-compiler\private\workflow\runs\IG-1B\attempt-20261012T182300Z\test-temp-02\test_available_configured_sour0\inputs\.pending-44cee03858ca4374a8cc1201018223a4\files\wgu.yaml
+________________________ test_hardlink_alias_rejected _________________________
+tests\inputs\test_snapshot.py:265: in test_hardlink_alias_rejected
+    with pytest.raises(s.SnapshotError, match='physical input alias'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'physical input alias'
+E     Actual message: 'input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_hardlink_alias_rejected0\\inputs\\.pending-bab03cb0d3e44c1ba9c8829ede133d5d\\files\\wgu.yaml'
+________________ test_existing_corrupt_snapshot_not_rewritten _________________
+tests\inputs\test_snapshot.py:272: in test_existing_corrupt_snapshot_not_rewritten
+    result = freeze(f)
+             ^^^^^^^^^
+tests\inputs\test_snapshot.py:40: in freeze
+    return s.freeze_inputs(*f)
+           ^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:344: in freeze_inputs
+    copied_size, copied_digest, _ = measure(destination)
+                                    ^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:179: in measure
+    raise SnapshotError('input changed during copy: ' + str(path))
+E   wgc.inputs.snapshot.SnapshotError: input changed during copy: C:\repo\wargame-compiler\private\workflow\runs\IG-1B\attempt-20261012T182300Z\test-temp-02\test_existing_corrupt_snapshot0\inputs\.pending-bcdb8166586b4111aec7712a36f627da\files\wgu.yaml
+___________________ test_cli_and_no_inferred_content_reads ____________________
+tests\inputs\test_snapshot.py:295: in test_cli_and_no_inferred_content_reads
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: Snapshot rejected: input changed during copy: C:\repo\wargame-compiler\private\workflow\runs\IG-1B\attempt-20261012T182300Z\test-temp-02\test_cli_and_no_inferred_conte0\game\wgu.yaml
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe', '-m', 'wgc.inputs.snapshot', 'C:\\rep...ow\\runs\\IG-1B\\attempt-20261012T182300Z\\test-temp-02\\test_cli_and_no_inferred_conte0\\game\\wgu.yaml\n', stderr='').returncode
+=========================== short test summary info ===========================
+FAILED tests/inputs/test_snapshot.py::test_original_bytes_independent_hashes_availability_and_pin
+FAILED tests/inputs/test_snapshot.py::test_repeatability_reuses_exact_bytes_despite_plan_order_and_time
+FAILED tests/inputs/test_snapshot.py::test_changed_pinned_bytes_never_publish
+FAILED tests/inputs/test_snapshot.py::test_mutation_after_early_copy_is_detected_by_global_rehash
+FAILED tests/inputs/test_snapshot.py::test_new_kb_file_during_copy_never_publishes
+FAILED tests/inputs/test_snapshot.py::test_missing_source_appearing_during_copy_never_publishes
+FAILED tests/inputs/test_snapshot.py::test_missing_required_input_fails_but_optional_source_does_not
+FAILED tests/inputs/test_snapshot.py::test_available_configured_source_is_copied_without_substitution
+FAILED tests/inputs/test_snapshot.py::test_hardlink_alias_rejected - Assertio...
+FAILED tests/inputs/test_snapshot.py::test_existing_corrupt_snapshot_not_rewritten
+FAILED tests/inputs/test_snapshot.py::test_cli_and_no_inferred_content_reads
+11 failed, 16 passed in 4.65s

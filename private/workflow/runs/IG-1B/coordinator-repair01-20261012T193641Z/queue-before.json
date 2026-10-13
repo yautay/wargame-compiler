@@ -1,0 +1,2535 @@
+{
+  "schema_version": "wgc-work-1",
+  "updated": "2026-10-11",
+  "mode": "sequential",
+  "product_goal": "Full SPQR rulebook + WGU KB -> source IG -> formal semantics -> compiled deterministic legal runtime -> compact strategy interface",
+  "session": {
+    "requested_model": "GPT-6 Astra",
+    "requested_reasoning": "high",
+    "actual_model": null,
+    "actual_reasoning": null,
+    "evidence": "Exact active-session model and reasoning metadata were not available; prompt recommendations are not confirmation."
+  },
+  "infrastructure_blockers": [
+    {
+      "id": "ARCHIVE-WRITE",
+      "scope": "external archive relocation",
+      "status": "blocked",
+      "reason": "Destination outside writable roots; approval_policy=never. No originals removed.",
+      "resolution": "Operator runs the prepared verified migration in a session with write permission to C:/repo/wargame-compiler-archive."
+    },
+    {
+      "id": "SKILL-INSTALL",
+      "scope": "automatic skill discovery only",
+      "status": "blocked",
+      "reason": ".agents is read-only in this session; skills are staged in docs/skills.",
+      "resolution": "Use explicit skill paths in prompts now; install and verify discovery in a permitted session."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "IG-1A",
+      "title": "Establish the source IG contract",
+      "stage": "IG-1",
+      "status": "done",
+      "kind": "implementation",
+      "depends": [],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Turn the current proposal into a small versioned source-record contract that preserves all required mechanical concepts without implementing rules.",
+      "outputs": [
+        "contracts/ig/source.schema.json",
+        "contracts/ig/README.md with canonicalization and reference rules",
+        "Synthetic valid/invalid fixtures and validator entry point"
+      ],
+      "write_scope": [
+        "contracts/ig/",
+        "src/wgc/contracts/",
+        "tests/contracts/",
+        "pyproject.toml",
+        "scripts/check.ps1"
+      ],
+      "inputs": [
+        "Current architecture/data proposal",
+        "Synthetic clauses, evidence, groups, gaps and review records"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+        "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+        "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+        "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+        "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+      ],
+      "tests": [
+        "Use independent valid/invalid fixture cases for unknown value without gap, changed aspect, model approval, dangling active versus historical reference, duplicate identity and opaque execution blocker."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": [
+        {
+          "from": "ready",
+          "to": "in_progress",
+          "utc": "2026-10-12T14:51:35.184253+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-20261012-0540/claim.json",
+          "sha256": "8e791415e0850f0dcf71d55169585790ddc08805d7cbd93877363bfb85f523e0"
+        },
+        {
+          "from": "in_progress",
+          "to": "blocked",
+          "utc": "2026-10-12T15:22:51.093011+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-20261012-0540/delivery-candidate-02.json",
+          "sha256": "6dced4abffe1e897ed9aeed77959bf36fa46d4fc1e9c400d58eb9f47f29024b5"
+        },
+        {
+          "from": "blocked",
+          "to": "planned",
+          "utc": "2026-10-12T15:29:47.921569+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/replan.json",
+          "sha256": "e59d3887c108810ee44da51425709b19520e6a5cca4b2881bc5c29b4782b4937"
+        },
+        {
+          "from": "planned",
+          "to": "ready",
+          "utc": "2026-10-12T15:29:50.214718+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/ready.json",
+          "sha256": "cd55f89292f1d151dcd493b339d474d693bcc53a5929025fd1f4e6e446cb0942"
+        },
+        {
+          "from": "ready",
+          "to": "in_progress",
+          "utc": "2026-10-12T15:30:18.500714+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/claim.json",
+          "sha256": "9078c16e346c7fbc9c531bbf9d4b61afee1c25def2a0eb7e8ba93a8ff430f5b8"
+        },
+        {
+          "from": "in_progress",
+          "to": "review",
+          "utc": "2026-10-12T15:33:45.089639+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/delivery.json",
+          "sha256": "115b22ab83d71ed1cb176fee045200d14a96ad2ab54865a09d0daec2293fc0ac"
+        },
+        {
+          "from": "review",
+          "to": "changes_requested",
+          "utc": "2026-10-12T17:01:55.827418+00:00",
+          "evidence": "private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/review.json",
+          "sha256": "5dab7b6d6b2851e451ce9124d7a6aa17a44624f7b6c0f6cd5b6739d519e35a39"
+        },
+        {
+          "from": "changes_requested",
+          "to": "in_progress",
+          "utc": "2026-10-12T17:03:13.712350+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-review-repair-01/claim.json",
+          "sha256": "6ddfb2596cc65ebdf1516b1ff8a87be3da930fc402cfb518fbea1945124bee64"
+        },
+        {
+          "from": "in_progress",
+          "to": "review",
+          "utc": "2026-10-12T17:18:02.124788+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-review-repair-01/delivery.json",
+          "sha256": "d83e6d04d9b047e03dfdbf3d0849d6d755e16a29f2287cd63495a01cd8bcdf3c"
+        },
+        {
+          "from": "review",
+          "to": "changes_requested",
+          "utc": "2026-10-12T17:31:59.294999+00:00",
+          "evidence": "private/workflow/runs/IG-1A/review-repair01-20261012T172231Z-9f8db531/review.json",
+          "sha256": "ae622e6f821254324f13e21117b6e8793cc6322fe6cf3a60ed74092a4225b6d0"
+        },
+        {
+          "from": "changes_requested",
+          "to": "in_progress",
+          "utc": "2026-10-12T17:32:41.431893+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-review-repair-02/claim.json",
+          "sha256": "cb05ac50f81a186b01c0ef70ede797061208a58fe90229d728f0e1f37738e1a1"
+        },
+        {
+          "from": "in_progress",
+          "to": "review",
+          "utc": "2026-10-12T17:40:52.023619+00:00",
+          "evidence": "private/workflow/runs/IG-1A/attempt-review-repair-02/delivery.json",
+          "sha256": "e60f74eca3b94771539eb438c4d239a4deeec3ae20cc5950a4f415ae5d863958"
+        },
+        {
+          "from": "review",
+          "to": "accepted",
+          "utc": "2026-10-12T18:21:03.960027+00:00",
+          "evidence": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/acceptance.json",
+          "sha256": "e74645c2789fd97a13045d4b1d11550d0b89a5d113159e75e5416ee31d11d857"
+        },
+        {
+          "from": "accepted",
+          "to": "done",
+          "utc": "2026-10-12T18:21:09.797963+00:00",
+          "evidence": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/completion.json",
+          "sha256": "afaf02a1dadde0912361556b728ddf99d09608bf3a1261809137b0df8f273563"
+        }
+      ]
+    },
+    {
+      "id": "IG-1B",
+      "title": "Freeze input and source manifests",
+      "stage": "IG-1",
+      "status": "review",
+      "kind": "implementation",
+      "depends": [
+        "IG-1A"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Create a read-only snapshot facility for an explicitly enumerated WGU game directory and source registry.",
+      "outputs": [
+        "Immutable byte snapshot and manifest",
+        "Source availability/edition/identity report",
+        "Active SPQR source pin record"
+      ],
+      "write_scope": [
+        "src/wgc/inputs/",
+        "tests/inputs/",
+        "private/ig/projects/spqr/inputs/",
+        "private/ig/projects/spqr/sources/",
+        "contracts/ig/input.schema.json"
+      ],
+      "inputs": [
+        "C:/repo/wargame-projects/games/spqr/wgu.yaml and kb/ (read-only)",
+        "private/ig/sources/spqr-5e/provenance.json and PDF",
+        "Prior inspection inventory is advisory, rehash actual input"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/planning/wgu-spqr-2026-10-11/input-inventory.json",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Every input file has path, bytes, hash, role and availability; detect change during copy.",
+        "Missing 36 historically configured source paths are rechecked and reported, not silently substituted.",
+        "Pin the promoted PDF as a new selected source with identity_to_wgu_original unknown.",
+        "Reject path escapes, linked paths and unintended source reads; no neighbour writes."
+      ],
+      "tests": [
+        "Simulate mutation during snapshot, missing source, duplicate path/case alias, traversal and symlink/junction escape.",
+        "Verify independent copy hashes and repeatability; full private snapshot count is measured, not hard-coded."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "Source selection needs an explicit record; missing auxiliary sources block only dependent verification, not the available KB snapshot.",
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": [
+        {
+          "from": "planned",
+          "to": "ready",
+          "utc": "2026-10-12T18:23:52.139000+00:00",
+          "evidence": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/ready.json",
+          "sha256": "12b1bb406d8ff95d2587fe8b9325571359ac6e5abc86283601a8715aa3a8efb1"
+        },
+        {
+          "from": "ready",
+          "to": "in_progress",
+          "utc": "2026-10-12T18:24:48.432246+00:00",
+          "evidence": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/claim.json",
+          "sha256": "e397e662ada5f2e18d972e02bf055499dd22e092442b70d0c87871dd0e7feeb1"
+        },
+        {
+          "from": "in_progress",
+          "to": "review",
+          "utc": "2026-10-12T18:42:57.540555+00:00",
+          "evidence": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/delivery.json",
+          "sha256": "c76162309a0cdd3c9be6d0d1e0c57496c005cf31e61cf77ed9e5751d772487b8"
+        },
+        {
+          "from": "review",
+          "to": "changes_requested",
+          "utc": "2026-10-12T19:38:42.363375+00:00",
+          "evidence": "private/workflow/runs/IG-1B/review-confirmed-20261012T185333Z/review.json",
+          "sha256": "d5cc08accd4da84660ef3b451022758312e14b0f5c1e4d543de79458b9f22af4"
+        },
+        {
+          "from": "changes_requested",
+          "to": "in_progress",
+          "utc": "2026-10-12T19:39:21.987156+00:00",
+          "evidence": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/claim.json",
+          "sha256": "1a238d9591678b0246aee904d29de2d38b8a00756877115b003e5f21eae5a3c6"
+        },
+        {
+          "from": "in_progress",
+          "to": "review",
+          "utc": "2026-10-12T19:49:07.580349+00:00",
+          "evidence": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/delivery.json",
+          "sha256": "cf1c928b34aa70ae5b7cf59928baa273c45b02fc26331f8f534f6d1d8056c236"
+        }
+      ]
+    },
+    {
+      "id": "IG-1C",
+      "title": "Import all WGU collections losslessly",
+      "stage": "IG-1",
+      "status": "planned",
+      "kind": "implementation",
+      "depends": [
+        "IG-1B"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Implement a safe directory adapter for wgu/kb@1 against the frozen complete input.",
+      "outputs": [
+        "Import records with raw bytes/unknown-field preservation",
+        "Per-file and per-record accounting report"
+      ],
+      "write_scope": [
+        "src/wgc/wgu_adapter/parser.py",
+        "src/wgc/wgu_adapter/importer.py",
+        "tests/wgu_adapter/",
+        "private/ig/projects/spqr/runs/import/"
+      ],
+      "inputs": [
+        "Frozen input manifest from IG-1B",
+        "WGU schema and store/export/lint code, read-only scoped files in C:/repo/wargame-utils/wgu/"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+        "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+        "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+        "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results."
+      ],
+      "tests": [
+        "Adversarial YAML, duplicate IDs/keys, extension fields, anonymous terms, nested step numbering and malformed records.",
+        "Private integration checks all frozen files against independent manifest accounting."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "If a safe YAML parser is unavailable, record dependency failure; do not implement unsafe ad-hoc parsing.",
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-1D",
+      "title": "Persist identities and deterministic exports",
+      "stage": "IG-1",
+      "status": "planned",
+      "kind": "implementation",
+      "depends": [
+        "IG-1C"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Add stable identity mapping, reference diagnostics and deterministic source IG export.",
+      "outputs": [
+        "Identity/origin registry with split/merge lineage",
+        "Validated snapshot export and reference report"
+      ],
+      "write_scope": [
+        "src/wgc/wgu_adapter/identity.py",
+        "src/wgc/wgu_adapter/references.py",
+        "src/wgc/export/",
+        "tests/wgu_adapter/",
+        "tests/export/",
+        "private/ig/projects/spqr/records/"
+      ],
+      "inputs": [
+        "IG-1C import records",
+        "Versioned source contract and previous identity map"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "Repeated identical bytes yield identical identities and export content; timestamps are outside canonical hashes.",
+        "Reordering anonymous terms/relations preserves identities when unambiguous; collisions become review gaps.",
+        "Many-to-many origin bindings preserve file/field locations; wildcard and subpoint references have exact targets or explicit unresolved scope.",
+        "Export validates revision/hash closure and never inherits semantic approval."
+      ],
+      "tests": [
+        "Reorder, insert, rename, delete, split/merge and ambiguous rematch sequences.",
+        "Byte-level deterministic export; unresolved reference and cycle diagnostics without falsely requiring rule DAGs."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-1E",
+      "title": "Accept full KB input accounting",
+      "stage": "IG-1",
+      "status": "planned",
+      "kind": "implementation",
+      "depends": [
+        "IG-1D"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Deliver a reproducible complete private KB import and a technical acceptance report.",
+      "outputs": [
+        "Private full-input import report and sealed structural snapshot",
+        "Public synthetic integration regression suite"
+      ],
+      "write_scope": [
+        "tests/integration/",
+        "private/ig/projects/spqr/runs/import-acceptance/",
+        "private/ig/projects/spqr/snapshots/"
+      ],
+      "inputs": [
+        "Complete frozen KB and all adapter outputs",
+        "Independent input inventory, not only adapter counters"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "No file/record/unknown field silently disappears; report processed/raw/error counts separately.",
+        "Structural snapshot can be sealed with gaps; no claim of source coverage or semantic correctness.",
+        "Document missing sources and required subsequent reconciliation; preserve mixed editions."
+      ],
+      "tests": [
+        "Full private accounting and reproducibility run; independent reviewer samples mappings and checks entire file/record ledger.",
+        "No archived fixtures, answers or gold required."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2A",
+      "title": "Build independent source inventory tooling",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-1E"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Create page/region inventory, evidence locator and coverage-accounting tools.",
+      "outputs": [
+        "Source inventory contract and local tool",
+        "Render/text provenance and coverage report"
+      ],
+      "write_scope": [
+        "src/wgc/sources/",
+        "tests/sources/",
+        "contracts/ig/regions.schema.json"
+      ],
+      "inputs": [
+        "Pinned full PDF and source manifest",
+        "Synthetic multi-column, table/note and cross-page examples"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+        "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+        "Unknown or excluded areas are visible; partial/gap is never represented."
+      ],
+      "tests": [
+        "Synthetic missing-page, duplicate-region, overlapping-context, table-note and coordinate-conversion cases.",
+        "Check independent PDF page count and stable region IDs."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B01",
+      "title": "Inventory SPQR PDF pages 01–04",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2A"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-01-04.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-01-04.json",
+        "private/ig/projects/spqr/reviews/inventory-01-04/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 1–4; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B02",
+      "title": "Inventory SPQR PDF pages 05–08",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B01"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-05-08.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-05-08.json",
+        "private/ig/projects/spqr/reviews/inventory-05-08/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 5–8; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B03",
+      "title": "Inventory SPQR PDF pages 09–12",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B02"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-09-12.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-09-12.json",
+        "private/ig/projects/spqr/reviews/inventory-09-12/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 9–12; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B04",
+      "title": "Inventory SPQR PDF pages 13–16",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B03"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-13-16.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-13-16.json",
+        "private/ig/projects/spqr/reviews/inventory-13-16/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 13–16; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B05",
+      "title": "Inventory SPQR PDF pages 17–20",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B04"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-17-20.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-17-20.json",
+        "private/ig/projects/spqr/reviews/inventory-17-20/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 17–20; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B06",
+      "title": "Inventory SPQR PDF pages 21–24",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B05"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-21-24.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-21-24.json",
+        "private/ig/projects/spqr/reviews/inventory-21-24/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 21–24; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B07",
+      "title": "Inventory SPQR PDF pages 25–28",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B06"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-25-28.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-25-28.json",
+        "private/ig/projects/spqr/reviews/inventory-25-28/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 25–28; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B08",
+      "title": "Inventory SPQR PDF pages 29–32",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B07"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-29-32.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-29-32.json",
+        "private/ig/projects/spqr/reviews/inventory-29-32/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 29–32; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B09",
+      "title": "Inventory SPQR PDF pages 33–36",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B08"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-33-36.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-33-36.json",
+        "private/ig/projects/spqr/reviews/inventory-33-36/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 33–36; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B10",
+      "title": "Inventory SPQR PDF pages 37–40",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B09"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-37-40.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-37-40.json",
+        "private/ig/projects/spqr/reviews/inventory-37-40/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 37–40; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2B11",
+      "title": "Inventory SPQR PDF pages 41–44",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "content",
+      "depends": [
+        "IG-2B10"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+      "outputs": [
+        "private/ig/projects/spqr/sources/inventory/pages-41-44.json",
+        "Page-range review report and cross-boundary continuation list"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/sources/inventory/pages-41-44.json",
+        "private/ig/projects/spqr/reviews/inventory-41-44/"
+      ],
+      "inputs": [
+        "Pinned SPQR 5E PDF physical pages 41–44; adjacent pages only for continuation context",
+        "IG-2A locator contract"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "private/ig/sources/spqr-5e/provenance.json"
+      ],
+      "acceptance": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Independent review compares the assigned pages against the complete region ledger."
+      ],
+      "tests": [
+        "Validate coverage and locators; visual source review of every assigned page.",
+        "Check boundary references and context-only regions do not inflate denominator."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2C",
+      "title": "Implement reconciliation and source lookup",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-2B11"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Connect WGU records to source regions with many-to-many mappings and an explicit discrepancy queue.",
+      "outputs": [
+        "Reconciliation tool and lookup by WGU ID/source label/text",
+        "Source-versus-KB difference packets"
+      ],
+      "write_scope": [
+        "src/wgc/reconcile/",
+        "tests/reconcile/",
+        "contracts/ig/reconciliation.schema.json"
+      ],
+      "inputs": [
+        "Whole independent inventory and complete KB snapshot"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "Candidate matching does not imply identity or acceptance.",
+        "Distinguish exact/partial/contradictory/missing/duplicate and edition conflicts.",
+        "Keep source evidence, untouched import and proposed correction separately; preserve external references."
+      ],
+      "tests": [
+        "Cross-chapter exception, split clause, editorial summary table, conflicting edition, wildcard and absent table source."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-2D",
+      "title": "Partition and close full-corpus reconciliation",
+      "stage": "IG-2",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-2C"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Partition all inventory targets and imported records into reviewable reconciliation tasks, then close the entire source ledger.",
+      "outputs": [
+        "Explicit child task partition and target ledger",
+        "Reconciled source IG with every target accounted for"
+      ],
+      "write_scope": [
+        "docs/work/queue.json",
+        "private/ig/projects/spqr/reconcile/",
+        "private/ig/projects/spqr/reports/reconciliation/"
+      ],
+      "inputs": [
+        "Whole inventory and import IDs with frozen hashes",
+        "IG-2C discrepancy format"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "Expand into child tasks of at most 20 clauses with exact target IDs, source ranges, outputs and acceptance before execution.",
+        "Children inherit prior dependencies; parent becomes closure depending on every child. No dropped or duplicate work targets.",
+        "Resolve cross-batch references; full rulebook and all imported records are represented or explicit gaps, not just a sample."
+      ],
+      "tests": [
+        "Validate partition set equality and DAG; check all cross-batch references and separate coverage/gap counts."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-3A",
+      "title": "Define typed semantic IR and validation",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-2D"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Specify a bounded executable language sufficient for SPQR with explicit source links.",
+      "outputs": [
+        "Versioned typed IR contract and static validator",
+        "Operator semantics and unsupported-feature diagnostics"
+      ],
+      "write_scope": [
+        "contracts/semantics/",
+        "src/wgc/semantics/types.py",
+        "src/wgc/semantics/validate.py",
+        "tests/semantics/"
+      ],
+      "inputs": [
+        "Reconciled source IG; mechanical requirements and unresolved gaps"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Define typed state/history, actions/parameters, effects, windows, bindings, geometry policies, tables, chance and visibility.",
+        "Specify evaluation order, units, unknown propagation and causal history; no arbitrary code or opaque runtime callbacks.",
+        "Reject unbound variables, unit mismatch, unknown operation and incomplete executable dependencies."
+      ],
+      "tests": [
+        "Independent positive/negative IR examples, typing and dependency-closure failures."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-3B",
+      "title": "Build revision-scoped review packets",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3A"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Make source-meaning review and human acceptance practical without losing exact scope.",
+      "outputs": [
+        "Evidence/diff packet builder and decision ledger",
+        "Freshness calculation and conflict diagnostics"
+      ],
+      "write_scope": [
+        "src/wgc/review/",
+        "tests/review/",
+        "contracts/ig/review.schema.json"
+      ],
+      "inputs": [
+        "Source IG, typed proposals, profile revisions and human actor authorization record"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md"
+      ],
+      "acceptance": [
+        "Packets show source, old/new proposal, exact aspects, dependencies and impact.",
+        "Separate model observation, technical review and human semantic decisions.",
+        "Changed basis becomes stale; incomplete basis unknown; contradictory decisions require explicit supersession."
+      ],
+      "tests": [
+        "Partial acceptance, source/profile change, aspect reordering, conflicting reviewers and forged model-as-human decision."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-3C",
+      "title": "Formalize state and causal history",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3B"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Formalize state variables, temporal instances and causal event/history requirements for the full assigned SPQR rule set.",
+      "outputs": [
+        "Private typed state/history definitions and clause bindings",
+        "Source-justified transition/history cases"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/semantics/state/",
+        "private/ig/projects/spqr/evaluation/state/"
+      ],
+      "inputs": [
+        "Exact reconciled clause IDs assigned during refinement",
+        "IG-3A IR and IG-3B review format"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Partition assigned clauses into bounded children if more than 20; pin source evidence and complete ownership.",
+        "Different event causes, attempt/commit/cancel and reset scopes remain distinct.",
+        "Missing history blocks dependent conclusions; no default-zero substitution."
+      ],
+      "tests": [
+        "Source-backed cases with same present state but different histories/causes and expected outcomes."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    },
+    {
+      "id": "IG-3D",
+      "title": "Formalize action choices and continuations",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3C"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Formalize action parameters, dependent choices, persistent participant bindings, reactions and costs.",
+      "outputs": [
+        "Private action/procedure IR and review packets",
+        "Cancellation and continuation examples"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/semantics/actions/",
+        "private/ig/projects/spqr/evaluation/actions/"
+      ],
+      "inputs": [
+        "Pinned state/history contract and exact assigned source clauses"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Partition into at most 20 clauses per child with exact IDs; cover all assigned action and reaction clauses.",
+        "Define decision owners, binding lifetimes, invocation frames, priorities, resume/replace/cancel/restart, attempt/success costs and committed effects.",
+        "Unknown ordering remains a blocker; no inferred global rollback or reselecting advantageous participants."
+      ],
+      "tests": [
+        "Nested reactions, interrupted attempt, double-cost prevention, stale binding and competing triggers, with source-justified expected traces."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    },
+    {
+      "id": "IG-3E",
+      "title": "Formalize geometry and component contracts",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3D"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Formalize spatial policies and required maps/counters separately from the textual rulebook.",
+      "outputs": [
+        "Spatial semantics and component input requirements",
+        "Private spatial acceptance cases"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/semantics/geometry/",
+        "private/ig/projects/spqr/evaluation/geometry/",
+        "contracts/components/"
+      ],
+      "inputs": [
+        "Exact spatial clause IDs, pinned map/counter material where available"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Bounded source batches cover facing, multihex occupancy, movement, ZOC, LOS, paths and stacking.",
+        "Specify metrics, edge/hex terrain, endpoint rules and existence/optimality/choice distinctions.",
+        "Unavailable map/topology data is an explicit profile blocker."
+      ],
+      "tests": [
+        "Source-justified multihex, sheet-label collision, tied path, facing/pivot, LOS boundary and stacking timing cases."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    },
+    {
+      "id": "IG-3F",
+      "title": "Formalize calculations tables and chance",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3E"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Formalize ordered calculations, table lookup/legend, loss allocation and random processes.",
+      "outputs": [
+        "Calculation/table/chance IR",
+        "Exact arithmetic and probability cases"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/semantics/calculations/",
+        "private/ig/projects/spqr/evaluation/calculations/"
+      ],
+      "inputs": [
+        "Exact assigned clauses and pinned table/card source revisions"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Bounded batches preserve units, ordered modifiers, rational values, rounding stage, raw/modified rolls and table notes.",
+        "Pool multiplicity, shared draws and rerolls are explicit; unknown source values block compilation.",
+        "Original symbols and conditional outcomes retain source links."
+      ],
+      "tests": [
+        "Boundary cells, clamping, column shifts, noncommuting modifiers, duplicate symbols, rerolls and loss overflow, independently justified."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    },
+    {
+      "id": "IG-3G",
+      "title": "Formalize visibility profiles and victory",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3F"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Close profile applicability, hidden-information observation policy and victory semantics.",
+      "outputs": [
+        "Pinned runnable-profile proposal and compatibility decisions",
+        "Visibility and victory IR/cases"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/semantics/profile/",
+        "private/ig/projects/spqr/evaluation/profile/"
+      ],
+      "inputs": [
+        "Full core rulebook, all optional-rule applicability, scenario/options choice and required materials"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Exact clause batches cover visibility of state/actions/diagnostics and permitted hidden-information attempts.",
+        "Profile pins edition, scenario, options, compatible tables/maps/counters and rule precedence with evidence.",
+        "Immediate versus checkpoint victory and tie rules are explicit; unsupported material blocks profile readiness."
+      ],
+      "tests": [
+        "Paired indistinguishable states, scenario override conflict, end-of-turn versus immediate victory and optional-rule applicability."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    },
+    {
+      "id": "IG-3H",
+      "title": "Close full semantic coverage and acceptance",
+      "stage": "IG-3",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3G"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Reconcile all formalization batches with the complete source ledger and obtain exact human acceptance.",
+      "outputs": [
+        "Full semantic coverage/closure report",
+        "Human decision ledger and executable-scope manifest"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/reviews/semantic-release/",
+        "private/ig/projects/spqr/reports/semantic-closure/"
+      ],
+      "inputs": [
+        "All source regions/clauses, semantic batches, technical reviews and human decisions"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Every clause is formalized, reviewed informational, or explicitly blocking; optional rules are accounted for.",
+        "Source/meaning review covers the entire declared scope; unresolved contradictions/opaque dependencies prohibit executable release.",
+        "Human acceptance pins revisions and profile, separately from code tests and model agreement."
+      ],
+      "tests": [
+        "Independent coverage join, dependency-closure audit and cross-chapter source-derived regression review."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    },
+    {
+      "id": "IG-4A",
+      "title": "Implement reference state and expression evaluation",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-3H"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Build a simple deterministic semantic oracle before compilation or optimization.",
+      "outputs": [
+        "Reference typed expression evaluator and state/history representation"
+      ],
+      "write_scope": [
+        "src/wgc/reference/state.py",
+        "src/wgc/reference/expressions.py",
+        "tests/reference/"
+      ],
+      "inputs": [
+        "Accepted typed IR and independent source-backed expression cases"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Explicit arithmetic/unknown semantics, no input mutation and stable evaluation order.",
+        "Runtime imports no provider or LLM client."
+      ],
+      "tests": [
+        "Boundary arithmetic, unit errors, missing history, deterministic state serialization and mutation checks."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4B",
+      "title": "Execute procedures reactions and chance by reference",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4A"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Extend the reference interpreter through decision/chance boundaries with explicit event semantics.",
+      "outputs": [
+        "Reference procedure executor, event log and replay"
+      ],
+      "write_scope": [
+        "src/wgc/reference/procedures.py",
+        "src/wgc/reference/events.py",
+        "src/wgc/reference/replay.py",
+        "tests/reference/"
+      ],
+      "inputs": [
+        "Accepted procedure IR, state evaluator and recorded random outcomes"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Preserve invocation-local bindings, causes, costs once, reactions, cancellation policy and authoritative draw results.",
+        "Replay with same package/state/actions/draws yields identical state and event hashes."
+      ],
+      "tests": [
+        "Nested reactions, interrupted attempts, duplicate application, invalid chance result, cancellation and replay tampering."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4C",
+      "title": "Compile reproducible rules packages",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4B"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Compile accepted, closed semantic scope into a versioned deterministic artifact.",
+      "outputs": [
+        "Compiler, package manifest, source map and load-time validation"
+      ],
+      "write_scope": [
+        "src/wgc/compiler/",
+        "contracts/package/",
+        "tests/compiler/"
+      ],
+      "inputs": [
+        "Accepted semantic snapshot, profile and reference oracle"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Reject opaque/unaccepted/stale/unknown executable dependencies and incompatible materials.",
+        "Reproducible bytes, versioned operations, exact source/review revisions and dependency manifest.",
+        "No hand-edited compiled semantics or unsafe arbitrary evaluation."
+      ],
+      "tests": [
+        "Rebuild equality, tamper detection, unsupported op, stale review and missing dependency; reference/compiled expression parity."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4D",
+      "title": "Validate and apply actions atomically",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4C"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Expose revision-bound action validation and deterministic state changes through the compiled runtime.",
+      "outputs": [
+        "validate_action/apply_action and chance boundary interface"
+      ],
+      "write_scope": [
+        "src/wgc/runtime/validation.py",
+        "src/wgc/runtime/engine.py",
+        "tests/runtime/"
+      ],
+      "inputs": [
+        "Pinned package, authoritative state/history, actor and full parameters"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Validate current package/revision/actor/window and parameters again at application; stale action has no effects.",
+        "legal/illegal/blocked are distinct; costs apply once, source links preserved.",
+        "Compiled traces equal reference traces for accepted source cases."
+      ],
+      "tests": [
+        "Stale revision, wrong actor, malformed params, duplicate submission, concurrent revision change and reference differential traces."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4E",
+      "title": "Generate complete dependent action domains",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4D"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Expose sound and complete legal choices without materializing every combination.",
+      "outputs": [
+        "legal_actions with exact dependent domains, lazy enumeration and revisioned pagination"
+      ],
+      "write_scope": [
+        "src/wgc/runtime/actions.py",
+        "src/wgc/runtime/domains.py",
+        "tests/runtime/actions/"
+      ],
+      "inputs": [
+        "Validated actions and explicit semantic selectors/constraints"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Every legal result validates; independent exhaustive small-state oracle finds no omitted legal choice.",
+        "Stable cursor binds package/state/window/actor/viewer/query; no omissions/duplicates across pages.",
+        "Budget exhaustion is incomplete; blocked semantics is not an empty complete menu; no mutation or RNG in queries."
+      ],
+      "tests": [
+        "Independent brute-force domains, mutual parameter constraints, pagination unions, changed cursor inputs and timeout behavior."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4F",
+      "title": "Enforce player observation and explanation boundaries",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4E"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Implement visibility-safe views, legal attempts and diagnostics before AI integration.",
+      "outputs": [
+        "decision_view/explain and whole-response visibility policy"
+      ],
+      "write_scope": [
+        "src/wgc/player/visibility.py",
+        "src/wgc/player/explain.py",
+        "tests/player/privacy/"
+      ],
+      "inputs": [
+        "Accepted visibility semantics and paired states with equal player observations"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "No secret-dependent leak through menus, reasons, counts, IDs, cursors, proofs or caches.",
+        "Privileged outcome resolution is separated from permitted player attempts.",
+        "Full response observational equivalence holds for indistinguishable states unless an authorized reveal occurs."
+      ],
+      "tests": [
+        "Paired-state property tests over all response fields and error paths; deliberate leak mutations must fail."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4G",
+      "title": "Apply source updates and replay regressions",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4F"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Support three-way source updates without losing identities, decisions or reproducibility.",
+      "outputs": [
+        "Update/impact report and rebuilt-package regression workflow"
+      ],
+      "write_scope": [
+        "src/wgc/updates/",
+        "tests/updates/",
+        "private/ig/projects/spqr/runs/update-regression/"
+      ],
+      "inputs": [
+        "Old/new WGU snapshots, current WGC corrections, profiles and accepted package"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Unchanged identity persists; split/merge/delete and conflicts are explicit.",
+        "Affected source/semantic reviews become stale/unknown conservatively across all dependency kinds.",
+        "Old replay pins old package; new package runs declared regressions; no silent state/package migration."
+      ],
+      "tests": [
+        "Change modifier/table/profile/binding/cause, conflicting local correction and incomplete graph; compare independent impact expectations."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4H",
+      "title": "Establish performance and context budgets",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4G"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Measure a fixed representative corpus and obtain concrete acceptance thresholds before optimization.",
+      "outputs": [
+        "Benchmark harness, hardware/corpus manifest, baseline and agreed thresholds"
+      ],
+      "write_scope": [
+        "bench/runtime/",
+        "tests/bench/",
+        "private/ig/projects/spqr/bench/"
+      ],
+      "inputs": [
+        "Correct runtime and profile, representative large positions and reaction/choice cases"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Report p50/p95/p99, memory, cold/warm/invalidated cache, domain size and candidates.",
+        "Measure view bytes/tokens with named tokenizer; unknown token values remain unknown.",
+        "Owner agrees measurable thresholds on named hardware; zero LLM calls in legal paths is mandatory."
+      ],
+      "tests": [
+        "Reproducible benchmark run; workload includes combinatorial choices and nested reactions, not only trivial positions."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-4I",
+      "title": "Optimize indexes and caches without semantic drift",
+      "stage": "IG-4",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4H"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Meet agreed budgets using measured indexing/cache improvements.",
+      "outputs": [
+        "Optimized runtime with invalidation model",
+        "Before/after performance and correctness report"
+      ],
+      "write_scope": [
+        "src/wgc/runtime/",
+        "src/wgc/compiler/indexes.py",
+        "tests/runtime/",
+        "bench/runtime/"
+      ],
+      "inputs": [
+        "Measured hotspots, approved thresholds and reference implementation"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Cache keys/invalidation include package/profile/relevant state/window/viewer dependencies.",
+        "Action sets, reasons, event traces and privacy match reference; performance meets pinned budgets.",
+        "No strategic pruning masquerades as complete legality."
+      ],
+      "tests": [
+        "Differential warm/cold/invalidated tests, source-update invalidation, cross-viewer isolation and benchmark threshold checks."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-5A",
+      "title": "Deliver compact player decision protocol",
+      "stage": "IG-5",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-4I"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Provide a local compact interface with exact legal domains, safe details and revisioned deltas.",
+      "outputs": [
+        "Versioned player protocol, resynchronization and local client examples"
+      ],
+      "write_scope": [
+        "src/wgc/player/protocol.py",
+        "contracts/player/",
+        "tests/player/protocol/",
+        "docs/player/"
+      ],
+      "inputs": [
+        "Visibility-safe runtime, budgets and package/state identities"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Compression retains all player-available decision information and access to complete choices.",
+        "Deltas detect missing revisions; cursors and IDs remain scoped; details respect visibility.",
+        "Measure total decision context, including follow-up requests and resync."
+      ],
+      "tests": [
+        "Round-trip view reconstruction, stale delta/cursor, large domains and paired-state privacy through the protocol."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-5B",
+      "title": "Integrate strategic action selection",
+      "stage": "IG-5",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-5A"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Connect an explicitly selected strategy client to the local player protocol without delegating legality.",
+      "outputs": [
+        "Strategy adapter boundary and offline reference policy",
+        "Malformed/stale selection recovery"
+      ],
+      "write_scope": [
+        "src/wgc/strategy/",
+        "tests/strategy/",
+        "docs/player/"
+      ],
+      "inputs": [
+        "Player protocol; operator-selected model/provider/budget only when later authorized"
+      ],
+      "context": [
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Strategy sees only player-safe compact context and submits an exact action for runtime revalidation.",
+        "Offline reference policy works without external API; live provider requires separate explicit authorization.",
+        "Compare strategy quality separately from token cost; no hallucinated action applies state."
+      ],
+      "tests": [
+        "Malformed/forbidden/stale action and context-limit cases; zero provider calls on legal-runtime paths."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": false,
+      "events": []
+    },
+    {
+      "id": "IG-5C",
+      "title": "Accept the full SPQR profile release",
+      "stage": "IG-5",
+      "status": "planned",
+      "kind": "refine",
+      "depends": [
+        "IG-5B"
+      ],
+      "executor": {
+        "model": "GPT-6.1 Sol",
+        "model_id": "gpt-6.1-sol",
+        "reasoning": "high"
+      },
+      "goal": "Release the full declared SPQR profile only when coverage, meaning and execution gates are independently met.",
+      "outputs": [
+        "Versioned release manifest and readiness report",
+        "Reproducible end-to-end replay, privacy and benchmark evidence"
+      ],
+      "write_scope": [
+        "private/ig/projects/spqr/releases/",
+        "docs/releases/",
+        "tests/integration/"
+      ],
+      "inputs": [
+        "Complete core instruction coverage, compatible required materials, accepted semantics, package and strategy protocol"
+      ],
+      "context": [
+        "docs/IG-WGU-ARCHITECTURE.md",
+        "docs/IG-DATA-MODEL.md",
+        "docs/IG-MECHANICS-PROFILES.md",
+        "docs/IG-LEGAL-ACTIONS.md"
+      ],
+      "acceptance": [
+        "Report import, coverage, human acceptance, compiled closure and playable-profile readiness separately.",
+        "All scope dependencies are available; blocking opaque, missing materials and stale acceptance prevent release.",
+        "Independent review and owner acceptance name exact profile/revisions; future scenarios/OSG/GCACW need new tasks."
+      ],
+      "tests": [
+        "Full-source ledger audit, source-based situation regressions, complete action oracle suite, replay, paired-state privacy and agreed performance/context budgets."
+      ],
+      "start_conditions": [
+        "All dependencies are done; input revisions and assigned file scope are pinned.",
+        "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+      ],
+      "exclusions": [
+        "Archives and Git history; neighbouring repositories; global configuration.",
+        "Downstream tasks, unrelated changes, online services, commits and pushes.",
+        "Publisher content in public fixtures; automatic semantic acceptance."
+      ],
+      "blockers": [
+        "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+        "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+      ],
+      "handoff": [
+        "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+        "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+      ],
+      "semantic_acceptance_required": true,
+      "events": []
+    }
+  ]
+}

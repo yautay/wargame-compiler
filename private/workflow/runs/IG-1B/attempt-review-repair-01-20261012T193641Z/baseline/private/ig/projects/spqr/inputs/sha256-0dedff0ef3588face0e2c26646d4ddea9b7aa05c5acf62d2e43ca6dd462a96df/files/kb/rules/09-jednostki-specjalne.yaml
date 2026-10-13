@@ -1,0 +1,506 @@
+chapter: {id: "9", title: "9.0 Specjalne jednostki bojowe (Special Combat Units)"}
+rules:
+  - id: R-9.11.1
+    title: Przepuszczenie słonia (Pass-Thru) — warunki
+    section: "9.11"
+    source: {text: "oryg. 9.11 „Elephant Pass-Thru”, s. 31", pages: "31"}
+    when: piechota jest atakowana przez jeden ze swoich heksów frontowych przez słonia ze znacznikiem SHOCK MUST CHECK TQ
+    effect: |
+      Może spróbować przepuścić słonia przez swój heks. Decyzję podejmuje się **przed** rzutem testu TQ przed walką (8.43) i tylko wtedy, gdy co
+      najmniej jeden heks tylny obrońcy jest wolny. Mogą z tego skorzystać dwie broniące się jednostki piechoty, jeśli obie spełniają warunki. Bez
+      przepuszczenia walka toczy się normalnie.
+    exceptions: Zakazy — R-9.11.2; harcownicy nie wykonują testu przepuszczenia — R-9.24.2.
+    keywords: [przepuszczenie słonia, Pass-Thru, piechota, słoń]
+    refs: [R-8.43.1, R-9.11.2, R-9.24.2, P-07]
+  - id: R-9.11.2
+    title: Przepuszczenie słonia — kiedy zakazane
+    section: "9.11"
+    source: {text: "oryg. 9.11 (lista), s. 31", pages: "31"}
+    effect: Przepuszczenie jest niedozwolone, gdy piechota jest atakowana z boku lub tyłu; gdy słoń atakuje razem z innymi jednostkami; gdy piechota była w strefie kontroli wroga na początku fazy rozkazów.
+    keywords: [przepuszczenie słonia, zakaz]
+  - id: R-9.11.3
+    title: Przepuszczenie słonia — procedura
+    section: "9.11"
+    source: {text: "oryg. 9.11 pkt 1–4, s. 31–32", pages: "31-32"}
+    effect: |
+      1) **+1 DRM** do testu TQ przed walką piechoty. 2) Walkę rozstrzyga się normalnie, ale trafienia obrońcy dzieli się przez 2 (w dół), a trafienia
+      słonia zmniejsza o 1. 3) Po walce, jeśli piechota nie uciekła, a słoń nie wpadł w szał (9.14), słonia stawia się w jednym z wolnych heksów tylnych
+      obrońcy (wybór gracza słoni), z zachowaniem ukierunkowania. 4) Obrońca (poza harcownikiem) wykonuje test TQ przepuszczenia: trafienia = wynik − TQ.
+    keywords: [przepuszczenie słonia, +1 DRM, ½ trafień, test przepuszczenia]
+    refs: [R-9.14.1, T-13]
+  - id: R-9.12.1
+    title: Osłony słoni — tylko ostrzał reakcyjny
+    section: "9.12"
+    source: {text: "oryg. 9.12 „Elephant Screens”, s. 32", pages: "32"}
+    effect: |
+      Słoń ma własną osłonę harcowników (zwykle łuczników — małe „a” na żetonie), o sile mniejszej niż zwykli łucznicy. Osłona strzela tylko ostrzałem
+      reakcyjnym (8.2), wg wiersza Elephant Screen w MRRC; ma własne znaczniki zapasu pocisków. Słonie dowódców nie mają osłon.
+    keywords: [osłona słonia, Elephant Screen, ostrzał reakcyjny, MRRC]
+    refs: [R-8.2.1, R-8.25.1, T-22]
+  - id: R-9.13.1
+    title: Jeźdźcy w wieżach — konni oszczepnicy
+    section: "9.13"
+    source: {text: "oryg. 9.13 „Tower Riders”, s. 32", pages: "32"}
+    effect: Jeźdźców na słoniach traktuje się przy ostrzale jak konnych oszczepników. Słoń może strzelać reakcyjnie zarówno oszczepami, jak i osłoną — osobne rzuty.
+    keywords: [wieża, konni oszczepnicy, ostrzał reakcyjny, słoń]
+    refs: [T-22]
+  - id: R-9.14.1
+    title: Szał słonia (Rampage) — wyzwalacz i tabela kierunku
+    section: "9.14"
+    source: {text: "oryg. 9.14 „Elephant Rampage” (tabela), s. 32", pages: "32"}
+    effect: |
+      Gdy słoń ucieka, wpada w szał (słonie dowódców także, ale mają na to mniejszą szansę). Za każdym razem gracz rzuca kością: **0** — słoń biegnie
+      w kierunku najbliższej **własnej** jednostki (przy kilku — wybiera przeciwnik); słoń dowódcy zostaje wyeliminowany. **1–6** — kierunek wg kompasu na
+      mapie (kierunek geograficzny przy wierzchołku, kierunek szału — przez krawędź heksu). **7–9** — przy pierwszym rzucie: wprost od jednostki, która
+      wywołała szał; przy kolejnych: kornak zabija słonia — słoń wyeliminowany; słoń dowódcy jest zamiast tego natychmiast reorganizowany z trafieniami
+      = **TQ − 2**.
+    keywords: [szał słonia, Rampage, kompas, kornak, słoń dowódcy]
+    refs: [T-13, P-06, N-16]
+  - id: R-9.14.2
+    title: Szał rozstrzyga się natychmiast
+    section: "9.14"
+    source: {text: "oryg. 9.14, s. 32", pages: "32"}
+    effect: Każdy szał słonia rozstrzyga się natychmiast, przed jakimkolwiek innym mechanizmem gry, z wyjątkiem uporządkowanego wycofania przed szalejącym słoniem (6.51).
+    keywords: [szał słonia, pierwszeństwo, uporządkowane wycofanie]
+    refs: [R-6.51.1, R-6.56.2]
+  - id: R-9.14.3
+    title: Ruch szalejącego słonia — 3 heksy na rzut; zderzenia
+    section: "9.14"
+    source: {text: "oryg. 9.14, s. 32", pages: "32"}
+    effect: |
+      Słoń (i dowódca w stosie) zawsze próbuje przejść **3 heksy** na każdy rzut kierunku, aż zejdzie z mapy lub zostanie wyeliminowany. Jeśli miałby wejść
+      do heksu z jednostką (wroga lub własną), zatrzymuje się w heksie przyległym, a ta jednostka otrzymuje **1 trafienie** (wejście przez jej heks
+      frontowy) albo **2** (przez boczny lub tylny); **jazda — zawsze 2**. Stos — obie jednostki otrzymują trafienia. Dowódca w tym heksie (sam lub
+      w stosie), który nie może odskoczyć (4.72), ginie — bez rzutu.
+    keywords: [szał słonia, 3 heksy, trafienia, jazda, dowódca]
+    refs: [R-4.72.1, T-13]
+  - id: R-9.14.4
+    title: Koniec szału
+    section: "9.14"
+    source: {text: "oryg. 9.14, s. 32", pages: "32"}
+    effect: |
+      Rzuca się ponownie, dopóki: słoń nie zejdzie z mapy; nie zostanie wyeliminowany (7–9 kornaka); nie znajdzie się co najmniej **8 heksów** od najbliższej
+      jednostki (wtedy jest eliminowany); w pozostałych przypadkach — po **4. kolejnym** rzucie szału słoń jest eliminowany.
+    keywords: [szał słonia, koniec, 8 heksów, 4 rzuty]
+    refs: [T-13]
+  - id: R-9.14.5
+    title: Dowódca na szalejącym słoniu
+    section: "9.14"
+    source: {text: "oryg. 9.14, s. 32", pages: "32"}
+    effect: Dowódca w stosie ze słoniem w szale biegnie razem z nim. Po szale gracz rzuca na stratę dowódcy (4.73); jeśli przeżyje, zostaje na mapie w miejscu końca szału. Jeśli słoń zbiegł z mapy, słoń i dowódca są wyeliminowani.
+    keywords: [szał słonia, dowódca, straty dowódców]
+    refs: [R-4.73.1, R-4.82.1]
+  - id: R-9.14.6
+    title: Słoń w szale — bez strefy kontroli, bez reakcji, bez reorganizacji
+    section: "9.14"
+    source: {text: "oryg. 9.14, s. 32–33", pages: "32-33"}
+    effect: Słonie w szale nie mają strefy kontroli, nie wywołują żadnego ostrzału reakcyjnego i nie można ich reorganizować. Każdy szał prowadzi się do końca — naraz szaleje najwyżej jeden słoń.
+    keywords: [szał słonia, strefa kontroli, ostrzał reakcyjny, reorganizacja]
+    refs: [R-8.2.1]
+  - id: R-9.15.1
+    title: Jazda wobec słoni — 2 trafienia za heks boczny/tylny
+    section: "9.15"
+    source: {text: "oryg. 9.15 „Cavalry vs. Elephants”, s. 33", pages: "33"}
+    effect: |
+      Jazda nigdy dobrowolnie nie wchodzi do strefy kontroli słonia wroga. Może wchodzić do jego heksów bocznych lub tylnych albo przez nie przechodzić,
+      kosztem **2 trafień za każdy taki heks**. Ta sama kara, gdy jazda zostanie zmuszona do wejścia do strefy kontroli słonia.
+    keywords: [jazda, słonie, 2 trafienia, strefa kontroli]
+    refs: [T-13]
+  - id: R-9.15.2
+    title: Jazda nie atakuje słonia od frontu; z boku/tyłu bez przewagi
+    section: "9.15"
+    source: {text: "oryg. 9.15, s. 33", pages: "33"}
+    effect: Jazda nigdy nie atakuje słonia przez jego heksy frontowe. Może atakować z boku lub tyłu, ale nie zyskuje zwykłej przewagi ataku (pozycji).
+    keywords: [jazda, słonie, atak, przewaga pozycji]
+    refs: [R-8.46.3]
+  - id: R-9.16.1
+    title: Słoń podchodzi do jazdy — obowiązkowe wycofanie
+    section: "9.16"
+    source: {text: "oryg. 9.16 „Elephants vs. Cavalry”, s. 33", pages: "33"}
+    when: słoń wchodzi obok jazdy wroga z heksu nieprzyległego (nie dotyczy słoni dowódców)
+    effect: |
+      Jazda **musi** spróbować uporządkowanego wycofania; jeśli może się wycofać, nie wolno jej strzelać reakcyjnie. Jeśli nie może — natychmiastowy test TQ:
+      wynik > TQ → trafienia = różnica, **co najmniej 1**. Jeśli jazda ucieka — jest automatycznie **eliminowana**, bez rzutu.
+    keywords: [słonie, jazda, uporządkowane wycofanie, test TQ, eliminacja]
+    refs: [R-6.51.1, R-4.83.2]
+  - id: R-9.17.1
+    title: Słoń przeciw słoniowi — bez przewagi pozycji
+    section: "9.17"
+    source: {text: "oryg. 9.17, s. 33", pages: "33"}
+    effect: Gdy słonie atakują słonie, żadna strona nie może uzyskać przewagi pozycji (atak z boku/tyłu nie daje przewagi ataku).
+    keywords: [słonie, przewaga pozycji]
+    refs: [R-8.46.3]
+  - id: R-9.18.1
+    title: Słoniami może dowodzić każdy dowódca
+    section: "9.18"
+    source: {text: "oryg. 9.18, s. 33", pages: "33"}
+    effect: O ile zasady wprost nie stanowią inaczej, słoniami może dowodzić każdy dowódca.
+    exceptions: Opcjonalne dowodzenie słoniami — R-4.91.1.
+    keywords: [słonie, dowodzenie]
+    refs: [R-4.91.1]
+  - id: R-9.19.1
+    title: Słonie indyjskie a afrykańskie — +1 DRM dla afrykańskich
+    section: "9.19"
+    source: {text: "oryg. 9.19 „Indians vs. Africans”, s. 33", pages: "33"}
+    effect: |
+      Oprócz uwag w Tabelach starcia i przewagi: w walce słoni indyjskich z afrykańskimi słonie **afrykańskie** mają **+1 DRM** do testów TQ przed walką (8.43).
+    keywords: [słonie indyjskie, słonie afrykańskie, +1 DRM]
+    refs: [R-8.43.4, T-10]
+  - id: R-9.2.1
+    title: Velites to lekka piechota, nie harcownicy
+    section: "9.2"
+    source: {text: "oryg. 9.2 „Skirmishers, Velites, and Light Infantry” (Design Note), s. 33", pages: "33"}
+    effect: Velites nie są traktowani jak harcownicy — to lekka piechota (LI) z pewnymi dodatkowymi możliwościami manewru.
+    keywords: [velites, lekka piechota, harcownik]
+  - id: R-9.21.1
+    title: OW harcowników i velites — kiedy trafienia
+    section: "9.21"
+    source: {text: "oryg. 9.21, s. 33", pages: "33"}
+    effect: |
+      Harcownicy mogą wycofać się o najwyżej 2 heksy przed każdą jednostką o MA równym lub niższym (czyli przed całą piechotą), bez względu na różnicę MA.
+      Harcownicy otrzymują trafienia przy OW **tylko** po podejściu z heksu tylnego; velites — tylko po podejściu z heksu bocznego lub tylnego.
+    keywords: [harcownik, velites, uporządkowane wycofanie, trafienia]
+    refs: [R-6.51.3, R-6.52.4]
+  - id: R-9.22.1
+    title: Ostrzał harcowników — +2 DRM
+    section: "9.22"
+    source: {text: "oryg. 9.22, s. 33", pages: "33"}
+    effect: Gdy celem ostrzału jest harcownik, do rzutu ostrzału dodaje się **+2 DRM**. (Powtórzenie wyjątków H&D z 8.31.)
+    keywords: [harcownik, ostrzał, +2 DRM]
+    refs: [R-8.31.3, T-09]
+  - id: R-9.23.1
+    title: Harcownicy w walce wręcz — ograniczenia
+    section: "9.23"
+    source: {text: "oryg. 9.23 + przykład, s. 33", pages: "33"}
+    effect: |
+      Harcownicy nie atakują wręcz. Jednostki atakujące wręcz **samych** harcowników nie wykonują testu przed walką, nawet ze znacznikiem SHOCK MUST CHECK TQ.
+      Gdy harcownik broni się razem z jednostką innego typu, obrońcą do tabel musi być ten inny typ; Size harcownika się pomija. Trafienia zadane przez
+      harcowników w walce wręcz dzieli się przez 2 (w dół), najwyżej 1. Przykład: LI atakuje SK, wynik 1(4) → 0(4).
+    keywords: [harcownik, walka wręcz, test przed walką, Size]
+    refs: [R-8.43.2, R-8.46.8]
+  - id: R-9.23.2
+    title: PH, HI, LG atakowane frontalnie przez LI — bez testu (odwrotnie nie)
+    section: "9.23"
+    source: {text: "oryg. 9.23, s. 33", pages: "33"}
+    effect: Falanga, HI i LG atakowane z heksu frontowego przez lekką piechotę nie wykonują testu przed walką, nawet gdy LI ma SHOCK MUST CHECK TQ; atakująca LI test wykonuje. Odwrotnie nie — PH, HI i LG atakujące LI wykonują test.
+    keywords: [LI, PH, HI, LG, test przed walką]
+    refs: [R-8.43.2]
+  - id: R-9.24.1
+    title: Uciekający harcownicy są eliminowani
+    section: "9.24"
+    source: {text: "oryg. 9.24 pkt 1, s. 33", pages: "33"}
+    effect: Harcownicy, którzy uciekają, zostają zamiast tego wyeliminowani.
+    keywords: [harcownik, ucieczka, eliminacja]
+    refs: [R-10.21.1]
+  - id: R-9.24.2
+    title: Harcownicy bez testu przepuszczenia słonia
+    section: "9.24"
+    source: {text: "oryg. 9.24 pkt 2, s. 33", pages: "33"}
+    effect: Harcownicy nie wykonują testu przepuszczenia słonia (9.11).
+    keywords: [harcownik, przepuszczenie słonia]
+    refs: [R-9.11.3]
+  - id: R-9.24.3
+    title: Harcownicy — stos, darmowy obrót, wielokrotny ruch
+    section: "9.24"
+    source: {text: "oryg. 9.24 pkt 3, s. 33", pages: "33"}
+    effect: Szczególne zasady stosu harcowników i velites — 6.69. Harcownicy zmieniają ukierunkowanie bez kosztu MP i mogą ruszać się więcej niż raz w turze bez kosztu spójności.
+    keywords: [harcownik, stos, zmiana ukierunkowania, drugi ruch]
+    refs: [R-6.69.1, R-7.12.1, R-6.13.2]
+  - id: R-9.24.4
+    title: Jeden velites/harcownik nie przerywa linii
+    section: "9.24"
+    source: {text: "oryg. 9.24 pkt 4 + przykład, s. 33–34", pages: "33-34"}
+    effect: |
+      Przy ustalaniu linii do LC (4.32) obecność velites lub harcownika nie przerywa linii, jeśli przerwę tworzy tylko **jedna** taka jednostka. Przykład:
+      hastati 2808, velites 2809, hastati 2810 — linia; velites 2809 i 2810 między hastatami 2808 i 2811 — nie linia; hastati 2808, 2810, 2812 z velites
+      w 2809 i 2811 — linia.
+    keywords: [linia, velites, harcownik, przerwa]
+    refs: [R-4.32.1]
+  - id: R-9.31.1
+    title: Lekka jazda — H&D i ostrzał przy wycofaniu
+    section: "9.31"
+    source: {text: "oryg. 9.31, s. 34", pages: "34"}
+    effect: Lekka jazda z bronią miotaną może prowadzić H&D (8.3) przeciw wszystkim jednostkom o niższym MA, z wyjątkiem harcowników. Łucznicy lekkiej jazdy mogą strzelać podczas uporządkowanego wycofania (6.55).
+    keywords: [lekka jazda, H&D, łucznicy konni, uporządkowane wycofanie]
+    refs: [R-8.31.1, R-6.55.2]
+  - id: R-9.32.1
+    title: Trafienia zadane przez lekką jazdę ciężkiej piechocie — ½
+    section: "9.32"
+    source: {text: "oryg. 9.32 + przykład, s. 34", pages: "34"}
+    effect: |
+      Trafienia zadane przez atakującą lekką jazdę falandze lub piechocie ciężkiej, średniej, legionowej albo barbarzyńskiej dzieli się przez 2 (w dół). Przykład: LC z przewagą ataku przeciw HI — wynik z CRT bez zmian (×2, potem ×½).
+    keywords: [lekka jazda, ½ trafień, HI, falanga]
+    refs: [R-8.46.8]
+  - id: R-9.41.1
+    title: Obrona falangi — przesunięcia w lewo za sąsiednie falangi
+    section: "9.41"
+    source: {text: "oryg. 9.41 „Phalanx Defense” + przykład, s. 34", pages: "34"}
+    when: jednostka **wchodzi obok i atakuje wręcz** falangę z jej heksu frontowego
+    effect: |
+      Falanga dostaje przesunięcie **2L** na CRT za każdy swój heks boczny zajęty przez inną własną falangę lub będący w strefie kontroli własnej falangi.
+      Gdy atakuje ciężka piechota (dowolnej klasy) — **1L** za heks. Tylko przy atakach w ruchu (nie gdy atakujący zaczynał obok falangi i atakował z miejsca);
+      nie przy atakach z boku/tyłu; nie, gdy którykolwiek atakujący jest falangą. Przykład: 2 LG frontalnie na PH z falangami po obu bokach — kolumna 5 → 4L → 1.
+    keywords: [obrona falangi, przesunięcie 2L, HI 1L, CRT]
+    refs: [T-11]
+  - id: R-9.51.1
+    title: Falanga podwójnej głębokości — formowanie
+    section: "9.51"
+    source: {text: "oryg. 9.51 + Design Note 9.5, s. 34", pages: "34"}
+    effect: |
+      Falangi (uprawnione wg zasad scenariusza) mogą przyjąć szyk podwójnej głębokości (DD) — dwie w heksie. Wymaga to IO lub LC **bezpośrednio od OC**.
+      „Tylna” falanga musi zacząć ruch w heksie tuż za „przednią”; wchodzi do heksu przedniej, płacąc koszt terenu **+1 MP** za utworzenie stosu, i kładzie
+      się ją pod przednią. Kończy to ruch obu jednostek w tej fazie rozkazów.
+    keywords: [podwójna głębokość, DD, falanga, OC, +1 MP]
+    refs: [T-07]
+  - id: R-9.52.1
+    title: Podwójna głębokość — ograniczenia ruchu
+    section: "9.52"
+    source: {text: "oryg. 9.52, s. 34", pages: "34"}
+    effect: |
+      Rozkazy tylko od OC. Ruszają się jak jedna jednostka, ale przy IO ruch obu wymaga **2 IO**. Mogą stosować PW (6.8). Nie mogą skręcać (6.44), odwracać się
+      (6.45) ani używać kolumny (6.7). Rozdzielenie wymaga IO lub LC (jak wyżej): górna odchodzi za normalny koszt, dolna zostaje. Zawsze MA 4 (nigdy 5).
+      Ruch dający trafienie — trafienie otrzymują obie.
+    keywords: [podwójna głębokość, ruch, 2 IO, MA 4, PW]
+    refs: [R-6.8.1, R-6.44.1, R-6.45.1, R-6.71.1]
+  - id: R-9.52.2
+    title: Przez stos podwójnej głębokości nikt nie przechodzi
+    section: "9.52"
+    source: {text: "oryg. 9.52, s. 34", pages: "34"}
+    effect: Żadna jednostka nigdy nie wchodzi do stosu podwójnej głębokości ani przez niego nie przechodzi — traktuje się go jak teren nieprzekraczalny.
+    keywords: [podwójna głębokość, nieprzekraczalny]
+  - id: R-9.53.1
+    title: Podwójna głębokość — skutki w walce
+    section: "9.53"
+    source: {text: "oryg. 9.53, s. 34", pages: "34"}
+    effect: |
+      Size obu jednostek się sumuje. Testy TQ wykonuje tylko górna (przy ataku od tyłu — dolna); jeśli otrzyma trafienia, test wykonuje druga. Obrońcy atakowani
+      przez DD: **+1 DRM** do testu przed walką; DD broniąca się: **–1 DRM**; obrona falangi (9.41) też działa. Atak wręcz na DD z boku/tyłu: trafienia obrońcy
+      **×3** zamiast ×2. Trafienia z walki wręcz dzieli się równo (nadwyżka — górnej); z ostrzału — tylko górna (przez heks tylny — dolna). Gdy ucieka jedna —
+      uciekają obie, do osobnych heksów; jeśli to niemożliwe — jednostka zostaje wyeliminowana.
+    keywords: [podwójna głębokość, walka, ×3, ±1 DRM, ucieczka]
+    refs: [R-9.41.1, R-8.43.4, T-10, T-11]
+  - id: R-9.61.1
+    title: Legion manipularny — zasady stosu rzymskiego (zasada ogólna)
+    section: "9.61"
+    source: {text: "oryg. 9.61 (i nota historyczna 9.6), s. 35", pages: "35"}
+    effect: |
+      Podsumowanie przewag stosu legionowego — Tabele stosu. Zasada ogólna: dwie jednostki piechoty rzymskiej o tym samym kolorze obramowania mogą tworzyć stos
+      bez kary (są wyjątki, np. velites). Stos rzymski może ruszać się razem; ruch dwóch jednostek w stosie wymaga 2 IO (1, jeśli w stosie jest OC wydający
+      rozkazy) albo jednego LC, jeśli obie są uprawnione. Piechota rzymska może mieć odstępy w liniach (4.32).
+    keywords: [stos rzymski, kolor obramowania, velites, 2 IO, LC]
+    refs: [R-6.63.1, R-6.64.1, R-4.32.1, T-21]
+  - id: R-9.62.1
+    title: Stos rzymski — Size sumowane, pozostałe parametry górnej jednostki
+    section: "9.62"
+    source: {text: "oryg. 9.62, s. 35", pages: "35"}
+    effect: |
+      Rzymskie jednostki w stosie sumują Size w ataku i obronie; pozostałe parametry, zwłaszcza TQ, są parametrami górnej jednostki. Atakują wręcz ten sam heks
+      (8.42); strzela tylko górna; każda wykonuje własny test TQ z TQ górnej; trafienia automatyczne (6.68) — każda; trafienia z walki wręcz (8.46 krok 4)
+      rozdziela się wg 10.13.
+    keywords: [stos rzymski, Size, TQ górnej, podział trafień]
+    refs: [R-8.42.2, R-6.68.4, R-8.46.8, R-10.13.1]
+  - id: R-9.63.1
+    title: Stos rzymski różnych kolorów lub klas — +1 DRM do testów TQ
+    section: "9.63"
+    source: {text: "oryg. 9.63, s. 35", pages: "35"}
+    effect: Rzymskie jednostki w stosie o różnych kolorach obramowania, albo tego samego koloru i różnych klas, mają **+1 DRM** do wszystkich testów TQ.
+    keywords: [stos rzymski, kolor, klasa, +1 DRM]
+    refs: [T-10]
+  - id: R-9.64.1
+    title: Kolejność stosu rzymskiego; ruch jednej jednostki — tylko górna
+    section: "9.64"
+    source: {text: "oryg. 9.64, s. 35", pages: "35"}
+    effect: Kolejność w stosie rzymskim zmienia się tylko IO — nie w ramach ruchu ani LC (ale ukierunkowanie można zmienić w ramach LC). Gdy gracz chce ruszyć tylko jedną jednostkę ze stosu, rusza się tylko górna.
+    keywords: [stos rzymski, kolejność, górna jednostka, LC]
+    refs: [R-6.66.1]
+  - id: R-9.65.1
+    title: Piechota rzymska — obrót o dowolną liczbę wierzchołków za 1 MP
+    section: "9.65"
+    source: {text: "oryg. 9.65, s. 35", pages: "35"}
+    effect: Piechota rzymska płaci 1 MP za zmianę ukierunkowania o dowolną liczbę wierzchołków.
+    keywords: [piechota rzymska, zmiana ukierunkowania, 1 MP]
+    refs: [R-7.12.1]
+  - id: R-9.66.1
+    title: Rozszerzenie linii manipularnej (MLE)
+    section: "9.66"
+    source: {text: "oryg. 9.66 + diagram, s. 35", pages: "35"}
+    effect: |
+      Rzymskie stosy z wolnymi heksami bocznymi mogą rozszerzyć linię w ramach LC albo w reakcji na ruch wroga (zamiast uporządkowanego wycofania): wszystkie
+      **górne** jednostki stosów tej samej linii (4.32) **mogą** przesunąć się w bok do wolnych heksów bocznych. Do zajętego heksu bocznego nie wolno. Heks
+      musi być **czysty** (Clear) i **poza** strefą kontroli wroga. Ukierunkowanie bez zmian. Dotyczy tylko rozdzielania stosów, nie ich łączenia.
+    keywords: [rozszerzenie linii manipularnej, MLE, stos rzymski, heks boczny]
+    refs: [R-4.32.1, R-9.67.1, R-9.68.1]
+  - id: R-9.67.1
+    title: MLE w reakcji — gdy wróg w 2 heksach
+    section: "9.67"
+    source: {text: "oryg. 9.67 + przykład, s. 35", pages: "35"}
+    effect: |
+      MLE w reakcji można wykonać, gdy jednostka bojowa wroga znajdzie się w odległości ≤ 2 heksów od linii rzymskich stosów — w dowolnej chwili, gdy jakakolwiek
+      jednostka wroga tak się ustawi (nie trzeba korzystać z pierwszej okazji). Jeśli ruch wroga wywołuje i OW, i MLE, można wykonać oba, ale nie tymi samymi
+      jednostkami. Przykład: velites wycofują się przez luki w linii hastatów, po czym hastati wykonują MLE.
+    keywords: [MLE, reakcja, 2 heksy, uporządkowane wycofanie]
+    refs: [R-6.51.1]
+  - id: R-9.68.1
+    title: MLE w ramach LC — dalszy ruch z MA –2
+    section: "9.68"
+    source: {text: "oryg. 9.68, s. 35", pages: "35"}
+    effect: MLE można też wykonać w ramach rozkazu liniowego (tylko LC). Wtedy obie jednostki mogą po MLE ruszyć dalej z MA **zmniejszonym o 2**. MLE nie daje trafień. Jednostki w kolumnie nie mogą wykonywać MLE.
+    keywords: [MLE, rozkaz liniowy, MA –2, kolumna]
+    refs: [R-5.23.1, T-07]
+  - id: R-9.7.1
+    title: Doktryna triarii — kiedy obowiązuje
+    section: "9.7"
+    source: {text: "oryg. 9.7 „Roman Triarii Tactical Doctrine”, s. 35", pages: "35"}
+    effect: Zasadę **trzeba** stosować w każdej bitwie z udziałem Rzymian **przed 200 r. p.n.e.**, w której Scypion Afrykański nie jest dowódcą naczelnym (także pod Kannami).
+    keywords: [triarii, doktryna, przed 200 p.n.e., Scypion, Kanny]
+  - id: R-9.71.1
+    title: Triarii nie ruszają się, dopóki…
+    section: "9.71"
+    source: {text: "oryg. 9.71, s. 35", pages: "35"}
+    effect: |
+      Triarii **nie mogą się ruszać** (mogą zmieniać ukierunkowanie), dopóki: jednostka bojowa wroga — inna niż słoń — nie znajdzie się w odległości ≤ **3** heksów
+      i w LOS którejkolwiek jednostki linii triarii, **albo** triarii nie znajdą się co najmniej **6** heksów od wszystkich innych linii piechoty rzymskiej lub al
+      (ale **nie** sojuszniczej) — hastatów, principes czy innych.
+    keywords: [triarii, zakaz ruchu, 3 heksy, 6 heksów]
+    refs: [T-14]
+  - id: R-9.72.1
+    title: Triarii — ruch z atakiem wręcz dopiero po połowie progu wycofania
+    section: "9.72"
+    source: {text: "oryg. 9.72, s. 35", pages: "35"}
+    effect: |
+      Triarii **nie mogą ruszyć się i zaatakować wręcz**, dopóki armia rzymska nie ma punktów ucieczki równych co najmniej **połowie** progu wycofania armii
+      (w dół). Zawsze mogą jednak atakować wręcz (bez ruchu) jednostki wroga w swojej strefie kontroli.
+    keywords: [triarii, walka wręcz, punkty ucieczki, połowa progu]
+    refs: [R-11.2.1, N-17, T-14]
+  - id: R-9.81.1
+    title: Skorpiony — TQ, jak LI w ruchu i obronie, tylko ostrzał
+    section: "9.81"
+    source: {text: "oryg. 9.81, s. 36", pages: "36"}
+    effect: Skorpiony to machiny miotające bełty (B) z własną obsługą. Mają TQ; w ruchu i w obronie (przed walką wręcz i ostrzałem) traktuje się je jak lekką piechotę. Nie są zdolne do walki wręcz; jedyną zdolnością ofensywną jest ostrzał.
+    keywords: [skorpion, B, LI, ostrzał]
+  - id: R-9.82.1
+    title: Skorpion — tryb ognia albo ruchu
+    section: "9.82"
+    source: {text: "oryg. 9.82 + Play Note, s. 36", pages: "36"}
+    effect: |
+      Skorpion jest w trybie ognia (awers) albo ruchu (rewers). Zmiana trybu wymaga IO dowolnego własnego dowódcy. W trybie ruchu nie strzela, w trybie ognia się
+      nie rusza. Po zmianie na ruch nie może się ruszyć w tej fazie rozkazów; po zmianie na ogień — strzelić w tej fazie. W trybie ruchu potrzebuje IO do ruchu;
+      do strzału rozkazów nie potrzebuje (9.85).
+    keywords: [skorpion, tryb ognia, tryb ruchu, IO]
+    refs: [R-9.85.1]
+  - id: R-9.83.1
+    title: Jeden skorpion na heks
+    section: "9.83"
+    source: {text: "oryg. 9.83, s. 36", pages: "36"}
+    effect: W heksie może być tylko jeden skorpion; pozostałe zasady stosu obowiązują.
+    keywords: [skorpion, stos]
+  - id: R-9.84.1
+    title: Skorpion bez ukierunkowania — wszystkie heksy frontowe
+    section: "9.84"
+    source: {text: "oryg. 9.84, s. 36", pages: "36"}
+    effect: Skorpiony nie mają ukierunkowania; ruszają się i strzelają w dowolnym kierunku. Wszystkie heksy są dla nich frontowe.
+    keywords: [skorpion, ukierunkowanie, heks frontowy]
+  - id: R-9.85.1
+    title: Skorpion — ostrzał aktywny dwa razy na turę
+    section: "9.85"
+    source: {text: "oryg. 9.85 „Active Fire”, s. 36", pages: "36"}
+    effect: |
+      Skorpion może strzelać ofensywnie **dwa razy na turę** (nie na fazę), w dowolnej własnej fazie rozkazów, bez rozkazu, w dowolnej chwili segmentu ruchu
+      i ostrzału gracza aktywnego, najwyżej raz na fazę rozkazów. Pierwszy strzał — znacznik ACTIVE FIRE ONCE; drugi — odwróć na ACTIVE FIRE FINISHED.
+      Skorpion, który strzelał, nie robi w tej fazie nic innego (np. nie odzyskuje spójności).
+    keywords: [skorpion, ostrzał aktywny, 2 razy na turę, ACTIVE FIRE]
+    refs: [T-15]
+  - id: R-9.86.1
+    title: Skorpion — ostrzał reakcyjny dwa razy na fazę wroga
+    section: "9.86"
+    source: {text: "oryg. 9.86 „Reaction Fire”, s. 36", pages: "36"}
+    effect: |
+      Skorpion może strzelać **dwa razy na fazę rozkazów wroga**, w dowolnej chwili segmentu ruchu i ostrzału wroga (także w trakcie ruchu wroga). Pierwszy strzał —
+      REACTION FIRE ONCE; drugi — REACTION FIRE FINISHED. Skorpiony nie mogą używać żadnego zwykłego ostrzału reakcyjnego (8.2).
+    keywords: [skorpion, ostrzał reakcyjny, 2 razy, REACTION FIRE]
+    refs: [R-8.2.1, T-15]
+  - id: R-9.87.1
+    title: Skorpion — trafienia jak inne; ucieczka = eliminacja
+    section: "9.87"
+    source: {text: "oryg. 9.87, s. 36", pages: "36"}
+    effect: Skorpiony otrzymują i odzyskują trafienia jak inne jednostki. Skorpion, który ucieka, jest natychmiast eliminowany.
+    keywords: [skorpion, trafienia, ucieczka, eliminacja]
+  - id: R-9.91.1
+    title: Barbarzyńcy — ruch bez trafień za teren; bez kolumny, PW i OW
+    section: "9.91"
+    source: {text: "oryg. 9.91 „Movement Effects”, s. 36", pages: "36"}
+    effect: Piechota barbarzyńska (BI) nie otrzymuje trafień za przekraczanie ani wchodzenie do żadnego przekraczalnego terenu ani za zmianę ukierunkowania w terenie trudnym. BI nie może używać kolumny (6.7), PW (6.8) ani uporządkowanego wycofania (6.5).
+    keywords: [BI, barbarzyńcy, teren, kolumna, PW, uporządkowane wycofanie]
+    refs: [R-6.71.2, R-6.81.1, R-6.51.1, R-7.14.1]
+  - id: R-9.93.1
+    title: Barbarzyńcy — odzyskanie spójności tylko 1 trafienie
+    section: "9.93"
+    source: {text: "oryg. 9.93 „Rout and Recovery”, s. 36", pages: "36"}
+    effect: Jednostka BI usuwa tylko **1** trafienie na rozkaz odzyskania spójności.
+    keywords: [BI, odzyskanie spójności, 1 trafienie]
+    refs: [R-10.16.1]
+  - id: R-9.93.2
+    title: Osłabiona BI nie ucieka — jest eliminowana
+    section: "9.93"
+    source: {text: "oryg. 9.93, s. 36", pages: "36"}
+    effect: Osłabione jednostki BI nie uciekają — są zamiast tego eliminowane.
+    keywords: [BI, osłabiona, ucieczka, eliminacja]
+    refs: [R-10.31.1]
+  - id: R-9.94.1
+    title: Furia barbarzyńców — modyfikatory testu przed walką
+    section: "9.94"
+    source: {text: "oryg. 9.94 „Barbarian Ferocity”, s. 36", pages: "36"}
+    effect: Wszystkie jednostki BI zaczynają grę z furią (Ferocity). BI z furią ma **–1 DRM** do swojego testu TQ przed walką, a broniące się przed nią jednostki — **+2 DRM**.
+    keywords: [furia, BI, –1 DRM, +2 DRM, test przed walką]
+    refs: [R-8.43.4, T-10]
+  - id: R-9.94.2
+    title: Utrata furii — test przy każdej ucieczce BI
+    section: "9.94"
+    source: {text: "oryg. 9.94, s. 36", pages: "36"}
+    effect: |
+      Furia trwa, dopóki dowódca BI (wg rozstawienia scenariusza) nie obleje testu furii, wykonywanego za każdym razem, gdy ucieka jednostka BI: rzut ≤ inicjatywa
+      dowódcy — furia zostaje; wyższy — furia przepada **na stałe** dla BI tego dowódcy. Utrata furii przez jednostki jednego dowódcy nie wpływa na jednostki innych.
+    keywords: [furia, test furii, inicjatywa, utrata]
+  - id: R-9.95.1
+    title: Porywczość barbarzyńców — MA +1, –1 do pierwszego impetu
+    section: "9.95"
+    source: {text: "oryg. 9.95 „Barbarian Impetuosity”, s. 36", pages: "36"}
+    effect: |
+      Na początku gry wszystkie BI mają MA **+1**. Dowódcy dowodzący BI mają **–1 DRM** do wszystkich rzutów na impet przy pierwszej próbie. Porywczość trwa, dopóki
+      co najmniej dwie jednostki BI z komendy dowódcy nie wejdą do strefy kontroli wroga — wtedy trwa do końca tej tury, po czym przepada. Dotyczy tylko BI tej komendy.
+    keywords: [porywczość, BI, MA +1, impet –1]
+    refs: [R-5.32.1, T-04, T-07]
+  - id: R-9.96.1
+    title: Rydwany galijskie — tylko transport (ignoruj „Chariots” w tabelach)
+    section: "9.96"
+    source: {text: "oryg. 9.96 „Gallic Chariots” (Design Note), s. 36", pages: "36"}
+    effect: Rydwany galijskie nie są systemem broni — służą tylko do transportu. Odwołania do rydwanów w tabelach walki się ignoruje. Występują pod Sentinum i Telamonem.
+    keywords: [rydwany galijskie, CH, transport, Sentinum, Telamon]
+    flags: [title-specific]
+  - id: R-9.96.2
+    title: Rydwan sam — bez Size i TQ, bez ruchu, ginie przy podejściu wroga
+    section: "9.96"
+    source: {text: "oryg. 9.96, s. 36", pages: "36"}
+    effect: Rydwany (CH) mają tylko MA; nie mają Size ani TQ. Nie mogą się ruszać (także wycofywać), chyba że są w stosie z uprawnioną lekką piechotą. Gdy jednostka bojowa wroga (dowolnego typu) wejdzie obok rydwanu stojącego samotnie — rydwan jest natychmiast eliminowany.
+    keywords: [rydwan, CH, eliminacja, LI]
+  - id: R-9.96.3
+    title: Rydwan przewozi LI — wsiadanie i zsiadanie
+    section: "9.96"
+    source: {text: "oryg. 9.96, s. 36–37", pages: "36-37"}
+    effect: |
+      Każdy rydwan może wieźć jedną jednostkę LI (CH kładzie się na LI); razem są jedną jednostką dla stosu (pozostałe ograniczenia stosu dotyczą i pary CH+LI,
+      i samego CH). Wsiadanie i zsiadanie nie kosztuje MP ani trafień. Zsiadająca LI może iść dalej tylko, jeśli para przeszła mniej niż wydrukowany MA LI —
+      o różnicę. LI wsiadająca może jechać dalej do MA rydwanu pomniejszonego o MP zużyte wcześniej przez LI. W stosie z LI rydwan płaci koszty terenu (lub ma zakazy)
+      wg Tabeli kosztów ruchu, ale trafienia za ruch otrzymuje tylko LI.
+    keywords: [rydwan, LI, wsiadanie, zsiadanie, koszty ruchu]
+    refs: [T-20]
+  - id: R-9.96.4
+    title: LI na rydwanie — zdolności i ograniczenia
+    section: "9.96"
+    source: {text: "oryg. 9.96 (lista), s. 37", pages: "37"}
+    effect: |
+      LI nie otrzymuje trafień za drugi (i trzeci) ruch w turze, jeśli całą fazę rozkazów spędza na rydwanie. Nie atakuje wręcz (musi zsiąść); broni się jak LI.
+      Strzela wg wiersza Mounted Javelin w MRRC; zapasu pocisków (8.17) nie stosuje się, póki jest na rydwanie — przy wsiadaniu zdejmuje się MISSILE LOW/NO.
+      Może prowadzić H&D jak jazda.
+    keywords: [LI na rydwanie, drugi ruch, H&D, MISSILE LOW, Mounted Javelin]
+    refs: [R-6.13.1, R-8.17.1, R-8.31.1, T-22]

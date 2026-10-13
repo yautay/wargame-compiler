@@ -1,0 +1,142 @@
+{
+  "checked_utc": "2026-10-12T19:57:21.800061+00:00",
+  "cases": [
+    {
+      "name": "input_snapshot: verify declared blob replaced by directory",
+      "result": "pass",
+      "rejection": "unexpected directory in snapshot tree: files/kb/rule.yaml",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\1\\inputs\\sha256-33a75c4636a02a4e0fe6009475a0a781879ae0ca1ede13839e93e29ca07c133d\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "input_snapshot: reuse declared blob replaced by directory",
+      "result": "pass",
+      "rejection": "unexpected directory in snapshot tree: files/kb/rule.yaml",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\2\\inputs\\sha256-8767bf094f785035e66241816a5abc060e174bcb61619304278f719569147cee\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "input_snapshot: missing available blob",
+      "result": "pass",
+      "rejection": "snapshot tree is missing declared files or parent directories",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\3\\inputs\\sha256-ceb121876a384beae4a58f04001f3bca9ed1a9bdc5abb5a2663ff00d9de9c3a9\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "input_snapshot: declared files parent is a real junction",
+      "result": "pass",
+      "rejection": "linked path in snapshot tree: files",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\4\\inputs\\sha256-d3643bd4d5e5f87e45b9f7e6e4860ba467cfd1b58016a9d545c8208056fd6215\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "input_snapshot: simulated nonregular declared blob",
+      "result": "pass",
+      "rejection": "non-regular entry in snapshot tree: files/kb/rule.yaml",
+      "simulation": "S_IFIFO metadata; Windows is not claimed to have a real FIFO",
+      "no_unexpected_content_read": true
+    },
+    {
+      "name": "input_snapshot: unknown metadata injected before staging verification",
+      "result": "pass",
+      "rejection": "unexpected file in snapshot tree: unknown.json",
+      "no_invalid_input_published": true,
+      "source_publication_can_remain_if_valid": true,
+      "rejected_staging_retained": true,
+      "no_unexpected_content_read": true
+    },
+    {
+      "name": "source_snapshot: verify declared blob replaced by directory",
+      "result": "pass",
+      "rejection": "unexpected directory in snapshot tree: files/rulebook.pdf",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\7\\sources\\sha256-39ab856339bcd64f9b28224aac7ba95107a7f74305e216025a43d76e2db5dc0f\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "source_snapshot: reuse declared blob replaced by directory",
+      "result": "pass",
+      "rejection": "unexpected directory in snapshot tree: files/rulebook.pdf",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\8\\sources\\sha256-0dc188833a5e650efc63ebd49b788ce22641f9e998f4359fe55a112f534b18bc\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "source_snapshot: missing available blob",
+      "result": "pass",
+      "rejection": "snapshot tree is missing declared files or parent directories",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\9\\sources\\sha256-1dee9f58553998164389321c3f2d1aa158b04c78d211397074b370273261c247\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "source_snapshot: declared files parent is a real junction",
+      "result": "pass",
+      "rejection": "linked path in snapshot tree: files",
+      "target_content_reads": [
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\x\\10\\sources\\sha256-76e98226c207a87e65ce7af90cb7086faab571a4f99db5da90ec1f4cd84a968c\\manifest.json"
+      ],
+      "no_unexpected_content_read": true,
+      "no_link_traversal": true
+    },
+    {
+      "name": "source_snapshot: simulated nonregular declared blob",
+      "result": "pass",
+      "rejection": "non-regular entry in snapshot tree: files/rulebook.pdf",
+      "simulation": "S_IFIFO metadata; Windows is not claimed to have a real FIFO",
+      "no_unexpected_content_read": true
+    },
+    {
+      "name": "source_snapshot: unknown metadata injected before staging verification",
+      "result": "pass",
+      "rejection": "unexpected file in snapshot tree: unknown.json",
+      "no_invalid_input_published": true,
+      "source_publication_can_remain_if_valid": false,
+      "rejected_staging_retained": true,
+      "no_unexpected_content_read": true
+    }
+  ],
+  "count": 12,
+  "all_available_cases_pass": true,
+  "original_probe_script_bytes_unchanged": true,
+  "copies": [
+    {
+      "path": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\closure_probes.py",
+      "sha256": "e527e46591e0ea55ef75e84228f8caddc708135778efc27a24a22c265fecfff1",
+      "byte_identical": true
+    },
+    {
+      "path": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\c\\review_controls.py",
+      "sha256": "9d0dcfad4d39af7d0e5989ac8f87880cfb8c3fe0b2e300c4c42e9b5fd5eee14b",
+      "byte_identical": true
+    }
+  ],
+  "actual_file_symlink_rejection": null,
+  "actual_directory_symlink_rejection": null,
+  "symlink_creation_unavailable": {
+    "winerror": 1314,
+    "reason": "A required privilege is not held by the client",
+    "source_log": "closure-probes.log",
+    "note": "Reviewed local execution succeeded; OS refused link creation before a rejection assertion could run. No system privilege/configuration changes or bypass were attempted."
+  },
+  "native_junctions_rejected": true,
+  "nonregular_entries": "S_IFIFO metadata simulation; no real Windows FIFO was claimed"
+}

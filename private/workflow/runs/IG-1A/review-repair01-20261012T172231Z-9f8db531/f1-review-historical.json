@@ -1,0 +1,3519 @@
+{
+  "schema_version": "wgc-source-1",
+  "snapshot_id": "synthetic:snapshot",
+  "records": [
+    {
+      "id": "synthetic:run",
+      "record_type": "run",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "context_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "raw_proposal_sha256": null,
+        "model": null,
+        "reasoning": null,
+        "configuration_evidence": "Synthetic run: no actual model involved.",
+        "started_utc": "2000-01-01T00:00:00Z",
+        "ended_utc": null,
+        "measurements": {
+          "wall_milliseconds": null,
+          "input_tokens": null,
+          "output_tokens": null,
+          "unknown_reason": "Synthetic fixture; no measurements."
+        },
+        "expectation_basis": "The fixture catalogue specifies structural outcomes independently."
+      },
+      "content_hash": "e16cf210dedf79bd4cab677f43f90b642e078b4cf0861dcfb4ead949b537a052",
+      "revision_id": "sha256:e16cf210dedf79bd4cab677f43f90b642e078b4cf0861dcfb4ead949b537a052"
+    },
+    {
+      "id": "synthetic:source",
+      "record_type": "source",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "role": "rulebook",
+        "publisher": "Imaginary publisher",
+        "system": "Copper tokens",
+        "edition": "synthetic-1",
+        "language": "en",
+        "part": "entire fictional leaflet",
+        "media_type": "application/pdf",
+        "byte_count": 10,
+        "sha256": "8d3a0e6a4d4ae313c401069c9f2ca0f3003ffefbdcba3d084f5905e195412dc6",
+        "availability": "available",
+        "compatibility": {
+          "knowledge": "not_applicable",
+          "representation": "literal",
+          "value": null,
+          "reason": "Only one fictional edition is asserted.",
+          "gap_refs": [],
+          "evidence_refs": [],
+          "scope_refs": []
+        },
+        "gap_refs": []
+      },
+      "content_hash": "c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7",
+      "revision_id": "sha256:c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7"
+    },
+    {
+      "id": "synthetic:region1",
+      "record_type": "region",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "source_ref": {
+          "mode": "historical",
+          "id": "synthetic:source",
+          "record_type": "source",
+          "revision_id": "sha256:c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7"
+        },
+        "pdf_page": 1,
+        "printed_label": "6",
+        "reading_order": 0,
+        "locator": {
+          "kind": "box",
+          "coordinate_convention": "normalized-top-left",
+          "x0": 0,
+          "y0": 0,
+          "x1": 500000,
+          "y1": 500000
+        }
+      },
+      "content_hash": "807b179e58f58a59278e2e521429f67b06f7234188f455804b1d210a050d177a",
+      "revision_id": "sha256:807b179e58f58a59278e2e521429f67b06f7234188f455804b1d210a050d177a"
+    },
+    {
+      "id": "synthetic:region2",
+      "record_type": "region",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "source_ref": {
+          "mode": "historical",
+          "id": "synthetic:source",
+          "record_type": "source",
+          "revision_id": "sha256:c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7"
+        },
+        "pdf_page": 2,
+        "printed_label": "7",
+        "reading_order": 0,
+        "locator": {
+          "kind": "box",
+          "coordinate_convention": "normalized-top-left",
+          "x0": 0,
+          "y0": 0,
+          "x1": 500000,
+          "y1": 500000
+        }
+      },
+      "content_hash": "33f0930aee9b8f5f26367f35275d7d25c0b2cf95c236be5bac6f6ef1486b9534",
+      "revision_id": "sha256:33f0930aee9b8f5f26367f35275d7d25c0b2cf95c236be5bac6f6ef1486b9534"
+    },
+    {
+      "id": "synthetic:evidence",
+      "record_type": "evidence",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "region_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:region1",
+            "record_type": "region",
+            "revision_id": "sha256:807b179e58f58a59278e2e521429f67b06f7234188f455804b1d210a050d177a"
+          },
+          {
+            "mode": "historical",
+            "id": "synthetic:region2",
+            "record_type": "region",
+            "revision_id": "sha256:33f0930aee9b8f5f26367f35275d7d25c0b2cf95c236be5bac6f6ef1486b9534"
+          }
+        ],
+        "role": "direct",
+        "literal_text": "If a copper token is lit, spend one spark. Resume after a reaction; cancellation is unspecified.",
+        "normalized_text": null,
+        "uncertain_symbols": []
+      },
+      "content_hash": "e9fca2b5350620f193f1ff4ed971f80407019ab76137f6a8781644ef29d5d637",
+      "revision_id": "sha256:e9fca2b5350620f193f1ff4ed971f80407019ab76137f6a8781644ef29d5d637"
+    },
+    {
+      "id": "synthetic:gap",
+      "record_type": "gap",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "kind": "unsupported_interpretation",
+        "reason": "Cancellation and unit details are absent from the fictional excerpt.",
+        "affected_refs": [],
+        "blocked_operations": [
+          "formalization",
+          "execution"
+        ],
+        "candidate_refs": []
+      },
+      "content_hash": "b3599ee0fc54cff40baf9c0225e46e8f0f64cbb978d7e9c19d426e38da17c162",
+      "revision_id": "sha256:b3599ee0fc54cff40baf9c0225e46e8f0f64cbb978d7e9c19d426e38da17c162"
+    },
+    {
+      "id": "synthetic:clause",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "clause",
+        "editorial_parent_ref": null,
+        "aspects": [
+          {
+            "aspect_id": "lit-condition",
+            "aspect_hash": "6205f5860da37e6a4897bb987689c0aea3e02defc793955422d42293e4e903a0",
+            "facet": "condition",
+            "statement": {
+              "knowledge": "known",
+              "representation": "literal",
+              "value": {
+                "kind": "text",
+                "text": "A copper token is lit."
+              },
+              "reason": null,
+              "gap_refs": [],
+              "evidence_refs": [
+                {
+                  "mode": "active",
+                  "id": "synthetic:evidence",
+                  "record_type": "evidence"
+                }
+              ],
+              "scope_refs": []
+            },
+            "normative": true,
+            "execution_impact": "formal",
+            "informational_review_ref": null
+          },
+          {
+            "aspect_id": "spend-effect",
+            "aspect_hash": "8dc435cfefd4d92005c12110c0f4297ba100af8f033fc18b576e087811db015e",
+            "facet": "effect",
+            "statement": {
+              "knowledge": "known",
+              "representation": "literal",
+              "value": {
+                "kind": "opaque",
+                "text": "Spend one spark, then resume after a reaction.",
+                "execution_limitation": "No formal transition or cancellation policy is established."
+              },
+              "reason": null,
+              "gap_refs": [],
+              "evidence_refs": [
+                {
+                  "mode": "active",
+                  "id": "synthetic:evidence",
+                  "record_type": "evidence"
+                }
+              ],
+              "scope_refs": []
+            },
+            "normative": true,
+            "execution_impact": "blocking",
+            "informational_review_ref": null
+          }
+        ],
+        "semantic_groups": [
+          {
+            "group_id": "lit-spend",
+            "operator": "all",
+            "conditions": [
+              "lit-condition"
+            ],
+            "effects": [
+              "spend-effect"
+            ],
+            "exceptions": [],
+            "timing": []
+          }
+        ],
+        "description": {
+          "kind": "clause",
+          "description": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "A single clause spans both pages."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "110b8cbc7e2581aba3f243db73db87602032baea93d3ba8006784a6f5d083061",
+      "revision_id": "sha256:110b8cbc7e2581aba3f243db73db87602032baea93d3ba8006784a6f5d083061"
+    },
+    {
+      "id": "synthetic:inventory",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "inventory",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "section",
+          "description": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Two nonoverlapping fictional regions."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "832263023113c7772c0c510587dee106bb2d80150bad707250caa6f7896ba368",
+      "revision_id": "sha256:832263023113c7772c0c510587dee106bb2d80150bad707250caa6f7896ba368"
+    },
+    {
+      "id": "synthetic:retired-concept",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "retired-concept",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "concept",
+          "description": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "A historical term, not an active rule."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "414c8c2981d9dd0db8d0f9d9c724056ab33c92f6a3bd313fabc9ee522410da14",
+      "revision_id": "sha256:414c8c2981d9dd0db8d0f9d9c724056ab33c92f6a3bd313fabc9ee522410da14"
+    },
+    {
+      "id": "synthetic:state_variable",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "state_variable",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "state_variable",
+          "value_type": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Nonnegative integer."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "unit": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "sparks"
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "owner": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "bounds": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "reset": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Reset at the opening of this token activation."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "0d1d9670d877d969828db55721139e4fb224c9d2bd52febbf30573ff4cd1afe7",
+      "revision_id": "sha256:0d1d9670d877d969828db55721139e4fb224c9d2bd52febbf30573ff4cd1afe7"
+    },
+    {
+      "id": "synthetic:resource",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "resource",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "resource",
+          "unit": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for resource."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "owner": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "pool_composition": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "reset": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "c399b37f12d2eb878889dc74c2f072173a5f63b3ad2301ff95d222e72069b9a8",
+      "revision_id": "sha256:c399b37f12d2eb878889dc74c2f072173a5f63b3ad2301ff95d222e72069b9a8"
+    },
+    {
+      "id": "synthetic:event_type",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "event_type",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "event_type",
+          "cause_filter": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "This attempted token action, not a loss event."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "attempt_commit_invalidation": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "An invalidated attempt does not commit its write."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "read_moment": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Read before paying the attempt cost."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "ordered_writes": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "First pay sparks; then record the attempted action."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "limits": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "reset_window": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "29056d9a2e3d3fdbb1fcc1b324a12da755b6241f02d30758de3f1ac467f330eb",
+      "revision_id": "sha256:29056d9a2e3d3fdbb1fcc1b324a12da755b6241f02d30758de3f1ac467f330eb"
+    },
+    {
+      "id": "synthetic:history",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "history",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "history",
+          "prior_positions": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for history."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "first_occurrence": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "attempts": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "counters": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "used_participants": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "paid_costs": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "3856b43d44d1d3c105b3466d36e0254a1dceb66e82c0f141ce1e6712dc834a35",
+      "revision_id": "sha256:3856b43d44d1d3c105b3466d36e0254a1dceb66e82c0f141ce1e6712dc834a35"
+    },
+    {
+      "id": "synthetic:parameter",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "parameter",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "parameter",
+          "value_type": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for parameter."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "unit": {
+            "knowledge": "unknown",
+            "representation": "literal",
+            "value": null,
+            "reason": "The synthetic source does not specify the unit.",
+            "gap_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:gap",
+                "record_type": "gap"
+              }
+            ],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "domain": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "comparison_operator": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "temporal_bounds": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "5e62158c3fa8c43373d2c20905f77e7bed1290b0efa4ab23132e70079b7263dc",
+      "revision_id": "sha256:5e62158c3fa8c43373d2c20905f77e7bed1290b0efa4ab23132e70079b7263dc"
+    },
+    {
+      "id": "synthetic:action",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "action",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "action",
+          "actor": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for action."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "guard": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "parameters": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "permission": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "obligation": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "prohibition": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "effects": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "04ba3f91f5fbc4f8ec50ad324061ba6933414cf456231d6fdbfce90b9b2e10e4",
+      "revision_id": "sha256:04ba3f91f5fbc4f8ec50ad324061ba6933414cf456231d6fdbfce90b9b2e10e4"
+    },
+    {
+      "id": "synthetic:procedure",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "procedure",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "procedure",
+          "actor": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for procedure."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "guard": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "inputs": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "outputs": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "branches": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "loops": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "termination": {
+            "knowledge": "unknown",
+            "representation": "literal",
+            "value": null,
+            "reason": "No loop termination is specified.",
+            "gap_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:gap",
+                "record_type": "gap"
+              }
+            ],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "failure": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "reaction_windows": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "93eba2943372366ade238bb2e37f26b7f767544ac8a643612462bf322ef99f05",
+      "revision_id": "sha256:93eba2943372366ade238bb2e37f26b7f767544ac8a643612462bf322ef99f05"
+    },
+    {
+      "id": "synthetic:step",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "step",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "step",
+          "actor": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for step."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "guard": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "ordered_writes": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "completion": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "failure": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "e5265f293f5d97ce7667789e6ee0e44badf93b04b2caa83db5e0f7b50405bf2f",
+      "revision_id": "sha256:e5265f293f5d97ce7667789e6ee0e44badf93b04b2caa83db5e0f7b50405bf2f"
+    },
+    {
+      "id": "synthetic:timing_window",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "timing_window",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "timing_window",
+          "instance_hierarchy": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for timing_window."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "opening": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "closing": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "counter_scope": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "priority": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "tie_breaker": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "e50b3b4a9191a061b2281fda29840efbfecfb942af83a44ebf1219c50a184fcb",
+      "revision_id": "sha256:e50b3b4a9191a061b2281fda29840efbfecfb942af83a44ebf1219c50a184fcb"
+    },
+    {
+      "id": "synthetic:reaction",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "reaction",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "reaction",
+          "trigger": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for reaction."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "eligible_player": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "opening": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "closing": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "attempt_limit": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "resume_replace_cancel_restart": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "surviving_effects_costs_history": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "edb2e5fcc8228ebf29b0739e5b9a45dcff3fa2f19615bf4fc93335644d6d21a8",
+      "revision_id": "sha256:edb2e5fcc8228ebf29b0739e5b9a45dcff3fa2f19615bf4fc93335644d6d21a8"
+    },
+    {
+      "id": "synthetic:continuation",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "continuation",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "continuation",
+          "invocation_frame": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "The particular invocation of the copper-token procedure."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "local_environment": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Retain the selected token binding."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "return_point": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Return to the step after the interrupted payment."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "resume_policy": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "3706ce474bfbc672b8bbed0b555934c26dcdd3de76c97909103a36a79c2cd66f",
+      "revision_id": "sha256:3706ce474bfbc672b8bbed0b555934c26dcdd3de76c97909103a36a79c2cd66f"
+    },
+    {
+      "id": "synthetic:choice",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "choice",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "choice",
+          "owner": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for choice."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "selection_mode": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "selector": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "cardinality": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "constraints": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "binding_id": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "selected-copper-token"
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "lifetime": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "This procedure invocation."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "reselection_policy": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Keep the participant until invocation completion."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "eligible_selected_committed_participating_affected": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "2f399ffb3a780b2f598da029b69fa44ecc01b4b33c5e587e1dfbef290c1795f1",
+      "revision_id": "sha256:2f399ffb3a780b2f598da029b69fa44ecc01b4b33c5e587e1dfbef290c1795f1"
+    },
+    {
+      "id": "synthetic:selector",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "selector",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "selector",
+          "set": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for selector."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "filter": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "binding_refs": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "96c8f48b90726f3c9fcafaa973f51f31a2f0e7decbe565ebc86d799e4990aad6",
+      "revision_id": "sha256:96c8f48b90726f3c9fcafaa973f51f31a2f0e7decbe565ebc86d799e4990aad6"
+    },
+    {
+      "id": "synthetic:cost",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "cost",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "cost",
+          "payer": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for cost."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "resource": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "amount": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "quantity",
+              "amount": 1,
+              "unit": "sparks"
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "attempt_or_success": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Pay on the first valid attempt."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "payment_checkpoint": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "pay_once_key": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Invocation ID and copper payment step."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "cancellation_survival": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "9b710b307435ff754d664b23836547158beef657c62c4165b2c61ae222b99cfe",
+      "revision_id": "sha256:9b710b307435ff754d664b23836547158beef657c62c4165b2c61ae222b99cfe"
+    },
+    {
+      "id": "synthetic:geometry",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "geometry",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "geometry",
+          "map": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Fictional copper map."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "sheet": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "hex_label": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "occupied_hexes": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "One entity occupies cells C1 and C2."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "anchor": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "C1 is the anchor."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "orientation": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Facing from C1 toward C2."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "relative_zones": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "pivot_policy": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "hex_edge_terrain": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "elevation": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "infrastructure": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "off_map_zones": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "stack_constraints": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "7183c06b0c513460aedc70ca054c7dc61ec3c2606e9032b4eb7a71f5d381910e",
+      "revision_id": "sha256:7183c06b0c513460aedc70ca054c7dc61ec3c2606e9032b4eb7a71f5d381910e"
+    },
+    {
+      "id": "synthetic:spatial_policy",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "spatial_policy",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "spatial_policy",
+          "policy_kind": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for spatial_policy."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "metric": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "endpoints": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "rounding": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "admissible_nodes_edges": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "cost": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "exceptions": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "path_quantifier": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "optimality": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "tie_selection": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "678800c72f37bdc034df2da5e98db117be8d5eb655d4ea68da393a4b7249507f",
+      "revision_id": "sha256:678800c72f37bdc034df2da5e98db117be8d5eb655d4ea68da393a4b7249507f"
+    },
+    {
+      "id": "synthetic:calculation",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "calculation",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "calculation",
+          "ordered_operations": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for calculation."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "unit": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "rational",
+              "numerator": 1,
+              "denominator": 2,
+              "unit": "sparks"
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "comparison_operator": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "rounding_stage": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "After multiplying the selected participants, before lookup."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "rounding_method": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "rounding_beneficiary": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "modifier_order": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "stacking": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "b491ae4b1af603f6569be3d8bdf3080cc400a09fdd3f5dee07351d5e519bfcc6",
+      "revision_id": "sha256:b491ae4b1af603f6569be3d8bdf3080cc400a09fdd3f5dee07351d5e519bfcc6"
+    },
+    {
+      "id": "synthetic:aggregation",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "aggregation",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "aggregation",
+          "set": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for aggregation."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "filter": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "measure": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "operator": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "unit": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "modifier_order": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "30d86504d7d4f5bfbf0bedfcf4c28b015d4f964cec05aa1dc4ffe14a0754e3a5",
+      "revision_id": "sha256:30d86504d7d4f5bfbf0bedfcf4c28b015d4f964cec05aa1dc4ffe14a0754e3a5"
+    },
+    {
+      "id": "synthetic:loss_allocation",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "loss_allocation",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "loss_allocation",
+          "deciding_player": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for loss_allocation."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "targets": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "proportions": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "overflow": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "elimination_timing": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "789aaefd08fd404c2902c2766ec5327000ce16eb5976cb7c3c24d6b900df4290",
+      "revision_id": "sha256:789aaefd08fd404c2902c2766ec5327000ce16eb5976cb7c3c24d6b900df4290"
+    },
+    {
+      "id": "synthetic:duration",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "duration",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "duration",
+          "start": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for duration."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "expiry": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "checkpoint": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "snapshot_reads": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "refresh": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "63cca4ae44c70823989e2b79c1a5661df0672d0172ebd129aeb99dbabbbc8c1b",
+      "revision_id": "sha256:63cca4ae44c70823989e2b79c1a5661df0672d0172ebd129aeb99dbabbbc8c1b"
+    },
+    {
+      "id": "synthetic:randomizer",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "randomizer",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "randomizer",
+          "physical_symbols": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Two amber disks and one blue disk."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "symbol_meaning": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "draw_count": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "combination": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "independence": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "replacement": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "No replacement within a draw."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "pool_multiplicities_or_instances": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Amber has multiplicity two; blue has multiplicity one."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "raw_modified_result": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "draw_identity": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "reroll_policy": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "shared_targets": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "6ec9dae5f89e95cf1fe2ee970d9f4c1d43dba2233581154e542c7d471582efa9",
+      "revision_id": "sha256:6ec9dae5f89e95cf1fe2ee970d9f4c1d43dba2233581154e542c7d471582efa9"
+    },
+    {
+      "id": "synthetic:visibility",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "visibility",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "visibility",
+          "viewer": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for visibility."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "state": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "domains": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in domains."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "rejected_choices": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in rejected_choices."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "reason_codes": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in reason_codes."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "proof_paths": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in proof_paths."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "gaps": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in gaps."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "identifiers": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in identifiers."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "cursor_metadata": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in cursor_metadata."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "caches": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Only player-visible information may appear in caches."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "legal_attempts": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "reveal_checkpoint": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "cfc4fdc8595f73b598f458339127b7a0bd36dae1a4b4d3a0dd583dc92ac0648a",
+      "revision_id": "sha256:cfc4fdc8595f73b598f458339127b7a0bd36dae1a4b4d3a0dd583dc92ac0648a"
+    },
+    {
+      "id": "synthetic:outcome",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "outcome",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "outcome",
+          "original_symbols": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for outcome."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "ordered_conditional_effects": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "triggered_procedures": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "7d33115976b2699f8cbcc37471268f1d3507e21a0f50be2f5c7307473136b933",
+      "revision_id": "sha256:7d33115976b2699f8cbcc37471268f1d3507e21a0f50be2f5c7307473136b933"
+    },
+    {
+      "id": "synthetic:victory",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "victory",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "victory",
+          "metric": {
+            "knowledge": "known",
+            "representation": "literal",
+            "value": {
+              "kind": "text",
+              "text": "Synthetic source descriptor for victory."
+            },
+            "reason": null,
+            "gap_refs": [],
+            "evidence_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:evidence",
+                "record_type": "evidence"
+              }
+            ],
+            "scope_refs": []
+          },
+          "counted_set": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "checkpoint": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "comparison": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "termination": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "tie_rule": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "control_history": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "cf6cdc5a98809eb516b0ad9b6156a9137fe9548ff7c78b3263280d5d40cafd42",
+      "revision_id": "sha256:cf6cdc5a98809eb516b0ad9b6156a9137fe9548ff7c78b3263280d5d40cafd42"
+    },
+    {
+      "id": "synthetic:table",
+      "record_type": "node",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "title": "table",
+        "editorial_parent_ref": null,
+        "aspects": [],
+        "semantic_groups": [],
+        "description": {
+          "kind": "table",
+          "axes": [
+            {
+              "axis_id": "heat",
+              "order": 0,
+              "unit": {
+                "knowledge": "known",
+                "representation": "literal",
+                "value": {
+                  "kind": "text",
+                  "text": "sparks"
+                },
+                "reason": null,
+                "gap_refs": [],
+                "evidence_refs": [
+                  {
+                    "mode": "active",
+                    "id": "synthetic:evidence",
+                    "record_type": "evidence"
+                  }
+                ],
+                "scope_refs": []
+              },
+              "boundaries": {
+                "knowledge": "known",
+                "representation": "literal",
+                "value": {
+                  "kind": "text",
+                  "text": "Zero through two, inclusive."
+                },
+                "reason": null,
+                "gap_refs": [],
+                "evidence_refs": [
+                  {
+                    "mode": "active",
+                    "id": "synthetic:evidence",
+                    "record_type": "evidence"
+                  }
+                ],
+                "scope_refs": []
+              }
+            }
+          ],
+          "cells": [
+            {
+              "cell_id": "low",
+              "axis_members": [
+                "heat"
+              ],
+              "coordinates": [
+                {
+                  "axis_id": "heat",
+                  "position": {
+                    "knowledge": "known",
+                    "representation": "literal",
+                    "value": {
+                      "kind": "text",
+                      "text": "Zero sparks."
+                    },
+                    "reason": null,
+                    "gap_refs": [],
+                    "evidence_refs": [
+                      {
+                        "mode": "active",
+                        "id": "synthetic:evidence",
+                        "record_type": "evidence"
+                      }
+                    ],
+                    "scope_refs": []
+                  }
+                }
+              ],
+              "value": {
+                "knowledge": "known",
+                "representation": "literal",
+                "value": {
+                  "kind": "text",
+                  "text": "Dim"
+                },
+                "reason": null,
+                "gap_refs": [],
+                "evidence_refs": [
+                  {
+                    "mode": "active",
+                    "id": "synthetic:evidence",
+                    "record_type": "evidence"
+                  }
+                ],
+                "scope_refs": []
+              },
+              "merged_members": []
+            }
+          ],
+          "notes": [
+            {
+              "note_id": "cap",
+              "cell_ids": [
+                "low"
+              ],
+              "axis_ids": [],
+              "statement": {
+                "knowledge": "known",
+                "representation": "literal",
+                "value": {
+                  "kind": "text",
+                  "text": "This note applies only to the low cell."
+                },
+                "reason": null,
+                "gap_refs": [],
+                "evidence_refs": [
+                  {
+                    "mode": "active",
+                    "id": "synthetic:evidence",
+                    "record_type": "evidence"
+                  }
+                ],
+                "scope_refs": []
+              }
+            }
+          ],
+          "out_of_range": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "missing_cell": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "decorations": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "legend": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          },
+          "participant_bindings": {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        }
+      },
+      "content_hash": "78f7555213160ea4f2aed0da90c05099f178e07a7ec3234776d71596a90b7bf6",
+      "revision_id": "sha256:78f7555213160ea4f2aed0da90c05099f178e07a7ec3234776d71596a90b7bf6"
+    },
+    {
+      "id": "synthetic:profile",
+      "record_type": "profile",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "system": "Copper tokens",
+        "edition": "synthetic-1",
+        "rules_mode": "fictional",
+        "options": [],
+        "scenario": {
+          "knowledge": "not_applicable",
+          "representation": "literal",
+          "value": null,
+          "reason": "Explicitly outside the scope of this fictional mechanism.",
+          "gap_refs": [],
+          "evidence_refs": [],
+          "scope_refs": []
+        },
+        "map_refs": [],
+        "counter_refs": [],
+        "material_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:source",
+            "record_type": "source",
+            "revision_id": "sha256:c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7"
+          }
+        ],
+        "compatibility_decisions": [
+          {
+            "knowledge": "not_applicable",
+            "representation": "literal",
+            "value": null,
+            "reason": "Explicitly outside the scope of this fictional mechanism.",
+            "gap_refs": [],
+            "evidence_refs": [],
+            "scope_refs": []
+          }
+        ]
+      },
+      "content_hash": "a9fb7537a53dbe2db4ae60a11c10d6681d5d2a8064a0e57309e841d322697851",
+      "revision_id": "sha256:a9fb7537a53dbe2db4ae60a11c10d6681d5d2a8064a0e57309e841d322697851"
+    },
+    {
+      "id": "synthetic:review",
+      "record_type": "review",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "kind": "interpretation",
+        "actor": "Fictional fixture owner",
+        "actor_role": "human_owner",
+        "authorization": "Synthetic owner role only; no real acceptance.",
+        "decision": "accepted",
+        "decision_artifact": "synthetic:statement-of-lit-condition",
+        "targets": [
+          {
+            "mode": "historical",
+            "id": "synthetic:clause",
+            "record_type": "node",
+            "aspect_id": "lit-condition",
+            "revision_id": "sha256:110b8cbc7e2581aba3f243db73db87602032baea93d3ba8006784a6f5d083061"
+          }
+        ],
+        "basis": [
+          {
+            "mode": "historical",
+            "id": "synthetic:source",
+            "record_type": "source",
+            "revision_id": "sha256:c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7"
+          },
+          {
+            "mode": "historical",
+            "id": "synthetic:evidence",
+            "record_type": "evidence",
+            "revision_id": "sha256:e9fca2b5350620f193f1ff4ed971f80407019ab76137f6a8781644ef29d5d637"
+          }
+        ],
+        "basis_completeness": "complete",
+        "scope": "Only the lit-condition aspect; not the effect.",
+        "rationale": "Synthetic scoped decision used to test metadata and freshness.",
+        "supersedes_review_refs": []
+      },
+      "content_hash": "df9c9e98c860f5050ffec18ba9be328315b9d501aa512d745de8a87476d70f0d",
+      "revision_id": "sha256:df9c9e98c860f5050ffec18ba9be328315b9d501aa512d745de8a87476d70f0d"
+    },
+    {
+      "id": "synthetic:coverage0",
+      "record_type": "coverage",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "inventory_ref": {
+          "mode": "historical",
+          "id": "synthetic:inventory",
+          "record_type": "node",
+          "revision_id": "sha256:832263023113c7772c0c510587dee106bb2d80150bad707250caa6f7896ba368"
+        },
+        "region_ref": {
+          "mode": "historical",
+          "id": "synthetic:region1",
+          "record_type": "region",
+          "revision_id": "sha256:807b179e58f58a59278e2e521429f67b06f7234188f455804b1d210a050d177a"
+        },
+        "level": "transcription",
+        "status": "represented",
+        "target_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:clause",
+            "record_type": "node",
+            "revision_id": "sha256:110b8cbc7e2581aba3f243db73db87602032baea93d3ba8006784a6f5d083061"
+          },
+          {
+            "mode": "historical",
+            "id": "synthetic:review",
+            "record_type": "review",
+            "revision_id": "sha256:df9c9e98c860f5050ffec18ba9be328315b9d501aa512d745de8a87476d70f0d"
+          }
+        ],
+        "gap_refs": [],
+        "denominator_role": "inventory",
+        "exclusion_reason": null,
+        "scope_decision_ref": null
+      },
+      "content_hash": "b5e8b5095613096cbee0bd0dadd332a9fe899f68ba5d188001c8f45dfe338f72",
+      "revision_id": "sha256:b5e8b5095613096cbee0bd0dadd332a9fe899f68ba5d188001c8f45dfe338f72"
+    },
+    {
+      "id": "synthetic:coverage1",
+      "record_type": "coverage",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "inventory_ref": {
+          "mode": "historical",
+          "id": "synthetic:inventory",
+          "record_type": "node",
+          "revision_id": "sha256:832263023113c7772c0c510587dee106bb2d80150bad707250caa6f7896ba368"
+        },
+        "region_ref": {
+          "mode": "historical",
+          "id": "synthetic:region2",
+          "record_type": "region",
+          "revision_id": "sha256:33f0930aee9b8f5f26367f35275d7d25c0b2cf95c236be5bac6f6ef1486b9534"
+        },
+        "level": "transcription",
+        "status": "represented",
+        "target_refs": [
+          {
+            "mode": "active",
+            "id": "synthetic:clause",
+            "record_type": "node"
+          }
+        ],
+        "gap_refs": [],
+        "denominator_role": "inventory",
+        "exclusion_reason": null,
+        "scope_decision_ref": null
+      },
+      "content_hash": "90eaf97334a6def860d12d8afe38e992502957ee5f98f903b7dfe5df109d9cdc",
+      "revision_id": "sha256:90eaf97334a6def860d12d8afe38e992502957ee5f98f903b7dfe5df109d9cdc"
+    },
+    {
+      "id": "synthetic:binding",
+      "record_type": "origin_binding",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "input_snapshot_id": "synthetic:input",
+        "input_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "relative_path": "kb/clauses.json",
+        "field_locator": "/clauses/by-key/copper",
+        "ig_refs": [
+          {
+            "mode": "active",
+            "id": "synthetic:clause",
+            "record_type": "node"
+          }
+        ],
+        "external_namespace": "kb-fictional",
+        "external_id": "copper",
+        "mapping_status": "partial"
+      },
+      "content_hash": "9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc",
+      "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+    },
+    {
+      "id": "synthetic:identities",
+      "record_type": "identity_registry",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "entries": [
+          {
+            "origin_key": "fictional-term-copper",
+            "id": "synthetic:clause",
+            "status": "assigned",
+            "candidate_ids": [],
+            "gap_refs": []
+          }
+        ]
+      },
+      "content_hash": "3b846d9e862b81c780ae6081a095b3f2740804ab0efd6f0f024de5f49382204c",
+      "revision_id": "sha256:3b846d9e862b81c780ae6081a095b3f2740804ab0efd6f0f024de5f49382204c"
+    },
+    {
+      "id": "synthetic:history-link",
+      "record_type": "relation",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "relation_type": "mention",
+        "from_ref": {
+          "mode": "active",
+          "id": "synthetic:clause",
+          "record_type": "node"
+        },
+        "target_status": "resolved",
+        "target_ref": {
+          "mode": "historical",
+          "id": "synthetic:retired-concept",
+          "record_type": "node",
+          "revision_id": "sha256:414c8c2981d9dd0db8d0f9d9c724056ab33c92f6a3bd313fabc9ee522410da14"
+        },
+        "raw_locator": null,
+        "edition": "synthetic-1",
+        "candidate_refs": [],
+        "gap_refs": [],
+        "applicability": {
+          "knowledge": "not_applicable",
+          "representation": "literal",
+          "value": null,
+          "reason": "Explicitly outside the scope of this fictional mechanism.",
+          "gap_refs": [],
+          "evidence_refs": [],
+          "scope_refs": []
+        },
+        "evidence_refs": [
+          {
+            "mode": "active",
+            "id": "synthetic:evidence",
+            "record_type": "evidence"
+          }
+        ],
+        "requirement": "informational",
+        "requirement_group": {
+          "group_id": "navigation",
+          "operator": "all"
+        }
+      },
+      "content_hash": "dab2bfab627495efc1fe038c4ba8aa1948a56b302ef789402dfe9d7029e8d050",
+      "revision_id": "sha256:dab2bfab627495efc1fe038c4ba8aa1948a56b302ef789402dfe9d7029e8d050"
+    },
+    {
+      "id": "synthetic:snapshot",
+      "record_type": "snapshot",
+      "schema_version": "wgc-source-1",
+      "run_id": "synthetic:run",
+      "supersedes_refs": [],
+      "lineage_refs": [],
+      "data": {
+        "state": "sealed",
+        "selected": [
+          {
+            "id": "synthetic:run",
+            "record_type": "run",
+            "revision_id": "sha256:e16cf210dedf79bd4cab677f43f90b642e078b4cf0861dcfb4ead949b537a052",
+            "content_hash": "e16cf210dedf79bd4cab677f43f90b642e078b4cf0861dcfb4ead949b537a052"
+          },
+          {
+            "id": "synthetic:source",
+            "record_type": "source",
+            "revision_id": "sha256:c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7",
+            "content_hash": "c091b2e019d968695d9956b2cece23055185c06409a947dbcd3fda7a226d3dc7"
+          },
+          {
+            "id": "synthetic:region1",
+            "record_type": "region",
+            "revision_id": "sha256:807b179e58f58a59278e2e521429f67b06f7234188f455804b1d210a050d177a",
+            "content_hash": "807b179e58f58a59278e2e521429f67b06f7234188f455804b1d210a050d177a"
+          },
+          {
+            "id": "synthetic:region2",
+            "record_type": "region",
+            "revision_id": "sha256:33f0930aee9b8f5f26367f35275d7d25c0b2cf95c236be5bac6f6ef1486b9534",
+            "content_hash": "33f0930aee9b8f5f26367f35275d7d25c0b2cf95c236be5bac6f6ef1486b9534"
+          },
+          {
+            "id": "synthetic:evidence",
+            "record_type": "evidence",
+            "revision_id": "sha256:e9fca2b5350620f193f1ff4ed971f80407019ab76137f6a8781644ef29d5d637",
+            "content_hash": "e9fca2b5350620f193f1ff4ed971f80407019ab76137f6a8781644ef29d5d637"
+          },
+          {
+            "id": "synthetic:gap",
+            "record_type": "gap",
+            "revision_id": "sha256:b3599ee0fc54cff40baf9c0225e46e8f0f64cbb978d7e9c19d426e38da17c162",
+            "content_hash": "b3599ee0fc54cff40baf9c0225e46e8f0f64cbb978d7e9c19d426e38da17c162"
+          },
+          {
+            "id": "synthetic:clause",
+            "record_type": "node",
+            "revision_id": "sha256:110b8cbc7e2581aba3f243db73db87602032baea93d3ba8006784a6f5d083061",
+            "content_hash": "110b8cbc7e2581aba3f243db73db87602032baea93d3ba8006784a6f5d083061"
+          },
+          {
+            "id": "synthetic:inventory",
+            "record_type": "node",
+            "revision_id": "sha256:832263023113c7772c0c510587dee106bb2d80150bad707250caa6f7896ba368",
+            "content_hash": "832263023113c7772c0c510587dee106bb2d80150bad707250caa6f7896ba368"
+          },
+          {
+            "id": "synthetic:state_variable",
+            "record_type": "node",
+            "revision_id": "sha256:0d1d9670d877d969828db55721139e4fb224c9d2bd52febbf30573ff4cd1afe7",
+            "content_hash": "0d1d9670d877d969828db55721139e4fb224c9d2bd52febbf30573ff4cd1afe7"
+          },
+          {
+            "id": "synthetic:resource",
+            "record_type": "node",
+            "revision_id": "sha256:c399b37f12d2eb878889dc74c2f072173a5f63b3ad2301ff95d222e72069b9a8",
+            "content_hash": "c399b37f12d2eb878889dc74c2f072173a5f63b3ad2301ff95d222e72069b9a8"
+          },
+          {
+            "id": "synthetic:event_type",
+            "record_type": "node",
+            "revision_id": "sha256:29056d9a2e3d3fdbb1fcc1b324a12da755b6241f02d30758de3f1ac467f330eb",
+            "content_hash": "29056d9a2e3d3fdbb1fcc1b324a12da755b6241f02d30758de3f1ac467f330eb"
+          },
+          {
+            "id": "synthetic:history",
+            "record_type": "node",
+            "revision_id": "sha256:3856b43d44d1d3c105b3466d36e0254a1dceb66e82c0f141ce1e6712dc834a35",
+            "content_hash": "3856b43d44d1d3c105b3466d36e0254a1dceb66e82c0f141ce1e6712dc834a35"
+          },
+          {
+            "id": "synthetic:parameter",
+            "record_type": "node",
+            "revision_id": "sha256:5e62158c3fa8c43373d2c20905f77e7bed1290b0efa4ab23132e70079b7263dc",
+            "content_hash": "5e62158c3fa8c43373d2c20905f77e7bed1290b0efa4ab23132e70079b7263dc"
+          },
+          {
+            "id": "synthetic:action",
+            "record_type": "node",
+            "revision_id": "sha256:04ba3f91f5fbc4f8ec50ad324061ba6933414cf456231d6fdbfce90b9b2e10e4",
+            "content_hash": "04ba3f91f5fbc4f8ec50ad324061ba6933414cf456231d6fdbfce90b9b2e10e4"
+          },
+          {
+            "id": "synthetic:procedure",
+            "record_type": "node",
+            "revision_id": "sha256:93eba2943372366ade238bb2e37f26b7f767544ac8a643612462bf322ef99f05",
+            "content_hash": "93eba2943372366ade238bb2e37f26b7f767544ac8a643612462bf322ef99f05"
+          },
+          {
+            "id": "synthetic:step",
+            "record_type": "node",
+            "revision_id": "sha256:e5265f293f5d97ce7667789e6ee0e44badf93b04b2caa83db5e0f7b50405bf2f",
+            "content_hash": "e5265f293f5d97ce7667789e6ee0e44badf93b04b2caa83db5e0f7b50405bf2f"
+          },
+          {
+            "id": "synthetic:timing_window",
+            "record_type": "node",
+            "revision_id": "sha256:e50b3b4a9191a061b2281fda29840efbfecfb942af83a44ebf1219c50a184fcb",
+            "content_hash": "e50b3b4a9191a061b2281fda29840efbfecfb942af83a44ebf1219c50a184fcb"
+          },
+          {
+            "id": "synthetic:reaction",
+            "record_type": "node",
+            "revision_id": "sha256:edb2e5fcc8228ebf29b0739e5b9a45dcff3fa2f19615bf4fc93335644d6d21a8",
+            "content_hash": "edb2e5fcc8228ebf29b0739e5b9a45dcff3fa2f19615bf4fc93335644d6d21a8"
+          },
+          {
+            "id": "synthetic:continuation",
+            "record_type": "node",
+            "revision_id": "sha256:3706ce474bfbc672b8bbed0b555934c26dcdd3de76c97909103a36a79c2cd66f",
+            "content_hash": "3706ce474bfbc672b8bbed0b555934c26dcdd3de76c97909103a36a79c2cd66f"
+          },
+          {
+            "id": "synthetic:choice",
+            "record_type": "node",
+            "revision_id": "sha256:2f399ffb3a780b2f598da029b69fa44ecc01b4b33c5e587e1dfbef290c1795f1",
+            "content_hash": "2f399ffb3a780b2f598da029b69fa44ecc01b4b33c5e587e1dfbef290c1795f1"
+          },
+          {
+            "id": "synthetic:selector",
+            "record_type": "node",
+            "revision_id": "sha256:96c8f48b90726f3c9fcafaa973f51f31a2f0e7decbe565ebc86d799e4990aad6",
+            "content_hash": "96c8f48b90726f3c9fcafaa973f51f31a2f0e7decbe565ebc86d799e4990aad6"
+          },
+          {
+            "id": "synthetic:cost",
+            "record_type": "node",
+            "revision_id": "sha256:9b710b307435ff754d664b23836547158beef657c62c4165b2c61ae222b99cfe",
+            "content_hash": "9b710b307435ff754d664b23836547158beef657c62c4165b2c61ae222b99cfe"
+          },
+          {
+            "id": "synthetic:geometry",
+            "record_type": "node",
+            "revision_id": "sha256:7183c06b0c513460aedc70ca054c7dc61ec3c2606e9032b4eb7a71f5d381910e",
+            "content_hash": "7183c06b0c513460aedc70ca054c7dc61ec3c2606e9032b4eb7a71f5d381910e"
+          },
+          {
+            "id": "synthetic:spatial_policy",
+            "record_type": "node",
+            "revision_id": "sha256:678800c72f37bdc034df2da5e98db117be8d5eb655d4ea68da393a4b7249507f",
+            "content_hash": "678800c72f37bdc034df2da5e98db117be8d5eb655d4ea68da393a4b7249507f"
+          },
+          {
+            "id": "synthetic:calculation",
+            "record_type": "node",
+            "revision_id": "sha256:b491ae4b1af603f6569be3d8bdf3080cc400a09fdd3f5dee07351d5e519bfcc6",
+            "content_hash": "b491ae4b1af603f6569be3d8bdf3080cc400a09fdd3f5dee07351d5e519bfcc6"
+          },
+          {
+            "id": "synthetic:aggregation",
+            "record_type": "node",
+            "revision_id": "sha256:30d86504d7d4f5bfbf0bedfcf4c28b015d4f964cec05aa1dc4ffe14a0754e3a5",
+            "content_hash": "30d86504d7d4f5bfbf0bedfcf4c28b015d4f964cec05aa1dc4ffe14a0754e3a5"
+          },
+          {
+            "id": "synthetic:loss_allocation",
+            "record_type": "node",
+            "revision_id": "sha256:789aaefd08fd404c2902c2766ec5327000ce16eb5976cb7c3c24d6b900df4290",
+            "content_hash": "789aaefd08fd404c2902c2766ec5327000ce16eb5976cb7c3c24d6b900df4290"
+          },
+          {
+            "id": "synthetic:duration",
+            "record_type": "node",
+            "revision_id": "sha256:63cca4ae44c70823989e2b79c1a5661df0672d0172ebd129aeb99dbabbbc8c1b",
+            "content_hash": "63cca4ae44c70823989e2b79c1a5661df0672d0172ebd129aeb99dbabbbc8c1b"
+          },
+          {
+            "id": "synthetic:randomizer",
+            "record_type": "node",
+            "revision_id": "sha256:6ec9dae5f89e95cf1fe2ee970d9f4c1d43dba2233581154e542c7d471582efa9",
+            "content_hash": "6ec9dae5f89e95cf1fe2ee970d9f4c1d43dba2233581154e542c7d471582efa9"
+          },
+          {
+            "id": "synthetic:visibility",
+            "record_type": "node",
+            "revision_id": "sha256:cfc4fdc8595f73b598f458339127b7a0bd36dae1a4b4d3a0dd583dc92ac0648a",
+            "content_hash": "cfc4fdc8595f73b598f458339127b7a0bd36dae1a4b4d3a0dd583dc92ac0648a"
+          },
+          {
+            "id": "synthetic:outcome",
+            "record_type": "node",
+            "revision_id": "sha256:7d33115976b2699f8cbcc37471268f1d3507e21a0f50be2f5c7307473136b933",
+            "content_hash": "7d33115976b2699f8cbcc37471268f1d3507e21a0f50be2f5c7307473136b933"
+          },
+          {
+            "id": "synthetic:victory",
+            "record_type": "node",
+            "revision_id": "sha256:cf6cdc5a98809eb516b0ad9b6156a9137fe9548ff7c78b3263280d5d40cafd42",
+            "content_hash": "cf6cdc5a98809eb516b0ad9b6156a9137fe9548ff7c78b3263280d5d40cafd42"
+          },
+          {
+            "id": "synthetic:table",
+            "record_type": "node",
+            "revision_id": "sha256:78f7555213160ea4f2aed0da90c05099f178e07a7ec3234776d71596a90b7bf6",
+            "content_hash": "78f7555213160ea4f2aed0da90c05099f178e07a7ec3234776d71596a90b7bf6"
+          },
+          {
+            "id": "synthetic:profile",
+            "record_type": "profile",
+            "revision_id": "sha256:a9fb7537a53dbe2db4ae60a11c10d6681d5d2a8064a0e57309e841d322697851",
+            "content_hash": "a9fb7537a53dbe2db4ae60a11c10d6681d5d2a8064a0e57309e841d322697851"
+          },
+          {
+            "id": "synthetic:review",
+            "record_type": "review",
+            "revision_id": "sha256:df9c9e98c860f5050ffec18ba9be328315b9d501aa512d745de8a87476d70f0d",
+            "content_hash": "df9c9e98c860f5050ffec18ba9be328315b9d501aa512d745de8a87476d70f0d"
+          },
+          {
+            "id": "synthetic:coverage0",
+            "record_type": "coverage",
+            "revision_id": "sha256:b5e8b5095613096cbee0bd0dadd332a9fe899f68ba5d188001c8f45dfe338f72",
+            "content_hash": "b5e8b5095613096cbee0bd0dadd332a9fe899f68ba5d188001c8f45dfe338f72"
+          },
+          {
+            "id": "synthetic:coverage1",
+            "record_type": "coverage",
+            "revision_id": "sha256:90eaf97334a6def860d12d8afe38e992502957ee5f98f903b7dfe5df109d9cdc",
+            "content_hash": "90eaf97334a6def860d12d8afe38e992502957ee5f98f903b7dfe5df109d9cdc"
+          },
+          {
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc",
+            "content_hash": "9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          },
+          {
+            "id": "synthetic:identities",
+            "record_type": "identity_registry",
+            "revision_id": "sha256:3b846d9e862b81c780ae6081a095b3f2740804ab0efd6f0f024de5f49382204c",
+            "content_hash": "3b846d9e862b81c780ae6081a095b3f2740804ab0efd6f0f024de5f49382204c"
+          },
+          {
+            "id": "synthetic:history-link",
+            "record_type": "relation",
+            "revision_id": "sha256:dab2bfab627495efc1fe038c4ba8aa1948a56b302ef789402dfe9d7029e8d050",
+            "content_hash": "dab2bfab627495efc1fe038c4ba8aa1948a56b302ef789402dfe9d7029e8d050"
+          }
+        ],
+        "profile_ref": {
+          "mode": "active",
+          "id": "synthetic:profile",
+          "record_type": "profile"
+        },
+        "conflict_refs": [],
+        "assessments": {
+          "import": {
+            "status": "complete",
+            "basis_refs": [
+              {
+                "mode": "historical",
+                "id": "synthetic:binding",
+                "record_type": "origin_binding",
+                "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+              }
+            ]
+          },
+          "coverage_refs": [
+            {
+              "mode": "active",
+              "id": "synthetic:coverage0",
+              "record_type": "coverage"
+            },
+            {
+              "mode": "active",
+              "id": "synthetic:coverage1",
+              "record_type": "coverage"
+            }
+          ],
+          "semantic_review_refs": [
+            {
+              "mode": "active",
+              "id": "synthetic:review",
+              "record_type": "review"
+            }
+          ],
+          "executable": {
+            "status": "blocked",
+            "scope_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:clause",
+                "record_type": "node"
+              }
+            ],
+            "blocker_refs": [
+              {
+                "mode": "active",
+                "id": "synthetic:gap",
+                "record_type": "gap"
+              }
+            ],
+            "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+          }
+        }
+      },
+      "content_hash": "60d3df170de8298dc0ca514b5317ac34d4940e3b8f83115c0cb73434ae9e0f2a",
+      "revision_id": "sha256:60d3df170de8298dc0ca514b5317ac34d4940e3b8f83115c0cb73434ae9e0f2a"
+    }
+  ]
+}

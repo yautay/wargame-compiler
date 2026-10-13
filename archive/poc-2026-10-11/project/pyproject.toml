@@ -1,0 +1,5 @@
+# Active POC has no runtime, package discovery, CLI or legacy dependencies.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["archive", "private", ".git", ".venv", ".glu"]
+addopts = "--import-mode=importlib --strict-markers"

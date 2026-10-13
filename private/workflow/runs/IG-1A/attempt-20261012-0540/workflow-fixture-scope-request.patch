@@ -1,0 +1,8 @@
+--- a/tests/test_workflow.py
++++ b/tests/test_workflow.py
+@@
+     q['tasks']=copy.deepcopy(q['tasks'][:1])
++    # The synthetic state-machine tests always start before the first claim.
++    q['tasks'][0]['status']='ready'
++    q['tasks'][0]['events']=[]
+     for rel in w.BASE_CONTEXT + q['tasks'][0]['context']:

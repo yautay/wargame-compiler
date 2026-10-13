@@ -1,5 +1,8 @@
-# Active POC has no runtime, package discovery, CLI or legacy dependencies.
+# Active source contracts have no game runtime or third-party dependencies.
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-norecursedirs = ["archive", "private", ".git", ".venv", ".glu"]
+# Explicit current suite also works before unrelated historical deletions are committed.
+# Product contract tests are included at frozen delivery, before acceptance.
+testpaths = ["tests/test_workflow.py", "tests/test_archive_tool.py", "tests/contracts"]
+pythonpath = ["src"]
+norecursedirs = ["archive", "private", ".git", ".venv", ".glu", ".agents"]
 addopts = "--import-mode=importlib --strict-markers"

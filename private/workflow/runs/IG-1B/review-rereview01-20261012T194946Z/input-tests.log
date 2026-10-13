@@ -1,0 +1,32 @@
+.........................................FFFF......                      [100%]
+================================== FAILURES ===================================
+_ test_sealed_tree_rejects_unmanifested_entries[empty-directory-verify-input_snapshot] _
+tests\inputs\test_snapshot.py:370: in test_sealed_tree_rejects_unmanifested_entries
+    extra.mkdir()
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: in mkdir
+    os.mkdir(self, mode)
+E   FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\input-test-temp-01\\test_sealed_tree_rejects_unman8\\inputs\\sha256-3682df19f3e5d215e4a2311c780605eab829987279de99d97b7260c5687a9ee4\\files\\empty-unlisted-directory'
+_ test_sealed_tree_rejects_unmanifested_entries[empty-directory-verify-source_snapshot] _
+tests\inputs\test_snapshot.py:370: in test_sealed_tree_rejects_unmanifested_entries
+    extra.mkdir()
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: in mkdir
+    os.mkdir(self, mode)
+E   FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\input-test-temp-01\\test_sealed_tree_rejects_unman9\\sources\\sha256-6936f66108350368a041aab87794ee75cd31b7f3a1d2f525ca269869c7243dde\\files\\empty-unlisted-directory'
+_ test_sealed_tree_rejects_unmanifested_entries[empty-directory-reuse-input_snapshot] _
+tests\inputs\test_snapshot.py:370: in test_sealed_tree_rejects_unmanifested_entries
+    extra.mkdir()
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: in mkdir
+    os.mkdir(self, mode)
+E   FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\input-test-temp-01\\test_sealed_tree_rejects_unman10\\inputs\\sha256-8858f3212427ff01f70d57f03976355936018202c45d52e416fb7d0199dc7f7f\\files\\empty-unlisted-directory'
+_ test_sealed_tree_rejects_unmanifested_entries[empty-directory-reuse-source_snapshot] _
+tests\inputs\test_snapshot.py:370: in test_sealed_tree_rejects_unmanifested_entries
+    extra.mkdir()
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: in mkdir
+    os.mkdir(self, mode)
+E   FileNotFoundError: [WinError 206] The filename or extension is too long: 'C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\input-test-temp-01\\test_sealed_tree_rejects_unman11\\sources\\sha256-2a709df647385714fde47f16db5befb5906ce6528ab9587a6a41837fdb01de5c\\files\\empty-unlisted-directory'
+=========================== short test summary info ===========================
+FAILED tests/inputs/test_snapshot.py::test_sealed_tree_rejects_unmanifested_entries[empty-directory-verify-input_snapshot]
+FAILED tests/inputs/test_snapshot.py::test_sealed_tree_rejects_unmanifested_entries[empty-directory-verify-source_snapshot]
+FAILED tests/inputs/test_snapshot.py::test_sealed_tree_rejects_unmanifested_entries[empty-directory-reuse-input_snapshot]
+FAILED tests/inputs/test_snapshot.py::test_sealed_tree_rejects_unmanifested_entries[empty-directory-reuse-source_snapshot]
+4 failed, 47 passed in 6.29s

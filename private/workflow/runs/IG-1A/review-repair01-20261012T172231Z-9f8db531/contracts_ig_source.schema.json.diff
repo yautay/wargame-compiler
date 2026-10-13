@@ -1,0 +1,80 @@
+--- baseline/contracts/ig/source.schema.json
++++ contracts/ig/source.schema.json
+@@ -120,6 +120,24 @@
+         },
+         {
+           "$ref": "#/$defs/historical_ref"
++        }
++      ]
++    },
++    "content_ref": {
++      "allOf": [
++        {
++          "$ref": "#/$defs/ref"
++        },
++        {
++          "properties": {
++            "record_type": {
++              "enum": [
++                "node",
++                "evidence",
++                "relation"
++              ]
++            }
++          }
+         }
+       ]
+     },
+@@ -2415,7 +2433,7 @@
+         "target_refs": {
+           "type": "array",
+           "items": {
+-            "$ref": "#/$defs/ref"
++            "$ref": "#/$defs/content_ref"
+           },
+           "minItems": 0
+         },
+@@ -2480,7 +2498,7 @@
+               "target_refs": {
+                 "type": "array",
+                 "items": {
+-                  "$ref": "#/$defs/ref"
++                  "$ref": "#/$defs/content_ref"
+                 },
+                 "minItems": 1
+               }
+@@ -2820,6 +2838,34 @@
+             "$ref": "#/$defs/historical_ref"
+           },
+           "minItems": 0
++        },
++        "coverage_boundary": {
++          "type": "object",
++          "properties": {
++            "purpose": {
++              "const": "coverage_exclusion"
++            },
++            "inventory_ref": {
++              "$ref": "#/$defs/historical_ref"
++            },
++            "region_ref": {
++              "$ref": "#/$defs/historical_ref"
++            },
++            "level": {
++              "enum": [
++                "transcription",
++                "descriptive_semantics",
++                "formal_semantics"
++              ]
++            }
++          },
++          "required": [
++            "purpose",
++            "inventory_ref",
++            "region_ref",
++            "level"
++          ],
++          "additionalProperties": false
+         }
+       },
+       "required": [

@@ -1,0 +1,75 @@
+{
+  "task": "IG-1A",
+  "attempt": "attempt-20261012-0540",
+  "actor": "ig-1a-executor-20261012-0540",
+  "recorded_utc": "2026-10-12T05:42:12.902244+00:00",
+  "phase": "preflight-awaiting-configuration",
+  "queue_status": "ready",
+  "model": null,
+  "reasoning": null,
+  "requested_configuration": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "configuration_evidence": {
+    "source": "Current conversation runtime metadata and exposed tool catalog",
+    "observation": "No exact current model identifier or reasoning level exposed. Operator UI confirmation requested; no response received at record time. Requested configuration is not evidence."
+  },
+  "input_packet": {
+    "path": "private/workflow/packets/IG-1A-97584a53f0bb4e39b098f0947cac5e83/manifest.json",
+    "sha256": "b646eee15539050aca43532e5f6d5a7ffb8dea1acf73326cd42b12460bbade37"
+  },
+  "input_context": {
+    "path": "private/workflow/packets/IG-1A-97584a53f0bb4e39b098f0947cac5e83/context.txt",
+    "sha256": "e2196f03fecabb5d6f2afa1161b6778cbefcb27693bc2a7a35e1c4eec0eb9c12"
+  },
+  "input_verification": "All 11 manifest file hashes, context hash and queue hash matched disk before any transition.",
+  "base_files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "31a84d76b25a455a0b6905266094151a817a35e9b3c0eb4e3e4fa6a4e33f0d37"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "sha256": "8a093fcf6a21ae7fcf077a838d9d2883ea76649dff3ff4cd400e51fa3589e9b3"
+    },
+    {
+      "path": "docs/work/queue.json",
+      "sha256": "7660bb12525aa9a02b194b973c72ed96972e1f9f8dff362dddb992ac10ee5d97"
+    }
+  ],
+  "absent_output_roots": [
+    "contracts/ig/",
+    "src/wgc/contracts/",
+    "tests/contracts/"
+  ],
+  "existing_changes": "pyproject.toml and scripts/check.ps1 have staged pre-existing modifications. Their current bytes are the implementation baseline. Unrelated working tree changes must be preserved.",
+  "checks": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "result": "IG-1A"
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py packet --task IG-1A",
+      "exit_code": 0
+    }
+  ],
+  "blocker": {
+    "fact": "Actual executor model and reasoning not confirmed",
+    "impact": "Cannot claim or implement IG-1A yet",
+    "resolution": "Operator confirms GPT-6.1 Sol / high from the current session UI",
+    "owner": "operator"
+  },
+  "next_operation": "Record the operator UI confirmation, recheck input/base hashes, then create claim checkpoint and transition to in_progress.",
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed or reported"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short --basetemp private/workflow/runs/IG-1A/attempt-20261012-0540/test-temp-04",
+      "exit_code": 0,
+      "tests_passed": 46,
+      "reported_seconds": 5.36
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py dry-run --task IG-1A",
+      "exit_code": 0
+    },
+    {
+      "command": "PYTHONPATH=src .\\.venv\\Scripts\\python.exe -m wgc.contracts.source tests/contracts/fixtures/valid-source.json",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 1,
+      "tests_passed": 65,
+      "tests_failed": 7,
+      "reported_seconds": 28.1,
+      "log_root": "private/workflow/checks/active-58245dbebedc4865bd3cde4a7d4200b0",
+      "result": "Final check-script bytes verified: plan=0, dry-run=0, pytest=1, diff=0. 7 failed, 65 passed in 28.10s. Only the existing live-queue-derived workflow fixture fails; operator write-scope exception remains pending."
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-12T14:51:29.775886+00:00",
+    "ended_utc": "2026-10-12T15:22:49.264628+00:00",
+    "wall_seconds": 1879.488742,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Session token counters, operator time and monetary cost were not exposed/reported. Wall time includes the scope-confirmation wait."
+  },
+  "full_check_result": {
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-58245dbebedc4865bd3cde4a7d4200b0\\pytest",
+    "diff_exit": 0,
+    "dry_run_exit": 0,
+    "plan_exit": 0,
+    "tests_exit": 1
+  }
+}

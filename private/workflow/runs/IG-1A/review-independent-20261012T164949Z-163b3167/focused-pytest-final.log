@@ -1,0 +1,22 @@
+FFF.............                                                         [100%]
+================================== FAILURES ===================================
+______ test_independent_contract_expectation[gap-as-represented-target] _______
+private\workflow\runs\IG-1A\review-independent-20261012T164949Z-163b3167\test_review.py:16: in test_independent_contract_expectation
+    with pytest.raises(ContractError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ContractError
+_____ test_independent_contract_expectation[unrelated-exclusion-approval] _____
+private\workflow\runs\IG-1A\review-independent-20261012T164949Z-163b3167\test_review.py:16: in test_independent_contract_expectation
+    with pytest.raises(ContractError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ContractError
+____ test_independent_contract_expectation[historical-required-dependency] ____
+private\workflow\runs\IG-1A\review-independent-20261012T164949Z-163b3167\test_review.py:16: in test_independent_contract_expectation
+    with pytest.raises(ContractError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ContractError
+=========================== short test summary info ===========================
+FAILED private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py::test_independent_contract_expectation[gap-as-represented-target]
+FAILED private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py::test_independent_contract_expectation[unrelated-exclusion-approval]
+FAILED private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py::test_independent_contract_expectation[historical-required-dependency]
+3 failed, 13 passed in 3.44s

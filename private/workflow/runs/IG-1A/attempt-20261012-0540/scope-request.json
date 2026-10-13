@@ -1,0 +1,11 @@
+{
+  "requested_utc": "2026-10-12T15:22:02.765635+00:00",
+  "task": "IG-1A",
+  "path": "tests/test_workflow.py",
+  "base_sha256": "dc2abee8f50737f18ee0ef7c23404a857ebe10c913a7d1aa65c6fe75363f9b22",
+  "proposed_patch": "private/workflow/runs/IG-1A/attempt-20261012-0540/workflow-fixture-scope-request.patch",
+  "authorization": null,
+  "status": "awaiting operator",
+  "reason": "The existing synthetic workflow fixture copies live task status/events rather than establishing its ready baseline; 7 state-machine tests fail after a real claim.",
+  "scope": "Only initialize the copied IG-1A task to status ready and events []; preserve all test assertions, production queue and evidence."
+}

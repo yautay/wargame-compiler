@@ -1,0 +1,478 @@
+scenarios:
+  - id: Q-01
+    group: Walka wręcz — przykład Bagradas (s. 28–29)
+    question: |
+      Falanga A (Size 10, SHOCK MUST CHECK TQ) atakuje frontalnie velites T i kohorty U, V (Size 4+3+3). Po szarży nikt nie uciekł. Jak przebiega rozstrzygnięcie?
+    answer: |
+      Obrońców jest kilka typów, więc **obrońca wybiera** typ do Tabeli starcia: LG → kolumna bazowa **7**. Atak frontalny — brak przewagi pozycji; PH vs LG — brak
+      przewagi systemu broni. Size 10 : 10 = 1:1 → bez przesunięć. Rzut 6 na kolumnie 7 → **2(2)**: falanga 2 trafienia; 2 trafienia obrońców rozdziela
+      **atakujący** (falanga atakuje kilka jednostek niebędących falangami) — może dać oba kohorcie V.
+    chain: "R-8.45.2 → T-25 (PH→LG front = 7) → R-8.46.2/R-8.46.4 (brak przewagi) → R-8.46.5 → R-8.46.7 → T-26 → R-8.46.8 → R-10.13.3"
+    refs: [R-8.45.2, T-25, R-8.46.2, R-8.46.4, R-8.46.5, R-8.46.7, T-26, R-8.46.8, R-10.13.3]
+  - id: Q-02
+    group: Walka wręcz — przykład Bagradas (s. 28–29)
+    question: Falanga B (Size 10, weszła obok) po ucieczce triarii W walczy już tylko z velites X (Size 3). Jaka kolumna i wynik przy rzucie 2?
+    answer: |
+      PH → LI frontalnie: kolumna **10**; PH ma przewagę ataku (system broni). 10 : 3 przy ataku po podejściu zaokrągla się na korzyść atakującego → **4:1** →
+      3 kolumny w prawo → **13**. Rzut 2 → **2(3)**: falanga 2 trafienia, X 3 × 2 (AS) = **6**. X nie ucieka od razu — ucieczkę sprawdza się w kroku załamania.
+    chain: "R-8.45.1 → T-25 → R-8.46.4 → R-8.46.5 → R-8.46.7 → T-26 → R-8.46.8 → R-8.47.1"
+    refs: [R-8.45.1, T-25, R-8.46.4, R-8.46.5, R-8.46.7, T-26, R-8.46.8, R-8.47.1]
+  - id: Q-03
+    group: Walka wręcz — przykład Bagradas (s. 28–29)
+    question: |
+      Celtowie C (MI, Size 5, SHOCK NO TQ CHECK — nie ruszali się) atakują triarii Y i velites Z (3+2). Wynik 2(2). Co dzieje się w załamaniu, jeśli Z osiąga
+      próg, a C ma trafienia = TQ − 1 i stoi w strefie kontroli Y?
+    answer: |
+      Obrońca wybiera triarii (HI): kolumna **6**, bez przewagi, Size 5:5 = 1:1. C dostaje 2 trafienia, obrońcy po 1 (równy podział). Załamanie: 1) Z ucieka (2 heksy
+      ku krawędzi odwrotu); 2) C (TQ − 1, w strefie kontroli Y) rzuca: wynik ≤ TQ → –1 trafienie; 3) C **musi** wejść do heksu opuszczonego przez Z i może obrócić
+      się o jeden wierzchołek mimo strefy kontroli.
+    chain: "R-7.33.1 → R-8.43.1 (bez testu) → R-8.45.2 → R-8.46.8 → R-10.13.1 → R-8.47.1 → R-10.22.1 → R-8.47.3 → R-8.47.4 → R-8.51.1 → R-8.52.1"
+    refs: [R-7.33.1, R-8.43.1, R-8.45.2, R-8.46.8, R-10.13.1, R-8.47.1, R-10.22.1, R-8.47.3, R-8.47.4, R-8.51.1, R-8.52.1]
+  - id: Q-04
+    group: Walka wręcz — przykład Bagradas (s. 28–29)
+    question: W szarży kto rzuca na test TQ przed walką i co się dzieje, gdy triarii W (TQ 6) wyrzucą 9 i osiągną próg trafień?
+    answer: |
+      Rzucają falangi A i B (SHOCK MUST CHECK TQ) **i ich cele** (T, U, V, W, X); Celtowie C (NO TQ CHECK) i ich cele — nie. W: 9 − 6 = 3 trafienia, razem = TQ →
+      **natychmiastowa ucieczka** o 2 heksy. Falanga B **nie posuwa się**, bo w jej strefie kontroli jest jeszcze velites X.
+    chain: "R-7.32.1 → R-8.43.1 → R-8.43.3 → R-10.21.1 → R-10.22.1 → R-8.51.1"
+    refs: [R-7.32.1, R-8.43.1, R-8.43.3, R-10.21.1, R-10.22.1, R-8.51.1]
+  - id: Q-05
+    group: Aktywacja i impet
+    question: Hannibal (inicjatywa 7) kończy fazę rozkazów i próbuje impetu. Jakie są możliwe wyniki?
+    answer: |
+      0–7 — kolejna faza rozkazów (przeciwnik może próbować przejęcia impetu); 8 — Hannibal skończony; 9 — rzut zagłady: przerzut 0–1 → przeciwnik aktywuje
+      dowolnego swojego dowódcę (nawet skończonego, bez impetu), Hannibal skończony; 2–8 → Hannibal skończony; 9 → koniec aktywacji w tej turze, faza D.
+      Limit: najwyżej 3 fazy z rzędu.
+    chain: "R-5.31.1 → R-5.32.1 → R-5.33.1 → R-5.42.2 → R-5.14.1"
+    refs: [R-5.31.1, R-5.32.1, R-5.33.1, R-5.42.2, R-5.14.1, T-04]
+  - id: Q-06
+    group: Aktywacja i impet
+    question: Kanny. Rzymianin zamiast Serwiliusza próbuje przejęcia Paullusem (5). Udaje się. Kartagińczyk próbuje przejąć to przejęcie Maharbalem (6) i wyrzuca 7. Co dalej?
+    answer: |
+      Przejęcie Paullusa: wynik 0–5. Przejęcie przejęcia: Maharbal ma inicjatywę ≥ 5, rzuca ≤ 6 — 7 to porażka: **Paullus działa, Maharbal skończony**. Każda strona
+      wykorzystała swoją jedyną próbę przy tej aktywacji. Nieaktywni dowódcy obu stron z inicjatywą ≤ 5 są pominięci (bez impetu).
+    chain: "R-5.41.1 → R-5.42.1 → R-5.43.1 → R-5.44.1 → R-5.44.2"
+    refs: [R-5.41.1, R-5.42.1, R-5.43.1, R-5.44.1, R-5.44.2]
+  - id: Q-07
+    group: Aktywacja i impet
+    question: Paullus uzyskał impet. Kartagińczyk próbuje przejęcia impetu Hannibalem (7) i wyrzuca 6. Kto działa i co potem?
+    answer: Faza rozkazów Hannibala; Paullus jest skończony. Po fazach Hannibala gra wraca do aktywacji od najniżej ocenianego dowódcy.
+    chain: "R-5.42.2 → R-5.44.1 → R-5.42.3 → R-5.12.1"
+    refs: [R-5.42.2, R-5.44.1, R-5.42.3, R-5.12.1]
+  - id: Q-08
+    group: Aktywacja i impet
+    question: Zama — obie strony mają elitarnych OC. Jak ustala się fazę EIO i co, jeśli Scypion odda ją Leliuszowi?
+    answer: |
+      Na początku tury obaj rzucają k10 + inicjatywa swojego dowódcy elitarnego; wyższy wynik ma fazę EIO, remis — nikt. Scypion może dać EIO dowódcy w swoim zasięgu
+      dowodzenia (w 1. turze — dowolnemu). Leliusz po fazie EIO wraca do stanu **nieaktywnego** (nie skończonego), bez impetu w EIO; w zwykłej kolejności ma jeszcze
+      jedną pewną fazę i jedną możliwą z impetu; Scypion zachowuje możliwość trzech faz.
+    chain: "R-5.53.1 → R-5.51.1 → R-5.52.1 → R-5.34.2 → R-5.14.1"
+    refs: [R-5.53.1, R-5.51.1, R-5.52.1, R-5.34.2, R-5.14.1]
+  - id: Q-09
+    group: Rozkazy liniowe
+    question: Rzymski trybun (dowódca podległy) zaczyna fazę początkową poza zasięgiem OC; jedna jednostka proponowanej linii jest w strefie kontroli wroga. OC ma strategię 2. Czy wyda LC? A prokonsul? A Kartagińczyk pod Hannibalem?
+    answer: |
+      Trybun: w 1. turze — automatycznie; później rzut +1 (strefa kontroli) musi dać ≤ 2, czyli wynik naturalny 0–1. Prokonsul: dodatkowo –1 (wynik 0–2). Kartagiński
+      dowódca podległy w bitwie z Hannibalem jako OC: LC w fazie początkowej bez rzutu (nie dotyczy dowódców zastępczych). Zawsze: start fazy ≤ 2 heksy z LOS do linii,
+      poza strefą kontroli wroga.
+    chain: "R-4.33.1 → R-4.33.3 → R-4.33.4 → R-4.56.1 → R-4.6.1 → R-4.6.2"
+    refs: [R-4.33.1, R-4.33.3, R-4.33.4, R-4.56.1, R-4.6.1, R-4.6.2, T-04]
+  - id: Q-10
+    group: Uporządkowane wycofanie
+    question: Falanga (MA 5) podchodzi na 2 heksy do velites (6), hastatów i jazdy (8) stojącej poniżej wzgórza. Kto może się wycofać i jak daleko? A przed słoniem (7)?
+    answer: |
+      Velites: 6 − 5 = **1 MP** (np. 1 heks czysty). Hastati: równe MA — nie. Jazda przed falangą: 3 MP. Jazda przed słoniem: 1 MP — nie wejdzie pod górę (2 MP).
+      Falanga przeciwnika liczy się jako MA 5 (gdy sama się wycofuje — 4).
+    chain: "R-6.51.1 → R-6.51.2"
+    refs: [R-6.51.1, R-6.51.2, T-06]
+  - id: Q-11
+    group: Uporządkowane wycofanie
+    question: Jakie trafienia ponosi przy uporządkowanym wycofaniu jednostka LG, inna piechota, velites i harcownik, gdy wróg podchodzi z boku?
+    answer: |
+      LG: 1 trafienie przed wycofaniem (bok) + test TQ po wycofaniu (porażka +1). Inna piechota (nie SK, nie velites): 1 (bok) + 1 automatycznie po. Velites: 1 (bok).
+      Harcownik: 0 (tylko podejście z tyłu daje trafienie). Jazda: tylko kara za bok/tył. Trafienia ≥ TQ → natychmiastowa ucieczka.
+    chain: "R-6.52.2 → R-6.52.3 → R-6.52.4 → R-9.21.1 → R-6.53.1"
+    refs: [R-6.52.2, R-6.52.3, R-6.52.4, R-9.21.1, R-6.53.1]
+  - id: Q-12
+    group: Ruch
+    question: Linia hastatów ruszyła na rozkaz trybuna, a w późniejszej fazie OC znów ją porusza. Co z karą? A falanga, która drugi raz idzie na 5 MA?
+    answer: |
+      Hastati: po drugim ruchu **1 trafienie** (6.13). Harcownicy byliby bez kary. Falanga „Moved” na MA 5 — **2 trafienia** bez testu, na MA 4 — 1 (łącznie, N-08).
+      Czy wcześniejsze OW/posunięcie liczy się jako „ruch” — N-07 (rekomendacja: nie).
+    chain: "R-6.12.1 → R-6.13.1 → R-6.13.2 → R-6.41.2"
+    refs: [R-6.12.1, R-6.13.1, R-6.13.2, R-6.41.2, N-07, N-08]
+  - id: Q-13
+    group: Ruch
+    question: Falanga w kolumnie zostaje zaatakowana wręcz. Jakie ma parametry i co się z nią stanie?
+    answer: |
+      W kolumnie: MA 6 (wyższy MA + 1), TQ − 2, nie atakuje i nie strzela, nie wykonuje OW ani reakcji. Atakujący ma automatycznie przewagę ataku (trafienia falangi ×2).
+      Na koniec tej fazy rozkazów falanga wraca do szyku normalnego z 1 trafieniem (bez obrotu).
+    chain: "R-6.72.1 → R-6.75.1 → R-6.77.1 → R-8.46.8 → R-6.76.1"
+    refs: [R-6.72.1, R-6.75.1, R-6.77.1, R-8.46.8, R-6.76.1, T-07]
+  - id: Q-14
+    group: Dowódcy
+    question: Jazda wroga wchodzi obok samotnego dowódcy (nie w strefie kontroli). A gdyby był to Hannibal na słoniu?
+    answer: |
+      Samotny dowódca może odskoczyć 1–3 heksy przez heksy dostępne normalnym ruchem; jeśli nie odskoczy lub nie może — ginie. Hannibal na słoniu nie może odskoczyć
+      (stos ze słoniem dowódcy), ale słoń jest jednostką bojową, więc dowódca nie ginie automatycznie.
+    chain: "R-4.72.1 → R-4.72.2 → R-4.83.1"
+    refs: [R-4.72.1, R-4.72.2, R-4.83.1, N-04]
+  - id: Q-15
+    group: Dowódcy
+    question: Rzymski dowódca stoi w stosie z jednostką walczącą wręcz. Kiedy i jak sprawdza się jego stratę i jaki ma to wpływ na rzut CRT?
+    answer: |
+      Po szarży, przed starciem: k10 — 1–9 nic, 0 → rzut na Tabeli strat dowódców (PAC; w przykładzie wynik 5 = skończony do końca tury). Jeśli dowódca zginął,
+      jego strona ma odwrotny modyfikator = charyzma + 2 (np. poległy Maharbal, charyzma 2, prowadzący atak → –4). Żywy dowódca daje swoją charyzmę (atakujący +, obrońca –).
+    chain: "R-8.44.1 → R-4.73.1 → T-05 → T-23 → R-8.46.7"
+    refs: [R-8.44.1, R-4.73.1, T-05, T-23, R-8.46.7]
+  - id: Q-16
+    group: Walka wręcz
+    question: Jak liczyć przesunięcie za Size przy 11:5, 5:4, 4:5 — z podejściem i bez?
+    answer: |
+      Po podejściu (na korzyść atakującego): 11:5 → 3:1 (2 kolumny w prawo); 5:4 → 2:1 (1 w prawo); 4:5 → 1:1. Bez podejścia (na korzyść obrońcy): 11:5 → 2:1 (1 w prawo);
+      5:4 → 1:1; 4:5 → 1:2 (1 w lewo). Pomija się przy słoniach vs nie-słoniach i gdy wszyscy obrońcy to SK.
+    chain: "R-8.46.5 → R-8.46.6"
+    refs: [R-8.46.5, R-8.46.6, T-11]
+  - id: Q-17
+    group: Walka wręcz
+    question: Lekka jazda z przewagą ataku uderza na HI; lekka piechota atakuje harcownika (wynik 1(4)); obrońca ma przewagę obrony przy wyniku 2(1). Jakie są trafienia?
+    answer: |
+      LC z AS vs HI: trafienia HI ×2 i ×½ → wynik z CRT bez zmian. LI vs SK: trafienia atakującego ½ w dół, maks. 1 → 0(4). DS: trafienia atakującego ×3 → 6(1).
+    chain: "R-8.46.8 → R-9.32.1 → R-9.23.1"
+    refs: [R-8.46.8, R-9.32.1, R-9.23.1, T-11]
+  - id: Q-18
+    group: Walka wręcz
+    question: Dwie jednostki LG podchodzą i atakują frontalnie falangę, która ma falangi w obu heksach bocznych. Kolumna bazowa 5. Jaka kolumna końcowa? A gdyby atakowała HI albo LG stojące wcześniej obok?
+    answer: |
+      Obrona falangi: 2L za każdy z dwóch heksów bocznych → 4L → kolumna **1**. Atak HI: 1L za heks → 2L. Atak bez podejścia (start obok) — brak przesunięć;
+      atak z boku/tyłu albo z udziałem falangi — brak.
+    chain: "R-9.41.1 → R-8.46.7"
+    refs: [R-9.41.1, R-8.46.7, T-11]
+  - id: Q-19
+    group: Ucieczka wszystkich
+    question: Kanny — hastati (TQ 6, 4 trafienia) z AS atakują Celtów MI (TQ 5, 1 trafienie) w terenie czystym. Wynik 2(2). Kto ucieka?
+    answer: |
+      Celtowie: 1 + 2×2 = 5 (= TQ), hastati: 4 + 2 = 6 (= TQ). Uciekaliby wszyscy → 10.15: posunięcie w terenie czystym nie dodaje trafień; nadwyżki równe (0) →
+      **ucieka obrońca**; hastati mają 5 trafień (TQ − 1) i posuwają się.
+    chain: "R-8.46.8 → R-8.47.1 → R-10.15.1 → R-10.15.2 → R-8.51.1"
+    refs: [R-8.46.8, R-8.47.1, R-10.15.1, R-10.15.2, R-8.51.1]
+  - id: Q-20
+    group: Ucieczka wszystkich
+    question: Beneventum — hoplici najemni (TQ 6, 3 trafienia) z poziomu 1 atakują hastatów (TQ 6, 4 trafienia) w lesie na poziomie 2. Wynik 3(2). Kto ucieka?
+    answer: |
+      Obie strony mają 6. Atakujący dolicza koszty posunięcia (las + wzniesienie = 2) → 8, nadwyżka 2 > 0 → **uciekają hoplici**; hastati zostają w miejscu z 5 trafieniami.
+    chain: "R-10.15.1 → R-10.15.2 → T-20"
+    refs: [R-10.15.1, R-10.15.2, T-20]
+  - id: Q-21
+    group: Walka wręcz
+    question: Falanga w obronie ma trafienia ≥ TQ w kroku załamania. Czy może się utrzymać?
+    answer: |
+      Tak, procedurą z 8.43: rzut + nadwyżka trafień ponad TQ (+3, gdyby była atakującym); wynik ≤ TQ → stoi z trafieniami TQ − 1. **Ale** jeśli atakujący miał przewagę
+      pozycji (bok/tył) — bez rzutu, ucieka. Gdy przetrwa krok 1, nie rzuca ponownie w kroku 2.
+    chain: "R-8.47.1 → R-8.47.2 → R-8.43.5 → R-8.47.3"
+    refs: [R-8.47.1, R-8.47.2, R-8.43.5, R-8.47.3]
+  - id: Q-22
+    group: Posunięcie po walce
+    question: Atakujący z trafieniami TQ − 1 musi posunąć się do heksu terenu, który daje trafienie. Co się dzieje? A falanga, której otworzył się tylko środkowy heks frontu?
+    answer: |
+      Posuwa się i **nie ucieka** — trafienia ustawia się na TQ − 1 (8.51). Falanga z wrogiem w jednym z bocznych heksów frontu: obrót manewrem skrętu do środkowego heksu
+      z kosztami; ucieczka znów zamieniona na TQ − 1. Skręt wykonany dobrowolnie po posunięciu w całości może już spowodować ucieczkę.
+    chain: "R-8.51.1 → R-8.51.2 → R-8.53.2 → R-8.53.3"
+    refs: [R-8.51.1, R-8.51.2, R-8.53.2, R-8.53.3]
+  - id: Q-23
+    group: Pościg jazdy
+    question: Zama — HC (TQ 7) rozbija hastatów w kroku załamania 1; rzut na pościg 8. Co dalej? A przy opcji 8.66?
+    answer: |
+      8 > 7 → **pościg**: jazda idzie drogą ucieczki hastatów (bez MP, trafienia za teren), zatrzymuje się przy strefie kontroli, atakuje ponownie wręcz; po eliminacji
+      piechoty rusza się o ½ MA (w górę) w kierunku ucieczki; bez ponownego pościgu; potem PURSUIT/FINISHED do końca tury. Opcja 8.66: wartość HC = 3, +2 (uciekła
+      piechota) ± charyzma, –1 w strefie kontroli wroga; pościg przy wyniku > 3 po modyfikacji (znak charyzmy — N-14).
+    chain: "R-8.61.1 → R-8.62.1 → R-8.62.2 → R-8.62.3 → R-8.63.1 → R-8.66.1"
+    refs: [R-8.61.1, R-8.62.1, R-8.62.2, R-8.62.3, R-8.63.1, R-8.66.1, N-14, T-12]
+  - id: Q-24
+    group: Pościg jazdy
+    question: Jazda atakuje dwie jednostki; jedna ucieka, druga nie. Albo obrońca ucieka dopiero z testu w kroku 2. Czy jest pościg?
+    answer: Nie — w obu przypadkach jazda tylko posuwa się po walce (8.5).
+    chain: "R-8.61.2 → R-8.51.1"
+    refs: [R-8.61.2, R-8.51.1]
+  - id: Q-25
+    group: Ostrzał
+    question: Procarze balearscy strzelają z 2 heksów do jazdy rzymskiej (siła 2). Jakie skutki mają wyniki 2, 6 i 9? A gdyby się ruszali, a cel był harcownikiem?
+    answer: |
+      2 → 1 trafienie; 6 → nic; 9 → nic i MISSILE LOW. Po ruchu +1 DRM → wynik 2 staje się 3 > 2 → nic. Cel harcownik: +2 DRM. Niezmodyfikowane 0, gdy w heksie celu jest
+      dowódca → rzut na jego stratę.
+    chain: "R-8.15.1 → R-8.15.2 → R-8.17.1 → R-9.22.1 → R-8.19.1"
+    refs: [R-8.15.1, R-8.15.2, R-8.17.1, R-9.22.1, R-8.19.1, T-09]
+  - id: Q-26
+    group: Ostrzał
+    question: Peltaści trackiej LI (oszczepy) stoją 2 heksy od rzymskiej jednostki Y z wolną ścieżką. Jak przebiega H&D i jak może odpowiedzieć Y?
+    answer: |
+      Rozkaz ruchu; strzał jak z zasięgu 1, oszczepnicy bez kary za ruch; zużywa cały MA i liczy się jako ruch dla 6.13; żeton się nie przesuwa. Y może obrócić się
+      w reakcji i oddać ostrzał przy wejściu — **równocześnie**. Konna LC z 4 heksów strzelałaby z +1 DRM za ruch.
+    chain: "R-8.31.1 → R-8.31.2 → R-8.32.1 → R-8.33.1 → R-8.33.2"
+    refs: [R-8.31.1, R-8.31.2, R-8.32.1, R-8.33.1, R-8.33.2, T-09]
+  - id: Q-27
+    group: Reorganizacja
+    question: Dowódca z inicjatywą 4 próbuje zreorganizować uciekających principes (TQ 7). Co dają wyniki 2, 6 i 8?
+    answer: |
+      2 ≤ 5 → zreorganizowani: rzut na Tabeli reorganizacji (np. 5 → 2 trafienia), odwrócenie na RALLIED, osłabienie, bez rozkazów do następnej tury. 6 → ruch ucieczki
+      o pełny MA. 8 > 7 (TQ) → eliminacja. Ten dowódca nie spróbuje już tej jednostki w tej turze; przy kolejnej reorganizacji tej (już osłabionej) jednostki: +1 i +2 DRM.
+    chain: "R-10.28.1 → R-10.28.2 → R-10.28.3 → R-10.31.1 → R-10.33.1"
+    refs: [R-10.28.1, R-10.28.2, R-10.28.3, R-10.31.1, R-10.33.1, T-17, T-27]
+  - id: Q-28
+    group: Ucieczka
+    question: Falanga ucieka, ale heksy przed nią i za nią są zablokowane. A co z uciekającymi falangami w fazie D?
+    answer: |
+      Falanga nie może się obracać, by ominąć blokadę — jeśli nie przejdzie 2 heksów w ustalonym kierunku, jest eliminowana. W segmencie ruchu ucieczki fazy D wszystkie
+      uciekające falangi są eliminowane. Uciekająca jednostka, która dostanie jakiekolwiek trafienie, ginie.
+    chain: "R-10.22.2 → R-10.23.1 → R-10.27.1"
+    refs: [R-10.22.2, R-10.23.1, R-10.27.1]
+  - id: Q-29
+    group: Odzyskanie spójności
+    question: Jednostka w terenie czystym chce usunąć trafienia. Ile, jeśli stoi obok wroga; jeśli tylko w zasięgu łuczników wroga; jeśli to BI; jeśli w tej fazie się ruszała?
+    answer: "Obok wroga — 0. W zasięgu nieprzyległych strzelców — 1. Poza zasięgiem — 2 (BI: 1). Po ruchu/ostrzale — 0. Zreorganizowana w tej turze lub uciekająca — 0."
+    chain: "R-10.16.1 → R-10.16.2 → R-9.93.1"
+    refs: [R-10.16.1, R-10.16.2, R-9.93.1, T-16]
+  - id: Q-30
+    group: Słonie
+    question: Słoń ucieka i wpada w szał; pierwszy rzut 0, przed nim stoi własna jazda. Co się dzieje i kiedy szał się kończy?
+    answer: |
+      0 → słoń biegnie ku najbliższej własnej jednostce (wybiera przeciwnik) — przed obiema stronami można najpierw wykonać OW. Przed zajętym heksem staje, jazda dostaje
+      **2 trafienia**. Rzuty powtarza się (3 heksy na rzut) do zejścia z mapy, 7–9 w kolejnym rzucie (eliminacja), ≥ 8 heksów od jednostek lub po 4. rzucie (eliminacja).
+      Słoń dowódcy przy 0 ginie.
+    chain: "R-9.14.1 → R-9.14.2 → R-9.14.3 → R-9.14.4"
+    refs: [R-9.14.1, R-9.14.2, R-9.14.3, R-9.14.4, T-13]
+  - id: Q-31
+    group: Słonie
+    question: Hastati są atakowani frontalnie przez samotnego słonia ze SHOCK MUST CHECK TQ; heks za nimi jest wolny. Co daje przepuszczenie?
+    answer: |
+      Decyzja przed rzutem szarży: +1 DRM do testu hastatów; trafienia hastatów z CRT ½ (w dół), słonia –1; jeśli hastati nie uciekli, a słoń nie szaleje, słoń staje
+      w wolnym heksie tylnym hastatów; potem hastati wykonują test przepuszczenia (trafienia = wynik − TQ).
+    chain: "R-9.11.1 → R-9.11.2 → R-9.11.3"
+    refs: [R-9.11.1, R-9.11.2, R-9.11.3, P-07]
+  - id: Q-32
+    group: Słonie
+    question: Słoń wchodzi obok jazdy wroga z heksu nieprzyległego. Co musi zrobić jazda? A gdy podchodzi słoń Hannibala?
+    answer: |
+      Jazda musi spróbować uporządkowanego wycofania i wtedy nie strzela reakcyjnie. Jeśli nie może — test TQ (min. 1 trafienie); ucieczka = eliminacja. Słoń dowódcy
+      tych skutków nie wywołuje.
+    chain: "R-9.16.1 → R-6.51.1 → R-4.83.2"
+    refs: [R-9.16.1, R-6.51.1, R-4.83.2]
+  - id: Q-33
+    group: Rzymianie
+    question: Kanny, triarii. Kiedy mogą się ruszyć i kiedy zaatakować wręcz?
+    answer: |
+      Doktryna obowiązuje (przed 200 p.n.e., bez Scypiona jako OC; Kanny wprost). Ruch dopiero, gdy wróg (nie słoń) jest ≤ 3 heksy i w LOS którejś jednostki linii
+      triarii albo triarii są ≥ 6 heksów od innych linii piechoty rzymskiej/al. Ruch z atakiem — dopiero gdy RP armii ≥ ½ progu wycofania (w dół); atak z miejsca na wroga
+      w strefie kontroli — zawsze (relacja do 7.31 — N-17).
+    chain: "R-9.7.1 → R-9.71.1 → R-9.72.1"
+    refs: [R-9.7.1, R-9.71.1, R-9.72.1, N-17, T-14]
+  - id: Q-34
+    group: Zwycięstwo
+    question: Ile RP dają wyeliminowane — falanga TQ 7, harcownik, słoń, słoń dowódcy, dowódca imienny z inicjatywą 5, trybun z inicjatywą 3, jazda ścigająca poza mapą?
+    answer: "14; 2; 2; 0; 25; 3; 0 (nie liczy się). Gdy obie armie przekroczą próg w tej samej fazie, wygrywa mniejsza nadwyżka; remis — N-20."
+    chain: "R-11.1.1 → R-8.65.1 → R-11.2.2"
+    refs: [R-11.1.1, R-8.65.1, R-11.2.2, T-19, N-20]
+  - id: Q-35
+    group: Strefy kontroli
+    question: Jednostka (MA 6) zaczyna w strefie kontroli falangi; w drugim przypadku — lekkiej jazdy (MA 8); w trzecim — harcownika. Czy może wyjść?
+    answer: |
+      Falanga: liczy się MA 5 → 6 > 5 → może (rozkaz ruchu, wolny heks frontowy). LC: 6 < 8 → nie. Harcownik: niezdolny do walki wręcz — jego strefę kontroli pomija się,
+      więc może. Wejście do innej strefy kontroli kończy ruch.
+    chain: "R-7.23.2 → R-7.23.3 → R-7.23.4"
+    refs: [R-7.23.2, R-7.23.3, R-7.23.4]
+  - id: Q-36
+    group: Strefy kontroli
+    question: Jednostka (MA 5) zaczyna segment w strefie kontroli jednej jednostki wroga, sama nie ma wroga w swojej strefie kontroli. Czy może się obrócić?
+    answer: |
+      Tak — do ½ MA w górę = 3 MP na obroty, jeśli pozostanie w heksie przez cały segment (nowość 5. edycji, C-01). Przy dwóch jednostkach wroga (zdolnych do walki
+      wręcz) — nie.
+    chain: "R-7.24.1 → C-01"
+    refs: [R-7.24.1, C-01, T-07]
+  - id: Q-37
+    group: Rzymianie
+    question: Hastati III Legionu i principes V Legionu stoją w jednym stosie. Jak walczą i strzelają?
+    answer: |
+      Różne kolory — +1 DRM do wszystkich testów TQ obu jednostek; każda rzuca osobno z TQ górnej. Size sumuje się w walce wręcz; strzela tylko górna; ostrzał wroga trafia
+      górną (przez heks tylny — dolną). Ucieczka górnej = ucieczka dolnej; ucieczka dolnej → test górnej.
+    chain: "R-9.63.1 → R-9.62.1 → R-6.68.2 → R-6.68.3 → R-6.68.7"
+    refs: [R-9.63.1, R-9.62.1, R-6.68.2, R-6.68.3, R-6.68.7]
+  - id: Q-38
+    group: Aktywacja i impet
+    question: Bagradas, 1. tura — Regulus i Hasdrubal mają po 5. Kto aktywuje się wcześniej i w jakiej kolejności idą dowódcy?
+    answer: |
+      Od najniższej inicjatywy (prefekci sprzymierzeńców, potem trybuni/prefekci jazdy, Bostar, Hamilkar). Przy 5:5 obaj rzucają — wyższy wynik idzie pierwszy, potem
+      naprzemiennie wśród pozostałych z tą samą wartością.
+    chain: "R-5.12.1 → R-5.13.1"
+    refs: [R-5.12.1, R-5.13.1]
+  - id: Q-39
+    group: Dowódcy
+    question: Hanno (dowódca podległy) jest w strefie kontroli wroga, gdy przychodzi jego kolej. Jakie ma opcje?
+    answer: |
+      Nie wydaje rozkazów, ale może swoim zasięgiem umożliwić walkę wręcz — wtedy jest skończony i nie zostanie aktywowany, nawet gdy Hannibal go wyprowadzi. Może też
+      czekać (nie jest skończony); jeśli wyjdzie ze strefy kontroli, musi być aktywowany przed innymi i bez impetu; jeśli nadal w niej tkwi, gdy reszta jest skończona
+      lub w strefach kontroli — kończy turę.
+    chain: "R-4.24.1 → R-5.26.1 → R-5.26.2 → R-4.4.3"
+    refs: [R-4.24.1, R-5.26.1, R-5.26.2, R-4.4.3]
+  - id: Q-40
+    group: Karty PAC — walka wręcz
+    question: |
+      Dwie jednostki LG (Size 3 + 3) podchodzą i atakują frontalnie falangę (Size 10), która ma w obu heksach bocznych własne falangi. Bez przewagi, bez terenu.
+      Rzut 4. Jaki wynik?
+    answer: |
+      LG → PH front: kolumna bazowa **5** (T-25). Obrona falangi (9.41): 2L za każdy z dwóch heksów bocznych → 4L → kolumna **1**. Size 6:10 przy ataku po
+      podejściu zaokrągla się na korzyść atakującego → 1:1 (bez przesunięcia). PH × LG = brak przewagi (T-24). Kolumna 1, DR 4 → **5(2)**: falanga 2 trafienia,
+      atakujący łącznie 5 (podział wg 10.13) — zgodnie z przykładem 9.41 („PH 1–2, każdy LG 2–3”). Karta CRT opisuje obronę falangi skrótowo — N-27.
+    chain: "R-8.45.1 → T-25 (LG→PH front = 5) → R-9.41.1 (4L) → R-8.46.5 → T-24 → T-26 (kol. 1, DR 4) → R-8.46.8 → R-10.13.1; N-27"
+    refs: [R-8.45.1, T-25, R-9.41.1, R-8.46.5, T-24, T-26, R-8.46.8, R-10.13.1, N-27]
+  - id: Q-41
+    group: Karty PAC — reorganizacja
+    question: Dowódca z inicjatywą 4 reorganizuje uciekających, wcześniej osłabionych hastatów (wydrukowane TQ 7). Rzuty — 3, potem 7. Wynik?
+    answer: |
+      Próba: 3 + 1 (osłabiona przed próbą, 10.33) = 4 ≤ inicjatywa + 1 = 5 → zreorganizowana. Tabela reorganizacji: 7 + 2 (wcześniej osłabiona) = 9 → wiersz
+      „8, 9”, kolumna TQ 6–9 → **4 trafienia**. Jednostka pozostaje osłabiona i jest MISSILE NO; nie dostaje rozkazów do następnej tury.
+    chain: "R-10.28.2 → R-10.33.1 → T-27 → R-10.31.1 → T-33 (test F)"
+    refs: [R-10.28.2, R-10.33.1, T-27, R-10.31.1, T-33]
+  - id: Q-42
+    group: Karty PAC — straty dowódców
+    question: Dowódca w stosie z jednostką w walce wręcz rzuca 0, a potem 7. Co się dzieje? A gdyby to był Pyrrus pod Beneventum?
+    answer: |
+      Wynik 0 = dowódca jest ofiarą; drugi rzut 7 = **ranny**: skończony do końca tury i do końca gry –1 do wszystkich parametrów oprócz LC (status elitarny bez
+      zmian); redukcje kumulują się, inicjatywa 0 = śmierć. Pod Beneventum ranny Pyrrus jest wart **25 RP** (zamiast 5 × inicjatywa); zabity — wygrywa Rzymianin.
+    chain: "R-8.44.1 → R-4.73.1 → T-23 (wynik 7) → R-SC1-24 (nadpisuje R-11.1.1)"
+    refs: [R-8.44.1, R-4.73.1, T-23, R-SC1-24, R-11.1.1]
+  - id: Q-43
+    group: Karty PAC — ostrzał
+    question: Procarze, którzy się ruszali, strzelają na zasięg 2 do ciężkiej piechoty stojącej w lesie. Jaki wynik trafia?
+    answer: |
+      Siła procarzy na zasięgu 2 = **2**. DRM: +1 ruch procarza, +1 las, +1 cel HI (+3 tylko z zasięgu 1 przez front) = +3. Trzeba DR + 3 ≤ 2 → **żaden wynik
+      nie trafia**. Niezmodyfikowane 9 i tak daje MISSILE LOW; niezmodyfikowane 0 przy dowódcy w heksie celu wymaga rzutu na stratę dowódcy.
+    chain: "R-8.15.1 → T-22 (Slinger, zasięg 2; DRM) → R-8.17.1 → R-8.19.1"
+    refs: [R-8.15.1, T-22, R-8.17.1, R-8.19.1]
+  - id: Q-44
+    group: Scenariusz — Beneventum
+    question: Straż przednia wchodzi w początkowym marszu podejścia przez 3044. Kreteński łucznik (SK, MA 6) wchodzi jako trzecia jednostka sekcji przez ten heks (teren czysty). Ile MP mu zostaje?
+    answer: |
+      Straż przednia ma mnożnik 4× → 6 × 4 = **24 MP**. Koszt wejścia = koszt terenu (1) + 1 MP za każdą wcześniejszą jednostkę sekcji tym heksem (2) = **3 MP**
+      (jak w przykładzie księgi). Zostaje **21 MP**. Wielokrotny ruch nie daje trafień (tylko teren).
+    chain: "R-SC1-4 → R-SC1-5 → R-SC1-6"
+    refs: [R-SC1-4, R-SC1-5, R-SC1-6, R-6.13.1]
+  - id: Q-45
+    group: Scenariusz — Beneventum
+    question: Tura 2 (świt). Leonnatos i Milon są skończeni; podczas rozkazu Aleksandra jednostka epirocka wchodzi za świtową linię alarmu. Kto po stronie rzymskiej może działać w tej turze?
+    answer: |
+      Następuje alarm (linia alarmu dla świtu). Alarm w trakcie tury: aktywni są tylko dowódcy rzymscy, którzy byliby uprawnieni do aktywacji wg 5.12 względem
+      skończonych dowódców epirockich — w przykładzie księgi tylko **Dentatus** (inicjatywa 5); trybuni i prefekci są skończeni do końca tury. Wszystkie jednostki
+      rzymskie mogą już otrzymywać rozkazy, LC wolno wydawać w obozie, strażników bram stawia się w namiotach velites.
+    chain: "R-SC1-11 → R-SC1-9 → R-SC1-10 (modyfikuje R-5.12.1) → R-SC1-2"
+    refs: [R-SC1-11, R-SC1-9, R-SC1-10, R-5.12.1, R-SC1-2]
+  - id: Q-46
+    group: Scenariusz — Beneventum
+    question: Skorpion obozowy stoi w wieży bez piechoty. Czy może strzelać? Co się stanie, gdy do wieży wejdzie jednostka epirocka? Ile jest wart?
+    answer: |
+      **Nie strzela** — heks skorpiona musi być zajęty przez własną piechotę. Skorpion obozowy nie ma TQ, typu, Size ani MA i nie otrzymuje trafień. Gdy jednostka
+      epirocka wejdzie do heksu wieży, skorpion jest **automatycznie wyeliminowany**. Wart **0 RP**.
+    chain: "R-SC1-17 (nadpisuje R-9.81.1, R-9.87.1) → R-SC1-24"
+    refs: [R-SC1-17, R-9.81.1, R-9.87.1, R-SC1-24]
+  - id: Q-47
+    group: Scenariusz — Kanny
+    question: Kanny. Celtycka MI z SHOCK MUST CHECK TQ atakuje hastatów. Jakie modyfikatory mają testy przed walką? Czy tak samo pod Zamą?
+    answer: |
+      Hastati (obrońcy) dodają **+1** do rzutu testu przed walką („Swords of the Celts” — każdy atak z udziałem piechoty celtyckiej). Celtycka MI to nie BI, więc
+      bez DRM furii (9.94). Zasada dotyczy **tylko Kann** — pod Zamą nie.
+    chain: "R-8.43.1 → R-8.43.4 → R-SC3-14 (modyfikuje R-8.43.4); N-23 (odesłanie „8.33” w księdze)"
+    refs: [R-8.43.1, R-8.43.4, R-SC3-14, R-9.94.1, N-23]
+  - id: Q-48
+    group: Scenariusz — Kanny
+    question: Wariant prokonsulów. Serwiliusz, poza zasięgiem Warrona, chce wydać LC w swojej drugiej fazie impetu. Jaki wynik jest potrzebny?
+    answer: |
+      Rzut + 2 (druga faza impetu) musi dać **0–4** → potrzebny wynik **0–2**; 3–9 (po modyfikacji 5–9) — Serwiliusz jest skończony. Wariant pozwala na jeden taki
+      LC na turę i zastępuje zwykły rzut na strategię OC z –1 DRM prokonsula.
+    chain: "R-SC3-11 (nadpisuje R-4.33.3, R-4.56.1)"
+    refs: [R-SC3-11, R-4.33.3, R-4.56.1]
+  - id: Q-49
+    group: Scenariusz — Kanny
+    question: Kanny (8 legionów). Warron ginie. Kto jest OC? Czy po śmierci Paullusa można go zastąpić dowódcą zastępczym?
+    answer: |
+      OC zostaje **Paullus** (scenariusz nadpisuje 4.75). Paullusa, Serwiliusza i Atyliusza **nie** zastępuje się dowódcami zastępczymi. [wniosek] Jeśli zginie
+      też Paullus jako OC, OC może zostać prokonsul (Serwiliusz/Atyliusz) ze strategią 1 (4.56).
+    chain: "R-SC3-9 (nadpisuje R-4.75.1) → R-SC3-6 (nadpisuje R-4.74.1) → R-4.56.2"
+    refs: [R-SC3-9, R-4.75.1, R-SC3-6, R-4.74.1, R-4.56.2]
+  - id: Q-50
+    group: Scenariusz — Zama
+    question: Masynissa stoi daleko od Scypiona. Czy wyda LC w fazie początkowej? A w fazie impetu? Jak działa jego charyzma, gdy atakuje numidyjska LC bez niego w stosie?
+    answer: |
+      Faza początkowa — LC **automatycznie**, bez względu na położenie. Faza impetu — wg 4.33: rzut ≤ strategia Scypiona (+1, gdy linia w strefie kontroli wroga),
+      i tylko jeśli wydał LC w fazie początkowej. Charyzma „2C” działa tylko w stosie z jednostką jazdy numidyjskiej — bez stosu nie dodaje nic.
+    chain: "R-SC4-4 (wyjątek od R-4.33.3) → R-4.33.5 → R-8.46.7; T-34"
+    refs: [R-SC4-4, R-4.33.3, R-4.33.5, R-8.46.7, T-34]
+  - id: Q-51
+    group: Scenariusz — Zama
+    question: Scypion zamiast LC używa „Blow, Scipio, Blow”. Słoń afrykański ma TQ 5 i 1 trafienie; rzut 8. Skutek? Czy można to powtórzyć w następnej turze?
+    answer: |
+      8 > 5 → słoń otrzymuje **3 trafienia** (razem 4 < TQ 5 — nie ucieka; przy trafieniach ≥ TQ — ucieczka i szał wg zwykłych zasad). Rzuca się za każdego słonia
+      na mapie. Zasada działa **tylko raz w grze** i tylko zamiast LC Scypiona; w grze rywalizacyjnej zalecane jej pominięcie.
+    chain: "R-SC4-8 → R-10.21.1 → R-9.14.1; R-SC4-1"
+    refs: [R-SC4-8, R-10.21.1, R-9.14.1, R-SC4-1]
+  - id: Q-52
+    group: Scenariusz — Zama
+    question: Uciekająca kartagińska MI zaciężna cofa się wprost i wchodzi obok nieuciekającej falangi afrykańskiej (TQ 7). Rzut 8. A przy rzucie 5?
+    answer: |
+      8 > 7 → uciekająca jednostka zaciągu jest **wyeliminowana**, a falanga otrzymuje **1 trafienie**. Przy 5 ≤ 7 jednostka jest **automatycznie
+      zreorganizowana** bez dowódcy — czy z rzutem na Tabeli reorganizacji i osłabieniem, zob. N-45 (rekomendacja: tak, słaba).
+    chain: "R-SC4-9 (wyjątek od R-10.28.1, R-10.22.1) → N-45 → T-27"
+    refs: [R-SC4-9, R-10.28.1, R-10.22.1, N-45, T-27]
+  - id: Q-53
+    group: Scenariusz — Kynoskefalaj
+    question: Opcja mgły. Tura 5, gęsta mgła; rzut na podniesienie mgły — 2. Jaka jest widoczność i ile MA ma jednostka z MA 8? A przy rzucie 4?
+    answer: |
+      Tura 5: mgła podnosi się przy 0–3 → rzut 2 → **lekka mgła**: LOS maks. 10 heksów, MA –1 → **7**. Przy rzucie 4 zostaje **gęsta mgła**: LOS 5 heksów,
+      MA o połowę w górę → **4**.
+    chain: "R-SC5-6 → T-47 (tabele mgły)"
+    refs: [R-SC5-6, T-47]
+  - id: Q-54
+    group: Scenariusz — Kynoskefalaj
+    question: Kynoskefalaj, bitwa ustawiona, tura 1 — kto aktywuje się pierwszy i czy Filip może później użyć impetu?
+    answer: |
+      Gra zaczyna się od fazy EIO gracza macedońskiego z **Filipem** jako wybranym dowódcą, choć nie jest on elitarnym OC (tylko w 1. turze). Dowódca aktywowany
+      najpierw w fazie EIO może przy późniejszej aktywacji rzucić jeszcze na jeden impet (wyjątek 5.34).
+    chain: "R-SC5-10 (nadpisuje R-5.51.1) → R-5.52.1 → R-5.34.2"
+    refs: [R-SC5-10, R-5.51.1, R-5.52.1, R-5.34.2]
+  - id: Q-55
+    group: Scenariusz szkoleniowy
+    question: Scenariusz szkoleniowy. Kartagińczycy stracili oba słonie, jedną falangę afrykańską (TQ 7) i dwóch procarzy (SK). Czy się wycofują?
+    answer: |
+      Słonie się nie liczą. Falanga = 2 × 7 = 14 RP, dwaj SK = 2 × 2 = 4 RP → **18 RP < 25** — armia kartagińska się nie wycofuje.
+    chain: "R-SC6-3 (nadpisuje R-11.1.1) → R-11.1.1 → T-42"
+    refs: [R-SC6-3, R-11.1.1, T-42]
+  - id: Q-56
+    group: Karty PAC — rozbieżności
+    question: Słoń ucieka (szał); pierwszy rzut szału 8. Dokąd i o ile heksów idzie?
+    answer: |
+      Wprost od jednostki, która wywołała szał. Odległość: 9.14 — **3 heksy** na każdy rzut kierunku; karta szału (T-32) mówi „two hexes”. Rekomendacja: 3 heksy
+      (tekst 5. ed. ma pierwszeństwo) — N-25.
+    chain: "R-9.14.1 → R-9.14.3 → T-32 → N-25 → R-1.0.2"
+    refs: [R-9.14.1, R-9.14.3, T-32, N-25, R-1.0.2]
+  - id: Q-57
+    group: Karty PAC — rozbieżności
+    question: Trzecia jednostka — hastati XIV — przechodzi ruchem dobrowolnym przez stos HA i PR legionu XIV. Kto otrzymuje trafienia?
+    answer: |
+      Trzecia jednostka jest traktowana jak Basic: „1 Cohesion Hit for each unit”, a uwaga kart mówi, że skutki dotyczą jednostek ruszającej się i stojących →
+      **po 1 trafieniu hastati i obie jednostki stosu**. Przykład 6.63 wymienia tylko trafienie hastatów — N-32 (rekomendacja: karta, słaba).
+    chain: "R-6.63.1 → T-21 (przypis *, Basic) → R-6.63.2 → N-32"
+    refs: [R-6.63.1, T-21, R-6.63.2, N-32]
+  - id: Q-58
+    group: Scenariusz — Beneventum
+    question: Opcja pocisków zapalających. Skorpion strzela do słonia na zasięg 3. Jaki wynik trafia i co się dzieje po trafieniu?
+    answer: |
+      Wiersz „Scorpio (Flame)” w MRRC: zasięg 3 = **4**, więc trafia DR ≤ 4 (przy innych DRM — po modyfikacji). Bez dodatkowego +1 z księgi — wiersz Flame ma już tę
+      wadę wbudowaną (N-43). Trafiony słoń **automatycznie ucieka i wpada w szał**.
+    chain: "R-SC1-19 → T-22 (Scorpio (Flame)) → N-43 → R-9.14.1"
+    refs: [R-SC1-19, T-22, N-43, R-9.14.1]
+  - id: Q-59
+    group: Karty PAC — ruch
+    question: Falanga w kolumnie przekracza strumień i wchodzi do lasu. Ile MP i ile trafień?
+    answer: |
+      Strumień: +0 MP; trafienie dla PH ma przypis [e] — nie dotyczy falang w kolumnie → 0. Las [COL]: 2 MP i **1 trafienie** (koszt COL dotyczy też kolumny).
+      Razem **2 MP i 1 trafienie**. Falanga w kolumnie ma MA 6 (6.72).
+    chain: "R-6.27.1 → T-20 (Stream, Woods [COL], przypis e) → R-6.72.1"
+    refs: [R-6.27.1, T-20, R-6.72.1]

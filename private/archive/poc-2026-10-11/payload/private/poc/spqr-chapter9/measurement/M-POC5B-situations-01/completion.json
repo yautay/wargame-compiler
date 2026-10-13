@@ -1,0 +1,148 @@
+{
+  "id": "M-POC5B-situations-01-completion-01",
+  "card": "M-POC5B",
+  "recorded_at_utc": "2026-10-11T17:08:52.081367+00:00",
+  "status": "partial_waiting_review",
+  "manifest": {
+    "path": "private/poc/spqr-chapter9/reviews/situations-01/manifest.json",
+    "bytes": 3791,
+    "sha256": "af36511d5cc7e625c1f1c51853d7dfe5ccb0ac15224f78831ccbc13794b91bf1"
+  },
+  "state": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/current-state-32.json",
+    "bytes": 19148,
+    "sha256": "1548c8680ce902e10da0d51d15ed26ec405bacdb5e4e86974a75fadf45887b00"
+  },
+  "summary": {
+    "situation_ids": 20,
+    "assigned_answer_case_judgments": 40,
+    "per_answer_denominator": 20,
+    "frozen_expected_local_results": 17,
+    "frozen_expected_blocks": 3,
+    "evaluator_compared_occurrences": 40,
+    "owner_available_occurrences": 40,
+    "new_owner_decided_occurrences": 0,
+    "owner_pending_occurrences": 40,
+    "unreviewed_occurrences": 0,
+    "full_result_unassessed_despite_comparison_occurrences": 3,
+    "per_answer": {
+      "first-001": {
+        "correct_local_result": 15,
+        "justified_block": 3,
+        "unjustified_block": 1,
+        "unassessed": 1
+      },
+      "context-01": {
+        "correct_local_result": 14,
+        "justified_block": 3,
+        "unjustified_block": 1,
+        "unassessed": 2
+      }
+    },
+    "positive_scoped_occurrences": 35,
+    "separate_decision_occurrences": 5,
+    "proposal_wrong_result_occurrences": 0,
+    "global_zero_critical_errors_claimed": false,
+    "classification_policy": "Provisional evaluator judgments about stored rule representations, not executed model situation answers. All20IDs remain denominator; no partialvariantinflation.",
+    "meaningful_local_results_per_full20": {
+      "first-001": 15,
+      "context-01": 14
+    },
+    "expected_blocks_count_as_meaningful_result": false,
+    "full_quality_and_TP_FP_FN_precision_recall": "not_assessable",
+    "previous_inventory_decided_scopes": 414,
+    "old_pending_expectation_ids": [
+      "EXP-010",
+      "EXP-017",
+      "EXP-019",
+      "EXP-040",
+      "EXP-050",
+      "EXP-052",
+      "EXP-066",
+      "EXP-074"
+    ],
+    "old_unresolved_issue_ids": [
+      "SEM-001",
+      "SEM-002",
+      "SEM-003",
+      "SEM-004",
+      "SEM-005",
+      "SEM-006",
+      "SEM-007",
+      "SEM-008",
+      "SEM-009",
+      "SEM-010",
+      "SEM-011",
+      "SEM-012",
+      "SEM-013"
+    ]
+  },
+  "preflight": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5B-situations-01/preflight.json",
+    "bytes": 2577,
+    "sha256": "f06a0f6f00185f06acd2e67f15cb924e7504504574b43f74e521cc573a551118"
+  },
+  "estimate": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5B-situations-01/estimate.json",
+    "bytes": 1344,
+    "sha256": "1a468784c2025960a51ee8978d76f0694c173ffe94f78d8db6f661ce53c9292a"
+  },
+  "validation": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5B-situations-01/validation.json",
+    "bytes": 2198,
+    "sha256": "e04f99624b1fed005c52abc880e892dc20a63a631445db761dced6ce9e14a5de"
+  },
+  "read_inputs": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5B-situations-01/read-inputs.json",
+    "bytes": 48162,
+    "sha256": "b70372bf4326d1edf116961dc24fc468b5a143d1a68f9d4e5a49d37b68a98aee"
+  },
+  "approval": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/owner-decision-15.json",
+    "bytes": 5709,
+    "sha256": "2499f41bdc78256f96a2d76c1c1ad67b7560156cdf2c8846f76943b320720ee4"
+  },
+  "checks": {
+    "result": {
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\poc\\_checks\\active-eda3cf10038041509ee83a782fcbab82\\pytest",
+      "tests_exit": 0,
+      "diff_exit": 0
+    },
+    "result_file": {
+      "path": "private/poc/_checks/active-eda3cf10038041509ee83a782fcbab82/result.json",
+      "bytes": 161,
+      "sha256": "a66aa32e12a7b040ba2612070cf40c9b3d888e343d0cd2d26759cc430a819566"
+    },
+    "pytest_log": {
+      "path": "private/poc/_checks/active-eda3cf10038041509ee83a782fcbab82/pytest.log",
+      "bytes": 264,
+      "sha256": "f3492a1391ac9b5d6b5439c9d67b16ed9e403d455cd9a327d47152ce81563fd2"
+    },
+    "diff_log": {
+      "path": "private/poc/_checks/active-eda3cf10038041509ee83a782fcbab82/diff-check.log",
+      "bytes": 685,
+      "sha256": "4ed7f5f6905a7be0fcd71817a103c2b9c33ed88b5e0beb9a948ddbc07f31836c"
+    }
+  },
+  "operational_notes": [
+    "A draft assembly used path subscripting instead of a path join; corrected before anyresults were written. Originalinputs untouched."
+  ],
+  "first_recorded_calendar_time": "2026-10-11T16:46:46.533741+00:00",
+  "calendar_time_is_active": false,
+  "model_reasoning_selectors": "unknown",
+  "active_user_time": "unknown",
+  "active_model_time": "unknown",
+  "tokens": "unknown",
+  "price": "unknown",
+  "overall_budget_compliance": "unknown",
+  "new_sources": 0,
+  "new_extractions": 0,
+  "new_corrections": 0,
+  "new_gold": 0,
+  "new_model_situation_responses": 0,
+  "engine_used": false,
+  "compared40": true,
+  "owner_pending40": true,
+  "M_POC5_closed": false,
+  "next_action": "Owner review of35positive judgments and2candidateunjustifiedblocks/2Triariiheld/1contextLCheld in situations-01 owner-focus. Preserve old8pending/13issues and frozeneval. FormalM-POC5closure requires actual decisions; M-POC6/7 not started."
+}

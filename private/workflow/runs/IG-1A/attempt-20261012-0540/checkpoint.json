@@ -1,0 +1,53 @@
+{
+  "task": "IG-1A",
+  "attempt": "attempt-20261012-0540",
+  "actor": "ig-1a-executor-20261012-0540",
+  "started_utc": "2026-10-12T14:51:29.775886+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/configuration.json",
+    "sha256": "d26b08a66d911264efae6580112c3cf29de5b4ae3c33fde80bb2492d6b37a620"
+  },
+  "input_packet": {
+    "path": "private/workflow/packets/IG-1A-97584a53f0bb4e39b098f0947cac5e83/manifest.json",
+    "sha256": "b646eee15539050aca43532e5f6d5a7ffb8dea1acf73326cd42b12460bbade37"
+  },
+  "input_context": {
+    "path": "private/workflow/packets/IG-1A-97584a53f0bb4e39b098f0947cac5e83/context.txt",
+    "sha256": "e2196f03fecabb5d6f2afa1161b6778cbefcb27693bc2a7a35e1c4eec0eb9c12"
+  },
+  "base_files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "31a84d76b25a455a0b6905266094151a817a35e9b3c0eb4e3e4fa6a4e33f0d37"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "sha256": "8a093fcf6a21ae7fcf077a838d9d2883ea76649dff3ff4cd400e51fa3589e9b3"
+    },
+    {
+      "path": "docs/work/queue.json",
+      "sha256": "7660bb12525aa9a02b194b973c72ed96972e1f9f8dff362dddb992ac10ee5d97"
+    }
+  ],
+  "changed_files": [],
+  "completed_criteria": [],
+  "checks": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "result": "IG-1A"
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py packet --task IG-1A",
+      "exit_code": 0
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Implement source schema, contract validator, synthetic fixtures and tests within the task write scope."
+}

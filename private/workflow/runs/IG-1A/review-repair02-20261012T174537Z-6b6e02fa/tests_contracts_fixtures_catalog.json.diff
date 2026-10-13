@@ -1,0 +1,60 @@
+--- repair-01/tests/contracts/fixtures/catalog.json
++++ repair-02/tests/contracts/fixtures/catalog.json
+@@ -434,6 +434,57 @@
+         "execution": "blocked"
+       },
+       "error_contains": null
++    },
++    {
++      "file": "invalid-exclusion-inventory-aspect.json",
++      "valid": false,
++      "expectation": "Inventory revision pins for coverage/exclusion must be whole records; an aspect cannot stand for the partition.",
++      "basis": "Independent F2-R1 counterexample; README full-record inventory basis and whole revision freshness.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "invalid-exclusion-inventory-aspect-stale.json",
++      "valid": false,
++      "expectation": "Inventory revision pins for coverage/exclusion must be whole records; an aspect cannot stand for the partition.",
++      "basis": "Independent F2-R1 counterexample; README full-record inventory basis and whole revision freshness.",
++      "report": {},
++      "error_contains": "schema"
++    },
++    {
++      "file": "valid-exclusion-full-inventory-with-aspect.json",
++      "valid": true,
++      "expectation": "An inventory may contain aspects while its exclusion decision pins the whole record.",
++      "basis": "F2-R1 preserves aspects as content but requires a full-record boundary basis.",
++      "report": {
++        "transcription_represented": 1,
++        "transcription_excluded": 1
++      },
++      "error_contains": null
++    },
++    {
++      "file": "invalid-exclusion-full-inventory-changed.json",
++      "valid": false,
++      "expectation": "A changed whole inventory revision invalidates its old exclusion even when the reviewed aspect hash is unchanged.",
++      "basis": "F2-R1 whole-revision freshness; no scope transfer through stable aspects.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-exclusion-aspect-only-review-basis.json",
++      "valid": false,
++      "expectation": "Whole boundary pins cannot be authorized by an aspect-only inventory basis.",
++      "basis": "F2-R1 requires the exact full-record inventory reference in the decision basis.",
++      "report": {},
++      "error_contains": "exact inventory/region/level boundary"
++    },
++    {
++      "file": "invalid-exclusion-aspect-only-boundary-pin.json",
++      "valid": false,
++      "expectation": "Boundary metadata independently forbids an aspect pin even when coverage and basis use whole records.",
++      "basis": "F2-R1 full-record boundary shape.",
++      "report": {},
++      "error_contains": "schema"
+     }
+   ]
+ }

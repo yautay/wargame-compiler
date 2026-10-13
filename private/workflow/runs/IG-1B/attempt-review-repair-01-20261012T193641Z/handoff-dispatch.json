@@ -1,0 +1,34 @@
+{
+  "task": "IG-1B",
+  "recorded_utc": "2026-10-12T19:50:48.267030+00:00",
+  "delivery": {
+    "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/delivery.json",
+    "sha256": "cf1c928b34aa70ae5b7cf59928baa273c45b02fc26331f8f534f6d1d8056c236"
+  },
+  "all_66_artifacts_match_after_transition": true,
+  "queue_state": "review",
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "b885ed281d0a374f259515635cdbe8f53a48393860a238cabe8b5c60a59a5b51"
+  },
+  "all_ig_1b_event_hashes_match": true,
+  "repair_cycles": {
+    "F1": 1
+  },
+  "dispatch": {
+    "thread_id": "01a13172-806d-7fe0-8805-9a032988cbb7",
+    "host_id": "local",
+    "result": "Follow-up message accepted by the existing authorized reviewer session",
+    "prompt": {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/rereview-prompt.md",
+      "sha256": "ab64889115bd7fa76712473a0aa0572d7c37fdf7e6e99d04a7689d6fd1c78ba9"
+    },
+    "human_authorization": "Current operator said Kontynuuj after the stated bounded F1 repair and independent re-review; the reviewer session was explicitly authorized earlier.",
+    "new_thread_created": false,
+    "model_override": null,
+    "reasoning_override": null
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "next_action": "Wait for independent F1 disposition, then verify its pinned evidence before coordinator action."
+}

@@ -1,0 +1,83 @@
+# wargame_utils project file — read by every /wgu:* skill and the `wgu` CLI.
+schema: wgu/project@1
+game:
+  id: spqr                 # short machine id (lowercase)
+  title: "Great Battles of the Roman Republic (SPQR)"                # full title of the rules document
+  short: SPQR           # abbreviation used in headings
+  rules_version: "5th Edition"
+  publisher: "GMT Games"
+  rule_id_prefix: "R-"     # rule ids: R-<section>.<n>; title-specific: R-<TITLE>-<n>; optional: R-OPT-<x>.<n>
+language:
+  source: en
+  target: pl
+sources:
+  rules:                   # role: current | previous | other
+    - {path: docs/SPQR+Deluxe_Rule+book_WEB.pdf, version: "5th Edition", role: current}
+  errata: []               # errata / FAQ / designer clarifications (pdf, md, url)
+  charts:                  # charts & tables sheets — needed for digitization
+    - {path: "docs/update/Alt Missile Table.png", role: current}
+    - {path: "docs/update/BI Shock.png", role: current}
+    - {path: "docs/update/Ch Shock.png", role: current}
+    - {path: "docs/update/Clash.png", role: current}
+    - {path: "docs/update/CohTq.png", role: current}
+    - {path: "docs/update/CommSumm.png", role: current}
+    - {path: "docs/update/Doom.png", role: current}
+    - {path: "docs/update/EL Shock.png", role: current}
+    - {path: "docs/update/Example.png", role: current}
+    - {path: "docs/update/HC Shock.png", role: current}
+    - {path: "docs/update/HI Shock.png", role: current}
+    - {path: "docs/update/LC Shock.png", role: current}
+    - {path: "docs/update/LeadChk.png", role: current}
+    - {path: "docs/update/LeaderCas.png", role: current}
+    - {path: "docs/update/Legend.png", role: current}
+    - {path: "docs/update/LG Shock.png", role: current}
+    - {path: "docs/update/LI Shock.png", role: current}
+    - {path: "docs/update/LN Shock.png", role: current}
+    - {path: "docs/update/MI Shock.png", role: current}
+    - {path: "docs/update/Missile Table.png", role: current}
+    - {path: "docs/update/Missile.png", role: current}
+    - {path: "docs/update/MovChart.png", role: current}
+    - {path: "docs/update/PH Shock.png", role: current}
+    - {path: "docs/update/PlayerAidDisplay.jpg", role: current}
+    - {path: "docs/update/Rally.png", role: current}
+    - {path: "docs/update/Rampage.png", role: current}
+    - {path: "docs/update/RC Shock.png", role: current}
+    - {path: "docs/update/RomanCamp.png", role: current}
+    - {path: "docs/update/ShockCmbt1.png", role: current}
+    - {path: "docs/update/ShockSup.png", role: current}
+    - {path: "docs/update/SOP.png", role: current}
+    - {path: "docs/update/StackRout2.png", role: current}
+    - {path: "docs/update/StackVol2.png", role: current}
+    - {path: "docs/update/Trebbia_Metaurus Terrain chart.png", role: current}
+  scenarios:
+    - {path: docs/scen_book/SPQR-Scenario-Book-2018-5.pdf, version: "2018 (4th Edition)", role: current}
+pdf:
+  accent_color: ""         # brak koloru zmian wersji: #3953A4 to nagłówki rozdziałów, #ED1F24 to ▲ i etykiety „IMPORTANT:” (zob. kb/manifest.yaml)
+  heading_font: "Trajan"   # tylko tytuły ozdobne; nagłówki reguł to Times New Roman Bold, rozpoznawane po numerze
+  columns: 2
+translation:
+  main: tex/spqr-instrukcja.tex   # instrukcja 5. ed.; księga scenariuszy: tex/spqr-scenariusze.tex (osobny dokument, osobna oprawa)
+  dir: tex
+  style: spqr-style.sty    # instrukcja; księga scenariuszy: spqr-scen-style.sty
+  glossary: docs/przewodnik_stylu.md
+  images: png
+kb:
+  dir: kb                  # canonical YAML knowledge base
+  views: kb/_views         # generated Markdown (wgu kb render)
+aids:
+  specs: kb/aids           # aid specifications (YAML)
+  plan: kb/aids/PLAN.md
+  tex: pomoce
+  pdf: pomoce/pdf
+  style: ""                # .sty with fonts/colours used by aids (default: translation.style)
+  tikz: pomoce/pomoce-tikz.sty
+digital:
+  dir: kb/digital
+  export: build/wgu-kb.json
+terminology:
+  layers: [common, era/ancient, series/gboh]         # shared layers from <wargame_utils>/terminology/: common, era/<x>, series/<x>
+  game: kb/terminology.yaml  # this game + edition (most specific layer)
+translation_work:
+  dir: translation         # chunks, per-chunk term tables, agent proposals, decision log, verification reports
+tools:
+  lualatex: ""             # empty = find on PATH / MiKTeX default location

@@ -1,0 +1,337 @@
+chapter: {id: "5", title: "5.0 Aktywacja dowódców i rozkazy (Leader Activation and Orders)"}
+rules:
+  - id: R-5.0.1
+    title: Rozkazy tylko od aktywowanego dowódcy; „orders” obejmuje LC
+    section: "5.0"
+    source: {text: "oryg. 5.0 + „IMPORTANT”, s. 11", pages: "11"}
+    effect: |
+      Jednostki bojowe ruszają się i walczą tylko na rozkaz dowódców, wydawany (IO lub LC) w fazie rozkazów. Dowódca nie wydaje
+      rozkazów, dopóki nie zostanie aktywowany. Impet pozwala dać aktywowanemu dowódcy **do dwóch** dodatkowych faz rozkazów;
+      przejęcie (Trump) — aktywować dowódcę wcześniej niż zwykle. **Ważne:** słowo „orders” oznacza także rozkaz liniowy, chyba że
+      zasada wprost używa terminu IO dla odróżnienia od LC.
+    keywords: [rozkazy, aktywacja, impet, przejęcie, orders]
+    refs: [R-5.14.1, R-5.31.1, R-5.41.1]
+  - id: R-5.11.1
+    title: Dowódcy zaczynają turę nieaktywni
+    section: "5.11"
+    source: {text: "oryg. 5.11, s. 11", pages: "11"}
+    effect: |
+      Wszyscy dowódcy zaczynają turę jako nieaktywni; każdy może zostać aktywowany i wydać rozkazy, po czym staje się skończony.
+      Rzadko skończony dowódca może zostać ponownie aktywowany (5.33).
+    see: R-5.33.1
+    keywords: [nieaktywny, skończony, ponowna aktywacja]
+    refs: [R-5.33.1]
+  - id: R-5.12.1
+    title: Kolejność aktywacji — od najniższej inicjatywy; remisy
+    section: "5.12"
+    source: {text: "oryg. 5.12 + przykład (Bagradas), s. 11", pages: "11"}
+    effect: |
+      Faza aktywacji zaczyna się od aktywowania przez gracza jednego z jego dowódców. Dowódców aktywuje się w kolejności inicjatywy,
+      **od najniżej ocenianego**. Przy remisie między stronami obaj gracze rzucają kością — **wyższy wynik idzie pierwszy**; potem
+      gracze naprzemiennie aktywują pozostałych dowódców o tej samej wartości. Gdy dwóch dowódców tej samej strony ma tę samą
+      inicjatywę, kolejność wybiera ich właściciel.
+    exceptions: Przejęcie (R-5.41.1), faza EIO (R-5.51.1), dowódca w strefie kontroli wroga (R-5.12.2, R-5.26.2).
+    notes: |
+      Przykład (Bagradas, 1. tura): najpierw dwaj prefekci sprzymierzeńców, potem trybuni/prefekci jazdy, potem Bostar i Hamilkar; Regulus i Hasdrubal (oba 5) —
+      rzut, kto pierwszy.
+    keywords: [kolejność aktywacji, najniższa inicjatywa, remis, rzut]
+    refs: [R-5.41.1, R-5.51.1, R-5.12.2, R-5.26.2]
+  - id: R-5.12.2
+    title: Dowódca w strefie kontroli wroga może pozostać nieaktywny
+    section: "5.12"
+    source: {text: "oryg. 5.12, s. 11", pages: "11"}
+    effect: Dowódca w strefie kontroli wroga, gdy przychodzi jego kolej, może się aktywować (5.26) albo pozostać nieaktywny.
+    see: R-5.26.2
+    keywords: [strefa kontroli, nieaktywny, aktywacja]
+    refs: [R-5.26.2]
+  - id: R-5.13.1
+    title: Aktywować można tylko dowódcę jeszcze nieaktywowanego w tej turze
+    section: "5.13"
+    source: {text: "oryg. 5.13, s. 11", pages: "11"}
+    effect: Do aktywacji uprawnieni są tylko nieaktywni dowódcy, którzy w tej turze nie byli jeszcze aktywowani.
+    exceptions: Impet (5.3), ponowna aktywacja (5.33), dowódcy elitarni (5.5).
+    keywords: [aktywacja, uprawnienie]
+    refs: [R-5.31.1, R-5.33.1, R-5.51.1]
+  - id: R-5.14.1
+    title: Najwyżej 3 aktywacje z rzędu (2 z impetu)
+    section: "5.14"
+    source: {text: "oryg. 5.14, s. 11", pages: "11"}
+    effect: Dowódca może być aktywowany najwyżej **3 razy z rzędu** w jednej turze; dwa ostatnie razy — dzięki impetowi.
+    exceptions: Ponowna aktywacja (5.33); w zakresie wymogu „z rzędu” — inicjatywa elitarna (5.5, R-5.52.1).
+    keywords: [impet, limit aktywacji, 3 razy]
+    refs: [R-5.33.1, R-5.52.1, T-04]
+  - id: R-5.15.1
+    title: Kiedy dowódca staje się skończony
+    section: "5.15"
+    source: {text: "oryg. 5.15, s. 11", pages: "11"}
+    effect: |
+      Dowódca jest skończony, gdy: 1) zakończył fazę rozkazów i nie podejmuje (lub nie może podjąć) próby impetu; 2) został
+      przejęty (Trumped) przez dowódcę wroga; 3) nie udała mu się próba przejęcia lub impetu; 4) gracz z niego rezygnuje (pas —
+      ale zob. 5.26); 5) zachodzą warunki z 5.26; 6) nastąpiło uprzednio zaplanowane wycofanie (6.8), gdy dozwolone. Żeton odwraca
+      się na stronę Finished; skończony dowódca nie przeprowadza w tej turze kolejnych faz rozkazów.
+    exceptions: Ponowna aktywacja (5.33).
+    keywords: [skończony, Finished, pas, przejęcie, impet]
+    refs: [R-5.26.1, R-5.26.2, R-6.81.1, R-5.33.1]
+  - id: R-5.21.1
+    title: Aktywowany dowódca — IO w liczbie inicjatywy albo LC
+    section: "5.21"
+    source: {text: "oryg. 5.21 + przykład, s. 11", pages: "11"}
+    effect: |
+      Aktywowany dowódca może wydać tyle IO, ile wynosi jego inicjatywa, jednostkom w zasięgu dowodzenia (4.2), **albo** wydać
+      rozkazy liniowe (4.3). Może wydać mniej (lub nic), nie więcej. Przykład: Hannibal — do 7 IO albo 2 LC.
+    see: R-4.21.1, R-4.31.1
+    keywords: [rozkaz indywidualny, rozkaz liniowy, inicjatywa, Hannibal]
+    refs: [R-4.21.1, R-4.31.1]
+  - id: R-5.22.1
+    title: Co pozwala zrobić jeden rozkaz indywidualny
+    section: "5.22"
+    source: {text: "oryg. 5.22 „Individual Orders”, s. 11–12", pages: "11-12"}
+    effect: |
+      Każdy IO pozwala zrobić **jedno** z: 1) ruszyć jedną własną jednostkę (większość jednostek strzelających może strzelać
+      w dowolnym momencie ruchu); 2) ostrzał jedną jednostką bez ruchu; 3) usunąć trafienia z jednej jednostki (10.16);
+      4) próbować zreorganizować jedną uciekającą jednostkę (10.28); 5) zastąpić wyeliminowanego dowódcę (4.74); 6) zmienić
+      kolejność w jednym stosie jednostek rzymskich (6.66); 7) przegrupować i zawrócić jazdę spoza mapy (8.64) — tylko OC, zużywa
+      wszystkie IO fazy.
+    see: R-10.16.1, R-10.28.1, R-4.74.1, R-6.66.1, R-8.64.1
+    keywords: [rozkaz indywidualny, ruch, ostrzał, odzyskanie spójności, reorganizacja]
+    refs: [R-10.16.1, R-10.28.1, R-4.74.1, R-6.66.1, R-8.64.1]
+  - id: R-5.22.2
+    title: IO tylko jednostkom, którymi dowódca może dowodzić; ruch dowódców
+    section: "5.22"
+    source: {text: "oryg. 5.22, s. 12", pages: "12"}
+    effect: |
+      Dowódca wydaje IO tylko jednostce, którą może dowodzić (4.35, 4.52 itd.). Może rozkazać ruch sobie, ale nie w strefie kontroli
+      wroga (z wyjątkiem OC). Tylko OC może wydać rozkaz ruchu innemu dowódcy; kosztuje to 2 IO, jeśli tamten jest w strefie
+      kontroli wroga.
+    see: R-4.35.1, R-4.52.1, R-4.4.3
+    keywords: [rozkaz indywidualny, ograniczenie dowodzenia, ruch dowódcy, 2 IO]
+    refs: [R-4.35.1, R-4.52.1, R-4.4.3]
+  - id: R-5.23.1
+    title: Co pozwala zrobić jeden rozkaz liniowy
+    section: "5.23"
+    source: {text: "oryg. 5.23 „Line Commands”, s. 12", pages: "12"}
+    effect: |
+      Każdy LC pozwala zrobić **jedno** z: 1) ruszyć dowolne/wszystkie własne jednostki jednej linii (4.32), w tym rozszerzenie
+      linii manipularnej (9.66); strzelać mogą tylko jednostki, które się ruszają (i są zdolne do ostrzału); **albo**
+      2) ostrzał dowolnymi/wszystkimi jednostkami jednej linii **bez** ruchu. W obu przypadkach dowódca wydający LC może się ruszyć.
+    see: R-4.32.1, R-9.68.1, R-4.34.1
+    keywords: [rozkaz liniowy, ruch, ostrzał, rozszerzenie linii]
+    refs: [R-4.32.1, R-9.68.1, R-4.34.1]
+  - id: R-5.24.1
+    title: Jednostka rusza się/strzela najwyżej raz na fazę rozkazów
+    section: "5.24"
+    source: {text: "oryg. 5.24 + przykład (Kanny), s. 12", pages: "12"}
+    effect: |
+      Jednostka może dostać rozkaz ruchu/ostrzału więcej niż raz w turze, ale nie może ruszać się i/lub strzelać więcej niż raz
+      w jednej fazie rozkazów (6.11, 6.12). Ograniczenie nie dotyczy dowódców.
+    see: R-6.11.1, R-6.12.1
+    keywords: [raz na fazę, ruch, ostrzał]
+    refs: [R-6.11.1, R-6.12.1]
+  - id: R-5.25.1
+    title: Rozkazy nie wywołują walki wręcz; ostrzał reakcyjny bez rozkazu
+    section: "5.25"
+    source: {text: "oryg. 5.25, s. 12", pages: "12"}
+    effect: |
+      IO/LC nie służą do bezpośredniego wywołania walki wręcz — ta odbywa się w osobnym segmencie (8.4). Rozkazy służą do ostrzału
+      (8.1). Ostrzał reakcyjny (8.2) nie wymaga rozkazu — jest odpowiedzią na działania wroga.
+    see: R-8.4.1, R-8.11.1, R-8.24.1
+    keywords: [walka wręcz, ostrzał, ostrzał reakcyjny, rozkazy]
+    refs: [R-8.4.1, R-8.11.1, R-8.24.1]
+  - id: R-5.26.1
+    title: Dowódca w strefie kontroli wroga — zasięg nadal umożliwia walkę wręcz
+    section: "5.26"
+    source: {text: "oryg. 5.26 + przykład (Hanno), s. 12", pages: "12"}
+    when: dowódca inny niż OC zajmuje heks w strefie kontroli wroga
+    effect: |
+      Nie może wydawać rozkazów (4.24, 4.33), ale jego zasięg dowodzenia może posłużyć do wyznaczenia jednostek do walki wręcz
+      w segmencie walki wręcz tej fazy (7.33). Nie staje się skończony tylko z powodu strefy kontroli; jest skończony (i nie może
+      zostać aktywowany), jeśli zachodzi którykolwiek punkt 5.15 **albo** użył zasięgu do umożliwienia walki wręcz. Przykład:
+      Hanno w strefie kontroli umożliwia walkę wręcz → jest skończony i nie może zostać aktywowany, nawet gdy Hannibal go potem
+      wyprowadzi.
+    see: R-4.24.1, R-7.33.1, R-5.15.1
+    keywords: [strefa kontroli, zasięg dowodzenia, walka wręcz, skończony]
+    refs: [R-4.24.1, R-7.33.1, R-5.15.1]
+  - id: R-5.26.2
+    title: Dowódca zaczynający w strefie kontroli może czekać; potem aktywacja przymusowa
+    section: "5.26"
+    source: {text: "oryg. 5.26, s. 12", pages: "12"}
+    effect: |
+      Dowódca, który zaczyna swoją początkową fazę rozkazów w strefie kontroli wroga, może pozostać nieaktywny i nic nie robić
+      (wyjątek od 5.15 pkt 4 — pas nie kończy go). Jeśli później w tej turze przestanie być w strefie kontroli wroga, gracz
+      **musi** aktywować go przed jakimkolwiek innym dowódcą; tak aktywowany dowódca **nie może użyć impetu**. Jest skończony,
+      jeśli nadal jest w strefie kontroli wroga, gdy wszyscy pozostali dowódcy są skończeni lub w strefie kontroli wroga.
+    keywords: [strefa kontroli, nieaktywny, aktywacja przymusowa, impet]
+    refs: [R-5.15.1]
+  - id: R-5.27.1
+    title: Po rozkazach — segment walki wręcz
+    section: "5.27"
+    source: {text: "oryg. 5.27, s. 12", pages: "12"}
+    effect: Gdy dowódca wyda wszystkie rozkazy, które chce (lub może), własne jednostki walczą wręcz w następującym segmencie walki wręcz (wstęp do 8.4).
+    see: R-8.4.1
+    keywords: [walka wręcz, segment]
+    refs: [R-8.4.1]
+  - id: R-5.28.1
+    title: Koniec fazy rozkazów — impet albo nowy dowódca
+    section: "5.28"
+    source: {text: "oryg. 5.28, s. 12", pages: "12"}
+    effect: |
+      Po walce wręcz faza rozkazów się kończy. Wtedy: 1) gracz może próbować uzyskać fazę impetu (5.3) tym samym dowódcą; **albo**
+      2) aktywuje się nowego dowódcę (powrót do fazy A). Gdy wszyscy dowódcy są skończeni — faza ucieczki i przeładowania (D).
+    see: R-5.31.1, R-3.0.7
+    keywords: [koniec fazy, impet, faza A]
+    refs: [R-5.31.1, R-3.0.7]
+  - id: R-5.31.1
+    title: Impet — warunki próby
+    section: "5.31"
+    source: {text: "oryg. 5.31, s. 12", pages: "12"}
+    effect: |
+      Na koniec fazy rozkazów gracz może spróbować dodatkowej fazy rozkazów aktywnym dowódcą, który właśnie skończył wydawać rozkazy.
+      Dowódca musi zdać rzut na impet i **nie może**: być w strefie kontroli wroga ani wcześniej w niej przebywać (5.26); być
+      wcześniej przejęty ani pominięty (Bypassed, 5.44); być skończony (5.15).
+    keywords: [impet, Momentum, warunki, strefa kontroli, pominięty]
+    refs: [R-5.26.2, R-5.44.2, R-5.15.1]
+  - id: R-5.32.1
+    title: Rzut na impet — wynik ≤ inicjatywa
+    section: "5.32"
+    source: {text: "oryg. 5.32 + przykład, s. 12", pages: "12"}
+    effect: |
+      Gracz rzuca kością i porównuje wynik z inicjatywą dowódcy: wynik **≤ inicjatywie** — dowódca zaczyna kolejną fazę rozkazów (B);
+      wyższy — dowódca jest skończony. Przykład: Hannibal (7) potrzebuje 0–7; 8 lub 9 go kończy.
+    exceptions: Wynik 9 — rzut zagłady (R-5.33.1).
+    keywords: [impet, rzut, inicjatywa]
+    refs: [R-5.33.1, T-04]
+  - id: R-5.33.1
+    title: Rzut zagłady (Die Roll of Doom) — 9 na impet
+    section: "5.33"
+    source: {text: "oryg. 5.33, s. 12", pages: "12"}
+    when: rzut na impet dał 9
+    effect: |
+      Natychmiast rzuca się ponownie: **0–1** — możliwa ponowna aktywacja: gra przechodzi do przeciwnika, który może aktywować
+      dowolnego swojego dowódcę, **także skończonego**; ponownie aktywowany skończony dowódca nie może sam użyć impetu; dowódca
+      próbujący impetu jest skończony. **2–8** — dowódca próbujący impetu jest skończony. **9** — w tej turze nie ma już aktywacji;
+      gra przechodzi od razu do fazy ucieczki i przeładowania (D).
+    keywords: [rzut zagłady, Die Roll of Doom, ponowna aktywacja, wynik 9]
+    refs: [T-04]
+  - id: R-5.34.1
+    title: Impet tylko dla dowódcy, który właśnie skończył fazę
+    section: "5.34"
+    source: {text: "oryg. 5.34, s. 12–13", pages: "12-13"}
+    effect: |
+      Rzut na impet dotyczy tylko dowódcy, który **właśnie** zakończył fazę rozkazów. Nie można go zastosować do dowódcy, który
+      skończył kilka faz wcześniej, ani do dowódcy ponownie aktywowanego (5.33).
+    exceptions: Dowódca aktywowany najpierw dzięki zasadzie elitarnej (5.5), aktywowany ponownie później w tej turze, może nadal rzucić na jeden dodatkowy impet (R-5.34.2).
+    keywords: [impet, ponowna aktywacja]
+    refs: [R-5.33.1, R-5.34.2]
+  - id: R-5.34.2
+    title: Wyjątek — dowódca z fazy EIO zachowuje jeden impet
+    section: "5.34"
+    source: {text: "oryg. 5.34 „Exception”, s. 13", pages: "13"}
+    effect: Dowódca aktywowany najpierw na mocy zasady elitarnej (5.5), aktywowany ponownie później w tej turze, może jeszcze rzucić na jeden dodatkowy impet.
+    see: R-5.52.1
+    keywords: [EIO, impet, dowódca elitarny]
+    refs: [R-5.52.1]
+  - id: R-5.41.1
+    title: Przejęcie przez gracza aktywnego
+    section: "5.41"
+    source: {text: "oryg. 5.41 „Active Player Trump Option” + przykład (Kanny), s. 13", pages: "13"}
+    effect: |
+      Gracz, który normalnie aktywowałby swojego najniżej ocenianego dowódcę, może zamiast tego spróbować aktywować innego
+      nieaktywnego własnego dowódcę o **wyższej** inicjatywie: musi wyrzucić **≤ inicjatywie tego (wyższego) dowódcy**. Sukces —
+      ten dowódca jest aktywowany; porażka — aktywowany jest pierwotnie wyznaczony dowódca, a próbujący przejęcia jest skończony.
+      Przykład: Kanny, zamiast Serwiliusza próba z Paullusem — 0–5 sukces, 6–9 porażka (Serwiliusz idzie, Paullus skończony).
+    keywords: [przejęcie, Trump, inicjatywa, gracz aktywny]
+    refs: [T-04]
+  - id: R-5.42.1
+    title: Przejęcie przejęcia (Trumping the Trump)
+    section: "5.42"
+    source: {text: "oryg. 5.42 pkt 1 + przykład, s. 13", pages: "13"}
+    when: tylko jeśli przejęcie gracza aktywnego (5.41) się udało
+    effect: |
+      Przeciwnik może spróbować przejąć tę aktywację swoim nieaktywnym dowódcą o **równej lub wyższej** inicjatywie (rzut ≤ jego
+      inicjatywie). Sukces — jego dowódca jest natychmiast aktywowany, a przejęty dowódca jest skończony; porażka — idzie dowódca
+      aktywowany pierwszym przejęciem, a próbujący jest skończony. Przykład: Maharbal (6) rzuca 7 — Paullus zostaje, Maharbal skończony.
+    keywords: [przejęcie przejęcia, Trump]
+    refs: [R-5.41.1]
+  - id: R-5.42.2
+    title: Przejęcie impetu (Momentum Trump)
+    section: "5.42"
+    source: {text: "oryg. 5.42 pkt 2 + przykład, s. 13", pages: "13"}
+    when: gracz aktywny zdał rzut na impet (5.32)
+    effect: |
+      Przeciwnik może próbować przejęcia tak samo jak w 5.42 pkt 1. Przykład: Paullus uzyskał impet; Kartagińczyk próbuje Hannibalem,
+      rzuca 6 — teraz faza rozkazów Hannibala, a Paullus jest skończony.
+    keywords: [przejęcie impetu, Momentum Trump]
+    refs: [R-5.42.1, R-5.32.1]
+  - id: R-5.42.3
+    title: Po przejęciu — powrót do kolejności od najniższego
+    section: "5.42"
+    source: {text: "oryg. 5.42 (akapit końcowy), s. 13", pages: "13"}
+    effect: |
+      Gdy dowódca, który skutecznie przejął aktywację, zakończy swoje fazy rozkazów, gra wraca do standardowej procedury: aktywuje się najniżej oceniany dowódca.
+    keywords: [przejęcie, kolejność aktywacji]
+    refs: [R-5.12.1]
+  - id: R-5.43.1
+    title: Jedna próba przejęcia na stronę na aktywację
+    section: "5.43"
+    source: {text: "oryg. 5.43, s. 13", pages: "13"}
+    effect: Każda strona ma tylko **jedną** próbę przejęcia na każdą aktywację dowódcy.
+    keywords: [przejęcie, limit]
+  - id: R-5.44.1
+    title: Nieudane przejęcie lub bycie przejętym kończy dowódcę
+    section: "5.44"
+    source: {text: "oryg. 5.44, s. 13", pages: "13"}
+    effect: Dowódca, któremu nie udała się próba przejęcia, albo który został przejęty przez dowódcę przeciwnika (5.42), jest skończony.
+    keywords: [przejęcie, skończony]
+  - id: R-5.44.2
+    title: Dowódca pominięty (Bypassed) — bez impetu
+    section: "5.44"
+    source: {text: "oryg. 5.44 + Play Note (Zama), s. 13", pages: "13"}
+    effect: |
+      Nieaktywny dowódca **którejkolwiek strony**, „przeskoczony” przez udane przejęcie (jego inicjatywa jest **równa lub niższa**
+      od inicjatywy dowódcy przejmującego), jest dowódcą pominiętym: nadal może zostać aktywowany (zwykle i tak jest następny), ale
+      **nie może użyć impetu**. Oznacza się to znacznikami TRUMPED/NO MOMENTUM. Przykład (Zama): gdy Hannibal przejmie impet
+      Leliusza, wszyscy pozostali dowódcy obu stron, którzy jeszcze nie działali, dostaną tylko po jednej fazie rozkazów.
+    keywords: [pominięty, Bypassed, impet, TRUMPED, NO MOMENTUM]
+  - id: R-5.45.1
+    title: Dowódca, który przejął aktywację, musi coś zrobić
+    section: "5.45"
+    source: {text: "oryg. 5.45, s. 13", pages: "13"}
+    effect: Dowódca, który skutecznie przejął aktywację, musi coś zrobić — wydać rozkaz jednostce (ruch, ostrzał, odzyskanie spójności itd.) albo użyć zasięgu dowodzenia do wywołania walki wręcz.
+    keywords: [przejęcie, obowiązek działania]
+  - id: R-5.46.1
+    title: Przejęcie ze strefy kontroli wroga
+    section: "5.46"
+    source: {text: "oryg. 5.46, s. 13", pages: "13"}
+    effect: Dowódca w strefie kontroli wroga może próbować przejęcia; jeśli mu się uda, musi spełnić 5.45 — inaczej przejęcie uważa się za niebyłe.
+    see: R-5.45.1, R-5.26.1
+    keywords: [przejęcie, strefa kontroli]
+    refs: [R-5.45.1, R-5.26.1]
+  - id: R-5.51.1
+    title: Faza inicjatywy elitarnej (EIO) na początku tury
+    section: "5.51"
+    source: {text: "oryg. 5.51, s. 13", pages: "13"}
+    when: gracz ma elitarnego dowódcę naczelnego (▲ przy inicjatywie)
+    effect: |
+      Może rozpocząć każdą turę jedną fazą rozkazów inicjatywy elitarnej (Elite Initiative Orders, EIO). Wykonuje ją OC albo
+      dowolny inny własny dowódca wskazany przez gracza, bez względu na inicjatywę, ale musi on być **w zasięgu dowodzenia OC**.
+      W pierwszej turze fazę EIO można dać dowolnemu własnemu dowódcy, bez względu na położenie.
+    keywords: [inicjatywa elitarna, EIO, dowódca elitarny, ▲]
+  - id: R-5.52.1
+    title: Po fazie EIO dowódca wraca do stanu nieaktywnego
+    section: "5.52"
+    source: {text: "oryg. 5.52 + przykład (Zama), s. 13–14", pages: "13-14"}
+    effect: |
+      Wyznaczony dowódca nie może kontynuować fazy EIO impetem. Po fazie EIO wraca do stanu **nieaktywnego, nie skończonego**;
+      dla 5.14 przeszedł tylko jedną fazę rozkazów i może zostać aktywowany ponownie wg zwykłych zasad. Przykład: Scypion przekazuje
+      EIO Leliuszowi; Leliusz w zwykłej kolejności ma jeszcze jedną pewną i jedną możliwą (impet) fazę; Scypion zachowuje możliwość
+      trzech faz.
+    keywords: [EIO, nieaktywny, impet, Scypion, Leliusz]
+    refs: [R-5.14.1, R-5.34.2]
+  - id: R-5.53.1
+    title: Obaj gracze z elitarnym OC — rzut o fazę EIO
+    section: "5.53"
+    source: {text: "oryg. 5.53, s. 13", pages: "13"}
+    when: obaj gracze mają elitarnego OC (np. Zama)
+    effect: Na początku każdej tury każdy gracz rzuca kością i dodaje inicjatywę swojego dowódcy elitarnego. Wyższy wynik korzysta z fazy EIO; przy remisie **żaden** gracz jej nie ma.
+    keywords: [EIO, rzut, remis, Zama]
+    refs: [T-04]

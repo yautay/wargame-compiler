@@ -1,0 +1,38 @@
+chapter: {id: "11", title: "11.0 Wycofanie armii i zwycięstwo (Army Withdrawal and Victory)"}
+rules:
+  - id: R-11.0.1
+    title: Progi wycofania w scenariuszach a wyważenie gry
+    section: "11.0"
+    source: {text: "oryg. 11.0 Design Note, s. 41", pages: "41"}
+    effect: Progi wycofania armii w scenariuszach odzwierciedlają możliwości armii. Wyważenie można zmieniać, modyfikując progi — dopiero po poznaniu gry i przeciwnika.
+    keywords: [próg wycofania, wyważenie]
+    flags: [summary]
+  - id: R-11.1.1
+    title: Punkty ucieczki — wartość jednostek i dowódców
+    section: "11.1"
+    source: {text: "oryg. 11.1 „Rout Points”, s. 41", pages: "41"}
+    effect: |
+      Jednostka jest warta punktów ucieczki (RP) równych swojemu **TQ**, z wyjątkami: harcownicy (SK) i słonie — **2 RP** (słonie dowódców — **0**); falangi — **2× TQ**
+      (falanga TQ 7 = 14 RP); dowódcy imienni — **5× inicjatywa**; trybuni, prefekci i dowódcy zastępczy — **1× inicjatywa**.
+    keywords: [punkty ucieczki, RP, TQ, falanga ×2, dowódca ×5]
+    refs: [T-19]
+  - id: R-11.2.1
+    title: Liczenie punktów ucieczki w fazie wycofania
+    section: "11.2"
+    source: {text: "oryg. 11.2 „Army Withdrawal”, s. 41", pages: "41"}
+    effect: |
+      W fazie wycofania każdy gracz sumuje punkty ucieczki ze swoich wyeliminowanych jednostek — także jednostek bojowych, które uciekły z mapy. W niektórych
+      scenariuszach jednostki uciekające mogą liczyć się jak wyeliminowane.
+    exceptions: Jazda poza mapą po pościgu się nie liczy — R-8.65.1.
+    keywords: [punkty ucieczki, eliminacja, zejście z mapy]
+    refs: [R-8.65.1, R-10.24.1, R-3.0.8]
+  - id: R-11.2.2
+    title: Zwycięstwo — wycofanie armii przeciwnika
+    section: "11.2"
+    source: {text: "oryg. 11.2, s. 41", pages: "41"}
+    effect: |
+      Gracz wygrywa, zmuszając armię przeciwnika do wycofania. Armia wycofuje się, gdy ma punkty ucieczki **≥ progowi wycofania** (Withdrawal Level) ze scenariusza.
+      Jeśli obie armie osiągną lub przekroczą próg w tej samej fazie wycofania, wygrywa gracz z **mniejszą nadwyżką** RP ponad próg („ledwo”). Jeśli „sumy RP
+      obu stron są równe” — remis (czy chodzi o sumy, czy o nadwyżki — N-20).
+    keywords: [zwycięstwo, próg wycofania, remis, nadwyżka]
+    refs: [N-20]

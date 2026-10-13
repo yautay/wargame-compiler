@@ -1,0 +1,195 @@
+{
+  "task": "IG-1A",
+  "attempt": "attempt-20261012-0540",
+  "actor": "ig-1a-executor-20261012-0540",
+  "started_utc": "2026-10-12T14:51:29.775886+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/configuration.json",
+    "sha256": "d26b08a66d911264efae6580112c3cf29de5b4ae3c33fde80bb2492d6b37a620"
+  },
+  "input_packet": {
+    "path": "private/workflow/packets/IG-1A-97584a53f0bb4e39b098f0947cac5e83/manifest.json",
+    "sha256": "b646eee15539050aca43532e5f6d5a7ffb8dea1acf73326cd42b12460bbade37"
+  },
+  "input_context": {
+    "path": "private/workflow/packets/IG-1A-97584a53f0bb4e39b098f0947cac5e83/context.txt",
+    "sha256": "e2196f03fecabb5d6f2afa1161b6778cbefcb27693bc2a7a35e1c4eec0eb9c12"
+  },
+  "base_files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "31a84d76b25a455a0b6905266094151a817a35e9b3c0eb4e3e4fa6a4e33f0d37"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "sha256": "8a093fcf6a21ae7fcf077a838d9d2883ea76649dff3ff4cd400e51fa3589e9b3"
+    },
+    {
+      "path": "docs/work/queue.json",
+      "sha256": "7660bb12525aa9a02b194b973c72ed96972e1f9f8dff362dddb992ac10ee5d97"
+    }
+  ],
+  "changed_files": [
+    {
+      "path": "contracts/ig/README.md",
+      "sha256": "d7408b7257ef7859e6a36ed7b6583cd8b971bb004139664ff05ace8d10810ca2"
+    },
+    {
+      "path": "contracts/ig/source.schema.json",
+      "sha256": "90bffee3d560673c5ba95a7ccfa3b6cc5f9ecd2980392d6a5fb2a6d3cf201bb3"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "e7d4993802db43bca3446ca0c6bc684c04a62ecf53bb7cbb0fa2019709a1571d"
+    },
+    {
+      "path": "src/wgc/contracts/__init__.py",
+      "sha256": "e41623d285e0a5c24494cb81a161d63ae1816c1ef9fb3f810a657a6cf5cfdf81"
+    },
+    {
+      "path": "src/wgc/contracts/source.py",
+      "sha256": "c73e4f722131b9361f78d40af6aeba7ea069db203838a87f8360749a5d73d806"
+    },
+    {
+      "path": "tests/contracts/fixtures/catalog.json",
+      "sha256": "b5c75eb8c56d381db24ea22ecb6f5bf1ca5e112ddfecd730bcf2d99745675d16"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-anonymous-identity-conflict.json",
+      "sha256": "0f6c72cdfd35e523e7bb9ef8f6259ecde0e98f9a6c646f6a86ca2da63de70040"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-changed-aspect-hash.json",
+      "sha256": "297fc9f2ff4f154a05cbb153bfe64a7aacbcced0d73ff1055fecba0304cbbdba"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-active.json",
+      "sha256": "51cc5a4a3cec923fb41f31e420af34b2cc18b75c08aa0851affcd7bd8c0d674b"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-historical.json",
+      "sha256": "bb23e8b4e057b0b5d08fb345e550406348f5da6e7c53fa94e8325ae64b51e00e"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-selection.json",
+      "sha256": "46e67a5bcb9aad33deed1027ecd33022d581908921792ccbb5ece8f320bbeb9b"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-store.json",
+      "sha256": "b73752f25ed32a7d03242390bee466d49e0b91fd5f930f4df0b5280b738580a1"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-gap-counted-as-coverage.json",
+      "sha256": "3fe077fb33a26788501aeed6f626a8c498a180c186db32b00dcd8d0723136c90"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-group-binding.json",
+      "sha256": "a72fe2901260c45b89990c5f0d60152557b4e1e9639513430dc17934be4e17b4"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-known-without-evidence.json",
+      "sha256": "373ba88f360b3d0a635565c61a19e6f5f7d380c4ba18015307f6035c8a8f38bf"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-model-approval.json",
+      "sha256": "3c5c2be69659d91f46818258b5904f4027ab0809501dfcd50c690d583937514d"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-formal.json",
+      "sha256": "6684e89d8fb483b27919c97a2683b2a24c3f84e8a8cc4fee44f34916acfb8fd3"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-ready.json",
+      "sha256": "82cf382724d07b2b3acdd3ed6d0c17be614d06df0f902e18daa3ce50256bb5a8"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-origin-path.json",
+      "sha256": "d70a9460cacbde590ff83e5dc3bf5bb72ee7ecd8080f57b44e17643484bf6bf8"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-reference-type.json",
+      "sha256": "cb2e90c3b779338d4c65c41a505bb42432998bd5b987e96a41815d606bd3d3d8"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-table-note.json",
+      "sha256": "c6e79d2c6adb51fbaaa19cec6759b86355a56815486c394422bc4de133542bda"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-unknown-without-gap.json",
+      "sha256": "622527b30f5547e3ae6054f987a550d2ed818100d0e68c340f666505e9c214f5"
+    },
+    {
+      "path": "tests/contracts/fixtures/README.md",
+      "sha256": "82a5f403d0ce3df1fdb75d955173a09a9cb79c84680dce77663c16f914e0ad2b"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-aspect.json",
+      "sha256": "e1ac37e3a005b310c30066fc1c16217fe96d79a521f237482e418a709eb8255b"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-dependency.json",
+      "sha256": "f6a7834df62070bce065039d08395c79dadd430defc9b45877c44778ab2c1744"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-edition-conflict.json",
+      "sha256": "fd6d7d980b0398ca2b3d5c387e380fe899af72210d3b024ced11be5c2a3d7b5a"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-historical-reference.json",
+      "sha256": "600bc33cf7665aa829085a8cf4c464db059bbe4d8241fcff7ccf4ecb29526418"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-partial-review.json",
+      "sha256": "3bc524f3baa29173eee58a9c60a9dc78711e71054913884bf8f56f27043f134f"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-procedure-cycle.json",
+      "sha256": "52df61acf30dc6a0d24d8d3af49006a0a77b691b746dd4e3406f632da9fb447d"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-source.json",
+      "sha256": "600bc33cf7665aa829085a8cf4c464db059bbe4d8241fcff7ccf4ecb29526418"
+    },
+    {
+      "path": "tests/contracts/test_source.py",
+      "sha256": "cd038f78dbe8f7dbe8af90c18f024ca3fa99de9c16d64f441565603684104cdd"
+    }
+  ],
+  "completed_criteria": [
+    "Source schema, record envelope, typed descriptions, fixtures and local validator implemented; targeted suite passes. Documentation and final invariants are being verified."
+  ],
+  "checks": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "result": "IG-1A"
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py packet --task IG-1A",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "result": "35 passed, 1 failed test vector, 6 setup errors from default temp path; corrected fixed hash and explicitly placed temp under private/."
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short --basetemp private/workflow/runs/IG-1A/attempt-20261012-0540/test-temp-02",
+      "exit_code": 0,
+      "result": "42 passed in 7.09s"
+    }
+  ],
+  "blocker": {
+    "fact": "Existing workflow sandbox fixture assumes ready and no events while copying the live queue; repair requires one out-of-card write path.",
+    "owner": "operator",
+    "smallest_resolution": "Authorize the precise tests/test_workflow.py sandbox initialization patch in workflow-fixture-scope-request.patch."
+  },
+  "next_operation": "Apply the requested scope exception only after operator confirmation, then run full checks and freeze delivery.",
+  "updated_utc": "2026-10-12T15:16:28.720813+00:00"
+}

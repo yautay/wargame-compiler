@@ -1,0 +1,185 @@
+{
+  "task": "IG-1A",
+  "handoff_utc": "2026-10-12T17:53:01.027549+00:00",
+  "outcome": "Frozen delivery with independent technical PASS; awaiting coordinator disposition. Executor does not accept or mark done.",
+  "queue_status": "review",
+  "delivery": {
+    "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/delivery.json",
+    "sha256": "e60f74eca3b94771539eb438c4d239a4deeec3ae20cc5950a4f415ae5d863958"
+  },
+  "independent_review": {
+    "path": "private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/review.json",
+    "sha256": "e7a6c12237c642c021595416d49ffc030690388ef1d9f8184da8b73cd89dffdb"
+  },
+  "independent_report": {
+    "path": "private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/report.md",
+    "sha256": "d88016b8f6ffd7fa123d06332849008e7d36d4e11a5754cded7b60ce6fa39d3a"
+  },
+  "criteria": [
+    "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+    "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+    "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+    "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+    "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+  ],
+  "criterion_assessments": [
+    {
+      "index": 1,
+      "result": "pass",
+      "scope": "Source contract technical criterion; no actual SPQR semantics or gameplay certification"
+    },
+    {
+      "index": 2,
+      "result": "pass",
+      "scope": "Source contract technical criterion; no actual SPQR semantics or gameplay certification"
+    },
+    {
+      "index": 3,
+      "result": "pass",
+      "scope": "Source contract technical criterion; no actual SPQR semantics or gameplay certification"
+    },
+    {
+      "index": 4,
+      "result": "pass",
+      "scope": "Source contract technical criterion; no actual SPQR semantics or gameplay certification"
+    },
+    {
+      "index": 5,
+      "result": "pass",
+      "scope": "Source contract technical criterion; no actual SPQR semantics or gameplay certification"
+    }
+  ],
+  "findings": [],
+  "finding_dispositions": [
+    {
+      "id": "F1",
+      "result": "fixed",
+      "repair_cycles": 1,
+      "evidence": "Augmented independent source-content family controls"
+    },
+    {
+      "id": "F2",
+      "result": "fixed",
+      "repair_cycles": 2,
+      "evidence": "Original saved F2-R1 bundles reject; whole inventory shapes reject aspects in current/retained coverage and boundary records; exact full boundary positives and stale whole revision controls pass"
+    },
+    {
+      "id": "F2-R1",
+      "result": "fixed",
+      "parent_finding": "F2",
+      "evidence": "original-f2-disposition.json and new-boundaries.log"
+    },
+    {
+      "id": "F3",
+      "result": "fixed",
+      "repair_cycles": 1,
+      "evidence": "Augmented independent exact selected endpoint controls and unresolved/informational historical positives"
+    }
+  ],
+  "defect_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "required_checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 0,
+      "tests_passed": 102,
+      "tests_failed": 0,
+      "reported_pytest_seconds": 42.1,
+      "log_root": "private/workflow/checks/active-cf92829a6e8b42bea8a6ab7a438f0731",
+      "result": {
+        "dry_run_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-cf92829a6e8b42bea8a6ab7a438f0731\\pytest",
+        "tests_exit": 0,
+        "diff_exit": 0,
+        "plan_exit": 0
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/test_rereview.py private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/inherited-suites-temp --tb=short",
+      "exit_code": 0,
+      "tests_passed": 111,
+      "tests_failed": 0,
+      "reported_pytest_seconds": 28.39,
+      "log": "inherited-suites.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/test_final_boundaries.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/new-boundaries-temp --tb=short",
+      "exit_code": 0,
+      "tests_passed": 9,
+      "tests_failed": 0,
+      "reported_pytest_seconds": 1.67,
+      "log": "new-boundaries.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": "diff-check.log"
+    },
+    {
+      "command": "Independent SHA-256 verification of 82 current frozen artifacts, 60 baseline copies, 76 prior delivery artifacts via baseline mapping, packet and prior review evidence",
+      "exit_code": 0
+    }
+  ],
+  "executor_configuration": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "source": {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/configuration.json",
+      "sha256": "20810ac1d01121a37cbadded861f81ad6c814b721cc6572245c72b320cae33b2"
+    }
+  },
+  "reviewer_configuration": {
+    "source": "Exact own-session turn_context configuration metadata; independently extracted",
+    "artifact": {
+      "path": "private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/configuration.json",
+      "sha256": "3151b8c8ce2ba03368d8b82cc341c398bf5c56af5d8637469873931fb3c31c2f"
+    },
+    "source_path": "C:\\Users\\yauta\\.codex\\sessions\\2026\\10\\12\\rollout-2026-10-12T18-48-48-01a13104-4cba-7610-b690-dc463e8c4e32.jsonl",
+    "thread_id": "01a13104-4cba-7610-b690-dc463e8c4e32",
+    "turn_id": "01a13137-8b9f-7242-b152-085895b6d6f7",
+    "timestamp": "2026-10-12T17:44:46.465Z",
+    "raw_line_sha256_including_line_ending": "86d503cbf5dfc5681f3b90911b9694ede98eddf75927fb51fbc54f13960260b4",
+    "reasoning_source_field": "effort",
+    "reasoning_effort_field": null
+  },
+  "reviewer_measurement": {
+    "started_utc": "2026-10-12T17:44:55+00:00",
+    "ended_utc": "2026-10-12T17:50:17.327641+00:00",
+    "wall_seconds": 322.327641,
+    "interval_note": "Elapsed interval from first explicit UTC clock read; prior initialization reads are not assigned invented duration.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Token counters, operator time and monetary cost not exposed/reported."
+  },
+  "executor_measurement": {
+    "started_utc": "2026-10-12T17:32:39.925511+00:00",
+    "ended_utc": "2026-10-12T17:40:49.928825+00:00",
+    "wall_seconds": 490.003314,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Executor session counters, operator time and monetary cost not exposed/reported; elapsed interval is not an active-work estimate."
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "unmet_lifecycle_decisions": [
+    "Coordinator acceptance and done were not performed, as explicitly instructed by the operator."
+  ],
+  "remaining_limits": [
+    "Human authority/decision artifacts not authenticated by structural metadata",
+    "Dependency basis completeness remains declared",
+    "Synthetic region counts do not certify complete real corpus coverage",
+    "Source descriptions are not executable semantics",
+    "Mixed coordinate inventory partitions require author justification"
+  ],
+  "formal_decisions": "See contracts/ig/README.md, Open formal-language decisions for IG-3A.",
+  "next_operation": "Coordinator independently verifies this pinned evidence and decides the acceptance/done workflow in an authorized role; no next task is started by this executor.",
+  "dispatch_resolution": "Earlier second-iteration send was rejected for insufficient message-specific authorization; the operator supplied a new explicit statement, and the exact same tool accepted the dispatch. No workaround used."
+}

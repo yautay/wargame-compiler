@@ -1,0 +1,687 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator-ig1b-repair01-20261012T193641Z",
+  "task": "IG-1B",
+  "summary": "Coordinator verifies every IG-1B technical criterion, complete frozen delivery/review list, current hashes, required passing controls and independent F1 closure, then records done for this increment only. No IG-1C execution or semantic/executable acceptance.",
+  "criteria": [
+    "Every input file has path, bytes, hash, role and availability; detect change during copy.",
+    "Missing 36 historically configured source paths are rechecked and reported, not silently substituted.",
+    "Pin the promoted PDF as a new selected source with identity_to_wgu_original unknown.",
+    "Reject path escapes, linked paths and unintended source reads; no neighbour writes."
+  ],
+  "artifacts": [
+    {
+      "path": "contracts/ig/input.schema.json",
+      "sha256": "cc79d4824170a39105598b7ba267771b7516ae8b6fc2c1b67e6b019445bd2504"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/ambiguities.yaml",
+      "sha256": "d11e59ee4858421ed7f25091641964f45c41625003ba9d03ef9f51cec28adb9a"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/changes.yaml",
+      "sha256": "fabf4b17ce452fa6bf1c634dca430956054f47e392b2d773e3a562b978c53053"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/manifest.yaml",
+      "sha256": "3031a4c7ea87552d5074dc4f9bd43947dfdb4189d060ded4bbd3eb66ef2cd7f6"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/notes/overview.md",
+      "sha256": "32886018fc9523502a50f46523a49e8e70e92d223d360c69a64eb5644d28f80b"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/procedures.yaml",
+      "sha256": "651614ce6a49c436ec23a6b8bd5b64f8c77d786edd4323b2ae91c4cb6ff3eff3"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/relations.yaml",
+      "sha256": "1737abb4a2f8877af8964e303d325d24ee7ae17ab2a9e3edeec4f91974fecb2a"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/01-wprowadzenie.yaml",
+      "sha256": "77709eeec903a5a8b6f80a3bdada4994254dbdf41844c947d6edd8ddf81e549c"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/02-komponenty-terminologia.yaml",
+      "sha256": "94810dd6362e28d5fde8633c6788082e8705849d58c01abc0f660f6c4cb78aae"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/03-sekwencja-gry.yaml",
+      "sha256": "d926613871f4bd99757e07b0b5f3df59800757afbb68576a0382a64538702688"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/04-dowodcy.yaml",
+      "sha256": "8b0abe24168605ee682449ce75f24408075a1c50c22abfd3f50c9d3704ad77cc"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/05-aktywacja-rozkazy.yaml",
+      "sha256": "d7db614e3b1007b24228460be4bbd1197262b20046f82e1e205564e04f0a911b"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/06-ruch.yaml",
+      "sha256": "5f365777d87030b96e3ede3ab8b1d1c97fddfd6fc17b91c59b8daff8b2038844"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/07-ukierunkowanie-zoc.yaml",
+      "sha256": "11a8a7c2e2ef6d5bfff2fdee92e0e374418617574b5bd463619d936e1317f8e0"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/08-walka.yaml",
+      "sha256": "7ff997bce127f0b08b9754a1739ade67fd9ae36771e5ede40bcb5832e43797a4"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/09-jednostki-specjalne.yaml",
+      "sha256": "9e28d5df8720dc1dce71f687146f25fcea313df46e98f670f52cc55b579d221c"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/10-skutki-walki.yaml",
+      "sha256": "dceb1c9ad26a8f52e7dcfdf8d0bdb39443a16520a1d02f657fdedbd403976090"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/11-wycofanie-armii.yaml",
+      "sha256": "4882c57a9010a010496d610bf2b7030b31c8087c7cd621d3b0f19ace072d44ea"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/12-scenariusze-ksiega-2018.yaml",
+      "sha256": "869fcf8be6266607a018b8b617da030cbc03aed44c84e4ca4773e551ddbddf5a"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/scenarios.yaml",
+      "sha256": "0287171c71593defc5675c9db3d412ae4dda0635402f459a2e5764514b4ff90c"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/tables.yaml",
+      "sha256": "e0d061947276e38723e6c304887650213c8a646dac41ff8cb7bb608c023f5b49"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/terminology.yaml",
+      "sha256": "9e86ec5abf30436afd3de805a50972cf3953fd749dcaeac7d52c3d87a4c27ffb"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/terms.yaml",
+      "sha256": "44d8f2b6882f549160082a2f200b74901f2099ff54cd5c12a33036296baecc85"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/wgu.yaml",
+      "sha256": "3f022a178835733ec0b085148c7fdf689430265e1b99bdeff2a4103c566de205"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/manifest.json",
+      "sha256": "67ac53869ea80ea4d84018e253a9033e48fe89823d0a9a397ab8fe41b91d33d5"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/availability-d7d7370248aafe9fe4393c5e767264768d908a220f3ef7899de58078f57d1923.json",
+      "sha256": "d7d7370248aafe9fe4393c5e767264768d908a220f3ef7899de58078f57d1923"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/files/provenance.json",
+      "sha256": "185ef47f755fa710273ea48fbf4ad544e9ac20a3be708d18ee548349869ec3a8"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/files/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/manifest.json",
+      "sha256": "615b1ae1cbeebf894c7f8dbbb7c3f2bcb0819427a342b3fa05bc690c33b9eed8"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/source-pin.json",
+      "sha256": "3e722f7b3a30e81b40443d080c09bc28d276b23ba10568ec4dea5549af09871a"
+    },
+    {
+      "path": "src/wgc/inputs/__init__.py",
+      "sha256": "5c4a97d2a37a1c082f97c9d53249ac5190b08055d36196200d52fd73fbb4628a"
+    },
+    {
+      "path": "src/wgc/inputs/README.md",
+      "sha256": "13cc4125230d6d7e92b89853b95c8bb00c88fdf7efcf1fa0fc9a1b998597e642"
+    },
+    {
+      "path": "src/wgc/inputs/snapshot.py",
+      "sha256": "6f701f14fb23a377af11ea73eba24e088c90db74acef8587d0838ed4e4eb01ed"
+    },
+    {
+      "path": "tests/inputs/test_snapshot.py",
+      "sha256": "5de3af682b07821c1c6c07ba1fc3e46e3b782a3aa848b263147c04be1ce6f358"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/report.md",
+      "sha256": "186015c8d4f92887a46eb628a92ea7d101b2d929a074249e05f2b1af96e022a7"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/checkpoint-frozen.json",
+      "sha256": "3fca7e41dcb2efad1e5be10001c3b488428b33e392d864e85f85d53cef4536d2"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/configuration.json",
+      "sha256": "27a2e6040d66bee502a573d7fc14483644d63a21b68cf5f5f085195a70d01b40"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/operator-scope.json",
+      "sha256": "9cdb805a6aeb9c40f34dd82ae57d21d4588d8b89088f7b1cccd5ec2692787e60"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/baseline-manifest.json",
+      "sha256": "9a1997f52d2351b8594f601d8d056e40614bdf3bbac55889dca8e545dbb34d26"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/evidence-before.json",
+      "sha256": "1c23f20f40ea51b07eb68e49a4fc75b2d75db0d99cc1b9b0b2a539a56d7e3a72"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/preservation.json",
+      "sha256": "2ac6ea41f1906de5325a104dd7ef345971d5f8890bf8d0106d6795bf30fdb854"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/suite-provenance.json",
+      "sha256": "024e3b044bfbca98baf9c0a5fb2ad4d73cd92a40fdfbddb19fb951023b72e01d"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/checks.json",
+      "sha256": "d098954de28de0e69ca79e04a2015219c726e2bc7474b0d984547a310695f08f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/replayed-checks.json",
+      "sha256": "7d37286dc710acb9e1c9bab2cce1f009c206993955ae61bdd2a59cbd8dfcced5"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/input-tests.log",
+      "sha256": "d3ca5d01df20ee924c0b08ed303eb2f6b92415640694384edbbecef84cb28983"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/project-check.log",
+      "sha256": "0b530290d8ae1659b01a0ca97bcc0fa636a68855fe8504caf325271e5f35f186"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/review_controls.log",
+      "sha256": "3dea6e36e7a49c78f13a83dd90fc62b785bc1d0d7a2728058e9e5e763d429686"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/native_handle_probe.log",
+      "sha256": "6fa491ecdae82836ee35741a5e7478bf98a0230ea7322d972a3c8924c348f082"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/private_audit.log",
+      "sha256": "72c4069c5254932768111e10bf842fd9d97454787a610e2878258b66871dde68"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/run_reviewer_checks.py",
+      "sha256": "8635f3e1ce490daa76eccd9a1ab23a7d464b52fa10b8759f97a90ca27d378103"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/freeze_repair.py",
+      "sha256": "c030edf6e8a4991a1d247f124d311ee36c9b034b3deabcb4f2950e2927fde846"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/src_wgc_inputs_snapshot.py.diff",
+      "sha256": "3c99e1336f6a534012e50c946fec34113418bf6863faee5463bdb6961a3a9613"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/src_wgc_inputs_README.md.diff",
+      "sha256": "36895d9fd21107e5eba725d9f3357d4508bc7cc392fa204be70bd688d75959dc"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/tests_inputs_test_snapshot.py.diff",
+      "sha256": "ddab9469c36563607c5b4044713ee6df2b5715b4b3567b9b2dc47d4754b201d5"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/review_controls.py",
+      "sha256": "9d0dcfad4d39af7d0e5989ac8f87880cfb8c3fe0b2e300c4c42e9b5fd5eee14b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/native_handle_probe.py",
+      "sha256": "010eef747c17e671eecc0767532fdc686a0318ae093c05d8e771e1f764cba51b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/private_audit.py",
+      "sha256": "0ea418e4c6c328e39f7f9cabb67be062428b26a19767c9dba3695184e684dfdb"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/review-controls.json",
+      "sha256": "5b5a4fcbf5a7dc064628827ffacffed98158f204ab2a2f75e022356b3ec919ab"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/native-handle-probe.json",
+      "sha256": "e1fd1706a4dbdd964e246cd8fb062dfc3e54c3eee2b7a06224d6ef9049ffe9fc"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/private-audit.json",
+      "sha256": "c7e1a66cde5fdc308e18278db1ab2f29e5cba88f8da568f70da8baefd03fb831"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/result.json",
+      "sha256": "b1e5b8417963d5ef85872c46f5075edab9914dbdf720ec87daefc3369b9dbc54"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/dry-run.log",
+      "sha256": "2179c5b84cee0af0d5d8f011daf403bc930897bc28019e0af35821cc9eb24516"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/pytest.log",
+      "sha256": "c0df7e53ef8a95c2868f6e43346fd2e3b00aa9a59f3f4c28f007f2503285256f"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0,
+      "output": "Validated 39 tasks, DAG, scope, context and derived views.",
+      "started_utc": null,
+      "ended_utc": null,
+      "wall_seconds": null
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "output": "No ready task.",
+      "started_utc": null,
+      "ended_utc": null,
+      "wall_seconds": null
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py packet --task IG-1B",
+      "exit_code": 0,
+      "output": "private/workflow/packets/IG-1B-f92be3fad15e43f7aeb9b6dd555f2a1d",
+      "started_utc": null,
+      "ended_utc": null,
+      "wall_seconds": null
+    },
+    {
+      "execution_context": "require_escalated exact local input test command",
+      "started_utc": "2026-10-12T19:53:53.4780695Z",
+      "changed_condition": "Short fresh basetemp avoids WinError 206 at fixture construction; frozen tests unchanged",
+      "command": ".venv/Scripts/python.exe -m pytest tests/inputs -q -p no:cacheprovider --basetemp private/workflow/checks/r1-1954 --tb=short",
+      "exit_code": 0,
+      "wall_seconds": 5.9276829,
+      "ended_utc": "2026-10-12T19:53:59.4125348Z",
+      "tests_passed": 51,
+      "tests_failed": 0,
+      "reported_pytest_seconds": 5.33,
+      "log": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/input-tests-short-path.log"
+    },
+    {
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\review_controls.py"
+      ],
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\review_controls.py",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T19:52:42.489913+00:00",
+      "ended_utc": "2026-10-12T19:52:44.035442+00:00",
+      "wall_seconds": 1.547000000020489,
+      "log": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review_controls.log",
+      "log_sha256": "3dea6e36e7a49c78f13a83dd90fc62b785bc1d0d7a2728058e9e5e763d429686",
+      "execution_context": "Reviewed exact local require_escalated; native Windows handles/links"
+    },
+    {
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\native_handle_probe.py"
+      ],
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\native_handle_probe.py",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T19:52:44.035442+00:00",
+      "ended_utc": "2026-10-12T19:52:44.517805+00:00",
+      "wall_seconds": 0.48400000017136335,
+      "log": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/native_handle_probe.log",
+      "log_sha256": "6622c975e9a0c5c64bea47a8e89ed6983148b8d9427618db09d41f884d823111",
+      "execution_context": "Reviewed exact local require_escalated; native Windows handles/links"
+    },
+    {
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\private_audit.py"
+      ],
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\private_audit.py",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T19:52:44.527784+00:00",
+      "ended_utc": "2026-10-12T19:52:46.083064+00:00",
+      "wall_seconds": 1.5629999998491257,
+      "log": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/private_audit.log",
+      "log_sha256": "72c4069c5254932768111e10bf842fd9d97454787a610e2878258b66871dde68",
+      "execution_context": "Reviewed exact local require_escalated; native Windows handles/links"
+    },
+    {
+      "started_utc": "2026-10-12T19:57:19.4767467Z",
+      "wall_seconds": 2.41927,
+      "exit_code": 0,
+      "changed_condition": "OS symlink-creation failure reported as unavailable; original probe assertions copied byte-identically and remaining checks executed in a new synthetic directory",
+      "execution_context": "require_escalated exact local continuation of available closure assertions; PYTHONPATH=src",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/run_closure_available.py",
+      "ended_utc": "2026-10-12T19:57:21.9041078Z"
+    },
+    {
+      "exit_code": 0,
+      "started_utc": "2026-10-12T19:51:52.9662258Z",
+      "ended_utc": "2026-10-12T19:52:36.0483400Z",
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1B",
+      "wall_seconds": 43.0815916,
+      "execution_context": "default sandbox",
+      "tests_passed": 102,
+      "tests_failed": 0,
+      "reported_pytest_seconds": 33.82,
+      "log_root": "private/workflow/checks/active-ecae2f1886a748fe80758f6b96da283f"
+    },
+    {
+      "execution_context": "default sandbox",
+      "ended_utc": "2026-10-12T19:58:12.9635272Z",
+      "exit_code": 0,
+      "wall_seconds": 3.1576171,
+      "started_utc": "2026-10-12T19:58:09.8042394Z",
+      "command": "git diff --check"
+    },
+    {
+      "command": "Independent SHA-256 preservation: 66 current artifacts, 34 baseline copies, mapped prior 59, prior reviewer evidence and 82 accepted IG-1A artifacts; manifests and queue",
+      "exit_code": 0,
+      "evidence": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/preservation.json",
+      "checked_utc": "2026-10-12T20:02:29.925720+00:00"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/verify_result.py <completed independent review.json>",
+      "exit_code": 0,
+      "artifact": {
+        "path": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/verification.json",
+        "sha256": "4a2f4c466ff61e7112d5913257b6b913cd1c0f0f694942bb52472c1c0d7b51b0"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "output": "No ready task."
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/configuration.json",
+    "sha256": "27a2e6040d66bee502a573d7fc14483644d63a21b68cf5f5f085195a70d01b40"
+  },
+  "recorded_by": "coordinator-ig1b-repair01-20261012T193641Z",
+  "evidence_type": "Coordinator application of the independently authored reviewer disposition; not a new review or executor self-review",
+  "independent_review": {
+    "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review.json",
+    "sha256": "a437521ea9feec705ac01039b28e133a0deceaa47b1cd49bead955af34989f10"
+  },
+  "independent_report": {
+    "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/report.md",
+    "sha256": "099d2a71c345ffa5d5b2787bd5fbd485a3da5a48dfb040de15b5419b80f000c2"
+  },
+  "independent_review_artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/report.md",
+      "sha256": "099d2a71c345ffa5d5b2787bd5fbd485a3da5a48dfb040de15b5419b80f000c2"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/configuration.json",
+      "sha256": "d986edf91600a457517574ada17b22ca5b6e2afdfad24c1377b04cd704006592"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/preflight-hashes.json",
+      "sha256": "3e7235ed6b78cda82a2bd38827758695f9daf622adb240f4434a9d77e7f14463"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/preservation.json",
+      "sha256": "e308392315945e2968cf088f123d19ca18b54880caecf1a8223a480e671b36f0"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/repair-scope-verification.json",
+      "sha256": "99560598575d87c35d4cdb138058aefb764c841652878bf15eaf45309871d8a6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/independent-source.diff",
+      "sha256": "3c99e1336f6a534012e50c946fec34113418bf6863faee5463bdb6961a3a9613"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/run_native_checks.py",
+      "sha256": "017151ba34cab897b742a8636464235b0e1c470b8d5cf84ab06dbe1079ca5936"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/native-checks.json",
+      "sha256": "6ecefa82ea30c3e365e3bd66471069e1481da577cad45afa33ae6c7cfc02fe13"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/input-tests.log",
+      "sha256": "ae1a296963f2de500cce9c52da47c075e06a462550217952a7bc48262d0ab6a9"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/input-tests-short-path.log",
+      "sha256": "3c8322a4fc8e4651d3c9860631470af5cfc559ab2d2cf235c59e9a2d196258c6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/input-tests-short-path.json",
+      "sha256": "5a52016f6538b0c7e9abbd88cb3d42837961b5ae9aa209d570b7f17dc47e2aee"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review_controls.py",
+      "sha256": "9d0dcfad4d39af7d0e5989ac8f87880cfb8c3fe0b2e300c4c42e9b5fd5eee14b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review_controls.log",
+      "sha256": "3dea6e36e7a49c78f13a83dd90fc62b785bc1d0d7a2728058e9e5e763d429686"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review-controls.json",
+      "sha256": "3ba53b5f6a999a9fbbfb9f0131f93b696ccec38c4ca072a877483a52f18c4654"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/native_handle_probe.py",
+      "sha256": "010eef747c17e671eecc0767532fdc686a0318ae093c05d8e771e1f764cba51b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/native_handle_probe.log",
+      "sha256": "6622c975e9a0c5c64bea47a8e89ed6983148b8d9427618db09d41f884d823111"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/native-handle-probe.json",
+      "sha256": "a180e553e2236080432a3bf39c9d720ebbab5c1a262ea06bf08eb5ba1d41da4d"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/private_audit.py",
+      "sha256": "0ea418e4c6c328e39f7f9cabb67be062428b26a19767c9dba3695184e684dfdb"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/private_audit.log",
+      "sha256": "72c4069c5254932768111e10bf842fd9d97454787a610e2878258b66871dde68"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/private-audit.json",
+      "sha256": "555b107a9fa39ca8ed0181250daaac894457d25e81002aaab0bfe4a7db4f1c97"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure_probes.py",
+      "sha256": "e527e46591e0ea55ef75e84228f8caddc708135778efc27a24a22c265fecfff1"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure-probes.log",
+      "sha256": "36fbd2c4b8be9dad4a03c0a6c706fb7dc0c8a38ffab008477752f2c14219a428"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure-probes-command.json",
+      "sha256": "77ab492527f38d40f3aba2775b5794ad36b66943254a6ad42e1123129960010a"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/run_closure_available.py",
+      "sha256": "3ba851f0bcf8ef0fbb3e0a4826a2ed185b839448ac421a4cbef9503233c37eb8"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure-available.json",
+      "sha256": "136ef33de0fa917d4347f570c849b08b2e662073cf58793781d5cc4cb2d8943b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure-available.log",
+      "sha256": "136ef33de0fa917d4347f570c849b08b2e662073cf58793781d5cc4cb2d8943b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure-available-command.json",
+      "sha256": "70417963439a7de5a89b1e01df52643e3c5a423dd14653cdf9d6488a9877fb55"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/c/closure_probes.py",
+      "sha256": "e527e46591e0ea55ef75e84228f8caddc708135778efc27a24a22c265fecfff1"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/c/review_controls.py",
+      "sha256": "9d0dcfad4d39af7d0e5989ac8f87880cfb8c3fe0b2e300c4c42e9b5fd5eee14b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/project-check.log",
+      "sha256": "0481a2f5a8d751f5e97b2260469f4e70c0f4d9007e6deafea2e5f7184161aefe"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/project-check.json",
+      "sha256": "6b951fd2e2651a58fe4e3d2fa12ac8fff8da4355a6dfa49638241de5895dbfae"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/diff-check.json",
+      "sha256": "28bf87a19c18db9cb68030d46a2dc79cb0b11ab88c0978aecd76ddc15fa97043"
+    },
+    {
+      "path": "private/workflow/checks/active-ecae2f1886a748fe80758f6b96da283f/result.json",
+      "sha256": "189b2de725c8b27a28a6e95e7deb37e40a9b8ba2bb24bdb340c9cf807dd12a30"
+    },
+    {
+      "path": "private/workflow/checks/active-ecae2f1886a748fe80758f6b96da283f/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-ecae2f1886a748fe80758f6b96da283f/dry-run.log",
+      "sha256": "be155a5c983830c0b20655b5074bf110b45ffecb601b2c3b2585aaa4cc840bba"
+    },
+    {
+      "path": "private/workflow/checks/active-ecae2f1886a748fe80758f6b96da283f/pytest.log",
+      "sha256": "7c1092f8d95866eabd7219c4d7b3fb6801e041d63a963f57371affeda13c3bfb"
+    },
+    {
+      "path": "private/workflow/checks/active-ecae2f1886a748fe80758f6b96da283f/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    }
+  ],
+  "coordinator_verification": {
+    "path": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/verification.json",
+    "sha256": "4a2f4c466ff61e7112d5913257b6b913cd1c0f0f694942bb52472c1c0d7b51b0"
+  },
+  "acceptance_basis": "WORKFLOW permits routine technical acceptance by the coordinator after independent review without another owner confirmation. The operator requested continuation of IG-1B; semantic_acceptance_required is false.",
+  "operator_continuation_scope": {
+    "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/operator-scope.json",
+    "sha256": "9cdb805a6aeb9c40f34dd82ae57d21d4588d8b89088f7b1cccd5ec2692787e60"
+  },
+  "finding_dispositions": [
+    {
+      "id": "F1",
+      "prior_priority": 2,
+      "status": "closed",
+      "repair_cycles_used": 1,
+      "prior_review": {
+        "path": "private/workflow/runs/IG-1B/review-confirmed-20261012T185333Z/review.json",
+        "sha256": "d5cc08accd4da84660ef3b451022758312e14b0f5c1e4d543de79458b9f22af4"
+      },
+      "reviewed_repair_delivery": {
+        "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/delivery.json",
+        "sha256": "cf1c928b34aa70ae5b7cf59928baa273c45b02fc26331f8f534f6d1d8056c236"
+      },
+      "independent_disposition": true,
+      "evidence": [
+        "review-controls.json",
+        "input-tests-short-path.log",
+        "closure-available.json",
+        "repair-scope-verification.json"
+      ],
+      "reason": "Exact available-file/metadata/parent-directory closure rejects all three saved counterexamples. Input/source verify/reuse matrix and staging, linked-parent, type and missing-file controls pass; no corrupt target overwrite or unexpected byte read occurs."
+    }
+  ],
+  "validation_limits": [
+    {
+      "kind": "actual native Windows symlink creation",
+      "result": null,
+      "reason": "WinError 1314: required privilege not held. Normally reviewed command was permitted; no system privilege/configuration change or bypass attempted. Actual junctions and no-follow metadata/source checks are independently verified.",
+      "required_follow_up_for_F1_closure": false,
+      "optional_portability_verification": "Exercise real file/directory symlinks on a host already permitting them."
+    },
+    {
+      "kind": "actual nonregular FIFO on Windows",
+      "result": null,
+      "reason": "Nonregular branch tested with explicit S_IFIFO metadata simulation; no real Windows FIFO claimed."
+    }
+  ],
+  "preserved_failed_environment_attempts": [
+    {
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/inputs",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\input-test-temp-01",
+        "--tb=short"
+      ],
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/inputs -q -p no:cacheprovider --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\review-rereview01-20261012T194946Z\\input-test-temp-01 --tb=short",
+      "exit_code": 1,
+      "started_utc": "2026-10-12T19:52:35.461844+00:00",
+      "ended_utc": "2026-10-12T19:52:42.476068+00:00",
+      "wall_seconds": 7.015000000130385,
+      "log": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/input-tests.log",
+      "log_sha256": "ae1a296963f2de500cce9c52da47c075e06a462550217952a7bc48262d0ab6a9",
+      "execution_context": "Reviewed exact local require_escalated; native Windows handles/links",
+      "tests_passed": 47,
+      "tests_failed": 4,
+      "reported_pytest_seconds": 6.29,
+      "classification": "Fixture construction failed with WinError 206 at long basetemp; assertions for four empty-directory cases were not reached.",
+      "resolution": "Unchanged full suite passed with a new shorter basetemp; no product/test/global configuration change."
+    },
+    {
+      "wall_seconds": 1.3219567,
+      "exit_code": 1,
+      "started_utc": "2026-10-12T19:56:05.0150213Z",
+      "execution_context": "require_escalated exact local closure probes; PYTHONPATH=src",
+      "ended_utc": "2026-10-12T19:56:06.3470043Z",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/closure_probes.py",
+      "classification": "OS symlink creation denied with WinError 1314 before rejection assertion. The command was approved normally; no auto-review rejection or bypass occurred.",
+      "resolution": "Actual symlink rejection measurements remain null. Remaining unchanged assertions continued from byte-identical copies in a new synthetic directory and passed."
+    }
+  ],
+  "semantic_acceptance_granted": false,
+  "source_coverage_granted": false,
+  "executable_readiness_granted": false,
+  "recorded_utc": "2026-10-12T20:06:15.712220+00:00",
+  "configuration_continuity": "Coordinator is the same ongoing executor/operator chat; current-session UI-confirmed configuration is unchanged. Independent reviewer configuration is separately retained in the pinned review.",
+  "accepted_disposition": {
+    "path": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/acceptance.json",
+    "sha256": "46962679f5b678eea87bd04cc45ac4dee4401b875f8dfcd09fa2004be8b56558"
+  },
+  "measurement": {
+    "started_utc": "2026-10-12T20:03:05+00:00",
+    "ended_utc": "2026-10-12T20:06:15.700284+00:00",
+    "interval_note": "Coordinator verification interval beginning with the explicit UTC marker after the independent report was written; not a complete-session/active-work estimate.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "peak_memory_bytes": null,
+    "wall_seconds": 190.700284
+  }
+}

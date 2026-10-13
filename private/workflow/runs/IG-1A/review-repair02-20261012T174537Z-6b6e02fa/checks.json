@@ -1,0 +1,42 @@
+[
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1",
+    "exit_code": 0,
+    "tests_passed": 102,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 42.1,
+    "log_root": "private/workflow/checks/active-cf92829a6e8b42bea8a6ab7a438f0731",
+    "result": {
+      "dry_run_exit": 0,
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-cf92829a6e8b42bea8a6ab7a438f0731\\pytest",
+      "tests_exit": 0,
+      "diff_exit": 0,
+      "plan_exit": 0
+    }
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/test_rereview.py private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/inherited-suites-temp --tb=short",
+    "exit_code": 0,
+    "tests_passed": 111,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 28.39,
+    "log": "inherited-suites.log"
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/test_final_boundaries.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/new-boundaries-temp --tb=short",
+    "exit_code": 0,
+    "tests_passed": 9,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 1.67,
+    "log": "new-boundaries.log"
+  },
+  {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "log": "diff-check.log"
+  },
+  {
+    "command": "Independent SHA-256 verification of 82 current frozen artifacts, 60 baseline copies, 76 prior delivery artifacts via baseline mapping, packet and prior review evidence",
+    "exit_code": 0
+  }
+]

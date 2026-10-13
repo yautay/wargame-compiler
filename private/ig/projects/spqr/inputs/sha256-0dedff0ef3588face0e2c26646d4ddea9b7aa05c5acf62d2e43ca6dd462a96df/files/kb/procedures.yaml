@@ -1,0 +1,143 @@
+legend: |
+  Znaczniki kroków: **decision** — decyzja gracza; **reaction** — reakcja przeciwnika; **roll** — rzut kością; **pitfall** — częsty błąd.
+  Numery kroków są tekstem (np. "3a"). Każdy krok wskazuje reguły (refs).
+procedures:
+  - id: P-01
+    title: Sekwencja tury (3.0)
+    steps:
+      - {n: "0", text: "Początek tury: gracz z elitarnym OC może rozegrać fazę EIO (przy dwóch elitarnych OC — rzut k10 + inicjatywa). Przed aktywacjami — wyznaczenie PW (znaczniki).", markers: [decision, roll], refs: [R-5.51.1, R-5.53.1, R-6.82.1]}
+      - {n: "A", text: "Faza aktywacji: gracz z nieaktywowanym dowódcą o najniższej inicjatywie aktywuje go (remis stron — rzut). Tu rzut na prawo do LC (4.33) i ewentualne przejęcie (5.41, 5.42 pkt 1).", markers: [decision, roll, reaction], refs: [R-3.0.2, R-5.12.1, R-4.33.3, R-5.41.1, R-5.42.1]}
+      - {n: "B1", text: "Segment ruchu i ostrzału: IO (jedna funkcja z 5.22 na rozkaz) albo LC (ruch lub ostrzał linii). Przeciwnik reaguje: OW, MLE, ostrzał reakcyjny, zmiana ukierunkowania w reakcji.", markers: [decision, reaction], refs: [R-3.0.3, R-3.0.4, R-5.22.1, R-5.23.1]}
+      - {n: "B2", text: "Segment walki wręcz: procedura P-05 dla wszystkich walk naraz, krok po kroku.", markers: [roll], refs: [R-3.0.5, P-05]}
+      - {n: "C", text: "Impet tym samym dowódcą (rzut ≤ inicjatywa; 9 = rzut zagłady) — przy sukcesie przeciwnik może próbować przejęcia impetu; albo powrót do A.", markers: [decision, roll, reaction], refs: [R-3.0.6, R-5.31.1, R-5.32.1, R-5.33.1, R-5.42.2]}
+      - {n: "D1", text: "Ruch ucieczki: uciekające falangi eliminowane; pozostałe uciekające o pełny MA (P-04).", refs: [R-10.23.1, P-04]}
+      - {n: "D2", text: "Przeładowanie: zdjęcie MISSILE LOW/NO, jeśli jednostka poza strefą kontroli i poza zasięgiem/LOS uzbrojonego wroga. Opcja 4.9: położenie dowódców słoni.", markers: [decision], refs: [R-8.18.1, R-4.91.1]}
+      - {n: "D3", text: "Odwrócenie skończonych dowódców; zdjęcie MOVED, RALLIED, FIRED, PURSUIT/FINISHED, TRUMPED.", refs: [R-3.0.7]}
+      - {n: "E", text: "Faza wycofania: suma RP wyeliminowanych; RP ≥ próg → armia się wycofuje (obie — mniejsza nadwyżka wygrywa).", refs: [R-3.0.8, R-11.2.1, R-11.2.2]}
+    refs: [R-3.0.1, P-04, P-05]
+  - id: P-02
+    title: Aktywacja dowódcy, impet i przejęcie (5.1–5.5)
+    steps:
+      - {n: "1", text: "Wyznacz najniżej ocenianego nieaktywowanego dowódcę (remis stron — rzut; potem naprzemiennie). Dowódca zwolniony ze strefy kontroli wroga (5.26) — aktywuj go przed innymi.", markers: [roll], refs: [R-5.12.1, R-5.26.2]}
+      - {n: "2", text: "Gracz aktywny może zamiast niego próbować przejęcia wyżej ocenianym dowódcą: rzut ≤ jego inicjatywa. Porażka — idzie wyznaczony, próbujący skończony.", markers: [decision, roll], refs: [R-5.41.1]}
+      - {n: "3", text: "Po udanym przejęciu przeciwnik może próbować przejęcia przejęcia dowódcą o inicjatywie ≥ (rzut ≤ jego inicjatywa). Jedna próba na stronę na aktywację.", markers: [reaction, roll], refs: [R-5.42.1, R-5.43.1]}
+      - {n: "4", text: "Oznacz dowódców pominiętych (TRUMPED/NO MOMENTUM): nieaktywni obu stron z inicjatywą ≤ przejmującego.", markers: [pitfall], refs: [R-5.44.2]}
+      - {n: "5", text: "Dowódca, który przejął, musi coś zrobić (rozkaz lub umożliwienie walki wręcz) — inaczej przejęcie niebyłe (5.46).", markers: [pitfall], refs: [R-5.45.1, R-5.46.1]}
+      - {n: "6", text: "Faza rozkazów (B1, B2).", refs: [P-01]}
+      - {n: "7", text: "Impet: tylko dowódca, który właśnie skończył fazę, nie w (i nie wcześniej w) strefie kontroli wroga, nie przejęty/pominięty, nie skończony; najwyżej 3 fazy z rzędu (PW: OC tylko 1 próba).", markers: [decision, pitfall], refs: [R-5.31.1, R-5.14.1, R-6.81.2]}
+      - {n: "8", text: "Rzut impetu ≤ inicjatywa → kolejna faza B (przeciwnik może próbować przejęcia impetu); wyżej → skończony; 9 → rzut zagłady (0–1 ponowna aktywacja przeciwnika, 2–8 skończony, 9 koniec aktywacji w turze).", markers: [roll, reaction], refs: [R-5.32.1, R-5.33.1, R-5.42.2]}
+      - {n: "9", text: "Po fazach dowódcy, który przejął aktywację — powrót do kolejności od najniższej inicjatywy.", refs: [R-5.42.3]}
+    refs: [R-5.0.1]
+  - id: P-03
+    title: Uporządkowane wycofanie, wycofanie linii jazdy, PW (6.5, 6.57, 6.8)
+    steps:
+      - {n: "1", text: "Wróg wchodzi w ≤ 2 heksy (lub zaczyna ruch w 2 heksach) — zatrzymaj jego ruch. Kandydat: nie w strefie kontroli wroga, nie uciekający, nie w kolumnie/z podniesionym MA, nie BI; MA wyższy od MA wroga (SK: wróg o MA ≤).", markers: [reaction, pitfall], refs: [R-6.51.1, R-6.51.3, R-6.51.4, R-9.91.1]}
+      - {n: "2", text: "Wróg zaczynający w 2 heksach może najpierw strzelić; wchodzący w 2 heksy strzela po wycofaniu.", refs: [R-6.51.5]}
+      - {n: "3", text: "Kara nr 3 (podejście z boku/tyłu; SK tylko z tyłu) — 1 trafienie przed wycofaniem.", refs: [R-6.52.4]}
+      - {n: "4", text: "Wycofanie o różnicę MA w MP (SK 2 heksy), każdym krokiem dalej od wroga; bez obrotu, z kosztami terenu; nie do strefy kontroli, lasu, bagna; zasady stosu obowiązują. Konni łucznicy mogą strzelić (zasięg 2).", markers: [decision], refs: [R-6.51.1, R-6.52.1, R-6.55.1, R-6.55.2]}
+      - {n: "5", text: "Kary nr 1 (LG — test TQ) i nr 2 (inna piechota poza SK i velites — 1 trafienie); trafienia ≥ TQ → ucieczka. Potem ewentualny obrót z kosztami.", markers: [roll], refs: [R-6.52.2, R-6.52.3, R-6.53.1, R-6.52.1]}
+      - {n: "6", text: "Wróg kontynuuje ruch. Wycofania bez limitu w turze, bez MP i rozkazów.", refs: [R-6.56.1, R-6.54.1]}
+    subprocedures:
+      - id: P-03a
+        title: Wycofanie linii jazdy (6.57)
+        steps:
+          - {n: "1", text: "Jednostka linii jazdy ≤ 2 heksy od dowódcy zdolnego nią dowodzić, linia nie użyła wcześniej indywidualnego OW.", refs: [R-6.57.1]}
+          - {n: "2", text: "Wycofuje się cała linia (bez wybierania) wg zasad OW.", markers: [pitfall], refs: [R-6.57.1]}
+      - id: P-03b
+        title: Uprzednio zaplanowane wycofanie (6.8)
+        steps:
+          - {n: "1", text: "Na początku tury (przed aktywacjami) połóż znacznik PW/NO PW pod uprawnionym dowódcą (armia z dowódcą elitarnym lub OC ≥ 6).", markers: [decision], refs: [R-6.81.1, R-6.82.1]}
+          - {n: "2", text: "Gdy piechota wroga wywołałaby OW — odkryj; cała linia piechoty (nie BI/SK) cofa się o 1 heks; skutki OW obowiązują.", markers: [reaction], refs: [R-6.83.1]}
+          - {n: "3", text: "Dowódca linii staje się skończony; OC tej strony ma w turze 1 próbę impetu.", markers: [pitfall], refs: [R-6.83.2, R-6.81.2]}
+          - {n: "4", text: "Jeśli dowódca aktywuje się przed użyciem PW — tylko IO bez ruchu, tylko dla jednostek linii PW.", refs: [R-6.83.3]}
+    refs: [R-6.5.1, R-6.8.1]
+  - id: P-04
+    title: Ucieczka — początkowy ruch ucieczki i segment ruchu ucieczki (10.21–10.25)
+    steps:
+      - {n: "1", text: "Typ: SK, osłabiona BI, skorpion — eliminacja; słoń — szał (P-06); reszta — ruch ucieczki.", refs: [R-10.21.1, P-06]}
+      - {n: "2", text: "Zwróć jednostkę ku krawędzi odwrotu i przesuń o 2 heksy najkrótszą nieblokowaną drogą (blokują: wróg, teren nieprzekraczalny, strefa kontroli wroga bez własnej jednostki). Priorytet: 1) wolny heks poza strefą kontroli; 2) własny poza strefą; 3) własny w strefie.", markers: [decision], refs: [R-10.22.1]}
+      - {n: "3", text: "Falanga: prosto albo po odwróceniu, 2 heksy obiema połowami, bez obrotów — inaczej eliminacja. Inne jednostki: obrót o wierzchołki do pierwszego wolnego heksu — inaczej eliminacja.", markers: [pitfall], refs: [R-10.22.2, R-10.22.3]}
+      - {n: "4", text: "Przechodzenie przez swoich — Tabela stosu (ucieczka); koniec ruchu w zajętym heksie → heks dalej (eliminacja, jeśli zajęty/strefa kontroli/nieprzekraczalny).", refs: [R-10.25.1, T-21]}
+      - {n: "5", text: "Połóż ROUTED, zdejmij znaczniki trafień. Dowódca w stosie może uciekać razem.", refs: [R-10.22.3, R-10.26.1]}
+      - {n: "6", text: "Faza D1: uciekające falangi eliminowane; pozostałe ruszają się o pełny wydrukowany MA tą samą metodą (bez wejścia do niezajętych stref kontroli wroga, bez trafień za ruch). Zejście z mapy lub niedokończony ruch — eliminacja (RP).", refs: [R-10.23.1, R-10.24.1]}
+    refs: [R-10.14.1, P-06]
+  - id: P-05
+    title: Walka wręcz — segment walki wręcz (8.4–8.47)
+    steps:
+      - {n: "1", text: "Wyznaczenie walki: SHOCK NO TQ CHECK na jednostki, które nie podchodziły i wybierają walkę (7.33; Engaged — obowiązkowo). Tylko jednostki ze znacznikami atakują.", markers: [decision], refs: [R-8.41.1, R-7.33.1, R-7.33.3]}
+      - {n: "2", text: "Przypisanie walk: każdy atakujący atakuje wszystkie jednostki w swojej strefie kontroli (chyba że atakuje je inny); raz na segment; obrońca raz na segment (poza pościgiem); sumuj Size; stos atakuje jeden heks.", markers: [decision, pitfall], refs: [R-8.42.1, R-8.42.2]}
+      - {n: "3", text: "Przepuszczenie słonia — decyzja obrońcy przed rzutem szarży (9.11).", markers: [reaction], refs: [R-9.11.1, P-07]}
+      - {n: "4", text: "Szarża: test TQ przed walką (SHOCK MUST CHECK TQ i ich cele; wyjątki 8.43) z modyfikatorami; trafienia ≥ TQ → natychmiastowa ucieczka; falanga — rzut na utrzymanie; wszyscy uciekają → 10.15; obrońca uciekł → atakujący posuwa się (chyba że w strefie kontroli innego wroga).", markers: [roll], refs: [R-8.43.1, R-8.43.2, R-8.43.3, R-8.43.4, R-8.43.5, R-10.15.1]}
+      - {n: "5", text: "Straty dowódców (4.73) dla dowódców w stosach z uczestnikami.", markers: [roll], refs: [R-8.44.1, R-4.73.1]}
+      - {n: "6", text: "Starcie: kolumna bazowa z Tabeli starcia (obrońca wybiera swoją jednostkę, atakujący swoją).", markers: [decision], refs: [R-8.45.1, R-8.45.2]}
+      - {n: "7", text: "Przewaga: pozycji (bok/tył; wyjątki) albo systemu broni (Tabela przewagi).", refs: [R-8.46.2, R-8.46.3, R-8.46.4]}
+      - {n: "8", text: "Przesunięcia: stosunek Size (zaokrąglanie wg ruchu), teren i jednostki z CRT, obrona falangi, osłabienie.", refs: [R-8.46.5, R-8.46.6, R-9.41.1, R-10.32.1]}
+      - {n: "9", text: "Rzut na CRT ± charyzma (poległy dowódca: odwrotnie, charyzma + 2); mnożniki AS ×2, DS ×3, SK ½ maks. 1, LC ½; podział trafień 10.13.", markers: [roll], refs: [R-8.46.7, R-8.46.8, R-10.13.1]}
+      - {n: "10", text: "Załamanie krok 1: trafienia ≥ TQ uciekają (wszyscy → 10.15; falanga — rzut, bez rzutu przy przewadze pozycji atakującego); obrońca rusza pierwszy.", markers: [roll, pitfall], refs: [R-8.47.1, R-8.47.2]}
+      - {n: "11", text: "Załamanie krok 2: jednostki z TQ − 1 trafień w strefie kontroli wroga — test (sukces: −1 trafienie).", markers: [roll], refs: [R-8.47.3]}
+      - {n: "12", text: "Załamanie krok 3: posunięcia (8.5) albo pościg jazdy (P-09); Engaged — znaczniki.", refs: [R-8.47.4, R-8.51.1, P-09, R-8.47.5]}
+    subprocedures:
+      - id: P-05a
+        title: Gdy uciekaliby wszyscy (10.15)
+        steps:
+          - {n: "1", text: "Atakujący dolicza trafienia za posunięcie po walce.", refs: [R-10.15.1]}
+          - {n: "2", text: "Ucieka strona z największą nadwyżką trafień nad TQ; druga: trafienia = TQ − 1 (atakujący się posuwa).", refs: [R-10.15.1]}
+          - {n: "3", text: "Równe nadwyżki — ucieka obrońca; atakujący TQ − 1 i posunięcie.", refs: [R-10.15.1]}
+    refs: [R-8.4.1, R-8.4.2, R-8.4.3, P-07, P-09]
+  - id: P-06
+    title: Szał słonia (9.14)
+    steps:
+      - {n: "1", text: "Rzut kierunku: 0 — ku najbliższej własnej jednostce (słoń dowódcy ginie); 1–6 — kompas mapy; 7–9 — przy 1. rzucie od sprawcy, później kornak (eliminacja; słoń dowódcy: reorganizacja z TQ − 2).", markers: [roll], refs: [R-9.14.1]}
+      - {n: "2", text: "Przed rozstrzygnięciem każda strona może wycofać jednostki (OW) przed słoniem.", markers: [reaction], refs: [R-6.56.2, R-9.14.2]}
+      - {n: "3", text: "Ruch 3 heksy; przed zajętym heksem stop i trafienia jednostce (1 front / 2 bok-tył / jazda 2; stos — obie); dowódca, który nie odskoczy, ginie.", refs: [R-9.14.3]}
+      - {n: "4", text: "Powtarzaj do: zejścia z mapy, kornaka, ≥ 8 heksów od najbliższej jednostki lub po 4. rzucie (eliminacja).", markers: [roll], refs: [R-9.14.4]}
+      - {n: "5", text: "Dowódca na słoniu — rzut na stratę na końcu szału; zejście z mapy — obaj wyeliminowani.", markers: [roll], refs: [R-9.14.5]}
+    refs: [R-9.14.6]
+  - id: P-07
+    title: Przepuszczenie słonia (9.11)
+    steps:
+      - {n: "1", text: "Warunki: atak słonia z SHOCK MUST CHECK TQ przez heks frontowy piechoty, słoń atakuje sam, piechota nie była w strefie kontroli wroga na początku fazy, wolny heks tylny.", markers: [decision], refs: [R-9.11.1, R-9.11.2]}
+      - {n: "2", text: "+1 DRM do testu przed walką piechoty.", markers: [roll], refs: [R-9.11.3]}
+      - {n: "3", text: "Walka: trafienia obrońcy ½ (w dół), słonia −1.", refs: [R-9.11.3]}
+      - {n: "4", text: "Jeśli piechota nie uciekła, a słoń nie szaleje — słoń do wolnego heksu tylnego obrońcy (zachowuje ukierunkowanie).", refs: [R-9.11.3]}
+      - {n: "5", text: "Test przepuszczenia (nie SK): trafienia = wynik − TQ.", markers: [roll], refs: [R-9.11.3, R-9.24.2]}
+    refs: [R-9.11.1]
+  - id: P-08
+    title: Reorganizacja (10.28–10.33)
+    steps:
+      - {n: "1", text: "Warunki: jednostka uciekająca w terenie czystym, nie obok wroga, poza zasięgiem/LOS niezwiązanych strzelców wroga (w tym H&D); dowódca jeszcze nie próbował tej jednostki w tej turze; IO dowódcy (nie w fazie z LC ruchu).", markers: [decision, pitfall], refs: [R-10.28.1, R-4.31.2]}
+      - {n: "2", text: "Rzut ≤ inicjatywa + 1 (+1 DRM, jeśli już osłabiona) → sukces; inaczej ruch ucieczki o pełny MA, a przy wyniku > wydrukowanego TQ — eliminacja.", markers: [roll], refs: [R-10.28.2, R-10.33.1]}
+      - {n: "3", text: "Sukces: rzut na Tabeli reorganizacji (+2 DRM dla wcześniej osłabionej) → trafienia; odwróć ROUTED na RALLIED, darmowy obrót, osłabienie, MISSILE NO dla piechoty strzelającej; bez rozkazów do następnej tury.", markers: [roll], refs: [R-10.28.3, R-10.31.1, R-10.33.1, T-27]}
+    refs: [R-10.28.1]
+  - id: P-09
+    title: Pościg jazdy (8.6)
+    steps:
+      - {n: "1", text: "Uprawnienie: atakująca jazda, obrońcy uciekli w kroku załamania 1; brak wyjątków 8.61 (inaczej posunięcie). Przy kilku jednostkach jazdy ściga jedna.", markers: [decision, pitfall], refs: [R-8.61.1, R-8.61.2]}
+      - {n: "2", text: "Rzut: wynik > TQ (opcja: wartość pościgu z DRM) → pościg; inaczej przerwanie (posunięcie).", markers: [roll], refs: [R-8.62.1, R-8.66.1, R-8.62.5]}
+      - {n: "3", text: "Pościg: ruch drogą ucieczki bez MP (trafienia za teren); przy eliminacji obrońców ½ MA / pełny MA; stop przy strefie kontroli wroga; walka wręcz z wszystkimi w strefie kontroli; bez ponownego pościgu.", markers: [roll], refs: [R-8.62.2, R-8.62.3]}
+      - {n: "4", text: "Zejście ściganego z mapy — jazda poza mapę; powrót tylko przez fazę OC (8.64).", refs: [R-8.62.4, R-8.64.1]}
+      - {n: "5", text: "Znacznik PURSUIT/FINISHED: jazda bez rozkazów ruchu/ostrzału i bez ataku wręcz do końca tury.", refs: [R-8.63.1]}
+    refs: [R-8.61.1]
+  - id: P-10
+    title: Ostrzał — zwykły, reakcyjny, nękający (8.1–8.3)
+    steps:
+      - {n: "1", text: "Uprawnienie: rozkaz (IO/LC), pociski, cel w zasięgu i LOS przez front/bok; w ruchu — tylko po ruchu „naprzód”; raz na fazę; LI-łucznicy i skorpiony — ruch albo ostrzał.", markers: [decision, pitfall], refs: [R-8.11.1, R-8.11.2, R-8.13.1, R-8.14.1]}
+      - {n: "2", text: "Rzut ≤ siła na zasięgu (MRRC) z DRM → 1 trafienie (słonie 2); niezmodyfikowany 0 z dowódcą w heksie — rzut na stratę; MISSILE LOW wg progów.", markers: [roll], refs: [R-8.15.1, R-8.19.1, R-8.17.1]}
+      - {n: "3", text: "Reakcje: ostrzał odwetowy celu; ostrzał przy wejściu/wyjściu w strefę kontroli (linie — po zakończeniu ruchu linii).", markers: [reaction, roll], refs: [R-8.23.1, R-8.21.1, R-8.21.2, R-8.22.1]}
+    subprocedures:
+      - id: P-10a
+        title: Ostrzał nękający H&D (8.3)
+        steps:
+          - {n: "1", text: "Uprawnienie: SK/LI (nie łucznicy) przeciw MA ≤, LC przeciw MA < (nie przeciw SK); rozkaz ruchu; nie w strefie kontroli wroga.", markers: [pitfall], refs: [R-8.31.1, R-8.31.3, R-8.31.2]}
+          - {n: "2", text: "Odległość LC ≤ 4, piechota ≤ 2 (nie obok); LOS; ścieżka przez heksy frontowe wolna od jednostek i stref kontroli (poza przyległą do celu), bez terenu trudnego i skoków > 1 poziomu.", refs: [R-8.32.1]}
+          - {n: "3", text: "Strzał jak z zasięgu 1 (DRM za ruch); cel może obrócić się w reakcji; ostrzał przy wejściu równoczesny; żeton zostaje, ale to ruch dla 6.13.", markers: [roll, reaction], refs: [R-8.33.1, R-8.33.2]}
+    refs: [R-8.0.1]
+  - id: P-11
+    title: Czy dowódca może wydać rozkaz liniowy? (4.3, 4.6, 4.56)
+    steps:
+      - {n: "1", text: "Dowódca na początku fazy rozkazów ≤ 2 heksy od jednostki linii, z LOS (słonie nie blokują), poza strefą kontroli wroga; przy 2 LC — w zasięgu obu linii.", markers: [pitfall], refs: [R-4.33.1]}
+      - {n: "2", text: "OC — tak (faza początkowa i impetu).", refs: [R-4.33.2]}
+      - {n: "3", text: "SC, faza początkowa: pierwsza tura — automatycznie; w zasięgu dowodzenia OC — tak; Kartagińczyk pod Hannibalem (nie zastępca) — tak; inaczej rzut ≤ strategia OC (+1 strefa kontroli, –1 prokonsul).", markers: [roll], refs: [R-4.33.3, R-4.33.4, R-4.6.1, R-4.6.2, R-4.56.1]}
+      - {n: "4", text: "SC, faza impetu: tylko jeśli wydał LC w fazie początkowej i zda rzut na strategię OC.", markers: [roll, pitfall], refs: [R-4.33.5]}
+      - {n: "5", text: "Skład linii: przyległość (lub 2/3 heksy wg karty), wspólne ustawienie albo zasięg dowodzenia; jeden velites/SK nie przerywa.", refs: [R-4.32.1, R-4.32.2, R-4.32.3, R-9.24.4]}
+    refs: [R-4.31.1]

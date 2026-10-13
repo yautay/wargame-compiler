@@ -6,5 +6,11 @@
 /private/** -text -eol -filter whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 # Immutable console output retains its original spacing; compare it by hash.
-/private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/scripts-check.log -diff
-/private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/scripts-check-attempt-02.log -diff
+/private/archive/poc-2026-10-11/payload/private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/scripts-check.log -diff
+/private/archive/poc-2026-10-11/payload/private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/scripts-check-attempt-02.log -diff
+
+# Preserve captured POC bytes, including original line endings.
+/archive/poc-2026-10-11/project/** -text -eol -filter
+
+# Preserve the pre-edit planning snapshot byte-for-byte on commit and checkout.
+/archive/planning-before-sol-2026-10-11/** -text -eol -filter

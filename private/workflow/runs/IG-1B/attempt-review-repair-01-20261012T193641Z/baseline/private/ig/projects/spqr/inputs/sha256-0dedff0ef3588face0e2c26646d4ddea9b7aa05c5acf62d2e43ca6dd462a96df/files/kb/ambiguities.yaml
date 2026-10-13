@@ -1,0 +1,1422 @@
+ambiguities:
+  - id: N-01
+    group: Źródła
+    title: "Tabele z kart pomocy (PAC) i karty uprawnień do LC — źródła częściowe (karty sprzed 5. ed., księga scenariuszy 4. ed.)"
+    scope: original
+    quotes: |
+      2.0: „Four 11” x 17” player aid cards, PAC I and PAC II”; 2.3: „The use of each chart and table is explained in the rules”; 6.63: „all given on the
+      two Stacking Charts”; 8.46: „(all listed on the Shock CRT)”. Karty z docs/update: „4.53 Leader Casualties”, „8.56 Cohesion Hit and TQ Charts”;
+      księga: „SPQR 4th Edition Scenario Book … © 2018 GMT Games”.
+    description: |
+      Do 2026-10-04 wartości tabel były tylko na kartach PAC spoza źródeł. Teraz `wgu.yaml` ma `sources.charts` (34 obrazy w docs/update) i `sources.scenarios`
+      (księga scenariuszy 4. ed., 2018). T-20…T-29 przepisano z obrazów i księgi (complete: true), dodano T-31…T-48 (m.in. tabele rzutu zagłady, szału, testów
+      dowódców, obozu rzymskiego, Trebii/Metaurusa, scenariuszy). Wszystkie liczbowe przykłady instrukcji zgadzają się z kartami (kontrole krzyżowe w T-20…T-28).
+      Pozostaje: część kart ma numerację i treść sprzed 5. ed. (N-24…N-35); część obrazów to pomoce nieoficjalne (N-36); księga scenariuszy jest z 4. ed. (N-23)
+      i obejmuje tylko 5 bitew i scenariusz szkoleniowy; brak scenariuszy/kart LC dla bitew wspomnianych w 5. ed. (Trebia i Metaurus — jest tylko karta terenu
+      T-36; Sentinum i Telamon — 9.96). Największa luka dla digitalizacji: tabele rozstawienia (T-43…T-48) podają ID jednostek i heksy, ale w źródłach nie ma
+      parametrów żetonów (Size, TQ, MA, klasa, broń) ani map (teren heksów, linie alarmu i obóz pod Beneventum, kompas szału i Volturnus) — OOB nie jest
+      samowystarczalne.
+    readings: |
+      A — karty z docs/update odpowiadają kartom PAC 5. ed. poza wskazanymi różnicami; wartości niepodane w tekście (CRT, Clash, przewaga, MRRC) przyjmuje się
+      z kart.
+      B — karty pochodzą w całości z wcześniejszej edycji; wartości mogą różnić się także tam, gdzie tekst 5. ed. ich nie podaje.
+    recommendation: |
+      A dla wartości niepodanych w tekście (brak lepszego źródła; zgodność wszystkich przykładów liczbowych), z pierwszeństwem tekstu 5. ed. przy rozbieżnościach
+      (R-1.0.2). Gdy będą dostępne — porównać ze skanami PAC I/II 5. ed. i księgami scenariuszy 5. ed.
+    strength: probable
+    resolution_source: Karty PAC I/II SPQR Deluxe (5th Ed.), księgi scenariuszy 5. ed.
+    impact: Nie blokuje już ruchu, ostrzału ani walki wręcz; ryzyko — drobne różnice 4./5. ed. w wartościach niepodanych w tekście; brak części scenariuszy.
+    resolution: |
+      Częściowo rozwiązane 2026-10-04 (aktualizacja przyrostowa): T-20…T-29 complete: true; nowe T-31…T-48; scenariusze księgi 2018 w kb/rules/12-…
+      Otwarte: pochodzenie kart (4./5. ed.), brak ksiąg scenariuszy 5. ed. i scenariuszy Trebii, Metaurusa, Sentinum, Telamonu; brak parametrów żetonów
+      (Size, TQ, MA) i map — rozstawienia T-43…T-48 bez tych danych nie wystarczą do digitalizacji.
+    status: open
+    refs: [T-20, T-21, T-22, T-23, T-24, T-25, T-26, T-27, T-28, T-29, T-36, R-2.0.1, R-6.27.1, R-6.69.1, R-8.71.1, R-8.72.1, R-8.73.1, R-8.74.1, R-8.75.1, R-10.29.1, R-4.73.1, R-1.0.2, R-9.96.1, N-23, N-24, N-36, T-31, T-48, N-35, T-43]
+  - id: N-02
+    group: Dowodzenie i aktywacja
+    title: Rozkaz liniowy dowódcy podległego w fazie impetu — kiedy rzut i co znaczy „nie zrobił tego”
+    scope: original
+    quotes: |
+      4.33: „A Subordinate Commander may issue a Line Command in a Momentum-generated Orders Phase only if the player rolls against the OC’s Strategy
+      Rating per #2 above. The leader cannot issue a Line Command if he did not do so in his Initial Orders Phase.” „Exception #1: In the first Game Turn only…”
+    readings: |
+      (a) Rzut: A — zawsze wymagany w fazie impetu, także w zasięgu OC; B — tylko poza zasięgiem OC (jak pkt 2).
+      (b) Pierwsza tura: A — wyjątek #1 dotyczy tylko fazy początkowej; B — także faz impetu w 1. turze.
+      (c) „did not do so”: A — dowódca nie wydał LC w fazie początkowej (z wyboru lub z braku uprawnień) → brak LC w impecie; B — tylko gdy nie miał uprawnienia.
+      (d) +1 DRM za strefę kontroli: stosuje się (odesłanie „per #2”).
+    recommendation: |
+      (a) A, (b) A, (c) A, (d) tak — tekst mówi „only if the player rolls”, a wyjątek #1 stoi w akapicie o fazie początkowej. Potwierdza to karta Command
+      Summary (T-34): „Momentum Orders Phase: Issue a Line Command only if he issued one in the Initial Orders Phase and the player’s DR ≤ his OC’s Strategy
+      Rating”; „it is the first Game Turn of the scenario” stoi tylko przy „Initial Orders Phase”. Status otwarty, bo karta pochodzi sprzed 5. ed. (N-24).
+    strength: certain
+    resolution_source: FAQ/errata GMT lub ConsimWorld (seria GBoH); karta T-34.
+    status: open
+    refs: [R-4.33.3, R-4.33.4, R-4.33.5, T-34, N-24]
+  - id: N-03
+    group: Dowodzenie i aktywacja
+    title: Armia bez dowódcy naczelnego (OC poległ, brak prokonsula)
+    scope: original
+    quotes: "4.75: „If an Overall Commander is eliminated, he is not replaced; no other leader takes over.”"
+    description: |
+      Wiele zasad zakłada istnienie OC: LC dowódców podległych (zasięg OC / rzut ≤ strategia OC), zastępowanie dowódców (IO od OC), ruch dowódców ze stref
+      kontroli (IO od OC), przegrupowanie jazdy spoza mapy (faza OC), PW (warunek OC ≥ 6), EIO (elitarny OC), formowanie DD (rozkaz OC).
+    readings: |
+      A — po śmierci OC wszystkie te możliwości znikają (np. LC dowódców podległych tylko w 1. turze/na mocy wyjątków; brak zastępstw, powrotu jazdy, DD).
+      B — rzut na strategię z wartością 0 (LC tylko przy wyniku 0).
+    recommendation: "A — 4.75 mówi wprost, że nikt nie przejmuje dowództwa; brak OC = brak uprawnień OC."
+    strength: speculative
+    resolution_source: FAQ/errata GMT.
+    status: open
+    refs: [R-4.75.1, R-4.33.3, R-4.74.1, R-4.24.1, R-8.64.1, R-6.81.1, R-5.51.1, R-9.51.1]
+  - id: N-04
+    group: Dowodzenie i aktywacja
+    title: Odskok dowódcy — co znaczy „otherwise adjacent”
+    scope: original
+    quotes: |
+      4.72: „The instant an enemy combat unit moves adjacent… to a friendly leader that is not already in an enemy ZOC, that friendly leader may immediately
+      withdraw…” „A leader that is otherwise adjacent to an enemy combat unit cannot withdraw and is eliminated if that combat units enters its hex”.
+    readings: |
+      A — „otherwise” = dowódca sąsiadujący z wrogiem w inny sposób niż przez właśnie wykonany ruch wroga (np. już stał obok, poza strefą kontroli) — nie odskakuje.
+      B — „otherwise” = dowódcy nieobjęci pierwszym zdaniem (czyli już w strefie kontroli wroga); dowódca stojący obok wroga poza jego strefą kontroli może
+      odskoczyć, gdy podchodzi kolejna jednostka.
+    recommendation: "B — pierwsze zdanie wprost wyłącza tylko dowódców „already in an enemy ZOC”."
+    strength: probable
+    status: open
+    refs: [R-4.72.1, R-4.72.4]
+  - id: N-05
+    group: Dowodzenie i aktywacja
+    title: (opcja 4.9) Dowodzenie słoniami — zakres „pierwszego razu” i rodzaj rozkazów
+    scope: original
+    quotes: "4.91: „The first time in a battle that Elephant units are given orders, they do so normally. However, after that there are only two ways of giving IOs/LCs to move Elephant units”."
+    readings: |
+      (a) A — pierwszy raz dla całej armii (pierwsza faza z rozkazami dla słoni); B — pierwszy raz dla każdej jednostki słoni.
+      (b) A — ograniczenie dotyczy tylko rozkazów ruchu (ostrzał, odzyskanie spójności, reorganizacja słoni — normalnie); B — wszystkich rozkazów.
+    recommendation: "(a) A, (b) A — tekst mówi „to move Elephant units”."
+    strength: speculative
+    status: open
+    refs: [R-4.91.1, R-4.92.1]
+  - id: N-06
+    group: Dowodzenie i aktywacja
+    title: Ponowna aktywacja (rzut zagłady) — impet i dalsza kolejność
+    scope: original
+    quotes: |
+      5.33: „a Finished leader that is re-activated may not use Momentum himself.” 5.34: „You may not apply Momentum to a leader… who was Reactivated (5.33).”
+    readings: |
+      (a) A — żaden ponownie aktywowany dowódca nie używa impetu (5.34); B — tylko ponownie aktywowany dowódca skończony (5.33).
+      (b) Po fazie ponownie aktywowanego dowódcy: A — powrót do kolejności od najniższej inicjatywy (jak 5.42); B — inna kolejność (brak zapisu).
+    recommendation: "(a) A — 5.34 jest zasadą ogólną; karta rzutu zagłady (T-31): „Such a Re-Activated leader may not use Momentum himself” (bez zawężenia do skończonych); (b) A — przez analogię do 5.42 (wniosek)."
+    strength: probable
+    status: open
+    refs: [R-5.33.1, R-5.34.1, R-5.42.3, T-31]
+  - id: N-07
+    group: Ruch i wycofania
+    title: Kara za ponowny ruch (6.13) — który wcześniejszy ruch się liczy
+    scope: original
+    quotes: |
+      6.13: „If a combat unit that moved in a previous Orders Phase moves again… This hit penalty only applies to units ordered to Move (5.22 #1 or 5.23 #1);
+      it does not apply to any other type of movement.” 6.54: „For the purposes of Movement Allowances (6.1), no movement points are expended”.
+    readings: |
+      A — wcześniejszy ruch dowolnego rodzaju (OW, posunięcie, pościg, ucieczka) + obecny ruch na rozkaz → 1 trafienie.
+      B — oba ruchy muszą być ruchami na rozkaz (znacznik MOVED); OW, posunięcie, pościg nie liczą się jako „moved”.
+    recommendation: |
+      B — 6.54 stanowi, że OW nie liczy się dla 6.1 (6.13 należy do 6.1); znaczniki MOVED służą ruchom na rozkaz. H&D liczy się jako ruch (8.33) i i tak wymaga
+      rozkazu ruchu.
+    strength: probable
+    resolution_source: FAQ/errata GMT; próba tłumaczenia 2026-10-04 wskazała tę samą niejasność. Karta 8.56 (T-28) mówi o „“Moved” Unit moves again” — cudzysłów wskazuje znacznik MOVED (wspiera B).
+    status: open
+    refs: [R-6.13.1, R-6.54.1, R-8.33.1, T-28]
+  - id: N-08
+    group: Ruch i wycofania
+    title: Falanga po ruchu — kara z 6.41 a kara z 6.13
+    scope: original
+    quotes: "6.41: „If a “Moved” Phalanx uses its 5 MA in any subsequent move, it incurs 2 Cohesion Hits (there is no TQ check) or 1 Cohesion Hit if it uses its 4 MA.”"
+    readings: "A — 6.41 zastępuje 6.13 dla falang (razem 2 albo 1 trafienie). B — kumulacja z 6.13 (3 albo 2 trafienia)."
+    recommendation: "A — wariant „4 MA = 1 trafienie” powtarza dokładnie 6.13, więc 6.41 opisuje łączną karę. Karta 8.56 (T-28) podaje osobne pozycje: „“Moved” Unit moves again — 1” i „“Moved” Phalanx moves again using 5 MA — 2” (wspiera A)."
+    strength: probable
+    status: open
+    refs: [R-6.41.2, R-6.13.1, T-28]
+  - id: N-09
+    group: Ruch i wycofania
+    title: PW — co znaczy „have the capability to do so (6.51)”
+    scope: original
+    quotes: |
+      6.8: „allows certain units to withdraw… even though they do not have a higher MA.” 6.83: „if the units in the the line (with PW) have the capability to do so (6.51)”.
+    readings: |
+      A — chodzi o pozostałe warunki OW (nie w strefie kontroli wroga, nie uciekające, nie w kolumnie, dozwolony heks), bez różnicy MA.
+      B — wymagana też przewaga MA (sprzeczne z celem PW).
+    recommendation: "A — inaczej PW nie miałoby sensu (wstęp 6.8)."
+    strength: probable
+    status: open
+    refs: [R-6.83.1, R-6.8.1, R-6.51.1]
+  - id: N-10
+    group: Ruch i wycofania
+    title: PW — kiedy „tactic is employed” ogranicza impet OC
+    scope: original
+    quotes: "6.81: „If the tactic is employed, that side’s OC is limited to one Momentum attempt that Game Turn, not two (5.14).”"
+    readings: |
+      A — ograniczenie wchodzi, gdy na początku tury wyznaczono prawdziwe PW (znacznik stroną PW, nie NO PW), nawet jeśli nie zostało użyte.
+      B — tylko gdy PW zostało faktycznie wykonane (wtedy ograniczenie może zadziałać dopiero po fakcie).
+      Dodatkowo: dotyczy wyłącznie OC (nie innych dowódców) — tekst wymienia tylko OC.
+    recommendation: "A — ograniczenie musi być znane, zanim OC próbuje impetu; ograniczenie tylko dla OC."
+    strength: speculative
+    status: open
+    refs: [R-6.81.2, R-6.82.1, R-5.14.1]
+  - id: N-11
+    group: Dowodzenie i aktywacja
+    title: Impet — „was previously in an enemy ZOC”
+    scope: original
+    quotes: "5.31: „The leader is in an enemy ZOC, or was previously in an enemy ZOC (5.26).”"
+    readings: |
+      A — dowolny pobyt w strefie kontroli wroga wcześniej w tej turze (np. OC wyszedł z niej własnym IO) wyklucza impet.
+      B — tylko dowódcy z 5.26 (zaczęli fazę początkową w strefie kontroli i czekali) — odesłanie w nawiasie.
+    recommendation: "B — nawias (5.26) wskazuje przypadek aktywacji odroczonej; ale dowódca będący w strefie kontroli na koniec fazy i tak nie ma impetu."
+    strength: probable
+    status: open
+    refs: [R-5.31.1, R-5.26.2]
+  - id: N-12
+    group: Ruch i wycofania
+    title: Zmiana ukierunkowania w reakcji — znak różnicy MA i minimum 1 trafienia
+    scope: original
+    quotes: |
+      7.15: „modifies that DR by the +/– difference between the MA of the moving unit and the MA of the stationary unit. If the DR is higher than the unit’s TQ,
+      that unit incurs Cohesion Hits equal to the difference, with a minimum of 1 Cohesion Hit, regardless of the DR.”
+      6.44 (to samo zdanie o minimum) i ex-6.44-1 (TQ 6): „if the DR were, say, a 5, the phalanx would incur another 1 cohesion hit”; 9.16: „with a minimum result of 1 cohesion hit”.
+    readings: |
+      (a) DRM = MA poruszającego się − MA stojącego (szybszy wróg pogarsza test) — A; odwrotnie — B.
+      (b) „minimum 1… regardless of the DR”: A — zawsze co najmniej 1 trafienie; B — minimum dotyczy tylko nieudanego testu.
+    recommendation: |
+      (a) A — kolejność wyrazów w zdaniu; (b) A — identyczne sformułowanie w 6.44 ma przykład z wynikiem ≤ TQ dającym 1 trafienie. Karta 8.56 (T-28) potwierdza
+      oba: „Cohesion Hits equal to DR minus TQ minimum 1” i [c] „adding the difference between the MA of the moving unit and the MA of the reacting unit”.
+      Inne różnice tej pozycji karty („foot only”, „Phallanx 2”) — N-26.
+    strength: certain
+    status: open
+    refs: [R-7.15.1, R-7.16.1, R-6.44.1, T-28, N-26]
+  - id: N-13
+    group: Walka
+    title: „Lekka” jednostka, która przy ruchu nie zadeklarowała ataku
+    scope: original
+    quotes: |
+      7.32 (przykład): „the moving player must state his decision on whether to do so as it finishes movement.” Play Note po 7.33: „you cannot place a SHOCK NO
+      TQ CHECK on a “light’ unit that chose not to Shock when it moved; it gets a SHOCK MUST CHECK TQ.”
+    readings: |
+      A — decyzja przy ruchu jest wiążąca: jednostka nie atakuje w tym segmencie; nota tylko zakazuje „zamiany” na NO TQ CHECK.
+      B — jednostka może jednak zaatakować później, ale ze znacznikiem SHOCK MUST CHECK TQ (test przed walką).
+    recommendation: "A dla zakazu NO TQ CHECK (pewne); możliwość późniejszego ataku — niepewna, rekomendacja A (7.32 jest zasadą, nota — komentarzem)."
+    strength: speculative
+    status: open
+    refs: [R-7.32.1, R-7.33.1, R-7.33.4]
+  - id: N-14
+    group: Walka
+    title: (opcja 8.66) Znak modyfikatora charyzmy i skrót „BC”
+    scope: original
+    quotes: "8.66: „RC/HC/BC: 3” … „+/– Charisma Rating of any one leader involved.”"
+    readings: |
+      Charyzma: A — właściciel wybiera znak (chce lub nie chce pościgu); B — zawsze odejmowana (kontrola dowódcy, por. nota historyczna 8.6); C — zawsze dodawana.
+      BC: skrót nieobjaśniony w instrukcji (prawdopodobnie typ jazdy z innego tytułu serii).
+    recommendation: "Charyzma — A (sformułowanie „+/–”); BC — traktować jak HC do czasu wyjaśnienia."
+    strength: speculative
+    status: open
+    refs: [R-8.66.1]
+  - id: N-15
+    group: Walka
+    title: H&D jazdy w bok/tył słonia — kto otrzymuje 2 trafienia
+    scope: original
+    quotes: "8.34: „A cavalry’s H&D attack through a Flank/Rear hex earns 2 Cohesion Hits that are applied prior to any Missile Fire.”"
+    readings: "A — trafienia otrzymuje jazda (jak w 9.15 za wejście w heksy boczne/tylne słonia). B — trafienia otrzymuje słoń."
+    recommendation: "A — zdanie odwołuje się do ograniczeń 9.15, a kara jest „przed ostrzałem”. Karta 8.56 (T-28), trafienia automatyczne: „Cavalry moves or uses H&D fire into an Elephant Flank/Rear hex — 2 Cohesion Hits” — trafienia otrzymuje jazda."
+    strength: certain
+    status: open
+    refs: [R-8.34.1, R-9.15.1, T-28]
+  - id: N-16
+    group: Jednostki specjalne
+    title: Czy uciekający słoń dowódcy zawsze wpada w szał
+    scope: original
+    quotes: "9.14: „Leader Elephants also Rampage, but they have less of a chance of doing so.” 4.84: „If the DR is a 7–9, the elephant… Rampages”."
+    readings: |
+      A — każda ucieczka słonia dowódcy = szał wg tabeli 9.14 („mniejsza szansa” = wynik 0 eliminuje, 7–9 w kolejnym rzucie reorganizuje); 4.84 to dodatkowy wyzwalacz.
+      B — słoń dowódcy wpada w szał tylko po śmierci dowódcy (4.84, 7–9).
+    recommendation: "A — 9.14 zaczyna się od „When an Elephant unit routs, it Rampages” i wymienia skutki dla słonia dowódcy."
+    strength: probable
+    status: open
+    refs: [R-9.14.1, R-4.84.1]
+  - id: N-17
+    group: Jednostki specjalne
+    title: Triarii — „cannot move and Shock attack” a obowiązek walki 7.31
+    scope: original
+    quotes: "9.72: „Triarii units cannot move and Shock attack unless and until… They may always, however, Shock attack (without moving)…”"
+    readings: |
+      A — triarii nie mogą wejść obok wroga (bo 7.31 wymusiłby atak).
+      B — mogą wejść obok, ale nie atakują w tym segmencie (9.72 uchyla 7.31); w następnej fazie mogą zaatakować z miejsca.
+    recommendation: "A — B tworzy obejście (podejście bez ataku, potem atak bez ruchu) sprzeczne z intencją doktryny."
+    strength: speculative
+    status: open
+    refs: [R-9.72.1, R-7.31.1, R-9.71.1]
+  - id: N-18
+    group: Struktura instrukcji
+    title: Brak reguły 9.92 w numeracji
+    scope: original
+    quotes: "s. 36: po „9.91 Movement Effects” następuje „9.93 Rout and Recovery”."
+    readings: "A — luka redakcyjna, bez utraconej treści. B — reguła pominięta przy redakcji 5. edycji."
+    recommendation: "A; sprawdzić w 4. edycji (brak w źródłach projektu). ID w bazie zachowują numerację oryginału (brak rekordów dla 9.92)."
+    strength: probable
+    resolution_source: SPQR 4th Ed. / living rules.
+    status: open
+    refs: [R-9.91.1, R-9.93.1]
+  - id: N-19
+    group: Ruch i wycofania
+    title: OW, gdy wróg zaczyna ruch tuż obok (1 heks), ale jednostka nie jest w jego strefie kontroli
+    scope: original
+    quotes: "6.51: „the instant it moves within 2 hexes of the friendly inactive unit—or if it starts movement 2 hexes distant”."
+    readings: "A — brak wyzwalacza (ani wejście w zasięg 2, ani start w odległości 2). B — wyzwalacz, bo wróg jest „within 2 hexes”."
+    recommendation: "A — literalnie wyzwalaczem jest wejście w zasięg albo start dokładnie w 2 heksach."
+    strength: speculative
+    status: open
+    refs: [R-6.51.1, R-6.51.2]
+  - id: N-20
+    group: Zwycięstwo
+    title: Remis przy obustronnym przekroczeniu progu — równe sumy czy równe nadwyżki
+    scope: original
+    quotes: "11.2: „the player with the least number of RP above that level wins (but just barely). If both sides’ RP totals are the same, it’s a draw.”"
+    readings: "A — remis przy równych nadwyżkach ponad próg. B — remis tylko przy równych sumach RP (nadwyżki mogą się różnić)."
+    recommendation: "A — zdanie rozstrzyga remis w kryterium z poprzedniego zdania."
+    strength: probable
+    status: open
+    refs: [R-11.2.2]
+  - id: N-21
+    group: Walka
+    title: Atak na harcownika broniącego się z inną jednostką — czy jest test przed walką
+    scope: original
+    quotes: "8.43: „Any unit attacking a Skirmisher (SK) unit” (bez testu). 9.23: „All units that Shock attack Skirmishers alone do not have to make a Pre-Shock TQ”."
+    readings: "A — bez testu tylko przy ataku na samych SK (9.23 doprecyzowuje 8.43). B — bez testu przy każdym ataku obejmującym SK."
+    recommendation: "A — zasada szczególna 9.23 zawęża; przy obronie mieszanej obrońcą do tabel i tak jest inny typ."
+    strength: probable
+    status: open
+    refs: [R-8.43.2, R-9.23.1]
+  - id: N-22
+    group: Walka
+    title: Ostrzał przy wejściu — „only one unit that enters its ZOC”
+    scope: original
+    quotes: "8.21 (Exception): „A unit may fire at only one unit that enters its ZOC.” 8.24: „A unit may perform Reaction Fire any number of times during enemy movement”."
+    readings: "A — limit dotyczy ruchu linii (jeden cel spośród jednostek linii). B — jeden ostrzał przy wejściu na fazę rozkazów wroga. C — ogólnie jeden cel na wejście."
+    recommendation: "A — zdanie stoi w akapicie wyjątku dla linii, a 8.24 dopuszcza wielokrotne reakcje."
+    strength: probable
+    status: open
+    refs: [R-8.21.2, R-8.24.1]
+  - id: N-23
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Księga scenariuszy 4. ed. — odwołania do numerów reguł i terminologia niezgodne z 5. ed.
+    scope: original
+    quotes: |
+      Karty LC (s. 6, 9, 14, 21, 27): „* = Do not have to be adjacent; see 4.24.” Kanny (s. 14): „** Line my use Pre-Arranged Withdrawal (6.58)”.
+      Kanny, „Swords of the Celts” (s. 15): „In the Charge section of Shock Attack (8.33), units defending against any attack that includes Celtic infantry add
+      one (+1)…”. Bagradas (s. 9): „Regulus deployed with his maniples in double depth, rather than extended line, so they do not start stacked.”
+    description: |
+      W 5. ed.: 4.24 = dowódca w strefie kontroli wroga (linie z odstępami opisuje 4.32); reguły 6.58 nie ma (PW = 6.8); 8.33 = H&D (szarża i test przed
+      walką — 8.43). „Double depth” przy Bagradas opisuje głęboki szyk manipułów, a nie formację falangi z 9.5. Odesłania zgodne z 5. ed.: 4.33, 4.6, 5.12,
+      5.5, 9.5/9.51, 9.84–9.86.
+    readings: |
+      A — odesłania to numeracja 4. ed.; treść odpowiada 4.32, 6.8 i 8.43 w 5. ed.; „double depth” u Regulusa — opisowo (jednostki bez stosów).
+      B — odesłania wskazują dosłownie reguły 5. ed. o tych numerach (np. 4.24) — bez sensu w kontekście.
+    recommendation: |
+      A — kontekst (linie bez przylegania, PW, test przed walką) jednoznacznie wskazuje 4.32, 6.8 i 8.43. Zapisano to w R-SC1-14, R-SC2-3, R-SC2-4, R-SC3-8,
+      R-SC3-14, R-SC4-7, R-SC5-12.
+    strength: certain
+    resolution_source: Księga scenariuszy 5. ed. (brak w źródłach) lub errata GMT.
+    impact: Bez wpływu na rozgrywkę przy odczycie A; ważne dla tłumaczenia odsyłaczy.
+    status: open
+    extra: {scope: scenario-book, edition: "księga 4. ed. (2018) vs instrukcja 5. ed."}
+    refs: [R-SC1-14, R-SC2-3, R-SC2-4, R-SC3-8, R-SC3-14, R-SC4-7, R-SC5-12, R-4.32.1, R-4.24.1, R-6.81.1, R-8.43.1, R-8.33.1, R-9.51.1, T-29]
+  - id: N-24
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Karty z docs/update — numeracja i drobne różnice sprzed 5. edycji
+    scope: original
+    quotes: |
+      Nagłówki: „4.53 Leader Casualties” (LeaderCas.png), „8.56 Cohesion Hit and TQ Charts” (CohTq.png); MovChart: „Phalanx to Reverse Face (6.44)”,
+      „Phalanxes In Column (6.46)”; CommSumm: „Move any/all units in one line (see 4.23)”; SOP, faza D: „1. Remove RALLIED markers 2. Rout Movement…”;
+      arkusze nieoficjalne: „See the Shock Combat Results Table (8.54)”.
+    description: |
+      W 5. ed.: 4.73, 8.75, 6.45, 6.72, 4.32, 8.74; znaczniki RALLIED zdejmuje się w kroku D.3 (po ruchu ucieczki), na karcie — w kroku D.1. Karty 6.27,
+      8.71–8.74, 10.29 i 3.0 mają numerację 5. ed.
+    readings: |
+      A — karty (część lub całość) pochodzą z 4. ed. i nie zostały przenumerowane; liczby sprawdza się z tekstem 5. ed.
+      B — karty są aktualne dla 5. ed., a różnice to przeoczenia redakcyjne.
+    recommendation: |
+      A dla numeracji (pewne). Liczby z kart przyjęto do T-20…T-37; tam, gdzie karta różni się treściowo od tekstu 5. ed., obowiązuje tekst 5. ed. (R-1.0.2) —
+      osobne niejasności N-25…N-35. Kolejność zdejmowania RALLIED — [wniosek] bez praktycznego skutku (zreorganizowana jednostka i tak nie dostaje rozkazów
+      do następnej tury).
+    strength: certain
+    resolution_source: Karty PAC I/II 5. ed. (wydanie Deluxe).
+    status: open
+    extra: {scope: charts}
+    refs: [T-20, T-23, T-28, T-34, T-37, T-39, R-1.0.2, R-4.73.1, R-8.75.1, R-3.0.7, R-10.28.3, N-25, N-35]
+  - id: N-25
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: "Szał słonia — wynik 7–9 w pierwszym rzucie: „dwa heksy” (karta) czy 3 heksy (9.14)"
+    scope: original
+    quotes: |
+      Karta (T-32): „First Rampage die roll – Rampaging elephant moves directly two hexes away from the unit that caused the rampage”. 9.14: „On the first
+      Rampage DR, the Elephant heads in the direction directly away from the unit that caused the rampage.” „…always attempt to move 3 hexes per directional
+      die roll in the indicated direction”.
+    readings: |
+      A — 3 heksy (9.14, 5. ed.); karta to starsza wersja.
+      B — 2 heksy jako wyjątek dla pierwszego rzutu 7–9 (karta).
+    recommendation: "A — tekst 5. ed. ma pierwszeństwo (R-1.0.2), a 9.14 podaje ruch 3 heksów na każdy rzut kierunku bez wyjątku."
+    strength: probable
+    status: open
+    extra: {scope: charts}
+    refs: [T-32, R-9.14.1, R-9.14.3, R-1.0.2]
+  - id: N-26
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Zmiana ukierunkowania w reakcji — „foot only” i „Phallanx 2” na karcie 8.56 a 7.15/7.16
+    scope: original
+    quotes: |
+      Karta (T-28): „Reaction Facing Change (foot only) [c] — Cohesion Hits equal to DR minus TQ minimum 1, Phallanx 2”. 7.15: „Any non-Phalanx unit or
+      stack… Exception: Cavalry units changing facing in reaction to infantry movement are exempt from the preceding check”. 7.16: „Use the procedure described
+      in 7.15 above to determine the number of Cohesion Hits incurred.”
+    readings: |
+      (a) Jazda: A — testuje wg 7.15 (zwolniona tylko wobec ruchu piechoty); B — nigdy nie testuje („foot only”).
+      (b) Falanga (odwrócenie, 7.16): A — minimum 1 (procedura 7.15); B — minimum 2 (karta).
+    recommendation: "(a) A, (b) A — tekst 5. ed. (R-1.0.2). Karta potwierdza natomiast kierunek różnicy MA i minimum 1 (N-12)."
+    strength: probable
+    status: open
+    extra: {scope: charts}
+    refs: [T-28, R-7.15.1, R-7.15.2, R-7.16.1, N-12, R-1.0.2]
+  - id: N-27
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Obrona falangi — „per supporting Phalanx” i „non-Heavy Infantry” na CRT a 9.41
+    scope: original
+    quotes: |
+      CRT (T-26): „1L Per supporting Phalanx when a Phalanx is attacked frontally by moving Heavy Infantry; 2L Per supporting Phalanx when a Phalanx is attacked
+      frontally by moving non-Heavy Infantry other than a Phalanx”. 9.41: „the Phalanx earns a 2L shift … for each of its Flank hexes either occupied by
+      another friendly Phalanx unit or in the ZOC of a friendly Phalanx unit. If the attacker is Heavy Infantry (any Class), the shift is 1L instead. … does not
+      apply … if any attacker is also a Phalanx unit.”
+    readings: |
+      (a) Wsparcie: A — heks boczny zajęty przez własną falangę LUB w strefie kontroli własnej falangi (9.41); B — tylko „wspierające falangi” (karta).
+      (b) Atakujący: A — każdy ruszający się atakujący poza falangą (także jazda, słonie); B — tylko piechota („non-Heavy Infantry”).
+    recommendation: "(a) A, (b) A — 9.41 (5. ed.) jest regułą; karta to skrót. Odczyt „non-Heavy Infantry” jako „jednostki inne niż ciężka piechota” daje zgodność z 9.41."
+    strength: probable
+    status: open
+    extra: {scope: charts}
+    refs: [T-26, T-11, R-9.41.1, R-1.0.2]
+  - id: N-28
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: +1 do testów TQ w stosie rzymskim — karta 8.56 tylko przy różnych kolorach
+    scope: original
+    quotes: |
+      Karta 8.56 (T-28): „Add +1 to all TQ die rolls if Roman units with different colored borders are stacked together.” Karta stosu (T-21): „Same Color;
+      Different Class — Allowed; +1 to all TQ checks while stacked”. 9.63: „For stacked Roman units with different border colors, or of the same border color
+      and different classes, there is a +1 DRM to all TQ checks.”
+    readings: "A — +1 także przy tym samym kolorze i różnych klasach (9.63 i karta stosu). B — tylko przy różnych kolorach (karta 8.56)."
+    recommendation: "A — 9.63 i karta stosu są zgodne; uwaga na karcie 8.56 jest niepełna."
+    strength: certain
+    status: open
+    extra: {scope: charts}
+    refs: [T-28, T-21, T-10, R-9.63.1, R-6.68.5]
+  - id: N-29
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Karta 8.56 pomija DRM furii piechoty barbarzyńskiej w teście przed walką
+    scope: original
+    quotes: |
+      Karta (T-28) [a] DRM: „+1 Any Elephant attacking a Phalanx or Heavy Infantry unit through its Front hexes; +1 Any African Elephant in combat with an
+      Indian Elephant; +1 Any unit attacking a Double Depth Phalanx; –1 Double Depth Phalanx is defending”. 8.43: „–1 for a Barbarian Infantry (BI) unit with
+      Ferocity (9.94). +2 For a unit attacked by a Barbarian Infantry unit with Ferocity (9.94).”
+    readings: "A — stosuj DRM furii (8.43, 9.94). B — lista z karty jako kompletna."
+    recommendation: "A — lista na karcie jest starsza i niepełna (N-24)."
+    strength: certain
+    status: open
+    extra: {scope: charts}
+    refs: [T-28, T-10, R-8.43.4, R-9.94.1, N-24]
+  - id: N-30
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Katafrakci (CAT) — modyfikatory tylko na kartach, bez zasad w tekście
+    scope: original
+    quotes: |
+      MRRC (T-22): „+1 if the target is CAT HC fired on by Javelin, Slinger or Scorpio unit; +2 if the target is CAT HC fired on by an Archer unit or Elephant
+      screen”. 8.72 (T-24): „DS•# … if attacker is Cataphracted Heavy Cavalry, treat as No Superiority”. Legenda żetonów (T-41): „Seleucid CAT HC”.
+    description: Tekst 5. ed. i scenariusze księgi 2018 nie mają katafraktów ani zasad klasy CAT; pojawiają się tylko na kartach i w legendzie.
+    readings: "A — modyfikatory dotyczą tylko jazdy klasy CAT (np. seleucydzkiej, scenariusze spoza źródeł). B — każdej HC."
+    recommendation: "A — karty wprost ograniczają je do klasy CAT; w scenariuszach księgi 2018 nie mają zastosowania."
+    strength: certain
+    status: open
+    extra: {scope: charts}
+    refs: [T-22, T-24, T-41]
+  - id: N-31
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Tabela kosztów ruchu — obrót SK w terenie trudnym (1 trafienie) a 7.14; brak BI
+    scope: original
+    quotes: |
+      Karta 6.27 (T-20): „Change Facing in Woods/Broken/Marsh (per vertex): PH, HI 1; LG, MI, LI, SK 1; Cavalry, Leaders 1; Elephant 0; Chariot 1”. 7.14:
+      „Elephant, Skirmisher, and Barbarian Infantry units, because of their extremely loose formations, do not suffer this penalty.”
+    readings: "A — SK i BI bez trafień za obrót w terenie trudnym (7.14). B — SK płacą 1 (karta; BI nie ma na karcie)."
+    recommendation: "A — 7.14 wymienia SK wprost; karta grupuje SK z LG/MI/LI bez wyjątku. Dla BI — 7.14 i 9.91."
+    strength: certain
+    status: open
+    extra: {scope: charts}
+    refs: [T-20, R-7.14.1, R-9.91.1]
+  - id: N-32
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Tabele stosu a przykłady 6.63 — przejście przez stos tego samego koloru i ucieczka przez stos
+    scope: original
+    quotes: |
+      6.63 #1: „the Hastati would incur 1 Hit when moving through a stack of HA/PR/CO/TR units of the XIV Legion/Ala.” Karta (T-21): „* = Applies to two units
+      only; if the moving unit is a third unit, treat as if it were Basic”; Basic: „Allowed; 1 Cohesion Hit for each unit”; „The Effects apply to both moving
+      and stationary units unless otherwise specified.” 6.63 #2: „Any other unit or stack would cost the stationary unit(s) 1 Hit.” Karta (ucieczka, Basic):
+      „1 Cohesion Hit and TQ Check for the stationary unit”.
+    readings: |
+      (a) Przejście przez stos tego samego koloru: A — 1 trafienie dla każdej jednostki (ruszającej się i obu stojących; karta); B — tylko ruszająca się (przykład).
+      (b) Ucieczka przez stos: A — stojące: 1 trafienie i test TQ (karta, Basic); B — tylko 1 trafienie (przykład).
+    recommendation: |
+      (a) A, (b) A — karta Basic z uwagą „both moving and stationary” jest pełniejsza niż skrót w przykładzie. Słabo: przykład jest w tekście 5. ed., a karta
+      może być starsza (N-24).
+    strength: speculative
+    status: open
+    extra: {scope: charts}
+    refs: [T-21, R-6.63.1, R-6.63.2, N-24]
+  - id: N-33
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Karta 8.56 — ucieczka w stosie i +1 przy przepuszczeniu słonia
+    scope: original
+    quotes: |
+      Karta (T-28): „Other unit in the stack when one unit in the stack Routs — DR>TQ = Unit Routs”; [d] „Check does not apply to Skirmisher units. Infantry unit
+      adds +1 to the die roll.” 6.68: „If the top unit Routs, so does the bottom unit. If the bottom unit routs, the top unit undergoes a TQ check”. 9.11: „1. Apply
+      a +1 DRM to the infantry unit’s Pre-Shock TQ Check DR. … 4. … Pass-Thru TQ Check. Subtract the unit’s TQ from the DR”.
+    readings: |
+      (a) A — górna ucieka → dolna automatycznie (6.68); B — dolna też testuje (karta).
+      (b) A — +1 tylko do testu przed walką (9.11 pkt 1); B — +1 także do testu przepuszczenia (karta [d]).
+    recommendation: "(a) A, (b) A — tekst 5. ed. (R-1.0.2)."
+    strength: probable
+    status: open
+    extra: {scope: charts}
+    refs: [T-28, R-6.68.7, R-9.11.3, R-1.0.2]
+  - id: N-34
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Kiedy pomija się stosunek Size — CRT (słonie, rydwany) a 8.46 (słonie, sami SK)
+    scope: original
+    quotes: |
+      CRT (T-26): „Size Ratio Difference … Does not apply to Elephants vs. non-elephants, or Chariots vs. non-chariots combats.” 8.46 krok 2: stosunek Size pomija
+      się, gdy słonie walczą z nie-słoniami, oraz w każdej walce, w której wszyscy obrońcy są harcownikami. 9.96: „ignore the reference to Chariots on the Combat
+      Tables”.
+    readings: "A — pomijaj przy słoniach vs nie-słonie i przy samych SK w obronie (8.46); wzmianka o rydwanach nie dotyczy rydwanów galijskich (9.96). B — wg karty."
+    recommendation: "A — tekst 5. ed."
+    strength: probable
+    status: open
+    extra: {scope: charts}
+    refs: [T-26, T-11, R-8.46.6, R-9.96.1, R-9.23.1]
+  - id: N-35
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Brak przewagi pozycji — „enemy unit (other than a Skirmisher)” (karta) a „Shock-capable enemy unit” (8.46)
+    scope: original
+    quotes: |
+      Karta 8.72 (T-24): „The attacking unit is in the ZOC of an enemy unit (other than a Skirmisher) that is in the attacking unit's Flank or Rear hex.” 8.46:
+      „the attacking unit is in the ZOC of a Shock-capable enemy unit that is in the attacker’s Flank or Rear hex.”
+    description: SK nie atakują wręcz (9.23), więc oba sformułowania je wyłączają. Różnią się dla innych jednostek niezdolnych do walki wręcz (skorpiony 9.81, łucznicy LI/LC klasy A — karta 8.73).
+    readings: "A — przewagę pozycji odbiera tylko jednostka zdolna do walki wręcz (8.46). B — każda jednostka poza SK (karta)."
+    recommendation: "A — tekst 5. ed. (R-1.0.2)."
+    strength: probable
+    status: open
+    extra: {scope: charts}
+    refs: [T-24, R-8.46.3, R-9.23.1, R-9.81.1, R-1.0.2]
+  - id: N-36
+    group: Karty pomocy (PAC) vs 5. ed.
+    title: Materiały nieoficjalne w docs/update — rozbieżności z kartami i zasadami
+    scope: original
+    quotes: |
+      Arkusze „* Shock” (T-39): HI → LG front w kolumnie 7; EL → BI na zielono (DS); CRT DR 3/kol. 13 „2(3)”, DR 5/kol. 13 „1(4)”. Missile Table (T-40):
+      „DR 6-9 Mounter Jav, Velites, and Foot Jav = Missile Low”, „Legion Jav Fire Once then Missile Low”. PlayerAidDisplay (T-38): „Leaders = Initiative x 3”.
+    description: |
+      Oficjalnie: 8.73 HI → LG front = 6; 8.72 EL × BI = –; 8.74 DR 3/13 = 2(4), DR 5/13 = 1(3); 8.71/8.17: 7–9 i MISSILE NO; 11.1: dowódcy imienni 5 × inicjatywa,
+      trybuni/prefekci/zastępczy 1 ×. Arkusze nie mają oznaczeń wydawcy, mają styl arkusza kalkulacyjnego i odsyłają do „8.54”.
+    readings: "A — obowiązują karty oficjalne i tekst 5. ed.; materiały nieoficjalne tylko jako pomoc po korekcie. B — materiały nieoficjalne jako errata."
+    recommendation: "A — T-38…T-40 mają w tytule „nieoficjalne”; nie używać ich wartości do rozstrzygnięć."
+    strength: certain
+    status: open
+    extra: {scope: charts-unofficial}
+    refs: [T-38, T-39, T-40, T-22, T-24, T-25, T-26, R-11.1.1, R-8.17.1]
+  - id: N-37
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Beneventum — od kiedy obowiązuje doktryna triarii („once the Romans have left camp and formed up their lines”)
+    scope: original
+    quotes: "Beneventum (s. 10): „Triarii Doctrine applies once the Romans have left camp and formed up their lines.”"
+    readings: |
+      A — od chwili, gdy cała armia rzymska (poza strażą obozu) opuściła obóz i stoi w liniach.
+      B — dla każdej linii triarii osobno, od chwili, gdy wyszła z obozu i stoi w linii.
+      C — od pierwszego LC wydanego linii triarii poza obozem.
+    recommendation: "[wniosek] B — doktryna dotyczy linii triarii w polu; A pozostawia niejasność co do jednostek, które nie wyjdą z obozu."
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC1-21, R-9.7.1, R-9.71.1]
+  - id: N-38
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Bagradas — linia triarii: nota historyczna 4.32 a karta uprawnień do LC"
+    scope: original
+    quotes: |
+      4.32 Historical Note: „at Beneventum, the Triarii cannot use a two-space Line … By Bagradas Plains, the Romans had seen what elephants could do to such a line
+      and adjusted wisely (if not well).” Karta Bagradas (s. 9): „4. Triarii (TR)” — bez „*”.
+    readings: |
+      A — rozstrzyga karta scenariusza: triarii pod Bagradas muszą przylegać; nota opisuje inne „dostosowanie” (głęboki szyk manipułów).
+      B — nota oznacza, że pod Bagradas triarii mogą tworzyć linię z odstępami.
+    recommendation: "A — 4.31: skład linii podaje karta scenariusza; nota historyczna nie jest regułą."
+    strength: probable
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC2-4, T-29, R-4.32.1, R-4.31.1]
+  - id: N-39
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Kanny — czy Paullus ma automatyczny LC, gdy OC jest Warron
+    scope: original
+    quotes: |
+      Kanny, „The Paullus Variant” (s. 14): „If trying this, Varro may NOT automatically use a Line Command (as does Paullus when Varro is in charge).”
+      Przypis a (s. 13): „May command any units.”
+    readings: |
+      A — przy Warronie jako OC Paullus wydaje LC automatycznie (bez zasięgu OC i rzutu); w wariancie Paullusa Warron tej zdolności nie ma.
+      B — nawias jest skrótem/pozostałością; Paullus podlega 4.33 jak inni dowódcy podlegli.
+    recommendation: "A — dosłowne brzmienie zasady scenariusza (ma pierwszeństwo), ale brak zasady, która wprost nadaje tę zdolność."
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC3-10, R-SC3-6, R-4.33.3]
+  - id: N-40
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Kanny — Maharbal „without resorting to Hannibal’s Strategy rating” a 4.6 (fazy impetu)
+    scope: original
+    quotes: |
+      Przypis a (s. 12): „Maharbal … is capable of issuing Line Commands without resorting to Hannibal’s Strategy rating. In essence, this makes the Carthaginian
+      command totally independent and remarkably effective.” 4.6: „During Momentum-generated Phases, 4.33 applies.” 4.35: „Maharbal … is an example”.
+    readings: |
+      A — Maharbal wydaje LC bez rzutu na strategię także w fazach impetu (wyjątek od 4.6/4.33); nadal tylko jednostkom ze swojego ograniczenia dowodzenia (4.35).
+      B — przypis powtarza tylko 4.6 (fazy początkowe).
+    recommendation: "A — inaczej przypis nie miałby treści (4.6 daje to już wszystkim dowódcom podległym Hannibala w fazach początkowych)."
+    strength: probable
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC3-2, R-4.6.1, R-4.33.5, R-4.35.1]
+  - id: N-41
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Kanny, Volturnus — brak rysunku kierunków i zakres „any unit”
+    scope: original
+    quotes: |
+      Kanny (s. 15): „any unit that begins movement facing into a West or Southwest vertex (as below) reduces its MA (for all purposes, including withdrawal) by
+      one (all Roman units start the game with this problem). Any Roman missile units facing in those directions reduce their range by one (to a minimum of 1 hex)
+      and lower their Missile Hit number by one (to a minimum of 0) in each range.”
+    description: Rysunku („as below”) nie ma na s. 15; kierunki W/SW zależą od kompasu mapy Kann (mapy nie ma w źródłach).
+    readings: |
+      (a) MA –1: A — jednostki obu stron (dosłownie „any unit”); B — tylko rzymskie.
+      (b) „Missile Hit number”: A — siła z MRRC na każdym zasięgu –1 (min. 0); B — DRM +1.
+    recommendation: "(a) A — dosłowne brzmienie (w praktyce dotyczy głównie Rzymian); (b) A — „lower … Missile Hit number … in each range”."
+    strength: probable
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC3-15, T-22, R-6.11.1]
+  - id: N-42
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Zama — trybuni i prefekci „any and all types of legion/alae infantry” a ograniczenie klasy (4.52)
+    scope: original
+    quotes: |
+      Zama, przypis c (s. 20): „Roman Tribunes and Praefects Sociorum may command any and all types of legion/alae infantry.” 4.52: „may issue Individual
+      Orders to any one Class of unit from any one legion or ala during an individual Orders Phase. Unless stated otherwise in the scenario, Tribunes may issue IOs
+      only to Legion infantry units, Praefects Sociorum only to Ala infantry units.”
+    readings: |
+      A — znosi tylko podział legion/ala (wyjątek przewidziany w 4.52); nadal jedna klasa z jednego legionu/ali na fazę.
+      B — znosi także ograniczenie do jednej klasy.
+    recommendation: "A — 4.52 wprost przewiduje zmianę podziału legion/ala przez scenariusz; o klasie przypis nie mówi."
+    strength: probable
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC4-6, R-4.52.1, R-4.51.1]
+  - id: N-43
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Beneventum, pociski zapalające — wiersz „Scorpio (Flame)” w MRRC a +1 DRM z księgi
+    scope: original
+    quotes: |
+      Beneventum (s. 7): „The range is reduced by one (to a maximum of six hexes), and, except for one and two hex ranges, add one to any die roll when determining
+      hits.” MRRC (T-22): „[B] Scorpio 7 5 5 3 2 1 0”, „[B] Scorpio (Flame) 7 5 4 2 1 0 –”.
+    description: Wiersz Flame = wiersz Scorpio o 1 niższy od zasięgu 3 i bez zasięgu 7 — wady z księgi są w nim już uwzględnione.
+    readings: |
+      A — wiersz Flame bez dodatkowego +1. B — wiersz Flame i jeszcze +1 (podwójna kara). C — wiersz Scorpio, +1 od zasięgu 3, zasięg maks. 6.
+    recommendation: "A — A i C dają ten sam wynik; B liczy karę dwa razy."
+    strength: probable
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC1-19, T-22]
+  - id: N-44
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Usterki redakcyjne księgi — „2178”, „25 TQ points”, „III Alae Legion”, nazwy wariantów Beneventum
+    scope: original
+    quotes: |
+      Kynoskefalaj (s. 25–26): „Philocles, is placed in 2718. Combat units must be placed either in 2178 or north of 2178”; (s. 27): „Phillip is worth 25 TQ points
+      if wounded”. Scenariusz szkoleniowy (s. 28): „Use the III Alae Legion”. Beneventum (s. 4, 6): „THE NIGHT ATTACK/MEETING ENGAGEMENT” oraz „THE MEETING
+      ENGAGEMENT — Free Set-Up Scenario”.
+    readings: |
+      (a) „2178”: A — 2718 (heks Filoklesa); B — dosłownie 2178.
+      (b) „25 TQ points”: A — 25 RP (jak Pyrrus i Hannibal); B — inna wielkość.
+      (c) „III Alae Legion”: A — legion III i ala III; B — tylko ala III.
+      (d) Beneventum: A — atak nocny = bitwa spotkaniowa, swobodne rozstawienie = bitwa ustawiona (s. 4 „Difficulty and Balance”); B — inne przypisanie.
+    recommendation: "(a)–(d) A — literówki i skróty redakcyjne; odczyty A wynikają z kontekstu."
+    strength: probable
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC5-7, R-SC5-16, R-SC6-1, R-SC1-1, R-SC1-13, T-48]
+  - id: N-45
+    group: Księga scenariuszy (4. ed. 2018)
+    title: Zama — „automatically rallied” przez Starą Gwardię a Tabela reorganizacji
+    scope: original
+    quotes: |
+      Zama (s. 21): „If the die roll is the same as or lower than the TQ of the Old Guard unit, the routing levy/light infantry is automatically rallied.”
+      10.29/10.31: jednostka zreorganizowana rzuca na Tabeli reorganizacji i jest osłabiona.
+    readings: |
+      A — „rallied” technicznie: stan RALLIED, rzut na T-27, osłabienie, MISSILE NO (10.28–10.31) — zasada scenariusza zastępuje tylko rzut dowódcy.
+      B — tylko zatrzymanie ucieczki, bez dalszych skutków.
+    recommendation: "A — „rallied” to termin techniczny (10.2)."
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book}
+    refs: [R-SC4-9, R-10.28.1, R-10.29.1, R-10.31.1, T-27]
+  - id: N-46
+    group: Instrukcja 5. ed.
+    title: "Literówki i drobne usterki instrukcji 5. ed."
+    scope: original
+    quotes: |
+      4.72: „that combat units enters”; 4.92: „move their maximum MA”; 5.26 (przykład): „If Hanno is in an enemy ZOC”; 6.83: „the the line”; 8.17: „A
+        Missile units may keep firing”; 8.46 A: „Clash of Swords chart”; 9.7: „prior to 200 BCE”; 10.32: „Depleted Barbarian Infantry units are eliminated
+        if they rout”; 5.42 (przykład 2): „Paullus' Momentum Phase”; 4.83: „Shock Determination”.
+    description: |
+      Zestawienie drobnych usterek tekstu oryginału wykrytych przy tłumaczeniu (fragmenty rb01–rb15). Bez skutku mechanicznego, o ile nie zaznaczono
+        inaczej; przekład zachowuje brzmienie, a poprawia jedynie oczywistą liczbę gramatyczną lub literówkę.
+      (a) 4.72 „that combat units enters” (liczba mnoga przy czasowniku w l. poj.); 4.91 „Order Phase” zamiast „Orders Phase” oraz raz „IOs/LCs”, raz
+        „IO/LC”.
+      (b) 4.92 „move their maximum MA”: MA to limit punktów ruchu, nie odległość (sens: wykorzystać cały limit).
+      (c) 4.83 „Shock Determination” nie jest terminem zdefiniowanym; najpewniej chodzi o ustalanie kolumny Tabeli wyników walki wręcz (8.45).
+      (d) ex-5.26-1: zdanie „If Hanno is in an enemy ZOC … and the Carthaginian player uses Hanno …” urywa się bez orzeczenia; tłumacz dopełnił je zgodnie z
+        5.26 (R-5.26.1).
+      (e) ex-5.42-2: „Momentum Phase” oznacza tu fazę rozkazów uzyskaną z impetu, a w 3.0 to nazwa fazy C. Rozstrzygnięte w tłumaczeniu: „faza rozkazów z
+        impetu” (decisions.yaml).
+      (f) 6.83 „the the line”; 6.73 „affected” zamiast „effected”; 8.17 „A Missile units”; 8.13 ostatnie zdanie niegramatyczne (zob. N-56).
+      (g) 8.46 A „Clash of Swords chart” = „Clash of Spears and Swords Chart” (8.45), ta sama tabela; „rout check” ma nazwę tylko w 8.47[2].
+      (h) 9.7 „prior to 200 BCE” (w 9.6 używa się „B.C.”): dwie konwencje zapisu lat; 9.22 podwójna kropka; 10.32 ostatni punktor kończy się bez kropki i
+        bez dopełnienia; 10.41 raz „SHOCK-NO TQ CHECK”, raz „SHOCK NO TQ CHECK” (żeton: bez łącznika).
+      (i) ex-8.42-1 „three Velites units in each of its three frontal hexes” (dosłownie 9 jednostek) vs „the other two Velites”: zapewne po jednej w heksie.
+      (j) 9.16 „with a minimum result of 1 Cohesion Hit”: przy DR > TQ różnica wynosi zawsze co najmniej 1, więc minimum jest puste (por. N-12(b)).
+      (k) Brak odstępu akapitów w ramce opcji 4.91–4.94 (układ, nie treść).
+    readings: |
+      A — wszystkie pozycje to usterki redakcyjne; odczyt oczywisty z kontekstu.
+      B — (d), (g), (i) zawierają informację, której brakuje w druku (nie tylko literówkę); wymagają potwierdzenia z wydawcą.
+    recommendation: |
+      A — czytać zgodnie z kontekstem; w przekładzie literówki poprawia się bez adnotacji tylko w (a), (f), (h); pozostałe oddane dosłownie.
+    strength: certain
+    status: open
+    extra: {translation_chunk: "rb01–rb15"}
+    refs: [R-4.72.1, R-5.26.1, R-6.83.1, R-8.17.1, R-9.7.1, R-9.16.1]
+  - id: N-47
+    group: Instrukcja 5. ed.
+    title: "Hasła słowniczka 2.4 — niespójności wewnętrzne („Javelinists”, „DR”, „Leader/Commander”, „lower-rated”)"
+    scope: original
+    quotes: |
+      2.4 Javelinists: „which is why there are no javelinist skirmishers in the game”; 2.4 Trump: „lower-rated”; 2.4 Principes: „see the note above on
+        weaponry”; 2.4 Elephants: „jousting chariots”; 2.4 Archers: „about 30+ arrows”.
+    description: |
+      Słowniczek 2.4 zawiera kilka nieścisłości.
+      (a) „Javelinists”: w grze nie ma harcowników-oszczepników, ale żetony LI i LC mają klasę J (oszczepnicy) i hasło ilustruje żeton „Thrace J LI”. Zdanie
+        dotyczy wyłącznie typu SK (harcownik).
+      (b) „DR: Die roll.” definiuje DR jako rzut, podczas gdy w przepisach DR oznacza wynik rzutu; „Leader” jest wg hasła zamienne z „Commander”, co po
+        polsku (oba „dowódca”) traci sens.
+      (c) „Trump”: „before another, but lower-rated, friendly leader”: nie podano, która wartość (zapewne inicjatywa, 5.3).
+      (d) „Principes”: „see the note above on weaponry” odsyła opisowo do 2.24 bez numeru; „Alae” bywa użyte samodzielnie, bez „sociorum”.
+      (e) „jousting chariots” (hasło Elephants) i „about 30+ arrows” (Archers, bez jednostki czasu) są niejasne, ale informacyjne, bez skutku dla przepisów.
+    readings: |
+      (a) A — wyjątek dotyczy tylko typu SK; B — hasło zaprzecza istnieniu klasy J w ogóle.
+      (b) A — DR = wynik rzutu (jak w przepisach); B — DR = sam rzut.
+    recommendation: |
+      (a) A — klasa J występuje w LI i LC (2.2, 2.25). (b) A — przepisy konsekwentnie używają DR jako wyniku (glosariusz `spqr.die-roll`).
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb02"}
+    refs: [R-2.4.1, R-2.4.10, R-2.4.2]
+  - id: N-48
+    group: Instrukcja 5. ed.
+    title: "Automatyczny rozkaz liniowy — czy znosi warunki położenia (4.33 wyj. 1; 4.4 pkt 2–3)"
+    scope: original
+    quotes: |
+      4.33 wyj. 1: „the leader may automatically issue LCs regardless of his proximity to the OC”; 4.4 pkt 3: „issue Line Command(s) to any Line(s) in any
+        Orders Phase”; 4.4 pkt 2: „once per leader per Orders Phase”.
+    description: |
+      4.33 wyjątek 1 pozwala wydawać rozkazy liniowe „regardless of his proximity to the OC”, ale nie mówi, czy w turze pierwszej zostają pozostałe warunki
+        z akapitu 1 (≤ 2 heksy od linii, linia wzroku, brak wrogiej strefy kontroli). 4.4 pkt 3 pozwala wydawać LC „in any Orders Phase” bez odesłania do
+        tych warunków. 4.4 pkt 2 („once per leader per Orders Phase”) nie rozstrzyga, czy limit „raz na dowódcę” dotyczy tylko fazy rozkazów OC, czy sumy
+        wszystkich faz tury. Baza przyjmuje w R-4.33.4 i R-4.4.4, że warunki położenia obowiązują dalej (oznaczono jako wniosek).
+    readings: |
+      (a) A — wyjątek i 4.4 znoszą tylko wymóg bliskości OC; warunki położenia względem linii zostają. B — znoszą także je.
+      (b) A — „once per leader” liczy się w każdej fazie rozkazów osobno. B — raz na dowódcę w całej turze.
+    recommendation: |
+      (a) A — wyjątek nazywa wprost tylko bliskość OC. (b) A — limit odnosi się do „per Orders Phase”.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb03, rb04"}
+    refs: [R-4.33.4, R-4.4.4, R-4.33.3, R-4.4.2, N-02]
+  - id: N-49
+    group: Instrukcja 5. ed.
+    title: "Dowódcy — zakres sformułowań (4.56, 4.72, 4.74)"
+    scope: original
+    quotes: |
+      4.56: „Strategy Rating is 1”; 4.72: „surrounded by impassable terrain, enemy units or ZOCs”; 4.74: „Replacement leader is Finished”.
+    description: |
+      (a) 4.56: strategia prokonsula-OC równa 1; razem z +1 DRM z 4.33 pkt 2 rzut na LC dowódcy podległego poza zasięgiem staje się praktycznie
+        niewykonalny; skala k10 (0–9) i zamiar projektu niejasne.
+      (b) 4.72: „enemy units or ZOCs”: czy „enemy” odnosi się także do „ZOCs” (w praktyce tak, bo własne strefy kontroli nie blokują). Dowód: R-4.72.2.
+      (c) 4.74: „The Replacement leader is Finished for that Game Turn”: nie powiedziano, czy wracający trybun lub prefekt (nie będący „Replacement leader”)
+        także jest skończony w turze powrotu.
+      (d) 4.72/4.71: słonie dowódców są jednostkami bojowymi (4.71, 4.83), a odskok jest dozwolony przy jednostce bojowej, ale nie ze słoniem dowódcy;
+        wyjątek jest wyraźny, lecz zależy od czytania 4.83 (por. N-04).
+    readings: |
+      (a) A — 1 ogranicza przy +1 DRM praktycznie do wyniku automatycznego; B — wartość 1 jest zamierzoną karą.
+      (b) A — „enemy” obejmuje „ZOCs”; B — tylko „units”.
+      (c) A — wracający trybun/prefekt nie jest skończony; B — jest.
+    recommendation: |
+      (b) A (R-4.72.2). (a), (c) otwarte: brak dowodu w tekście; przekład zachowuje niejednoznaczność.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb04"}
+    refs: [R-4.56.1, R-4.72.2, R-4.74.1, R-4.33.3, N-04]
+  - id: N-50
+    group: Instrukcja 5. ed.
+    title: "Linie i segment B.1 — zakres sformułowań (3.0 B.1, 4.31, 4.32)"
+    scope: original
+    quotes: |
+      3.0 B.1: „Opposing units capable of”; 4.31: „all the eligible units in a Line do not have to take part”; 4.32: „two-space Line”.
+    description: |
+      (a) 3.0 B.1 a/b: „Opposing units capable of … may do so throughout this segment”: nie wskazano wprost, że chodzi o jednostki gracza nieaktywnego
+        reagujące na ruch gracza aktywnego.
+      (b) 4.31: „all the eligible units in a Line do not have to take part”: wg składni oznacza „nie wszystkie muszą” (a nie „żadna nie musi”); wątpliwość
+        tłumacza.
+      (c) 4.32: nazwa „two-space (three-space) Line” a definicja „within 2 (3) hexes”: „space” = heks w odległości, nie liczba pustych heksów; w tabelach
+        uprawnień do LC w księdze nazwa stoi samodzielnie.
+    readings: |
+      (b) A — nie wszystkie uprawnione jednostki muszą uczestniczyć; B — żadna nie musi.
+      (c) A — linia 2-heksowa: sąsiednie jednostki w odległości do 2 heksów; B — odstęp do 2 pustych heksów.
+    recommendation: |
+      (b) A (kursywa „not” przy „do”). (c) A — definicja 4.32 liczy odległość w heksach. (a) — kontekst B.1 rozstrzyga: rezygnacja z ruchu przeciwnika tylko
+        w jego segmencie.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb03"}
+    refs: [R-4.31.1, R-4.32.1, R-3.0.4, N-23]
+  - id: N-51
+    group: Instrukcja 5. ed.
+    title: "Aktywacja i impet — punkty odniesienia (5.12, 5.15 pkt 6, 5.22, 5.42)"
+    scope: original
+    quotes: |
+      5.12: „the remaining, similarly rated leaders”; 5.15 pkt 6: „where eligible”; 5.22: „The cost is 2 IO if the leader is in an enemy ZOC”; 5.42 pkt 1:
+        „equal or higher Initiative rating”; 5.23 pkt 1: „Moving units, and only moving units”.
+    description: |
+      (a) 5.12 „similarly rated”: remis w inicjatywie (baza: ta sama wartość) czy wartości zbliżone.
+      (b) 5.15 pkt 6: „Pre-Arranged Withdrawal, where eligible, occurs”: „eligible” dotyczy dowódcy czy wycofania.
+      (c) 5.22: „2 IO, jeśli dowódca w wrogiej ZOC”: czyj dowódca (OC wydający rozkaz czy dowódca otrzymujący); R-5.22.2 przyjmuje: otrzymujący.
+      (d) 5.42 pkt 1: „equal or higher Initiative rating”: brak punktu odniesienia (dowódca przejęty czy przejmujący).
+      (e) 5.23 pkt 1: zakres „and only moving units” (czy chodzi tylko o jednostki ruszające się w tej fazie).
+    readings: |
+      (a) A — ta sama inicjatywa; B — zbliżona.
+      (c) A — dowódca otrzymujący rozkaz w wrogiej ZOC; B — OC wydający rozkaz.
+      (d) A — względem dowódcy przejmowanego (przejmujący musi mieć co najmniej tyle); B — względem aktywowanego w danej chwili.
+    recommendation: |
+      (a) A. (c) A (R-5.22.2, przykłady). (d) A — logika przejęcia (przejmuje równy lub wyższy). (b), (e) otwarte; przekład równie ogólny.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb05"}
+    refs: [R-5.12.1, R-5.15.1, R-5.22.2, R-5.23.1, R-5.42.1]
+  - id: N-52
+    group: Instrukcja 5. ed.
+    title: "Falanga i kolumna marszowa — zakres sformułowań (6.41, 6.45, 6.73, 6.74)"
+    scope: original
+    quotes: |
+      6.41: „the first time the unit moves in a Game Turn”; 6.45: „At a cost of 3 MP”; 6.73: „only be moved/refaced during a subsequent Orders Phase”; 6.74:
+        „Phalanx units cannot change facing in this manner”.
+    description: |
+      (a) 6.41: „the first time the unit moves in a Game Turn”: odnosi się do użycia 5. punktu ruchu (zwiększony MA) albo do obowiązku testu TQ; ponadto
+        „Moved” w cudzysłowie: falanga ze znacznikiem czy w ogóle falanga, która już się ruszała (Play Note 6.13: znaczniki są tylko pomocą). Kumulacja kar
+        z 6.41 i 6.13: N-08.
+      (b) 6.45: „At a cost of 3 MP” przy manewrze zwrotu w tył: nie powiedziano, czy wymaga rozkazu ruchu i pełnego limitu MA 4.
+      (c) 6.73 (zmiana szyku z kolumny na zwykły): „The unit may only be moved/refaced during a subsequent Orders Phase”: następna faza rozkazów czy
+        którakolwiek późniejsza. 6.74 ostatnie zdanie: „Phalanx units cannot change facing in this manner”: „this manner” dotyczy wejścia do heksu
+        przednio-bocznego bez kosztu (falanga obraca się w ruchu) albo każdej zmiany ukierunkowania w kolumnie.
+    readings: |
+      (a) A — fraza dotyczy testu TQ przy pierwszym ruchu w turze; B — dotyczy użycia 5. MP.
+      (c) A — „subsequent” = którakolwiek późniejsza; B — dokładnie następna.
+    recommendation: |
+      (a) A — 6.41 mówi o teście przy zwiększonym ruchu. (b), (c): otwarte; przekład dosłowny.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb06, rb08"}
+    refs: [R-6.41.1, R-6.41.2, R-6.45.1, R-6.73.1, R-6.74.1, N-08]
+  - id: N-53
+    group: Instrukcja 5. ed.
+    title: "Uporządkowane wycofanie — „the same or less”, „heks zbliżenia” i liczenie trafień (6.51–6.53, 9.21)"
+    scope: original
+    quotes: |
+      6.51 wyj. SK: „before any unit whose MA is the same or less”; 9.21: „units whose MA is the same or less”; 6.52 pkt 3: „approach hex”; 6.53: „incurs
+        Cohesion Hits the same as or more than its TQ rating”.
+    description: |
+      (a) 6.51 wyjątek harcowników i 9.21: „MA is the same or less”: względem MA harcownika czy ruszającej się jednostki (domyślnie: ruszającej się względem
+        harcownika). Dowód: R-6.51.3.
+      (b) 6.52 pkt 3 i ex-6.51-1 #3: „approach hex” nie jest zdefiniowany (heks, z którego wróg wchodzi w odległość 2, czy położenie względem ukierunkowania
+        wycofującej się jednostki); diagram s. 16 pokazuje strefy do 2 heksów, ale nie rozstrzyga ruchu po łuku. Waga: istotna dla rozgrywki (OW).
+      (c) 6.53: „incurs Cohesion Hits the same as or more than its TQ”: trafienia z tego wycofania czy łączna liczba trafień jednostki; 10.14 (suma ≥ TQ)
+        przemawia za sumą, przepis brzmi jak osobny warunek.
+    readings: |
+      (a) A — MA ruszającej się jednostki ≤ MA harcownika; B — odwrotnie.
+      (b) A — heks, z którego przeciwnik wchodzi w odległość 2; B — heks względem ukierunkowania wycofującej się jednostki.
+      (c) A — liczy się łączna liczba trafień; B — tylko trafienia z tego wycofania.
+    recommendation: |
+      (a) A (R-6.51.3). (c) A — 10.14. (b) otwarte: brak rozstrzygnięcia w tekście; przekład zachowuje niejednoznaczność.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb07, rb12"}
+    refs: [R-6.51.3, R-6.52.3, R-6.53.1, R-9.21.1, R-10.14.1, N-19]
+  - id: N-54
+    group: Instrukcja 5. ed.
+    title: "Odległość 2 heksów od dowódcy — od czego się liczy (6.57, 6.81)"
+    scope: original
+    quotes: |
+      6.57: „within 2 hexes of an eligible leader”; 6.81: „able to command the units within 2 hexes”.
+    description: |
+      6.57: „within 2 hexes of an eligible leader”: nie sprecyzowano, czy liczy się heks dowódcy. 6.81: „a leader able to command the units within 2 hexes
+        and with a LOS to a unit in the designated Line”: nie wiadomo, od czego liczy się 2 heksy (od dowódcy, od jednostki z linii) ani czy limit dotyczy
+        jednostek, czy dowódcy. Standardowa metoda pomiaru (4.21: heks dowódcy nie liczy się) przemawia za pomiarem od dowódcy.
+    readings: |
+      A — 2 heksy mierzone od dowódcy do jednostki, jak w 4.21 (heks dowódcy nie liczony); B — mierzone od jednostki w linii.
+    recommendation: |
+      A — jednolita metoda pomiaru zasięgu dowodzenia.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb07, rb08"}
+    refs: [R-6.57.1, R-6.81.1, R-4.33.3]
+  - id: N-55
+    group: Instrukcja 5. ed.
+    title: "Walka wręcz w segmencie ruchu — składnia 7.32 i dwa brzmienia wyjątku (7.23, 7.24)"
+    scope: original
+    quotes: |
+      7.32: „that he chooses to Shock attack”; 7.23 wyj.: „not Shock-capable”; 7.24 wyj.: „cannot Shock”.
+    description: |
+      (a) 7.32 zdanie 1: „each unit that either must Shock attack … or that he chooses to Shock attack”: składnia dopuszcza lekturę, w której „unit” jest
+        celem (a nie atakującym). Przykład ex-7.32-1 oraz 7.31 rozstrzygają: chodzi o atakującego.
+      (b) 7.23 mówi „not Shock-capable”, a 7.24 „cannot Shock”: dwa brzmienia wyjątku, najpewniej to samo (por. C-01). Przekład zachowuje oba.
+    readings: |
+      (a) A — jednostka, która ma atakować wręcz; B — jednostka będąca celem ataku.
+      (b) A — oba brzmienia oznaczają ten sam wyjątek; B — różnią się zakresem.
+    recommendation: |
+      (a) A — przykład i 7.31. (b) A.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb08"}
+    refs: [R-7.32.1, R-7.31.1, R-7.23.1, R-7.24.1, N-13]
+  - id: N-56
+    group: Instrukcja 5. ed.
+    title: "Ostrzał — adresat i zakres sformułowań (8.13, 8.14, 8.17, 8.18, 8.31, 8.32, 8.33)"
+    scope: original
+    quotes: |
+      8.13: „the top unit is affected if fired at through a Front or Flank hex”; 8.14: „but not leader elephants alone”; 8.18: „it is not in missile range
+        and in LOS of an enemy unit”; 8.31 wyj. 1: „Skirmisher and Light Infantry Archers (Class A) cannot use H&D fire”; 8.33: „The target and any other
+        friendly unit may use Entry Reaction Fire”.
+    description: |
+      (a) 8.13 ostatnie zdanie jest niegramatyczne; sens: ostrzał dotyczy jednostki wierzchniej (przez heks frontowy/boczny celu) lub spodniej (przez
+        tylny). Nie powiedziano, CZYJ heks decyduje; z 6.68 pkt 2 wynika, że celu.
+      (b) 8.14: „but not leader elephants alone”: słoń dowódcy stojący samotnie w heksie czy same słonie dowódców (bez innych jednostek).
+      (c) 8.18: „not in missile range and in LOS”: nie jest jednocześnie w zasięgu i w linii wzroku, czy nie jest w zasięgu ani w linii wzroku.
+      (d) 8.31 wyj. 1 „Skirmisher and Light Infantry Archers (Class A)”: łucznicy SK i LI czy harcownicy w ogóle i łucznicy LI (R-8.31.3 czyta: łucznicy obu
+        typów); 8.32: czy zakaz przyległości dotyczy także jazdy lekkiej.
+      (e) 8.33 akapit 2: „friendly” z perspektywy celu, odwrotnie niż w 8.21 (ruszająca się strona). Jedyna spójna lektura: ostrzał na wejście wykonuje
+        strona nieaktywna.
+      (f) 8.17: czy próg „MISSILE LOW” przy niezmodyfikowanym DR 9 obejmuje także ostrzał w ramach reakcji i H&D (prawdopodobnie tak; 8.24 wymaga pocisków).
+    readings: |
+      (c) A — odmowa jednoczesności (nie spełnia obu warunków naraz); B — oba warunki osobno.
+      (d) A — łucznicy SK i LI (klasa A); B — wszyscy harcownicy i łucznicy LI.
+    recommendation: |
+      (a) czyj heks: celu (6.68). (d) A (R-8.31.3). (e) jedyna spójna lektura. Pozostałe otwarte; przekład zachowuje dwuznaczność.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb09"}
+    refs: [R-8.13.1, R-8.14.1, R-8.18.1, R-8.31.3, R-8.33.1, R-8.17.1, N-22]
+  - id: N-57
+    group: Instrukcja 5. ed.
+    title: "Przykład 8.34 a kara za ruch w ostrzale nękającym (8.15) — Design Note"
+    scope: original
+    quotes: |
+      8.15: „It does apply to Harassment & Dispersal fire”; ex-8.34-1: „Note the javelinists are not penalized for moving”.
+    description: |
+      Tekst 8.15 mówi, że kara za ruch (DRM) obowiązuje także w ostrzale nękającym (H&D). Przykład ex-8.34-1 pokazuje peltastę, który „nie jest karany” za
+        ruch. Wyjątek dla pieszych oszczepników wynika z Design Note po 8.15 (R-8.15.3) i z MRRC (poza treścią instrukcji). Design Note po 8.15 jest w
+        przekładzie przywrócona (decisions.yaml: design-8.15-1) i zawiera też zdanie przepisowe (piesi i konni oszczepnicy nie strzelają w trakcie OW;
+        zgodne z 6.55).
+    readings: |
+      A — oszczepnicy piesi nie otrzymują kary za ruch w H&D (Design Note + MRRC); B — kara obowiązuje wszystkich, przykład jest błędny.
+    recommendation: |
+      A — Design Note i MRRC (T-22) potwierdzają wyjątek.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb09"}
+    refs: [R-8.15.3, R-8.15.1, R-8.34.1, R-6.55.1, T-22]
+  - id: N-58
+    group: Instrukcja 5. ed.
+    title: "Falanga dwuheksowa w teście ucieczki — 8.43 a 8.47[1] i zakres „all … involved”"
+    scope: original
+    quotes: |
+      8.43 wyj.: „If a two-hex Phalanx unit would rout”; 8.43 pkt 3: „all attacking and defending units involved rout from their TQ checks”.
+    description: |
+      8.43 wyjątek dotyczy „two-hex Phalanx unit” (falangi dwuheksowej), a 8.47[1] odsyła do „exception procedure in 8.43” mówiąc tylko „Phalanx unit”;
+        procedura nie jest nazwana „testem ucieczki falangi” (nazwa „rout check” tylko w 8.47[2]). Ponadto 8.43 pkt 3: „all attacking and defending units
+        involved rout” nie mówi, czy „involved” = jedna walka (jak w 8.47). Pozycja figuruje jako otwarta w fix-round (decyzja właściciela: czy wyjątek
+        obejmuje każdą falangę, czy tylko dwuheksową).
+    readings: |
+      A — wyjątek dotyczy tylko falangi dwuheksowej (glosariusz: spqr.phalanx-rout-check); B — każdej falangi (8.47[1]).
+      (pkt 3) A — wszystkie jednostki jednej walki (10.15); B — wszystkie jednostki po obu stronach w całej turze.
+    recommendation: |
+      A — wyjątek 8.43 i R-8.43.x; dla pkt 3 A — 10.15. Przekład dosłowny w obu miejscach.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb10"}
+    refs: [R-8.43.5, R-8.47.1, R-8.47.2, R-10.15.1]
+  - id: N-59
+    group: Instrukcja 5. ed.
+    title: "Charyzma w 8.44/8.46 (krok 3) i przykład ex-8.46-1 a krok 2"
+    scope: original
+    quotes: |
+      8.44: „Charisma is used as a DRM”; 8.44: „regardless of the outcome”.
+    description: |
+      (a) 8.44 mówi, że charyzma jest używana jako DRM „for good or ill regardless of the outcome” (8.46[3]), a 8.46 krok 3 przewiduje odwrotny DRM równy
+        charyzmie + 2 za poległego dowódcę: nie wiadomo, czy kara zastępuje premię, czy ją uzupełnia. Przykład z Maharbalem odejmuje tylko 4 (nie „+2 – 4”).
+        R-8.46.7 przyjmuje, że zastępuje.
+      (b) ex-8.46-1: „if the attacker moved” a krok 2: „moved adjacent to the defender from a non-adjacent hex”: jednostka, która ruszała się, ale już
+        przylegała, nie daje zaokrąglenia na korzyść atakującego; przykład uproszczony.
+    readings: |
+      (a) A — odwrotny DRM zastępuje zwykły DRM charyzmy (przykład Maharbala); B — oba stosuje się łącznie.
+      (b) A — obowiązuje krok 2 (z heksu nieprzylegającego); B — wystarczy sam ruch.
+    recommendation: |
+      (a) A — przykład i R-8.46.7. (b) A — przepis nadrzędny wobec uproszczonego przykładu.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb10"}
+    refs: [R-8.44.1, R-8.46.7, R-8.46.2, N-14]
+  - id: N-60
+    group: Instrukcja 5. ed.
+    title: "Pościg po rzucie — „may recover Hits” po zakończeniu pościgu (8.62, 8.63)"
+    scope: original
+    quotes: |
+      8.63: „they may not be ordered to move or fire but may recover Hits”; 8.62: „along its path of retreat”.
+    description: |
+      8.63 zakazuje jednostkom jazdy po przerwaniu pościgu lub pościgu rozkazów ruchu i ostrzału, ale „may recover Hits”: nie wskazano, czy chodzi o
+        odzyskanie spójności rozkazem indywidualnym (10.16), czy o reorganizację (Rally 10.2), czy o jakikolwiek rozkaz. W 8.62 „retreat” oznacza drogę
+        ucieczki, mimo że „retreat” i „Retreat Edge” są terminami (odwrót, krawędź odwrotu). Przy remisie DR z TQ przerwanie pościgu wynika z „otherwise”.
+    readings: |
+      A — „recover Hits” = rozkaz odzyskania spójności (10.16) bez zakazu; B — także reorganizacja (Rally).
+    recommendation: |
+      A — 8.63 zakazuje tylko rozkazów ruchu i ostrzału; recovery jest rozkazem indywidualnym 10.16.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb11"}
+    refs: [R-8.63.1, R-8.62.1, R-10.16.1]
+  - id: N-61
+    group: Instrukcja 5. ed.
+    title: "Przykład 9.23 a Tabela przewagi (T-24): wynik „1(4) → 0(4)”"
+    scope: original
+    quotes: |
+      9.23 pkt 2: „units that Shock attack Skirmishers alone”; 9.23 pkt 3: „the other Type must be chosen as the defender”.
+    description: |
+      Przykład ex-9.23-1 (LI atakuje SK: 1(4) → 0(4)) pokazuje tylko połowienie trafień zadanych przez SK. Według T-24 każdy atakujący ma wobec SK przewagę
+        ataku (AS → trafienia obrońcy ×2), więc pełny wynik wynosiłby 0(8). Przykład pomija ten krok albo zakłada, że „actual result” dotyczy wyłącznie
+        korekty z 9.23. 9.23 pkt 3 nie odsyła do 8.42 w sprawie wyboru obrońcy. Zakres „alone” w pkt 2: N-21.
+    readings: |
+      A — obowiązuje także mnożenie ×2 z T-24 (przykład uproszczony); B — przykład podaje pełny wynik, a mnożenia nie stosuje się.
+    recommendation: |
+      A — T-24 i R-9.23.1; przykład skrótowy.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb12"}
+    refs: [R-9.23.1, R-9.23.2, T-24, N-21]
+  - id: N-62
+    group: Instrukcja 5. ed.
+    title: "Falangi w szyku podwójnej głębokości — rozkaz, test i eliminacja (9.51, 9.53)"
+    scope: original
+    quotes: |
+      9.51: „directly from the OC”; 9.53: „If this is not possible, the unit is eliminated instead”; 9.53: „then the other unit checks”.
+    description: |
+      (a) 9.51: „individual order or line command, directly from the OC”: nie wiadomo, czy „directly” dotyczy tylko LC, czy też IO (oddano jako dotyczące
+        obu).
+      (b) 9.53 ostatni punkt: jeśli obie jednostki stosu uciekają, muszą „retreat to separate hexes”; „the unit is eliminated instead”: nie określono, która
+        (ta bez wolnego heksu, czy obie). „Retreat” oznacza tu ruch ucieczki (por. 10.22, N-68).
+      (c) 9.53, trafienia: „if that unit incurs any cohesion hits, then the other unit checks”: ten sam test czy osobny.
+      (d) 9.53: broniący przed DD +1, DD w obronie –1 do testów TQ przed walką wręcz: dwa przeciwne DRM, oba sprzyjają DD; zgodne z oryginałem (zamknięte
+        przez weryfikatora, bez błędu).
+    readings: |
+      (a) A — „directly from the OC” dotyczy obu rozkazów; B — tylko LC.
+      (b) A — eliminowana jest jednostka, która nie ma gdzie uciec; B — obie.
+      (c) A — osobny test drugiej jednostki; B — ten sam rzut.
+    recommendation: |
+      (a) A. (b) A — „the unit” w l. poj. odnosi się do jednostki bez miejsca. (c) A. Przekład dosłowny.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb13"}
+    refs: [R-9.51.1, R-9.53.1, R-9.52.1, R-10.22.1]
+  - id: N-63
+    group: Instrukcja 5. ed.
+    title: "Rozszerzenie linii manipularnej i doktryna triarii — zakres sformułowań (9.66–9.68, 9.71)"
+    scope: original
+    quotes: |
+      9.68: „(only)”; 9.71: „allied”.
+    description: |
+      (a) 9.66 mówi o MLE „jako część rozkazu liniowego lub w reakcji”, a 9.68 – „(only)” jako rozkaz liniowy; potencjalna sprzeczność z 9.67 (MLE w
+        reakcji). Lektura: „only” = tylko LC, nie IO.
+      (b) 9.71 drugi punkt: „allied–infantry” z półpauzą: nie jest jasne, czy „not allied” dotyczy tylko ala, czy także linii rzymskich.
+      (c) 9.72 (cannot move and Shock attack): N-17.
+    readings: |
+      (a) A — MLE tylko w ramach LC (a w reakcji — zgodnie z 9.67); B — 9.68 zawęża MLE do rozkazu liniowego (bez reakcji).
+      (b) A — „piechoty rzymskiej lub ala, ale nie sprzymierzonej”; B — inne wyłączenie.
+    recommendation: |
+      (a) A — 9.66–9.67. (b) A — kb R-9.71.1 czyta tak jak przekład.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb13"}
+    refs: [R-9.66.1, R-9.67.1, R-9.68.1, R-9.71.1, N-17]
+  - id: N-64
+    group: Instrukcja 5. ed.
+    title: "Scorpio i rydwany — okresy odniesienia (9.85, 9.86, 9.95)"
+    scope: original
+    quotes: |
+      9.86: „Scorpios may fire twice per enemy Orders Phase”; 9.95: „first-try Momentum die rolls”.
+    description: |
+      9.85 mówi o strzelaniu „twice per Game Turn” przy „no more than one shot per Orders Phase”, a 9.86 – „twice per enemy Orders Phase”: różne okresy
+        odniesienia dla tej samej jednostki. 9.95: „first-try Momentum die rolls” nie wskazuje, czy chodzi o pierwsze próby w każdej fazie, czy w grze.
+    readings: |
+      A — 9.85 (aktywny ostrzał) i 9.86 (ostrzał w ramach reakcji) to osobne limity; B — jeden wspólny limit.
+      (9.95) A — pierwsze próby w każdej fazie impetu; B — pierwsze próby w grze.
+    recommendation: |
+      A — rodzaje ostrzału są osobne (9.85 aktywny / 9.86 reakcja); 9.95 otwarte.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb13"}
+    refs: [R-9.85.1, R-9.86.1, R-9.95.1]
+  - id: N-65
+    group: Instrukcja 5. ed.
+    title: "Wyniki walki — „otherwise”, „excess”, „adds to his total Hits” (10.13, 10.15)"
+    scope: original
+    quotes: |
+      10.13 wyj.: „all excess Hits apply to the Leader Elephant”; 10.15 pkt 1: „adds to his total Hits”.
+    description: |
+      (a) 10.13 pierwszy punktor: trafienia ponad TQ idą na „the unit/stack used to gain Superiority (either type), otherwise used to determine the Shock
+        Column”: nie wiadomo, czy „otherwise” oznacza brak przewagi w ogóle, czy brak jednostki spełniającej pierwszy warunek.
+      (b) 10.13 wyjątek 1: „all excess Hits apply to the Leader Elephant”: „excess” = nadwyżka ponad TQ drugiej jednostki; w przykładzie 10.13 „excess”
+        znaczy co innego (trafienie niepodzielne).
+      (c) 10.15: „all units that do not [have less Cohesion Hits than TQ] rout per 10.2”: nie powiedziano, czy to ucieczka natychmiastowa i czy dotyczy
+        także jednostek strony mającej jednostkę poniżej progu.
+      (d) 10.15 pkt 1: „adds to his total Hits”: do trafień wszystkich atakujących razem czy do każdej jednostki.
+    readings: |
+      (d) A — do łącznej liczby trafień strony; B — do trafień każdej jednostki.
+      (a) A — „otherwise” = brak przewagi; B — brak jednostki spełniającej warunek.
+    recommendation: |
+      (d) A — „total”. Pozostałe otwarte; przekład oddaje dosłownie.
+    strength: speculative
+    status: open
+    extra: {translation_chunk: "rb14"}
+    refs: [R-10.13.1, R-10.15.1, R-10.15.2]
+  - id: N-66
+    group: Instrukcja 5. ed.
+    title: "Reorganizacja i odzyskiwanie spójności — do kogo odnosi się „is not Engaged” (10.16, 10.28)"
+    scope: original
+    quotes: |
+      10.16: „is not Engaged”.
+    description: |
+      10.16 i 10.28 (identycznie): „an enemy unit that has missiles … and is not Engaged”: „is not Engaged” odnosi się gramatycznie do jednostki
+        przeciwnika, nie do jednostki odzyskującej spójność (reorganizowanej). Lektura alternatywna (jednostka odzyskująca/reorganizowana nie może być
+        związana walką) nie wynika ze składni. Drugi punktor 10.16, akapit po wyjątku: nie powtarza wymogu rozkazu indywidualnego ani zakresu terenu
+        czystego.
+    readings: |
+      A — warunek dotyczy jednostki przeciwnika zdolnej strzelać; B — dotyczy jednostki odzyskującej spójność.
+    recommendation: |
+      A — zgodnie ze składnią i R-10.16.2.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb14"}
+    refs: [R-10.16.1, R-10.16.2, R-10.28.1]
+  - id: N-67
+    group: Instrukcja 5. ed.
+    title: "Uciekająca jednostka wchodząca do heksu zajętego przez swoją jednostkę — dwa przeciwne zdania (10.25)"
+    scope: original
+    quotes: |
+      10.25: „The routing unit is eliminated if that hex is occupied by any unit”; 10.25: „If the hex is occupied by a friendly unit, that unit suffers
+        the”.
+    description: |
+      Dwa kolejne zdania 10.25 wzajemnie się wykluczają: pierwsze eliminuje uciekającą jednostkę, jeśli heks (w który miałaby wejść) jest zajęty „by any
+        unit”, drugie – dla heksu zajętego przez własną jednostkę – nakłada na stojącą kary „Stopping In” (nie eliminuje uciekającej). Baza rozwiązuje to w
+        R-10.25.1: uciekający nie może skończyć ruchu w stosie z własną jednostką, idzie o jeden heks dalej, i dopiero jeśli ten dalszy heks jest zajęty,
+        wrogi lub nieprzekraczalny, jest eliminowany; jeśli zajmują go swoi, ponoszą kary „Stopping In”. Tekst oryginału jest dwuznaczny, brak oficjalnego
+        rozstrzygnięcia.
+    readings: |
+      A — eliminacja dotyczy tylko heksu dalszego (R-10.25.1); dla swoich kary „Stopping In”.
+      B — uciekająca jest eliminowana, gdy heks zajmuje jakakolwiek jednostka (także swoja), a drugie zdanie dotyczy innego przypadku (nieruchoma wchodzi na
+        uciekającą).
+    recommendation: |
+      A — czytanie z R-10.25.1: pierwsze zdanie dotyczy heksu dalszego lub wrogich; jedyne spójne z Tabelą stosu (6.69).
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb14"}
+    refs: [R-10.25.1, R-6.69.1, T-21]
+  - id: N-68
+    group: Instrukcja 5. ed.
+    title: "Ruch ucieczki — „reverse face” i „retreat” w znaczeniu ucieczki (10.22, 9.53)"
+    scope: original
+    quotes: |
+      10.22: „After the conclusion of the retreat”; 10.22: „in a direction that would bring it closer to its Retreat Edge”.
+    description: |
+      (a) 10.22 używa „retreat” (ostatni akapit, play-10.22-1, ex-10.22-1 „Thrace A retreats”) w znaczeniu ruchu ucieczki, a zatwierdzony termin „odwrót”
+        oznacza coś innego (odwrót o 1 heks, 10.42); to samo w 9.53. Przekład oddaje „ruch ucieczki”.
+      (b) 10.22 falangi: „maintain its current facing or reverse face in a direction that would bring it closer”: „reverse face” bez odesłania do 6.45
+        (manewr zwrotu w tył, 3 MP; w ruchu przymusowym zapewne bez kosztu); nie wiadomo, czy „closer” dotyczy obu możliwości.
+      (c) 10.22, pozostałe jednostki: „one vertex at a time”: czy można zmieniać ukierunkowanie więcej niż raz i czy po ruchu obowiązuje zasada 2 heksów.
+        ex-10.22-1: skąd 4 trafienia jednostki D (1 + 3 za przejście falangi z Tabeli stosu), nie wyjaśniono.
+    readings: |
+      (a) A — „retreat” = ruch ucieczki; B — odwrót o 1 heks (10.42).
+      (b) A — „reverse face” = manewr z 6.45 bez kosztu MP; B — zwykła zmiana ukierunkowania.
+    recommendation: |
+      (a) A — kontekst (rout, TQ thresholds). (b) A — przekład „manewr zwrotu w tył”; do potwierdzenia.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb14, rb13"}
+    refs: [R-10.22.1, R-10.22.2, R-10.22.3, R-6.45.1, R-9.53.1]
+  - id: N-69
+    group: Instrukcja 5. ed.
+    title: "Jednostki związane walką — „their MA” (10.42) i „advances” (10.43)"
+    scope: original
+    quotes: |
+      10.42: „engaged with units whose MA is less than their MA”; 10.43: „advances”.
+    description: |
+      10.42: „engaged with units whose MA is less than their MA”: drugie „their” może dotyczyć jednostek jazdy, harcowników lub piechoty lekkiej (przyjęto:
+        porównanie MA jednostek związanych, „niż ich własny”). 10.43: „advances” w kroku załamania nie nazwano mechanizmem; przełożono jako pościg po walce
+        (8.5).
+    readings: |
+      (10.42) A — MA jednostek związanych walką wobec ich własnego; B — wobec MA przeciwników.
+    recommendation: |
+      A — jedyne rozsądne porównanie (R-10.42.1). 10.43 — pościg po walce.
+    strength: probable
+    status: open
+    extra: {translation_chunk: "rb15"}
+    refs: [R-10.42.1, R-10.43.1, R-8.47.1]
+  - id: N-70
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Literówki i drobne usterki księgi scenariuszy 2018"
+    scope: original
+    quotes: |
+      s. 11: „In 219 B.C.”; s. 11: „Fabius Cunctator”; s. 23: „Lucius Quinctius Flamininus”; s. 25: „Consul Q. Flamininus”; s. 23: „Demetrius in Thessaly”;
+        s. 18: „Bythnia”; s. 18: „son of a consul from the First Punic War”; s. 30: „because be was unable”; s. 30: „sine que non”; s. 14: „Line my use
+        Pre-Arranged Withdrawal”; s. 5: „movement of an Epirote units”; s. 23: „lead by his elephants”; s. 32: „Donald Pleasance”.
+    description: |
+      Zestawienie drobnych usterek oryginału (druk), oddanych w przekładzie dosłownie lub poprawionych jawnie (nie rozstrzyga reguł; część już w N-44).
+      (a) Fakty historyczne: s. 11 „In 219 B.C.” (przeprawa Hannibala przez Alpy: 218; 219 to oblężenie Saguntu); Q. Fabius Cunctator nazwany „consul” (w
+        217 był dyktatorem); s. 18 „Bythnia” zamiast „Bithynia”; „son of a consul from the First Punic War” (ojciec Scypiona był konsulem w 218, czyli w II
+        wojnie punickiej); s. 23 „Demetrius in Thessaly” (miasto Demetrias).
+      (b) Imiona: s. 23 podtytuł „T. Quinctius Flamininus”, tekst „Lucius Quinctius Flamininus”; s. 25 „Consul Q. Flamininus” w tabeli grupy 4 (wszędzie
+        indziej T.); s. 23 „Phillip” (dwa „l”); s. 32 „Donald Pleasance” (aktor: Pleasence; przekład poprawia pisownię nazwiska).
+      (c) Literówki: s. 5 „movement of an Epirote units”; s. 14 „Line my use” (zamiast „may”); s. 23 „lead by his elephants” (led); s. 30 „sine que non”
+        (poprawiono na sine qua non), „because be was unable” (he); s. 17 „triariii” (3 „i”) i „Delbruck” (bez przegłosu); s. 24 podwójna kropka „Romans..”;
+        s. 24 „until all the reinforcements in that group to enter” (składnia).
+      (d) Tabele: brak kropki po numerze „5 Numidian Light” / „5 *N. African Light (LI) Infantry” (s. 6, 9, 14, 21); s. 22 próg Kartagińczyków 170 RP vs 35%
+        × 483 = 169 (zaokrąglenie); w s05 przypisy a, c, b w nieregularnej kolejności; „See Note #1/#2” wskazują punkty listy.
+      (e) Nazwy: „Proconsul rule” (s. 12) vs „The Proconsul Variant” (s. 14); „Volturnus Rule” (s. 12); „The Fog Effect Table” (s. 25) vs tytuł „Visibility
+        Effect Chart”; „Initial Approach March Phase” i „Segment” zamiennie (s. 5); „Scorpion/Scorpio” (s. 7).
+      (f) Bibliografia (s. 31–32): „Totawa” (Totowa), „Adcock, F.A.” (F.E.), „transltd”, „Delbruck”; zachowano jak w druku.
+      (g) s. 28 „about 6000–5000” (zakres malejący; literówka lub różnica liczebności); s. 3 armia Pyrrusa: 20 000 piechoty wymieniona razem z falangami i
+        Grekami (suma niejasna); s. 5 przykład „decides not to extend the Extended Approach March” (tautologia).
+    readings: |
+      A — wszystkie pozycje to usterki druku lub błędy autorskie; czytelnik rozumie z kontekstu.
+      B — (d) 170/169 i „5” bez kropki: bez znaczenia mechanicznego.
+    recommendation: |
+      A — przekład zachowuje brzmienie oryginału i poprawia tylko jawne literówki (c), (g); fakty historyczne w (a) zostają, bo przekład nie koryguje
+        autora.
+    strength: certain
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb01–sb12"}
+    refs: [R-SC1-1, R-SC3-1, R-SC4-1, R-SC5-1, R-SC6-1, T-48, N-44]
+  - id: N-71
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Progi wycofania w warunkach zwycięstwa — „rout” a „withdraws”, „at least” (Beneventum, Bagradas, szkoleniowy)"
+    scope: original
+    quotes: |
+      s. 2: „total required to rout his chosen side”; s. 28: „The Romans Rout”; s. 10: „at least 110”.
+    description: |
+      (a) Zasady turniejowe (s. 2) mówią o sumie punktów ucieczki „required to rout his chosen side”, a przepisy 11.0 i reszta księgi używają „withdraws”
+        (wycofanie armii). Szkoleniowy (s. 28): „The Romans Rout … the Carthaginians rout” (raz wielką, raz małą literą); Beneventum (s. 10): „The Epirote
+        Army routs” obok „The Roman Army withdraws”. „Rout” oznacza tu próg wycofania armii, nie ucieczkę jednostki.
+      (b) Asymetria „at least”: Bagradas: Kartagińczycy „at least 110”, Rzymianie „totaling 125” (135 z jazdą alae); Beneventum: Rzymianie „120” bez „at
+        least”, Epiroci „at least 100”. Mechanika (11.0: wycofanie po osiągnięciu progu) identyczna.
+    readings: |
+      A — „rout” = wycofanie armii po osiągnięciu progu (11.0); „at least” opuszczone dla krótkości.
+      B — „rout” to osobny skutek (ucieczka armii) o innym progu; „totaling 125” = dokładnie 125.
+    recommendation: |
+      A — 11.0 ustanawia jedno zachowanie (wycofanie przy sumie ≥ próg); przekład zachowuje różnice brzmienia.
+    strength: probable
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb01, sb03, sb04, sb11"}
+    refs: [R-SC1-23, R-SC2-8, R-SC3-17, R-SC4-13, R-SC6-3, R-11.1.1, T-42]
+  - id: N-72
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Beneventum — marsz podejścia i alarm rzymski: wejście na mapę, „Alert LOS”, kierunek „lower”"
+    scope: original
+    quotes: |
+      s. 5: „he may not hold any back”; s. 6: „Initiative ratings lower than those of”; s. 6: „has a LOS”.
+    description: |
+      (a) s. 5 Ważne: jednostki, które „do not enter the map by the conclusion of Game Turn 1” (alarm przerywający marsz), a wcześniej: gracz musi
+        wprowadzić wszystkie jednostki w fazie marszu podejścia i „may not hold any back”. Jedyny realny przypadek to alarm w trakcie wejścia; księga nie
+        mówi tego wprost. R-SC1-7 przyjmuje, że takie jednostki nigdy nie wchodzą do gry i liczą się jako wyeliminowane.
+      (b) s. 6 Alarm rzymski, pkt 2: dowódcy o inicjatywie niższej niż „Finished” dowódcy epiroccy pozostają skończeni, a 5.12 aktywuje od najniższej
+        inicjatywy; kierunek zgodny z 5.12, ale przykład mówi o „all the other tribunes and praefects” bez ich inicjatyw.
+      (c) Alarm następuje przez przekroczenie linii alarmu na mapie i jednocześnie w chwili, gdy dowolna jednostka rzymska ma LOS (zwykła LOS 8.1): dwa
+        kryteria bez wskazania, które rozstrzyga; przykład marszu podejścia mówi o 10 heksach.
+    readings: |
+      (a) A — wyjątek na wypadek alarmu w trakcie wejścia; B — dopuszczalne wstrzymanie jednostek.
+      (c) A — wystarcza spełnienie któregokolwiek kryterium; B — oba naraz.
+    recommendation: |
+      (a) A. (c) A — pierwsze spełnione kryterium uruchamia alarm (R-SC1-12). (b) A — zgodny z 5.12.
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb03"}
+    refs: [R-SC1-7, R-SC1-9, R-SC1-11, R-SC1-12, R-5.12.1]
+  - id: N-73
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Beneventum — tabela płonących świń: „Elephant designated by die roll”"
+    scope: original
+    quotes: |
+      s. 10: „Elephant designated by die roll”; s. 10: „with the total being at least one”.
+    description: |
+      Tabela płonących świń (wynik 0): „Elephant designated by die roll attacks the nearest combat unit … directly to its front”: nie wyjaśniono, jak rzut
+        wyznacza słonia (losowanie spośród słoni na mapie?) ani kto rzuca przy kilku celach. Wiersz 9: „with the total being at least one”: niejasne, czy
+        „total” to dodawana liczba trafień. Pierwsze zdanie ‒ por. N-43 (wiersz Scorpio Flame).
+    readings: |
+      A — każdy słoń na mapie ma równe szanse, rzut wskazuje słonia (np. po numerze); B — rzut wskazuje tylko stronę.
+    recommendation: |
+      A — przekład zachowuje ogólność; do ustalenia przez graczy.
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb03, sb04"}
+    refs: [R-SC1-20, N-43]
+  - id: N-74
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Beneventum — Alae Sociorum: odniesienie „V” i „should be 8 cohorts”"
+    scope: original
+    quotes: |
+      s. 4: „extraordinaires of both the cohorts and V cavalry”; s. 4: „should be 8 cohorts”.
+    description: |
+      (a) „extraordinaires of both the cohorts and V cavalry”: niejasne, czy „V” odnosi się do jazdy ala V (zgodnie z tabelą: AS/V RC EX), czy do jazdy w
+        ogóle.
+      (b) „there should be 8 cohorts”: „should” jako wyjaśnienie wyniku redukcji (9 − 1), nie osobny obowiązek.
+      (c) „with no set deployment” (Pre-Game Notes) wobec sztywnego rozstawienia Rzymian w obozie: odnosi się do Epirotów i wariantu swobodnego.
+    readings: |
+      (a) A — jazda ala V (AS/V RC EX); B — jazda w ogóle.
+      (b) A — wynik obliczenia (informacja); B — obowiązek.
+    recommendation: |
+      A — zgodnie z tabelą rozstawienia (T-43) i R-SC1-2.
+    strength: probable
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb02"}
+    refs: [R-SC1-2, R-SC1-3, T-43]
+  - id: N-75
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Bagradas — opcja jazdy alae: „Romans” i „as suggested”"
+    scope: original
+    quotes: |
+      s. 10: „placing the Romans on one wing and the alae on the other”; s. 9: „as suggested”.
+    description: |
+      „give Regulus his alae cavalry, placing the Romans on one wing and the alae on the other”: „Romans” zapewne = jazda rzymska (RC), ale nie
+        rozstrzygnięto (R-SC2-7 czyta: jazda rzymska / jazda alae). Na s. 9 „provide the Romans with all of their Alae cavalry, as suggested” odnosi się
+        zapewne do opcji z s. 10; bez wskazania wprost.
+    readings: |
+      A — „Romans” = jazda legionowa (RC); B — wszystkie rzymskie jednostki.
+    recommendation: |
+      A — wynika z kontekstu (jazda na skrzydłach).
+    strength: probable
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb04"}
+    refs: [R-SC2-7, R-SC2-6, T-29]
+  - id: N-76
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Kanny — wariant prokonsulów i linia triarii czterech legionów"
+    scope: original
+    quotes: |
+      s. 14: „may issue one Line Command each turn”; s. 14: „even hexes only”; s. 15: „Missile Hit number”.
+    description: |
+      (a) Wariant prokonsulów: „may issue one Line Command each turn”: po jednym na prokonsula czy łącznie; „their Phase” w l. mn. (dwa odczyty).
+      (b) Linia triarii (4 legiony): „3409–3427 (even hexes only; two units per hex)”: zakres zaczyna się i kończy heksem nieparzystym; heksów parzystych
+        jest 9 × 2 = 18 miejsc na 12 jednostek TR.
+      (c) Volturnus: „Missile Hit number” –1 nie jest terminem instrukcji (przekład: „siła ostrzału”, 8.15); „(as below)” odsyła do rysunku, którego brak
+        (N-41).
+      (d) „Two (2) Tribunes with/adjacent to any infantry units”: „with” = w tym samym heksie.
+    readings: |
+      (a) A — po jednym rozkazie liniowym na prokonsula; B — jeden wspólny.
+      (b) A — 12 TR w dowolnych 12 z 18 miejsc; B — literówka w zakresie.
+    recommendation: |
+      (a) A — „each” przy liczbie mnogiej prokonsulów. (b) A — nadmiar miejsc dopuszczalny.
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb06, sb05"}
+    refs: [R-SC3-7, R-SC3-8, R-SC3-11, R-SC3-15, R-8.15.1, N-39, N-41]
+  - id: N-77
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Zama — Masynissa i Hannibal: zakres zwolnień z 4.33 i 5.53"
+    scope: original
+    quotes: |
+      s. 20: „regardless of where he is”; s. 19: „Hannibal gets the Elite Phase”.
+    description: |
+      (a) Przypis a (Masynissa): „may automatically issue a LC in his Initial Phase, regardless of where he is”: nie wiadomo, czy znosi też warunek 4.33 (do
+        2 heksów od linii i LOS), i tylko w fazie początkowej (tak przełożono), ani czy charyzma „2C” ogranicza samą charyzmę, czy także zdolność
+        dowodzenia.
+      (b) s. 19: „Hannibal gets the Elite Phase in the first turn”: gdy obaj OC są elitarni, 5.53 każe rzucać; poprawka turniejowa znosi rzut tylko w turze
+        1; nie podano, czy w kolejnych turach znów obowiązuje 5.53.
+    readings: |
+      (a) A — wyjątek znosi tylko wymóg odległości od OC; B — także LOS.
+      (b) A — od tury 2 działa 5.53 (rzut); B — Hannibal ma EIO we wszystkich turach.
+    recommendation: |
+      (a) A — jak w N-40; (b) A — 5.53 zachowuje moc od tury 2.
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb07"}
+    refs: [R-SC4-4, R-SC4-1, R-5.51.1, R-4.33.4, N-40]
+  - id: N-78
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Zama — odwrót zaciągu, „Blow, Scipio, Blow” i „two-space line restriction”"
+    scope: original
+    quotes: |
+      s. 21: „and only The Scipster”; s. 21: „sideways and around the third line”; s. 22: „two-space line restriction”.
+    description: |
+      (a) „Blow, Scipio, Blow”: „at any time during the game … instead of a Line Command from Scipio”: nie określono, czy działa też w fazie EIO/impetu
+        Scypiona ani czy Scypion staje się po tym skończony; „and only The Scipster” nie mówi, czy „only” ogranicza do Scypiona, czy do rozkazów.
+      (b) Levy Retreat, opcja 1: ucieczka „sideways and around the third line” nie podaje, czy obowiązują zwykłe koszty i zakazy ruchu ucieczki (10.2x) ani
+        jak liczyć heksy „bokiem”. Opcja 2: „The instant they move adjacent to an (un-routed) African Phalanx/Bruttium unit”: nie określono przypadku, gdy
+        uciekająca jednostka zaczyna już przylegle (bez ruchu).
+      (c) Słonie Hannibala: „two-space line restriction” (rozstawienie co drugi heks) nie jest zdefiniowane. „Automatically rallied”: N-45.
+    readings: |
+      (b) A — uciekający stosuje zwykłe zasady ruchu ucieczki; B — nie stosuje (przepis scenariusza).
+      (a) A — rozkaz zamiast LC w dowolnym momencie; B — tylko w fazie LC.
+    recommendation: |
+      (b) A — 10.2x obowiązuje. (a) A. (c) odczyt: odstępy dwóch heksów między słoniami (4.32, N-23).
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb08"}
+    refs: [R-SC4-8, R-SC4-9, R-SC4-10, R-10.22.1, N-45, N-23]
+  - id: N-79
+    group: Księga scenariuszy (4. ed. 2018)
+    title: "Kynoskefalaj — mgła i ruch ukryty: odniesienia „within range”, „Fog Effect Table”, „Distrust”"
+    scope: original
+    quotes: |
+      s. 24/25: „within range”; s. 25: „The Fog Effect Table, below”; s. 26: „Visibility die roll”; s. 26: „if Distrust is imminent”.
+    description: |
+      (a) „within range” (przypis do tabeli rozpoznania, s. 24; punktory ruchu ukrytego, s. 25–26): bez wskazania, o jaki zasięg chodzi (zasięg dowodzenia
+        dowódcy?); przekład „w zasięgu”. Podobnie „south of 2020” / „north of 2178” (heks czy cała strona mapy; por. N-44 a).
+      (b) s. 25: „The Fog Effect Table, below” odsyła do tabeli zatytułowanej „Visibility Effect Chart”; s. 26 „Visibility die roll” = rzut „Fog Lifting”.
+      (c) s. 26: „if Distrust is imminent, refer to the written movements”: „Distrust” nie jest terminem (kolokwializm).
+      (d) s. 26: Filip „is not an elite OC”, a EIO z 5.51 wymaga elitarnego OC: wyjątek scenariusza (zamierzony). „Ones that could/cannot be seen” (s. 26):
+        niejasne, czy chodzi o jednostki widoczne czy niewidoczne; s. 27 „any 4 Greek Infantry”: cztery jednostki czy cztery typy.
+    readings: |
+      (a) A — zasięg dowodzenia dowódcy; B — zasięg ostrzału lub MA.
+      (d) A — dowolne 4 jednostki piechoty greckiej; B — 4 typy.
+    recommendation: |
+      (a) A — „its leader’s range” w tym samym akapicie. (b), (c): synonimy. (d) A.
+    strength: speculative
+    status: open
+    extra: {scope: scenario-book, translation_chunk: "sb09, sb10"}
+    refs: [R-SC5-6, R-SC5-7, R-SC5-9, R-SC5-10, R-SC5-12, R-5.51.1, N-44]

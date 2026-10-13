@@ -1,0 +1,100 @@
+[
+  {
+    "name": "same-handle ctime changes with stable identity/size/mtime",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "input changed during copy: C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\synthetic-controls-01\\same-handle-ctime\\game\\wgu.yaml"
+  },
+  {
+    "name": "independent copy corruption",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "independent copy hash mismatch"
+  },
+  {
+    "name": "available configured source disappears between files",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "[WinError 2] The system cannot find the file specified."
+  },
+  {
+    "name": "KB file disappears after copying",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "KB enumeration changed during snapshot"
+  },
+  {
+    "name": "destination overlap: same",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "snapshot destinations overlap"
+  },
+  {
+    "name": "destination overlap: nested",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "snapshot destinations overlap"
+  },
+  {
+    "name": "destination overlap: source-under-registry",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "destination overlaps read-only input root"
+  },
+  {
+    "name": "destination overlap: parent-of-game",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "destination overlaps read-only input root"
+  },
+  {
+    "name": "canonical but altered source pin",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "source pin integrity mismatch"
+  },
+  {
+    "name": "cross-root physical hardlink alias",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "duplicate physical input alias"
+  },
+  {
+    "name": "unlisted source registry bytes are never opened",
+    "expected": "accepted",
+    "actual": "accepted",
+    "conforms": true,
+    "detail": "{'secret_never_opened': True}"
+  },
+  {
+    "name": "sealed tree tampering: extra-kb",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "unexpected file in snapshot tree: files/kb/unlisted.yaml"
+  },
+  {
+    "name": "sealed tree tampering: missing-blob",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "unexpected directory in snapshot tree: files/docs"
+  },
+  {
+    "name": "sealed tree tampering: extra-link",
+    "expected": "rejected",
+    "actual": "rejected",
+    "conforms": true,
+    "detail": "linked path in snapshot tree: files/kb/unlisted"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "task": "IG-1A",
+  "operation": "Launch one independent review session explicitly authorized by the operator",
+  "operator_authorization": {
+    "question": "May I create a separate session solely for independent IG-1A review?",
+    "reply": "tak pozwalam",
+    "source": "This conversation"
+  },
+  "review_thread_id": "01a13104-4cba-7610-b690-dc463e8c4e32",
+  "host_id": "local",
+  "requested_title": "IG-1A independent review",
+  "requested_configuration": {
+    "model": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "actual_reviewer_configuration": {
+    "model": null,
+    "reasoning": null,
+    "reason": "Creation response exposes only threadId and hostId; executing reviewer must verify runtime metadata or operator UI."
+  },
+  "frozen_delivery_path": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/delivery.json",
+  "frozen_delivery_sha256": "115b22ab83d71ed1cb176fee045200d14a96ad2ab54865a09d0daec2293fc0ac",
+  "recorded_utc": "2026-10-12T16:49:52.323929+00:00",
+  "scope": "Independent technical review only. New review artifacts and check logs only; no implementation/queue writes, acceptance/done, further sessions/agents, external APIs or commits."
+}

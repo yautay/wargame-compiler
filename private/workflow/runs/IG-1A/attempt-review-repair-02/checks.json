@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short --basetemp private/workflow/runs/IG-1A/attempt-review-repair-02/test-temp-01",
+      "exit_code": 0,
+      "tests_passed": 76,
+      "reported_seconds": 10.2
+    },
+    {
+      "command": "PYTHONPATH=src .venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-repair01-20261012T172231Z-9f8db531/test_rereview.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/attempt-review-repair-02/independent-temp-01 --tb=short",
+      "exit_code": 0,
+      "tests_passed": 95,
+      "reported_seconds": 14.84
+    },
+    {
+      "command": "PYTHONPATH=src .venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/attempt-review-repair-02/original-independent-temp-01 --tb=short",
+      "exit_code": 0,
+      "tests_passed": 16,
+      "reported_seconds": 3.07
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 0,
+      "tests_passed": 102,
+      "tests_failed": 0,
+      "reported_seconds": 33.02,
+      "log_root": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": "Python SHA-256 comparison: all 60 preserved product copies and prior independent review artifacts match; only three expected existing product files changed",
+      "exit_code": 0
+    }
+  ],
+  "full_check_result": {
+    "plan_exit": 0,
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-83d5c8323e4847cbb847e31843154a05\\pytest",
+    "tests_exit": 0,
+    "diff_exit": 0,
+    "dry_run_exit": 0
+  },
+  "measurement": {
+    "started_utc": "2026-10-12T17:32:39.925511+00:00",
+    "ended_utc": "2026-10-12T17:40:49.928825+00:00",
+    "wall_seconds": 490.003314,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Executor session counters, operator time and monetary cost not exposed/reported; elapsed interval is not an active-work estimate."
+  }
+}

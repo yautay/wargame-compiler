@@ -1,0 +1,30 @@
+{
+  "role": "executor",
+  "actor": "ig-1a-executor-20261012-0540",
+  "summary": "Second and final bounded F2 repair cycle: reject aspect inventory pins and verify whole-inventory freshness. F1/F3 independently fixed and unchanged. Frozen repair-01 bytes preserved.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/checkpoint-claim.json",
+      "sha256": "fdfff57d8293206062fc5a450840ab4122e8b4ad54d8f73e5839b491ca71660f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/configuration.json",
+      "sha256": "20810ac1d01121a37cbadded861f81ad6c814b721cc6572245c72b320cae33b2"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/baseline-manifest.json",
+      "sha256": "0e2a54a9f94be6f499300d5d8893574c114daa1b743972d61efe29bdb0c7d996"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-repair01-20261012T172231Z-9f8db531/review.json",
+      "sha256": "ae622e6f821254324f13e21117b6e8793cc6322fe6cf3a60ed74092a4225b6d0"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Existing operator UI confirmation of the unchanged executor session; configuration.json. Reviewer current turn was independently confirmed through runtime metadata in review evidence."
+}

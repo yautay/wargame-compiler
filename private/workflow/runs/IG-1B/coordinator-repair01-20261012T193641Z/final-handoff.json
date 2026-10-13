@@ -1,0 +1,69 @@
+{
+  "task": "IG-1B",
+  "outcome": "Technical acceptance and done after independently closed F1, first repair cycle",
+  "recorded_utc": "2026-10-12T20:08:10.995802+00:00",
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "0051c36c0f9b11ddf8baa3334fe491b099f8b778b8e21147f245a5f807f5004c"
+  },
+  "queue_status": "done",
+  "events": [
+    {
+      "from": "review",
+      "to": "accepted",
+      "utc": "2026-10-12T20:06:17.949475+00:00",
+      "evidence": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/acceptance.json",
+      "sha256": "46962679f5b678eea87bd04cc45ac4dee4401b875f8dfcd09fa2004be8b56558"
+    },
+    {
+      "from": "accepted",
+      "to": "done",
+      "utc": "2026-10-12T20:06:21.387610+00:00",
+      "evidence": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/completion.json",
+      "sha256": "cc03acb8e3611f442fd7670ec5d0b1a84a6cf5b21c812d510460873b1c6d14de"
+    }
+  ],
+  "accepted_exact_delivery": {
+    "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/delivery.json",
+    "sha256": "cf1c928b34aa70ae5b7cf59928baa273c45b02fc26331f8f534f6d1d8056c236"
+  },
+  "independent_review": {
+    "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review.json",
+    "sha256": "a437521ea9feec705ac01039b28e133a0deceaa47b1cd49bead955af34989f10"
+  },
+  "independent_report": {
+    "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/report.md",
+    "sha256": "099d2a71c345ffa5d5b2787bd5fbd485a3da5a48dfb040de15b5419b80f000c2"
+  },
+  "all_66_delivery_hashes_unchanged": true,
+  "all_38_independent_review_artifacts_unchanged": true,
+  "all_82_ig_1a_hashes_unchanged": true,
+  "unrelated_task_records_unchanged": true,
+  "all_ig_1b_event_hashes_match": true,
+  "repair_cycles": {
+    "F1": 1
+  },
+  "semantic_acceptance_granted": false,
+  "source_coverage_granted": false,
+  "executable_readiness_granted": false,
+  "post_transition_controls": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "output": "No ready task."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    }
+  ],
+  "next_action": "No IG-1C execution or readiness transition was performed under this bounded repair scope. Further work requires selection/readiness of the next increment."
+}

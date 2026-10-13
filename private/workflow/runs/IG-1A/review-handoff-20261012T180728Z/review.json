@@ -1,0 +1,441 @@
+{
+  "role": "reviewer",
+  "actor": "review-handoff-20261012T180728Z",
+  "task": "IG-1A",
+  "review_scope": "Final verification of the already frozen handoff; no implementation/test repair or task transition",
+  "technical_result": "pass",
+  "recommendation": "Recommend operator/coordinator technical acceptance of the exact pinned IG-1A delivery.",
+  "acceptance_recorded": false,
+  "criteria": [
+    "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+    "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+    "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+    "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+    "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+  ],
+  "criterion_assessments": [
+    {
+      "index": 1,
+      "criterion": "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+      "result": "pass",
+      "evidence": [
+        "contracts/ig/source.schema.json: record oneOf, 13 families, node aspects/groups",
+        "tests/contracts/test_source.py: static catalogue, page/evidence and group/table checks"
+      ],
+      "assessment": "All required record families have explicit shapes and source-layer examples. Origins, coverage, reviews and snapshot assessments are distinct."
+    },
+    {
+      "index": 2,
+      "criterion": "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+      "result": "pass",
+      "evidence": [
+        "contracts/ig/README.md: identity, WGC-C14N-1 and reference rules",
+        "src/wgc/contracts/source.py: canonical_bytes, content_hash, aspect_hash, selected/store uniqueness",
+        "tests/contracts/test_source.py: fixed byte/hash vectors, strict JSON and registry reorder"
+      ],
+      "assessment": "Integer/scalar canonicalization is explicit and deterministic; fixed independent byte/hash expectations and duplicate/reorder controls pass. F3 exact selected endpoints pass."
+    },
+    {
+      "index": 3,
+      "criterion": "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+      "result": "pass",
+      "evidence": [
+        "contracts/ig/source.schema.json: statement, content_ref, whole_historical_ref, review_data, snapshot_data",
+        "src/wgc/contracts/source.py: review_freshness, exact exclusion boundary and blocker reports",
+        "tests/contracts/fixtures/catalog.json: model approval, opaque, unknown, review basis and coverage cases",
+        "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/independent-suites.log"
+      ],
+      "assessment": "Source-level opacity can be structurally valid while execution is blocked. Review/coverage/import do not grant semantic acceptance. F1 and F2/F2-R1 are closed within structural scope."
+    },
+    {
+      "index": 4,
+      "criterion": "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+      "result": "pass",
+      "evidence": [
+        "contracts/ig/source.schema.json: 30 node_description alternatives with named fields",
+        "tests/contracts/test_source.py: test_every_required_mechanism_has_named_source_fields_and_addressable_examples",
+        "tests/contracts/fixtures/valid-source.json"
+      ],
+      "assessment": "Dedicated named source fields cover all requested mechanisms. They are addressable descriptions and uncertainty records; no executable SPQR interpretation is inferred."
+    },
+    {
+      "index": 5,
+      "criterion": "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A.",
+      "result": "pass",
+      "evidence": [
+        "src/wgc/contracts/source.py: full module inspected",
+        "src/wgc/contracts/__init__.py",
+        "contracts/ig/README.md: Open formal-language decisions for IG-3A",
+        "pyproject.toml",
+        "scripts/check.ps1"
+      ],
+      "assessment": "Delivered code parses, hashes and validates source structures locally. It does not evaluate game rules. Future formal operators, execution algorithms and readiness decisions remain explicitly open."
+    }
+  ],
+  "unmet_task_criteria": [],
+  "unmet_lifecycle_decisions": [
+    "Operator/coordinator technical acceptance and any later accepted/done transition remain a separate explicitly authorized action. This session records only a recommendation."
+  ],
+  "required_validation": [
+    {
+      "requirement": "Unknown value without gap",
+      "contract_basis": "IG-DATA-MODEL Knowledge and representation",
+      "files": [
+        "invalid-unknown-without-gap.json"
+      ],
+      "expected": "reject"
+    },
+    {
+      "requirement": "Changed aspect integrity/freshness",
+      "contract_basis": "IG-1A deterministic revisions; architecture: changed aspects do not inherit acceptance",
+      "files": [
+        "invalid-changed-aspect-hash.json",
+        "valid-changed-aspect.json",
+        "valid-changed-dependency.json"
+      ],
+      "expected": "reject stale hash; accept storage but report stale reviews"
+    },
+    {
+      "requirement": "Model approval",
+      "contract_basis": "IG-DATA-MODEL: only authorized human acceptance",
+      "files": [
+        "invalid-model-approval.json"
+      ],
+      "expected": "reject"
+    },
+    {
+      "requirement": "Dangling active versus historical reference",
+      "contract_basis": "IG-DATA-MODEL selected snapshot versus immutable revision store",
+      "files": [
+        "invalid-dangling-active.json",
+        "invalid-dangling-historical.json",
+        "valid-historical-reference.json"
+      ],
+      "expected": "reject unresolved exact pins; allow retained historical informational mention"
+    },
+    {
+      "requirement": "Duplicate identity",
+      "contract_basis": "IG-DATA-MODEL identity/revision uniqueness",
+      "files": [
+        "invalid-duplicate-selection.json",
+        "invalid-duplicate-store.json"
+      ],
+      "expected": "reject"
+    },
+    {
+      "requirement": "Opaque execution blocker",
+      "contract_basis": "IG-1A criterion 3 and IG-LEGAL-ACTIONS unknowns",
+      "files": [
+        "valid-source.json",
+        "invalid-opaque-formal.json",
+        "invalid-opaque-ready.json"
+      ],
+      "expected": "allow opaque source while reporting blocked execution; reject false formal/ready claims"
+    }
+  ],
+  "findings": [],
+  "defect_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "source_meaning_defect_counts": null,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/configuration.json",
+    "sha256": "b7e68a89f5f22aae6cf9c431c28a7a24f714ba7701b6e7bf68427dbaa2d94386"
+  },
+  "measurement": {
+    "started_utc": "2026-10-12T18:07:28+00:00",
+    "ended_utc": "2026-10-12T18:16:31.161148+00:00",
+    "wall_seconds": 543.161148,
+    "interval_note": "First explicit UTC clock reading after confirmation; earlier prerequisite reads, operator wait and initial preflight commands are not assigned an invented duration.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "peak_memory_bytes": null,
+    "gameplay_latency": null,
+    "unique_test_total": null,
+    "unknown_reason": "Token counters, operator time, cost and peak memory are not exposed/reported. No gameplay system is measured. Suites overlap, so a unique-test aggregate is not claimed."
+  },
+  "frozen_delivery": {
+    "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/delivery.json",
+    "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/delivery.json",
+    "expected_sha256": "e60f74eca3b94771539eb438c4d239a4deeec3ae20cc5950a4f415ae5d863958",
+    "actual_sha256": "e60f74eca3b94771539eb438c4d239a4deeec3ae20cc5950a4f415ae5d863958",
+    "match": true
+  },
+  "frozen_review": {
+    "path": "private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/review.json",
+    "verified_path": "private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/review.json",
+    "expected_sha256": "e7a6c12237c642c021595416d49ffc030690388ef1d9f8184da8b73cd89dffdb",
+    "actual_sha256": "e7a6c12237c642c021595416d49ffc030690388ef1d9f8184da8b73cd89dffdb",
+    "match": true
+  },
+  "queue_status_before": "review",
+  "queue_status_after": "review",
+  "queue_sha256": "85b06d2fdc49c4e83e928ffb1642c6b14b36146d75c80ec15e5982155c0b1821",
+  "queue_transition_performed": false,
+  "checks": [
+    {
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-1A"
+      ],
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1A",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T18:11:32.625169+00:00",
+      "ended_utc": "2026-10-12T18:12:25.452765+00:00",
+      "wall_seconds": 52.82672780007124,
+      "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/project-check.log",
+      "tests_passed": 102,
+      "reported_pytest_seconds": 42.48,
+      "log_root": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b",
+      "result": {
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-f4bd0c3d80b940b4b8f9be07f5ba923b\\pytest",
+        "dry_run_exit": 0,
+        "plan_exit": 0,
+        "diff_exit": 0,
+        "tests_exit": 0
+      }
+    },
+    {
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_rereview.py",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-independent-20261012T164949Z-163b3167\\test_review.py",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_final_boundaries.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\independent-temp",
+        "--tb=short"
+      ],
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_rereview.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-independent-20261012T164949Z-163b3167\\test_review.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_final_boundaries.py -q -p no:cacheprovider --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\independent-temp --tb=short",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T18:12:25.455915+00:00",
+      "ended_utc": "2026-10-12T18:12:50.300379+00:00",
+      "wall_seconds": 24.843229699879885,
+      "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/independent-suites.log",
+      "tests_passed": 120,
+      "reported_pytest_seconds": 23.99
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "command": "git diff --check",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T18:12:50.302374+00:00",
+      "ended_utc": "2026-10-12T18:12:52.966023+00:00",
+      "wall_seconds": 2.662993300007656,
+      "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/diff-check.log",
+      "tests_passed": null,
+      "reported_pytest_seconds": null
+    },
+    {
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\verify_handoff.py"
+      ],
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\verify_handoff.py",
+      "exit_code": 0,
+      "started_utc": "2026-10-12T18:12:52.967066+00:00",
+      "ended_utc": "2026-10-12T18:12:55.715263+00:00",
+      "wall_seconds": 2.7465079000685364,
+      "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/hash-verification.log",
+      "tests_passed": null,
+      "reported_pytest_seconds": null
+    }
+  ],
+  "preflight": {
+    "commands": [
+      {
+        "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+        "exit_code": 0,
+        "observed_output": "Validated 39 tasks, DAG, scope, context and derived views."
+      },
+      {
+        "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+        "exit_code": 0,
+        "observed_output": "No ready task."
+      },
+      {
+        "command": ".venv/Scripts/python.exe scripts/workflow.py packet --task IG-1A",
+        "exit_code": 0,
+        "observed_output": "private/workflow/packets/IG-1A-d3fb657a205e4e368f212a9f2bea81b5"
+      }
+    ],
+    "note": "Transcribed exact preflight tool results; no claim or transition command invoked."
+  },
+  "finding_dispositions": [
+    {
+      "id": "F1",
+      "result": "fixed",
+      "repair_cycles": 1,
+      "evidence": "Augmented independent source-content family controls"
+    },
+    {
+      "id": "F2",
+      "result": "fixed",
+      "repair_cycles": 2,
+      "evidence": "Original saved F2-R1 bundles reject; whole inventory shapes reject aspects in current/retained coverage and boundary records; exact full boundary positives and stale whole revision controls pass"
+    },
+    {
+      "id": "F2-R1",
+      "result": "fixed",
+      "parent_finding": "F2",
+      "evidence": "original-f2-disposition.json and new-boundaries.log"
+    },
+    {
+      "id": "F3",
+      "result": "fixed",
+      "repair_cycles": 1,
+      "evidence": "Augmented independent exact selected endpoint controls and unresolved/informational historical positives"
+    }
+  ],
+  "repair_cycles": {
+    "F1": 1,
+    "F2": 2,
+    "F3": 1
+  },
+  "open_decisions": [
+    "Operator/coordinator technical acceptance and any later accepted/done transition remain a separate explicitly authorized action. This session records only a recommendation.",
+    "No third F2 repair is authorized. Any recurrence requires an operator decision and new documented hypothesis/scope before repair.",
+    "The formal-language choices recorded for IG-3A remain future work; this session starts no downstream task.",
+    "Real source coverage, authorized human source-meaning decisions, compilation and gameplay readiness remain separate future gates. IG-1A itself requires no SPQR semantic acceptance."
+  ],
+  "expected_input_projection_differences": [
+    {
+      "path": "docs/work/tasks/IG-1A.md",
+      "verified_path": "docs/work/tasks/IG-1A.md",
+      "expected_sha256": "788df9bd2d5ee6650975b2d8c5ada45391835b23bfb6155aad05c165362bed34",
+      "actual_sha256": "c3f7ef9dc8a9c8251e6ffcae3f2ce19962a28e61b5361daa23ade8205bf5d7c6",
+      "match": false
+    }
+  ],
+  "unexpected_hash_mismatches": [],
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "limitations": [
+    "Bounded technical verification does not prove absence of all possible defects.",
+    "Structural metadata does not authenticate human identities, authority or decision artifacts.",
+    "Review basis completeness is declared; contradictory decisions are not automatically aggregated.",
+    "Synthetic region counts are not complete real-rulebook coverage; mixed coordinate partitions need author justification.",
+    "Current session configuration is operator UI testimony, not machine-extracted runtime metadata. Prior reviewer metadata are read only from their frozen evidence artifact."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/configuration.json",
+      "sha256": "b7e68a89f5f22aae6cf9c431c28a7a24f714ba7701b6e7bf68427dbaa2d94386"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/preflight.json",
+      "sha256": "2e94ef89ebc8449d671e27b154ae4d6ac1e650d8ccc73df30fcd62b4440b01b5"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/hash-verification.json",
+      "sha256": "aff2a4e0682ef17735b29ee69adb7ae1099df22d4a98f611e13e3a863399ff7d"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/hash-verification-before.json",
+      "sha256": "966fe7fe24dd221d3165af991ece0baf41542a2a854e3ee99710fa4df776d668"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/preservation.json",
+      "sha256": "ac28c6fb1b15aa063140935597f6852eedaa22686759851cfe29d80e86fef47b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/checks.json",
+      "sha256": "e9d259099c460e5edc34bd34edb1a5138dc806a1bb1c7b02251825c366b52096"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/suite-copy-provenance.json",
+      "sha256": "fe6eecbd3b18ca51a54bf6e5e17c0d455badc51fda777606a86224d6b9a4ab5e"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/project-check.log",
+      "sha256": "867692f4a31ef557c65d2cfa4161596284a4f6967dd15fc18dfb65b6e0814074"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/independent-suites.log",
+      "sha256": "c3a1226628262dbed5532a66f4c15d35dd1f97ac6a8c0417f0e7615c19ab14e0"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/diff-check.log",
+      "sha256": "6e1d01b055dd0324d5475dd1b4659ec5328a2d8ab10b879d4eb20ceba2f01537"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/hash-verification.log",
+      "sha256": "107399ae641f75e968aadd6b3fa8f61f593dea2b1d9f31e11f7c30ecd1121496"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/git-status-before.txt",
+      "sha256": "547cfb4db2c65fa3bdf57edc42703ca1b0e64be427045f96053a4391f83773d6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/git-status-after.txt",
+      "sha256": "547cfb4db2c65fa3bdf57edc42703ca1b0e64be427045f96053a4391f83773d6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/verify_handoff.py",
+      "sha256": "967487ec23c3748e909d904a14d89a60036971ecc23b8f44d3b7a1cc12c0f111"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/run_checks.py",
+      "sha256": "ea883f28ae0de105cf45e7bff4d15b317ec813283298fe0fdd2ff550eb4d9887"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/write_report.py",
+      "sha256": "95ca641138120355d6b7a8a2da2aaffd0494a2693f538d2aae35247229a9eedb"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/test_rereview.py",
+      "sha256": "fbb8f5c4a650c3781e00f1ca74b105497454e9f68b2d5aaf5c28a550756da91c"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/test_final_boundaries.py",
+      "sha256": "95a48da3ae1747770e44256ea2805b5299a07201ac1eb86bd90302aa484e909d"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/original-f2-disposition.json",
+      "sha256": "9fb6b99f2c278862d0fb1acbf01940d1a5a3f5b2ac5b760140e54a777e7d502f"
+    },
+    {
+      "path": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b/result.json",
+      "sha256": "bdaaacff9b67780bf4cb711f660ffca2da3ffada55af4f54c211472be893c6a3"
+    },
+    {
+      "path": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b/pytest.log",
+      "sha256": "081be2bbd098b49d31d8d19a995c94ccece38c05d65e417438c2cef06ec3ba1d"
+    },
+    {
+      "path": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b/dry-run.log",
+      "sha256": "82fde4eec8df60894a10f0a52e25b62ad1e8578ee9015f373d68dacc53bb00f1"
+    },
+    {
+      "path": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/report.md",
+      "sha256": "63312007b0b44b029f80df3bc15f2b58338783794bc214363f1ba2a18e8fc9e0"
+    }
+  ]
+}

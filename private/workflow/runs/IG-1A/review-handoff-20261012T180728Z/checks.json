@@ -1,0 +1,81 @@
+[
+  {
+    "argv": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "scripts/check.ps1",
+      "-Task",
+      "IG-1A"
+    ],
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1A",
+    "exit_code": 0,
+    "started_utc": "2026-10-12T18:11:32.625169+00:00",
+    "ended_utc": "2026-10-12T18:12:25.452765+00:00",
+    "wall_seconds": 52.82672780007124,
+    "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/project-check.log",
+    "tests_passed": 102,
+    "reported_pytest_seconds": 42.48,
+    "log_root": "private/workflow/checks/active-f4bd0c3d80b940b4b8f9be07f5ba923b",
+    "result": {
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-f4bd0c3d80b940b4b8f9be07f5ba923b\\pytest",
+      "dry_run_exit": 0,
+      "plan_exit": 0,
+      "diff_exit": 0,
+      "tests_exit": 0
+    }
+  },
+  {
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_rereview.py",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-independent-20261012T164949Z-163b3167\\test_review.py",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_final_boundaries.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\independent-temp",
+      "--tb=short"
+    ],
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_rereview.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-independent-20261012T164949Z-163b3167\\test_review.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\test_final_boundaries.py -q -p no:cacheprovider --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\independent-temp --tb=short",
+    "exit_code": 0,
+    "started_utc": "2026-10-12T18:12:25.455915+00:00",
+    "ended_utc": "2026-10-12T18:12:50.300379+00:00",
+    "wall_seconds": 24.843229699879885,
+    "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/independent-suites.log",
+    "tests_passed": 120,
+    "reported_pytest_seconds": 23.99
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "command": "git diff --check",
+    "exit_code": 0,
+    "started_utc": "2026-10-12T18:12:50.302374+00:00",
+    "ended_utc": "2026-10-12T18:12:52.966023+00:00",
+    "wall_seconds": 2.662993300007656,
+    "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/diff-check.log",
+    "tests_passed": null,
+    "reported_pytest_seconds": null
+  },
+  {
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\verify_handoff.py"
+    ],
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1A\\review-handoff-20261012T180728Z\\verify_handoff.py",
+    "exit_code": 0,
+    "started_utc": "2026-10-12T18:12:52.967066+00:00",
+    "ended_utc": "2026-10-12T18:12:55.715263+00:00",
+    "wall_seconds": 2.7465079000685364,
+    "log": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/hash-verification.log",
+    "tests_passed": null,
+    "reported_pytest_seconds": null
+  }
+]

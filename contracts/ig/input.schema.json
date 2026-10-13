@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:wgc:ig:input:1",
+  "title": "WGC immutable input and source byte manifests",
+  "description": "Application append-only snapshots; original bytes, availability and explicitly unknown WGU source identity. No import, source meaning or executable acceptance.",
+  "$defs": {
+    "file": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "game_config",
+            "kb",
+            "configured_source",
+            "provenance",
+            "selected_rulebook"
+          ]
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "missing"
+          ]
+        },
+        "bytes": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "blob_path": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "edition_label": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "path",
+        "role",
+        "availability",
+        "bytes",
+        "sha256",
+        "blob_path",
+        "edition_label"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "available"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "bytes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+              },
+              "blob_path": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "missing"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "bytes": {
+                "type": "null"
+              },
+              "sha256": {
+                "type": "null"
+              },
+              "blob_path": {
+                "type": "null"
+              },
+              "role": {
+                "const": "configured_source"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "selection": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "const": "rulebook"
+        },
+        "edition_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "selected_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "identity_to_wgu_original": {
+          "const": "unknown"
+        },
+        "semantic_acceptance": {
+          "const": "not_granted"
+        }
+      },
+      "required": [
+        "source_id",
+        "role",
+        "edition_label",
+        "edition_basis",
+        "selected_path",
+        "sha256",
+        "identity_to_wgu_original",
+        "semantic_acceptance"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "wgc-input-1"
+        },
+        "snapshot_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "origin_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/file"
+          }
+        },
+        "kind": {
+          "const": "input_snapshot"
+        },
+        "source_snapshot_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "schema_version",
+        "snapshot_id",
+        "origin_root",
+        "files",
+        "kind",
+        "source_snapshot_id"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "wgc-input-1"
+        },
+        "snapshot_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$(?![\\s\\S])"
+        },
+        "origin_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/file"
+          }
+        },
+        "kind": {
+          "const": "source_snapshot"
+        },
+        "selection": {
+          "$ref": "#/$defs/selection"
+        }
+      },
+      "required": [
+        "schema_version",
+        "snapshot_id",
+        "origin_root",
+        "files",
+        "kind",
+        "selection"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

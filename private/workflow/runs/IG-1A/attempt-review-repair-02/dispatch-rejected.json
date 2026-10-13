@@ -1,0 +1,15 @@
+{
+  "task": "IG-1A",
+  "operation": "Send the second repaired delivery to the existing independent reviewer session",
+  "thread_id": "01a13104-4cba-7610-b690-dc463e8c4e32",
+  "delivery_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/delivery.json",
+  "delivery_sha256": "e60f74eca3b94771539eb438c4d239a4deeec3ae20cc5950a4f415ae5d863958",
+  "recorded_utc": "2026-10-12T17:43:13.566171+00:00",
+  "result": "Rejected by automatic approval review; no follow-up message was delivered.",
+  "stated_reason": "Użytkownik wyraził zgodę na wcześniejsze przesłanie poprawionej dostawy, ale brak jednoznacznej zgody na tę kolejną wiadomość dotyczącą drugiej iteracji naprawy; wymagana jest nowa autoryzacja.",
+  "authorization_scope_clarification": "Prior operator approval was judged to cover the earlier follow-up only. The executor interpretation that it continued to this second message was rejected. A new explicit operator authorization is required.",
+  "prior_dispatch_record": "rereview-dispatch.json records the intended request and prior authorization statement; it is not evidence of successful delivery. This append-only record supplies the actual rejected outcome.",
+  "queue_state": "review",
+  "frozen_artifacts_verified": 82,
+  "next_operation": "Await operator authorization for this exact second-delivery follow-up; do not retry through another tool or workaround."
+}

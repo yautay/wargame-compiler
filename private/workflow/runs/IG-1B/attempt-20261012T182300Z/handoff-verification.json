@@ -1,0 +1,46 @@
+{
+  "checked_utc": "2026-10-12T18:44:24.586737+00:00",
+  "delivery": {
+    "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/delivery.json",
+    "sha256": "c76162309a0cdd3c9be6d0d1e0c57496c005cf31e61cf77ed9e5751d772487b8"
+  },
+  "delivery_artifacts_verified": 59,
+  "all_delivery_artifacts_match": true,
+  "ig_1a_delivery_82_unchanged": true,
+  "ig_1a_final_review_60_unchanged": true,
+  "ig_1a_final_verification_reports_unchanged": true,
+  "all_workflow_event_hashes_match": true,
+  "unrelated_task_records_unchanged": true,
+  "task_content_unchanged": true,
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "1ff2113c596116a2c3c194e9081546697e44adb089f90925665b4ef6fc01de8a"
+  },
+  "states": {
+    "IG-1A": "done",
+    "IG-1B": "review"
+  },
+  "post_transition_controls": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "output": "No ready task."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/diff-check-handoff.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    }
+  ],
+  "owned_text_whitespace_errors": 0,
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "next_action": "Separate independently configured technical reviewer evaluates frozen IG-1B delivery; no IG-1C start."
+}

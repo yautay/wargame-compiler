@@ -1,0 +1,242 @@
+{
+  "role": "executor",
+  "actor": "ig-1a-executor-20261012-0540",
+  "summary": "IG-1A blocked after two full checks exposed the same out-of-scope existing workflow fixture defect. Source contract is frozen with 46 passing contract tests; all product artifacts are pinned. Operator must authorize only the proposed sandbox repair.",
+  "criteria": [
+    "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+    "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+    "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+    "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+    "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+  ],
+  "artifacts": [
+    {
+      "path": "contracts/ig/README.md",
+      "sha256": "71163c1b98e50ac767ca10fb0b174fdd113bc4d13097eec3495065b0c09dfb88"
+    },
+    {
+      "path": "contracts/ig/source.schema.json",
+      "sha256": "749405ff52615a77bf46543e47a68504f4482f38c2c394979147c80dd01bed74"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "e7d4993802db43bca3446ca0c6bc684c04a62ecf53bb7cbb0fa2019709a1571d"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "sha256": "587b06670b7c42c567e95e67afe1d738681f2ad95e9fe1464b4f60cfb6425f73"
+    },
+    {
+      "path": "src/wgc/contracts/__init__.py",
+      "sha256": "e41623d285e0a5c24494cb81a161d63ae1816c1ef9fb3f810a657a6cf5cfdf81"
+    },
+    {
+      "path": "src/wgc/contracts/source.py",
+      "sha256": "8e045b7c96076051632ecaab6c6bbb24d8394308383a9b4d9910302b18619e10"
+    },
+    {
+      "path": "tests/contracts/fixtures/catalog.json",
+      "sha256": "1c28ca6fcaa72748853d9528ac8334295ecf7bf03515335f620316757646a9b8"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-anonymous-identity-conflict.json",
+      "sha256": "656c89379b355fc478d5a9faf217116f8ff994eb2e523e2bea3704f6f5061060"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-changed-aspect-hash.json",
+      "sha256": "2c04c31919aeb450cc48ae80e1c2f82b3713dd14c0ecfa3ff6c07e43b594c2be"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-active.json",
+      "sha256": "e23234a19764662c6bd28a6570ad4c3856955a8c7f56c31199f86497a5edd90e"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-historical.json",
+      "sha256": "1875fb915556e8ef2ffbdc9bb054ee3924ca0f5a33fae8b1579d4220db0a8ef5"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-selection.json",
+      "sha256": "fcefa6d2aa1af2e6e4d5c49f6cd33a3188ba46c50ebc4057b9c19d233ca418f2"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-store.json",
+      "sha256": "932c39e4e7c47f97a64c4a9cb34e67193f6291700d385037e7bc1b3d7f0708eb"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-gap-counted-as-coverage.json",
+      "sha256": "c105f5a777639036b3e3f0e2eeeabb5699c5d6827a10265140bde5013ca856ad"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-group-binding.json",
+      "sha256": "af5aa206a2a31926d11d31503c15aa7012d102dce2aa2627f82896689a63619a"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-known-without-evidence.json",
+      "sha256": "bc1f5773b30fd956388dda57fa2984e5c3118a478d5faefec11be81b7f54c19f"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-model-approval.json",
+      "sha256": "c12bbe40d372dd408456f88846be7c7617ac187824b5972f5078e98e4110a05f"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-formal.json",
+      "sha256": "81588bb151374ff44141cb85964b2d4bfd9c0d3002c71dc6b043ec0f5badcda7"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-ready.json",
+      "sha256": "eaadb38dea99363e629505e4a8cc5041a031be75ad43b70794cf6a76443ec419"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-origin-path.json",
+      "sha256": "e27165a475ca06951f3c7720e08424cd143013fcc3061916777f1e009eeefd82"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-overlapping-coverage.json",
+      "sha256": "69b12e8c3ed06cf80f46f7fa18125dad1761bdace54cbeef72b6b144a9456b7e"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-reference-type.json",
+      "sha256": "ce20da383d4f7b1074103300b5a2a3940de06b020ee6eba4a408383fb4d1b543"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-table-note.json",
+      "sha256": "3e59a7c9cc3d6ba213c5adaeaaa8869eee84b97f3c73c6b7e503fc5b30ed80a9"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-unknown-without-gap.json",
+      "sha256": "ee5e80d4b000bd48a518c81136bc254349e19561112987aca112db520517975b"
+    },
+    {
+      "path": "tests/contracts/fixtures/README.md",
+      "sha256": "82a5f403d0ce3df1fdb75d955173a09a9cb79c84680dce77663c16f914e0ad2b"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-aspect.json",
+      "sha256": "92ee3df90d0501e2af40528f4505d43d6ab3c88af00d4d23e3a0f176faa2a723"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-dependency.json",
+      "sha256": "9fa45d5b015851ad321a936c578c5e09122fd716b86af96ef9c12db67d3c46a7"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-cross-section-exception.json",
+      "sha256": "6dc73a731e0e36f5dd1b8629e712cee81e2f7e9b5508d27735997a419caf19f7"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-edition-conflict.json",
+      "sha256": "044556aac43817f78d6356e6974412c06c9b12834282353108a3833734f658a0"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-historical-reference.json",
+      "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-overlapping-context.json",
+      "sha256": "ee16f98d763e528896d3a4e063e4d1239149aed29c705ee5cba401688a5be77a"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-partial-review.json",
+      "sha256": "d12c2bf2bb7654217e57c9b77da67d1d74e0b388192dd64fc4b365190eb8939d"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-procedure-cycle.json",
+      "sha256": "fabc738c5423550d2a061095151a3b8a60d1e168f81a2a85f75258b011517f2b"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-source.json",
+      "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+    },
+    {
+      "path": "tests/contracts/test_source.py",
+      "sha256": "8d97d98c076f65bba12f8546145fac66b68bcd477c524b4c550a19b684cd6747"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/report-02.md",
+      "sha256": "0321211a12e180be7e7c633be74369890db39cb63af606a9261a64a6b0a38436"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/checks-02.json",
+      "sha256": "ced0a891d8066ed72b3a669772542fe24ef1e531b3a4a788a6b84b8f1ca48a62"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/configuration.json",
+      "sha256": "d26b08a66d911264efae6580112c3cf29de5b4ae3c33fde80bb2492d6b37a620"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/checkpoint-frozen-candidate-02.json",
+      "sha256": "5c4d963132ee212b6447aef5500b48a0c4f2fad85fae632f76424e79155b5e69"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/review-prompt.md",
+      "sha256": "f8f17e55b23ed963d2f910d53b7683fc26ef18241b52ce73c29f73f4a1a3e71d"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/workflow-fixture-scope-request.patch",
+      "sha256": "7cfed857d05001803ebd63e6ce50265cc5d64d5354349be8bf9341ca026d26d7"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/scope-request.json",
+      "sha256": "a99d5781e78fd78d27c4c8695b4e9d8b32c719b9b196483ff96949e9275d5448"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/build_schema.py",
+      "sha256": "3672062ebbde0b15013c0bb0c69591faf425b81cf87294c8e7d1d4e5941bebfb"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/build_fixtures.py",
+      "sha256": "44b94ea3f8b0589ece92b04fc1963e6013043e583bfed5a7a35020f6b098dd0a"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Operator current session UI confirmation; see configuration.json.",
+  "checks": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short --basetemp private/workflow/runs/IG-1A/attempt-20261012-0540/test-temp-04",
+      "exit_code": 0,
+      "tests_passed": 46,
+      "reported_seconds": 5.36
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py dry-run --task IG-1A",
+      "exit_code": 0
+    },
+    {
+      "command": "PYTHONPATH=src .\\.venv\\Scripts\\python.exe -m wgc.contracts.source tests/contracts/fixtures/valid-source.json",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 1,
+      "tests_passed": 65,
+      "tests_failed": 7,
+      "reported_seconds": 28.1,
+      "log_root": "private/workflow/checks/active-58245dbebedc4865bd3cde4a7d4200b0",
+      "result": "Final check-script bytes verified: plan=0, dry-run=0, pytest=1, diff=0. 7 failed, 65 passed in 28.10s. Only the existing live-queue-derived workflow fixture fails; operator write-scope exception remains pending."
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-12T14:51:29.775886+00:00",
+    "ended_utc": "2026-10-12T15:22:49.264628+00:00",
+    "wall_seconds": 1879.488742,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Session token counters, operator time and monetary cost were not exposed/reported. Wall time includes the scope-confirmation wait."
+  },
+  "review_readiness": "blocked",
+  "semantic_acceptance_granted": false
+}

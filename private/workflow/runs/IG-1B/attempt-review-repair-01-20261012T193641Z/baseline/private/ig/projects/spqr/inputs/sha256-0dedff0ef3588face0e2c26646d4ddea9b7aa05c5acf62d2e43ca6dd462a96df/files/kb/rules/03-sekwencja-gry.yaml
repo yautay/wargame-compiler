@@ -1,0 +1,90 @@
+chapter: {id: "3", title: "3.0 Sekwencja gry (Sequence of Play)"}
+rules:
+  - id: R-3.0.1
+    title: Sekwencja gry — zarys tury
+    section: "3.0"
+    source: {text: "oryg. 3.0 „Sequence of Play”, s. 6", pages: "6"}
+    effect: |
+      Gracze aktywują swoich dowódców w kolejności wyznaczonej przez inicjatywę. Aktywowany dowódca wydaje rozkazy, dzięki którym
+      jednostki ruszają się i walczą. Gdy wszyscy dowódcy są skończeni, następuje faza ucieczki i przeładowania (Rout and Reload),
+      a potem każdy gracz sprawdza, czy jego armia się wycofuje. Fazy: A. aktywacja dowódcy, B. faza rozkazów (1. ruch i ostrzał,
+      2. walka wręcz), C. impet albo powrót do A, D. ucieczka i przeładowanie, E. wycofanie armii.
+    keywords: [sekwencja gry, tura, fazy]
+    refs: [P-01]
+  - id: R-3.0.2
+    title: A. Faza aktywacji dowódcy
+    section: "3.0"
+    source: {text: "oryg. 3.0 A „Leader Activation Phase”, s. 6", pages: "6"}
+    effect: |
+      Gracz, którego **nieaktywowany dowódca ma najniższą inicjatywę**, aktywuje tego dowódcę. Jeśli aktywowany dowódca musi
+      rzucić, by móc wydać rozkaz liniowy, rzuca teraz (4.33). W tym momencie można też próbować przejęcia innego niż
+      przejęcie impetu (5.41).
+    exceptions: Faza inicjatywy elitarnej (EIO) na początku tury — R-5.51.1; przejęcie (Trump) — R-5.41.1; dowódca zwolniony ze strefy kontroli wroga — R-5.26.2.
+    see: R-4.33.3, R-5.12.1, R-5.41.1
+    keywords: [aktywacja, inicjatywa, najniższa inicjatywa, przejęcie]
+    refs: [R-4.33.3, R-5.12.1, R-5.41.1, R-5.51.1, R-5.26.2]
+  - id: R-3.0.3
+    title: B.1 Segment ruchu i ostrzału
+    section: "3.0"
+    source: {text: "oryg. 3.0 B.1 „Movement and Missile Fire Segment”, s. 7", pages: "7"}
+    effect: |
+      a) Za każdy wydany rozkaz indywidualny gracz może wykonać jedną funkcję z 5.22 jedną jednostką **albo** b) za każdy rozkaz
+      liniowy cała linia uprawnionych jednostek może się ruszyć i/lub strzelać (5.23).
+    see: R-5.22.1, R-5.23.1
+    keywords: [segment ruchu i ostrzału, rozkaz indywidualny, rozkaz liniowy]
+    refs: [R-5.22.1, R-5.23.1]
+  - id: R-3.0.4
+    title: B.1 Reakcje przeciwnika w trakcie segmentu
+    section: "3.0"
+    source: {text: "oryg. 3.0 B.1, s. 7", pages: "7"}
+    effect: |
+      Jednostki przeciwnika zdolne do uporządkowanego wycofania (6.5), rozszerzenia linii manipularnej (9.66) i/lub ostrzału
+      reakcyjnego (8.2) mogą z nich korzystać przez cały ten segment.
+    see: R-6.51.1, R-9.66.1, R-8.2.1
+    keywords: [reakcja, uporządkowane wycofanie, ostrzał reakcyjny, rozszerzenie linii]
+    refs: [R-6.51.1, R-9.66.1, R-8.2.1]
+  - id: R-3.0.5
+    title: B.2 Segment walki wręcz — kolejność kroków
+    section: "3.0"
+    source: {text: "oryg. 3.0 B.2 „Shock Combat Segment”, s. 7", pages: "7"}
+    effect: |
+      Po zakończeniu wydawania rozkazów uprawnione jednostki walczą wręcz (8.4) w kolejności: a) wyznaczenie walki — znaczniki
+      SHOCK-NO TQ CHECK wg 7.33, atakujący przypisuje jednostki do poszczególnych walk; b) szarża (test TQ przed walką);
+      c) rozstrzygnięcie możliwych strat dowódców; d) starcie włóczni i mieczy (przewaga i kolumna CRT); e) rozstrzygnięcie walki;
+      f) sprawdzenie załamania (Collapse), ucieczki i pościgu jazdy.
+    see: R-7.33.1, R-8.41.1, R-8.43.1, R-8.44.1, R-8.45.1, R-8.46.1, R-8.47.1, R-8.61.1
+    keywords: [walka wręcz, kolejność, szarża, załamanie, pościg]
+    refs: [P-05, R-7.33.1, R-8.41.1, R-8.43.1, R-8.44.1, R-8.45.1, R-8.46.1, R-8.47.1, R-8.61.1]
+  - id: R-3.0.6
+    title: C. Faza impetu albo powrót do A
+    section: "3.0"
+    source: {text: "oryg. 3.0 C „Momentum Phase or Return to A”, s. 7", pages: "7"}
+    effect: |
+      Gracz może rzucić na impet dowódcą aktywowanym w bezpośrednio poprzedzającej fazie rozkazów, by dać mu kolejną fazę
+      rozkazów (B), **albo** gra wraca do fazy A dla dowódców jeszcze nieaktywowanych. Jeśli próba impetu się uda, przeciwnik może
+      spróbować przejęcia impetu (5.42).
+    see: R-5.31.1, R-5.42.1
+    keywords: [impet, Momentum, przejęcie impetu]
+    refs: [R-5.31.1, R-5.42.1]
+  - id: R-3.0.7
+    title: D. Faza ucieczki i przeładowania
+    section: "3.0"
+    source: {text: "oryg. 3.0 D „Rout and Reload Phase”, s. 7", pages: "7"}
+    effect: |
+      1) Ruch ucieczki: jednostki uciekające wykonują ruch ucieczki (10.23). 2) Przeładowanie: uprawnione jednostki strzelające
+      mogą uzupełnić pociski (8.18). 3) Odwrócenie i zdjęcie: wszystkich skończonych dowódców odwraca się na awers; zdejmuje się
+      znaczniki MOVED, RALLIED, FIRED, PURSUIT/FINISHED i TRUMPED.
+    see: R-10.23.1, R-8.18.1
+    keywords: [ucieczka, przeładowanie, znaczniki, skończony dowódca]
+    refs: [R-10.23.1, R-8.18.1]
+  - id: R-3.0.8
+    title: E. Faza wycofania armii
+    section: "3.0"
+    source: {text: "oryg. 3.0 E „Withdrawal Phase”, s. 7", pages: "7"}
+    effect: |
+      Każdy gracz sumuje punkty ucieczki (Rout Points) wszystkich wyeliminowanych jednostek bojowych i dowódców, by sprawdzić, czy
+      jego armia osiągnęła próg wycofania (Withdrawal Level). Jeśli żadna armia się nie wycofuje, tura się kończy i zaczyna kolejna.
+      Bitwa trwa, dopóki armia jednej ze stron się nie wycofa.
+    see: R-11.1.1, R-11.2.1
+    keywords: [wycofanie armii, punkty ucieczki, próg wycofania]
+    refs: [R-11.1.1, R-11.2.1]

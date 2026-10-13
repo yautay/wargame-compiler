@@ -1,0 +1,30 @@
+{
+  "task": "IG-1B",
+  "kind": "independent_review_dispatch",
+  "recorded_utc": "2026-10-12T18:49:26Z",
+  "operator_authorization": {
+    "source": "Direct operator statement in the current chat",
+    "statement_verbatim": "możesz ją zlecić w osobnej sesji",
+    "scope": "Create one separate local reviewer chat for the prepared frozen IG-1B technical review."
+  },
+  "thread_id": "01a13172-806d-7fe0-8805-9a032988cbb7",
+  "host_id": "local",
+  "project_id": "d338100d-b18c-44d2-b55b-bde478272daa",
+  "environment": "local existing checkout; no worktree",
+  "creation_result": "Successful; new reviewer turn observed in progress.",
+  "model_override": null,
+  "reasoning_override": null,
+  "configuration_requirement": "The new reviewer must independently confirm its actual current GPT-6.1 Sol/high settings; creation defaults are not observed configuration evidence.",
+  "frozen_delivery": {
+    "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/delivery.json",
+    "sha256": "c76162309a0cdd3c9be6d0d1e0c57496c005cf31e61cf77ed9e5751d772487b8",
+    "rehash_before_dispatch": "Matched"
+  },
+  "initial_observed_progress": "Reviewer started reading repository instructions/prepared prompt and checking its own current configuration before evaluating implementation.",
+  "queue_transition_performed": false,
+  "repair_authorized": false,
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "prompt": "Perform the independent technical review of IG-1B in this separate session, following the exact prepared prompt at private/workflow/runs/IG-1B/attempt-20261012T182300Z/review-prompt.md. The operator explicitly authorized creating this separate reviewer session. Work locally in C:/repo/wargame-compiler; discuss in Polish and write documentation, findings and reports in English.\n\nRead AGENTS.md, README.md, docs/STATUS.md, docs/HANDOFF.md, docs/work/WORKFLOW.md, and explicitly docs/skills/wgc-review/SKILL.md. Apply only the relevant local review skill. Confirm the actual model/reasoning of THIS new session: GPT-6.1 Sol/high, from current-session configuration metadata, or obtain operator confirmation from this session UI before substantive review. Creation/requested settings and confirmations from the executor chat do not prove the reviewer current configuration. Do not read archived conversations or Git history to obtain configuration evidence.\n\nRun ./.venv/Scripts/python.exe scripts/workflow.py validate, next, and packet --task IG-1B. docs/work/queue.json is the only status authority; expected IG-1B status is review. Do not claim or change task state. Read the packet, card, named context, frozen report and checkpoint.\n\nThe exact frozen delivery is private/workflow/runs/IG-1B/attempt-20261012T182300Z/delivery.json, SHA-256 c76162309a0cdd3c9be6d0d1e0c57496c005cf31e61cf77ed9e5751d772487b8. The coordinator rehashed that manifest immediately before dispatch and it matched. Independently verify all 59 artifact hashes and the complete manifest before assessing the implementation. The executor reports 34 product artifacts, 25 byte copies totaling 5,199,801 bytes, 23 WGU files, two registry files and 36 individually missing configured source paths. Treat those statements as claims to verify, not proof.\n\nIndependently check all four card criteria and contract-derived positive/negative expectations: mutation during copy and between files, missing/appearing sources, duplicate/case/physical aliases, traversal and unintended reads, real Windows junction/symlink escapes, actual opened-handle final-path checks, disjoint output roots/no neighbour writes, canonical metadata, copy integrity, append-only reuse and deterministic repeatability. The promoted PDF must remain a new selected IG source with identity_to_wgu_original unknown. Real publisher meaning, source coverage and executable readiness are separate gates.\n\nRun tests/inputs with a fresh basetemp, scripts/check.ps1 -Task IG-1B and git diff --check. Preserve all existing changes and frozen reports. The host sandbox denied GetFinalPathNameByHandleW and link creation in executor checks. If needed, use only normally reviewed, exactly scoped local escalation; do not bypass rejection or weaken assertions/protections. Inspect the preserved development-check-history.json and distinguish the resolved Windows ctime comparison defect from restricted execution. No assertions were intended to be weakened; verify that independently. Any real private repeat must read only the explicitly enumerated roots and write only the assigned snapshot roots.\n\nUse a reviewer identity distinct from executor-ig-1b-20261012T182300Z and a fresh directory under private/workflow/runs/IG-1B/. Write report.md and structured review.json with pass/fail, location/consequence/evidence/required verification for actionable findings, criteria met/unmet, complete frozen hashes, actual commands/exits, actual current configuration and its source, UTC/wall measurements and unavailable values as null. Recheck preservation after tests. Do not modify implementation/tests or the frozen delivery. Leave queue.json and task status unchanged at review; the operator/coordinator owns disposition. IG-1A is accepted/done and its frozen product must remain unchanged.\n\nThis authorization is only for this one independent reviewer session and review evidence. Do not create more chats/agents/automations, use external services, access archives/Git history, modify neighbouring repositories, commit/push, initiate repairs or start IG-1C. Do not message another chat; return your report and exact paths/hashes in this session.",
+  "next_operation": "Operator follows the separate reviewer chat. Coordinator verifies the returned frozen technical review before any acceptance/repair disposition."
+}

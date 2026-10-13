@@ -1,0 +1,53 @@
+[
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1",
+    "exit_code": 0,
+    "tests_passed": 72,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 48.0,
+    "log_root": "private/workflow/checks/active-21aba6918dd34d5ead87c82bd5db7626",
+    "result": {
+      "diff_exit": 0,
+      "tests_exit": 0,
+      "dry_run_exit": 0,
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-21aba6918dd34d5ead87c82bd5db7626\\pytest",
+      "plan_exit": 0
+    }
+  },
+  {
+    "command": ".venv/Scripts/python.exe review/probe.py (initial bounded cases)",
+    "exit_code": 1,
+    "checks": 51,
+    "expectations_met": 48,
+    "expectations_unmet": 3
+  },
+  {
+    "command": ".venv/Scripts/python.exe review/probe.py (final historical procedure counterexample)",
+    "exit_code": 1,
+    "checks": 51,
+    "expectations_met": 48,
+    "expectations_unmet": 3,
+    "log": "probe.log"
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/pytest-fresh --tb=short",
+    "exit_code": 1,
+    "tests_passed": 13,
+    "tests_failed": 3,
+    "reported_pytest_seconds": 5.85,
+    "log": "focused-pytest.log"
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/pytest-final --tb=short",
+    "exit_code": 1,
+    "tests_passed": 13,
+    "tests_failed": 3,
+    "reported_pytest_seconds": 3.44,
+    "log": "focused-pytest-final.log"
+  },
+  {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "log": "diff-check.log"
+  }
+]

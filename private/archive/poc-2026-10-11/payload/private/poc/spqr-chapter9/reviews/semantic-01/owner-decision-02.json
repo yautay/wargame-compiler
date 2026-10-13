@@ -1,0 +1,2780 @@
+{
+  "id": "M-POC5A-owner-decision-02",
+  "card": "M-POC5A",
+  "part": "M-POC5A.3",
+  "date": "2026-10-10",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+  "owner_message_sent_at_utc": "unknown",
+  "reviewer": "owner in this chat; personal identity unknown",
+  "owner_reply": "Akceptuję i podaj prompt dla nowej sesji",
+  "decision": "accepted_exact_21_local_scopes_and_2_source_requirements_in_both_answers",
+  "interpretation_basis": "Latest offered positive set explicitly includes 21 local scopes and EXP-031/033 source needs. EXP-040/050 and alternative issue choices were excluded. Request for a prompt does not authorize creating a chat or publishing Git.",
+  "evaluation": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+    "bytes": 4116,
+    "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+  },
+  "responses": {
+    "first-001": {
+      "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+      "bytes": 617941,
+      "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    "context-01": {
+      "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+      "bytes": 712014,
+      "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    }
+  },
+  "source": {
+    "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "bytes": 3965827,
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "prior_decision": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/owner-decision-01.json",
+    "bytes": 123870,
+    "sha256": "a81375750feb68e336c92f3a49b055356ed72c9c557ca68a43c8c7b38d63f59c"
+  },
+  "presentation": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-03/presentation.json",
+    "bytes": 854,
+    "sha256": "9a8faf6348b860a97894dc042f22a907dc9aeaed64c7228a1e7f9ad278ab69ac"
+  },
+  "focused_packet": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-03/owner-focus.md",
+    "bytes": 19539,
+    "sha256": "cab39e92f6549b350f913cffbd61f95bfc29a5682bdb04270283baed4caa0edb"
+  },
+  "comparison_manifest": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-03/manifest.json",
+    "bytes": 2062,
+    "sha256": "2e3620db4c022e4ea530cc3996cb52c31101b3f5473f63d2ce631677f194606b"
+  },
+  "scopes": [
+    {
+      "id": "EXP-026",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "PH/HI/LGdefendingFrontvsLI noPreShockevenwithattackermarker;LIstillcheck;reverseexemptionnotapplied",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            314.995,
+            519.38,
+            567.027,
+            589.38
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-right.txt",
+          "helper_lines_inclusive": [
+            37,
+            42
+          ],
+          "transcription": "• Phalanx (PH), Heavy Infantry (HI), and Legion Infantry (LG)\nunits that are attacked from a Front hex by Light Infantry (LI)\ndo not undergo a Pre-Shock TQ check even if the attackers have\nSHOCK MUST CHECK TQ markers, though the attacking LI\nstill do. The reverse is not true; PH, HI and LG do undergo a\nPre-Shock TQ check when attacking LI.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.23-06",
+          "parent_inventory_ref": "R-9.23",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.23-06"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R923: PH/HI/LG broniące przez Front przed LI nie robią Pre-Shock nawet z markerem atakującego; LI nadal sprawdza. Reverse wyraźnie nie zachodzi. Nie rozszerzono na Flank/Rear lub inne typy.",
+      "limits": [
+        "Nie rozszerzać na Flank/Rear ani inne typy."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R923": {
+            "pointer": "/rules/13",
+            "raw_span": {
+              "start_byte": 243467,
+              "end_byte_exclusive": 249760,
+              "sha256": "c017a74d0ffe7ef54ba4686b7fd4fc52ecffc9bf406143cc8ec56c55eab2a704"
+            }
+          }
+        },
+        "context-01": {
+          "R923": {
+            "pointer": "/rules/13",
+            "raw_span": {
+              "start_byte": 311816,
+              "end_byte_exclusive": 318317,
+              "sha256": "066ba920859c29d1df823aba213262bcbd5be17764050c3c9cdeaeef6468cdf6"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-027",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "SKRouteliminated,facing0MP,no repeat-moveCohesioncost;no blanketterrain/stackingimmunity",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            314.995,
+            652.88,
+            503.985,
+            662.88
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-right.txt",
+          "helper_lines_inclusive": [
+            47,
+            47
+          ],
+          "transcription": "• Skirmishers that Rout are eliminated instead.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.24-02",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            314.995,
+            679.76,
+            567.113,
+            713.76
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-right.txt",
+          "helper_lines_inclusive": [
+            49,
+            51
+          ],
+          "transcription": "• See 6.69 for special stacking rules for Skirmishers and Velites.\nSkirmishers can change facing at no MP cost and can move\nmore than once per Game Turn without a Cohesion cost.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.24-04",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.24-02",
+        "C-9.24-04"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R924: SK Rout oznacza eliminację, facing kosztuje 0 MP, ponowne ruchy w Game Turn bez Cohesion cost. Nie ma ogólnego zwolnienia z kosztów terenu i stacking.",
+      "limits": [
+        "Koszty terenu i pełny stacking nie są wyłączone."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R924": {
+            "pointer": "/rules/14",
+            "raw_span": {
+              "start_byte": 249766,
+              "end_byte_exclusive": 255895,
+              "sha256": "63cd8fcd0da402f21b02c5c6f6c0aae2edb1f5984e19bc5da61c2a39dc5165db"
+            }
+          }
+        },
+        "context-01": {
+          "R924": {
+            "pointer": "/rules/14",
+            "raw_span": {
+              "start_byte": 318324,
+              "end_byte_exclusive": 324673,
+              "sha256": "6b943eca4f83d51e2ce27c2afa95422cdc3c5d956d16a256aa5c0955f6a71f9d"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-028",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "oneSK/Velitespergap,notoneglobal;two consecutiveunits do notqualify",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            314.995,
+            717.2,
+            567.002,
+            739.2
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-33-right.txt",
+          "helper_lines_inclusive": [
+            52,
+            53
+          ],
+          "transcription": "• When determining lines for a Line Command (4.32), the pres-\nence of a Velites or Skirmisher unit does not disrupt the line if",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.24-05",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            54.0,
+            54.004,
+            245.93,
+            64.004
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            1,
+            1
+          ],
+          "transcription": "the interruption is caused by only one such unit.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.24-05",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            71.224,
+            297.015,
+            141.224
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            2,
+            7
+          ],
+          "transcription": "EXAMPLE: There are Hastati in 2808, Velites in 2809, and Has-\ntati in 2810. This would still be eligible to be a line. However,\nif there were Velites in 2809 and 2810 and the Hastati in 2808\nand 2811, the two Hastati would not form a line. If there were\nHastati in 2808, 2810, and 2812, with Velites in 2809 and 2811,\nthe Hastati could form a line.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-03",
+          "parent_inventory_ref": "R-9.24",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.24-05",
+        "X-03"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R924 i N924ex pokazują pojedynczą przerwę na gap, z możliwością oddzielnych powtórzeń. Dwa kolejne Velites w przykładzie nie tworzą line. Literalne układy 2808/2809/2810/2811/2812 zachowane; nie przyznano pełnej legalności 4.32.",
+      "limits": [
+        "To lokalny wyjątek; pozostałe warunki 4.32 wymagają kontekstu."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "N924ex": {
+            "pointer": "/nodes/3",
+            "raw_span": {
+              "start_byte": 124483,
+              "end_byte_exclusive": 126113,
+              "sha256": "6a3ef8e03ddb0e28dba14bc0413f7a3ed8013ed67c512e6e022456029c02a8f7"
+            }
+          },
+          "R924": {
+            "pointer": "/rules/14",
+            "raw_span": {
+              "start_byte": 249766,
+              "end_byte_exclusive": 255895,
+              "sha256": "63cd8fcd0da402f21b02c5c6f6c0aae2edb1f5984e19bc5da61c2a39dc5165db"
+            }
+          }
+        },
+        "context-01": {
+          "N924ex": {
+            "pointer": "/nodes/3",
+            "raw_span": {
+              "start_byte": 172182,
+              "end_byte_exclusive": 173878,
+              "sha256": "b672863aac81d4eb2fb84ba3e3ca1cae6b8d9c86491f7c4229e84afdeb4e726e"
+            }
+          },
+          "R924": {
+            "pointer": "/rules/14",
+            "raw_span": {
+              "start_byte": 318324,
+              "end_byte_exclusive": 324673,
+              "sha256": "6b943eca4f83d51e2ce27c2afa95422cdc3c5d956d16a256aa5c0955f6a71f9d"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-029",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "LCMissileH&DstrictlowerMA,exceptSK;LCArchersfireOW via6.55;fullproceduresunknown",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            167.184,
+            297.005,
+            201.184
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            9,
+            11
+          ],
+          "transcription": "9.31 Missile-armed Light Cavalry may use H&D fire (8.3) against\nall units with a lower MA, except Skirmishers. Light Cavalry\nArchers can fire when they use Orderly Withdrawal (6.55).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.31-01",
+          "parent_inventory_ref": "R-9.31",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.31-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R931: missile-armed LC, target strictly lower MA (<, nie <=), wyjątek SK; LC Archers fire podczas OW według 6.55. G-D931HD/OW zatrzymują pełne procedury, nie znany warunek lokalny.",
+      "limits": [
+        "Sama przewaga MA nie domyka H&D; konieczna procedura 8.3."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R931": {
+            "pointer": "/rules/15",
+            "raw_span": {
+              "start_byte": 255901,
+              "end_byte_exclusive": 259855,
+              "sha256": "c203ab22fc5188464f7dabe7f42906f436da91d6c786eab4e76045ad31a63322"
+            }
+          }
+        },
+        "context-01": {
+          "R931": {
+            "pointer": "/rules/15",
+            "raw_span": {
+              "start_byte": 324680,
+              "end_byte_exclusive": 328792,
+              "sha256": "9a16f1cac6ab3823e712cfd40b143d10ef7906f1848eeb7b1425e3affe652b04"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-030",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "attackingLCHitsvsPH/HI/MI/LG/BI halvefloor",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            208.584,
+            297.009,
+            242.584
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            12,
+            14
+          ],
+          "transcription": "9.32 Any Cohesion Hits inflicted by attacking Light Cavalry\nagainst a Phalanx or a Heavy, Medium, Legion, or Barbarian\nInfantry unit are halved (round down).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.32-01",
+          "parent_inventory_ref": "R-9.32",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.32-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "Lokalne R932.action_effect/parameters w obu wynikach zachowują pół/floor Hits zadanych przez atakujące LC PH/HI/MI/LG/BI. context-01 zmienia interpretation/exceptions, lecz nie literalną lokalną transkrypcję ani parametr. Ta propozycja nie akceptuje nowych operatorów/wyjątku Routed, całej R932, relacji ani kolejności AS/LC; SEM-003 nadal pending.",
+      "limits": [
+        "Zależność od AS w przykładzie X-04 wymaga osobnej interpretacji/kontekstu."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R932": {
+            "pointer": "/rules/16",
+            "raw_span": {
+              "start_byte": 259861,
+              "end_byte_exclusive": 263502,
+              "sha256": "cfce4763843cd4617670464caf65022de44c34273a2423cb87d74de3dd3c2624"
+            }
+          }
+        },
+        "context-01": {
+          "R932": {
+            "pointer": "/rules/16",
+            "raw_span": {
+              "start_byte": 328799,
+              "end_byte_exclusive": 333292,
+              "sha256": "064aae5db27a9bda8dd053c7d30ce2d21255bc4236946d1083acd1e2d946dabe"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-032",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "movingFrontPHDefense2Lperqualifyingflank,HI1Lperflank;excludestartadjacentstayed,FlankRear,anyPHattacker",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            309.044,
+            297.032,
+            427.044
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            28
+          ],
+          "transcription": "9.41 In any Shock Resolution in which a unit moves adjacent to\nand Shock attacks a Phalanx from the defender’s Front hex, the\nPhalanx earns a 2L shift on the Shock Combat CRT for each of\nits Flank hexes either occupied by another friendly Phalanx unit\nor in the ZOC of a friendly Phalanx unit. If the attacker is Heavy\nInfantry (any Class), the shift is 1L instead. This applies only to\nmoving attacks, not to attacks in which the attacking unit started\nadjacent to the Phalanx unit and stayed in that hex to Shock. It\nalso does not apply to Flank/Rear attacks, or if any attacker is\nalso a Phalanx unit.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.41-01",
+          "parent_inventory_ref": "R-9.41",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.41-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R941.conditions: moves adjacent i Shock przez Front; po 2L na flank zajęty przez friendly PH lub w friendly PH ZOC, HI any Class 1L zamiast 2L. Wyłączenia: rozpoczęcie adjacent i pozostanie tam, Flank/Rear oraz jakikolwiek PH wśród atakujących. Brak CRT nie blokuje podanego lokalnego shiftu.",
+      "limits": [
+        "Lokalny shift, nie pełny wynik CRT bez tabeli."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R941": {
+            "pointer": "/rules/17",
+            "raw_span": {
+              "start_byte": 263508,
+              "end_byte_exclusive": 268383,
+              "sha256": "112f98003ed54c0f8f09d2d00327263a8c7c577c036536d988707561e7dbac94"
+            }
+          }
+        },
+        "context-01": {
+          "R941": {
+            "pointer": "/rules/17",
+            "raw_span": {
+              "start_byte": 333299,
+              "end_byte_exclusive": 338353,
+              "sha256": "554b4ecd3a2ad5a80f0fa28cafc3c8b8f0528efdd7418e7d1999840cae58b045"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-034",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "formingDDIOorLCdirectOC,backstartsbehindfront,terraincost+1MP,backunderfront,endbothmovementthisphase",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            125.54,
+            567.115,
+            243.54
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            6,
+            15
+          ],
+          "transcription": "9.51 Phalanxes may use Double-Depth (DD) formation, which al-\nlows them to stack two to a hex. Forming Double-Depth requires\nan Individual Order or Line Command, directly from the OC. To\nform Double-Depth, the stacking, “back” Phalanx must start its\nmovement in the hex directly behind the “front” Phalanx. The\n“back” Phalanx then moves into the front Phalanx’s hex, paying\nnormal terrain costs, and expends 1 MP in addition to the terrain\ncost to stack. The “back” Phalanx is then placed underneath the\n“front” Phalanx. This completes the movement for both units\nfor that Orders Phase.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.51-01",
+          "parent_inventory_ref": "R-9.51",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.51-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R951: IO albo LC bezpośrednio od OC, back PH startuje bezpośrednio za front, płaci terrain+1 MP, trafia pod front; kończy ruch obu w tej Orders Phase. Nie ustalono realnej eligibility, OC ani kosztu terenu.",
+      "limits": [
+        "Eligibility, OC i koszt terenu jako osobne potrzebne fakty."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R951": {
+            "pointer": "/rules/19",
+            "raw_span": {
+              "start_byte": 271660,
+              "end_byte_exclusive": 276889,
+              "sha256": "6ed20d621c4094781ff1689567d941ab7d22e764fe9a78ef1686795326e5e7a7"
+            }
+          }
+        },
+        "context-01": {
+          "R951": {
+            "pointer": "/rules/19",
+            "raw_span": {
+              "start_byte": 341748,
+              "end_byte_exclusive": 347170,
+              "sha256": "5a34602f7f460a66fe124c94424a27e1ac98d03e9da186e73f8c2763358bf313"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-035",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "OCordersonly,2IOwhenIOmovement,PAWvia6.8,noWheel/Reverse/Column;unstacktopmoves,bottomstays,IOorLCasabove;fullLCprocedure notclosed",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            277.82,
+            515.91,
+            287.82
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            18,
+            18
+          ],
+          "transcription": "• The units may receive orders only from the OC.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.52-02",
+          "parent_inventory_ref": "R-9.52",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            291.26,
+            567.011,
+            325.26
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            19,
+            21
+          ],
+          "transcription": "• They may move as one unit, but it takes 2 Individual Orders\n(when using Individual Orders) to move both units together.\nThey may use Pre-Arranged Withdrawal (6.8).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.52-03",
+          "parent_inventory_ref": "R-9.52",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            328.7,
+            567.008,
+            374.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            22,
+            25
+          ],
+          "transcription": "• The units may not Wheel (6.44), Reverse (6.45), or use Col-\numn (6.7). Unstacking requires an Individual Order or Line\nCommand as above, at which time the top unit moves off at\nnormal costs. The bottom unit must remain in place.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.52-04",
+          "parent_inventory_ref": "R-9.52",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.52-02",
+        "C-9.52-03",
+        "C-9.52-04"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R952: rozkazy tylko OC; 2 IO przy ruchu w trybie IO, PAW 6.8, no Wheel/Reverse/Column. Unstack IO lub LC as above, top rusza za normalny koszt, bottom zostaje. R951 i pierwszy warunek OC zachowują zakres as above; nie domknięto pełnej procedury LC lub PAW.",
+      "limits": [
+        "Procedury zewnętrzne 6.8/6.44/6.45/6.7 i orders pozostają potrzebne dla pełnego wykonania."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R952": {
+            "pointer": "/rules/20",
+            "raw_span": {
+              "start_byte": 276895,
+              "end_byte_exclusive": 283151,
+              "sha256": "d3c03f8437c1acf3a3540923b725ecef09aac6ba7a23ecba4b82837c59d2d011"
+            }
+          }
+        },
+        "context-01": {
+          "R952": {
+            "pointer": "/rules/20",
+            "raw_span": {
+              "start_byte": 347177,
+              "end_byte_exclusive": 353653,
+              "sha256": "bbf568a4a71dbd5e7ae685da23f7c7d5c0527aab3e5650cf8fb3695982a880d3"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-036",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "readyDDMA4never5,movementHittoeach,nounitthroughorintoreadyDD;forming9.51separate",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            378.14,
+            567.551,
+            412.14
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            26,
+            28
+          ],
+          "transcription": "• The units always use their 4 MA; they never use their 5 MA\nfor anything. For any movement that would incur a Cohesion\nHit, both units incur the Hit.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.52-05",
+          "parent_inventory_ref": "R-9.52",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            415.58,
+            567.02,
+            437.58
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            29,
+            30
+          ],
+          "transcription": "• No unit, of any type, may ever move through or into a Double\nDepth stack. Treat them as impassable terrain.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.52-06",
+          "parent_inventory_ref": "R-9.52",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.52-05",
+        "C-9.52-06"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R952 dla units in DD: zawsze MA4, nigdy MA5; movement CH do każdej, zakaz wejścia/przejścia jakiegokolwiek unit przez gotowy DD. R951 osobno reprezentuje etap formowania, zanim gotowy stack istnieje. Nie odczytano zakazu jako anulowania formowania.",
+      "limits": [
+        "Przypadek formowania DD z 9.51 wymaga rozróżnienia etapu od gotowej formacji."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R952": {
+            "pointer": "/rules/20",
+            "raw_span": {
+              "start_byte": 276895,
+              "end_byte_exclusive": 283151,
+              "sha256": "d3c03f8437c1acf3a3540923b725ecef09aac6ba7a23ecba4b82837c59d2d011"
+            }
+          }
+        },
+        "context-01": {
+          "R952": {
+            "pointer": "/rules/20",
+            "raw_span": {
+              "start_byte": 347177,
+              "end_byte_exclusive": 353653,
+              "sha256": "bbf568a4a71dbd5e7ae685da23f7c7d5c0527aab3e5650cf8fb3695982a880d3"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-037",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "combinedSize,topTQunlessRearthenbottom;otherchecksifselectedunitincursHits;actualTQvaluesunknown",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            471.68,
+            475.37,
+            481.68
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            33,
+            33
+          ],
+          "transcription": "• The Sizes of both units are combined.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.53-02",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            485.12,
+            567.017,
+            519.12
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            34,
+            36
+          ],
+          "transcription": "• Only the top unit is used for TQ checks (unless attacked from\nthe rear, in which case it’s the bottom unit). However, if that\nunit incurs any Cohesion Hits, then the other unit checks.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.53-03",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.53-02",
+        "C-9.53-03"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R953: combine Sizes, TQ top, przy Rear bottom; jeśli wybrana do check jednostka dostaje jakiekolwiek Hits, druga również sprawdza. Unknown interpretacja końcowej eliminacji G953 nie uchyla jawnych wcześniejszych efektów; prawdziwe ratingi i pełny check nieustalone.",
+      "limits": [
+        "Ogólny test TQ i inne modyfikatory poza lokalną selekcją wymagają celu."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R953": {
+            "pointer": "/rules/21",
+            "raw_span": {
+              "start_byte": 283157,
+              "end_byte_exclusive": 290596,
+              "sha256": "ab814cde16108d9e0cd10c4835e3c1f1c9330a7745a665a1ecd0407e9459f477"
+            }
+          }
+        },
+        "context-01": {
+          "R953": {
+            "pointer": "/rules/21",
+            "raw_span": {
+              "start_byte": 353660,
+              "end_byte_exclusive": 361365,
+              "sha256": "8ad51a03751b5b4e793d603193a0a5f934f6a36e6181f10f5ab8e5e7ac724a29"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-038",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "enemydefendingagainstDD+1PreShock,DDdefending-1;9.41conditionsstillapply",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            522.56,
+            567.002,
+            544.56
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            37,
+            38
+          ],
+          "transcription": "• Units defending against a Shock attack by units in Double\nDepth incur a +1 DRM to their Pre-Shock TQ check die rolls.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.53-04",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            548.0,
+            567.102,
+            570.0
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            39,
+            40
+          ],
+          "transcription": "• Defending units at Double Depth earn a –1 DRM to their Pre-\nShock TQ check die rolls. Phalanx Defense (9.41) also applies.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.53-05",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            309.044,
+            297.032,
+            427.044
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            28
+          ],
+          "transcription": "9.41 In any Shock Resolution in which a unit moves adjacent to\nand Shock attacks a Phalanx from the defender’s Front hex, the\nPhalanx earns a 2L shift on the Shock Combat CRT for each of\nits Flank hexes either occupied by another friendly Phalanx unit\nor in the ZOC of a friendly Phalanx unit. If the attacker is Heavy\nInfantry (any Class), the shift is 1L instead. This applies only to\nmoving attacks, not to attacks in which the attacking unit started\nadjacent to the Phalanx unit and stayed in that hex to Shock. It\nalso does not apply to Flank/Rear attacks, or if any attacker is\nalso a Phalanx unit.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.41-01",
+          "parent_inventory_ref": "R-9.41",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.53-04",
+        "C-9.53-05",
+        "C-9.41-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R953: przeciwnik broniący się przed DD +1 Pre-Shock; DD jako defender -1. R941 w mapowanym zakresie zachowuje warunki i wyłączenia Phalanx Defense, więc nie przyznano shiftu bezwarunkowo. Nie nadaje to formalnego TP krawędzi R953→R941.",
+      "limits": [
+        "R-9.53→R-9.41 to użycie warunkowej modyfikacji, nie odwrotny kierunek."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R941": {
+            "pointer": "/rules/17",
+            "raw_span": {
+              "start_byte": 263508,
+              "end_byte_exclusive": 268383,
+              "sha256": "112f98003ed54c0f8f09d2d00327263a8c7c577c036536d988707561e7dbac94"
+            }
+          },
+          "R953": {
+            "pointer": "/rules/21",
+            "raw_span": {
+              "start_byte": 283157,
+              "end_byte_exclusive": 290596,
+              "sha256": "ab814cde16108d9e0cd10c4835e3c1f1c9330a7745a665a1ecd0407e9459f477"
+            }
+          }
+        },
+        "context-01": {
+          "R941": {
+            "pointer": "/rules/17",
+            "raw_span": {
+              "start_byte": 333299,
+              "end_byte_exclusive": 338353,
+              "sha256": "554b4ecd3a2ad5a80f0fa28cafc3c8b8f0528efdd7418e7d1999840cae58b045"
+            }
+          },
+          "R953": {
+            "pointer": "/rules/21",
+            "raw_span": {
+              "start_byte": 353660,
+              "end_byte_exclusive": 361365,
+              "sha256": "8ad51a03751b5b4e793d603193a0a5f934f6a36e6181f10f5ab8e5e7ac724a29"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-039",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "FlankReardefenderShockHits3xinstead2x,equalallocationoddtop;missileHits topunlessRearthenbottom",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            573.44,
+            567.011,
+            607.44
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            41,
+            43
+          ],
+          "transcription": "• If a Double Depth stack is Shock attacked from a Flank or\nRear hex, the defender Cohesion Hits are tripled (3x) instead\nof doubled.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.53-06",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            610.88,
+            567.07,
+            656.88
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            44,
+            47
+          ],
+          "transcription": "• Cohesion Hits from Shock are distributed equally between the\ntwo units, with any odd Hits going to the top unit. Cohesion Hits\nfrom Missile Fire Hits apply only to the top unit unless fire is\nthrough a Rear hex, in which case Hits apply to the bottom unit.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.53-07",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.53-06",
+        "C-9.53-07"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R953: Hits DD defender w Shock przez Flank/Rear 3x zamiast 2x; Shock rozdzielony równo, nieparzysty Hit do top. Missile do top z wyjątkiem Rear do bottom. Selekcja TQ przez Rear nie zmienia odd-Hit allocation Shock; baza i inne mnożniki pozostają poza zakresem.",
+      "limits": [
+        "Bazowy wynik i kolejność wobec innych mnożników muszą być dostarczone/zweryfikowane."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R953": {
+            "pointer": "/rules/21",
+            "raw_span": {
+              "start_byte": 283157,
+              "end_byte_exclusive": 290596,
+              "sha256": "ab814cde16108d9e0cd10c4835e3c1f1c9330a7745a665a1ecd0407e9459f477"
+            }
+          }
+        },
+        "context-01": {
+          "R953": {
+            "pointer": "/rules/21",
+            "raw_span": {
+              "start_byte": 353660,
+              "end_byte_exclusive": 361365,
+              "sha256": "8ad51a03751b5b4e793d603193a0a5f934f6a36e6181f10f5ab8e5e7ac724a29"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-041",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "ruleofthumb2Romaninfantry sameborderwithexceptions;notfulllegaleligibility;move2IO,1IOifstackedOCgivingorders,1LCifbotheligible",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            176.7,
+            297.03,
+            282.7
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            10,
+            18
+          ],
+          "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.61-01",
+          "parent_inventory_ref": "R-9.61",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.61-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R961: rule of thumb dwóch Roman infantry tego samego border color, z wyjątkami jak Velites. Nie pełne eligibility. Joint move 2 IO; 1 IO tylko z OC w stack dającym rozkazy; 1 LC tylko jeśli obie eligible. Odesłania do charts/line nie zamykają pełnych procedur.",
+      "limits": [
+        "Pełny stacking chart i eligibility nie są dowiedzione regułą thumb."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R961": {
+            "pointer": "/rules/22",
+            "raw_span": {
+              "start_byte": 290602,
+              "end_byte_exclusive": 296910,
+              "sha256": "6b8470e5e55b69e23271008267a8bbe41527657e5a35dcdbfead196e82bce062"
+            }
+          }
+        },
+        "context-01": {
+          "R961": {
+            "pointer": "/rules/22",
+            "raw_span": {
+              "start_byte": 361372,
+              "end_byte_exclusive": 367903,
+              "sha256": "bcb032de73b22e12958d3e579d0d9c7a13da82705652c8059b17135e5ec59a74"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-042",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "combineSize,otherratingsespeciallyTQtop,eachunitowntestusingtopTQ,onlytopfire,bothShock samehex;automaticHitsto each;Shockallocationdelegated8.46Step4/10.13",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            290.1,
+            297.017,
+            372.1
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            19,
+            25
+          ],
+          "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.62-01",
+          "parent_inventory_ref": "R-9.62",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.62-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R962: combine Size, inne ratingi w tym TQ top; własny check każdej z top TQ; tylko top Missile Fire, obie Shock tego samego hex; Automatic Hits do każdej. Shock alokacja delegated 8.46 Step4/10.13. R962 jest niezmieniona; context D962shock dostało endpoint, lecz G-D962shock nadal blocking, dalej brak 6.68 #6. Lokalna reprezentacja nie zamyka alokacji ani nie nadaje TP.",
+      "limits": [
+        "Rozdział 9 nie domyka alokacji Shock Hits; 10.13 jest kontekstem, 6.68 nieprzejrzane."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R962": {
+            "pointer": "/rules/23",
+            "raw_span": {
+              "start_byte": 296916,
+              "end_byte_exclusive": 301592,
+              "sha256": "ae11cd4ac05b78d7fd21fa35572b242282d9da3c6d8f9663a0bca89e32363e44"
+            }
+          },
+          "D962shock": {
+            "pointer": "/dependencies/86",
+            "raw_span": {
+              "start_byte": 491159,
+              "end_byte_exclusive": 492109,
+              "sha256": "3c908d4ef58625aa4246c0c74394c38d248d7395d859cbe232853e1f16fd6e84"
+            }
+          },
+          "G-D962shock": {
+            "pointer": "/gaps/46",
+            "raw_span": {
+              "start_byte": 551285,
+              "end_byte_exclusive": 551743,
+              "sha256": "feddccd1eae798c1109af40a1131d66402bdffbae6842f125ea7599830635945"
+            }
+          }
+        },
+        "context-01": {
+          "R962": {
+            "pointer": "/rules/23",
+            "raw_span": {
+              "start_byte": 367910,
+              "end_byte_exclusive": 372751,
+              "sha256": "661e95a04df56028793a45c4b225c06f3a371ebc9314efc42611fd5c3c3a451d"
+            }
+          },
+          "D962shock": {
+            "pointer": "/dependencies/86",
+            "raw_span": {
+              "start_byte": 568940,
+              "end_byte_exclusive": 569960,
+              "sha256": "4b5a3bf62cbe0d3cc8ae154e79c9b1c2a395320a952179da661102ad74d23c25"
+            }
+          },
+          "G-D962shock": {
+            "pointer": "/gaps/46",
+            "raw_span": {
+              "start_byte": 636395,
+              "end_byte_exclusive": 637341,
+              "sha256": "509a59a82e0105d408795e67884d2c386317392861627fcc47a506f0fef47014"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-043",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "differentbordercolors ORsamecolordifferentclasses,+1DRMtoallTQchecks",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            379.5,
+            297.011,
+            413.5
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            26,
+            28
+          ],
+          "transcription": "9.63 For stacked Roman units with different border colors, or of\nthe same border color and different classes, there is a +1 DRM\nto all TQ checks.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.63-01",
+          "parent_inventory_ref": "R-9.63",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.63-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R963 zachowuje OR: różne border colors lub ten sam color i różne classes. +1 DRM do wszystkich TQ checks, bez zastąpienia OR przez AND. Faktyczne kolory i klasy wymagają danych.",
+      "limits": [
+        "Typy i kolory muszą być znane z danych jednostek."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R963": {
+            "pointer": "/rules/24",
+            "raw_span": {
+              "start_byte": 301598,
+              "end_byte_exclusive": 305296,
+              "sha256": "58a813b6aaba0b0d25a66c3b7a3fd2c3a6bcf811684e8bf617f574c0430f29f8"
+            }
+          }
+        },
+        "context-01": {
+          "R963": {
+            "pointer": "/rules/24",
+            "raw_span": {
+              "start_byte": 372758,
+              "end_byte_exclusive": 376599,
+              "sha256": "4fbf3c5ea3e740875782caf600b70a3974f0e7f9ff7bda1b8dea4c9c2261a9ea"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-044",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "stackorderchangeIOonly,notmovement/LC;facingcanLC;onlytopmovesifmovingoneunitfromstack",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            420.9,
+            297.04,
+            478.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            29,
+            33
+          ],
+          "transcription": "9.64 Roman Stacking order may be changed/switched only by\nan Individual Order; it may not be part of movement or a Line\nCommand, although facing may be changed by LC. If the player\ndesires to move only one unit from a stack, only the top unit\nmay move.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.64-01",
+          "parent_inventory_ref": "R-9.64",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.64-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R964: zamiana kolejności stack tylko IO, nie część movement ani LC; facing może LC. Przy ruchu jednej jednostki z stacku rusza tylko top. Nie rozszerzono zwykłego unstack na szczególne MLE.",
+      "limits": [
+        "Nie zastosować zwykłego unstack do MLE bez sprawdzenia szczególnej reguły."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R964": {
+            "pointer": "/rules/25",
+            "raw_span": {
+              "start_byte": 305302,
+              "end_byte_exclusive": 309224,
+              "sha256": "0011f5a4a5cd234d3f5c62f4b8510d023a26e8b43bc154f1edd2acb291c5b9ea"
+            }
+          }
+        },
+        "context-01": {
+          "R964": {
+            "pointer": "/rules/25",
+            "raw_span": {
+              "start_byte": 376606,
+              "end_byte_exclusive": 380671,
+              "sha256": "e4530c490edde7d54d4ac9fd06686c4a0312813eb32d7107cf885172e47c8fe8"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-045",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "Romaninfantryfacing1MPanynumbervertices;notMLEfacingrule",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            45.0,
+            486.3,
+            297.1,
+            508.3
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            34,
+            35
+          ],
+          "transcription": "9.65 Roman infantry pay 1 MP cost for changing facing, but,\nunlike most other units, they may change any number of vertices.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.65-01",
+          "parent_inventory_ref": "R-9.65",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.65-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R965: Roman infantry 1 MP za facing dowolnej liczby vertices, nie koszt za każdy vertex. Nie przeniesiono tej operacji na MLE, które zachowuje facing.",
+      "limits": [
+        "Nie rozszerzać tej wartości na MLE, które zachowuje facing."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R965": {
+            "pointer": "/rules/26",
+            "raw_span": {
+              "start_byte": 309230,
+              "end_byte_exclusive": 312838,
+              "sha256": "e38853213823da0429d224631ca49efed539fcf423497ce1ab8828e28f8fc77a"
+            }
+          }
+        },
+        "context-01": {
+          "R965": {
+            "pointer": "/rules/26",
+            "raw_span": {
+              "start_byte": 380678,
+              "end_byte_exclusive": 384416,
+              "sha256": "19ae59d6e959efb3e6c037af8605714eddab51c425881ad764356addf2f199d3"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-046",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "topunits instackssameLine sideways tovacantflankClearoutsideenemyZOC,facingunchanged;unstackonly,notstackingTogether;diagramOriginaltop/Afterbottomillustrative",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S1",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S1",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S2",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)\nmay move sideways into the vacant flank hexes (see the diagram\nabove).",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S2",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)\nmay move sideways into the vacant flank hexes (see the diagram\nabove).",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S3",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S3",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S4",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "The hex entered by MLE must be Clear and\nnot in an enemy ZOC.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S4",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "The hex entered by MLE must be Clear and\nnot in an enemy ZOC.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S5",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "Facing remains the same.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S5",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "Facing remains the same.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            44.997,
+            678.9,
+            297.009,
+            736.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            38,
+            42
+          ],
+          "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S6",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            54.01,
+            567.03,
+            124.01
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            1,
+            6
+          ],
+          "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.66-01-S6",
+          "parent_inventory_ref": "C-9.66-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            80,
+            516,
+            266,
+            674
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "D-02",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            128.368,
+            579.9,
+            213.638,
+            589.9
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            36,
+            36
+          ],
+          "transcription": "Original Deployment",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "CAP-01",
+          "parent_inventory_ref": "D-02",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            107.257,
+            661.5,
+            234.757,
+            671.5
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-left.txt",
+          "helper_lines_inclusive": [
+            37,
+            37
+          ],
+          "transcription": "After Manipular Line Extension",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "CAP-02",
+          "parent_inventory_ref": "D-02",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.66-01-S1",
+        "C-9.66-01-S2",
+        "C-9.66-01-S3",
+        "C-9.66-01-S4",
+        "C-9.66-01-S5",
+        "C-9.66-01-S6",
+        "D-02",
+        "CAP-01",
+        "CAP-02"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R966: top units w stackach tej samej Line, sideways do vacant flank; Clear i poza enemy ZOC, facing bez zmiany; wyłącznie unstack, nie stacking together. N966diagram zachowuje Original Deployment u góry, After MLE u dołu jako ilustrację. Nie akceptujemy małych ratingów, identyfikacji front/back konkretnych counterów ani ogólnego prawa do dowolnej strony z samej grafiki.",
+      "limits": [
+        "Same Line przez4.32, Clear i ZOC wymagają danych/procedur; grafika nie daje ogólnego prawa do dowolnej strony."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "N966diagram": {
+            "pointer": "/nodes/7",
+            "raw_span": {
+              "start_byte": 128977,
+              "end_byte_exclusive": 130323,
+              "sha256": "f5c32b1dae24067c8069c9f6a259e1da4cd473f61255ce80b5b070a71cc69689"
+            }
+          },
+          "R966": {
+            "pointer": "/rules/27",
+            "raw_span": {
+              "start_byte": 312844,
+              "end_byte_exclusive": 317525,
+              "sha256": "2e7a501a9a282ca4841068af720073ea84aba9cb1de2d3ccd280e3a2103302a6"
+            }
+          }
+        },
+        "context-01": {
+          "N966diagram": {
+            "pointer": "/nodes/7",
+            "raw_span": {
+              "start_byte": 177283,
+              "end_byte_exclusive": 178673,
+              "sha256": "36e8f4cd62347156e4d08983cd3b50a484a73b8478deddb5b4167d954c4d364d"
+            }
+          },
+          "R966": {
+            "pointer": "/rules/27",
+            "raw_span": {
+              "start_byte": 384423,
+              "end_byte_exclusive": 389278,
+              "sha256": "2c3df78a88652b14a70895ae92c0bb0cf0a15d34596c536e9f59a05f1c63c10e"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-047",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "reactiontriggerenemycombatwithin2hexes,line;maydeclinefirstopportunitywithoutlosinglatertriggers;OW/MLEdifferentunitscanwithvalidtriggers,sameunitscannotboth",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            131.41,
+            567.05,
+            225.41
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            7,
+            14
+          ],
+          "transcription": "9.67 Manipular Line Extension may be undertaken as a reaction\nto enemy movement the instant an enemy combat unit comes\nwithin 2 hexes of a line of stacked Roman units. The Roman\nplayer may make his choice at any time any enemy unit so places\nitself (that is, he does not have to exercise his MLE rights the first\ntime they become available). If enemy movement triggers both\nOrderly Withdrawal as well as MLE, both may be undertaken\ntogether but not by the same units.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.67-01",
+          "parent_inventory_ref": "R-9.67",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            232.81,
+            567.013,
+            278.81
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            15,
+            18
+          ],
+          "transcription": "EXAMPLE: A Velites unit sitting between two Hastati stacks may\nwithdraw through the gaps in a Hastati line upon approach of,\nsay, an enemy Phalanx and, as soon as that unit is through the\ngap, the Hastati line may undergo MLE.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-07",
+          "parent_inventory_ref": "R-9.67",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.67-01",
+        "X-07"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R967: reakcja w instant approach enemy combat within 2 hexes of stacked Roman line; wolno odroczyć pierwszą okazję do następnego kwalifikowanego triggeru. OW/MLE razem tylko przez różne jednostki z właściwymi triggerami, nie te same. N967ex zachowuje przykład Velites OW i Hastati MLE.",
+      "limits": [
+        "OW i legalność line muszą być ustalone oddzielnie."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "N967ex": {
+            "pointer": "/nodes/8",
+            "raw_span": {
+              "start_byte": 130329,
+              "end_byte_exclusive": 131266,
+              "sha256": "e2e9a2dcba7c2946ba1d54d93b45bacb6ff8a8e47c5af7e1e088c2c856fcbb15"
+            }
+          },
+          "R967": {
+            "pointer": "/rules/28",
+            "raw_span": {
+              "start_byte": 317531,
+              "end_byte_exclusive": 321925,
+              "sha256": "8aba3115f33776d806a6a196be0cae710b2eea2eef13c04318a89102b3d53fcc"
+            }
+          }
+        },
+        "context-01": {
+          "N967ex": {
+            "pointer": "/nodes/8",
+            "raw_span": {
+              "start_byte": 178680,
+              "end_byte_exclusive": 179647,
+              "sha256": "6c9efe1728ad06ece3b7d45cd71e78dd02c715ae518ebbee8f2841bd7e8fdc26"
+            }
+          },
+          "R967": {
+            "pointer": "/rules/28",
+            "raw_span": {
+              "start_byte": 389285,
+              "end_byte_exclusive": 393844,
+              "sha256": "e9376d25c08d2ed7bc27163917fcc5b9fc9ec4de5df11c2c309c7a92e2ef5755"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-048",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "activeMLELC-only,bothunitsmaymoveafterwithMA-2,noCHforMLE;ColumnunitsnoMLE;noautomatictransferofLCpostmovepermissiontoreaction",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            314.997,
+            286.21,
+            567.012,
+            344.21
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            19,
+            23
+          ],
+          "transcription": "9.68 Manipular Line Extension may also be undertaken as part\nof a Line Command (only). If undertaken as an LC, both units\nmay move after the MLE but with their MA reduced by 2. There\nare no Cohesion Hits applied for the MLE. Units in Column may\nnot use MLE.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.68-01",
+          "parent_inventory_ref": "R-9.68",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.68-01"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R968 wyraźnie kwalifikuje post-MLE move przez When by LC: obie jednostki mogą ruszyć z MA-2. LC-only dla aktywnego MLE, 0 CH za samo MLE i zakaz Column. Nie przeniesiono uprawnienia dalszego ruchu na tryb reakcyjny R967.",
+      "limits": [
+        "Nie przenosić automatycznie post-MLE ruchu na tryb reakcyjny."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R968": {
+            "pointer": "/rules/29",
+            "raw_span": {
+              "start_byte": 321931,
+              "end_byte_exclusive": 326799,
+              "sha256": "4b8130db1b3f0bfe4d6e9ea3c3c7f8bcbb8db3d078654f49c01ad8a85db297bb"
+            }
+          }
+        },
+        "context-01": {
+          "R968": {
+            "pointer": "/rules/29",
+            "raw_span": {
+              "start_byte": 393851,
+              "end_byte_exclusive": 398910,
+              "sha256": "8b4bf17469c5987e914879bec985cb90bb189d32fa5e9a15e1e560fcf66722a1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-049",
+      "classification": "confirmed_local_content_scope",
+      "reviewed_scope": "Romansprior200BCE,ScipioAfricanusnotOC;Cannaeexplicitusepergameinstruction,notnewhistoricalinference;C9.7S2explanatory",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            315.0,
+            370.173,
+            567.015,
+            440.173
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            25,
+            30
+          ],
+          "transcription": "This rule must be used with any battle involving Romans that took\nplace prior to 200 BCE in which Scipio Africanus is not pres-\nent as Overall Commander (and, yes, even though, historically,\nScipio was at Cannae, for game purposes he wasn’t, so use it at\nCannae). It represents the way Romans used their Triarii, and,\nfor Rome, doctrine was the equivalent of unassailable dogma.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.7-01-S1",
+          "parent_inventory_ref": "C-9.7-01",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "This rule must be used with any battle involving Romans that took\nplace prior to 200 BCE in which Scipio Africanus is not pres-\nent as Overall Commander (and, yes, even though, historically,\nScipio was at Cannae, for game purposes he wasn’t, so use it at\nCannae).",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.7-01-S1"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_in_owner_accepted_scope",
+      "full_dependent_result": "outside_this_scoped_review",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R97intro: obowiązek dla Romans przed 200 BCE i bez Scipio Africanus jako OC; Cannae jawnie objęte instrukcją gry, nie historycznym wnioskowaniem. Parametr jest prior to 200, nie <=200. Explanatory C9.7-S2 nie stanowi dodatkowego obowiązku.",
+      "limits": [
+        "W realnym scenariuszu data i tożsamość OC wymagają dowodów."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "R97intro": {
+            "pointer": "/rules/30",
+            "raw_span": {
+              "start_byte": 326805,
+              "end_byte_exclusive": 330943,
+              "sha256": "640110048218e02f57f9aa8bdca2bd334ae950abe580344d8bfe03f9663b5001"
+            }
+          }
+        },
+        "context-01": {
+          "R97intro": {
+            "pointer": "/rules/30",
+            "raw_span": {
+              "start_byte": 398917,
+              "end_byte_exclusive": 403202,
+              "sha256": "e89bbba15ff240518389e505e94aa7d9a023816ca59d362b60b3a7c6e8b29516"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-031",
+      "classification": "requires_context",
+      "reviewed_scope": "AS/halvingprintedresultconflict requirescontext;no newexceptioninvented",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            208.584,
+            297.009,
+            242.584
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            12,
+            14
+          ],
+          "transcription": "9.32 Any Cohesion Hits inflicted by attacking Light Cavalry\nagainst a Phalanx or a Heavy, Medium, Legion, or Barbarian\nInfantry unit are halved (round down).",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.32-01",
+          "parent_inventory_ref": "R-9.32",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "left",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            45.0,
+            249.084,
+            297.009,
+            283.084
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-left.txt",
+          "helper_lines_inclusive": [
+            15,
+            17
+          ],
+          "transcription": "EXAMPLE: A Light Cavalry unit with Attack Superiority (AS)\nagainst a Heavy Infantry unit would use the printed result on\nthe Shock CRT.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-04",
+          "parent_inventory_ref": "R-9.32",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "C-9.32-01",
+        "X-04"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_source_requirement_declaration",
+      "full_dependent_result": "blocked_source",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "first-001 zachowuje literalny printed-result przykład i unknown interpretację; G932/G-D932CRT blocking. context-01 dodaje źródłowe kwalifikacje AS/LC/Routed, ale N932ex nadal unknown i GCTX-order/CRT/applicability/845 blocking. Propozycja: właściwe zachowanie nierozstrzygnięcia pełnego przykładu i potrzeby kontekstu; źródłowa poprawność samych nowych operatorów pozostaje osobnym SEM-003, bez założenia automatycznego znoszenia 2x i pół.",
+      "limits": [
+        "AS/LC printed result versus halving order and tables remain unresolved.",
+        "Ograniczony dowód bazowego AS/CRT; decyzja właściciela o kolejności."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "N932ex": {
+            "pointer": "/nodes/4",
+            "raw_span": {
+              "start_byte": 126119,
+              "end_byte_exclusive": 127170,
+              "sha256": "267371a59674521bf587b0dc168aaec6f2a0370510a765edb525f92a91ad022d"
+            }
+          },
+          "R932": {
+            "pointer": "/rules/16",
+            "raw_span": {
+              "start_byte": 259861,
+              "end_byte_exclusive": 263502,
+              "sha256": "cfce4763843cd4617670464caf65022de44c34273a2423cb87d74de3dd3c2624"
+            }
+          },
+          "G932": {
+            "pointer": "/gaps/1",
+            "raw_span": {
+              "start_byte": 529516,
+              "end_byte_exclusive": 530113,
+              "sha256": "43cf016d3697d9674abe943581db6ce085b1bd34d93ebff98716ba95c28cb7db"
+            }
+          }
+        },
+        "context-01": {
+          "N932ex": {
+            "pointer": "/nodes/4",
+            "raw_span": {
+              "start_byte": 173885,
+              "end_byte_exclusive": 175403,
+              "sha256": "0eb4d362032a4ff5fd28d28ce38de975b77453af7223949fec3d0d816223b27c"
+            }
+          },
+          "R932": {
+            "pointer": "/rules/16",
+            "raw_span": {
+              "start_byte": 328799,
+              "end_byte_exclusive": 333292,
+              "sha256": "064aae5db27a9bda8dd053c7d30ce2d21255bc4236946d1083acd1e2d946dabe"
+            }
+          },
+          "G932": {
+            "pointer": "/gaps/1",
+            "raw_span": {
+              "start_byte": 613015,
+              "end_byte_exclusive": 613877,
+              "sha256": "40ca31a42e0dc11f02dc67847683cb0ede5435964a848312c5b720bfbb8bc5d4"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "EXP-033",
+      "classification": "requires_context",
+      "reviewed_scope": "scenarioDDeligibilitylistnecessary,missingblocksSIT11",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            319.0,
+            70.3,
+            563.01,
+            116.3
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            2,
+            5
+          ],
+          "transcription": "DESIGN NOTE: To increase the crushing pressure of the Pha-\nlanxes, post-Alexandrian commanders using the Macedonian\nsystem often implemented a formation which doubled their\ndepth. Eligible units are listed in the scenario-specific rules.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "N-09-S2",
+          "parent_inventory_ref": "N-09",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "Eligible units are listed in the scenario-specific rules.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            125.54,
+            567.115,
+            243.54
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            6,
+            15
+          ],
+          "transcription": "9.51 Phalanxes may use Double-Depth (DD) formation, which al-\nlows them to stack two to a hex. Forming Double-Depth requires\nan Individual Order or Line Command, directly from the OC. To\nform Double-Depth, the stacking, “back” Phalanx must start its\nmovement in the hex directly behind the “front” Phalanx. The\n“back” Phalanx then moves into the front Phalanx’s hex, paying\nnormal terrain costs, and expends 1 MP in addition to the terrain\ncost to stack. The “back” Phalanx is then placed underneath the\n“front” Phalanx. This completes the movement for both units\nfor that Orders Phase.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.51-01",
+          "parent_inventory_ref": "R-9.51",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 34,
+          "printed_page": "34",
+          "column": "right",
+          "render": "source/review-evidence/pdf-34.png",
+          "render_sha256": "96e693ff55aa1d5d9a9bcac77f70856696a4e4437c9d51f0bc9aead21feea5b4",
+          "bbox_pdf_points": [
+            315.0,
+            701.54,
+            533.58,
+            711.54
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-34-right.txt",
+          "helper_lines_inclusive": [
+            51,
+            51
+          ],
+          "transcription": "EXAMPLE: See the scenario rules for Cynoscephalae.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "X-06",
+          "parent_inventory_ref": "R-9.53",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "inventory_refs": [
+        "N-09-S2",
+        "C-9.51-01",
+        "X-06"
+      ],
+      "criticality": "critical_in_reviewed_scope",
+      "status": "reviewed",
+      "result": "correct_source_requirement_declaration",
+      "full_dependent_result": "blocked_source",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-10T20:00:17.332708+00:00",
+      "evidence_comparison": "R95note/N95design zachowują operatywny wymóg scenario-specific eligible units, R951 warunek eligible. G-D95scenario blocking=true, brak listy nie zastąpiony zgodą dla wszystkich PH. N953ex to jedynie odesłanie do przykładu; jego nonblocking nie zamyka krytycznej listy eligibility. Nie oceniono SIT-11.",
+      "limits": [
+        "Scenario-specific Double-Depth eligibility list is required.",
+        "Wybrany scenariusz z listą uprawnionych jednostek."
+      ],
+      "unreviewed_fields": [
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ],
+      "whole_record_accepted": false,
+      "output_trace": {
+        "first-001": {
+          "N953ex": {
+            "pointer": "/nodes/6",
+            "raw_span": {
+              "start_byte": 128320,
+              "end_byte_exclusive": 128971,
+              "sha256": "32ad4997be80003431ce7d9782486b53cafcb6a9bd4a6ba63f26a0091bbff9b9"
+            }
+          },
+          "N95design": {
+            "pointer": "/nodes/26",
+            "raw_span": {
+              "start_byte": 143799,
+              "end_byte_exclusive": 144517,
+              "sha256": "befa3bbc8e95ad44cd60c24834e7ac7c76df7271a4c228979bb40b3ec394ab04"
+            }
+          },
+          "R951": {
+            "pointer": "/rules/19",
+            "raw_span": {
+              "start_byte": 271660,
+              "end_byte_exclusive": 276889,
+              "sha256": "6ed20d621c4094781ff1689567d941ab7d22e764fe9a78ef1686795326e5e7a7"
+            }
+          },
+          "R95note": {
+            "pointer": "/rules/18",
+            "raw_span": {
+              "start_byte": 268389,
+              "end_byte_exclusive": 271654,
+              "sha256": "119eed8150bbbc291da6700cfdd1cf837f904262b76165126e4b13fd265bbf7c"
+            }
+          },
+          "G-D95scenario": {
+            "pointer": "/gaps/33",
+            "raw_span": {
+              "start_byte": 545320,
+              "end_byte_exclusive": 545797,
+              "sha256": "ffc2b8f02e837a46b5e9af729d8cbb8bf17509c59767c860a00a3e04b0ee9259"
+            }
+          }
+        },
+        "context-01": {
+          "N953ex": {
+            "pointer": "/nodes/6",
+            "raw_span": {
+              "start_byte": 176598,
+              "end_byte_exclusive": 177276,
+              "sha256": "32059fb98dda21cbaacbf3674087807d1696268d8d9a7236e4b6220eb6b7380f"
+            }
+          },
+          "N95design": {
+            "pointer": "/nodes/26",
+            "raw_span": {
+              "start_byte": 192684,
+              "end_byte_exclusive": 193429,
+              "sha256": "f17c97f5b1d2fb4d5811fb18481d7ff3dfbe32f09a24af8c9e2568f554fabe8c"
+            }
+          },
+          "R951": {
+            "pointer": "/rules/19",
+            "raw_span": {
+              "start_byte": 341748,
+              "end_byte_exclusive": 347170,
+              "sha256": "5a34602f7f460a66fe124c94424a27e1ac98d03e9da186e73f8c2763358bf313"
+            }
+          },
+          "R95note": {
+            "pointer": "/rules/18",
+            "raw_span": {
+              "start_byte": 338360,
+              "end_byte_exclusive": 341741,
+              "sha256": "45f74a06c6c69fbd84bd9aff1a0d58e7f58f502096e2ab3bd83ae51d84aedf49"
+            }
+          },
+          "G-D95scenario": {
+            "pointer": "/gaps/33",
+            "raw_span": {
+              "start_byte": 630196,
+              "end_byte_exclusive": 630690,
+              "sha256": "3e15292276ba3e8a68b020af426167df2b461ba730b0f23460eb69d28884545c"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "accepted_local_groups_this_decision_per_answer": 21,
+  "reviewed_context_requirements_this_decision_per_answer": 2,
+  "excluded": [
+    "EXP-040/SEM-002 per-unit interpretation",
+    "EXP-050/SEM-010 alternative setup declarations",
+    "SEM-001 unresolved branch",
+    "SEM-009 alternative blocking choice",
+    "SEM-003 new operator/exception acceptance, AS/LC order or final result",
+    "E916 and all glyph boundaries",
+    "all relations and TP/FP/FN",
+    "whole inventory records, metadata/aliases and tiny graphic ratings",
+    "full real setup/external procedures",
+    "20 situation outcomes",
+    "full graph/depth/time-budget compliance"
+  ],
+  "context_acceptance_is_gap_closure": false,
+  "owner_opened_report_or_images": "unknown",
+  "M_POC5A_closed": false,
+  "new_extractions": 0,
+  "new_corrections": 0
+}

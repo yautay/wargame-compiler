@@ -1,0 +1,130 @@
+{
+  "owner_reply_verbatim": "zgodnie z rekomendacją",
+  "preceding_assistant_offer": "Możesz odpowiedzieć np. „przyjmuję rekomendacje 1–6” albo wskazać numery i własne rozstrzygnięcia.",
+  "preceding_recommendations": [
+    {
+      "number": 1,
+      "issue": "SEM-014",
+      "edge": "D9621013",
+      "accepted": [
+        "source/target identity",
+        "direction",
+        "explicit procedure use"
+      ],
+      "decision": "Przyjąć poprawność odesłania do 10.13; deklarację blokady na tej relacji uznać za niewystarczającą.",
+      "rejected_original_facets": {
+        "impact_if_missing": "false and empty gap list fail to convey the nested missing within-stack allocation rule"
+      },
+      "expected_kind": "procedure_use",
+      "expected_explicitness": "explicit",
+      "limits": "Block exists elsewhere in answer. Missing 6.68 #6 still blocks full within-stack allocation. No actually wrong allocation asserted. Other edges generic false remain outside this decision."
+    },
+    {
+      "number": 2,
+      "issue": "SEM-004",
+      "edge": "DCTX923-S4",
+      "accepted": [
+        "bounded source/target",
+        "direction",
+        "implicit operation correspondence",
+        "attacker Hits half/floor/cap1 when selected defender is SK"
+      ],
+      "decision": "Przyjąć wąskie niejawne powiązanie potwierdzające operację; dodatkowy fragment nie jest niezbędny do lokalnego pół/floor/cap1.",
+      "rejected_original_facets": {},
+      "expected_kind": "procedure_use",
+      "expected_explicitness": "implicit",
+      "necessity": "supporting correspondence, not necessary for the local operator already supplied in 9.23",
+      "limits": "Requires selected defender SK. Mere SK presence in mixed defense is insufficient. Full combat, source lookup, participant selection and remaining SEM-004 stay open. procedure_use accepted only in this supporting correspondence scope, without blanket execution necessity."
+    },
+    {
+      "number": 3,
+      "issue": "SEM-015",
+      "edge": "D961stack",
+      "accepted": [
+        "referring direction",
+        "named Stacking Charts occurrence",
+        "explicitness"
+      ],
+      "decision": "Wystąpienie see for a summary to wzmianka; table_use modelu ma błędny rodzaj w tym zakresie.",
+      "rejected_original_facets": {
+        "kind": "table_use"
+      },
+      "expected_kind": "mention",
+      "expected_explicitness": "explicit",
+      "limits": "Only frozen DEP-037 mention occurrence. No chart content, alias resolution, full stacking, impact-field acceptance, whole record, full .4b3 review or TP/FP count."
+    },
+    {
+      "number": 4,
+      "issue": "SEM-016",
+      "edge": "D9161011",
+      "accepted": [
+        "target identity",
+        "source/target scope",
+        "direction"
+      ],
+      "decision": "Cel i kierunek poprawne; potrzebne jest użycie procedury testu TQ, nie tylko definicja.",
+      "rejected_original_facets": {
+        "kind": "definition"
+      },
+      "expected_kind": "procedure_use",
+      "expected_explicitness": null,
+      "limits": "Local relation only; EXP-017 DR<=TQ branch and E916 locator remain open. No response correction."
+    },
+    {
+      "number": 5,
+      "issue": "SEM-016",
+      "edge": "D967966",
+      "accepted": [
+        "source/target scope",
+        "direction",
+        "MLE operation and preserved conditions"
+      ],
+      "decision": "Odesłanie jest jawne przez nazwę operacji MLE; numer przepisu nie jest wymagany dla jawnego nazwanego odwołania.",
+      "rejected_original_facets": {
+        "explicitness": "implicit"
+      },
+      "expected_kind": null,
+      "expected_explicitness": "explicit",
+      "classification_convention": "Named operation use may be explicit without a printed rule number. No automatic reclassification of other records.",
+      "limits": "Exact named MLE use only; no acceptance of unrelated fields or complete reaction outcome."
+    },
+    {
+      "number": 6,
+      "issue": "SEM-016",
+      "edge": "D968column",
+      "accepted": [
+        "source/target scope",
+        "direction",
+        "local in-Column MLE prohibition"
+      ],
+      "decision": "Zakaz MLE w Column jest warunkiem dopuszczalności; mention modelu ma błędny rodzaj.",
+      "rejected_original_facets": {
+        "kind": "mention"
+      },
+      "expected_kind": "condition",
+      "expected_explicitness": null,
+      "limits": "Exact in-Column exclusion only; no reclassification of other maneuver prohibitions."
+    }
+  ],
+  "interpretation": "Direct assent to all six recommendations immediately presented in chat.",
+  "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+  "message_sent_at_utc": "unknown",
+  "actual_owner_file_open_or_read": "unknown",
+  "source_packet": [
+    {
+      "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/owner-focus.md",
+      "bytes": 13349,
+      "sha256": "912396143f54eb2375bfaa089bc244db93bda8594b7323f43ac93cc03a45cf24"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/issues.json",
+      "bytes": 7524,
+      "sha256": "4564b60885e80d41dd595140cb69ac7842273323f38263631f42d5f7233bc2f6"
+    },
+    {
+      "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+      "bytes": 11996344,
+      "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+    }
+  ]
+}

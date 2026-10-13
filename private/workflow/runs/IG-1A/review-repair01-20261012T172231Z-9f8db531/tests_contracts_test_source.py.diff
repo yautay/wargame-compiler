@@ -1,0 +1,11 @@
+--- baseline/tests/contracts/test_source.py
++++ tests/contracts/test_source.py
+@@ -35,6 +35,8 @@
+         assert report["reviews"][0]["freshness"] == expected["review_freshness"]
+     if "transcription_represented" in expected:
+         assert report["coverage_inventory_region_counts"]["transcription"]["represented"] == expected["transcription_represented"]
++    if "transcription_excluded" in expected:
++        assert report["coverage_inventory_region_counts"]["transcription"]["excluded"] == expected["transcription_excluded"]
+ 
+ 
+ def test_canonicalization_has_an_independent_byte_oracle():

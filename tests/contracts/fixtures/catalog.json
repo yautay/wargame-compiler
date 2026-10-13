@@ -1,0 +1,490 @@
+{
+  "format": "wgc-synthetic-oracles-1",
+  "cases": [
+    {
+      "file": "valid-source.json",
+      "valid": true,
+      "expectation": "All source mechanisms are addressable; import complete and two represented transcription regions do not permit execution.",
+      "basis": "IG-1A criteria 1, 3, 4; IG-DATA-MODEL: Collections, Reviews and readiness; IG-MECHANICS-PROFILES.",
+      "report": {
+        "execution": "blocked",
+        "review_freshness": "current",
+        "transcription_represented": 2
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-historical-reference.json",
+      "valid": true,
+      "expectation": "The retired concept is in the store but is not selected. A historical mention may resolve it.",
+      "basis": "IG-DATA-MODEL: Identity and record envelope, historical versus active resolution.",
+      "report": {
+        "execution": "blocked"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-partial-review.json",
+      "valid": true,
+      "expectation": "Incomplete review basis cannot establish current freshness.",
+      "basis": "IG-DATA-MODEL: Reviews and readiness, incomplete basis implies unknown.",
+      "report": {
+        "review_freshness": "unknown"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-changed-aspect.json",
+      "valid": true,
+      "expectation": "Same stable aspect ID, changed meaning and revision: old scoped acceptance is stale.",
+      "basis": "IG-WGU-ARCHITECTURE: Acceptance is never inherited by a changed aspect.",
+      "report": {
+        "review_freshness": "stale"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-changed-dependency.json",
+      "valid": true,
+      "expectation": "An exact source basis is no longer selected; review becomes stale even with unchanged target.",
+      "basis": "IG-WGU-ARCHITECTURE: Review bases pin evidence, profile and dependencies.",
+      "report": {
+        "review_freshness": "stale"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-unknown-without-gap.json",
+      "valid": false,
+      "expectation": "Unknown unit needs a null value, reason and a gap.",
+      "basis": "IG-DATA-MODEL: Knowledge and representation.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-changed-aspect-hash.json",
+      "valid": false,
+      "expectation": "Container hash cannot conceal a stale aspect hash.",
+      "basis": "IG-1A ID and revision hash criterion; stable aspect content integrity.",
+      "report": {},
+      "error_contains": "changed aspect hash"
+    },
+    {
+      "file": "invalid-model-approval.json",
+      "valid": false,
+      "expectation": "A model may observe but cannot grant semantic acceptance.",
+      "basis": "IG-DATA-MODEL: Only an authorized human grants semantic acceptance.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-dangling-active.json",
+      "valid": false,
+      "expectation": "A stored historical revision does not activate its identity.",
+      "basis": "IG-DATA-MODEL: References used as active rules resolve only in the selected snapshot.",
+      "report": {},
+      "error_contains": "dangling active"
+    },
+    {
+      "file": "invalid-dangling-historical.json",
+      "valid": false,
+      "expectation": "Exact historical references must resolve in the supplied immutable store.",
+      "basis": "IG-DATA-MODEL: Historical review and supersession references resolve in immutable revision store.",
+      "report": {},
+      "error_contains": "dangling historical"
+    },
+    {
+      "file": "invalid-duplicate-selection.json",
+      "valid": false,
+      "expectation": "Only one revision per identity may be selected.",
+      "basis": "IG-DATA-MODEL: A snapshot selects at most one revision per ID.",
+      "report": {},
+      "error_contains": "duplicate identity"
+    },
+    {
+      "file": "invalid-duplicate-store.json",
+      "valid": false,
+      "expectation": "The revision store cannot contain a duplicate identity/revision.",
+      "basis": "IG-DATA-MODEL: Validate identity/revision uniqueness.",
+      "report": {},
+      "error_contains": "duplicate identity"
+    },
+    {
+      "file": "invalid-opaque-formal.json",
+      "valid": false,
+      "expectation": "A normative opaque effect cannot be labelled formal.",
+      "basis": "IG-LEGAL-ACTIONS: Opaque meaning affecting effect blocks executable readiness.",
+      "report": {},
+      "error_contains": "opaque normative"
+    },
+    {
+      "file": "invalid-opaque-ready.json",
+      "valid": false,
+      "expectation": "The source contract cannot claim executable readiness, including when import is complete.",
+      "basis": "IG-1A: Source-level opaque is accepted without granting execution.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-group-binding.json",
+      "valid": false,
+      "expectation": "Condition/effect composition must select the correctly typed stable aspects.",
+      "basis": "IG-DATA-MODEL: Shared subject ID does not bind conditions to effects.",
+      "report": {},
+      "error_contains": "semantic group member"
+    },
+    {
+      "file": "invalid-table-note.json",
+      "valid": false,
+      "expectation": "A note must address an existing axis or cell.",
+      "basis": "IG-DATA-MODEL: Validate table notes/axes; IG-MECHANICS-PROFILES: note scopes.",
+      "report": {},
+      "error_contains": "table note scope"
+    },
+    {
+      "file": "invalid-known-without-evidence.json",
+      "valid": false,
+      "expectation": "Known is an evidenced proposal; an empty evidence list does not establish it.",
+      "basis": "IG-DATA-MODEL: Knowledge states.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-reference-type.json",
+      "valid": false,
+      "expectation": "A concept cannot resolve as a source record.",
+      "basis": "IG-DATA-MODEL: Validate typed references.",
+      "report": {},
+      "error_contains": "typed reference mismatch"
+    },
+    {
+      "file": "invalid-origin-path.json",
+      "valid": false,
+      "expectation": "Origin locators are relative safe paths, never traversal.",
+      "basis": "IG-WGU-ARCHITECTURE: safe paths and path escapes.",
+      "report": {},
+      "error_contains": "safe relative"
+    },
+    {
+      "file": "invalid-anonymous-identity-conflict.json",
+      "valid": false,
+      "expectation": "One persisted origin key cannot silently rematch to multiple identities.",
+      "basis": "IG-DATA-MODEL: anonymous identities use persisted registry; ambiguous rematches are conflicts.",
+      "report": {},
+      "error_contains": "registry origin key"
+    },
+    {
+      "file": "invalid-gap-counted-as-coverage.json",
+      "valid": false,
+      "expectation": "A gap cannot count as represented content.",
+      "basis": "IG-WGU-ARCHITECTURE: Gaps never count as represented content.",
+      "report": {},
+      "error_contains": "represented coverage"
+    },
+    {
+      "file": "valid-procedure-cycle.json",
+      "valid": true,
+      "expectation": "Source graphs may be cyclic. Missing termination blocks formalization/execution, not source storage.",
+      "basis": "IG-DATA-MODEL: rule graphs may contain cycles; procedures need termination rules.",
+      "report": {
+        "execution": "blocked"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-edition-conflict.json",
+      "valid": true,
+      "expectation": "An unresolved compatibility decision is preserved as unknown, never newer-wins.",
+      "basis": "IG-WGU-ARCHITECTURE: exact editions and no universal precedence.",
+      "report": {
+        "execution": "blocked"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-cross-section-exception.json",
+      "valid": true,
+      "expectation": "Exception points from modifying clause in a separate section to the base clause; editorial parent is not a dependency.",
+      "basis": "IG-DATA-MODEL: Exception/modification direction and cross-chapter tests.",
+      "report": {
+        "execution": "blocked",
+        "review_freshness": "current"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-overlapping-coverage.json",
+      "valid": false,
+      "expectation": "Overlapping inventory regions cannot both enter the transcription denominator.",
+      "basis": "IG-DATA-MODEL: Validate coverage denominators; no overlapping context in denominator.",
+      "report": {},
+      "error_contains": "overlapping coverage"
+    },
+    {
+      "file": "valid-overlapping-context.json",
+      "valid": true,
+      "expectation": "A context-only entry does not add the same region to the denominator.",
+      "basis": "IG-DATA-MODEL: Do not add overlapping context regions to denominator.",
+      "report": {
+        "transcription_represented": 2
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-coverage-gap-target-active.json",
+      "valid": false,
+      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
+      "basis": "Independent review F1; architecture: gaps never count as represented content.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-coverage-gap-target-active-mixed.json",
+      "valid": false,
+      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
+      "basis": "Independent review F1; architecture: gaps never count as represented content.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-coverage-gap-target-historical.json",
+      "valid": false,
+      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
+      "basis": "Independent review F1; architecture: gaps never count as represented content.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-coverage-gap-target-historical-mixed.json",
+      "valid": false,
+      "expectation": "A gap cannot represent source content, even mixed with a node or reached historically.",
+      "basis": "Independent review F1; architecture: gaps never count as represented content.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "valid-coverage-content-evidence.json",
+      "valid": true,
+      "expectation": "Evidence and relations are source-content targets; their metadata do not grant execution.",
+      "basis": "F1 allowed content families; IG-DATA-MODEL collections.",
+      "report": {
+        "transcription_represented": 2
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-coverage-content-history-link.json",
+      "valid": true,
+      "expectation": "Evidence and relations are source-content targets; their metadata do not grant execution.",
+      "basis": "F1 allowed content families; IG-DATA-MODEL collections.",
+      "report": {
+        "transcription_represented": 2
+      },
+      "error_contains": null
+    },
+    {
+      "file": "valid-exact-coverage-exclusion.json",
+      "valid": true,
+      "expectation": "Current complete authorized composition metadata approves exactly the inventory/region/level boundary.",
+      "basis": "Independent review F2; IG-DATA-MODEL: exclusions require an approved scope boundary.",
+      "report": {
+        "transcription_represented": 1,
+        "transcription_excluded": 1
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-coverage-exclusion-unrelated.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: unrelated.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-coverage-exclusion-other-region.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: other-region.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-coverage-exclusion-other-level.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: other-level.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-coverage-exclusion-other-inventory.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: other-inventory.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-coverage-exclusion-partial.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: partial.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-coverage-exclusion-stale.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: stale.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-coverage-exclusion-model.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: model.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-coverage-exclusion-missing-inventory-basis.json",
+      "valid": false,
+      "expectation": "Exclusion cannot inherit an unrelated/incomplete/stale/unauthorized boundary: missing-inventory-basis.",
+      "basis": "Independent review F2; exact scope and review basis rules.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-required-historical-unselected.json",
+      "valid": false,
+      "expectation": "A selected required dependency requires selected exact endpoint revisions: unselected.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {},
+      "error_contains": "semantic dependency endpoint"
+    },
+    {
+      "file": "invalid-required-historical-superseded.json",
+      "valid": false,
+      "expectation": "A selected required dependency requires selected exact endpoint revisions: superseded.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {},
+      "error_contains": "semantic dependency endpoint"
+    },
+    {
+      "file": "valid-required-historical-selected.json",
+      "valid": true,
+      "expectation": "A selected required dependency requires selected exact endpoint revisions: selected.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {
+        "execution": "blocked"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-required-historical-unselected-source.json",
+      "valid": false,
+      "expectation": "A selected required dependency requires selected exact endpoint revisions: unselected-source.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {},
+      "error_contains": "semantic dependency endpoint"
+    },
+    {
+      "file": "invalid-conditional-historical-unselected.json",
+      "valid": false,
+      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: unselected.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {},
+      "error_contains": "semantic dependency endpoint"
+    },
+    {
+      "file": "invalid-conditional-historical-superseded.json",
+      "valid": false,
+      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: superseded.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {},
+      "error_contains": "semantic dependency endpoint"
+    },
+    {
+      "file": "valid-conditional-historical-selected.json",
+      "valid": true,
+      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: selected.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {
+        "execution": "blocked"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-conditional-historical-unselected-source.json",
+      "valid": false,
+      "expectation": "A selected conditional dependency requires selected exact endpoint revisions: unselected-source.",
+      "basis": "Independent review F3; IG-DATA-MODEL selected-rule resolution.",
+      "report": {},
+      "error_contains": "semantic dependency endpoint"
+    },
+    {
+      "file": "valid-unresolved-conditional-dependency.json",
+      "valid": true,
+      "expectation": "An unresolved link with raw locator/gap is retained and blocks execution rather than activating history.",
+      "basis": "F3 preservation of unresolved source links; unknown applicability is not false.",
+      "report": {
+        "execution": "blocked"
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-exclusion-inventory-aspect.json",
+      "valid": false,
+      "expectation": "Inventory revision pins for coverage/exclusion must be whole records; an aspect cannot stand for the partition.",
+      "basis": "Independent F2-R1 counterexample; README full-record inventory basis and whole revision freshness.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "invalid-exclusion-inventory-aspect-stale.json",
+      "valid": false,
+      "expectation": "Inventory revision pins for coverage/exclusion must be whole records; an aspect cannot stand for the partition.",
+      "basis": "Independent F2-R1 counterexample; README full-record inventory basis and whole revision freshness.",
+      "report": {},
+      "error_contains": "schema"
+    },
+    {
+      "file": "valid-exclusion-full-inventory-with-aspect.json",
+      "valid": true,
+      "expectation": "An inventory may contain aspects while its exclusion decision pins the whole record.",
+      "basis": "F2-R1 preserves aspects as content but requires a full-record boundary basis.",
+      "report": {
+        "transcription_represented": 1,
+        "transcription_excluded": 1
+      },
+      "error_contains": null
+    },
+    {
+      "file": "invalid-exclusion-full-inventory-changed.json",
+      "valid": false,
+      "expectation": "A changed whole inventory revision invalidates its old exclusion even when the reviewed aspect hash is unchanged.",
+      "basis": "F2-R1 whole-revision freshness; no scope transfer through stable aspects.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-exclusion-aspect-only-review-basis.json",
+      "valid": false,
+      "expectation": "Whole boundary pins cannot be authorized by an aspect-only inventory basis.",
+      "basis": "F2-R1 requires the exact full-record inventory reference in the decision basis.",
+      "report": {},
+      "error_contains": "exact inventory/region/level boundary"
+    },
+    {
+      "file": "invalid-exclusion-aspect-only-boundary-pin.json",
+      "valid": false,
+      "expectation": "Boundary metadata independently forbids an aspect pin even when coverage and basis use whole records.",
+      "basis": "F2-R1 full-record boundary shape.",
+      "report": {},
+      "error_contains": "schema"
+    }
+  ]
+}

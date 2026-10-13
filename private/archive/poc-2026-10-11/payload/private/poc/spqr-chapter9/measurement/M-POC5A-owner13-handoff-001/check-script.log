@@ -1,0 +1,19 @@
+LOG_ROOT=C:\repo\wargame-compiler\private\poc\_checks\active-02fb559f2d7c41688ef92d07760e687f
+........................................................................ [ 46%]
+.......................................F................................ [ 92%]
+...........                                                              [100%]
+================================== FAILURES ===================================
+_____________ test_roadmap_status_handoff_and_current_card_agree ______________
+tests\test_poc_continuity.py:112: in test_roadmap_status_handoff_and_current_card_agree
+    assert len(links) == 1, 'Handoff pointer must identify one latest session'
+E   AssertionError: Handoff pointer must identify one latest session
+E   assert 2 == 1
+E    +  where 2 = len(['handoff/2026-10-11-M-POC5A-owner13-handoff-01.md', 'handoff/2026-10-11-M-POC5A-semantic-04d3.md'])
+=========================== short test summary info ===========================
+FAILED tests/test_poc_continuity.py::test_roadmap_status_handoff_and_current_card_agree
+1 failed, 154 passed in 2.40s
+warning: in the working copy of 'docs/HANDOFF.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/ROADMAP.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/STATUS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/M-POC5A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/README.md', CRLF will be replaced by LF the next time Git touches it

@@ -1,0 +1,19 @@
+{
+  "result": "pass",
+  "artifact_mismatches": [],
+  "report_manifest": {
+    "report": {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/report.md",
+      "sha256": "63312007b0b44b029f80df3bc15f2b58338783794bc214363f1ba2a18e8fc9e0"
+    },
+    "review": {
+      "path": "private/workflow/runs/IG-1A/review-handoff-20261012T180728Z/review.json",
+      "sha256": "bbe692dab0bcb32e873fd643bb0f9f87a436cf1d1ce8217188fb147667bae8d2"
+    },
+    "note": "Integrity index only; no workflow transition or acceptance."
+  },
+  "queue_status": "review",
+  "criterion_count": 5,
+  "report_whitespace_defects": 0,
+  "inspection_note": "The first final QA read used the Windows cp1252 default and could not decode UTF-8 report typography. Explicit UTF-8 reading corrected the inspection; no file was changed and all assertions pass. Earlier packet-name and JSON list/object inspection errors were also corrected; they were read-only exploratory calls, not product test failures."
+}

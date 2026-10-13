@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "operation": "validate_packet.py first invocation",
+      "exit_code": 1,
+      "error": "TypeError: 'WindowsPath' object is not subscriptable",
+      "location": "line20: ROOT[x['path']]",
+      "repair": "Changed path construction in the new validator to ROOT/x['path']; no response, source, evaluation or packet artifact changed.",
+      "validation_output_written_before_failure": false,
+      "rerun": "required and separately recorded"
+    }
+  ],
+  "semantic_revisions": 0,
+  "extraction_corrections": 0
+}

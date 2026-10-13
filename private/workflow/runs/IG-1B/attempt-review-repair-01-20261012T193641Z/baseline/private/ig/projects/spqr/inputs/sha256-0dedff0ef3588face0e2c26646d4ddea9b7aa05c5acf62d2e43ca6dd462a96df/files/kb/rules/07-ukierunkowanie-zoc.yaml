@@ -1,0 +1,207 @@
+chapter: {id: "7", title: "7.0 Ukierunkowanie i strefy kontroli (Facing and ZOCs)"}
+rules:
+  - id: R-7.11.1
+    title: Ukierunkowanie ku wierzchołkowi; heksy frontowe, boczne, tylne
+    section: "7.11"
+    source: {text: "oryg. 7.11 + diagramy, s. 20", pages: "20"}
+    effect: |
+      Każda jednostka (oprócz będących w kolumnie, 6.73) jest zwrócona górą żetonu (stroną z nazwą) ku **wierzchołkowi** heksu (między dwiema
+      krawędziami). Wszystkie jednostki bojowe w heksie mają to samo ukierunkowanie. Jednostka jednoheksowa ma **2** heksy frontowe,
+      2 boczne i 2 tylne; falanga — **3** frontowe, 2 boczne (po jednym z każdej strony) i 3 tylne. **Jednostka może wejść tylko do
+      heksu frontowego.**
+    exceptions: Kolumna — R-6.73.1.
+    keywords: [ukierunkowanie, heks frontowy, heks boczny, heks tylny, falanga]
+    refs: [R-6.73.1, R-6.67.1]
+  - id: R-7.12.1
+    title: Zmiana ukierunkowania — 1 MP za wierzchołek, z wyjątkami
+    section: "7.12"
+    source: {text: "oryg. 7.12, s. 20", pages: "20"}
+    effect: |
+      Jednostka niebędąca falangą zmienia ukierunkowanie, obracając się w heksie: **1 MP za każdy wierzchołek**. Wyjątki: piechota legionów/al
+      płaci **1 MP** za dowolny obrót (bez względu na liczbę wierzchołków); słonie — **2 MP za wierzchołek**; harcownicy — **0 MP**; kolumna — 6.74.
+    keywords: [zmiana ukierunkowania, 1 MP, słonie 2 MP, harcownik, legion]
+    refs: [R-6.74.1, R-9.65.1, T-08]
+  - id: R-7.13.1
+    title: Falangi zmieniają kierunek tylko ruchem
+    section: "7.13"
+    source: {text: "oryg. 7.13, s. 20", pages: "20"}
+    effect: Falangi nie zmieniają ukierunkowania w heksie; zmieniają kierunek, przesuwając jedną stronę żetonu naprzód (płacąc koszty), czyli obracając żeton (6.4).
+    see: R-6.43.1
+    keywords: [falanga, obrót, zmiana kierunku]
+    refs: [R-6.43.1]
+  - id: R-7.14.1
+    title: Zmiana ukierunkowania w terenie trudnym — 1 trafienie za wierzchołek
+    section: "7.14"
+    source: {text: "oryg. 7.14, s. 20", pages: "20"}
+    effect: |
+      Jednostki zmieniające ukierunkowanie w heksie terenu trudnego (6.24) otrzymują **1 trafienie za każdy wierzchołek**. Słonie, harcownicy
+      i piechota barbarzyńska tej kary nie ponoszą. Koszt w trafieniach może przewyższyć koszt w MP.
+    keywords: [teren trudny, zmiana ukierunkowania, trafienie, słonie, BI]
+    refs: [R-6.24.3, T-08]
+  - id: R-7.15.1
+    title: Zmiana ukierunkowania w reakcji
+    section: "7.15"
+    source: {text: "oryg. 7.15 + Play Note, s. 20", pages: "20"}
+    when: jednostka wroga wchodzi obok jednostki (lub stosu) niebędącej falangą z heksu nieprzyległego — także ruchem bez rozkazu (8.5, 8.62, 9.11); jednostka nie jest już w strefie kontroli innej jednostki wroga
+    effect: |
+      Jednostka/stos może zmienić ukierunkowanie o **jeden wierzchołek** (raz na fazę rozkazów). Potem właściciel rzuca kością i modyfikuje wynik
+      o różnicę (+/–) między MA jednostki poruszającej się a MA jednostki stojącej. Wynik > TQ — trafienia równe różnicy, **co najmniej
+      1 trafienie bez względu na wynik**. Po zmianie ukierunkowania jednostka nieaktywna może (jeśli może) oddać ostrzał reakcyjny przy wejściu.
+      W stosie obie jednostki wykonują test z TQ górnej.
+    exceptions: Jazda zmieniająca ukierunkowanie w reakcji na ruch **piechoty** — bez testu i bez skutków ujemnych (R-7.15.2).
+    keywords: [zmiana ukierunkowania w reakcji, test TQ, różnica MA, ostrzał reakcyjny]
+    refs: [R-8.51.1, R-8.62.1, R-9.11.1, R-7.15.2, R-8.21.1, R-6.68.4, N-12]
+  - id: R-7.15.2
+    title: Jazda wobec piechoty — reakcja bez testu
+    section: "7.15"
+    source: {text: "oryg. 7.15 „Exception”, s. 20", pages: "20"}
+    effect: Jazda zmieniająca ukierunkowanie w reakcji na ruch piechoty nie wykonuje testu z 7.15 i nie ponosi żadnych skutków ujemnych.
+    keywords: [jazda, piechota, zmiana ukierunkowania w reakcji]
+  - id: R-7.16.1
+    title: Falanga — odwrócenie w reakcji na wroga w heksie tylnym
+    section: "7.16"
+    source: {text: "oryg. 7.16, s. 20", pages: "20"}
+    effect: Falanga może (jeśli spełnia warunki 6.45) raz na fazę rozkazów wykonać odwrócenie (Reverse Face), gdy jednostka wroga wchodzi do jednego z jej heksów tylnych. Liczbę trafień ustala się procedurą z 7.15.
+    keywords: [falanga, odwrócenie, reakcja, heks tylny]
+    refs: [R-6.45.1, R-7.15.1]
+  - id: R-7.2.1
+    title: Strefa kontroli — definicja
+    section: "7.2"
+    source: {text: "oryg. 7.2 „Zones of Control (ZOC)” + diagram, s. 20", pages: "20"}
+    effect: Strefa kontroli to heksy (poza zajmowanym), nad którymi jednostka sprawuje kontrolę, ograniczając ruch jednostek wroga.
+    keywords: [strefa kontroli, ZOC]
+  - id: R-7.21.1
+    title: Kto wywiera strefę kontroli i gdzie
+    section: "7.21"
+    source: {text: "oryg. 7.21, s. 20", pages: "20"}
+    effect: |
+      Wszystkie jednostki bojowe wywierają strefę kontroli na swoje heksy **frontowe**. Harcownicy z bronią miotaną i rzymscy velites — na heksy
+      frontowe **i boczne**; gdy nie mają pocisków (Missile No): harcownicy nie wywierają strefy kontroli wcale, velites — tylko na frontowe.
+      Jednostki uciekające i dowódcy (także słonie dowódców) nie wywierają strefy kontroli.
+    keywords: [strefa kontroli, harcownik, velites, Missile No, ucieczka]
+    refs: [R-8.17.1]
+  - id: R-7.22.1
+    title: Strefa kontroli nie sięga tam, gdzie ruch jest zakazany
+    section: "7.22"
+    source: {text: "oryg. 7.22, s. 20", pages: "20"}
+    effect: Strefa kontroli **nie** obejmuje heksu, do którego ruch jest zakazany.
+    keywords: [strefa kontroli, ruch zakazany]
+  - id: R-7.23.1
+    title: Wejście do strefy kontroli wroga — natychmiastowy stop
+    section: "7.23"
+    source: {text: "oryg. 7.23, s. 20", pages: "20"}
+    effect: Jednostka musi zakończyć ruch w chwili wejścia do strefy kontroli wroga.
+    exceptions: Manewr skrętu falangi (6.44) — R-6.44.1.
+    keywords: [strefa kontroli, zatrzymanie]
+    refs: [R-6.44.1]
+  - id: R-7.23.2
+    title: Wyjście ze strefy kontroli wroga — warunki
+    section: "7.23"
+    source: {text: "oryg. 7.23 + Play Note, s. 20", pages: "20"}
+    when: jednostka zaczyna ruch w strefie kontroli wroga
+    effect: |
+      Może ją opuścić tylko, jeśli: 1) jest jednostką bojową, która może dostać rozkaz ruchu, ma co najmniej jeden **wolny heks frontowy**
+      (falanga może potrzebować więcej) i jej **wydrukowany MA jest większy** od MA każdej jednostki wroga wywierającej na nią strefę kontroli
+      (dla falangi przyjmuje się rozszerzony MA 5); **albo** 2) jest to OC wydający IO samemu sobie; **albo** 3) jest to dowódca, któremu OC
+      wydał 2 IO.
+    exceptions: Strefę kontroli jednostki wroga niezdolnej do walki wręcz pomija się w pkt 1 (R-7.23.3).
+    keywords: [strefa kontroli, wyjście, MA, OC, falanga MA 5]
+    refs: [R-7.23.3, R-4.4.2, R-4.4.3]
+  - id: R-7.23.3
+    title: Strefa kontroli jednostki niezdolnej do walki wręcz nie wiąże (pkt 1)
+    section: "7.23"
+    source: {text: "oryg. 7.23 „Exception” + Play Note, s. 20", pages: "20"}
+    effect: Dla pkt 1 z 7.23 pomija się strefę kontroli jednostki wroga, która nie jest zdolna do walki wręcz (np. harcowników) — dzięki temu harcownicy nie „przyszpilają” jednostek od tyłu.
+    keywords: [strefa kontroli, harcownik, niezdolny do walki wręcz]
+    refs: [R-7.33.2]
+  - id: R-7.23.4
+    title: Wyjście ze strefy kontroli prosto do innej
+    section: "7.23"
+    source: {text: "oryg. 7.23, s. 20", pages: "20"}
+    effect: Jednostka opuszczająca strefę kontroli wroga może od razu wejść do innej strefy kontroli wroga, ale wtedy kończy ruch do końca tej fazy rozkazów.
+    keywords: [strefa kontroli, wyjście, zatrzymanie]
+  - id: R-7.24.1
+    title: Zmiana ukierunkowania w strefie kontroli wroga — do ½ MA
+    section: "7.24"
+    source: {text: "oryg. 7.24 + Design Note, s. 20–21", pages: "20-21"}
+    when: jednostka zaczyna segment ruchu i ostrzału w strefie kontroli wroga
+    effect: |
+      Zwykle nie może zmieniać ukierunkowania. Może jednak zużyć do **½ MA (w górę)** na zmiany ukierunkowania, jeśli **wszystkie** warunki
+      są spełnione: 1) jest w strefie kontroli **tylko jednej** jednostki bojowej wroga; 2) w jej strefie kontroli nie ma jednostek bojowych
+      wroga; 3) pozostaje w heksie przez ten segment (nie może wyjść ze strefy kontroli wg 7.23 pkt 1).
+    exceptions: Strefę kontroli jednostki wroga niezdolnej do walki wręcz pomija się w pkt 1.
+    notes: Zmiana względem wcześniejszych edycji (złagodzenie zakazu „nigdy nie zmieniaj ukierunkowania w strefie kontroli”) — C-01.
+    keywords: [strefa kontroli, zmiana ukierunkowania, ½ MA]
+    version: {changed_in: "5th Edition"}
+    refs: [R-7.23.2, C-01]
+  - id: R-7.25.1
+    title: Wspólny heks stref kontroli
+    section: "7.25"
+    source: {text: "oryg. 7.25, s. 21", pages: "21"}
+    effect: Jeśli przeciwne jednostki rozciągają strefę kontroli na ten sam heks, obie kontrolują ten heks.
+    keywords: [strefa kontroli, wspólny heks]
+  - id: R-7.3.1
+    title: Obowiązek walki wręcz zależy od typu i ruchu
+    section: "7.3"
+    source: {text: "oryg. 7.3 „Shock Requirements”, s. 21", pages: "21"}
+    effect: Czy jednostka musi atakować wręcz, zależy od jej typu i od tego, czy się ruszała (bezwładność, a nie uzbrojenie).
+    keywords: [obowiązek walki wręcz]
+    flags: [summary]
+  - id: R-7.31.1
+    title: Jednostki „ciężkie” (+) po podejściu muszą atakować wręcz
+    section: "7.31"
+    source: {text: "oryg. 7.31, s. 21", pages: "21"}
+    effect: |
+      W segmencie walki wręcz wszystkie własne jednostki „ciężkie” — typy oznaczone **plusem (+)** w Tabeli przewagi — które w poprzedzającym
+      segmencie ruchu i ostrzału **weszły obok** wroga z heksu nieprzyległego, **muszą** zaatakować wręcz wszystkie jednostki wroga w swojej
+      strefie kontroli. Inne („lekkie”, bez +) jednostki zdolne do walki wręcz, które tak samo weszły obok wroga, **mogą** zaatakować wszystkie
+      jednostki wroga w swojej strefie kontroli.
+    keywords: [walka wręcz obowiązkowa, plus, ciężkie, lekkie]
+    refs: [T-24]
+  - id: R-7.32.1
+    title: Znacznik SHOCK MUST CHECK TQ — w chwili podejścia
+    section: "7.32"
+    source: {text: "oryg. 7.32 + przykład, s. 21", pages: "21"}
+    effect: |
+      Gracz poruszający kładzie znacznik SHOCK MUST CHECK TQ na każdej jednostce, która musi zaatakować wręcz albo którą zdecydował się
+      atakować (7.31). Znacznik kładzie się **w chwili** wejścia obok wroga, **przed** jakimkolwiek ostrzałem reakcyjnym; oznacza on
+      jednostki, które wykonają test TQ przed walką (8.43). Decyzję dla jednostki „lekkiej” trzeba ogłosić, gdy kończy ruch.
+    exceptions: Wejście do heksu w celu utworzenia stosu nie powoduje położenia znacznika — R-6.66.2.
+    keywords: [SHOCK MUST CHECK TQ, znacznik, szarża, test TQ przed walką]
+    refs: [R-8.43.1, R-6.66.2]
+  - id: R-7.33.1
+    title: Walka wręcz z wyboru — SHOCK NO TQ CHECK
+    section: "7.33"
+    source: {text: "oryg. 7.33, s. 21", pages: "21"}
+    effect: |
+      Każda jednostka, która dostała rozkaz ostrzału albo rozkaz ruchu nieobjęty 7.31, a także jednostki po prostu znajdujące się w zasięgu
+      dowodzenia aktywowanego dowódcy, którymi może on dowodzić, **mogą** zaatakować wszystkie jednostki bojowe wroga w swoich strefach
+      kontroli. Dostają znacznik SHOCK NO TQ CHECK w kroku wyznaczenia walki (8.41) — atakują bez testu TQ przed walką (zob. wstęp do 8.4).
+    keywords: [SHOCK NO TQ CHECK, walka wręcz z wyboru, zasięg dowodzenia]
+    refs: [R-8.41.1, R-8.4.1]
+  - id: R-7.33.2
+    title: Kto nigdy nie atakuje wręcz; velites tylko do przodu
+    section: "7.33"
+    source: {text: "oryg. 7.33 „Exceptions”, s. 21", pages: "21"}
+    effect: |
+      Harcownicy, skorpiony, łucznicy lekkiej piechoty i łucznicy lekkiej jazdy **nie są zdolni do walki wręcz** i nigdy nie atakują wręcz.
+      Jednostki uciekające i w kolumnie nigdy nie atakują wręcz. Velites mogą atakować wręcz tylko w heks frontowy.
+    keywords: [niezdolny do walki wręcz, harcownik, skorpion, łucznicy, velites, kolumna]
+  - id: R-7.33.3
+    title: Opcja „Engaged” — obowiązkowe SHOCK NO TQ CHECK
+    section: "7.33"
+    source: {text: "oryg. 7.33, s. 21", pages: "21"}
+    effect: Przy zasadzie Engaged (10.4) znaczniki SHOCK NO TQ CHECK są **obowiązkowe** dla własnych jednostek związanych (Engaged) w zasięgu aktywowanego dowódcy, bez względu na ograniczenia dowodzenia.
+    keywords: [Engaged, SHOCK NO TQ CHECK, zasada opcjonalna]
+    flags: [optional]
+    refs: [R-10.41.1]
+  - id: R-7.33.4
+    title: „Lekka” jednostka, która zrezygnowała przy ruchu, nie dostanie NO TQ CHECK
+    section: "7.33"
+    source: {text: "oryg. Play Note po 7.33, s. 21", pages: "21"}
+    effect: |
+      Na „lekką” jednostkę, która przy ruchu zdecydowała, że nie atakuje, **nie** można położyć SHOCK NO TQ CHECK; dostaje SHOCK MUST CHECK TQ —
+      testu przed walką nie da się uniknąć.
+    notes: Nota koliduje z 7.32 (decyzja ogłaszana na koniec ruchu) — zob. N-13.
+    keywords: [lekka jednostka, SHOCK MUST CHECK TQ, test TQ przed walką]
+    refs: [R-7.32.1, N-13]

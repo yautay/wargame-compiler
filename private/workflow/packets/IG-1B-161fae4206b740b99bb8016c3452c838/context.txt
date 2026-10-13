@@ -1,0 +1,960 @@
+
+--- FILE: AGENTS.md ---
+# WGC repository instructions
+
+Write repository content in English; preserve source and historical bytes.
+Read README.md, docs/STATUS.md, docs/HANDOFF.md, then the selected task packet.
+Use docs/work/queue.json as the only queue/status authority. Follow
+docs/work/WORKFLOW.md and only the relevant local skill in docs/skills/.
+
+Build the full SPQR product incrementally; no new POC. Import, coverage, semantic
+acceptance, and executable readiness are separate. Never resolve gameplay legality
+with an LLM. Human semantic acceptance is separate from model/code review.
+
+Default context and search use scripts/workflow.py and scripts/search.ps1.
+History (including Git history) needs an explicit operator scope and purpose;
+see docs/ARCHIVES.md. An ignore file is not a read permission barrier.
+
+Preserve existing changes; no reset, clean, stash, commit, push, global configuration,
+new chats, agents, automation, or external APIs unless the current operator requests them.
+Keep game evidence under private/. Do not modify neighbouring repositories.
+Run scripts/check.ps1 and git diff --check. Record actual model/reasoning evidence;
+unknown is not the requested GPT-6.1 Sol/high configuration.
+
+
+--- FILE: README.md ---
+# Wargame Compiler
+
+WGC turns a WGU knowledge base and complete source materials into an evidence-backed
+Instruction Graph, formal rule semantics, a compiled rules package, and deterministic
+legal actions and state transitions. A future AI opponent spends its context on
+strategy and chooses through a compact player interface. Gameplay legality never
+requires an LLM call.
+
+The product target includes the **entire SPQR 5E core rulebook from the start**.
+Incremental tasks build lasting parts of that product. No further POC is planned.
+There is currently no new importer, compiler, game runtime, or AI opponent.
+
+Start with [status](docs/STATUS.md), [handoff](docs/HANDOFF.md), and the
+[workflow](docs/work/WORKFLOW.md). The only task/status source of truth is
+[queue.json](docs/work/queue.json); [roadmap](docs/ROADMAP.md) and task cards are generated.
+
+- [Architecture](docs/IG-WGU-ARCHITECTURE.md), [data contracts](docs/IG-DATA-MODEL.md),
+  [mechanics and profiles](docs/IG-MECHANICS-PROFILES.md), [legal action contract](docs/IG-LEGAL-ACTIONS.md).
+- [Implementation plan](docs/IG-PLAN.md), [operator prompts](docs/work/PROMPTS.md),
+  [local skills](docs/work/SKILLS.md), [environment evidence](docs/work/ENVIRONMENT.md).
+- [Archive locations and explicit access](docs/ARCHIVES.md).
+
+Repository prose and tooling use English. Publisher text, imported KB data, and
+immutable historical records retain their original language and bytes. Game content,
+source documents, positions, and source-derived examples belong in `private/`.
+
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet --task IG-1A
+```
+
+The packet command prepares local context; it does not start a model or change task
+state. Checks validate planning and workflow, not the unimplemented game's correctness.
+Archive integrity is an explicit separate command, never part of routine checks.
+
+
+--- FILE: docs/STATUS.md ---
+# WGC status
+
+<!-- Generated from docs/work/queue.json. -->
+
+Queue updated: 2026-10-11. Next ready task: **none**.
+Done tasks: 1/39.
+The planning tools do not certify game behavior. Source import, source coverage,
+human semantic acceptance, compilation and gameplay readiness are separate gates.
+
+Requested planning configuration: GPT-6 Astra/high. Recorded actual model/reasoning:
+unknown/unknown.
+Future executor target: GPT-6.1 Sol/high; verify its actual configuration at claim time.
+
+## Infrastructure blockers
+
+- ARCHIVE-WRITE: blocked. Destination outside writable roots; approval_policy=never. No originals removed. Operator runs the prepared verified migration in a session with write permission to C:/repo/wargame-compiler-archive.
+- SKILL-INSTALL: blocked. .agents is read-only in this session; skills are staged in docs/skills. Use explicit skill paths in prompts now; install and verify discovery in a permitted session.
+
+See [handoff](HANDOFF.md), [workflow](work/WORKFLOW.md), [archive register](ARCHIVES.md)
+and [environment evidence](work/ENVIRONMENT.md). No inherited commit/push approval exists.
+
+
+--- FILE: docs/HANDOFF.md ---
+# WGC handoff
+
+<!-- Generated from docs/work/queue.json. -->
+
+Next ready task: **none**. Choose one task; do not execute a whole stage.
+Read [workflow](work/WORKFLOW.md), then use [operator prompts](work/PROMPTS.md).
+
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet
+```
+
+The packet lists exact context and hashes. It does not launch a model or claim the task.
+Use the staged [execution skill](skills/wgc-execute/SKILL.md) explicitly; automatic
+installation is pending. Operator selects GPT-6.1 Sol/high, records actual settings,
+and follows claim → implementation → independent review → repair → acceptance → done.
+Checkpoints and evidence live in private/workflow/runs; preserve prior attempts.
+
+The active SPQR PDF is in private/ig/sources/spqr-5e with verified provenance.
+The WGU inspection is input evidence, not a semantic acceptance or an exact current count.
+Neighbouring KB/WGU repositories are read-only. Required scenarios/options, missing
+materials, authorized semantic reviewer and performance hardware/thresholds must be
+pinned in the tasks that need them; they do not prevent the first source-contract task.
+
+External history relocation remains governed by [the archive register](ARCHIVES.md)
+and the queue infrastructure blockers. No archive content is needed for this packet.
+Do not use old prompts, archived operational approvals or Git history as default context.
+
+
+--- FILE: docs/work/WORKFLOW.md ---
+# Local task workflow
+
+The only authoritative queue, dependencies, task content and status are in
+[queue.json](queue.json). Cards, [roadmap](../ROADMAP.md) and the generated portions
+of status/handoff are projections checked by `scripts/workflow.py validate`.
+Edit queue.json, run `scripts/workflow.py render`, then `scripts/check.ps1`.
+This tool is a local planner; it launches no model, chat, agent, scheduler or API.
+
+## Roles and ownership
+
+The coordinator selects ready work, refines future contracts, owns the queue, checks
+handoffs and records acceptance evidence. The executor owns only the task's listed
+write paths. The independent reviewer reads the frozen result and writes review findings;
+they do not silently repair the executor's code. Source-meaning review is separately
+identified. The owner (or explicitly authorized human) accepts exact semantic revisions.
+Model review and green tests never substitute for that decision.
+
+Default execution is sequential: one claimed task and one writer. A separate review
+session may use the same requested Sol/high configuration but a fresh reviewer identity
+and task context. No sessions are created automatically. Parallel work needs explicit
+operator authorization, satisfied dependencies, disjoint writes, and a coordinator-owned
+integration task. Two tasks writing queue.json are never parallel writers.
+
+## State machine
+
+| From | Allowed next states | Gate |
+|---|---|---|
+| planned | ready, blocked | Dependencies done; context available; refinement resolved |
+| ready | in_progress, blocked | Executor identity, actual config evidence, exact scope and checkpoint |
+| in_progress | review, blocked | Frozen delivery manifest, meaningful checks and handoff |
+| review | changes_requested, accepted, blocked | Separate technical review; meaning review and human decision when required |
+| changes_requested | in_progress, blocked | Bounded repair scope and new attempt |
+| accepted | done, changes_requested | Coordinator verifies every criterion, evidence and required owner decisions |
+| blocked | planned | New evidence resolves recorded blocker; reevaluate readiness, never jump to done |
+| done | planned | Explicit reopening reason; prior acceptance preserved in event history |
+
+`ready` is explicit and checked, not inferred from file existence. `next` prints the first
+ready task in queue order. At most one task is in_progress/review/changes_requested/accepted.
+`done` means its lasting deliverables, tests, independent review and applicable human
+acceptance are complete. `blocked` records missing fact, failed assumption or unavailable
+input, impact, smallest resolution action, and owner. Source gaps can be valid importer
+outputs while still blocking later gameplay; do not mark import blocked for every missing PDF.
+
+Use `transition --task ID --to STATE --evidence PATH`. Evidence is JSON with `role`,
+`actor`, `summary`, `criteria`, `artifacts`, `model`, `reasoning`, `configuration_evidence`,
+and optional `semantic_decision`. Unknown measured configuration is null with a reason.
+For delivery/review/acceptance also supply `checks`, a nonempty list of command and
+exit_code records. All required checks must have exit code zero. In-progress claims
+require confirmed `model: gpt-6.1-sol` and `reasoning: high`; unknown configuration
+is recorded as a blocker until the operator confirms the actual session settings.
+The command checks structural gates and file hashes, not the truth or authority of a
+human statement. Evidence is append-only by hash in queue events; changes invalidate checks.
+See [evidence shapes](EVIDENCE.md) for a checkpoint/delivery example. Executor status
+updates go through the transition command; the coordinator owns structural queue edits.
+For a semantic task, accepted requires a human decision artifact from the owner or a
+documented authorized reviewer. Do not fabricate one. Routine technical acceptance can
+be recorded by the coordinator after independent review without another owner confirmation.
+
+## One task cycle
+
+1. Coordinator validates queue and chooses `next`. Resolve `refine` before readiness.
+2. Generate a packet with exact allowed context. Binary source references are hashed,
+   not dumped into text; read only pages/IDs named by the task. External WGU context is
+   explicitly scoped in the card, never scanned through historical manifests.
+3. Operator starts the selected executor manually using [the launch prompt](PROMPTS.md).
+   Confirm Sol/high from UI/session metadata; requested settings are not evidence.
+4. Record claim and checkpoint; implement only this increment; record changed files,
+   checks, measured usage and unresolved assumptions. Preserve unrelated working changes.
+5. Freeze delivery hashes and enter review. Operator supplies the review prompt to a
+   separate reviewer. Evaluate source meaning separately from code mechanics.
+6. Repair scoped findings, rerun affected checks and obtain a new review of changed hashes.
+7. Coordinator records acceptance then done, renders views, makes the next eligible task
+   ready, and prepares a new handoff. Do not start the next task just to finish this one.
+
+## Refinement and corpus partitioning
+
+`refine` tasks are not executable until exact prerequisites/paths/cases are pinned. Edit
+the record to `implementation` or `content` after refinement; keep the decision in events.
+For a corpus task, create bounded child records with explicit target IDs, context-only
+IDs, source hashes/pages and disjoint output paths. The parent becomes a closure task
+depending on children, while children inherit the parent's former dependencies (never
+depend on the parent). Rewire downstream tasks through parent closure. Validate the DAG,
+check target-set coverage without overlaps, and render child cards. No recursive platform
+or agent manager is needed. Work partitions do not reduce the full-rulebook target.
+
+## Checkpoints, interruption and conflicts
+
+Write `private/workflow/runs/<task>/<attempt>/checkpoint.json` before starting and after
+each usable increment: task/attempt, actor, actual config, base file hashes, changed-file
+hashes, input packet hash, completed criteria, command results, blocker and next operation.
+Freeze a delivery manifest of all reviewed files and record reports in the same run folder.
+Do not overwrite prior attempts. A interrupted task remains in_progress until triaged.
+Resume by comparing checkpoint hashes with disk and the current queue; record divergences,
+retain both versions and resolve only owned files. Never reset, clean or stash the worktree.
+If an unexpected writer changed an owned path, block that path and ask the coordinator
+to integrate. A checkpoint is not a commit and never authorizes push.
+
+At most two repair cycles per review finding and two retries for the same unchanged
+failure. Then block with evidence and the smallest decision needed. A new hypothesis
+or changed external condition must be recorded before another attempt. No silent scope
+expansion or weakened tests to clear a blocker.
+
+## Measurements and report
+
+Record start/end UTC, elapsed wall time, executor/reviewer identities, requested and
+observed configuration, token counts only if exposed, operator time only if reported,
+tests and defect counts by severity. Unknown values are null, not zero. Separate code
+quality from source meaning and full-profile readiness. No invented monetary cost.
+Final handoff includes outcome, paths/hashes, criteria met/unmet, commands and exits,
+independent review, human decisions where needed, remaining risks, and next exact action.
+
+## Permissions and context limitations
+
+Packets enforce their own allowlist and reject history paths, path escapes and symlinks.
+They are not an OS sandbox for arbitrary tools. `.rgignore` controls default ripgrep only;
+explicit paths, `--no-ignore`, other tools and Git can bypass search exclusions.
+Read [archive isolation](../ARCHIVES.md) before any historical access. The current session
+cannot migrate outside its writable roots or install under protected `.agents/`.
+
+
+--- FILE: docs/skills/wgc-execute/SKILL.md ---
+---
+name: wgc-execute
+description: Implement one ready WGC task within its declared file scope and produce a tested, frozen delivery for independent review.
+---
+
+# wgc-execute
+
+Read the supplied packet and only its named context, plus docs/work/WORKFLOW.md.
+Confirm task readiness, input hashes, write ownership and actual model/reasoning evidence.
+Claim the task with a checkpoint under private/workflow/runs/<task>/<attempt>/.
+Build only the listed deliverables; task exclusions and dependency gates remain binding.
+Use synthetic public tests and private source-derived fixtures. Meaningful tests need
+source-justified expectations, not merely mirrored implementation assumptions.
+Run relevant tests and scripts/check.ps1, freeze file hashes and report unmet criteria.
+Hand off for a separate review; never grant yourself semantic acceptance or start the
+next task. Resume via checkpoint/hash comparison. Do not load historical gold by default.
+
+
+--- FILE: docs/work/tasks/IG-1B.md ---
+# IG-1B: Freeze input and source manifests
+
+<!-- Generated from docs/work/queue.json; edit the queue, then render. -->
+
+- Status: `review`; kind: `implementation`.
+- Executor: **GPT-6.1 Sol; reasoning high**. Record actual configuration separately.
+- Dependencies: [IG-1A](IG-1A.md)
+- Human semantic acceptance required: false.
+
+## Goal
+
+Create a read-only snapshot facility for an explicitly enumerated WGU game directory and source registry.
+
+## Concrete deliverables
+
+- Immutable byte snapshot and manifest
+- Source availability/edition/identity report
+- Active SPQR source pin record
+
+## Start conditions
+
+- All dependencies are done; input revisions and assigned file scope are pinned.
+- Actual executor configuration and ownership are recorded; unresolved refinement prevents start.
+
+## Input contracts
+
+- C:/repo/wargame-projects/games/spqr/wgu.yaml and kb/ (read-only)
+- private/ig/sources/spqr-5e/provenance.json and PDF
+- Prior inspection inventory is advisory, rehash actual input
+
+## Required context
+
+- docs/IG-WGU-ARCHITECTURE.md
+- docs/IG-DATA-MODEL.md
+- private/ig/planning/wgu-spqr-2026-10-11/input-inventory.json
+- private/ig/sources/spqr-5e/provenance.json
+
+## Allowed write scope
+
+- src/wgc/inputs/
+- tests/inputs/
+- private/ig/projects/spqr/inputs/
+- private/ig/projects/spqr/sources/
+- contracts/ig/input.schema.json
+
+## Exclusions
+
+- Archives and Git history; neighbouring repositories; global configuration.
+- Downstream tasks, unrelated changes, online services, commits and pushes.
+- Publisher content in public fixtures; automatic semantic acceptance.
+
+## Acceptance criteria
+
+- Every input file has path, bytes, hash, role and availability; detect change during copy.
+- Missing 36 historically configured source paths are rechecked and reported, not silently substituted.
+- Pin the promoted PDF as a new selected source with identity_to_wgu_original unknown.
+- Reject path escapes, linked paths and unintended source reads; no neighbour writes.
+
+## Required validation
+
+- Simulate mutation during snapshot, missing source, duplicate path/case alias, traversal and symlink/junction escape.
+- Verify independent copy hashes and repeatability; full private snapshot count is measured, not hard-coded.
+
+## Blockers and escalation
+
+- Source selection needs an explicit record; missing auxiliary sources block only dependent verification, not the available KB snapshot.
+- A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.
+- After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed.
+
+## Final report and handoff
+
+- Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.
+- Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation.
+
+Use [the shared workflow](../WORKFLOW.md) for transitions, review, retries and recovery.
+Read only assigned pages/IDs from binary or private inputs; never recursively load a source directory.
+
+
+--- FILE: docs/IG-WGU-ARCHITECTURE.md ---
+# WGC architecture
+
+This is the active architectural proposal; machine contracts are established task by
+task. [Queue](work/queue.json) defines execution order, [data model](IG-DATA-MODEL.md)
+defines record invariants, and [runtime contract](IG-LEGAL-ACTIONS.md) defines gameplay.
+
+```mermaid
+flowchart LR
+  KB[WGU KB] --> IN[Frozen inputs and read-only adapter]
+  SRC[Complete rulebook and required materials] --> INV[Independent source inventory]
+  IN --> IG[Source IG with evidence and gaps]
+  INV --> IG
+  IG --> SEM[Typed rule semantics]
+  SEM --> REV[Source review and human acceptance]
+  REV --> REF[Reference executor]
+  REV --> COMP[Compiler]
+  COMP --> PKG[Immutable rules package]
+  PKG --> RUN[Deterministic legal runtime]
+  REF --> EQ[Differential checks]
+  RUN --> EQ
+  RUN --> VIEW[Player view and exact choices]
+  VIEW --> AI[Strategy selection]
+  AI --> VAL[Validate against current revision]
+  VAL --> RUN
+```
+
+## Ownership and boundaries
+
+WGU maintains its KB. WGC reads a frozen directory snapshot and original documents,
+preserves both, records discrepancies, and builds versioned interpretations.
+It never edits WGU as an import side effect. Corrections are separate WGC proposals.
+The runtime owns authoritative game state and history; an LLM description is not state.
+AI owns strategy only. UI, online services, providers, and a graph database are not
+prerequisites. Start with local JSON/JSONL, deterministic exports and derived indexes.
+
+| Module / future path | Responsibility | Output |
+|---|---|---|
+| `src/wgc/inputs/` | Snapshot, safe paths, hashes, availability | Immutable input manifest |
+| `src/wgc/wgu_adapter/` | Safe parsing, unknown fields, identities | Import records and origin bindings |
+| `src/wgc/sources/` | Pages, regions, evidence, independent inventory | Coverage denominator |
+| `src/wgc/reconcile/` | Matches, disagreements, omissions, editions | Source IG and explicit gaps |
+| `src/wgc/review/` | Review packets, decisions, freshness | Revision-scoped decision ledger |
+| `src/wgc/semantics/` | Types, expressions, actions, procedure IR | Formal IG linked to source clauses |
+| `src/wgc/reference/` | Simple deterministic execution | Independent comparison baseline |
+| `src/wgc/compiler/` | Type/closure checks and lowering | Reproducible executable package |
+| `src/wgc/runtime/` | Actions, validation, events, replay | State transitions and legal choices |
+| `src/wgc/player/` | Visibility, compact views and deltas | Player-safe decision interface |
+
+These are planned boundaries, not existing implementations. Tests live in corresponding
+`tests/<module>/` directories; public fixtures are synthetic. Source-derived data lives
+in `private/ig/projects/spqr/`. Planning tools in `scripts/` do not implement these modules.
+
+## Existing input evidence
+
+The 2026-10-11 textual inspection recorded 523 rules (438 core, 85 scenario-book),
+233 relations, 48 tables, 134 terms, 79 ambiguities, 3 changes, 59 control questions,
+11 main procedures, 4 subprocedures and 80 steps. These are inventory observations,
+not successful YAML/schema validation or source review. The 27 inspected files were
+hashed. All 36 configured source paths were unavailable at that inspection.
+The private inventory is preserved under `private/ig/planning/wgu-spqr-2026-10-11/`.
+Recheck bytes when implementing; do not turn these counts into hard-coded gold.
+
+An archived 44-page SPQR 5E PDF has been copied, hash-verified, into the active source
+registry `private/ig/sources/spqr-5e/`. Its provenance records the old path and hash.
+Identity with WGU's unavailable original is **unknown**. Explicitly pin it as the source
+of a new IG; reconcile WGU content against it rather than claiming to recover WGU's original.
+
+## Import contract
+
+Primary input: game `wgu.yaml`, complete `kb/`, and explicitly enumerated auxiliary
+files. The optional `wgu/kb-bundle@1` route is later work: the current exporter omits
+some auxiliary files and full source configuration, abbreviates revision information,
+and adds a generation time. A bundle alone cannot establish complete input accounting.
+
+Freeze raw bytes, relative paths, sizes, SHA-256, schema/adapter versions and import
+configuration. Git commit and dirty state are supporting metadata; record unknown
+when inaccessible. Detect source changes during snapshotting. Reject unsafe YAML tags,
+duplicate keys, traversal, and paths escaping the allowlist; preserve unknown fields.
+Unavailable PDFs block source verification, not import of available KB records.
+
+| WGU entity | Source IG mapping | Never infer |
+|---|---|---|
+| Rule, when/effect/exceptions | Clause container, addressable aspects and groups | Executable logic or correct atomization |
+| Source locator | Provenance claim, then evidenced region binding | PDF page identity or exact quotation |
+| refs / see | Navigational references | Required semantic dependencies |
+| Relations | Typed candidates, original status retained | IG acceptance from `verified` |
+| Procedures | Nested steps, local identities and declared order | Binding lifetime, triggers or continuation semantics |
+| Tables | Axes/cells/notes; distinguish editorial summaries | Literal publisher table from `complete: true` |
+| Terms without IDs | Persistent mapping registry | Identity from list position or content hash |
+| Ambiguities / changes | Claims, gaps and evidence | Human resolution or complete edition history |
+| scenarios / questions | Imported evaluation candidates | Battle scenarios or independent expected answers |
+| Unknown fields and files | Lossless payload plus mapping status | Silent exclusion |
+
+One KB rule may map to several clauses and vice versa. IDs are stable and separate
+from content revisions. Reordering, splits, merges and ambiguous matches preserve
+lineage and require explicit resolution. Wildcards and subpoint references retain
+their raw form until an exact target set is justified.
+
+## Complete sources and reconciliation
+
+Inventory all 44 PDF pages independently of the KB: headings, clauses, notes, examples,
+tables, legends, diagrams, and editorial regions. Keep PDF page number separate from
+printed labels. Text extraction is a helper; diagrams and meaningful decorations need
+image evidence. Every region is represented, partially represented, a gap, or excluded
+with a reason. Gaps never count as represented content.
+
+Reconcile all imported records: exact/partial match, contradiction, missing KB content,
+missing source, or possible duplicate. Preserve KB bytes, candidate interpretations,
+evidence, and corrections separately. Cross-chapter exceptions and external tables
+remain explicit dependencies. A table assembled by KB authors can cite multiple clauses;
+do not invent a single publisher region for it.
+
+Each profile pins edition, mode, options, scenario, source revisions and compatibility
+decisions. A 2018 4E scenario book does not inherit 5E authority from the KB manifest.
+Do not invent universal 'newer wins' or 'more specific wins' precedence. Unofficial
+aids remain secondary material. An empty errata list is not proof that no errata exist.
+
+## Revision, review and updates
+
+One logical source IG links to one formal semantic representation; the executable
+package is derived and immutable. All operations map back to exact clause/evidence
+revisions. Do not maintain three independent hand-edited descriptions of a rule.
+
+Review records pin target revision/aspect, evidence, profile and dependencies.
+Technical checks, source/meaning review, and human acceptance are separate. Model
+observations cannot grant semantic acceptance. Incomplete review bases imply unknown
+freshness; changed bases imply stale. Acceptance is never inherited by a changed aspect.
+
+Updates compare old WGU, new WGU and current WGC. Deletion in WGU retires provenance,
+not IG history. Recompute impact through reads/writes, triggers, bindings, table/profile
+dependencies and unresolved references. Preserve decisions; request new ones for affected
+meaning. Rebuild packages and replay regressions before promoting an updated profile.
+
+## Product readiness
+
+Report input accounting, source coverage at each representation level, current human
+acceptance, resolved dependencies, compiled scope, and gameplay readiness separately.
+Opaque text is valid in a working source IG. If it affects legal choices, timing,
+visibility, costs or effects, it blocks executable readiness of the dependent scope.
+Unknown conditions cannot be assumed inactive to bypass a dependency.
+
+## Provenance of this consolidation
+
+Preserves the active IG design and 2026-10-11 WGU inspection, including IG-0 findings on
+semantic groups, review bases, causal history, continuation instances, stable bindings,
+random-pool multiplicities and visibility of diagnostics. Supersedes the earlier pilot
+recommendation and broad IG-1 task. Pre-edit documents are byte-preserved in the
+planning snapshot listed by [the archive register](ARCHIVES.md); they are not bootstrap context.
+
+
+--- FILE: docs/IG-DATA-MODEL.md ---
+# IG data contract proposal
+
+This document consolidates the earlier `ig-draft-0.2` design. It is not a machine schema
+or accepted game semantics. IG-1A establishes the source contract; IG-3A establishes
+the executable language after source reconciliation. See [architecture](IG-WGU-ARCHITECTURE.md).
+
+## Identity and record envelope
+
+Each record has stable `id`, `record_type`, `schema_version`, `revision_id`, `run_id`,
+`supersedes_refs`, and canonical content hash. Stable identity is separate from revision,
+file path, array position and content hash. External WGU IDs are namespaced by KB.
+`origin_bindings` link many-to-many IG IDs to input snapshot/file/field locators.
+Anonymous terms and relations use a persisted identity registry; ambiguous rematches
+become conflicts. Split/merge lineage does not transfer acceptance automatically.
+
+References used as active rules resolve only in the selected snapshot. Historical
+review and supersession references resolve in an immutable revision store. A snapshot
+selects at most one revision per ID, but may retain conflicting assertions with different
+IDs. The presence of an old revision does not activate it. Namespaced IDs must be safely
+encoded as Windows file names rather than used literally with colons.
+
+## Collections and invariants
+
+| Collection | Minimum content and constraints |
+|---|---|
+| sources / artifacts | Role, publisher/system/edition/language, part, media type, bytes, SHA-256, availability and compatibility |
+| regions / evidence | Source revision, PDF page (1-based), printed label, reading order, coordinate/offset convention, precise region links |
+| nodes | Sections, clauses, concepts, procedures/steps, tables/axes/cells, diagrams, components and mechanical definitions |
+| assertions | Subject, stable aspect, knowledge state, literal/normalized/interpreted representation, value, scope, evidence and gaps |
+| semantic_groups | Stable aspect IDs and explicit condition/effect/exception/timing composition |
+| relations | Typed directed link, applicability, target status, candidates, evidence, requirement grouping |
+| gaps | Missing source, unreadable, unprocessed, ambiguity, conflict or unsupported interpretation; affected targets and blocked operations |
+| profiles | System, edition, rules mode, options, scenario, maps/counters, pinned materials and compatibility decisions |
+| reviews | Exact targets and basis revisions, kind, actor role, decision/observation, scope and supersession |
+| coverage | Inventory revision, region, representation level, status and exclusion reason |
+| snapshots | Selected revisions and hashes, profile, conflicts, manifest and independent readiness reports |
+| runs / evaluation | Raw proposals, context manifest, actual configuration evidence, measurements and independently justified expectations |
+
+`sources.role`: rulebook, errata, faq, scenario, map, counter_sheet, player_aid, other.
+Edition labels do not establish compatibility. Exact transcription, normalization,
+uncertain symbols and interpretation remain distinguishable. Evidence roles are direct,
+context and counterevidence. Attaching a whole page does not prove every assertion.
+
+Nodes include action, event_type, state_variable, resource, timing_window, choice,
+selector, spatial_policy, randomizer, calculation and outcome. Their source representation
+may precede formal execution. A generic payload field alone is not demonstrated support.
+Editorial parentage is not an execution dependency. Clause boundaries preserve complete
+conditions and effects; aspects can be separately reviewed inside a container revision.
+
+## Knowledge and representation
+
+Knowledge states: `known` (evidenced proposal, review separate), `established_absent`
+(source proves absence in an explicit scope), `unknown` (null plus gap/reason), and
+`not_applicable` (null plus reason). Missing fields and empty lists never prove absence.
+Representations: literal, normalized, interpreted. A normative assertion has an explicit
+execution impact: formal, informational with reviewed rationale, or blocking.
+
+Facets include transcription, condition, effect, parameter, exception, timing, scope,
+definition, permission, obligation, prohibition, trigger, cost, choice, calculation,
+transition, duration, aggregation, visibility and victory. A shared subject ID does
+not bind several conditions to the right effects; semantic groups do that explicitly.
+Units, comparison operators, rounding stage, temporal bounds and causal filters are typed.
+Opaque is preserved text with an execution limitation, never a runtime LLM callback.
+
+## Relations
+
+Navigation (`mention`) is distinct from dependency (`procedure_use`, `table_use`,
+`definition`, `condition`). Exception/modification points from modifying rule to base.
+`applies_to` points from clause to scope object; `illustrates` from example to rule;
+`precedes` from earlier to later step with its condition. `continuation` alone is not
+an executable stack frame. Mechanical relations are specified in the mechanics contract.
+
+`target_status`: resolved, unresolved, ambiguous, unsupported. Non-resolved references
+retain raw locator, edition, candidate IDs and a gap. Targets can select exact aspects.
+`requirement`: required, conditional, informational; groups explicitly specify all/any.
+Unknown applicability cannot be treated as false. Rule graphs may contain cycles;
+the task dependency graph may not. Procedure cycles need termination/continuation rules.
+
+## Reviews and readiness
+
+Review kinds distinguish transcription, interpretation, source composition and situation
+outcomes. Roles distinguish human_owner, authorized human_reviewer, model, validator.
+Only an authorized human grants semantic acceptance. Store the decision artifact,
+actor, exact target/aspect revisions, scope and basis (sources, definitions, bindings,
+profile and dependencies). Basis completeness is complete, partial or unknown.
+Freshness is independently computed as current, stale or unknown. A newer date does
+not resolve contradictory decisions; explicit supersession and rationale are required.
+
+Coverage statuses are represented, partial, unprocessed, excluded, measured separately
+for transcription, descriptive semantics and formal semantics. Exclusions need a reason
+and approved scope boundary. Do not add overlapping context regions to the denominator.
+Executable readiness is a query over snapshot/profile/dependency closure and available
+state/history, not a global `rule_ready` flag.
+
+## Storage and validation
+
+Use `private/ig/projects/spqr/{inputs,sources,records,runs,reviews,snapshots,reports,evaluation}/`.
+The promoted source registry at `private/ig/sources/` is a read-only input to later project
+snapshots. Source-derived material stays private; public schema fixtures are synthetic.
+One record per file is optional. Containers retain stable aspect IDs and raw input mapping.
+Indexes are derived. Snapshot states draft/sealed describe structural integrity, not quality.
+
+Validate identity/revision uniqueness, hashes, typed references, evidence scope, unknown
+values with gaps, table notes/axes, group composition, review authority and freshness,
+coverage denominators, conflicts, and historical versus active reference resolution.
+The first schema must represent all required mechanical concepts without implementing
+a universal game language. Later formal contracts must make those concepts executable.
+
+Tests need a clause spanning pages, cross-chapter exception, table note, missing unit,
+procedure cycle, edition conflict, partial acceptance and regression after dependency
+change. Expected meanings are justified against sources, independently of implementation.
+
+
+--- FILE: private/ig/planning/wgu-spqr-2026-10-11/input-inventory.json ---
+{
+  "method": "Full byte hashing; textual inventory anchored to the observed YAML layout. No YAML parse/schema validation or full semantic review.",
+  "game_head": {
+    "value": null,
+    "exit_code": 128,
+    "error": "fatal: cannot change to 'C:\\repo\\wargame-projects\\games\\spqr': Permission denied"
+  },
+  "game_scope_status": {
+    "value": null,
+    "exit_code": 128,
+    "error": "fatal: cannot change to 'C:\\repo\\wargame-projects\\games\\spqr': Permission denied"
+  },
+  "wgu_head": {
+    "value": null,
+    "exit_code": 128,
+    "error": "fatal: cannot change to 'C:\\repo\\wargame-utils': Permission denied"
+  },
+  "wgu_scope_status": {
+    "value": null,
+    "exit_code": 128,
+    "error": "fatal: cannot change to 'C:\\repo\\wargame-utils': Permission denied"
+  },
+  "files": [
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\ambiguities.yaml",
+      "bytes": 102138,
+      "sha256": "d11e59ee4858421ed7f25091641964f45c41625003ba9d03ef9f51cec28adb9a"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\changes.yaml",
+      "bytes": 1814,
+      "sha256": "fabf4b17ce452fa6bf1c634dca430956054f47e392b2d773e3a562b978c53053"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\manifest.yaml",
+      "bytes": 10467,
+      "sha256": "3031a4c7ea87552d5074dc4f9bd43947dfdb4189d060ded4bbd3eb66ef2cd7f6"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\notes\\overview.md",
+      "bytes": 3919,
+      "sha256": "32886018fc9523502a50f46523a49e8e70e92d223d360c69a64eb5644d28f80b"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\procedures.yaml",
+      "bytes": 18416,
+      "sha256": "651614ce6a49c436ec23a6b8bd5b64f8c77d786edd4323b2ae91c4cb6ff3eff3"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\relations.yaml",
+      "bytes": 38526,
+      "sha256": "1737abb4a2f8877af8964e303d325d24ee7ae17ab2a9e3edeec4f91974fecb2a"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\01-wprowadzenie.yaml",
+      "bytes": 2236,
+      "sha256": "77709eeec903a5a8b6f80a3bdada4994254dbdf41844c947d6edd8ddf81e549c"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\02-komponenty-terminologia.yaml",
+      "bytes": 17614,
+      "sha256": "94810dd6362e28d5fde8633c6788082e8705849d58c01abc0f660f6c4cb78aae"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\03-sekwencja-gry.yaml",
+      "bytes": 5570,
+      "sha256": "d926613871f4bd99757e07b0b5f3df59800757afbb68576a0382a64538702688"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\04-dowodcy.yaml",
+      "bytes": 36336,
+      "sha256": "8b0abe24168605ee682449ce75f24408075a1c50c22abfd3f50c9d3704ad77cc"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\05-aktywacja-rozkazy.yaml",
+      "bytes": 21251,
+      "sha256": "d7db614e3b1007b24228460be4bbd1197262b20046f82e1e205564e04f0a911b"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\06-ruch.yaml",
+      "bytes": 42093,
+      "sha256": "5f365777d87030b96e3ede3ab8b1d1c97fddfd6fc17b91c59b8daff8b2038844"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\07-ukierunkowanie-zoc.yaml",
+      "bytes": 13707,
+      "sha256": "11a8a7c2e2ef6d5bfff2fdee92e0e374418617574b5bd463619d936e1317f8e0"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\08-walka.yaml",
+      "bytes": 49178,
+      "sha256": "7ff997bce127f0b08b9754a1739ade67fd9ae36771e5ede40bcb5832e43797a4"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\09-jednostki-specjalne.yaml",
+      "bytes": 33760,
+      "sha256": "9e28d5df8720dc1dce71f687146f25fcea313df46e98f670f52cc55b579d221c"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\10-skutki-walki.yaml",
+      "bytes": 20345,
+      "sha256": "dceb1c9ad26a8f52e7dcfdf8d0bdb39443a16520a1d02f657fdedbd403976090"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\11-wycofanie-armii.yaml",
+      "bytes": 2406,
+      "sha256": "4882c57a9010a010496d610bf2b7030b31c8087c7cd621d3b0f19ace072d44ea"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\rules\\12-scenariusze-ksiega-2018.yaml",
+      "bytes": 69552,
+      "sha256": "869fcf8be6266607a018b8b617da030cbc03aed44c84e4ca4773e551ddbddf5a"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\scenarios.yaml",
+      "bytes": 37219,
+      "sha256": "0287171c71593defc5675c9db3d412ae4dda0635402f459a2e5764514b4ff90c"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\tables.yaml",
+      "bytes": 141085,
+      "sha256": "e0d061947276e38723e6c304887650213c8a646dac41ff8cb7bb608c023f5b49"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\terminology.yaml",
+      "bytes": 524295,
+      "sha256": "9e86ec5abf30436afd3de805a50972cf3953fd749dcaeac7d52c3d87a4c27ffb"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\kb\\terms.yaml",
+      "bytes": 37038,
+      "sha256": "44d8f2b6882f549160082a2f200b74901f2099ff54cd5c12a33036296baecc85"
+    },
+    {
+      "path": "C:\\repo\\wargame-projects\\games\\spqr\\wgu.yaml",
+      "bytes": 4424,
+      "sha256": "3f022a178835733ec0b085148c7fdf689430265e1b99bdeff2a4103c566de205"
+    }
+  ],
+  "rules_by_file": {
+    "01-wprowadzenie.yaml": 3,
+    "02-komponenty-terminologia.yaml": 33,
+    "03-sekwencja-gry.yaml": 8,
+    "04-dowodcy.yaml": 71,
+    "05-aktywacja-rozkazy.yaml": 34,
+    "06-ruch.yaml": 79,
+    "07-ukierunkowanie-zoc.yaml": 23,
+    "08-walka.yaml": 90,
+    "09-jednostki-specjalne.yaml": 61,
+    "10-skutki-walki.yaml": 32,
+    "11-wycofanie-armii.yaml": 4,
+    "12-scenariusze-ksiega-2018.yaml": 85
+  },
+  "rules_total": 523,
+  "collections": {
+    "terms": 134,
+    "terms_with_explicit_id": 0,
+    "tables": 48,
+    "tables_complete_true": 48,
+    "procedures": 11,
+    "subprocedures": 4,
+    "steps": 80,
+    "relations": 233,
+    "relations_verified": 226,
+    "ambiguities": 79,
+    "changes": 3,
+    "scenarios": 59
+  },
+  "rules_with_source": 523,
+  "rules_with_digital": 0,
+  "configured_sources": [
+    {
+      "configured_path": "docs/SPQR+Deluxe_Rule+book_WEB.pdf",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Alt Missile Table.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/BI Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Ch Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Clash.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/CohTq.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/CommSumm.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Doom.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/EL Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Example.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/HC Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/HI Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/LC Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/LeadChk.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/LeaderCas.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Legend.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/LG Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/LI Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/LN Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/MI Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Missile Table.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Missile.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/MovChart.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/PH Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/PlayerAidDisplay.jpg",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Rally.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Rampage.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/RC Shock.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/RomanCamp.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/ShockCmbt1.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/ShockSup.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/SOP.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/StackRout2.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/StackVol2.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/update/Trebbia_Metaurus Terrain chart.png",
+      "exists": false
+    },
+    {
+      "configured_path": "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf",
+      "exists": false
+    }
+  ],
+  "archive_source_candidate": {
+    "archive_path": "private/archive/poc-2026-10-11/payload/private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "original_path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "category": "private",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "bytes": 3965827,
+    "hash_verified": true,
+    "binding_to_wgu_original_bytes": "unknown: configured WGU file missing; KB has no original PDF hash"
+  },
+  "code_basis": [
+    {
+      "path": "C:\\repo\\wargame-utils\\wgu\\schemas\\kb.schema.json",
+      "sha256": "0a93858ed3e0d99382ea962350e3b2994fab90b872a8b86584519b5a9e33a551"
+    },
+    {
+      "path": "C:\\repo\\wargame-utils\\wgu\\kb\\store.py",
+      "sha256": "b7f3a6fc94c3b2bee27ccdb6bc82db0cecd1e3b3aafcf4aa3cf85726e1ed2bbe"
+    },
+    {
+      "path": "C:\\repo\\wargame-utils\\wgu\\kb\\export.py",
+      "sha256": "b0735f52350abb7dfb8bd6e3f94bbe63789a0ffc2e7ae2eac040f00eede24b00"
+    },
+    {
+      "path": "C:\\repo\\wargame-utils\\wgu\\kb\\lint.py",
+      "sha256": "78f5b2ade91eb1f69e5ef7f389077a6aba27e4b6f633780099e3abc5911cfabf"
+    }
+  ]
+}
+
+
+--- FILE: private/ig/sources/spqr-5e/provenance.json ---
+{
+  "selection": "Candidate for explicit IG source pinning; not proof of identity to missing WGU input",
+  "copy_verified": true,
+  "source_id": "spqr-5e-rulebook",
+  "semantic_acceptance": "not_granted",
+  "active_path": "private/ig/sources/spqr-5e/rulebook.pdf",
+  "original_archive_path": "private/archive/poc-2026-10-11/payload/private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+  "bytes": 3965827,
+  "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "identity_to_wgu_original": "unknown",
+  "format": "source-provenance@1"
+}

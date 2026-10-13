@@ -1,0 +1,78 @@
+[
+  {
+    "command": ".venv/Scripts/python.exe -m pytest tests/inputs -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1B/attempt-20261012T182300Z/test-temp-04 --tb=short",
+    "exit_code": 0,
+    "tests_passed": 33,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 4.69,
+    "execution_context": "Local require_escalated; actual Windows junctions and hardlinks permitted",
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/tests-04.log",
+      "sha256": "b5ba464e801b5ffe487c0527515416ed432e02ae4e68e810bcb23e160c4867a0"
+    }
+  },
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1B",
+    "exit_code": 0,
+    "tests_passed": 102,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 46.11,
+    "execution_context": "Default sandbox",
+    "log_root": "private/workflow/checks/active-9bb6c7d28e244ba386742e5fc3efdb43",
+    "result": {
+      "tests_exit": 0,
+      "dry_run_exit": 0,
+      "plan_exit": 0,
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-9bb6c7d28e244ba386742e5fc3efdb43\\pytest",
+      "diff_exit": 0
+    }
+  },
+  {
+    "command": ".venv/Scripts/python.exe -m wgc.inputs.snapshot <pinned input-request.json> --inputs private/ig/projects/spqr/inputs --sources private/ig/projects/spqr/sources (two actual executions)",
+    "exit_code": 0,
+    "execution_context": "Local require_escalated, exact input paths read-only and exact owned output roots",
+    "logs": [
+      {
+        "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/snapshot-01.log",
+        "sha256": "19884a2c28567b482a8ea78f1ae94c56146a738d08587f2e852fae39008daedf"
+      },
+      {
+        "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/snapshot-02.log",
+        "sha256": "19884a2c28567b482a8ea78f1ae94c56146a738d08587f2e852fae39008daedf"
+      }
+    ]
+  },
+  {
+    "command": "Independent byte comparison of every copied original; independently serialized manifest IDs; current missing-source recheck and exact repeated snapshot result",
+    "exit_code": 0,
+    "artifact": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/snapshot-verification.json",
+      "sha256": "38c217076edccc4b0e736c858b5e8b3e5499f0953254f7b425223adb5cd0273b"
+    }
+  },
+  {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    }
+  },
+  {
+    "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+    "exit_code": 0
+  },
+  {
+    "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+    "exit_code": 0,
+    "output": "No ready task."
+  },
+  {
+    "command": "SHA-256 verification of all 82 already accepted IG-1A delivery artifacts",
+    "exit_code": 0,
+    "artifact": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/ig-1a-preservation.json",
+      "sha256": "16163fbe419376f63f329d8845e6435a3c35f665af062df9efddc59fe830ebb6"
+    }
+  }
+]

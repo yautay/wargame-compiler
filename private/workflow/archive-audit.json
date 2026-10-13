@@ -1,0 +1,191 @@
+{
+  "result": "mismatch",
+  "files": 56150,
+  "bytes": 1091621953,
+  "distinct_byte_hashes": 4062,
+  "single_copy_files": 3233,
+  "roots": {
+    "archive": {
+      "files": 386,
+      "bytes": 5887045,
+      "single_copy_hashes": 148
+    },
+    "private/archive": {
+      "files": 55455,
+      "bytes": 1059783705,
+      "single_copy_hashes": 2790
+    },
+    "docs/adr": {
+      "files": 3,
+      "bytes": 2311,
+      "single_copy_hashes": 0
+    },
+    "docs/reviews": {
+      "files": 1,
+      "bytes": 20700,
+      "single_copy_hashes": 0
+    },
+    "docs/prompts/IG-0-critical-review.md": {
+      "files": 1,
+      "bytes": 2697,
+      "single_copy_hashes": 0
+    },
+    "docs/work/tasks/IG-0.md": {
+      "files": 1,
+      "bytes": 2435,
+      "single_copy_hashes": 0
+    },
+    "private/ig/migration": {
+      "files": 4,
+      "bytes": 1439125,
+      "single_copy_hashes": 2
+    },
+    "private/ig/research": {
+      "files": 5,
+      "bytes": 1675698,
+      "single_copy_hashes": 5
+    },
+    "private/ig/reviews": {
+      "files": 279,
+      "bytes": 22805235,
+      "single_copy_hashes": 278
+    },
+    "private/ig/_checks": {
+      "files": 15,
+      "bytes": 3002,
+      "single_copy_hashes": 10
+    }
+  },
+  "original_manifest_checks": [
+    {
+      "manifest": "private/archive/poc-2026-10-11/manifest.json",
+      "entries": 3117,
+      "mismatches": []
+    },
+    {
+      "manifest": "pre-poc payload",
+      "entries": 392,
+      "mismatches": []
+    },
+    {
+      "manifest": "pre-poc restore-check",
+      "entries": 392,
+      "mismatches": []
+    },
+    {
+      "manifest": "restore-cli-check",
+      "entries": 392,
+      "mismatches": []
+    },
+    {
+      "manifest": "archive/legacy-2026-10-07/movement-map.json",
+      "entries": 237,
+      "mismatches": [
+        "archive/legacy-2026-10-07/project/CLAUDE.md",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/desktop-invalid/foreign-package.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.document.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.package.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.response.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.revision.yaml",
+        "archive/legacy-2026-10-07/project/docs/DIGITALIZATION.md",
+        "archive/legacy-2026-10-07/project/docs/DOD-SESSION-0.md"
+      ]
+    },
+    {
+      "manifest": "private/archive/2026-10-07-pre-poc/movement-map.json",
+      "entries": 392,
+      "mismatches": [
+        "archive/legacy-2026-10-07/project/CLAUDE.md",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/desktop-invalid/foreign-package.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.document.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.package.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.response.yaml",
+        "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.revision.yaml",
+        "archive/legacy-2026-10-07/project/docs/DIGITALIZATION.md",
+        "archive/legacy-2026-10-07/project/docs/DOD-SESSION-0.md"
+      ]
+    },
+    {
+      "manifest": "planning pre-edit snapshot",
+      "entries": 22,
+      "mismatches": []
+    }
+  ],
+  "meaning": "Byte duplicates are identified only for inventory; no deduplication or historical content reading.",
+  "migration": "not performed; external writes unavailable",
+  "legacy_variants": [
+    {
+      "path": "archive/legacy-2026-10-07/project/CLAUDE.md",
+      "expected_sha256": "b1ea2306506199b16e77191e1286c2601f355427192049dbdd21c05cfcb80f41",
+      "current_sha256": "7db935c4867288c26bb216656d7dbf819e93fcff905c5520030ab93c5eec8c60",
+      "expected_bytes": 2590,
+      "current_bytes": 2558,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/CLAUDE.md",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/contracts/fixtures/desktop-invalid/foreign-package.yaml",
+      "expected_sha256": "d0b6f945a302948605e91da2bf3d4d9e58f35cf801109db6a5cf75f5ddd6ad59",
+      "current_sha256": "10578eb17131ebc18fac9762fed1e5ac35a4ebf33c9573a44f15072d83689b48",
+      "expected_bytes": 8324,
+      "current_bytes": 7881,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/contracts/fixtures/desktop-invalid/foreign-package.yaml",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.document.yaml",
+      "expected_sha256": "a5986eeec94686e36a4daa0d1f50a5ca02aa00d5bbb836a770bc1c05a7b3e9b1",
+      "current_sha256": "69e02d4d2c0d7d840ef48eff07ea8e03813017873b2d6521b0f6764d86701623",
+      "expected_bytes": 6757,
+      "current_bytes": 6480,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/contracts/fixtures/valid/desktop.document.yaml",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.package.yaml",
+      "expected_sha256": "82f12e143055419f2a00da9be8765e4e5485ab7477b6a1ef2d319614fa522b88",
+      "current_sha256": "d73c3a2eba91f35ec765a95e2b3de3c5b81aef3a74e3cac82f4003c927154170",
+      "expected_bytes": 23364,
+      "current_bytes": 22475,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/contracts/fixtures/valid/desktop.package.yaml",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.response.yaml",
+      "expected_sha256": "b7a8491d98e1a71ec776229132d713cc03cd072c122159650eaf1c80ffb84020",
+      "current_sha256": "f4b8446c978356f057fc5d744f8c0a1e5b69096c9eb996f62350288778be400b",
+      "expected_bytes": 7460,
+      "current_bytes": 7178,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/contracts/fixtures/valid/desktop.response.yaml",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/contracts/fixtures/valid/desktop.revision.yaml",
+      "expected_sha256": "30c6fb2513d117a7f3dcb6a1569bc1656914843219909a7814b337e7bab5c24c",
+      "current_sha256": "66abe3f846612a66eae735ca814498dae0083349f5ae077206f45a30242b614b",
+      "expected_bytes": 2557,
+      "current_bytes": 2498,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/contracts/fixtures/valid/desktop.revision.yaml",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/docs/DIGITALIZATION.md",
+      "expected_sha256": "8db9bc59164343ccbd20b22550b2006786641c950d02de5ef25bfa3c739fc34b",
+      "current_sha256": "4e3a9ae2fa654d9b5256c0b94c35d8abc309f26c26108bef65416f7588195608",
+      "expected_bytes": 15208,
+      "current_bytes": 14997,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/docs/DIGITALIZATION.md",
+      "original_verified": true
+    },
+    {
+      "path": "archive/legacy-2026-10-07/project/docs/DOD-SESSION-0.md",
+      "expected_sha256": "1299d542bf4a159a6d0a978b842bc024e762c13c5f48a6080981dddd4dbf00f0",
+      "current_sha256": "5a96b014acab4470670c97b4a42ad329d2271f16af051c4db7fb3e0ec432773d",
+      "expected_bytes": 4569,
+      "current_bytes": 4535,
+      "original_preserved_at": "private/archive/2026-10-07-pre-poc/payload/docs/DOD-SESSION-0.md",
+      "original_verified": true
+    }
+  ],
+  "interpretation": "Eight pre-existing legacy variants preserved alongside byte-correct originals; no historical repair or normalization performed."
+}

@@ -1,0 +1,88 @@
+[
+  {
+    "command": ".venv/Scripts/python.exe -m pytest tests/inputs -q -p no:cacheprovider --basetemp private/workflow/checks/ig1b-repair01-input-20261012T193641Z --tb=short",
+    "exit_code": 0,
+    "tests_passed": 51,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 5.56,
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/input-tests.log",
+      "sha256": "d3ca5d01df20ee924c0b08ed303eb2f6b92415640694384edbbecef84cb28983"
+    },
+    "execution_context": "Reviewed local require_escalated for native Windows checks"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\review_controls.py",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\review_controls.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-12T19:42:58.701775+00:00",
+    "ended_utc": "2026-10-12T19:43:00.764584+00:00",
+    "wall_seconds": 2.0624571999069303,
+    "log": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/review_controls.log",
+    "execution_context": "Reviewed local require_escalated; explicit native Windows handle/link checks"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\native_handle_probe.py",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\native_handle_probe.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-12T19:43:00.764584+00:00",
+    "ended_utc": "2026-10-12T19:43:01.324252+00:00",
+    "wall_seconds": 0.5577583000995219,
+    "log": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/native_handle_probe.log",
+    "execution_context": "Reviewed local require_escalated; explicit native Windows handle/link checks"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\private_audit.py",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "private\\workflow\\runs\\IG-1B\\repair01-probes-20261012T193641Z\\private_audit.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-12T19:43:01.325475+00:00",
+    "ended_utc": "2026-10-12T19:43:03.935763+00:00",
+    "wall_seconds": 2.6118516998831183,
+    "log": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/private_audit.log",
+    "execution_context": "Reviewed local require_escalated; explicit native Windows handle/link checks"
+  },
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1B",
+    "exit_code": 0,
+    "tests_passed": 102,
+    "tests_failed": 0,
+    "reported_pytest_seconds": 57.38,
+    "log_root": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46",
+    "result": {
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-87f59f5ec0c147e7be00f4251bbb0d46\\pytest",
+      "diff_exit": 0,
+      "dry_run_exit": 0,
+      "tests_exit": 0,
+      "plan_exit": 0
+    }
+  },
+  {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    }
+  },
+  {
+    "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+    "exit_code": 0
+  },
+  {
+    "command": "SHA-256 verification of 34 baseline copies, original 59 delivery artifacts via baseline mapping, all 30 reviewer artifacts, and all 82 IG-1A artifacts",
+    "exit_code": 0,
+    "artifact": {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/preservation.json",
+      "sha256": "2ac6ea41f1906de5325a104dd7ef345971d5f8890bf8d0106d6795bf30fdb854"
+    }
+  }
+]

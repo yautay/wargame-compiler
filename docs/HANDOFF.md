@@ -1,26 +1,28 @@
-# HANDOFF
+# WGC handoff
 
-- **Ostatnia sesja:** [2026-10-10-M-POC4B-close](handoff/2026-10-10-M-POC4B-close.md)
-- **Wynik:** done
-- **Następny milestone:** M-POC5
-- **Następna karta:** M-POC5A
+<!-- Generated from docs/work/queue.json. -->
 
-Właściciel przyjął opisany ograniczony wynik M-POC4B i pozostałe blokady.
-M-POC4 zakończone w zakresie wyboru źródła, odbioru, raportu i przeglądu efektu;
-bez akceptacji znaczenia reguł/relacji, wyników sytuacji lub zgodności budżetu czasu.
-Decyzja i aktualne closure są w reviews/context-source-01/ pod
-private/poc/spqr-chapter9/. Wcześniejsze raporty/requesty/pomiary zachowane.
+Next ready task: **none**. Choose one task; do not execute a whole stage.
+Read [workflow](work/WORKFLOW.md), then use [operator prompts](work/PROMPTS.md).
 
-0 pełnych domknięć luk, 4 częściowe aktualizacje nadal blocking, 4 nowe
-deklaracje. 1 strona/1 reguła/0 tabel, 1 runda kontekstu, 0 korekt.
-Trzecie nierozstrzygnięte powiązanie bez pozyskania źródła; stop na granicy 2.
-Izolacja nazw/ścieżek naruszona, ekspozycja i czysty kontekst unknown,
-bez dowodu skażenia lub pełnej izolacji. Aktywny budżet/config unknown.
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet
+```
 
-Dokładny następny krok: osobna M-POC5A w C:/repo/wargame-compiler,
-feature/tests. Prompt: private/poc/spqr-chapter9/prompts/semantic-review-start-v1.txt.
-Oceniaj oba wyniki osobno na eval-v1, z dowodami i rzeczywistym review
-właściciela, bez autoakceptacji. Nie poprawiaj oryginałów, nie dokładaj
-pass-02 ani nowej ekstrakcji. M-POC5B dla 20 sytuacji jest osobną kartą.
+The packet lists exact context and hashes. It does not launch a model or claim the task.
+Use the staged [execution skill](skills/wgc-execute/SKILL.md) explicitly; automatic
+installation is pending. Operator selects GPT-6.1 Sol/high, records actual settings,
+and follows claim → implementation → independent review → repair → acceptance → done.
+Checkpoints and evidence live in private/workflow/runs; preserve prior attempts.
 
-[STATUS](STATUS.md), [ROADMAP](ROADMAP.md), [plan](POC-PLAN.md).
+The active SPQR PDF is in private/ig/sources/spqr-5e with verified provenance.
+The WGU inspection is input evidence, not a semantic acceptance or an exact current count.
+Neighbouring KB/WGU repositories are read-only. Required scenarios/options, missing
+materials, authorized semantic reviewer and performance hardware/thresholds must be
+pinned in the tasks that need them; they do not prevent the first source-contract task.
+
+External history relocation remains governed by [the archive register](ARCHIVES.md)
+and the queue infrastructure blockers. No archive content is needed for this packet.
+Do not use old prompts, archived operational approvals or Git history as default context.

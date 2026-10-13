@@ -1,43 +1,35 @@
-# wargame-compiler — POC ekstrakcji reguł
+# Wargame Compiler
 
-Aktywny kierunek: mały eksperyment jakości reguł i zależności na rozdziale SPQR,
-przed wyborem docelowej architektury. Nie powstał jeszcze nowy pipeline ani wynik POC.
+WGC turns a WGU knowledge base and complete source materials into an evidence-backed
+Instruction Graph, formal rule semantics, a compiled rules package, and deterministic
+legal actions and state transitions. A future AI opponent spends its context on
+strategy and chooses through a compact player interface. Gameplay legality never
+requires an LLM call.
 
-Zacznij od [STATUS](docs/STATUS.md), [HANDOFF](docs/HANDOFF.md) i [planu POC](docs/POC-PLAN.md).
-[ROADMAP](docs/ROADMAP.md) prowadzi etapy M-POC0–M-POC7,
-[karty zadań](docs/work/tasks/README.md) opisują pojedyncze sesje.
-Bootstrap wykonawcy: [CLAUDE.md](CLAUDE.md) i [playbook](docs/SESSION-PLAYBOOK.md).
+The product target includes the **entire SPQR 5E core rulebook from the start**.
+Incremental tasks build lasting parts of that product. No further POC is planned.
+There is currently no new importer, compiler, game runtime, or AI opponent.
 
-Ekstrakcja będzie wykonana w ręcznej sesji Codex; proponowany model: **GPT 6.1 Sol,
-rozumowanie wysoki**. To wybór eksperymentu, nie dowód przewagi modelu.
-Bez programowych API inferencji i automatyzacji GUI. Źródła i odpowiedzi są danymi.
-Znaczenie reguł i dalszy kierunek zatwierdza człowiek na podstawie dowodów.
+Start with [status](docs/STATUS.md), [handoff](docs/HANDOFF.md), and the
+[workflow](docs/work/WORKFLOW.md). The only task/status source of truth is
+[queue.json](docs/work/queue.json); [roadmap](docs/ROADMAP.md) and task cards are generated.
 
-Publiczne są metody, plan i karty. Tekst wydawcy, rendery, cytaty, reguły, graf,
-surowe odpowiedzi i szczegółowe sytuacje pozostają w `private/`.
-Na polecenie właściciela katalog jest wersjonowany; środowiska i pliki generowane
-pozostają ignorowane przez Git.
-Nazwy gry i wydawcy służą identyfikacji; projekt nie nadaje praw do ich materiałów.
+- [Architecture](docs/IG-WGU-ARCHITECTURE.md), [data contracts](docs/IG-DATA-MODEL.md),
+  [mechanics and profiles](docs/IG-MECHANICS-PROFILES.md), [legal action contract](docs/IG-LEGAL-ACTIONS.md).
+- [Implementation plan](docs/IG-PLAN.md), [operator prompts](docs/work/PROMPTS.md),
+  [local skills](docs/work/SKILLS.md), [environment evidence](docs/work/ENVIRONMENT.md).
+- [Archive locations and explicit access](docs/ARCHIVES.md).
 
-## Dokumenty
-
-- [Wnioski](docs/LESSONS-LEARNED.md): fakty, hipotezy i nieweryfikowane możliwości.
-- [Decyzje aktywne i historyczne](docs/adr/README.md): aktywny ADR-0039.
-- [Archiwum starego projektu](archive/legacy-2026-10-07/README.md): uruchomienie,
-  mapa przeniesień, odtworzenie i ograniczenia; historyczny M-DESK2 pozostaje partial.
-
-## Kontrole aktywnej części
-
-Aktywny projekt zawiera dokumenty i minimalne testy ciągłości. Nie ma pakietów `wgc`,
-`glu`, kontraktów runtime ani zależności od archiwum. Zachowana `.venv` jest zasobem
-środowiska; nie instaluj starego projektu w aktywnym katalogu.
-
-Uruchom z katalogu repo w PowerShell:
+Repository prose and tooling use English. Publisher text, imported KB data, and
+immutable historical records retain their original language and bytes. Game content,
+source documents, positions, and source-derived examples belong in `private/`.
 
 ```powershell
 pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet --task IG-1A
 ```
 
-Skrypt używa lokalnego TMP/TEMP, nowego basetemp i tylko `tests/`. Konfiguracja pytest
-wyklucza `archive/` oraz `private/`. Osobne testy legacy opisuje README archiwum.
-Bez commita i pusha w ramach M-POC0.
+The packet command prepares local context; it does not start a model or change task
+state. Checks validate planning and workflow, not the unimplemented game's correctness.
+Archive integrity is an explicit separate command, never part of routine checks.

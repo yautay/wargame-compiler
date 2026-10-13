@@ -1,0 +1,1728 @@
+tables:
+  - id: T-01
+    title: Kość
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Kość", "1 × k10", "2.0, 2.3"]
+          - ["Wynik „0”", "0 (nie 10)", "2.3"]
+          - ["Porównanie „≤ wartość”", "sukces przy wyniku równym lub niższym (impet, przejęcie, reorganizacja, ostrzał)", "5.32, 5.41, 10.28, 8.15"]
+          - ["Test TQ", "trafienia, gdy wynik > TQ", "10.11"]
+    notes: Wynik 0 jest najlepszym wynikiem przy porównaniach „≤” (np. impet, ostrzał).
+    refs: [R-2.3.1, R-10.11.1, R-5.32.1, R-5.41.1, R-10.28.2, R-8.15.1]
+    complete: true
+  - id: T-02
+    title: Skala gry
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Heks", "ok. 70+ kroków (jardów) między bokami", "2.5"]
+          - ["Tura", "ok. 20 minut", "2.5"]
+          - ["1 punkt Size — piechota", "100–150 ludzi (zależnie od szyku i głębokości)", "2.5"]
+          - ["1 punkt Size — jazda", "100 ludzi", "2.5"]
+          - ["Przykłady", "falanga afrykańska 1500+; principes 300; ciężka jazda rzymska ok. 300", "2.5"]
+          - ["Jednostka piechoty legionu", "2–3 manipuły", "2.5"]
+          - ["Size harcowników", "zawsze 1 — oznacza rozproszony szyk, nie liczebność", "2.4, 2.5"]
+          - ["Front falangi", "ok. 150 jardów = 2 heksy", "2.5"]
+          - ["Front jazdy", "ok. 50+ jardów = 1 heks", "2.5"]
+    refs: [R-2.5.1, R-2.5.2, R-2.4.9]
+    complete: true
+  - id: T-03
+    title: Dowódcy — wartości stałe
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["MA każdego dowódcy (niedrukowany)", "9 MP na fazę rozkazów", "4.1, 6.14"]
+          - ["Słoń dowódcy — MA, Size", "MA 9 (ruch dowódcy); Size 1", "4.1, 4.81"]
+          - ["Liczba IO na fazę", "= inicjatywa", "4.22, 5.21"]
+          - ["Liczba LC na fazę", "= wartość LC (liczba w ramce)", "4.1, 4.31"]
+          - ["Odskok przed wrogiem", "1–3 heksy", "4.72"]
+          - ["Ruch innego dowódcy przez OC", "1 IO; 2 IO, gdy tamten zaczyna w strefie kontroli wroga", "4.4, 5.22"]
+          - ["Prokonsul jako nowy OC", "strategia 1, pozostałe parametry bez zmian", "4.56"]
+          - ["Dowódca słoni (opcja 4.9)", "inicjatywa 1; najwyżej 2 w grze", "4.91, 4.94"]
+          - ["Dowódca zastępczy", "skończony do końca tury, w której wchodzi", "4.74"]
+    refs: [R-4.1.7, R-4.81.1, R-4.22.1, R-5.21.1, R-4.1.4, R-4.31.1, R-4.72.1, R-4.4.3, R-5.22.2, R-4.56.2, R-4.91.1, R-4.94.1, R-4.74.1, R-6.14.1]
+    complete: true
+  - id: T-04
+    title: Aktywacja, impet, przejęcie, rozkazy liniowe — rzuty i modyfikatory
+    tables:
+      - columns: ["Sytuacja", "Rzut / reguła", "Modyfikatory", "Źródło"]
+        rows:
+          - ["Kolejność aktywacji", "od najniższej inicjatywy; remis stron — rzut, wyższy idzie pierwszy, potem naprzemiennie", "—", "5.12"]
+          - ["Impet", "sukces: wynik ≤ inicjatywa; inaczej dowódca skończony", "–1 przy pierwszej próbie dowódcy BI (porywczość)", "5.32, 9.95"]
+          - ["Rzut zagłady (impet = 9)", "przerzut: 0–1 ponowna aktywacja przeciwnika; 2–8 skończony; 9 koniec aktywacji w turze", "—", "5.33"]
+          - ["Limit faz z rzędu", "3 (dwie z impetu); PW → OC tylko 1 próba impetu w turze", "—", "5.14, 6.81"]
+          - ["Przejęcie (gracz aktywny)", "wynik ≤ inicjatywa dowódcy przejmującego (wyższej niż wyznaczony)", "—", "5.41"]
+          - ["Przejęcie przejęcia / przejęcie impetu", "dowódca o inicjatywie ≥ przejętego; wynik ≤ jego inicjatywa", "—", "5.42"]
+          - ["Liczba prób przejęcia", "1 na stronę na aktywację", "—", "5.43"]
+          - ["Faza EIO (obie strony z elitarnym OC)", "k10 + inicjatywa dowódcy elitarnego; wyższy wygrywa; remis — nikt", "—", "5.53"]
+          - ["LC dowódcy podległego poza zasięgiem OC", "wynik ≤ strategia OC", "+1, gdy jednostka linii w strefie kontroli wroga; –1 prokonsul", "4.33, 4.56"]
+          - ["LC — położenie dowódcy", "≤ 2 heksy i LOS do jednostki linii na początku fazy; nie w strefie kontroli wroga", "—", "4.33"]
+          - ["LC w pierwszej turze", "automatycznie (dowódcy podlegli)", "—", "4.33"]
+    refs: [R-5.12.1, R-5.32.1, R-9.95.1, R-5.33.1, R-5.14.1, R-6.81.2, R-5.41.1, R-5.42.1, R-5.42.2, R-5.43.1, R-5.53.1, R-4.33.1, R-4.33.3, R-4.33.4, R-4.56.1]
+    complete: true
+  - id: T-05
+    title: Straty dowódców — rzuty wstępne
+    tables:
+      - columns: ["Sytuacja", "Rzut", "Wynik", "Źródło"]
+        rows:
+          - ["Dowódca w stosie z jednostką w walce wręcz", "k10 za każdego dowódcę", "1–9 nic; 0 → rzut na Tabeli strat dowódców (T-23)", "4.73, 8.44"]
+          - ["Dowódca w ostrzeliwanym heksie", "tylko przy niezmodyfikowanym wyniku ostrzału 0: k10", "1–9 nic; 0 → strata, dalej wg 4.73", "8.19"]
+          - ["Śmierć dowódcy na słoniu w walce", "k10", "0–6 usuń słonia; 7–9 szał słonia (9.14)", "4.84"]
+          - ["Poległy dowódca w walce wręcz", "modyfikator odwrotny", "–(charyzma + 2) dla strony poległego", "8.46"]
+          - ["Koniec szału słonia z dowódcą", "rzut na stratę (4.73)", "—", "9.14"]
+    refs: [R-4.73.1, R-8.44.1, R-8.19.1, R-4.84.1, R-8.46.7, R-9.14.5, T-23]
+    complete: true
+  - id: T-06
+    title: Uporządkowane wycofanie, PW, MLE — liczby
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Wyzwalacz", "wróg wchodzi w ≤ 2 heksy (lub zaczyna ruch w 2 heksach)", "6.51"]
+          - ["Zasięg wycofania", "różnica MA w MP (nie heksach)", "6.51"]
+          - ["Harcownicy", "do 2 heksów przed jednostką o MA ≤ ich MA", "6.51, 9.21"]
+          - ["MA falangi przy OW", "własne wycofanie: 4; przeciwnik wycofuje się przed nią: 5", "6.51"]
+          - ["Kara 1 — LG", "test TQ po wycofaniu; porażka: 1 trafienie", "6.52"]
+          - ["Kara 2 — inna piechota (nie SK, nie velites)", "1 trafienie automatycznie", "6.52"]
+          - ["Kara 3 — podejście z boku/tyłu", "1 trafienie przed wycofaniem (SK tylko z tyłu)", "6.52"]
+          - ["Ostrzał konnych łuczników przy OW", "zasięg zawsze 2; 1 strzał na wywołującego wroga na fazę", "6.55"]
+          - ["Wycofanie linii jazdy", "jednostka linii ≤ 2 heksy od uprawnionego dowódcy", "6.57"]
+          - ["PW", "OC elitarny lub inicjatywa ≥ 6; dowódca ≤ 2 heksy + LOS; linia cofa się o 1 heks", "6.81, 6.83"]
+          - ["MLE w reakcji", "wróg ≤ 2 heksy od linii stosów", "9.67"]
+          - ["MLE w ramach LC", "dalszy ruch z MA –2", "9.68"]
+    refs: [R-6.51.1, R-6.51.2, R-6.51.3, R-9.21.1, R-6.52.2, R-6.52.3, R-6.52.4, R-6.55.2, R-6.57.1, R-6.81.1, R-6.83.1, R-9.67.1, R-9.68.1]
+    complete: true
+  - id: T-07
+    title: Ruch — liczby z tekstu
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Ponowny ruch w tej samej turze (rozkaz ruchu)", "1 trafienie po ruchu (nie SK)", "6.13"]
+          - ["Falanga — MA", "4/5 (5 = rozszerzony)", "6.41"]
+          - ["Falanga — 5. MP przy pierwszym ruchu w turze", "test TQ; porażka 1 trafienie", "6.41"]
+          - ["Falanga po ruchu („Moved”)", "MA 5: 2 trafienia (bez testu); MA 4: 1 trafienie", "6.41"]
+          - ["Manewr front-bok", "1 trafienie za heks", "6.43"]
+          - ["Manewr skrętu", "test TQ, trafienia = nadwyżka, min. 1 (bez testu, gdy strefa kontroli tylko harcownika)", "6.44"]
+          - ["Odwrócenie falangi", "3 MP, bez trafień", "6.45"]
+          - ["Kolumna — zmiana szyku", "1 MP (w każdą stronę)", "6.71"]
+          - ["Kolumna — MA", "+1 (falanga: wyższy MA, czyli 6)", "6.72"]
+          - ["Kolumna — TQ", "–2", "6.75"]
+          - ["Kolumna zaatakowana wręcz", "powrót do szyku na koniec fazy, 1 trafienie", "6.76"]
+          - ["Podwójna głębokość — utworzenie", "koszt terenu + 1 MP; tylko MA 4", "9.51, 9.52"]
+          - ["Porywczość BI", "MA +1", "9.95"]
+          - ["Zmiana ukierunkowania w strefie kontroli (7.24)", "do ½ MA (w górę)", "7.24"]
+    refs: [R-6.13.1, R-6.41.1, R-6.41.2, R-6.43.1, R-6.44.1, R-6.45.1, R-6.71.1, R-6.72.1, R-6.75.1, R-6.76.1, R-9.51.1, R-9.52.1, R-9.95.1, R-7.24.1]
+    complete: true
+  - id: T-08
+    title: Zmiana ukierunkowania — koszty
+    tables:
+      - columns: ["Jednostka", "Koszt MP", "Trafienia w terenie trudnym", "Źródło"]
+        rows:
+          - ["Zwykła jednostka jednoheksowa", "1 MP za wierzchołek", "1 za wierzchołek", "7.12, 7.14"]
+          - ["Piechota legionów/al", "1 MP za dowolny obrót", "1 za wierzchołek", "7.12, 9.65, 7.14"]
+          - ["Słonie", "2 MP za wierzchołek", "brak", "7.12, 7.14"]
+          - ["Harcownicy", "0", "brak", "7.12, 7.14"]
+          - ["Piechota barbarzyńska", "1 MP za wierzchołek", "brak", "7.14, 9.91"]
+          - ["Falanga", "nie obraca się w heksie (tylko ruchem)", "—", "7.13"]
+          - ["Kolumna", "wg 6.74", "—", "7.12, 6.74"]
+          - ["Dowódcy / słoń dowódcy", "0 (dowódca bez ukierunkowania)", "—", "6.15, 4.85"]
+          - ["Reakcja (7.15)", "1 wierzchołek raz na fazę; test: k10 ± (MA ruszającego się − MA stojącego) > TQ → trafienia = nadwyżka, min. 1", "—", "7.15"]
+          - ["Jazda reagująca na piechotę", "bez testu", "—", "7.15"]
+    refs: [R-7.12.1, R-7.13.1, R-7.14.1, R-9.65.1, R-9.91.1, R-6.74.1, R-6.15.2, R-4.85.1, R-7.15.1, R-7.15.2]
+    complete: true
+  - id: T-09
+    title: Ostrzał — liczby z tekstu
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Trafienie", "wynik ≤ siła na danym zasięgu → 1 trafienie (słonie: 2, wg MRRC)", "8.15; indeks s. 42"]
+          - ["Zasięg wydłużony (cel niżej)", "zasięg +1 heks; trafia tylko DR „0” (karta 8.71: zmodyfikowany „0” lub mniej — T-22)", "8.16, T-22"]
+          - ["MISSILE LOW — łucznicy, procarze, osłony słoni", "niezmodyfikowane 9", "8.17"]
+          - ["MISSILE LOW — oszczepnicy (nie LG)", "niezmodyfikowane 7, 8, 9", "8.17"]
+          - ["LG", "MISSILE NO po pierwszym strzale", "8.17"]
+          - ["Piechota z oszczepami po walce wręcz", "MISSILE NO", "8.17"]
+          - ["Ostrzał przy wejściu / wyjściu", "zasięg 1 / zasięg 2", "8.21, 8.22"]
+          - ["H&D — odległość", "LC ≤ 4 heksy; piechota ≤ 2 heksy; nie obok celu", "8.32"]
+          - ["H&D — rozstrzygnięcie", "jak z zasięgu 1; atak w ruchu; zużywa cały MA", "8.31, 8.33"]
+          - ["Cel: harcownik", "+2 DRM", "9.22"]
+          - ["Strzelec osłabiony", "+1 DRM", "10.32"]
+          - ["Ruch strzelca (przykłady)", "+1 DRM (procarze, konna LC przy H&D); piesi oszczepnicy bez kary", "8.15, 8.33"]
+          - ["Przykład siły", "procarze, zasięg 2 → siła 2", "8.15"]
+          - ["LC H&D w bok/tył słonia", "2 trafienia przed ostrzałem", "8.34"]
+          - ["Strata dowódcy od ostrzału", "niezmodyfikowane 0, potem 0", "8.19"]
+    notes: Zestawienie liczb z tekstu instrukcji. Pełne siły na zasięgach, przypisy, DRM i zapas pocisków — MRRC przepisana z karty (T-22); nieoficjalne warianty — T-40.
+    refs: [R-8.15.1, R-8.16.1, R-8.17.1, R-8.21.1, R-8.22.1, R-8.32.1, R-8.31.2, R-8.33.1, R-9.22.1, R-10.32.1, R-8.34.1, R-8.19.1, T-22, T-40]
+    complete: true
+  - id: T-10
+    title: Testy TQ — modyfikatory z tekstu
+    tables:
+      - columns: ["Modyfikator", "Kiedy", "Źródło"]
+        rows:
+          - ["+1", "słoń atakuje PH lub HI przez heks frontowy (test przed walką)", "8.43"]
+          - ["+1", "słoń afrykański atakuje słonia indyjskiego lub broni się przed nim (test przed walką)", "8.43, 9.19"]
+          - ["+1", "jednostka atakowana przez falangę podwójnej głębokości (test przed walką)", "8.43, 9.53"]
+          - ["–1", "falanga podwójnej głębokości atakowana (test przed walką)", "8.43, 9.53"]
+          - ["–1", "BI z furią (jej test przed walką)", "8.43, 9.94"]
+          - ["+2", "jednostka atakowana przez BI z furią (test przed walką)", "8.43, 9.94"]
+          - ["+1", "piechota przepuszczająca słonia (test przed walką)", "9.11"]
+          - ["+1", "stosy z +1 wg tabeli stosu; stos rzymski różnych kolorów lub klas — wszystkie testy TQ", "6.68, 9.63"]
+          - ["TQ –2", "jednostka w kolumnie", "6.75"]
+          - ["TQ = 1", "jednostka uciekająca", "10.11, 10.27"]
+          - ["+ nadwyżka trafień, +3 atakujący", "falanga — rzut na utrzymanie (stoi przy wyniku ≤ TQ)", "8.43, 8.47"]
+          - ["± (MA ruszającego się − MA stojącego)", "zmiana ukierunkowania w reakcji", "7.15"]
+    notes: Lista zebrana z tekstu instrukcji 5. ed. Karta trafień i testów TQ (T-28, przepisana) nie ma DRM furii BI (N-29) i podaje +1 dla stosu rzymskiego tylko przy różnych kolorach (N-28) — obowiązuje tekst 5. ed.
+    refs: [R-8.43.4, R-9.19.1, R-9.53.1, R-9.94.1, R-9.11.3, R-6.68.5, R-9.63.1, R-6.75.1, R-10.11.2, R-8.43.5, R-7.15.1, T-28, N-28, N-29]
+    complete: true
+  - id: T-11
+    title: Walka wręcz — przesunięcia kolumn, mnożniki, modyfikatory rzutu
+    tables:
+      - columns: ["Element", "Skutek", "Źródło"]
+        rows:
+          - ["Stosunek Size > 1:1", "1 kolumna na poziom: atakujący w prawo, obrońca w lewo", "8.46 krok 2"]
+          - ["Zaokrąglanie Size", "atakujący wszedł obok — na korzyść atakującego (5:4 = 2:1); nie wszedł — obrońcy (5:4 = 1:1)", "8.46 krok 2"]
+          - ["Size pomijane", "słonie vs nie-słonie; wszyscy obrońcy to SK", "8.46 krok 2"]
+          - ["Charyzma", "+ charyzma jednego dowódcy atakującego; – charyzma jednego dowódcy obrońcy", "8.46 krok 3"]
+          - ["Poległy dowódca", "odwrotny DRM = charyzma + 2", "8.46 krok 3"]
+          - ["Przewaga ataku (AS)", "trafienia obrońcy × 2", "8.46 krok 4"]
+          - ["Przewaga obrony (DS)", "trafienia atakującego × 3", "8.46 krok 4"]
+          - ["Obrońca harcownik", "trafienia atakującego × ½ (w dół), maks. 1", "8.46, 9.23"]
+          - ["Atakująca LC vs PH/HI/MI/LG/BI", "trafienia obrońcy × ½ (w dół); nie dla uciekającego; kumuluje się z AS", "8.46, 9.32"]
+          - ["DD atakowana z boku/tyłu", "trafienia obrońcy × 3 zamiast × 2", "9.53"]
+          - ["Obrona falangi", "2L za każdy heks boczny z własną falangą lub w jej strefie kontroli; atakuje HI: 1L", "9.41"]
+          - ["Osłabiona jednostka", "atakuje: 1L; broni się: 1R", "10.32"]
+          - ["Przepuszczenie słonia", "trafienia obrońcy × ½ (w dół); trafienia słonia –1", "9.11"]
+          - ["Teren", "przesunięcia wg CRT", "6.26, 8.46"]
+    notes: Zestawienie z tekstu instrukcji. Przesunięcia za teren i pozostałe modyfikacje „all listed on the Shock CRT” — karta przepisana w T-26 (różnice sformułowań — N-27, N-34).
+    refs: [R-8.46.5, R-8.46.6, R-8.46.7, R-8.46.8, R-9.23.1, R-9.32.1, R-9.53.1, R-9.41.1, R-10.32.1, R-9.11.3, R-6.26.1, T-26, N-27, N-34]
+    complete: true
+  - id: T-12
+    title: Pościg jazdy
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Rzut na pościg", "wynik > TQ jazdy → pościg; inaczej przerwanie", "8.62"]
+          - ["Ruch po eliminacji obrońców", "½ MA (w górę), jeśli był obrońca-piechota; pełny MA, jeśli sama jazda", "8.62"]
+          - ["Opcja 8.66 — wartość pościgu LC/LN", "5", "8.66"]
+          - ["Opcja 8.66 — wartość pościgu RC/HC/BC", "3", "8.66"]
+          - ["Opcja 8.66 — DRM", "+1 lekka jazda numidyjska; +2 jeśli uciekła piechota; ± charyzma jednego dowódcy; –1 jazda w strefie kontroli wroga", "8.66"]
+          - ["Powrót spoza mapy", "≤ 2 heksy od heksu wyjścia; cała faza OC", "8.64"]
+    refs: [R-8.62.1, R-8.62.2, R-8.66.1, R-8.64.1]
+    complete: true
+  - id: T-13
+    title: Słonie — liczby
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Szał — wynik 0", "ku najbliższej własnej jednostce (wybiera przeciwnik); słoń dowódcy wyeliminowany", "9.14"]
+          - ["Szał — wynik 1–6", "kierunek z kompasu mapy (przez krawędź heksu)", "9.14"]
+          - ["Szał — wynik 7–9", "1. rzut: wprost od sprawcy; kolejne: słoń wyeliminowany (słoń dowódcy: reorganizacja z trafieniami TQ – 2)", "9.14"]
+          - ["Ruch w szale", "3 heksy na rzut", "9.14"]
+          - ["Zderzenie", "1 trafienie (przez front), 2 (bok/tył); jazda zawsze 2", "9.14"]
+          - ["Koniec szału", "zejście z mapy; kornak; ≥ 8 heksów od najbliższej jednostki; po 4. kolejnym rzucie", "9.14"]
+          - ["Jazda w heksie bocznym/tylnym słonia", "2 trafienia za heks", "9.15"]
+          - ["Przepuszczenie", "+1 DRM do testu piechoty; trafienia obrońcy ½; słonia –1; test przepuszczenia: trafienia = wynik – TQ", "9.11"]
+          - ["Śmierć dowódcy na słoniu", "0–6 usunięcie słonia; 7–9 szał", "4.84"]
+          - ["RP słonia / słonia dowódcy", "2 / 0", "11.1"]
+    refs: [R-9.14.1, R-9.14.3, R-9.14.4, R-9.15.1, R-9.11.3, R-4.84.1, R-11.1.1]
+    complete: true
+  - id: T-14
+    title: Doktryna triarii — progi
+    tables:
+      - columns: ["Warunek", "Wartość", "Źródło"]
+        rows:
+          - ["Kiedy obowiązuje", "bitwy z Rzymianami przed 200 p.n.e. bez Scypiona jako OC (także Kanny)", "9.7"]
+          - ["Zwolnienie z zakazu ruchu — wróg", "jednostka bojowa wroga (nie słoń) ≤ 3 heksy i w LOS", "9.71"]
+          - ["Zwolnienie z zakazu ruchu — odległość", "≥ 6 heksów od innych linii piechoty rzymskiej/al", "9.71"]
+          - ["Ruch z atakiem wręcz", "RP armii rzymskiej ≥ ½ progu wycofania (w dół)", "9.72"]
+    refs: [R-9.7.1, R-9.71.1, R-9.72.1]
+    complete: true
+  - id: T-15
+    title: Skorpiony — limity
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Ostrzał aktywny", "2 na turę, najwyżej 1 na fazę rozkazów, bez rozkazu", "9.85"]
+          - ["Ostrzał reakcyjny", "2 na fazę rozkazów wroga", "9.86"]
+          - ["Stos", "1 skorpion na heks", "9.83"]
+          - ["Zmiana trybu", "1 IO; w fazie zmiany brak ruchu/ostrzału w nowym trybie", "9.82"]
+    refs: [R-9.85.1, R-9.86.1, R-9.83.1, R-9.82.1]
+    complete: true
+  - id: T-16
+    title: Odzyskanie spójności (Recovery)
+    tables:
+      - columns: ["Sytuacja jednostki (teren czysty)", "Usuwane trafienia", "Źródło"]
+        rows:
+          - ["Nie obok wroga i poza zasięgiem/LOS niezwiązanych strzelców wroga", "2 (BI: 1)", "10.16, 9.93"]
+          - ["Nie obok wroga, w zasięgu nieprzyległych strzelców", "1", "10.16"]
+          - ["Obok jednostki bojowej wroga", "0", "10.16"]
+          - ["Limit", "maks. 2 na fazę rozkazów na jednostkę", "10.16"]
+    refs: [R-10.16.1, R-10.16.2, R-9.93.1]
+    complete: true
+  - id: T-17
+    title: Reorganizacja (Rally) — rzut
+    tables:
+      - columns: ["Wynik rzutu", "Skutek", "Źródło"]
+        rows:
+          - ["≤ inicjatywa dowódcy + 1", "jednostka zreorganizowana → rzut na Tabeli reorganizacji (T-27)", "10.28"]
+          - ["> inicjatywa + 1 i ≤ wydrukowane TQ", "ruch ucieczki o pełny MA", "10.28"]
+          - ["> inicjatywa + 1 i > wydrukowane TQ", "eliminacja", "10.28"]
+          - ["Modyfikator", "+1 dla jednostki osłabionej przed próbą", "10.33"]
+    notes: Przykład z instrukcji — inicjatywa 4, principes TQ 7 — wynik 2 sukces, 6 ucieczka, 8 eliminacja.
+    refs: [R-10.28.2, R-10.33.1, T-27]
+    complete: true
+  - id: T-18
+    title: Osłabienie (Depletion)
+    tables:
+      - columns: ["Sytuacja", "Skutek", "Źródło"]
+        rows:
+          - ["Osłabiona jednostka w ataku wręcz", "1L na CRT", "10.32"]
+          - ["Osłabiona jednostka w obronie", "1R na CRT", "10.32"]
+          - ["Ostrzał osłabionej jednostki", "+1 DRM", "10.32"]
+          - ["Osłabiona BI ucieka", "eliminacja", "10.32, 9.93"]
+          - ["Reorganizacja osłabionej", "+1 DRM do rzutu; +2 DRM na Tabeli reorganizacji", "10.33"]
+    refs: [R-10.32.1, R-10.33.1, R-9.93.2]
+    complete: true
+  - id: T-19
+    title: Punkty ucieczki (Rout Points)
+    tables:
+      - columns: ["Jednostka", "RP", "Źródło"]
+        rows:
+          - ["Jednostka bojowa (zasada ogólna)", "= TQ", "11.1"]
+          - ["Harcownik (SK)", "2", "11.1"]
+          - ["Słoń", "2", "11.1"]
+          - ["Słoń dowódcy", "0", "11.1"]
+          - ["Falanga", "2 × TQ (TQ 7 → 14)", "11.1"]
+          - ["Dowódca imienny", "5 × inicjatywa", "11.1"]
+          - ["Trybun, prefekt, dowódca zastępczy", "1 × inicjatywa", "11.1"]
+          - ["Jazda poza mapą po pościgu", "nie liczy się", "8.65"]
+    refs: [R-11.1.1, R-8.65.1]
+    complete: true
+  - id: T-20
+    title: "Tabela kosztów ruchu (6.27 Movement Cost Chart) — karta PAC"
+    tables:
+      - caption: "6.27 — koszt MP i trafienia spójności przy wejściu/przekroczeniu"
+        columns: ["Teren (Terrain Type)", "Koszt MP wejścia/przekroczenia", "Trafienia: PH, HI", "Trafienia: LG, MI, LI, SK", "Trafienia: jazda, dowódcy [a]", "Trafienia: słoń", "Trafienia: rydwan"]
+        rows:
+          - ["Teren czysty (Clear)", "1", "0", "0", "0", "0", "0"]
+          - ["Las (Woods) [COL]", "2", "1", "1", "1", "0", "1"]
+          - ["Teren nierówny (Broken) [COL]", "1", "1 [e]", "0", "1", "0", "1"]
+          - ["Bagno (Marsh) [COL]", "2", "1", "1", "1", "P", "P"]
+          - ["Strumień (Stream)", "+0", "1 [e]", "0", "0", "0", "0"]
+          - ["Wieś (Village)", "nieprzekraczalny (Impassable)", "", "", "", "", ""]
+          - ["Rzeka (River)", "nieprzekraczalna (Impassable)", "", "", "", "", ""]
+          - ["Droga gruntowa (Dirt Road)", "bez wpływu (No Effect)", "", "", "", "", ""]
+          - ["Droga rzymska (Roman Road)", "½ [b]", "0", "0", "0", "0", "0"]
+          - ["W górę o 1 poziom (Up 1 Level)", "+1", "1 [e]", "0", "0", "0", "0"]
+          - ["W górę o więcej niż 1 poziom (Up more than 1 Level) [COL] [g]", "+1 za poziom", "1 za poziom", "1", "1", "0", "0"]
+          - ["W dół o 1 poziom (Down 1 Level)", "0", "1 [e]", "0", "0", "0", "0"]
+          - ["Zmiana ukierunkowania (za wierzchołek) PLUS", "1(2) [c], [d], [f]", "0", "0", "0", "0", "0"]
+          - ["Zmiana ukierunkowania w lesie/terenie nierównym/bagnie (za wierzchołek)", "0", "1", "1", "1", "0", "1"]
+      - caption: "Koszty specjalne (Special Costs)"
+        columns: ["Czynność", "Koszt"]
+        rows:
+          - ["Wejście w kolumnę / wyjście z kolumny (Enter/Leave Column)", "1 MP"]
+          - ["Ruch w kolumnie (Column Movement)", "+1 do MA"]
+          - ["Manewr odwrócenia (Reverse Face Maneuver)", "3 MP"]
+          - ["Wejście w stos dla utworzenia podwójnej głębokości (Stack to form Double Depth)", "+1 MP"]
+          - ["Rozszerzenie linii manipularnej (Manipular Line Extension)", "–2 do MA"]
+      - caption: "Oznaczenia i przypisy karty"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["COL", "Koszty spójności z oznaczeniem COL dotyczą też jednostek w kolumnie (6.7); jednostki w kolumnie NIE płacą kosztów spójności terenu bez COL."]
+          - ["P", "Zakazane — jednostka nie może wejść do heksu."]
+          - ["a", "Dowódcy nigdy nie otrzymują trafień spójności; traktuj ich jak jazdę."]
+          - ["b", "Stawka drogi tylko, jeśli jednostka zaczyna i kończy ruch poza zasięgiem ostrzału wroga, nigdy w ten zasięg nie wchodzi i nigdy nie wchodzi w odległość 2 heksów od jednostki bojowej wroga; w chwili naruszenia — staje."]
+          - ["c", "Piechota spoza legionów/al (oprócz SK) i cała jazda: 1 MP za wierzchołek; piechota legionów/al: 1 MP za dowolny obrót; SK: bez kosztu MP."]
+          - ["d", "Odwrócenie falangi: 3 MP (karta odsyła do „6.44”); słonie i rydwany: 2 MP za wierzchołek."]
+          - ["e", "Koszt spójności nie dotyczy falang w kolumnie (karta: „6.46”); przy wchodzeniu w górę wyjątek obejmuje tylko pierwszy poziom w fazie rozkazów — za każdy następny trafienie jest."]
+          - ["f", "Jednostka na drodze rzymskiej nie płaci za obrót wykonany, by dopasować się do drogi (na karcie literówka „pat”)."]
+          - ["g", "Wiersz dotyczy jednostek wchodzących w górę o więcej niż jeden poziom w jednej fazie rozkazów."]
+      - caption: "Kontrola krzyżowa z tekstem 5. ed."
+        columns: ["Przykład / reguła", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["6.21 (przykład): HI z 2322 do 2523 — 2 heksy czyste, 2 poziomy w górę", "4 MP", "(Clear 1 + Up 1 Level +1) × 2 = 4 MP", "tak"]
+          - ["6.22 (przykład): HI / MI dwa poziomy w górę w jednym ruchu", "HI 2 trafienia; MI 1", "Up more than 1 Level: PH/HI „1 za poziom” = 2; LG/MI/LI/SK „1”", "tak"]
+          - ["6.72: falanga w kolumnie — strumień, Broken", "bez trafień", "przypis [e] przy Broken i Stream (PH/HI)", "tak (przypis odsyła do „6.46” — N-24)"]
+          - ["6.15: dowódcy płacą koszty jazdy", "koszty jazdy", "przypis [a]", "tak"]
+          - ["6.24: teren trudny = las, Broken, bagno; Aufidus i Kanny nieprzekraczalne; droga gruntowa bez wpływu; droga rzymska — niewielki wpływ", "—", "Woods/Broken/Marsh w wierszu obrotu; Village/River Impassable; Dirt Road No Effect; Roman Road ½ [b]", "tak"]
+          - ["7.12: obrót 1 MP/wierzchołek; legiony/ale 1 MP; słonie 2 MP; SK 0", "jw.", "przypisy [c], [d]; karta dodaje rydwany (2 MP za wierzchołek)", "tak"]
+          - ["7.14: obrót w terenie trudnym 1 trafienie/wierzchołek; bez kary słonie, SK, BI", "SK i BI bez kary", "SK w kolumnie „LG, MI, LI, SK” = 1; brak kolumny BI", "NIE — N-31"]
+          - ["9.91: BI bez trafień za teren przekraczalny", "0", "brak kolumny BI", "brak danych na karcie — stosuj 9.91"]
+          - ["6.45 / 6.71 / 6.72 / 9.51 / 9.68", "3 MP; 1 MP; MA +1; +1 MP; MA –2", "Special Costs: 3 MP; 1 MP; +1 to MA; +1 MP; –2 to MA", "tak"]
+    notes: |
+      Źródło: docs/update/MovChart.png (nagłówek „6.27 Movement Cost Chart”) — przepisano wszystkie wartości i przypisy. Odesłania karty „6.44” i „6.46” to
+      numeracja 4. edycji (w 5. ed. odwrócenie falangi — 6.45, falanga w kolumnie — 6.72); zob. N-24. Karta nie ma kolumny BI (stosuj 9.91) ani wyjątku SK z
+      7.14 (N-31). Obóz rzymski (Beneventum) — T-35; Trebia i Metaurus — T-36.
+    refs: [R-6.21.1, R-6.22.1, R-6.27.1, R-6.72.1, R-9.91.1, R-6.15.1, R-6.24.1, R-6.24.2, R-6.24.3, R-7.12.1, R-7.14.1, R-6.45.1, R-6.71.1, R-9.51.1, R-9.68.1, N-24, N-31, T-35, T-36]
+    complete: true
+  - id: T-21
+    title: "Tabele stosu (Stacking Charts — ruch dobrowolny i ucieczka/odwrót) — karta PAC"
+    tables:
+      - caption: "Ruch dobrowolny (Voluntary Movement)"
+        columns: ["Jednostka ruszająca się", "Przechodzenie przez (Moving Through)", "Zatrzymanie w (Stopping In)"]
+        rows:
+          - ["Podstawowa (Basic)", "dozwolone; 1 trafienie dla każdej jednostki", "niedozwolone"]
+          - ["Harcownik (SK)", "dozwolone; bez kary", "niedozwolone"]
+          - ["Rzymska LG/CO/HI* — ten sam kolor, ta sama klasa", "dozwolone; bez kary", "dozwolone; bez kary"]
+          - ["Rzymska LG/CO/HI* — ten sam kolor, inna klasa", "dozwolone; bez kary", "dozwolone; +1 do wszystkich testów TQ w stosie („while stacked”)"]
+          - ["Rzymska LG/CO/HI* — inny kolor", "dozwolone; 1 trafienie dla każdej jednostki", "dozwolone; +1 do wszystkich testów TQ w stosie („while stacked”)"]
+          - ["Velites (VE) — ten sam kolor", "dozwolone; bez kary", "niedozwolone"]
+          - ["Velites (VE) — inny kolor", "dozwolone; 1 trafienie dla każdej jednostki", "niedozwolone"]
+      - caption: "Ruch ucieczki/odwrotu (Rout/Retreat Movement)"
+        columns: ["Jednostka ruszająca się", "Przechodzenie przez (Moving Through)", "Zatrzymanie w (Stopping In)"]
+        rows:
+          - ["Podstawowa (Basic)", "dozwolone; 1 trafienie i test TQ dla jednostki stojącej (#)", "ruszająca się przechodzi jeszcze 1 heks (**); 1 trafienie i test TQ dla stojącej (#)"]
+          - ["Harcownik (SK) / velites (VE)", "dozwolone; 1 trafienie dla stojącej jednostki innej niż SK/VE; stojące SK/VE bez kary", "ruszająca się przechodzi jeszcze 1 heks (**); 1 trafienie i test TQ dla stojącej innej niż SK/VE (#); SK/VE bez kary"]
+          - ["Rzymska LG/CO/HI* — ten sam kolor", "dozwolone; bez kary", "ruszająca się przechodzi jeszcze 1 heks (**); 1 trafienie i test TQ dla stojącej innej niż VE (#; na karcie „TO Check #”); stojące VE bez kary"]
+          - ["Rzymska LG/CO/HI* — inny kolor", "dozwolone; 1 trafienie dla stojącej jednostki", "ruszająca się przechodzi jeszcze 1 heks (**); 1 trafienie i test TQ dla stojącej; trafienia = DR minus TQ"]
+      - caption: "Uwagi i przypisy kart"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["Uwaga", "Karty podają typ jednostki ruszającej się; skutki dotyczą jednostek ruszającej się i stojących, chyba że zaznaczono inaczej. Rzymskie jednostki z tym samym kolorem paska należą do tej samej organizacji."]
+          - ["*", "Dotyczy tylko dwóch jednostek; jeśli ruszająca się jest trzecią — traktuj ją jak Basic. Nie dotyczy ruszających się velites. Typ CO obejmuje CE."]
+          - ["**", "(karta ucieczki) Heks musi być pusty lub zajęty przez własne jednostki i bez terenu zakazanego; obowiązują wszystkie zasady kart stosu; brak heksu — eliminacja."]
+          - ["#", "(karta ucieczki) Jeśli DR > TQ jednostki, otrzymuje trafienia równe różnicy."]
+      - caption: "Kontrola krzyżowa z przykładami 6.63"
+        columns: ["Przykład 6.63 (instrukcja 5. ed.)", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["#1 Velites XIV przez piechotę XIV lub AS/XIV", "bez kary", "velites, ten sam kolor: bez kary", "tak"]
+          - ["#1 Velites przez inną jednostkę (także jazdę XIV)", "1 trafienie velites + 1 stojącej; nie zatrzymują się w zajętym heksie", "velites, inny kolor: 1 trafienie dla każdej jednostki; zatrzymanie niedozwolone (jazda rzymska = Basic, 6.63)", "tak"]
+          - ["#1 Hastati XIV przez piechotę XIV/AS XIV", "bez kary", "ten sam kolor (ta sama lub inna klasa): bez kary", "tak"]
+          - ["#1 Hastati przez jednostkę innego koloru", "po 1 trafieniu (hastati i stojąca)", "inny kolor: 1 trafienie dla każdej jednostki", "tak"]
+          - ["#1 Hastati przez stos HA/PR/CO/TR XIV", "1 trafienie hastatów", "hastati = trzecia jednostka → Basic: 1 trafienie dla każdej jednostki (wg uwagi — także stojących)", "częściowo — N-32"]
+          - ["#1 Hastati zatrzymują się z „any other” HA/PR/CO/TR", "+1 DRM do testów TQ całego stosu", "ten sam kolor i klasa: bez kary; inna klasa lub inny kolor: +1", "tak przy odczycie „other” = innej klasy/koloru (9.63)"]
+          - ["#2 Uciekający velites przez jednostki (nie SK/VE)", "1 trafienie stojącej", "SK/VE: 1 trafienie stojącej innej niż SK/VE", "tak"]
+          - ["#2 Uciekający velites zmuszeni stanąć w zajętym heksie", "heks dalej; stojąca: 1 trafienie + (DR – TQ), jeśli DR > TQ", "heks dalej; 1 trafienie i test TQ (#)", "tak"]
+          - ["#2 Uciekający hastati przez niestosowaną HA/PR/CO/TR XIV", "bez skutków", "ten sam kolor: bez kary", "tak"]
+          - ["#2 Uciekający hastati przez inną jednostkę lub stos", "1 trafienie stojącym", "inny kolor: 1 trafienie stojącej; stos (trzecia = Basic): 1 trafienie i test TQ (#)", "częściowo — N-32"]
+          - ["#2 Uciekający hastati zatrzymuje się w zajętym heksie (poza velites tego koloru)", "test TQ i trafienie stojącej", "ten sam kolor: 1 trafienie i test TQ stojącej innej niż VE; VE bez kary", "tak"]
+    notes: |
+      Źródła: docs/update/StackVol2.png („Voluntary Movement”) i StackRout2.png („Rout/Retreat Movement”) — skany kart PAC, przepisane w całości. Część
+      dopisków („while stacked”, „#”, przypis „#:”, „TO Check”) jest innym krojem pisma — [wniosek] naniesione później; traktowane jako część obrazu
+      źródłowego. Pojęcia Basic/Different Color/Different Class/Roman — 6.63; zasada ogólna Rzymian — 9.61; +1 do testów TQ w stosie — 6.68, 9.63 (N-28).
+    refs: [R-6.63.1, R-6.63.2, R-6.69.1, R-9.61.1, R-9.63.1, R-6.68.5, R-10.25.1, N-28, N-32]
+    complete: true
+  - id: T-22
+    title: "Tabela zasięgu i wyników ostrzału (8.71 Missile Range and Results Chart, MRRC) — karta PAC"
+    tables:
+      - caption: "8.71 — siła ostrzału na zasięgu w heksach [a]"
+        columns: ["Rodzaj broni (Missile Type)", "1", "2", "3", "4", "5", "6", "7"]
+        rows:
+          - ["[A] łucznik pieszy (Foot Archer)", "5", "3", "3", "1", "–", "–", "–"]
+          - ["[S] procarz (Slinger)", "3", "2", "–", "–", "–", "–", "–"]
+          - ["[J] oszczepnik pieszy (Foot Javelin)", "5", "–", "–", "–", "–", "–", "–"]
+          - ["[a] osłona słonia (Elephant Screen) [b]", "3", "–", "–", "–", "–", "–", "–"]
+          - ["[J] oszczepnik konny (Mounted Javelin)", "3", "–", "–", "–", "–", "–", "–"]
+          - ["[A] łucznik konny (Mounted Archer) [c]", "5", "3", "1", "–", "–", "–", "–"]
+          - ["[B] skorpion (Scorpio)", "7", "5", "5", "3", "2", "1", "0"]
+          - ["[B] skorpion — pociski zapalające (Scorpio (Flame)) [d]", "7", "5", "4", "2", "1", "0", "–"]
+      - caption: "Wynik i przypisy"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["#", "Zmodyfikowany DR ≤ liczbie na danym zasięgu — cel otrzymuje 1 trafienie; 2 trafienia, jeśli cel to słoń lub rydwan, a strzelający nie jest słoniem. Przy niezmodyfikowanym „0” i dowódcy w heksie celu — sprawdź stratę dowódcy (4.73)."]
+          - ["a", "Cel na niższym poziomie: zasięg +1 heks. Na zasięgu wydłużonym trafia tylko zmodyfikowany DR „0” lub mniej."]
+          - ["b", "Tylko ostrzał reakcyjny."]
+          - ["c", "Łucznicy konni jako jedyni strzelają podczas uporządkowanego wycofania; zasięg zawsze 2 heksy."]
+          - ["d", "Trafienie pociskiem zapalającym skorpiona w słonia — słoń natychmiast wpada w szał."]
+      - caption: "Modyfikatory rzutu (Missile Fire Die Roll Modifiers)"
+        columns: ["DRM", "Kiedy"]
+        rows:
+          - ["+1", "cel w lesie"]
+          - ["+1", "procarz, łucznik pieszy lub dowolna konna jednostka strzelająca ruszała się / będzie się ruszać"]
+          - ["+1", "strzelający osłabiony (Depleted)"]
+          - ["+2", "cel to harcownik (SK)"]
+          - ["+1", "cel to ciężka jazda katafraktów (CAT HC), strzela oszczepnik, procarz lub skorpion"]
+          - ["+2", "cel to CAT HC, strzela łucznik lub osłona słonia"]
+          - ["+1", "cel to ciężka piechota/falanga, ALBO"]
+          - ["+3", "cel to ciężka piechota/falanga, a łucznik, procarz lub osłona słonia strzela z zasięgu 1 (przyległy) przez krawędź frontową piechoty; nie kumuluje się z poprzednim"]
+          - ["+?", "teren obozu rzymskiego (zob. kartę obozu — T-35)"]
+          - ["Uwaga", "Wszystkie modyfikatory kumulują się, chyba że zaznaczono inaczej."]
+      - caption: "Zapas pocisków (Missile Supply)"
+        columns: ["Jednostki", "Stan"]
+        rows:
+          - ["łucznicy, procarze, osłony słoni", "MISSILE LOW przy niezmodyfikowanym „9”"]
+          - ["oszczepnicy konni, velites, niezrzymscy oszczepnicy piesi", "MISSILE LOW przy niezmodyfikowanym „7–9”"]
+          - ["oszczepnicy piechoty legionowej (hastati, principes, kohorty al)", "MISSILE NO po pierwszym strzale"]
+          - ["cała piechota z oszczepami po udziale w walce wręcz", "MISSILE NO po zakończeniu walki"]
+          - ["skorpiony rzymskie", "nigdy nie kończą się pociski"]
+      - caption: "Kontrola krzyżowa z tekstem 5. ed."
+        columns: ["Przykład / reguła", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["8.15 (przykład, Kanny): procarze, zasięg 2, DR 2", "siła 2 — trafienie; po ruchu (+1) — pudło", "Slinger, zasięg 2 = 2; +1 za ruch procarza", "tak"]
+          - ["8.15 / indeks: słonie — 2 trafienia", "2 trafienia „w niektórych przypadkach”", "2 dla słonia lub rydwanu, gdy strzelający nie jest słoniem", "tak (karta doprecyzowuje)"]
+          - ["8.16: zasięg wydłużony", "„a DR of 0”", "zmodyfikowany DR „0” lub mniej", "tak (karta doprecyzowuje)"]
+          - ["8.17: zapas pocisków", "9 (A, S, osłony); 7–9 (oszczepnicy nie-LG); LG — NO po 1. strzale; piechota z oszczepami po walce — NO", "jw.", "tak"]
+          - ["8.19: strata dowódcy", "niezmodyfikowane 0", "przypis #", "tak"]
+          - ["9.22 / 10.32: cel SK / strzelający osłabiony", "+2 / +1", "+2 / +1", "tak"]
+          - ["8.15 Design Note: oszczepnicy słabiej karani przy strzale w front PH/HI", "—", "+1 ogólnie; +3 tylko A, S, osłona z zasięgu 1 przez front", "tak"]
+          - ["6.55 / 9.12 / Beneventum (pociski zapalające)", "OW — łucznicy konni, zasięg 2; osłony — tylko reakcyjnie; trafiony słoń — ucieczka i szał", "przypisy c, b, d", "tak"]
+          - ["Katafrakci (CAT HC)", "brak zasad w tekście 5. ed. i w scenariuszach księgi", "+1 / +2", "brak odpowiednika — N-30"]
+    notes: |
+      Źródło: docs/update/Missile.png („8.71 Missile Range and Results Chart”) — wszystkie liczby, przypisy i DRM przepisane. Wiersz Scorpio (Flame) ma już
+      wbudowane osłabienie z opcjonalnej zasady Beneventum (R-SC1-19, N-43). Nieoficjalne warianty karty — T-40.
+    refs: [R-8.71.1, R-8.15.1, R-8.15.3, R-8.16.1, R-8.17.1, R-8.19.1, R-9.12.1, R-9.13.1, R-9.22.1, R-10.32.1, R-6.55.2, R-6.26.1, R-8.33.1, R-9.96.4, R-SC1-19, T-35, T-40, N-30, N-43]
+    complete: true
+  - id: T-23
+    title: "Tabela strat dowódców (Leader Casualty Table, 4.73) — karta PAC"
+    tables:
+      - caption: "Kiedy i jak sprawdzać"
+        columns: ["Sytuacja", "Odwołanie"]
+        rows:
+          - ["niezmodyfikowany wynik ostrzału „0” na heks z dowódcą", "8.19"]
+          - ["dowódca uczestniczy w walce wręcz", "8.44"]
+          - ["rzut k10: „0” = dowódca jest ofiarą (casualty) → drugi rzut na tabeli poniżej", "4.73"]
+      - caption: "Drugi rzut — skutek"
+        columns: ["DR", "Wynik"]
+        rows:
+          - ["0–6", "Dowódca automatycznie skończony (Finished); reszta walki wręcz przebiega normalnie. Do końca tury nie może nic robić (poza uporządkowanym wycofaniem, gdy dozwolone)."]
+          - ["7", "Ranny (Wounded): skończony w tej turze (jak wyżej); do końca gry –1 do wszystkich parametrów oprócz LC (status elitarny bez zmian). Redukcje kumulują się; inicjatywa zredukowana do 0 = śmierć."]
+          - ["8", "Jak „7”, ale parametry –2."]
+          - ["9", "Śmierć („wyprawa do Plutona”)."]
+          - ["Słoń dowódcy", "Dowódca zabity w walce: rzut — 0–6 usuń słonia; 7, 8, 9 — słoń dowódcy wpada w szał (9.14)."]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Przykład / reguła", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["s. 28 (przykład Bagradas): drugi rzut 5", "dowódca skończony do końca tury", "0–6: Finished", "tak"]
+          - ["indeks s. 42: Wounded, Killed", "ranny, zabity", "7–8 ranny; 9 zabity", "tak"]
+          - ["4.84: śmierć dowódcy na słoniu", "0–6 usuń słonia; 7–9 szał", "jw.", "tak"]
+          - ["księga scenariuszy: Pyrrus, Hannibal, Filip „ranny = 25 RP”", "—", "ranny = wynik 7–8", "spójne (R-SC1-24, R-SC3-17, R-SC4-13, R-SC5-16)"]
+    notes: |
+      Źródło: docs/update/LeaderCas.png — nagłówek „4.53 Leader Casualties” (numeracja 4. ed.; w 5. ed. 4.73 — N-24). Przepisane w całości. Rzut wstępny —
+      T-05.
+    refs: [R-4.73.1, R-8.19.1, R-8.44.1, R-4.84.1, R-9.14.1, T-05, N-24, R-SC1-24, R-SC3-17, R-SC4-13, R-SC5-16]
+    complete: true
+  - id: T-24
+    title: "Tabela przewagi (8.72 Shock Superiority Chart) — karta PAC"
+    tables:
+      - caption: "8.72 — obrońca (wiersze) × atakujący (kolumny); zawsze czytaj w dół kolumny atakującego"
+        columns: ["Typ obrońcy", "PH+", "HI+", "LG+", "MI+", "BI+", "LI", "HC+", "RC+", "LN+", "LC", "EL+", "CH+"]
+        rows:
+          - ["[PH] falanga (Phalanx)", "–", "–", "–", "–", "DS", "DS", "DS", "DS", "DS", "DS", "DS", "–"]
+          - ["[HI] ciężka piechota (Heavy Inf)", "–", "–", "AS", "–", "–", "–", "DS", "DS", "DS", "DS", "–", "–"]
+          - ["[LG] piechota legionowa (Legion Inf)", "–", "–", "–", "–", "–", "DS", "DS•#", "DS•", "–", "DS•", "–", "–"]
+          - ["[MI] średnia piechota (Medium Inf)", "AS", "–", "AS", "–", "–", "–", "–", "DS", "–", "DS•", "–", "–"]
+          - ["[BI] piechota barbarzyńska (Barbarian Inf)", "AS", "–", "AS", "–", "–", "DS", "–", "–", "–", "DS", "–", "–"]
+          - ["[LI] lekka piechota (Light Inf)", "AS", "AS", "AS", "–", "AS", "–", "–", "–", "–", "DS•", "–", "–"]
+          - ["[SK] harcownik (Skirmisher)", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS", "AS"]
+          - ["[HC] ciężka jazda (Heavy Cav)", "–", "–", "–", "–", "–", "–", "–", "DS", "–", "–", "AS", "AS"]
+          - ["[RC] jazda rzymska (Roman Cav)", "–", "–", "–", "–", "–", "–", "–", "–", "–", "–", "AS", "AS"]
+          - ["[LN] jazda z lancami (Lancer Cav)", "–", "–", "–", "–", "–", "–", "AS", "–", "–", "–", "AS", "AS"]
+          - ["[LC] lekka jazda (Light Cav)", "–", "–", "–", "–", "–", "–", "AS", "AS", "AS", "–", "AS", "AS"]
+          - ["[EL] słoń (Elephant)", "–", "–", "–", "–", "–", "–", "–", "–", "–", "–", "**", "–"]
+          - ["[CH] rydwan (Chariot)", "–", "–", "–", "–", "–", "–", "–", "–", "–", "–", "–", "–"]
+      - caption: "Legenda i uwagi karty"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["AS", "Przewaga ataku: trafienia obrońcy z CRT × 2"]
+          - ["DS", "Przewaga obrony: trafienia atakującego z CRT × 3"]
+          - ["DS•", "Jeśli obrońca ma zdolność strzelania i jest MISSILE NO — brak przewagi"]
+          - ["DS•#", "Jak DS•; ponadto przy ataku ciężkiej jazdy katafraktów — brak przewagi"]
+          - ["+", "Jednostki muszą atakować, jeśli się ruszyły (7.31)"]
+          - ["–", "Brak przewagi: trafienia normalne dla obu stron"]
+          - ["**", "Słonie indyjskie atakujące afrykańskie mają AS; w pozostałych przypadkach brak przewagi"]
+          - ["Uwaga 1", "Zawsze czytaj w dół kolumny atakującego. Użyj dostępnego systemu broni najkorzystniejszego dla każdego gracza."]
+          - ["Uwaga 2", "Każdy atak wręcz na jednostki w kolumnie daje automatycznie AS."]
+          - ["Wyjątki przewagi pozycji", "Atakujący z przewagą pozycji albo atakujący jednostkę w kolumnie ma AS. Brak przewagi pozycji (użyj tabeli): SK atakowany przez bok; jazda lub słonie atakujące słonie; atakujący w strefie kontroli jednostki wroga (innej niż SK) stojącej w jego heksie bocznym lub tylnym."]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Przykład / reguła", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["s. 28–29 (Bagradas): PH → velites (LI)", "AS", "LI × PH+ = AS", "tak"]
+          - ["8.45 przykład #2: HI → LI", "AS (typ)", "LI × HI+ = AS", "tak"]
+          - ["s. 28 (Bagradas): PH → LG frontalnie", "brak przewagi", "LG × PH+ = –", "tak"]
+          - ["s. 29 (Bagradas): MI → HI (triarii) frontalnie", "brak przewagi", "HI × MI+ = –", "tak"]
+          - ["7.31: typy z „+”", "ciężkie muszą atakować", "„+”: PH, HI, LG, MI, BI, HC, RC, LN, EL, CH; bez: LI, LC", "tak"]
+          - ["2.4: jazda rzymska — osobny wiersz w tabeli przewagi, w Tabeli starcia jak HC", "—", "osobny wiersz/kolumna RC; Clash: HC** obejmuje RC", "tak"]
+          - ["6.75: atak na kolumnę = AS", "AS", "Uwaga 2", "tak"]
+          - ["9.17 / 9.19: słoń vs słoń", "bez przewagi pozycji; odesłanie do tabel", "„Cavalry or Elephants that attack Elephants”; ** w EL × EL", "tak"]
+          - ["8.46 krok 1 A: brak przewagi pozycji", "…strefa kontroli jednostki wroga zdolnej do walki wręcz w heksie bocznym/tylnym", "…jednostki wroga innej niż harcownik", "różnica sformułowań — N-35"]
+    notes: |
+      Źródło: docs/update/ShockSup.png („8.72 Shock Superiority Chart”) — 13 × 12 komórek przepisanych; zgodność sprawdzona skryptem z nieoficjalnymi
+      arkuszami T-39 (jedyna różnica: EL → BI, N-36).
+    refs: [R-8.72.1, R-8.46.1, R-8.46.2, R-8.46.3, R-8.46.4, R-7.31.1, R-6.75.1, R-2.4.15, R-8.45.2, R-9.17.1, R-9.19.1, N-35, N-36, T-39]
+    complete: true
+  - id: T-25
+    title: "Tabela starcia włóczni i mieczy (8.73 Clash of Spears & Swords Chart) — karta PAC"
+    tables:
+      - caption: "8.73 — Front (front): obrońca (wiersze) × atakujący (kolumny) → kolumna CRT"
+        columns: ["Front (front) — obrońca", "PH", "HI", "LG", "MI", "BI", "LI@", "HC**", "LN", "LC@", "EL+", "CH"]
+        rows:
+          - ["PH", "7", "6", "5", "5", "5", "4", "5", "4", "3", "6", "8"]
+          - ["HI", "8", "7", "6", "6", "7", "5", "6", "5", "4", "7", "9"]
+          - ["LG", "7", "6", "7", "7", "6", "5", "7", "4", "4", "7", "7"]
+          - ["MI", "9", "8", "8", "7", "8", "6", "7", "6", "5", "9", "10"]
+          - ["BI", "9", "7", "6", "6", "7", "7", "5", "4", "3", "6", "10"]
+          - ["LI", "10", "9", "8", "8", "10", "7", "8", "7", "6", "11", "11"]
+          - ["SK", "13", "12", "11", "11", "12", "10", "11", "10", "9", "13", "13"]
+          - ["HC**", "9", "8", "7", "7", "7", "6", "7", "6", "5", "11", "11"]
+          - ["LN", "11", "10", "9", "9", "9", "8", "9", "8", "7", "11", "13"]
+          - ["LC", "11", "10", "10", "9", "10", "8", "9", "8", "7", "13", "13"]
+          - ["EL", "4", "3", "3", "3", "1", "1", "NA", "NA", "NA", "7", "8"]
+          - ["CH", "5", "4", "6", "3", "3", "2", "3", "2", "1", "8", "7"]
+      - caption: "8.73 — Flank (bok): obrońca (wiersze) × atakujący (kolumny) → kolumna CRT"
+        columns: ["Flank (bok) — obrońca", "PH", "HI", "LG", "MI", "BI", "LI@", "HC**", "LN", "LC@", "EL+", "CH"]
+        rows:
+          - ["PH", "12", "11", "12", "10", "10", "9", "10", "9", "8", "13", "13"]
+          - ["HI", "11", "10", "11", "10", "9", "8", "9", "8", "7", "13", "13"]
+          - ["LG", "12", "11", "9", "9", "8", "9", "9", "8", "7", "13", "11"]
+          - ["MI", "11", "10", "11", "10", "10", "9", "8", "7", "6", "13", "13"]
+          - ["BI", "11", "11", "12", "10", "10", "9", "10", "9", "8", "13", "13"]
+          - ["LI", "10", "9", "9", "8", "10", "7", "8", "7", "6", "13", "12"]
+          - ["SK", "13", "12", "12", "11", "13", "10", "11", "10", "9", "13", "13"]
+          - ["HC**", "10", "9", "9", "8", "9", "7", "8", "7", "6", "13", "12"]
+          - ["LN", "11", "10", "10", "9", "10", "8", "9", "8", "7", "13", "13"]
+          - ["LC", "11", "10", "11", "10", "11", "8", "9", "8", "7", "13", "13"]
+          - ["EL", "9", "8", "8", "7", "5", "6", "7", "6", "5", "7", "11"]
+          - ["CH", "13", "12", "13", "13", "11", "10", "3", "9", "9", "13", "13"]
+      - caption: "8.73 — Rear (tył): obrońca (wiersze) × atakujący (kolumny) → kolumna CRT"
+        columns: ["Rear (tył) — obrońca", "PH", "HI", "LG", "MI", "BI", "LI@", "HC**", "LN", "LC@", "EL+", "CH"]
+        rows:
+          - ["PH", "13", "12", "13", "12", "12", "10", "11", "11", "9", "13", "13"]
+          - ["HI", "13", "12", "12", "12", "11", "10", "11", "11", "9", "13", "13"]
+          - ["LG", "13", "12", "11", "11", "10", "11", "10", "10", "9", "13", "13"]
+          - ["MI", "12", "12", "12", "12", "13", "11", "10", "9", "7", "13", "13"]
+          - ["BI", "12", "12", "13", "12", "13", "10", "11", "11", "9", "13", "13"]
+          - ["LI", "12", "11", "12", "10", "12", "9", "10", "8", "6", "13", "13"]
+          - ["SK", "13", "12", "12", "11", "13", "10", "11", "11", "9", "13", "13"]
+          - ["HC**", "11", "10", "11", "9", "11", "8", "9", "8", "7", "13", "13"]
+          - ["LN", "12", "11", "11", "10", "11", "9", "10", "9", "8", "13", "13"]
+          - ["LC", "12", "11", "12", "11", "12", "9", "10", "9", "8", "13", "13"]
+          - ["EL", "12", "11", "11", "11", "7", "9", "10", "10", "8", "7", "13"]
+          - ["CH", "13", "12", "13", "13", "13", "10", "3", "9", "9", "13", "13"]
+      - caption: "Klucz karty"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["#", "kolumna CRT walki wręcz (T-26)"]
+          - ["**", "obejmuje jazdę rzymską (RC)"]
+          - ["+", "atakują słonie indyjskie: przesunięcie o 1 kolumnę w prawo (1R), chyba że już 13; nie dotyczy słoni atakujących słonie"]
+          - ["NA", "niedozwolone"]
+          - ["@", "LI i LC klasy A (łucznicy) nie atakują wręcz"]
+          - ["Uwaga", "skorpiony nie atakują wręcz i bronią się jak LI"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Przykład / reguła", "Kolumna z tekstu", "Kolumna z karty", "Zgodne?"]
+        rows:
+          - ["8.45 #1 / s. 28: PH → LI (front)", "10", "10", "tak"]
+          - ["8.45 #2: HI → LG (bok)", "11", "11", "tak"]
+          - ["8.45 #2: HI → LI (front)", "9", "9", "tak"]
+          - ["8.45 #3: HC → PH (tył)", "11", "11", "tak"]
+          - ["s. 28 (Bagradas): PH → LG (front)", "7", "7", "tak"]
+          - ["s. 29 (Bagradas): MI → HI (front)", "6", "6", "tak"]
+          - ["9.41 przykład: LG → PH (front)", "5", "5", "tak"]
+          - ["2.4: RC jak HC", "—", "** obejmuje RC", "tak"]
+          - ["9.81: skorpion broni się jak LI", "—", "uwaga karty", "tak"]
+          - ["9.96: rydwany galijskie — odwołania do rydwanów w tabelach się ignoruje", "—", "kolumna i wiersz CH", "stosuj 9.96"]
+    notes: |
+      Źródło: docs/update/Clash.png („8.73 Clash of Spears & Swords Chart”) — 3 × 12 × 11 komórek przepisanych i sprawdzonych skryptem z arkuszami T-39
+      (jedyna różnica: HI → LG front, N-36). Wartość 3 dla HC → CH we wszystkich aspektach pochodzi z karty ([wniosek] nietypowa, por. LN/LC → CH = 9). Tył, MI × LN: obok „9” jest drobny znak — artefakt skanu; wartość 9 czytelna.
+    refs: [R-8.73.1, R-8.45.1, R-8.45.2, R-9.41.1, R-2.4.15, R-9.81.1, R-9.96.1, R-9.19.1, N-36, T-26, T-39]
+    complete: true
+  - id: T-26
+    title: "Tabela wyników walki wręcz (8.74 Shock Combat Results Chart, CRT) — karta PAC"
+    tables:
+      - caption: "8.74 — wynik: trafienia atakującego (trafienia obrońcy)"
+        columns: ["DR", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+        rows:
+          - ["0", "6(1)", "5(2)", "4(2)", "4(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)"]
+          - ["1", "6(1)", "4(2)", "4(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(3)", "2(3)"]
+          - ["2", "5(1)", "4(2)", "4(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)"]
+          - ["3", "5(1)", "4(2)", "4(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(4)"]
+          - ["4", "5(2)", "4(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(4)", "1(3)"]
+          - ["5", "4(2)", "4(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(3)", "2(4)", "1(3)"]
+          - ["6", "4(2)", "4(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(4)", "2(4)", "1(4)"]
+          - ["7", "4(2)", "4(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(3)", "2(4)", "1(4)", "1(4)"]
+          - ["8", "4(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(3)", "2(4)", "2(4)", "1(4)", "1(4)"]
+          - ["9", "3(2)", "3(2)", "2(2)", "2(2)", "2(3)", "2(4)", "2(4)", "2(4)", "2(4)", "2(4)", "1(4)", "1(4)", "1(6)"]
+      - caption: "Przesunięcia za teren (najkorzystniejsza pozycja obrońcy) i obrona falangi"
+        columns: ["Przesunięcie", "Warunek"]
+        rows:
+          - ["1L", "wszyscy obrońcy w lesie lub na bagnie"]
+          - ["*1L", "którykolwiek obrońca na wyższym poziomie terenu niż atakujący"]
+          - ["*2L", "wszyscy obrońcy na wyższym poziomie terenu niż atakujący"]
+          - ["1R", "wszyscy obrońcy na niższym poziomie terenu niż atakujący"]
+          - ["—", "obóz rzymski — zob. kartę obozu (T-35)"]
+          - ["1L", "obrona falangi: za każdą wspierającą falangę, gdy falanga jest atakowana frontalnie przez ruszającą się ciężką piechotę"]
+          - ["2L", "obrona falangi: za każdą wspierającą falangę, gdy falanga jest atakowana frontalnie przez ruszającą się „non-Heavy Infantry other than a Phalanx”"]
+          - ["Uwaga", "wszystkie przesunięcia kumulują się, poza pozycjami z „*” (albo–albo)"]
+      - caption: "Pozostałe przesunięcia kolumn (Column Adjustments)"
+        columns: ["Przesunięcie", "Warunek"]
+        rows:
+          - ["różnica stosunku Size", "przesunięcie o liczbę kolumn w prawo/lewo wg stosunku Size; nie dotyczy walk słoni z nie-słoniami ani rydwanów z nie-rydwanami"]
+          - ["1L", "którakolwiek atakująca jednostka osłabiona (Depleted)"]
+          - ["1R", "którakolwiek broniąca się jednostka osłabiona"]
+      - caption: "Modyfikatory rzutu (Die Roll Modifiers)"
+        columns: ["DRM", "Kiedy"]
+        rows:
+          - ["+ charyzma", "dowódca w stosie z jednostką atakującą"]
+          - ["– charyzma", "dowódca w stosie z jednostką broniącą się"]
+          - ["– (charyzma + 2)", "poległ dowódca atakującego"]
+          - ["+ (charyzma + 2)", "poległ dowódca obrońcy"]
+      - caption: "Modyfikacje wyniku (Results Adjustments)"
+        columns: ["Sytuacja", "Skutek"]
+        rows:
+          - ["przewaga ataku (AS)", "wynik obrońcy × 2"]
+          - ["przewaga obrony (DS)", "wynik atakującego × 3"]
+          - ["obrońca w podwójnej głębokości atakowany z boku/tyłu", "wynik obrońcy × 3"]
+          - ["przepuszczenie słonia (9.11)", "wynik piechoty przepuszczającej × ½ (w dół); wynik słonia –1"]
+          - ["wszyscy obrońcy to SK", "wynik atakującego × ½ (w dół), najwyżej 1"]
+          - ["LC atakuje PH-HI-LG-MI-BI", "wynik obrońcy × ½ (w dół); nie, gdy obrońca uciekający"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Przykład / reguła", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["s. 28 (Bagradas): kolumna 7, DR 6", "2(2)", "2(2)", "tak"]
+          - ["s. 29 (Bagradas): kolumna 13 (10 + 3R), DR 2", "2(3)", "2(3)", "tak"]
+          - ["s. 29 (Bagradas): kolumna 6, DR 6", "2(2)", "2(2)", "tak"]
+          - ["9.41 przykład: 2 LG → PH z falangami w obu heksach bocznych", "kolumna 5 → 4L → 1; PH 1–2 trafienia; każdy LG 2–3", "kolumna 1: obrońca (1) albo (2); atakujący 3–6 (podział na 2 LG)", "tak"]
+          - ["8.46 krok 2: kiedy pomija się stosunek Size", "słonie vs nie-słonie; wszyscy obrońcy SK", "słonie vs nie-słonie; rydwany vs nie-rydwany", "różnica — N-34"]
+          - ["9.41 obrona falangi", "2L za każdy heks boczny zajęty przez własną falangę lub w jej strefie kontroli; HI — 1L; tylko atak frontalny z ruchem; nie, gdy atakuje falanga", "1L/2L „per supporting Phalanx”; 2L przy „non-Heavy Infantry other than a Phalanx”", "różnica sformułowań — N-27"]
+          - ["10.32 osłabienie", "1L w ataku / 1R w obronie", "1L / 1R", "tak"]
+          - ["8.46 kroki 3–4 (charyzma, AS/DS, SK, LC)", "jw.", "jw.", "tak"]
+          - ["9.53 / 9.11", "DD z boku/tyłu × 3; przepuszczenie × ½ i słoń –1", "jw.", "tak"]
+    notes: |
+      Źródło: docs/update/ShockCmbt1.png („8.74 Shock Combat Results Chart”) — 130 wyników przepisanych i sprawdzonych dwukrotnie na powiększeniach.
+      Nieoficjalne arkusze „* Shock” (T-39) mają tę samą siatkę poza DR 3 i DR 5 w kolumnie 13 (N-36) — obowiązuje ta karta. Inne przykłady instrukcji
+      podają tylko wyniki bez kolumny/rzutu: 2(2) (10.15 #1), 3(2) (10.15 #2), 1(4) (9.23).
+    refs: [R-8.74.1, R-8.46.5, R-8.46.6, R-8.46.7, R-8.46.8, R-6.26.1, R-9.41.1, R-9.53.1, R-9.11.3, R-10.32.1, R-10.15.2, R-9.23.1, T-35, T-39, N-27, N-34, N-36]
+    complete: true
+  - id: T-27
+    title: "Tabela reorganizacji (10.29 Rally Table) — karta PAC"
+    tables:
+      - caption: "10.29 — trafienia jednostki zreorganizowanej (DR × wydrukowane TQ)"
+        columns: ["DR", "TQ 3, 4, 5", "TQ 6, 7, 8, 9"]
+        rows:
+          - ["0, 1", "1", "1"]
+          - ["2, 3", "2", "2"]
+          - ["4, 5", "2", "2"]
+          - ["6, 7", "2", "3"]
+          - ["8, 9", "3", "4"]
+      - caption: "Modyfikator i skutki"
+        columns: ["Element", "Treść"]
+        rows:
+          - ["DRM", "+2, jeśli jednostka była wcześniej osłabiona (Depleted)"]
+          - ["Skutek", "zreorganizowane jednostki są automatycznie osłabione; zreorganizowana piechota jest automatycznie MISSILE NO"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Przykład / reguła", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["10.28 (przykład): inicjatywa 4, principes TQ 7, drugi rzut 5", "2 trafienia", "DR 4–5 × TQ 6–9 = 2", "tak"]
+          - ["10.33: jednostka osłabiona przed próbą", "+1 DRM do rzutu reorganizacji; +2 DRM na Tabeli reorganizacji", "+2 (tylko tabela)", "tak (+1 do samej próby — T-17)"]
+          - ["10.31: reorganizacja = osłabienie; piechota z bronią miotaną — MISSILE NO", "jw.", "jw.", "tak"]
+    notes: |
+      Źródło: docs/update/Rally.png („10.29 Rally Table”). [wniosek] Wynik po DRM +2 powyżej 9 (10–11) wykracza poza tabelę — stosuj wiersz „8, 9”.
+    refs: [R-10.29.1, R-10.28.3, R-10.33.1, R-10.31.1, T-17]
+    complete: true
+  - id: T-28
+    title: "Tabela trafień i testów TQ (8.75 Cohesion Hit and TQ Check Chart) — karta PAC"
+    tables:
+      - caption: "Testy TQ i testy specjalne (TQ and Special Checks)"
+        columns: ["Test, gdy…", "Wynik"]
+        rows:
+          - ["falanga próbuje manewru skrętu (Wheeling)", "trafienia = DR – TQ, minimum 1"]
+          - ["falanga używa 5 MA w pierwszym ruchu", "DR > TQ = 1 trafienie"]
+          - ["test TQ przed walką [a]", "trafienia = DR – TQ"]
+          - ["test załamania (Collapse)", "DR > TQ = ucieczka; inaczej usuń 1 trafienie"]
+          - ["jednostka, przez którą przeszła własna uciekająca jednostka (po otrzymaniu 1 trafienia) [b]", "trafienia = DR – TQ"]
+          - ["rzymscy hastati, principes i kohorty używają uporządkowanego wycofania", "DR > TQ = 1 trafienie"]
+          - ["zmiana ukierunkowania w reakcji („foot only”) [c]", "trafienia = DR – TQ, minimum 1, falanga 2 („Phallanx 2”)"]
+          - ["piechota wykonuje przepuszczenie (Pass-Thru) [d]", "trafienia = DR – TQ"]
+          - ["druga jednostka stosu, gdy jedna jednostka stosu ucieka", "DR > TQ = ucieczka"]
+          - ["jazda, gdy słoń podchodzi obok", "trafienia = DR – TQ, minimum 1"]
+          - ["dolna jednostka falangi podwójnej głębokości, gdy górna nie zda testu TQ", "trafienia = DR – TQ"]
+          - ["test ucieczki falangi (8.43) [e]", "DR > TQ = ucieczka; inaczej stoi z trafieniami = TQ – 1"]
+          - ["pościg jazdy", "DR > TQ = jazda ściga; inaczej przerywa"]
+      - caption: "Trafienia automatyczne (Automatic Cohesion Hits)"
+        columns: ["Przyczyna", "Skutek"]
+        rows:
+          - ["teren przy ruchu i/lub zmianie ukierunkowania", "zob. Tabelę kosztów ruchu (T-20)"]
+          - ["jednostka z „Moved” rusza się ponownie", "1 trafienie"]
+          - ["falanga z „Moved” rusza się ponownie z MA 5", "2 trafienia"]
+          - ["falanga — obrót front-bok (Front-to-Flank pivot)", "1 trafienie"]
+          - ["piechota po uporządkowanym wycofaniu (nie dotyczy SK ani rzymskiej piechoty innej niż triarii)", "1 trafienie"]
+          - ["uporządkowane wycofanie, gdy wróg podchodzi z boku/tyłu („form” — literówka)", "1 trafienie"]
+          - ["ruch dobrowolny przez własną jednostkę", "zob. Tabele stosu (T-21)"]
+          - ["ruch ucieczki/odwrotu przez własną jednostkę", "zob. Tabele stosu (T-21)"]
+          - ["jazda wchodzi albo strzela H&D w heks boczny/tylny słonia", "2 trafienia"]
+          - ["skuteczny ostrzał: nie-słonie strzelają do słoni lub rydwanów", "2 trafienia"]
+          - ["skuteczny ostrzał: pozostałe", "1 trafienie"]
+          - ["wyjście z kolumny wymuszone walką wręcz", "1 trafienie"]
+          - ["słoń w szale wchodzi od frontu — jazda", "2 trafienia"]
+          - ["słoń w szale wchodzi od frontu — pozostałe", "1 trafienie"]
+          - ["słoń w szale wchodzi z boku/tyłu", "2 trafienia"]
+      - caption: "Uwagi, przypisy i DRM karty"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["Uwaga", "jeśli DR – TQ < 1, przyjmij 0, chyba że zaznaczono inaczej"]
+          - ["Uwaga", "jednostki uciekające mają TQ 1"]
+          - ["Uwaga", "jednostki w kolumnie mają TQ –2"]
+          - ["Uwaga", "+1 do wszystkich rzutów TQ, gdy w stosie są jednostki rzymskie z obramowaniem różnych kolorów"]
+          - ["[a]", "bez testu, gdy obrońca to SK lub jednostka uciekająca albo gdy LI atakuje falangę, HI lub piechotę legionową przez heks frontowy"]
+          - ["[a] DRM", "+1 słoń atakujący falangę lub HI przez heksy frontowe; +1 słoń afrykański w walce ze słoniem indyjskim; +1 jednostka atakująca falangę podwójnej głębokości; –1 broniąca się falanga podwójnej głębokości"]
+          - ["[b]", "wyjątki — zob. Tabele stosu"]
+          - ["[c]", "zmodyfikuj (+ lub –) DR o różnicę między MA jednostki ruszającej się a MA jednostki reagującej"]
+          - ["[d]", "test nie dotyczy SK; piechota dodaje +1 do rzutu"]
+          - ["[e]", "DRM: trafienia ponad TQ; +3, jeśli jednostka atakowała"]
+      - caption: "Kontrola krzyżowa z tekstem 5. ed. (dawne zestawienie z tekstu)"
+        columns: ["Zdarzenie (reguła 5. ed.)", "Wartość z tekstu", "Wartość z karty", "Zgodne?"]
+        rows:
+          - ["6.13 ponowny ruch na rozkaz", "1 trafienie (nie SK)", "„Moved” Unit moves again — 1", "tak (karta nie wymienia wyjątku SK; N-07)"]
+          - ["6.41 falanga: 5. MP w 1. ruchu / ruch po „Moved”", "test (1) / 2 (MA 5) lub 1 (MA 4)", "DR > TQ = 1 / „Moved” Phalanx … 5 MA = 2", "tak (N-08)"]
+          - ["6.43 / 6.44 front-bok / skręt", "1 / DR – TQ min. 1", "1 / DR – TQ min. 1", "tak"]
+          - ["6.52 kary OW", "LG — test; inna piechota (nie SK, nie velites) — 1; z boku/tyłu — 1 (SK tylko z tyłu)", "HA/PR/CO — test; piechota poza SK i rzymską (oprócz triarii) — 1; z boku/tyłu — 1", "tak (karta pomija wyjątek SK z boku)"]
+          - ["6.68 / 9.63 stos rzymski: +1 do testów", "różne kolory LUB ten sam kolor i różne klasy", "tylko różne kolory", "NIE — N-28"]
+          - ["6.68 ucieczka w stosie", "górna ucieka → dolna też (bez testu); dolna ucieka → test górnej", "„Other unit in the stack” — test", "różnica — N-33"]
+          - ["6.76 kolumna zaatakowana wręcz", "1 trafienie", "1", "tak"]
+          - ["7.15 / 7.16 zmiana ukierunkowania w reakcji", "każda jednostka poza falangą (jazda wobec piechoty bez testu); falanga — odwrócenie; minimum 1", "tylko piechota; minimum 1, falanga 2", "NIE — N-26 (wspiera N-12)"]
+          - ["8.15 ostrzał", "1 (słonie 2)", "2 przy strzale nie-słoni w słonie/rydwany; inne 1", "tak"]
+          - ["8.43 test przed walką i DRM", "jw. + BI z furią: –1 dla BI, +2 dla atakowanego (9.94)", "brak DRM furii BI", "NIE (karta starsza) — N-29"]
+          - ["8.43 / 8.47 falanga — rzut na utrzymanie", "+ nadwyżka trafień, +3 atakujący; stoi z TQ – 1", "[e]", "tak"]
+          - ["8.47 załamanie", "TQ – 1 w strefie kontroli: sukces –1 trafienie", "Collapse Check", "tak"]
+          - ["8.62 pościg", "DR > TQ → pościg", "jw.", "tak"]
+          - ["9.11 przepuszczenie", "+1 do testu przed walką; potem test przepuszczenia DR – TQ (nie SK)", "test DR – TQ; [d]: piechota +1", "częściowo — N-33"]
+          - ["9.14 szał — zderzenie", "1 (front), 2 (bok/tył), jazda zawsze 2", "jw.", "tak"]
+          - ["9.15 jazda w heksie bocznym/tylnym słonia", "2 za heks", "2 (także przy H&D)", "tak (rozstrzyga N-15)"]
+          - ["9.16 jazda, gdy słoń podchodzi", "DR – TQ, min. 1", "jw.", "tak"]
+          - ["9.53 DD: druga jednostka testuje", "gdy pierwsza dostanie trafienia", "dolna, gdy górna nie zda testu", "tak"]
+          - ["10.11 / 10.27 / 6.75 TQ uciekającej i w kolumnie", "1 / –2", "1 / –2", "tak"]
+          - ["10.16 odzyskanie spójności; 10.28 reorganizacja", "T-16; T-17", "brak na tej karcie (zob. T-33, T-27)", "—"]
+    notes: |
+      Źródło: docs/update/CohTq.png — nagłówek „8.56 Cohesion Hit and TQ Charts” (numeracja 4. ed.; w 5. ed. 8.75 — N-24). Wszystkie pozycje przepisane.
+      Gdzie karta różni się od tekstu 5. ed., pierwszeństwo ma tekst 5. ed. (R-1.0.2) — N-26, N-28, N-29, N-33.
+    refs: [R-8.75.1, T-16, T-17, T-20, T-21, T-27, T-33, R-6.13.1, R-6.41.1, R-6.41.2, R-6.43.1, R-6.44.1, R-6.52.2, R-6.52.3, R-6.52.4, R-6.68.5, R-6.68.7, R-9.63.1, R-6.76.1, R-7.14.1, R-7.15.1, R-7.16.1, R-8.15.1, R-8.43.1, R-8.43.2, R-8.43.4, R-8.43.5, R-8.47.3, R-8.62.1, R-9.11.3, R-9.14.3, R-9.15.1, R-9.16.1, R-9.53.1, R-9.94.1, R-10.11.2, R-10.27.1, R-6.75.1, R-10.16.1, R-10.28.3, R-1.0.2, N-07, N-08, N-12, N-15, N-24, N-26, N-28, N-29, N-33]
+    complete: true
+  - id: T-29
+    title: "Karty uprawnień do rozkazów liniowych (Line Command Eligibility Charts) — scenariusze księgi 2018 (4. ed.)"
+    tables:
+      - caption: "Beneventum (s. 6)"
+        columns: ["Linia", "Rzymianie", "Epiroci"]
+        rows:
+          - ["1", "*velites (VE)", "*słonie (EL)"]
+          - ["2", "*hastati (HA) i kohorty al (CO/CE)", "*harcownicy (SK) i tracka lekka piechota (LI)"]
+          - ["3", "*principes (PR) i kohorty al (CO/CE)", "hoplici (HI), średnia (MI) i lekka (LI) piechota"]
+          - ["4", "triarii (TR)", "falangi (PH) i hoplici (HI)"]
+          - ["5", "cała jazda", "cała jazda"]
+          - ["6", "**velites (VE), jazda, AS/CE", "—"]
+          - ["Przypis *", "„*” — nie muszą przylegać; w księdze „see 4.24” (w 5. ed. odstępy w linii opisuje 4.32)", ""]
+          - ["Przypis **", "linia specjalna do wyjścia z obozu; gdy wszyscy dowódcy rzymscy są poza obozem, nie może być używana jako linia", ""]
+      - caption: "Bagradas (s. 9)"
+        columns: ["Linia", "Rzymianie", "Kartagińczycy"]
+        rows:
+          - ["1", "*velites (VE)", "*słonie (EL)"]
+          - ["2", "*hastati (HA) i kohorty al (CO/CE)", "celtycka średnia (MI), iberyjska lekka (LI) piechota"]
+          - ["3", "*principes (PR) i kohorty al (CO/CE)", "falangi (PH), celtycka średnia (MI) piechota"]
+          - ["4", "triarii (TR)", "kartagińska ciężka jazda (HC)"]
+          - ["5", "jazda legionowa (RC)", "*północnoafrykańska lekka piechota (LI)"]
+          - ["6", "—", "*iberyjska lekka piechota (LI)"]
+          - ["Przypis *", "„*” — nie muszą przylegać; w księdze „see 4.24” (w 5. ed. odstępy w linii opisuje 4.32)", ""]
+      - caption: "Kanny (s. 14; obie wersje)"
+        columns: ["Linia", "Rzymianie", "Kartagińczycy"]
+        rows:
+          - ["1", "*velites (VE)", "*balearscy procarze (SK)"]
+          - ["2", "*hastati (HA) i kohorty al (CO/CE)", "**celtycka średnia (MI), iberyjska lekka (LI) piechota"]
+          - ["3", "*principes (PR) i kohorty al (CO/CE)", "afrykańskie falangi (PH)"]
+          - ["4", "triarii (TR)", "celtycka i iberyjska jazda z lancami (LN)"]
+          - ["5", "jazda legionowa (RC)", "numidyjska lekka jazda (LC)"]
+          - ["6", "jazda al (RC)", "—"]
+          - ["Przypis *", "„*” — nie muszą przylegać; w księdze „see 4.24” (w 5. ed. odstępy w linii opisuje 4.32)", ""]
+          - ["Przypis **", "linia może używać uprzednio przygotowanego wycofania (PW) — w księdze „(6.58)”, w 5. ed. 6.8 (na karcie literówka „my use”)", ""]
+      - caption: "Zama (s. 21)"
+        columns: ["Linia", "Rzymianie", "Kartagińczycy"]
+        rows:
+          - ["1", "*velites (VE), numidyjska lekka piechota (LI)", "*słonie"]
+          - ["2", "*hastati (HA) i kohorty al (CO)", "celtycka, liguryjska, balearska, mauretańska MI"]
+          - ["3", "*principes (PR) i kohorty al (CO/CE)", "afrykańskie falangi (PH), HI z Bruttium"]
+          - ["4", "triarii (TR) i kohorty al (CO)", "kartagińska ciężka jazda (HC)"]
+          - ["5", "jazda legionów i al (RC)", "numidyjska lekka jazda (LC)"]
+          - ["6", "numidyjska lekka jazda (LC)", "północnoafrykańska lekka (LI) i zaciężna średnia (Levy MI) piechota"]
+          - ["7", "numidyjska średnia piechota (MI)", "**balearscy procarze (SK)"]
+          - ["Przypis *", "„*” — nie muszą przylegać; w księdze „see 4.24” (w 5. ed. odstępy w linii opisuje 4.32)", ""]
+          - ["Przypis **", "jednostka może być w odległości do 3 heksów od innej (bez jednostek pomiędzy itd.)", ""]
+      - caption: "Kynoskefalaj (s. 27)"
+        columns: ["Linia", "Rzymianie", "Macedończycy"]
+        rows:
+          - ["1", "*velites (VE), greccy harcownicy (SK)", "falangi"]
+          - ["2", "*hastati (HA) i kohorty al (CO/CE), dowolne 4 jednostki greckiej piechoty", "harcownicy (SK), lekka piechota (LI)"]
+          - ["3", "*principes (PR) i kohorty al (CO/CE)", "hoplici (HI), lekka piechota (LI)"]
+          - ["4", "triarii (TR)", "cała jazda"]
+          - ["5", "cała jazda", "—"]
+          - ["6", "grecka piechota sprzymierzona", "—"]
+          - ["7", "słonie", "—"]
+          - ["Przypis *", "„*” — nie muszą przylegać; w księdze „see 4.24” (w 5. ed. odstępy w linii opisuje 4.32)", ""]
+    notes: |
+      Źródło: docs/scen_book/SPQR-Scenario-Book-2018-5.pdf, s. 6, 9, 14, 21, 27 — układ dwukolumnowy sprawdzony na renderach stron (ekstrakcja tekstu
+      przestawiała wiersze 6–7). Odesłania „see 4.24” i „6.58” to numeracja 4. ed. (N-23). Scenariusz szkoleniowy (s. 28) nie ma karty. Karty bitew spoza
+      tej księgi (np. Trebia, Metaurus, Sentinum, Telamon — wspomniane w 5. ed. i na karcie T-36) nie są w źródłach (N-01).
+    refs: [R-4.31.1, R-4.32.1, R-4.53.1, R-4.54.1, R-6.81.1, R-9.24.4, R-SC1-14, R-SC2-4, R-SC3-8, R-SC4-7, R-SC5-12, N-01, N-23, T-36]
+    complete: true
+  - id: T-30
+    title: Limity i progi — ucieczka, TQ − 1, liczba rozkazów, linie, walka
+    tables:
+      - columns: ["Element", "Wartość", "Źródło"]
+        rows:
+          - ["Początkowy ruch ucieczki", "2 heksy ku krawędzi odwrotu (falanga: obiema połowami, inaczej eliminacja)", "10.22"]
+          - ["Ruch w segmencie ucieczki (faza D1)", "pełny wydrukowany MA; uciekające falangi eliminowane", "10.23"]
+          - ["Uciekający kończy ruch w zajętym heksie", "1 heks dalej; zajęty/strefa kontroli/nieprzekraczalny → eliminacja", "10.25"]
+          - ["Uciekający", "TQ = 1; każde dodatkowe trafienie → eliminacja", "10.11, 10.27"]
+          - ["Trafienia ustawiane na TQ − 1", "falanga, która się utrzymała (8.43, 8.47); posunięcie, które dałoby ucieczkę (8.51); strona, która nie uciekła w 10.15", "8.43, 8.51, 10.15"]
+          - ["Test załamania", "jednostki z trafieniami = TQ − 1 w strefie kontroli wroga; sukces −1 trafienie", "8.47"]
+          - ["Słoń dowódcy zatrzymany przez kornaka", "reorganizacja z trafieniami TQ − 2", "9.14"]
+          - ["Ruch dwóch jednostek w stosie", "2 IO (OC w stosie: 1 IO na cały stos); 1 LC, jeśli obie uprawnione; DD: 2 IO", "6.64, 9.61, 9.52"]
+          - ["Wyjście ze strefy kontroli", "wydrukowany MA > MA każdego wroga wywierającego strefę (falanga wroga = 5)", "7.23"]
+          - ["Reorganizacja", "1 próba danego dowódcy wobec danej jednostki na turę", "10.28"]
+          - ["Skład linii", "przyległość; wg karty odstęp 2 (czasem 3) heksy; 1 velites/SK nie przerywa", "4.32, 9.24"]
+          - ["Położenie dowódcy przy LC", "≤ 2 heksy od jednostki linii; OC z 2 LC — od obu linii", "4.33"]
+          - ["Ruch jednostki bojowej", "raz na fazę rozkazów (bez limitu w turze)", "6.12, 5.24"]
+          - ["Ostrzał jednostki z rozkazem", "raz na fazę rozkazów; 4 klasy broni: A, S, J, skorpiony", "8.11"]
+          - ["Walka wręcz", "atakujący — raz na segment; obrońca — raz na segment (wyjątek: pościg)", "8.42"]
+          - ["Zmiana ukierunkowania w reakcji", "1 wierzchołek raz na fazę rozkazów; falanga — odwrócenie raz na fazę", "7.15, 7.16"]
+          - ["Pościg", "ściga 1 jednostka jazdy; bez pościgu, gdy z 2 obrońców uciekł 1", "8.61"]
+          - ["Przepuszczenie słonia", "do 2 broniących się jednostek piechoty", "9.11"]
+          - ["Stos — zasada ogólna", "1 jednostka bojowa (lub połowa falangi) na heks; dowódcy i znaczniki bez limitu", "6.61"]
+          - ["Stos rzymski", "2 jednostki piechoty; trzecia wchodząca = Basic", "6.63"]
+          - ["Falanga podwójnej głębokości", "2 falangi w heksie", "9.51"]
+          - ["Skorpiony w heksie", "1", "9.83"]
+          - ["Faza EIO", "1 na turę (strona z elitarnym OC)", "5.51"]
+          - ["Fazy impetu", "najwyżej 2 dodatkowe (3 fazy z rzędu)", "5.0, 5.14"]
+          - ["Rozszerzenie linii manipularnej (MLE)", "reakcja: wróg ≤ 2 heksy od linii; w ramach LC: dalszy ruch z MA −2", "9.67, 9.68"]
+    notes: Zestawienie limitów zapisanych w tekście słownie lub cyfrą, niewystępujących w innych tabelach.
+    refs: [R-10.22.1, R-10.22.2, R-10.23.1, R-10.25.1, R-10.11.2, R-10.27.1, R-8.43.5, R-8.47.2, R-8.51.2, R-10.15.1, R-8.47.3, R-9.14.1, R-6.64.1, R-9.61.1, R-9.52.1, R-7.23.2, R-10.28.1, R-4.32.1, R-9.24.4, R-4.33.1, R-6.12.1, R-5.24.1, R-8.11.1, R-8.42.2, R-7.15.1, R-7.16.1, R-8.61.1, R-8.61.2, R-9.11.1, R-6.61.1, R-6.63.1, R-9.51.1, R-9.83.1, R-5.51.1, R-5.0.1, R-5.14.1, R-9.67.1, R-9.68.1]
+    complete: true
+  - id: T-31
+    title: "Tabela rzutu zagłady (Die Roll of Doom) — karta PAC"
+    tables:
+      - caption: "Die Roll of Doom (przerzut po wyniku 9 na impet)"
+        columns: ["DR", "Wynik"]
+        rows:
+          - ["0, 1", "Ponowna aktywacja możliwa: gra natychmiast przechodzi do przeciwnika, który może aktywować dowolnego swojego dowódcę, także skończonego. Tak ponownie aktywowany dowódca nie może sam używać impetu."]
+          - ["2–8", "Dowódca próbujący impetu jest skończony. Powrót do fazy A."]
+          - ["9", "W tej turze nie ma już aktywacji dowódców; gra przechodzi wprost do fazy ucieczki i przeładowania."]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Reguła", "Tekst 5. ed.", "Karta", "Zgodne?"]
+        rows:
+          - ["5.33 wynik 0–1", "„The leader attempting Momentum is Finished”; zakaz impetu dla ponownie aktywowanego dowódcy skończonego", "brak zdania o skończeniu próbującego; zakaz impetu dla każdego ponownie aktywowanego", "częściowo — karta skraca; wspiera N-06 (a) A"]
+          - ["5.33 wynik 2–8 i 9", "jw.", "jw.", "tak"]
+    notes: |
+      Źródło: docs/update/Doom.png („Die Roll of Doom”). Rzut po wyniku 9 na impet (5.33; T-04, T-33).
+    refs: [R-5.33.1, R-5.34.1, T-04, T-33, N-06]
+    complete: true
+  - id: T-32
+    title: "Tabela szału słoni (Elephant Rampage Table) — karta PAC"
+    tables:
+      - caption: "Elephant Rampage Table"
+        columns: ["DR", "Wynik"]
+        rows:
+          - ["0", "Słoń w szale idzie w kierunku najbliższej własnej (friendly) jednostki. Słoń dowódcy zamiast tego zostaje wyeliminowany."]
+          - ["1–6", "Słoń idzie w kierunku wskazanym przez kompas na mapie."]
+          - ["7–9", "Pierwszy rzut szału: słoń przesuwa się wprost „two hexes” od jednostki, która wywołała szał. Kolejny rzut: słoń wyeliminowany; słoń dowódcy zamiast tego natychmiast zreorganizowany z trafieniami = TQ – 2."]
+      - caption: "Kontrola krzyżowa z 9.14"
+        columns: ["Wynik", "Tekst 5. ed.", "Karta", "Zgodne?"]
+        rows:
+          - ["0", "ku najbliższej własnej jednostce (przy kilku — wybiera przeciwnik); słoń dowódcy wyeliminowany", "jw. (bez zasady wyboru)", "tak"]
+          - ["1–6", "kompas na mapie", "jw.", "tak"]
+          - ["7–9, pierwszy rzut", "kierunek wprost od sprawcy; ruch 3 heksy na każdy rzut kierunku", "„two hexes away”", "NIE — N-25"]
+          - ["7–9, kolejny rzut", "eliminacja; słoń dowódcy — reorganizacja z TQ – 2", "jw.", "tak"]
+    notes: |
+      Źródło: docs/update/Rampage.png („Elephant Rampage Table”). Pozostałe liczby szału — T-13.
+    refs: [R-9.14.1, R-9.14.3, R-9.14.4, T-13, N-16, N-25]
+    complete: true
+  - id: T-33
+    title: "Testy dowódców (Leadership Checks) — karta PAC"
+    tables:
+      - caption: "Leadership Checks"
+        columns: ["Test, gdy…", "Typ", "Wynik"]
+        rows:
+          - ["uprawnienie do LC", "A", "dowódca wydaje tylko rozkazy indywidualne"]
+          - ["uprawnienie do LC", "B", "dowódca może wydać LC lub rozkazy; DRM +1, gdy którakolwiek jednostka linii jest w strefie kontroli wroga; –1, gdy dowódca to prokonsul"]
+          - ["próba impetu", "C", "dowódca skończony; przy DR „9” — rzut na Tabeli rzutu zagłady (T-31)"]
+          - ["próba impetu", "D", "dowódca może przeprowadzić kolejną fazę rozkazów (na karcie „may conducts”)"]
+          - ["próba przejęcia (Trump)", "C", "dowódca skończony"]
+          - ["próba przejęcia (Trump)", "D", "dowódca się aktywuje; przy przejęciu impetu przejęty dowódca jest skończony; wszyscy nieaktywni dowódcy z inicjatywą taką samą lub niższą nie mogą używać impetu"]
+          - ["próba reorganizacji", "E", "DR > wydrukowane TQ — eliminacja jednostki; inaczej ruch ucieczki"]
+          - ["próba reorganizacji", "F", "jednostka zreorganizowana; odwróć na stronę osłabioną i rzuć na Tabeli reorganizacji (T-27)"]
+      - caption: "Typy testów"
+        columns: ["Typ", "Warunek"]
+        rows:
+          - ["A", "DR > strategia OC"]
+          - ["B", "DR ≤ strategia OC"]
+          - ["C", "DR > inicjatywa dowódcy"]
+          - ["D", "DR ≤ inicjatywa dowódcy"]
+          - ["E", "DR > inicjatywa dowódcy + 1"]
+          - ["F", "DR ≤ inicjatywa dowódcy + 1"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Reguła", "Tekst 5. ed.", "Karta", "Zgodne?"]
+        rows:
+          - ["4.33 / 4.56 LC poza zasięgiem OC", "DR ≤ strategia OC; +1 strefa kontroli; –1 prokonsul", "A/B + DRM", "tak"]
+          - ["5.32 / 5.33 impet", "DR ≤ inicjatywa; 9 → rzut zagłady", "C/D", "tak"]
+          - ["5.41 / 5.42 / 5.44 przejęcie", "DR ≤ inicjatywa; nieudana próba — skończony; pominięci (inicjatywa ≤ przejmującego) bez impetu", "C/D", "tak"]
+          - ["10.28 reorganizacja (inicjatywa 4, TQ 7: DR 2 sukces, 6 ucieczka, 8 eliminacja)", "≤ inicjatywa + 1; > i ≤ TQ — ucieczka; > TQ — eliminacja", "E/F", "tak"]
+    notes: |
+      Źródło: docs/update/LeadChk.png („Leadership Checks”).
+    refs: [R-4.33.3, R-4.56.1, R-5.32.1, R-5.33.1, R-5.41.1, R-5.42.1, R-5.44.2, R-10.28.2, T-04, T-17, T-27, T-31]
+    complete: true
+  - id: T-34
+    title: "Podsumowanie rozkazów i dowodzenia (5.22 Summary of Orders and Line Commands + Command Summary Chart) — karta PAC"
+    tables:
+      - caption: "Rozkaz indywidualny — każdy pozwala na jedno z poniższych"
+        columns: ["Nr", "Czynność"]
+        rows:
+          - ["1", "ruch jednej własnej jednostki; większość jednostek strzelających może strzelać w dowolnym momencie ruchu"]
+          - ["2", "ostrzał jedną jednostką bez ruchu"]
+          - ["3", "usunięcie trafień z jednej jednostki (10.16)"]
+          - ["4", "próba reorganizacji jednej uciekającej jednostki (10.28)"]
+          - ["5", "zastąpienie wyeliminowanego dowódcy (4.74)"]
+          - ["6", "zmiana kolejności w jednym stosie rzymskim (6.66)"]
+          - ["7", "przegrupowanie i powrót jazdy spoza mapy (8.64) — tylko OC; zużywa wszystkie rozkazy indywidualne fazy"]
+      - caption: "Rozkaz liniowy"
+        columns: ["Nr", "Czynność"]
+        rows:
+          - ["1", "ruch dowolnych/wszystkich jednostek jednej linii (na karcie „see 4.23” — w 5. ed. 4.32), w tym rozszerzenie linii manipularnej (9.66); ruszające się jednostki zdolne do ostrzału mogą strzelać; albo"]
+          - ["2", "ostrzał dowolnymi/wszystkimi jednostkami jednej linii bez ruchu"]
+      - caption: "Command Summary Chart — uprawnienia dowódców"
+        columns: ["Dowódca", "Faza", "Uprawnienia"]
+        rows:
+          - ["OC", "każda faza rozkazów", "IO dla dowolnych własnych jednostek bojowych; IO dla siebie, by opuścić strefę kontroli wroga; IO na ruch innych dowódców (2 rozkazy, gdy dowódca jest w strefie kontroli wroga); LC dla dowolnych linii w każdej fazie; IO na zastąpienie wyeliminowanego dowódcy; jeden IO na ruch wszystkich jednostek w heksie OC (6.64); cała faza na przegrupowanie i powrót jazdy spoza mapy (8.64)"]
+          - ["dowódca podległy (SC)", "każda faza rozkazów", "IO dla dowolnych własnych jednostek bojowych"]
+          - ["dowódca podległy (SC)", "początkowa faza rozkazów", "LC, jeśli: zaczyna fazę w zasięgu dowodzenia OC; albo jest poza nim, a DR ≤ strategia OC; albo jest to pierwsza tura scenariusza"]
+          - ["dowódca podległy (SC)", "faza impetu", "LC tylko, jeśli wydał LC w początkowej fazie rozkazów i DR ≤ strategia OC"]
+          - ["DRM", "—", "+1 do rzutu na strategię OC, jeśli jednostki linii są w strefie kontroli wroga"]
+          - ["wyjątek: prokonsul", "—", "–1 DRM przy próbie LC poza zasięgiem OC"]
+          - ["wyjątek: trybun", "—", "IO tylko dla jednej klasy jednostek z jednego legionu ALBO dowolnych velites w jednej fazie; LC tylko dla linii piechoty"]
+          - ["wyjątek: prefekt sprzymierzeńców", "—", "IO tylko dla jednej klasy jednostek z jednej ali ALBO dowolnych velites w jednej fazie; LC tylko dla linii piechoty"]
+          - ["wyjątek: prefekt jazdy", "—", "IO dla jazdy legionu albo ali w jednej fazie; LC tylko dla linii jazdy"]
+          - ["słowo ograniczenia dowodzenia", "—", "IO/LC tylko dla jednostek wskazanego typu"]
+          - ["dowodzenie kartagińskie", "—", "bez rzutu na LC w początkowej fazie rozkazów, gdy OC jest Hannibal"]
+      - caption: "Przykładowe żetony dowódców na karcie (pola wg legendy T-41)"
+        columns: ["Żeton", "Zasięg dowodzenia", "Inicjatywa", "LC", "Charyzma", "Strategia"]
+        rows:
+          - ["P. Scipio (OC, elitarny ▲)", "8", "6", "2", "3", "7"]
+          - ["Mago (SC)", "5", "4", "1", "1", "—"]
+          - ["M. Atilius (prokonsul)", "3", "3", "1", "0", "—"]
+          - ["Tribune Cassius", "4", "3", "1", "0", "—"]
+          - ["Prfct Soc Plautius", "3", "2", "1", "0", "—"]
+          - ["Prfct Eqt Falco", "4", "3", "1", "1", "—"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Reguła", "Tekst 5. ed.", "Karta", "Zgodne?"]
+        rows:
+          - ["5.22 / 5.23 rozkazy", "jw.", "jw.", "tak (odesłanie „4.23” — N-24)"]
+          - ["4.33 LC dowódcy podległego", "fazy impetu: tylko z rzutem i tylko, jeśli wydał LC w fazie początkowej; wyjątek 1. tury w akapicie o fazie początkowej", "„Momentum Orders Phase: … only if he issued one in the Initial Orders Phase and the player’s DR ≤ his OC’s Strategy”; 1. tura tylko przy fazie początkowej", "tak — rozstrzyga N-02 (a)–(c) na korzyść A"]
+          - ["4.52–4.54 trybuni i prefekci", "jw.", "jw.", "tak"]
+          - ["4.6 dowodzenie kartagińskie", "fazy początkowe bez zasięgu i rzutu", "jw.", "tak"]
+    notes: |
+      Źródło: docs/update/CommSumm.png. Wartości żetonów odczytane z ilustracji na karcie (to przykłady, nie dane OOB).
+    refs: [R-5.22.1, R-4.33.3, R-4.33.5, R-4.56.1, R-4.52.1, R-4.53.1, R-4.54.1, R-4.35.1, R-4.6.1, R-4.4.3, R-6.64.1, R-8.64.1, R-6.66.1, R-9.66.1, N-02, N-24, T-41]
+    complete: true
+  - id: T-35
+    title: "Efekty terenu obozu rzymskiego (Roman Camp Terrain Effects) — Beneventum"
+    tables:
+      - caption: "Roman Camp Terrain Effects"
+        columns: ["Teren obozu", "Koszt MP [a]", "Koszt spójności", "Wpływ na walkę wręcz", "Wpływ na ostrzał"]
+        rows:
+          - ["Brama (Gate) — od zewnątrz", "+2 (+1)", "0 (2) [b]", "2L", "zob. niżej"]
+          - ["Brama — od wewnątrz", "+2 (+1)", "0 (1) [b]", "1L", "zob. niżej"]
+          - ["Rów/wał (Ditch/Berm) — od zewnątrz", "+2", "2", "3L", "zob. niżej"]
+          - ["Rów/wał — od wewnątrz", "+1", "1", "2L", "zob. niżej"]
+          - ["Wieża (Tower) — od zewnątrz", "+1", "1 [c]", "2L [c]", "+3 [d]"]
+          - ["Wieża — od wewnątrz", "+1", "1 [c]", "1L [c]", "–1 [e]"]
+          - ["Kwatera (Billet)", "+1", "0 (1) [f]", "NE", "NE"]
+          - ["Droga (Road)", "bez wpływu — użyj innego terenu w heksie", "", "", ""]
+      - caption: "Przypisy"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["a", "Jednostki w kolumnie płacą koszt MP w nawiasie. Falangi nie przechodzą przez bramę, chyba że w kolumnie. Falangi, jazda i słonie nie przekraczają krawędzi obozu innej niż brama."]
+          - ["b", "Koszt spójności w nawiasie, gdy jednostka przechodzi przez krawędź bramy wprost w strefę kontroli wroga."]
+          - ["c", "Koszty kumulują się z kosztem/skutkiem przekroczenia rowu/wału, który jest częścią krawędzi wieży lub do niej dochodzi."]
+          - ["d", "Modyfikator NIE dotyczy łuczników ani procarzy."]
+          - ["e", "Jednostka w heksie wieży jest o poziom wyżej — obowiązuje zasięg wydłużony."]
+          - ["f", "Koszt spójności dotyczy tylko jednostek nierzymskich."]
+          - ["NE", "bez wpływu (No Effect)"]
+      - caption: "Modyfikatory ostrzału przez krawędź rowu/wału lub bramy (z wewnątrz i z zewnątrz; strzelający z wież je ignorują)"
+        columns: ["Broń", "DRM"]
+        rows:
+          - ["oszczepy", "+4"]
+          - ["procarze", "+1"]
+          - ["łucznicy", "+2"]
+      - caption: "Kontrola krzyżowa z księgą scenariuszy"
+        columns: ["Zasada", "Księga (Beneventum)", "Karta", "Zgodne?"]
+        rows:
+          - ["wieże — ostrzał z wewnątrz", "–1 DRM na normalnych zasięgach; zasięg +1 tylko z „0” (bez DRM wieży)", "wieża od wewnątrz: –1 [e]; [e] zasięg wydłużony", "tak"]
+          - ["6.24: obóz ma własną tabelę efektów terenu", "—", "ta karta", "tak"]
+    notes: |
+      Źródło: docs/update/RomanCamp.png („Roman Camp Terrain Effects”). Dotyczy scenariusza Beneventum (R-SC1-15, R-SC1-18); MRRC (T-22) i CRT (T-26)
+      odsyłają do tej karty.
+    refs: [R-6.24.2, R-SC1-15, R-SC1-18, T-22, T-26]
+    complete: true
+  - id: T-36
+    title: "Karta terenu Trebii i Metaurusa (Trebbia & Metaurus Terrain Chart) — bez scenariusza w źródłach"
+    tables:
+      - caption: "Trebbia & Metaurus Terrain Chart"
+        columns: ["Teren", "Koszt MP wejścia/przekroczenia", "Spójność: PH/HI/LG", "Spójność: MI/LI/SK", "Spójność: jazda", "Spójność: słoń"]
+        rows:
+          - ["Mała rzeka (Minor River)", "+2", "DR+2", "DR", "1", "2"]
+          - ["W górę stromego zbocza (Up Steep Slope)", "+2/NA*", "NA", "DR+2", "NA", "NA"]
+          - ["W dół stromego zbocza (Down Steep Slope)", "+1/NA*", "NA", "DR+1", "NA", "NA"]
+          - ["Strumienie Metaurusa (Metaurus Streams) **", "+1", "1", "1**", "1", "0"]
+      - caption: "Objaśnienia"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["DR", "rzut kością: wynik > TQ — różnica to liczba trafień; minimum 1 trafienie bez względu na wynik"]
+          - ["DR +#", "jak wyżej, ale liczbę dodaje się do rzutu; minimalna liczba trafień = ta liczba (legion przekraczający małą rzekę dostaje co najmniej 2 trafienia)"]
+          - ["NA", "niedozwolone"]
+          - ["*", "po stromym zboczu mogą wchodzić/schodzić tylko średnia i lekka piechota oraz piesi harcownicy"]
+          - ["**", "tylko pole bitwy nad Metaurusem (strumienie jak mini-wąwozy); SK nie płacą kosztu spójności; nad Trebią — karta SPQR (T-20)"]
+          - ["Uwaga", "nad Trebią zmiany poziomu terenu ignoruje się dla ruchu i spójności; wpływają na LOS i są używane przez opcjonalną zasadę błota (Mud), której nie ma w źródłach"]
+    notes: |
+      Źródło: docs/update/Trebbia_Metaurus Terrain chart.png — przepisane w całości. Scenariuszy Trebii i Metaurusa nie ma w księdze 2018 ani w innych
+      źródłach (N-01); zasady, do których karta odsyła („as noted below”, Mud), są niedostępne.
+    refs: [T-20, R-6.27.1, N-01]
+    complete: true
+  - id: T-37
+    title: "Sekwencja gry (3.0 The Sequence of Play) — karta PAC"
+    tables:
+      - caption: "3.0 — fazy tury wg karty"
+        columns: ["Faza", "Treść karty"]
+        rows:
+          - ["A. Aktywacja dowódcy", "gracz z nieaktywowanym dowódcą o najniższej inicjatywie aktywuje go; tu można rzucić na LC (4.33) i próbować przejęcia innego niż przejęcie impetu (5.41)"]
+          - ["B.1 Ruch i ostrzał", "a) za każdy IO jedna funkcja z 5.22 jedną jednostką; b) za każdy LC cała linia może się ruszyć i/lub strzelać (5.23); przeciwnik: OW (6.5), MLE (9.66), ostrzał reakcyjny (8.2) przez cały segment"]
+          - ["B.2 Walka wręcz", "a) wyznaczenie (SHOCK-NO TQ CHECK wg 7.33; atakujący przypisuje jednostki); b) szarża (test TQ przed walką); c) straty dowódców; d) starcie włóczni i mieczy (przewaga i kolumna); e) rozstrzygnięcie; f) załamanie, ucieczka, pościg jazdy"]
+          - ["C. Impet albo powrót do A", "rzut na impet dowódcą z poprzedniej fazy (nowa faza B) albo powrót do A; po udanym impecie przeciwnik może przejąć impet (5.42)"]
+          - ["D. Ucieczka i przeładowanie", "1. zdejmij znaczniki RALLIED; 2. ruch ucieczki (10.23); 3. przeładowanie (8.18); 4. odwróć skończonych dowódców, zdejmij MOVED, FIRED, PURSUIT/FINISHED, TRUMPED"]
+          - ["E. Wycofanie", "każdy gracz sumuje RP wyeliminowanych jednostek bojowych i dowódców; jeśli żadna armia się nie wycofuje — następna tura"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Faza", "Tekst 5. ed.", "Karta", "Zgodne?"]
+        rows:
+          - ["A–C, E", "jw.", "jw.", "tak"]
+          - ["D", "1. ruch ucieczki; 2. przeładowanie; 3. odwrócenie i zdjęcie znaczników (MOVED, RALLIED, FIRED, PURSUIT/FINISHED, TRUMPED)", "RALLIED zdejmowane w kroku 1 (przed ruchem ucieczki)", "kolejność różna — N-24 ([wniosek] bez praktycznego wpływu)"]
+    notes: |
+      Źródło: docs/update/SOP.png („3.0 The Sequence of Play”). Procedura tury — P-01; reguły R-3.0.1…R-3.0.8.
+    refs: [R-3.0.1, R-3.0.2, R-3.0.3, R-3.0.4, R-3.0.5, R-3.0.6, R-3.0.7, R-3.0.8, P-01, N-24]
+    complete: true
+  - id: T-38
+    title: "Tor punktów ucieczki i „Standard Rout Points” (PlayerAidDisplay) — plansza nieoficjalna"
+    tables:
+      - caption: "Tor punktów ucieczki (dwa egzemplarze — po jednym na stronę)"
+        columns: ["Kolumna toru", "Pola"]
+        rows:
+          - ["setki", "000, 100, 200, 300, 400, 500, 600, 700, 800, 900"]
+          - ["dziesiątki", "00, 10, 20, 30, 40, 50, 60, 70, 80, 90"]
+          - ["jedności", "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"]
+      - caption: "Standard Rout Points (na planszy)"
+        columns: ["Jednostka", "RP"]
+        rows:
+          - ["SK, EL", "2"]
+          - ["PH", "TQ × 2"]
+          - ["pozostałe jednostki", "TQ"]
+          - ["dowódcy", "inicjatywa × 3"]
+      - caption: "Kontrola krzyżowa z 11.1"
+        columns: ["Jednostka", "11.1 (5. ed.)", "Plansza", "Zgodne?"]
+        rows:
+          - ["SK, słonie", "2 (słoń dowódcy 0)", "2", "tak (plansza pomija słonia dowódcy)"]
+          - ["falanga", "2 × TQ", "TQ × 2", "tak"]
+          - ["pozostałe", "TQ", "TQ", "tak"]
+          - ["dowódcy", "imienni 5 × inicjatywa; trybuni, prefekci, zastępczy 1 × inicjatywa", "inicjatywa × 3", "NIE — N-36"]
+    notes: |
+      Źródło: docs/update/PlayerAidDisplay.jpg — plansza bez numeru reguły i oznaczeń wydawcy ([wniosek] fanowska lub z innej edycji). Obowiązuje 11.1
+      (T-19).
+    refs: [R-11.1.1, T-19, N-36]
+    complete: true
+  - id: T-39
+    title: "Arkusze walki wręcz wg typu atakującego („BI/Ch/EL/HC/HI/LC/LG/LI/LN/MI/PH/RC Shock”) — pomoc nieoficjalna"
+    tables:
+      - caption: "Arkusze „* Shock” — Front (front): atakujący (wiersze) × obrońca (kolumny) → kolumna CRT i przewaga (kolor)"
+        columns: ["Front (front) — atakujący", "PH", "HI", "LG", "MI", "BI", "LI", "SK", "HC", "RC", "LN", "LC", "EL", "CH"]
+        rows:
+          - ["PH", "7", "8", "7", "9 AS", "9 AS", "10 AS", "13 AS", "9", "9", "11", "11", "4", "5"]
+          - ["HI", "6", "7", "7", "8", "7", "9 AS", "12 AS", "8", "8", "10", "10", "3", "4"]
+          - ["LG", "5", "6 AS", "7", "8 AS", "6 AS", "8 AS", "11 AS", "7", "7", "9", "10", "3", "6"]
+          - ["MI", "5", "6", "7", "7", "6", "8", "11 AS", "7", "7", "9", "9", "3", "3"]
+          - ["BI", "5 DS", "7", "6", "8", "7", "10 AS", "12 AS", "7", "7", "9", "10", "1", "3"]
+          - ["LI", "4 DS", "5", "5 DS", "6", "7 DS", "7", "10 AS", "6", "6", "8", "8", "1", "2"]
+          - ["HC", "5 DS", "6 DS", "7 DS*#", "7", "5", "8", "11 AS", "7", "7", "9 AS", "9 AS", "—", "3"]
+          - ["RC", "5 DS", "6 DS", "7 DS*#", "7 DS", "5", "8", "11 AS", "7 DS", "7", "9", "9 AS", "—", "3"]
+          - ["LN", "4 DS", "5 DS", "4", "6", "4", "7", "10 AS", "6", "6", "8", "8 AS", "—", "2"]
+          - ["LC", "3 DS", "4 DS", "4 DS*", "5 DS", "3 DS", "6 DS*", "9 AS", "5", "5", "7", "7", "—", "1"]
+          - ["EL", "6 DS", "7", "7", "9", "6 DS", "11", "13 AS", "11 AS", "11 AS", "11 AS", "13 AS", "7 (indyjski vs afrykański: AS**)", "8"]
+          - ["CH", "8", "9", "7", "10", "10", "11", "13 AS", "11 AS", "11 AS", "13 AS", "13 AS", "8", "7"]
+      - caption: "Arkusze „* Shock” — Flank (bok): atakujący (wiersze) × obrońca (kolumny) → kolumna CRT i przewaga (kolor)"
+        columns: ["Flank (bok) — atakujący", "PH", "HI", "LG", "MI", "BI", "LI", "SK", "HC", "RC", "LN", "LC", "EL", "CH"]
+        rows:
+          - ["PH", "12 AS", "11 AS", "12 AS", "11 AS", "11 AS", "10 AS", "13 AS", "10 AS", "10 AS", "11 AS", "11 AS", "9 AS", "13 AS"]
+          - ["HI", "11 AS", "10 AS", "11 AS", "10 AS", "11 AS", "9 AS", "12 AS", "9 AS", "9 AS", "10 AS", "10 AS", "8 AS", "12 AS"]
+          - ["LG", "12 AS", "11 AS", "9 AS", "11 AS", "12 AS", "9 AS", "12 AS", "9 AS", "9 AS", "10 AS", "11 AS", "8 AS", "13 AS"]
+          - ["MI", "10 AS", "10 AS", "9 AS", "10 AS", "10 AS", "8 AS", "11 AS", "8 AS", "8 AS", "9 AS", "10 AS", "7 AS", "13 AS"]
+          - ["BI", "10 AS", "9 AS", "8 AS", "10 AS", "10 AS", "10 AS", "13 AS", "9 AS", "9 AS", "10 AS", "11 AS", "5 AS", "11 AS"]
+          - ["LI", "9 AS", "8 AS", "9 AS", "9 AS", "9 AS", "7 AS", "10 AS", "7 AS", "7 AS", "8 AS", "8 AS", "6 AS", "10 AS"]
+          - ["HC", "10 AS", "9 AS", "9 AS", "8 AS", "10 AS", "8 AS", "11 AS", "8 AS", "8 AS", "9 AS", "9 AS", "7", "3 AS"]
+          - ["RC", "10 AS", "9 AS", "9 AS", "8 AS", "10 AS", "8 AS", "11 AS", "8 AS", "8 AS", "9 AS", "9 AS", "7", "3 AS"]
+          - ["LN", "9 AS", "8 AS", "8 AS", "7 AS", "9 AS", "7 AS", "10 AS", "7 AS", "7 AS", "8 AS", "8 AS", "6", "9 AS"]
+          - ["LC", "8 AS", "7 AS", "7 AS", "6 AS", "8 AS", "6 AS", "9 AS", "6 AS", "6 AS", "7 AS", "7 AS", "5", "9 AS"]
+          - ["EL", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "7 (indyjski vs afrykański: AS**)", "13 AS"]
+          - ["CH", "13 AS", "13 AS", "11 AS", "13 AS", "13 AS", "12 AS", "13 AS", "12 AS", "12 AS", "13 AS", "13 AS", "11 AS", "13 AS"]
+      - caption: "Arkusze „* Shock” — Rear (tył): atakujący (wiersze) × obrońca (kolumny) → kolumna CRT i przewaga (kolor)"
+        columns: ["Rear (tył) — atakujący", "PH", "HI", "LG", "MI", "BI", "LI", "SK", "HC", "RC", "LN", "LC", "EL", "CH"]
+        rows:
+          - ["PH", "13 AS", "13 AS", "13 AS", "12 AS", "12 AS", "12 AS", "13 AS", "11 AS", "11 AS", "12 AS", "12 AS", "12 AS", "13 AS"]
+          - ["HI", "12 AS", "12 AS", "12 AS", "12 AS", "12 AS", "11 AS", "12 AS", "10 AS", "10 AS", "11 AS", "11 AS", "11 AS", "12 AS"]
+          - ["LG", "13 AS", "12 AS", "11 AS", "12 AS", "13 AS", "12 AS", "12 AS", "11 AS", "11 AS", "11 AS", "12 AS", "11 AS", "13 AS"]
+          - ["MI", "12 AS", "12 AS", "11 AS", "12 AS", "12 AS", "10 AS", "11 AS", "9 AS", "9 AS", "10 AS", "11 AS", "11 AS", "13 AS"]
+          - ["BI", "12 AS", "11 AS", "10 AS", "13 AS", "13 AS", "12 AS", "13 AS", "11 AS", "11 AS", "11 AS", "12 AS", "7 AS", "13 AS"]
+          - ["LI", "10 AS", "10 AS", "11 AS", "11 AS", "10 AS", "9 AS", "10 AS", "8 AS", "8 AS", "9 AS", "9 AS", "9 AS", "10 AS"]
+          - ["HC", "11 AS", "11 AS", "10 AS", "10 AS", "11 AS", "10 AS", "11 AS", "9 AS", "9 AS", "10 AS", "10 AS", "10", "3 AS"]
+          - ["RC", "11 AS", "11 AS", "10 AS", "10 AS", "11 AS", "10 AS", "11 AS", "9 AS", "9 AS", "10 AS", "10 AS", "10", "3 AS"]
+          - ["LN", "11 AS", "11 AS", "10 AS", "9 AS", "11 AS", "8 AS", "11 AS", "8 AS", "8 AS", "9 AS", "9 AS", "10", "9 AS"]
+          - ["LC", "9 AS", "9 AS", "9 AS", "7 AS", "9 AS", "6 AS", "9 AS", "7 AS", "7 AS", "8 AS", "8 AS", "8", "9 AS"]
+          - ["EL", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "7 (indyjski vs afrykański: AS**)", "13 AS"]
+          - ["CH", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS", "13 AS"]
+      - caption: "Siatka CRT na arkuszach (identyczna na wszystkich 12; „Rolls” × kolumna)"
+        columns: ["DR", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+        rows:
+          - ["0", "6(1)", "5(2)", "4(2)", "4(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)"]
+          - ["1", "6(1)", "4(2)", "4(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(3)", "2(3)"]
+          - ["2", "5(1)", "4(2)", "4(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)"]
+          - ["3", "5(1)", "4(2)", "4(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)"]
+          - ["4", "5(2)", "4(2)", "3(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(4)", "1(3)"]
+          - ["5", "4(2)", "4(2)", "3(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(3)", "2(4)", "1(4)"]
+          - ["6", "4(2)", "4(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(4)", "2(4)", "1(4)"]
+          - ["7", "4(2)", "4(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(3)", "2(4)", "1(4)", "1(4)"]
+          - ["8", "4(2)", "3(2)", "2(2)", "2(2)", "2(2)", "2(3)", "2(3)", "2(3)", "2(3)", "2(4)", "2(4)", "1(4)", "1(4)"]
+          - ["9", "3(2)", "3(2)", "2(2)", "2(2)", "2(3)", "2(4)", "2(4)", "2(4)", "2(4)", "2(4)", "1(4)", "1(4)", "1(6)"]
+      - caption: "Legendy arkuszy"
+        columns: ["Arkusz", "Legenda"]
+        rows:
+          - ["wszystkie", "Czerwony = przewaga ataku (obrońca × 2 trafienia); zielony = przewaga obrony (atakujący × 3 trafienia); „See the Shock Combat Results Table (8.54) for adjustments and DRM’s”"]
+          - ["HC", "* Missile No = No DS; # Cataphract HC = No DS; EL Frontal Attacks NA"]
+          - ["RC", "* Missile No = No DS; EL Frontal Attacks NA (komórka LG ma też znak #)"]
+          - ["LC", "EL Frontal Attacks NA; * Missile NO = No DS"]
+          - ["LN", "EL Frontal Attacks NA"]
+          - ["EL", "** Indian EL attacking African EL = AS"]
+      - caption: "Różnice względem kart oficjalnych (T-24, T-25, T-26) — sprawdzone skryptem (464 komórki)"
+        columns: ["Miejsce", "Arkusz nieoficjalny", "Karta oficjalna", "Obowiązuje"]
+        rows:
+          - ["HI → LG, front (kolumna)", "7", "6 (8.73)", "6"]
+          - ["EL → BI, front (przewaga)", "DS (zielony)", "– (8.72)", "–"]
+          - ["CRT, DR 3, kolumna 13", "2(3)", "2(4) (8.74)", "2(4)"]
+          - ["CRT, DR 5, kolumna 13", "1(4)", "1(3) (8.74)", "1(3)"]
+          - ["LC → MI, front (oznaczenie)", "DS bez „*”", "DS• (8.72)", "DS•"]
+          - ["RC → LG, front (oznaczenie)", "DS*#", "DS• (8.72)", "DS•"]
+    notes: |
+      Źródło: docs/update/{BI,Ch,EL,HC,HI,LC,LG,LI,LN,MI,PH,RC} Shock.png — arkusze w stylu arkusza kalkulacyjnego z ilustracjami żetonów, odsyłające do
+      „8.54” (numeracja sprzed 5. ed.) — nieoficjalne. Komórki „—” = typ obrońcy nieumieszczony na arkuszu (np. słoń atakowany od frontu przez jazdę — „EL
+      Frontal Attacks NA”). Siatki CRT 12 arkuszy porównano pikselowo (identyczne). Przewaga na bokach/tyle uwzględnia przewagę pozycji. Obowiązują karty
+      oficjalne (N-36).
+    refs: [T-24, T-25, T-26, R-8.45.1, R-8.46.2, R-8.46.3, N-36]
+    complete: true
+  - id: T-40
+    title: "Tabele ostrzału „Missile Table” i „Alt Missile Table” — pomoc nieoficjalna"
+    tables:
+      - caption: "Zasięgi i siły (obie wersje; „x” = brak)"
+        columns: ["Rodzaj broni", "1", "2", "3", "4", "5", "6", "7"]
+        rows:
+          - ["[A] Foot Archer (Alt: „Foot Archer / Balearic Slinger [e]”)", "5", "3", "3", "1", "x", "x", "x"]
+          - ["[S] Slinger", "3", "2", "x", "x", "x", "x", "x"]
+          - ["[J] Foot Javelin", "5", "x", "x", "x", "x", "x", "x"]
+          - ["[a] Elephant Screen [b]", "3", "x", "x", "x", "x", "x", "x"]
+          - ["[J] Mounted Javelin", "3", "x", "x", "x", "x", "x", "x"]
+          - ["[A] Mounted Archer [c]", "5", "3", "1", "x", "x", "x", "x"]
+          - ["[B] Scorpio", "7", "5", "5", "3", "2", "1", "0"]
+          - ["[B] Scorpio (Flame) [d]", "7", "5", "4", "2", "1", "0", "x"]
+      - caption: "Uwagi boczne"
+        columns: ["Tekst arkusza", "Wersja"]
+        rows:
+          - ["DR Same or Lower = 1 CH Hit", "obie"]
+          - ["EL/CH = 2 CH Hits unless Firer was EL", "obie"]
+          - ["DR 9 Archer, Slinger and EL Scr = Missile Low", "obie"]
+          - ["DR 6-9 Mounter Jav, Velites, and Foot Jav = Missile Low", "obie"]
+          - ["Legion Jav Fire Once then Missile Low", "obie"]
+          - ["Shock Combat = Missile NO for all Javelin Infantry", "obie"]
+          - ["[b] Reaction Fire Only", "obie"]
+          - ["[c] OW Fire = 2 Hexes", "obie"]
+          - ["Roman Scorpion Ammo Unlimit… (tekst ucięty)", "obie"]
+          - ["[d] EL Hit = Immediate Rampage", "obie"]
+          - ["[e] Ldr Cas Check 0-2 Rng 1, 0-1 Longer Ranges", "tylko Alt"]
+      - caption: "Modyfikatory (Missile Die Roll Mod's)"
+        columns: ["DRM", "Tekst arkusza", "Wersja"]
+        rows:
+          - ["+1", "Target in Woods", "obie"]
+          - ["+1", "[S], [A], Mount [J,A] moved/moving", "obie"]
+          - ["+1", "Firing Unit Depleted", "obie"]
+          - ["+2", "Target Skirmisher", "obie"]
+          - ["+1", "Target Cat HC by [J][S][B]", "obie"]
+          - ["+2", "T Cat HC by [A], EL Scr", "obie"]
+          - ["+1", "Target HI/PH (Alt: „[e] N/A”)", "obie"]
+          - ["+3", "Tar HI/PH adj front by [A], [S], EL Scr (Alt: „[e] +1”)", "obie"]
+      - caption: "Różnice względem 8.71 (T-22)"
+        columns: ["Element", "Arkusz", "8.71", "Obowiązuje"]
+        rows:
+          - ["zasięgi i siły", "identyczne („x” zamiast „–”)", "—", "8.71"]
+          - ["MISSILE LOW oszczepników konnych, velites, oszczepników pieszych", "6–9", "7–9 (nie-rzymscy piesi)", "8.71"]
+          - ["oszczepnicy legionowi po 1. strzale", "MISSILE LOW", "MISSILE NO", "8.71"]
+          - ["balearscy procarze [e] (Alt)", "wiersz łuczników, własny test strat dowódców, inne DRM vs HI/PH", "brak — procarze balearscy to [S]", "8.71"]
+    notes: |
+      Źródło: docs/update/Missile Table.png i Alt Missile Table.png — arkusze w stylu arkusza kalkulacyjnego z ilustracjami żetonów; nieoficjalne (N-36).
+      Obowiązuje T-22.
+    refs: [T-22, R-8.17.1, N-36]
+    complete: true
+  - id: T-41
+    title: "Legenda żetonów (Combat Units / Examples of Units) — karta PAC"
+    tables:
+      - caption: "Pola żetonów jednostek"
+        columns: ["Rodzaj żetonu", "Pola (wg legendy)", "Przykład z karty"]
+        rows:
+          - ["falanga (Double-sized Infantry)", "nazwa/ID, typ, Size, TQ, MA, wydłużony MA", "Africa 2 PH: Size 10, TQ 7, MA 4 / wydłużony 5"]
+          - ["piechota", "nazwa/ID, klasa, rodzaj broni miotanej, typ, Size, TQ, MA", "I a HA LG (J): Size 3, TQ 7, MA 5; Thrace 1 LI (J): Size 5, TQ 5, MA 5"]
+          - ["jazda", "nazwa/ID, klasa, rodzaj broni miotanej, typ, Size, TQ, MA", "Nmdia 2 LC (J): Size 4, TQ 8, MA 9; Seleucid CAT HC: Size 5, TQ 6, MA 7"]
+          - ["skorpion", "typ (SC), zasięg", "III a SC: zasięg 7"]
+          - ["słoń", "osłona łucznicza („a”), rodzaj broni miotanej, typ, Size, TQ, MA", "Africa EL (J, a): Size 5, TQ 5, MA 7"]
+          - ["inne przykłady", "—", "Camel 2 LC (A): Size 4, TQ 3, MA 6; Crete 2 SK (A): Size 1, TQ 4, MA 6; Seleucid 1 CH (A): Size 5, TQ 2, MA 7"]
+      - caption: "Pola żetonów dowódców"
+        columns: ["Strona", "Pola", "Przykład z karty"]
+        rows:
+          - ["awers (aktywny)", "nazwa, wskaźnik inicjatywy elitarnej (▲), strategia (kółko), charyzma (żółte pole), zasięg dowodzenia, inicjatywa, zdolność LC", "Hannibal: zasięg 7, inicjatywa 7 (▲), LC 2, charyzma 3, strategia 8"]
+          - ["rewers (skończony)", "wskaźnik skończenia (F)", "—"]
+          - ["dowódca słoni (opcja 4.9)", "jak dowódca", "Elephant -1: 4, 1, 1, charyzma „-”"]
+      - caption: "Ukierunkowanie (Facing)"
+        columns: ["Element", "Treść"]
+        rows:
+          - ["jednostka jednoheksowa", "2 heksy frontowe, 2 boczne, 2 tylne"]
+          - ["falanga (dwuheksowa)", "3 heksy frontowe, po 1 bocznym, 3 tylne"]
+          - ["zasada", "górna krawędź żetonu (z nazwą) skierowana w wierzchołek heksu; wszystkie jednostki w heksie mają to samo ukierunkowanie"]
+      - caption: "Kontrola krzyżowa"
+        columns: ["Reguła", "Tekst 5. ed.", "Karta", "Zgodne?"]
+        rows:
+          - ["2.25 / 4.1 pola żetonów", "jw.", "jw.", "tak"]
+          - ["4.91 dowódca słoni", "inicjatywa 1", "„Elephant -1”: inicjatywa 1", "tak"]
+          - ["5.32 / 8.46 Hannibal", "impet 0–7 (inicjatywa 7); charyzma 3", "7, 3", "tak"]
+          - ["klasa CAT (katafrakci)", "brak zasad w tekście", "żeton Seleucid CAT HC", "N-30"]
+    notes: |
+      Źródła: docs/update/Legend.png („Combat Units”) i Example.png („Examples of Units”, niższa rozdzielczość — z niej tylko opisy pól i ukierunkowania).
+      Wartości żetonów to ilustracje, nie dane OOB.
+    refs: [R-2.25.1, R-4.1.1, R-4.91.1, R-6.67.1, R-7.11.1, N-30]
+    complete: true
+  - id: T-42
+    title: "Scenariusze księgi 2018 — warunki zwycięstwa, progi wycofania, krawędzie odwrotu, statystyki armii"
+    tables:
+      - caption: "Przegląd scenariuszy"
+        columns: ["Scenariusz (s.)", "Mapa", "Próg wycofania (RP)", "Zwycięstwo specjalne / RP dowódców", "Krawędzie odwrotu", "Doktryna triarii (9.7)"]
+        rows:
+          - ["Beneventum (s. 3–7, 10)", "Beneventum", "Rzymianie 120; Epiroci 100", "Epiroci wygrywają automatycznie: ≥ 5 jednostek bojowych w obozie i brak rzymskich jednostek bojowych w obozie; od tury 10 wszystkie nieuciekające jednostki rzymskie w obozie — Rzymianin przegrywa; ranny Pyrrus 25 RP, zabity — wygrana Rzymian; skorpiony 0 RP; jednostki epirockie niewprowadzone do końca tury 1 = wyeliminowane", "Epiroci — wschodnia; Rzymianie — zachodnia", "tak — od wyjścia z obozu i sformowania linii"]
+          - ["Bagradas (s. 8–10)", "Zama lub Kanny", "Kartagińczycy 110; Rzymianie 125 (z jazdą al 135)", "—", "bezpośrednio za każdą armią", "tak"]
+          - ["Kanny (s. 11–17)", "Kanny", "Kartagińczycy 195; Rzymianie 240 (8 legionów) / 165 (4 legiony)", "ranny Hannibal 25 RP; zabity — automatyczne zwycięstwo Rzymian", "Rzymianie — NE; Kartagińczycy — SW", "tak"]
+          - ["Zama (s. 18–22)", "Zama", "Rzymianie 230; Kartagińczycy 170 (bez względu na liczbę słoni)", "ranny Hannibal 25 RP; zabity — automatyczne zwycięstwo Rzymian; Scypion normalnie", "Rzymianie — NW; Kartagińczycy — SE", "nie"]
+          - ["Kynoskefalaj (s. 23–27)", "Cynoscephalae", "Rzymianie 140 (spotkaniowa) / 135 (ustawiona); Macedończycy 115", "ranny Filip „25 TQ points” ([wniosek] RP); zabity — automatyczne zwycięstwo Rzymian", "Rzymianie — S; Macedończycy — N", "nie"]
+          - ["Scenariusz szkoleniowy (s. 28)", "Kanny", "Rzymianie 34; Kartagińczycy 25", "straty słoni się nie liczą", "brak w tekście", "brak w tekście"]
+      - caption: "Size and Troop Quality"
+        columns: ["Scenariusz / wersja", "Armia", "Jednostki", "Size", "RP", "Rout Ratio", "Średnie TQ"]
+        rows:
+          - ["Beneventum", "Epiroci", "40", "213 [a]", "252", "40%", "5.7"]
+          - ["Beneventum", "Rzymianie", "55", "169", "337", "35%", "6.1"]
+          - ["Bagradas", "Kartagińczycy", "51", "187 [a]", "279", "40%", "5.6"]
+          - ["Bagradas", "Rzymianie", "58", "174", "354", "35%", "6.1"]
+          - ["Bagradas", "Rzymianie z jazdą al", "64", "192", "391", "35%", "6.1"]
+          - ["Kanny", "Kartagińczycy", "78", "351", "486", "40%", "5.8"]
+          - ["Kanny", "Rzymianie (4 legiony)", "128", "384", "665", "25% [a]", "5.2"]
+          - ["Kanny", "Rzymianie (8 legionów)", "208", "636", "1,202", "20% [a]", "5.8"]
+          - ["Zama", "Kartagińczycy", "94", "336 [a]", "483", "35%", "5.4"]
+          - ["Zama", "Rzymianie", "106", "340", "657", "35%", "6.2"]
+          - ["Kynoskefalaj — spotkaniowa", "Macedończycy", "37", "220", "291", "40%", "6.1"]
+          - ["Kynoskefalaj — spotkaniowa", "Rzymianie", "76", "230 [a]", "408", "35%", "5.4"]
+          - ["Kynoskefalaj — ustawiona", "Macedończycy", "32", "215", "281", "40%", "6.2"]
+          - ["Kynoskefalaj — ustawiona", "Rzymianie", "71", "209 [a]", "386", "35%", "5.6"]
+      - caption: "Przypisy i kontrola"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["Beneventum [a]", "pominięto Size słoni (15)"]
+          - ["Bagradas [a]", "pominięto Size słoni (95)"]
+          - ["Kanny [a]", "niski Rout Ratio Rzymian — świeżo zaciągnięta armia; bez korekty o jednostki osłabione"]
+          - ["Zama [a]", "pominięto Size słoni (80)"]
+          - ["Kynoskefalaj [a]", "pominięto Size słoni (20)"]
+          - ["Średnie TQ (s. 2)", "liczone z TQ jednostek (nie z RP) — także dla SK, słoni i jednostek podwójnych"]
+          - ["Kontrola [wniosek]", "próg / RP armii ≈ Rout Ratio we wszystkich wierszach (np. Beneventum 120/337 = 35,6%, 100/252 = 39,7%; Kanny 240/1202 = 20,0%, 165/665 = 24,8%; Kynoskefalaj 115/281 = 40,9%) — przypisanie progów do armii zgodne"]
+          - ["Licytacja RP (s. 2)", "przykład: Zama — oferta 35 RP za Scypiona → próg Rzymian 195 zamiast 230"]
+    notes: |
+      Źródło: docs/scen_book/SPQR-Scenario-Book-2018-5.pdf, s. 2, 10, 15–16, 22, 27, 28 (rendery s. 10, 15, 27 sprawdzone — na s. 10 przeplatają się teksty
+      Bagradas i Beneventum).
+    refs: [R-SC0-1, R-SC0-3, R-SC1-7, R-SC1-21, R-SC1-22, R-SC1-23, R-SC1-24, R-SC2-5, R-SC2-6, R-SC2-8, R-SC3-12, R-SC3-16, R-SC3-17, R-SC4-11, R-SC4-12, R-SC4-13, R-SC5-14, R-SC5-15, R-SC5-16, R-SC6-3, R-11.2.2, R-9.7.1]
+    complete: true
+  - id: T-43
+    title: "Beneventum — rozstawienie, marsz podejścia i tabele scenariusza"
+    tables:
+      - caption: "Rzymianie (Kurios Dentatus) — atak nocny: w obozie"
+        columns: ["Jednostki / dowódcy", "Heks(y)", "Ukierunkowanie / uwagi"]
+        rows:
+          - ["M. Dentatus (OC)", "3305", ""]
+          - ["3 trybunów", "3205", ""]
+          - ["2 prefektów sprzymierzeńców (Prfct Soc)", "3405", ""]
+          - ["1 prefekt jazdy (Prfct Eqt)", "3304", ""]
+          - ["III VE (a) [a]", "3504, 3604 lub 3704", "legion III — wszystkie twarzą do wierzchołka SE"]
+          - ["III HA (a–d)", "3607, 3608, 3610, 3611", "SE"]
+          - ["III PR (a) [b]", "3507", "SE"]
+          - ["III PR (b–d)", "3508, 3510, 3511", "SE"]
+          - ["III TR (a–c)", "3407, 3408, 3410", "SE"]
+          - ["III RC", "3411", "SE"]
+          - ["V VE (a) [a]", "2904, 3004 lub 3104", "legion V — wszystkie twarzą do wierzchołka NE"]
+          - ["V HA (a–d)", "3007, 3008, 3010, 3011", "NE"]
+          - ["V PR (a) [b]", "3107", "NE"]
+          - ["V PR (b–d)", "3108, 3110, 3111", "NE"]
+          - ["V TR (a–c)", "3207, 3208, 3210", "NE"]
+          - ["V RC", "3211", "NE"]
+          - ["kohorty al — lewe skrzydło", "2907, 2908, 2910, 2911 (po dwie w heksie)", "twarzą do wierzchołka S"]
+          - ["kohorty al — prawe skrzydło", "3707, 3708, 3710, 3711 (po dwie w heksie)", "twarzą do wierzchołka N"]
+          - ["jazda al (po jednej z każdej ali)", "3105, 3505", "NW lub SW"]
+          - ["AS/III CE, AS/V CE [c]", "3204, 3404", "NW lub SW"]
+          - ["AS/V RC EX [c]", "3304", "NW lub SW"]
+          - ["straż obozu: III VE (b, c), V VE (b, c) [d]", "2806, 3303, 3312, 3806", "twarzą do bramy (w wieży — na zewnątrz obozu)"]
+          - ["straż obozu: AS/III VE (a, b), AS/V VE (a, b), III SC (a, b), V SC (a, b)", "2803, 2813, 3803, 3813 (w każdym heksie 1 VE i 1 SC)", "jw."]
+      - caption: "Przypisy rozstawienia rzymskiego"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["a", "jedna jednostka velites z każdego legionu śpi; pozostałe dwie są w straży obozu"]
+          - ["b", "primus principes legionu"]
+          - ["c", "kohorty i jazda extraordinarii al"]
+          - ["d", "w chwili alarmu rzymskiego strażników bram natychmiast umieszcza się w wolnym heksie namiotu velites, z dowolnym ukierunkowaniem"]
+          - ["ale III i V", "gracz wyznacza, która ala jest lewym/prawym skrzydłem; mało jazdy (tylko jedna zwykła jednostka jazdy z każdej ali) i piechoty (bez triarii al; po 8 kohort i 1 kohorcie extraordinarii z każdej ali)"]
+      - caption: "Epiroci/Italikowie (Pyrrus) — sekcje marszu podejścia (na starcie poza mapą)"
+        columns: ["Kolejność", "Sekcja", "Skład", "Mnożnik IAM / heks wejścia"]
+        rows:
+          - ["1", "straż przednia (Advanced Guard)", "macedońska LC; LC greckich najemników (1–2); epirocy procarze SK (1–3); kreteńscy łucznicy SK (1–2); tracka LI (1–4)", "4× / 3044"]
+          - ["2", "siły główne (Main Body)", "macedońskie PH (1–6); epirocy HO/HI (1–3); tesalska HC (1–5); HC Gwardii („dobra wskazówka, że jest z nią Pyrrus”); indyjskie EL (1–3)", "2× / 3143, 3044 i/lub 2943 (można dzielić)"]
+          - ["3", "osłona lewego skrzydła (Left Flank Guard)", "samnicka MI (1–2); MI z Bruttium (1–2)", "2× / 2644"]
+          - ["4", "osłona prawego skrzydła (Right Flank Guard)", "lukańska MI (1–2), sabińska MI (1–2)", "2× / 3343"]
+          - ["5", "straż tylna (Rear Guard)", "italska MI (1–2)", "1× / 3044"]
+          - ["dowódcy", "Pyrrus, Aleksander, Leonnatos, Milon", "wchodzą z dowolną sekcją", "mnożnik IAM tej sekcji"]
+      - caption: "Tabela zmęczenia marszem nocnym (Night March Fatigue Table)"
+        columns: ["Rzut (jeden na sekcję) wobec TQ jednostki", "Skutek"]
+        rows:
+          - ["≤ TQ", "bez skutku"]
+          - ["1–2 ponad TQ", "1 trafienie"]
+          - ["3+ ponad TQ", "2 trafienia"]
+          - ["słonie", "nie podlegają zmęczeniu"]
+      - caption: "Oświetlenie i alarm"
+        columns: ["Okres", "Warunek / linia alarmu"]
+        rows:
+          - ["faza marszu podejścia", "noc — Night Alert Line"]
+          - ["tury 1–3", "świt — Dawn Alert Line"]
+          - ["tura 4 i dalej", "dzień — Day Alert Line"]
+          - ["początek tury 5", "alarm automatyczny (jeśli nie było wcześniej)"]
+      - caption: "Wyjście z obozu — bramy (pierwsze 5 tur po alarmie)"
+        columns: ["Organizacja", "Brama wyjścia"]
+        rows:
+          - ["legiony III i V", "Porta Decumana"]
+          - ["kohorty al — lewe skrzydło", "Porta Principis Sinistra"]
+          - ["kohorty al — prawe skrzydło", "Porta Principis Dextra"]
+          - ["wszystkie pozostałe oprócz straży obozu", "Porta Praetoria"]
+          - ["straż obozu", "dowolna brama"]
+      - caption: "Tabela płonących świń (Flaming Pig Table, opcja)"
+        columns: ["DR", "Skutek"]
+        rows:
+          - ["0", "słoń wyznaczony rzutem atakuje najbliższą jednostkę bojową (rzymską lub epirocką) wprost przed swoim frontem; kilka celów — rzut; dalej niż 4 heksy — bez skutku"]
+          - ["1–7", "bez skutku („but breakfast is served”)"]
+          - ["8", "+1 trafienie dla dowolnego jednego słonia"]
+          - ["9", "dla dowolnego jednego słonia rzut: trafienia = DR – TQ, co najmniej 1"]
+      - caption: "Wariant swobodnego rozstawienia (Free Set-Up)"
+        columns: ["Strona", "Strefa"]
+        rows:
+          - ["Rzymianie (pierwsi)", "dowolne heksy xx18 i na zachód (włącznie); można w obozie"]
+          - ["Epiroci", "dowolne heksy xx31 i na wschód (włącznie)"]
+          - ["zasady", "bez marszu podejścia; dzień; pozostałe zasady bez zmian"]
+    notes: |
+      Źródło: docs/scen_book/SPQR-Scenario-Book-2018-5.pdf, s. 4–7, 10 (rendery sprawdzone). Zasady — R-SC1-1…R-SC1-24; teren obozu — T-35; LC — T-29;
+      zwycięstwo — T-42.
+    refs: [R-SC1-2, R-SC1-3, R-SC1-4, R-SC1-8, R-SC1-11, R-SC1-13, R-SC1-16, R-SC1-20, T-29, T-35, T-42, R-SC1-1, R-SC1-24]
+    complete: true
+  - id: T-44
+    title: "Bagradas — rozstawienie"
+    tables:
+      - caption: "Kartagińczycy (Ksantyppos) — wszyscy twarzą na SE"
+        columns: ["Jednostki / dowódcy", "Heks(y)"]
+        rows:
+          - ["Ksantyppos (OC)", "1923"]
+          - ["Hazdrubal", "2031"]
+          - ["Hamilkar", "2011"]
+          - ["Bostar", "z dowolną jednostką"]
+          - ["linia słoni: afrykańskie EL (1–19)", "2212–2230"]
+          - ["lewe skrzydło: kartagińska HC (1–5)", "2106–2110"]
+          - ["lewe skrzydło: północnoafrykańska LI (1–3)", "2006, 2008, 2010"]
+          - ["linia główna: afrykańskie PH (1–7)", "1909–1922"]
+          - ["linia główna: celtycka MI (1–9)", "1924–1932"]
+          - ["prawe skrzydło: kartagińska HC (6–10)", "2131–2135"]
+          - ["prawe skrzydło: iberyjska LI (1–3)", "2032, 2034, 2036"]
+      - caption: "Rzymianie (M. Atyliusz Regulus) — wszyscy twarzą na NW; legiony/ale III i V; bez jazdy al"
+        columns: ["Jednostki / dowódcy", "Heks(y)"]
+        rows:
+          - ["Regulus (OC)", "dowolnie"]
+          - ["2 trybunów, 2 prefektów sprzymierzeńców", "po jednym z każdą osobną linią HA/PR, z dowolną jednostką piechoty lub obok niej"]
+          - ["2 prefektów jazdy", "2808, 2833"]
+          - ["jazda prawego skrzydła: III RC", "2808"]
+          - ["jazda lewego skrzydła: V RC", "2833"]
+          - ["linia velites: AS/III VE (a, b)", "2712, 2714"]
+          - ["III VE (a–c)", "2716, 2718, 2720"]
+          - ["V VE (a–c)", "2722, 2724, 2726"]
+          - ["AS/V VE (a, b)", "2728, 2730"]
+          - ["linia hastati: AS/III CO (a–c)", "2812, 2814, 2816"]
+          - ["III HA (a, b)", "2818, 2820"]
+          - ["V HA (a, b)", "2822, 2824"]
+          - ["AS/V CO (a–c)", "2826, 2828, 2830"]
+          - ["AS/III CO (d, e)", "2914, 2916"]
+          - ["III HA (c, d)", "2918, 2920"]
+          - ["V HA (c, d)", "2922, 2924"]
+          - ["AS/V CO (d, e)", "2926, 2928"]
+          - ["linia principes: AS/III CE", "3012"]
+          - ["AS/III CO (f, g)", "3014, 3016"]
+          - ["III PR (a, b)", "3018, 3020"]
+          - ["V PR (a, b)", "3022, 3024"]
+          - ["AS/V CO (f, g)", "3026, 3028"]
+          - ["AS/V CE", "3030"]
+          - ["AS/III CO (h, i)", "3114, 3116"]
+          - ["III PR (c, d)", "3118, 3120"]
+          - ["V PR (c, d)", "3122, 3124"]
+          - ["AS/V CO (h, i)", "3126, 3128"]
+          - ["linia triarii: AS/III TR (a, b)", "3316, 3317"]
+          - ["III TR (a–c)", "3318, 3319, 3320"]
+          - ["V TR (a–c)", "3321, 3322, 3323"]
+          - ["AS/V TR (a, b)", "3324, 3325"]
+    notes: |
+      Źródło: s. 9 (render sprawdzony). Mapa: Zama lub Kanny (teren można pominąć). Wariant z jazdą al — R-SC2-7.
+    refs: [R-SC2-1, R-SC2-2, R-SC2-3, R-SC2-7]
+    complete: true
+  - id: T-45
+    title: "Kanny — rozstawienie (8 i 4 legiony)"
+    tables:
+      - caption: "Kartagińczycy (Hannibal) — wszyscy twarzą na NE"
+        columns: ["Jednostki / dowódcy", "Heks(y)", "Uwagi"]
+        rows:
+          - ["Hannibal Barkas (OC) + Surus", "1914", ""]
+          - ["Magon Barkas", "1924", ""]
+          - ["Hazdrubal Gisgo", "2106", ""]
+          - ["Hannon", "2329", ""]
+          - ["Maharbal [a]", "2237", ""]
+          - ["lewe skrzydło: celtycka LN (1–10) [c]", "2202–2206; 2101–2105", ""]
+          - ["lewe skrzydło: iberyjska LN (1–5) [c]", "2002–2006", ""]
+          - ["lewe skrzydło: afrykańskie falangi (1–3) [b]", "2402/2403, 2404/2405, 2406/2407", ""]
+          - ["linia harcowników: balearscy procarze SK (1–11)", "2409–2429, tylko nieparzyste", ""]
+          - ["centrum: celtycka MI (1), iberyjska LI (1–3)", "2218–2221", ""]
+          - ["centrum: celtycka MI (2), iberyjska LI (4–6)", "2114–2117", ""]
+          - ["centrum: celtycka MI (3), iberyjska LI (7–9)", "2121–2124", ""]
+          - ["centrum: celtycka MI (4), iberyjska LI (10–12)", "2011–2014", ""]
+          - ["centrum: celtycka MI (5), iberyjska LI (13–15)", "2025–2028", ""]
+          - ["centrum: celtycka MI (6–9)", "1907–1910", ""]
+          - ["centrum: celtycka MI (10–13)", "1928–1931", ""]
+          - ["centrum: celtycka MI (14–17)", "1804–1807", ""]
+          - ["centrum: celtycka MI (18–21)", "1832–1835", ""]
+          - ["prawe skrzydło: numidyjska LC (1–10)", "2235–2239; 2135–2139", ""]
+          - ["prawe skrzydło: afrykańskie falangi (4–6) [b]", "2431/2432, 2433/2434, 2435/2436", ""]
+          - ["[b] wariant „falangi cofnięte” (zalecany)", "1702/1703 i 1735/1736 (twarzą NE); 1604/1504, 1405/1305, 1534/1635 (twarzą SE); 1333/1434 (twarzą N)", "numidyjską jazdę Maharbala przesunąć do linii 2400"]
+          - ["[a] Maharbal", "—", "LC bez rzutu na strategię Hannibala (R-SC3-2)"]
+          - ["[c] jazda celtycka i iberyjska", "—", "lansjerzy (LN), nie ciężka jazda"]
+      - caption: "Rzymianie (Warron) — 8 legionów; wszyscy twarzą na SW"
+        columns: ["Jednostki / dowódcy", "Heks(y)", "Uwagi"]
+        rows:
+          - ["Warron (OC) [a]", "3106", ""]
+          - ["Paullus [a]", "3129", ""]
+          - ["Serwiliusz [a]", "3229", ""]
+          - ["Atyliusz [a]", "3627", ""]
+          - ["3 trybunów, 2 prefektów sprzymierzeńców", "z dowolną jednostką piechoty lub obok niej", ""]
+          - ["2 prefektów jazdy", "3103, 3136", ""]
+          - ["linia velites: wszyscy velites legionów (uwaga 2)", "2909–2928", ""]
+          - ["linie hastati: hastati z dowolnych 2 legionów + 12 kohort al (hastati w środku, ale po bokach) — w każdej linii", "3010–3028; 3110–3128; 3210–3228; 3310–3328 (parzyste, po 2 w heksie)", ""]
+          - ["linie principes: principes z 2 legionów + 12 kohort al (CO/CE) — w każdej linii", "3410–3428; 3510–3528 (parzyste, po 2 w heksie)", ""]
+          - ["principes z 2 legionów + 8 kohort al (CO)", "3612–3626 (parzyste, po 2 w heksie)", ""]
+          - ["principes z 2 legionów", "3716–3722 (parzyste, po 2 w heksie)", ""]
+          - ["linia triarii: wszyscy triarii legionów", "3807–3830 (po 1 w heksie)", ""]
+          - ["jazda prawego skrzydła: cała RC legionów", "3001–3008", ""]
+          - ["jazda lewego skrzydła: RC al (uwaga 1)", "3030–3041", ""]
+          - ["zasada", "—", "jednostki legionów zawsze w środku, kohorty al na skrzydłach"]
+      - caption: "Rzymianie — uwagi (8 legionów)"
+        columns: ["Nr", "Treść"]
+        rows:
+          - ["1", "tylko jazda legionów i jazda al VII, XIV, XV, XIX; bez jazdy al I, III, V, X"]
+          - ["2", "nie używa się: a) triarii al; b) velites al; c) jednej jednostki velites z każdego z legionów I, III, V, X (a–c = ok. 10 000 ludzi w obozie)"]
+          - ["3", "osłabione od początku: wszystkie LG, HI i LI legionów i al I, III, V, X; cała jazda legionów I i X"]
+          - ["a (dowódcy)", "mogą dowodzić dowolnymi jednostkami; Paullus, Serwiliusz i Atyliusz NIE mogą być zastąpieni po śmierci"]
+      - caption: "Rzymianie — 4 legiony („DeSanctis/Liwiusz”); wszyscy twarzą na W; tylko legiony/ale VII, XIV, XV, XIX"
+        columns: ["Jednostki / dowódcy", "Heks(y)"]
+        rows:
+          - ["Warron (OC)", "3005"]
+          - ["Paullus", "3028"]
+          - ["Serwiliusz", "3110"]
+          - ["Atyliusz", "3228"]
+          - ["2 trybunów", "z dowolną jednostką piechoty lub obok niej"]
+          - ["prefekt jazdy", "3036"]
+          - ["linia velites: wszyscy velites", "2908–2927"]
+          - ["hastati z 2 legionów + 12 kohort al (CO)", "3009–3027 (nieparzyste, po 2 w heksie)"]
+          - ["hastati z 2 legionów + 8 kohort al (CO)", "3111–3125 (nieparzyste, po 2 w heksie)"]
+          - ["principes z 2 legionów + 12 kohort al (CO/CE)", "3209–3227 (nieparzyste, po 2 w heksie)"]
+          - ["principes z 2 legionów + 8 kohort al (CO)", "3311–3325 (nieparzyste, po 2 w heksie)"]
+          - ["linia triarii: wszyscy triarii", "3409–3427 (parzyste, po 2 w heksie)"]
+          - ["jazda prawego skrzydła: cała RC legionów", "3001, 3003, 3005, 3007"]
+          - ["jazda lewego skrzydła: cała RC al", "3030–3041"]
+          - ["uwaga o dowódcach", "2 trybunów, 1 prefekt jazdy, bez prefektów sprzymierzeńców; konsulowie i prokonsulowie dowodzą dowolnymi oddziałami; przy remisie aktywacji (5.12) dowódcy rzymscy idą pierwsi"]
+    notes: |
+      Źródło: s. 12–14 (rendery sprawdzone).
+    refs: [R-SC3-2, R-SC3-3, R-SC3-5, R-SC3-6, R-SC3-7]
+    complete: true
+  - id: T-46
+    title: "Zama — rozstawienie"
+    tables:
+      - caption: "Kartagińczycy (Hannibal) — wszyscy twarzą na NW"
+        columns: ["Jednostki / dowódcy", "Heks(y)", "Uwagi"]
+        rows:
+          - ["Hannibal Barkas (OC) + Surus", "dowolnie", ""]
+          - ["Hazdrubal Gisgo", "dowolnie", ""]
+          - ["Hannon", "dowolnie", ""]
+          - ["Tychajos", "3236", ""]
+          - ["linia harcowników: balearscy procarze SK (1–7) [a]", "2811, 2814, 2817, 2820, 2823, 2826, 2829", ""]
+          - ["linia słoni: afrykańskie słonie (1–16) *", "2906–2936, tylko parzyste", "* wszystkie osłabione i bez osłon (zdolność „a” ignorowana)"]
+          - ["jazda lewego skrzydła: numidyjska LC (1–5)", "3133–3137", ""]
+          - ["jazda prawego skrzydła: kartagińska HC (1–5) [g]", "3104–3108", ""]
+          - ["linia najemników: celtycka MI (1–10) [c], liguryjska MI (1–6) [c], balearska MI (1–2) [b, c], mauretańska MI (1–4) [b, c]", "3110–3131", "dowolny układ w linii"]
+          - ["zaciąg: północnoafrykańska LI (1–6) [d], kartagińska MI zaciężna (1–16) [d]", "3310–3331", "można przemieszać"]
+          - ["linia odwodowa: afrykańska falanga (1–5) [e, f]", "3716–3717, 3718–3719, 3720–3721, 3722–3723, 3724–3725", ""]
+          - ["linia odwodowa: HI z Bruttium (1–12) [f]", "3710–3715, 3726–3731", ""]
+      - caption: "Przypisy kartagińskie"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["a", "procarze — obecność wg współczesnych źródeł (nota)"]
+          - ["b", "„ciężkozbrojni” z Balearów i Mauretanii — przezbrojeni (nota)"]
+          - ["c", "resztki armii Magona; dowolny układ w swojej linii"]
+          - ["d", "niepewny zaciąg; można przemieszać — zob. R-SC4-9"]
+          - ["e", "opcjonalnie dwie macedońskie falangi zamiast dwóch afrykańskich"]
+          - ["f", "weterani — „Stara Armia Italii” (Stara Gwardia)"]
+          - ["g", "Święty Hufiec (nota)"]
+      - caption: "Rzymianie (P. Korneliusz Scypion) — wszyscy twarzą na SE; legion i ala I i X + 22 kohorty rekruckie (bez extraordinarii) z AS/VII, XIV, XV, XIX"
+        columns: ["Jednostki / dowódcy", "Heks(y)"]
+        rows:
+          - ["Scypion (OC)", "dowolnie"]
+          - ["Masynissa [a]", "z dowolną jednostką jazdy numidyjskiej lub obok niej"]
+          - ["Leliusz [b]", "z dowolną jednostką jazdy legionu lub al lub obok niej"]
+          - ["2 trybunów, 2 prefektów sprzymierzeńców [c]", "z dowolną jednostką piechoty lub obok niej"]
+          - ["linia velites: I VE (a–c), X VE (a–c)", "2313–2323 (tylko nieparzyste)"]
+          - ["AS/I VE (a, b), AS/X VE (a, b)", "2309, 2311, 2325, 2327"]
+          - ["linia hastati: I HA (a–d), X HA (a–d)", "2217, 2219, 2221, 2223 (po 2 w heksie)"]
+          - ["AS/I CO (a–e), AS/X CO (a–e)", "2211, 2213, 2215, 2225, 2227 (po 2 w heksie)"]
+          - ["kohorty rekruckie (6)", "2209, 2229, 2231 (po 2 w heksie)"]
+          - ["linia principes: I PR (a–d), X PR (a–d)", "2017, 2019, 2021, 2023 (po 2 w heksie)"]
+          - ["AS/I CO (f–i), AS/X CO (f–i)", "2011, 2013, 2027, 2029 (po 2 w heksie)"]
+          - ["AS/I CE, AS/X CE", "2015, 2025"]
+          - ["kohorty rekruckie (8)", "2007, 2009, 2031, 2033 (po 2 w heksie)"]
+          - ["linia triarii: I TR (a–c), X TR (a–c)", "1819–1824"]
+          - ["AS/I TR (a, b), AS/X TR (a, b)", "1817–1818, 1825–1826"]
+          - ["kohorty rekruckie (8)", "1813–1816, 1827–1830"]
+          - ["lewe skrzydło: I RC, X RC, AS/I RC (a, b, EX), AS/X RC (a, b, EX)", "2205–2208, 2104–2107"]
+          - ["prawe skrzydło: numidyjska LI (1–4) *", "2329, 2331, 2333, 2335"]
+          - ["numidyjska MI (1–6) *", "2133–2135, 2233–2235"]
+          - ["numidyjska LC (1–10) *", "2236–2240, 2136–2140"]
+      - caption: "Przypisy rzymskie"
+        columns: ["Oznaczenie", "Treść"]
+        rows:
+          - ["a", "Masynissa — charyzma „2C” (tylko w stosie z jazdą numidyjską); automatyczny LC w fazie początkowej; LC w fazach impetu wg 4.33; nie jest zastępowany (R-SC4-4)"]
+          - ["b", "Leliusz — prefekt jazdy całej jazdy rzymskiej; po śmierci zastępuje go prefekt jazdy"]
+          - ["c", "trybuni i prefekci sprzymierzeńców dowodzą wszystkimi typami piechoty legionów/al"]
+          - ["*", "żetony numidyjskie z puli rzymskiej, nie kartagińskiej"]
+          - ["kolory", "obramowania kolorów kohort rekruckich obowiązują przy zasadach stosu"]
+          - ["Play Note", "w każdej linii jedna kohorta al zaczyna w stosie z kohortą innej ali (można zmienić rozstawienie)"]
+    notes: |
+      Źródło: s. 19–21 (rendery sprawdzone).
+    refs: [R-SC4-2, R-SC4-3, R-SC4-4, R-SC4-5, R-SC4-6, R-SC4-9, R-SC4-10]
+    complete: true
+  - id: T-47
+    title: "Kynoskefalaj — siły na starcie, posiłki, mgła, rozstawienie bitwy ustawionej"
+    tables:
+      - caption: "Bitwa spotkaniowa — oddziały zwiadowcze na mapie"
+        columns: ["Strona i skład", "Położenie", "Uwagi"]
+        rows:
+          - ["Rzymianie: etolska LC; etolska LI (1, 2); prefekt jazdy*", "w promieniu 3 heksów od 2020", "* może wydawać IO (nie LC) piechocie, dopóki trybun lub prefekt sprzymierzeńców nie wejdzie i nie będzie w zasięgu"]
+          - ["Macedończycy: tesalska HC (1, 2); macedońska LI (1–4); Filokles*", "w promieniu 2 heksów od 2718", "* dowódca garnizonu Koryntu (nota)"]
+      - caption: "Bitwa spotkaniowa — posiłki"
+        columns: ["Tura (grupa)", "Strona", "Skład"]
+        rows:
+          - ["3 (#1)", "Rzymianie", "AS/V EX RC V; apollońska LI; etolska LI (3, 4); kreteńska LI; kreteńscy łucznicy SK (3); prefekt sprzymierzeńców (1)"]
+          - ["5 (#2)", "Macedończycy", "macedońska HC (1–3); iliryjska LI (1–4); najemna HI (1–3); epirocy procarze SK (1–3); kreteńscy łucznicy SK (1–2); Atenagoras"]
+          - ["7 (#3)", "Macedończycy", "macedońskie falangi PH (1–12); tracka LI (1–4); Filip V; Nikanor"]
+          - ["8 (#4, gracz wybiera kolejność)", "Rzymianie", "legion III; legion V; ala AS/III*; ala AS/V**; Liga Etolska [etolscy hoplici HI (1–8), atamańska MI (1–3)]; afrykańskie słonie (1–4); konsul T. Kwinkcjusz Flamininus; trybuni (2); prefekci sprzymierzeńców (2); prefekt jazdy (1)"]
+          - ["*", "", "bez velites, jazdy i kohort „a” i „b”"]
+          - ["**", "", "bez velites, jazdy „a” i „b” oraz kohort „a” i „b”"]
+      - caption: "Wejście posiłków"
+        columns: ["Strona", "Heksy wejścia", "Limit jednostek bojowych na turę"]
+        rows:
+          - ["Rzymianie", "„R” w rogu SE: 1037, 1038, 1039, 1040, 1041, 1042, 1043, 1044", "16"]
+          - ["Macedończycy", "„M”: 4216, 4217, 4218, 4219, 4220, 4221", "5"]
+          - ["obie strony", "koszt MP i spójności heksu + koszt MP heksu za każdą wcześniejszą jednostkę tym heksem; dowódcy bez limitu; wejście w kolumnie dozwolone; po wejściu nie wolno dobrowolnie opuścić mapy", "—"]
+      - caption: "Mgła (opcja) — rzut na podniesienie mgły o 1 stopień (od tury 3, na początku tury)"
+        columns: ["Tura", "Wynik"]
+        rows:
+          - ["3, 4", "0–1"]
+          - ["5", "0–3"]
+          - ["6", "0–6"]
+          - ["7 aż do Clear", "0–8"]
+      - caption: "Mgła — widoczność (Visibility Effect Chart)"
+        columns: ["Widoczność", "Maks. LOS", "Wpływ na ruch"]
+        rows:
+          - ["gęsta mgła (Heavy Fog)", "5 heksów", "MA o połowę, w górę"]
+          - ["lekka mgła (Light Fog)", "10 heksów", "MA –1"]
+          - ["przejrzyście (Clear)", "25 heksów*", "brak"]
+          - ["*", "limit z powodu drobnej mżawki", ""]
+      - caption: "Mgła — harmonogram posiłków"
+        columns: ["Grupa", "Może wejść"]
+        rows:
+          - ["#1", "1 turę po uzyskaniu LOS"]
+          - ["#2", "3 tury po uzyskaniu LOS"]
+          - ["#3", "5 tur po uzyskaniu LOS"]
+          - ["#4", "6 tur po uzyskaniu LOS"]
+          - ["przykład", "LOS na początku tury 3 → #1 w turze 4, #2 w 6, #3 w 8, #4 w 9"]
+      - caption: "Bitwa ustawiona — Rzymianie (twarzą na N); dowódcy w dowolnym heksie z własną jednostką"
+        columns: ["Jednostki", "Heks(y)"]
+        rows:
+          - ["prawe skrzydło: V RC", "2210"]
+          - ["AS/V RC (ex)", "2211"]
+          - ["AS/V (c–i), AS/V CE", "2315, 2316, 2317, 2318, 2115, 2116, 2117, 2118"]
+          - ["AS/V TR (a, b)", "1916, 1917"]
+          - ["centrum: V VE (a–c)", "2312, 2313, 2314"]
+          - ["V HA (a–d)", "2319, 2320, 2321, 2322"]
+          - ["V PR (a)", "2119"]
+          - ["V PR (b–d)", "2120, 2121, 2122"]
+          - ["V TR (a–c)", "1919, 1920, 1921"]
+          - ["III VE (a–c)", "1824, 1825, 1826"]
+          - ["III HA (a–d)", "1827, 1828, 1829, 1830"]
+          - ["III PR (a)", "1627"]
+          - ["III PR (b–d)", "1628, 1629, 1630"]
+          - ["III TR (a–c)", "1428, 1429, 1430"]
+          - ["lewe skrzydło: III RC", "1842"]
+          - ["etolska LC", "1840"]
+          - ["AS/III CO (c–i), AS/III CE", "1832, 1833, 1834, 1835, 1632, 1633, 1634, 1635"]
+          - ["AS/III TR (a, b)", "1433, 1434"]
+          - ["Liga Etolska: etolska HI (1–8)", "1836, 1837, 1838, 1839, 1636, 1637, 1638, 1639"]
+          - ["atamańska MI (1–3)", "1436, 1437, 1438"]
+          - ["słonie: afrykańskie (1–4)", "1926, 1929, 1932, 1935"]
+          - ["dowódcy", "Flamininus, 2 trybunów, 3 prefektów sprzymierzeńców, 2 prefektów jazdy"]
+      - caption: "Bitwa ustawiona — Macedończycy (twarzą na S, chyba że w kolumnie)"
+        columns: ["Jednostki / dowódcy", "Heks(y)"]
+        rows:
+          - ["Filip V", "2819"]
+          - ["Filokles, Atenagoras, Nikanor", "dowolny heks z jednostką macedońską"]
+          - ["macedońska HC (1–3), tesalska HC (1–2)", "2606, 2607, 2608, 2609, 2610"]
+          - ["tracka LI (1–4)", "2611, 2612, 2613, 2614"]
+          - ["najemna HI (1–3)", "2713, 2714, 2715"]
+          - ["macedońskie falangi (1–6) — podwójna głębokość, 2 w heksie", "2716–2717, 2718–2719, 2720–2721"]
+          - ["macedońska LI (1–4)", "2722, 2723, 2724, 2725"]
+          - ["iliryjska LI (1–4)", "2735, 2736, 2737, 2738"]
+          - ["macedońskie falangi (7–12) — w kolumnie", "2730–2731, 2729–2829, 2928–3028, 3127–3227, 3326–3426, 3525–3625"]
+      - caption: "Wzmocniona jazda rzymska (opcja)"
+        columns: ["Wariant", "Dodatkowe jednostki"]
+        rows:
+          - ["bitwa spotkaniowa", "brakujące 5 jednostek jazdy al do grupy #4"]
+          - ["bitwa ustawiona", "AS/V RC w 2008, 2009; AS/III RC w 1843–1845"]
+    notes: |
+      Źródło: s. 24–27 (rendery s. 25–27 sprawdzone). Bitwa ustawiona zaczyna się od fazy EIO Filipa (R-SC5-10).
+    refs: [R-SC5-2, R-SC5-3, R-SC5-4, R-SC5-5, R-SC5-6, R-SC5-8, R-SC5-10, R-SC5-11, R-SC5-17]
+    complete: true
+  - id: T-48
+    title: "Scenariusz szkoleniowy (A Learning Scenario)"
+    tables:
+      - caption: "A Learning Scenario (s. 28)"
+        columns: ["Element", "Treść"]
+        rows:
+          - ["mapa", "Kanny"]
+          - ["Rzymianie", "„III Alae Legion” ([wniosek] legion III i ala III); Flamininus, 1 trybun, 2 prefektów jazdy"]
+          - ["Kartagińczycy", "2 afrykańskie falangi, 4 iberyjskie LI, 2 balearskich procarzy, 2 numidyjskie LC, 2 celtyckie LN, 2 afrykańskie słonie; Hannibal (bez słonia dowódcy), Magon, Tychajos"]
+          - ["rozstawienie", "Rzymianie pierwsi, Kartagińczycy drudzy; co najmniej 5 rzędów heksów między armiami; obie strony mniej więcej w równej odległości od krawędzi mapy"]
+          - ["zwycięstwo", "Rzymianie uciekają po utracie 34 RP, Kartagińczycy po 25 RP; straty słoni się nie liczą"]
+          - ["zalecenia", "dowolne zasady opcjonalne (najlepiej minimum); sugerowane: Hannibal — 1 LC na turę"]
+    notes: |
+      Źródło: s. 28. Brak karty uprawnień do LC i krawędzi odwrotu w tekście.
+    refs: [R-SC6-1, R-SC6-2, R-SC6-3, N-44]
+    complete: true

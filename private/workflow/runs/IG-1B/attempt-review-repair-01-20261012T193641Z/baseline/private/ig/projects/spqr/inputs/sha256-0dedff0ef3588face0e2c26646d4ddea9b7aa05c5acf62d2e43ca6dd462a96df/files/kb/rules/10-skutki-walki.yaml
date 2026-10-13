@@ -1,0 +1,290 @@
+chapter: {id: "10", title: "10.0 Skutki walki (The Effects of Combat)"}
+rules:
+  - id: R-10.0.1
+    title: Skutki walki — trafienia, ucieczka, reorganizacja (zarys)
+    section: "10.0"
+    source: {text: "oryg. 10.0, s. 37", pages: "37"}
+    effect: |
+      Jednostki otrzymują trafienia za nadmierny ruch i walkę. Zbyt wiele trafień powoduje ucieczkę. Uciekające jednostki kierują się ku swojej krawędzi
+      odwrotu (Retreat Edge, wg scenariusza). Jednostkę uciekającą można w pewnych warunkach zreorganizować.
+    keywords: [trafienia, ucieczka, krawędź odwrotu, reorganizacja]
+    flags: [summary]
+    refs: [R-10.14.1, R-10.22.1, R-10.28.1]
+  - id: R-10.1.1
+    title: Spójność i trafienia — liczone względem TQ
+    section: "10.1"
+    source: {text: "oryg. 10.1 „Cohesion”, s. 37", pages: "37"}
+    effect: Spójność mierzy zorganizowanie i skuteczność jednostki. Jej utratę mierzy się trafieniami, liczonymi względem TQ — czasem automatycznie, czasem po rzucie. Kiedy, podsumowuje Tabela trafień i testów TQ (8.75).
+    keywords: [spójność, trafienia, TQ]
+    refs: [R-8.75.1, T-28]
+  - id: R-10.11.1
+    title: Test TQ — rzut porównany z wydrukowanym TQ
+    section: "10.11"
+    source: {text: "oryg. 10.11 „TQ Checks”, s. 37", pages: "37"}
+    effect: |
+      Momenty testów TQ podaje Tabela trafień i testów TQ (i poszczególne zasady). Test: rzut kością porównany z **wydrukowanym** TQ i zastosowanie wyniku
+      z tabeli — zwykle jedno lub więcej trafień, gdy wynik **przekracza** TQ.
+    exceptions: Jednostki uciekające używają w testach TQ = 1 (R-10.11.2).
+    keywords: [test TQ, rzut, wydrukowane TQ]
+    refs: [R-10.11.2, T-28]
+  - id: R-10.11.2
+    title: Jednostki uciekające — TQ 1 w testach
+    section: "10.11"
+    source: {text: "oryg. 10.11 „Exception”, s. 37", pages: "37"}
+    effect: Jednostki uciekające używają we wszystkich testach TQ wartości **1** zamiast wydrukowanej.
+    keywords: [ucieczka, TQ 1, test TQ]
+    refs: [R-10.27.1]
+  - id: R-10.12.1
+    title: Znaczniki trafień — trafienia nie osłabiają walki
+    section: "10.12"
+    source: {text: "oryg. 10.12 „Cohesion Markers”, s. 37", pages: "37"}
+    effect: |
+      Każde trafienie zaznacza się znacznikiem liczbowym z łączną liczbą trafień (na lub pod żetonem). Trafienia **nie** wpływają na siłę bojową ani zdolności
+      jednostki — pokazują tylko, jak blisko jest rozpadu (TQ 6 z 4 trafieniami walczy jak bez trafień, ale łatwiej ucieka).
+    keywords: [znacznik trafień, siła bojowa]
+  - id: R-10.13.1
+    title: Podział trafień między kilka jednostek
+    section: "10.13"
+    source: {text: "oryg. 10.13 + przykład, s. 37", pages: "37"}
+    effect: |
+      Gdy w jednym rozstrzygnięciu walki uczestniczy kilka jednostek, trafienia dzieli się możliwie po równo (stos = jedna jednostka). Nadwyżkę dostaje
+      jednostka/stos użyta do uzyskania przewagi (dowolnego rodzaju), a jeśli takiej nie ma — użyta do ustalenia kolumny w Tabeli starcia. Przy kilku
+      kandydatach wybiera właściciel. Trafienia przydzielone stosowi rozdziela się wg 6.68 pkt 6.
+    exceptions: R-10.13.2 (słoń dowódcy), R-10.13.3 (falanga atakująca kilka jednostek).
+    keywords: [podział trafień, nadwyżka, przewaga, stos]
+    refs: [R-6.68.6, R-10.13.2, R-10.13.3]
+  - id: R-10.13.2
+    title: Słoń dowódcy w stosie — trafienia tylko ponad TQ jednostki
+    section: "10.13"
+    source: {text: "oryg. 10.13 „Exceptions” pkt 1, s. 37", pages: "37"}
+    effect: Jeśli dowódca na słoniu jest w stosie z jednostką bojową, gracz nie musi przydzielać trafień słoniowi dowódcy, chyba że liczba trafień przekracza TQ tej drugiej jednostki — wtedy cała nadwyżka trafia do słonia dowódcy.
+    keywords: [słoń dowódcy, podział trafień, nadwyżka]
+  - id: R-10.13.3
+    title: Falanga atakująca kilka jednostek — atakujący rozdziela trafienia obrońców
+    section: "10.13"
+    source: {text: "oryg. 10.13 „Exceptions” pkt 2, s. 37; przykład Bagradas, s. 28", pages: "37,28"}
+    effect: Jeśli falanga atakuje dwie lub więcej jednostek niebędących falangami, **atakujący** decyduje, jak rozdzielić trafienia między obrońców — także nierówno. Nie dotyczy falang w obronie.
+    keywords: [falanga, podział trafień, atakujący decyduje]
+  - id: R-10.14.1
+    title: Trafienia ≥ TQ — ucieczka
+    section: "10.14"
+    source: {text: "oryg. 10.14, s. 37", pages: "37"}
+    effect: Jednostka, która ma trafienia **równe lub większe** od swojego TQ, ucieka (10.2).
+    exceptions: Czas i tryb ucieczki w walce wręcz — 8.43, 8.47 (R-8.43.3, R-8.47.1); falanga — R-8.43.5; posunięcie po walce — R-8.51.2; wszyscy uciekają — R-10.15.1.
+    keywords: [ucieczka, trafienia ≥ TQ]
+    refs: [R-10.21.1, R-8.43.3, R-8.47.1, R-8.43.5, R-8.51.2, R-10.15.1]
+  - id: R-10.15.1
+    title: Gdy uciekaliby wszyscy — porównanie nadwyżki trafień
+    section: "10.15"
+    source: {text: "oryg. 10.15 pkt 1–3 + IMPORTANT, s. 37–38", pages: "37-38"}
+    when: w rozstrzyganiu walki wręcz (8.43, 8.47) uciekałyby **wszystkie** jednostki atakujące i broniące się
+    effect: |
+      1) Atakujący dolicza trafienia, które otrzymałby przy posunięciu po walce (8.5). 2) Uciekają wszystkie jednostki strony, która ma jednostkę o **największej
+      nadwyżce** trafień nad TQ; druga strona nie ucieka, a trafienia jej jednostek ustawia się na **TQ − 1**; jeśli nie uciekł atakujący — posuwa się; jeśli
+      obrońca — zostaje. 3) Przy równej nadwyżce ucieka **obrońca**; atakującym ustawia się TQ − 1 i posuwają się.
+    keywords: [wszyscy uciekają, nadwyżka trafień, TQ − 1, remis — obrońca]
+    refs: [R-8.51.1, P-05]
+  - id: R-10.15.2
+    title: Procedura 10.15 tylko gdy uciekaliby wszyscy
+    section: "10.15"
+    source: {text: "oryg. 10.15 „IMPORTANT” + przykłady #1–#2, s. 37–38", pages: "37-38"}
+    effect: |
+      Pkt 1–3 stosuje się tylko, gdy uciekałyby wszystkie uczestniczące jednostki. Jeśli strona ma więcej jednostek i choć jedna ma trafień mniej niż TQ, wszystkie
+      pozostałe (z trafieniami ≥ TQ) uciekają (10.2). Przykład #1 (Kanny): hastati TQ 6 z 6 trafieniami vs Celtowie TQ 5 z 5 — nadwyżki równe (0), więc uciekają
+      Celtowie; hastati: 5 trafień i posunięcie. Przykład #2 (Beneventum): hoplici najemni po wyniku 3(2) mają 6, a z kosztami posunięcia (las, wzniesienie) 8 —
+      nadwyżka 2 → uciekają; hastati zostają z 5 trafieniami.
+    keywords: [wszyscy uciekają, przykład, Kanny, Beneventum]
+    refs: [R-10.15.1]
+  - id: R-10.16.1
+    title: Odzyskanie spójności — IO usuwa 2 trafienia
+    section: "10.16"
+    source: {text: "oryg. 10.16 „Recovery”, s. 38", pages: "38"}
+    effect: |
+      W fazie rozkazów IO może usunąć **2** trafienia jednostce w heksie terenu czystego (Clear), jeśli **nie** jest ona: obok jednostki bojowej wroga **ani**
+      w zasięgu i LOS jednostki wroga, która ma pociski (w tym zasięg H&D) i nie jest związana (Engaged, 10.4). Jeśli jednostka nie sąsiaduje z wrogiem, ale
+      jest w zasięgu nieprzyległych strzelców wroga — można usunąć **1** trafienie (w terenie czystym).
+    exceptions: Piechota barbarzyńska usuwa tylko 1 trafienie (R-9.93.1).
+    keywords: [odzyskanie spójności, Recovery, 2 trafienia, teren czysty]
+    refs: [R-9.93.1, R-10.41.1, T-16]
+  - id: R-10.16.2
+    title: Odzyskanie spójności — ograniczenia
+    section: "10.16"
+    source: {text: "oryg. 10.16, s. 38", pages: "38"}
+    effect: |
+      Najwyżej 2 trafienia na fazę rozkazów na jednostkę. Nie odzyskują spójności jednostki uciekające i te, które w tej turze zostały zreorganizowane (10.28).
+      Jednostka, której usunięto trafienia, nie rusza się ani nie strzela w tej fazie; jednostka, która się ruszała lub strzelała, nie odzyskuje trafień.
+    keywords: [odzyskanie spójności, limit, reorganizacja, ruch, ostrzał]
+    refs: [R-10.28.1, T-16]
+  - id: R-10.21.1
+    title: Co się dzieje przy ucieczce — wg typu
+    section: "10.21"
+    source: {text: "oryg. 10.21, s. 38", pages: "38"}
+    effect: Harcownicy, osłabiona piechota barbarzyńska i skorpiony są **eliminowani**. Słonie wpadają w szał (9.14). Wszystkie pozostałe jednostki wykonują ruch ucieczki (10.22).
+    keywords: [ucieczka, eliminacja, szał słonia, ruch ucieczki]
+    refs: [R-9.14.1, R-10.22.1, R-9.24.1, R-9.93.2, R-9.87.1]
+  - id: R-10.22.1
+    title: Początkowy ruch ucieczki — 2 heksy ku krawędzi odwrotu
+    section: "10.22"
+    source: {text: "oryg. 10.22, s. 38", pages: "38"}
+    effect: |
+      Jednostka natychmiast zwraca się i przesuwa o **2 heksy** ku krawędzi odwrotu swojej strony (wg scenariusza), najkrótszą nieblokowaną drogą. Drogę blokuje
+      heks zajęty przez wroga, heks lub krawędź nieprzekraczalna, strefa kontroli wroga niezajęta przez własną jednostkę. Kolejność wyboru: 1) wolny heks poza strefą
+      kontroli wroga (nawet teren trudny); 2) heks zajęty przez swoich poza strefą kontroli wroga; 3) heks zajęty przez swoich w strefie kontroli wroga. Przy równym
+      priorytecie wybiera właściciel.
+    keywords: [ruch ucieczki, 2 heksy, krawędź odwrotu, blokada, priorytet]
+    refs: [P-04]
+  - id: R-10.22.2
+    title: Ruch ucieczki falangi — prosto albo odwrócona, bez obrotów
+    section: "10.22"
+    source: {text: "oryg. 10.22, s. 38", pages: "38"}
+    effect: |
+      Falanga na początku ruchu ucieczki zachowuje ukierunkowanie albo odwraca się w kierunku bliższym krawędzi odwrotu; jeśli ten kierunek jest zablokowany, idzie
+      w drugim. Musi przejść 2 heksy obiema połowami; nie może się obracać, by omijać zablokowane heksy lub własne jednostki. Jeśli nie może przejść 2 heksów w ustalonym
+      kierunku — jest eliminowana.
+    keywords: [falanga, ruch ucieczki, eliminacja]
+  - id: R-10.22.3
+    title: Ruch ucieczki innych jednostek — obrót o wierzchołek; ROUTED
+    section: "10.22"
+    source: {text: "oryg. 10.22 + Play Note + przykład (Kynoskefalaj), s. 38–39", pages: "38-39"}
+    effect: |
+      Jeśli oba heksy w kierunku krawędzi odwrotu są zablokowane, gracz obraca jednostkę o kolejne wierzchołki (w dowolną stronę), aż będzie mogła wejść do
+      wolnego heksu; jeśli takiego nie ma — eliminacja. Po ruchu kładzie się znacznik **ROUTED** i **zdejmuje znaczniki trafień**. Uciekający mogą najpierw iść
+      od krawędzi, jeśli muszą (wróg, strefa kontroli, teren), ale nie wolno nimi „krążyć”, by unikać krawędzi.
+    keywords: [ruch ucieczki, obrót, ROUTED, zdjęcie trafień]
+  - id: R-10.23.1
+    title: Segment ruchu ucieczki — falangi giną, reszta pełny MA
+    section: "10.23"
+    source: {text: "oryg. 10.23, s. 39", pages: "39"}
+    effect: |
+      W segmencie ruchu ucieczki fazy D wszystkie uciekające falangi są **eliminowane**. Pozostałe uciekające jednostki przesuwa się o **pełny wydrukowany MA**
+      w tym samym kierunku i w ten sam sposób co w 10.22 — nawet jeśli ruszały się wcześniej w tej turze. Stosują zwykłe zasady ruchu, ale nie wchodzą do stref
+      kontroli wroga niezajętych przez swoich; nie otrzymują trafień za ruch.
+    keywords: [segment ruchu ucieczki, falanga, eliminacja, pełny MA]
+    refs: [R-3.0.7, R-10.22.1]
+  - id: R-10.24.1
+    title: Zejście z mapy lub niedokończona ucieczka = eliminacja
+    section: "10.24"
+    source: {text: "oryg. 10.24, s. 39", pages: "39"}
+    effect: Jednostka, która schodzi z mapy (z jakiegokolwiek powodu) albo nie może dokończyć ruchu ucieczki z powodu jednostek/stref kontroli wroga lub terenu nieprzekraczalnego, zostaje na stałe usunięta i liczy się jako wyeliminowana dla wycofania armii.
+    keywords: [zejście z mapy, eliminacja, wycofanie armii]
+    exceptions: Jazda poza mapą po pościgu — R-8.62.4, R-8.65.1.
+    refs: [R-11.2.1, R-8.62.4, R-8.65.1]
+  - id: R-10.25.1
+    title: Uciekający przez własne jednostki — nie kończy w stosie
+    section: "10.25"
+    source: {text: "oryg. 10.25, s. 39", pages: "39"}
+    effect: |
+      Ruch uciekających przez inne jednostki lub do nich reguluje Tabela stosu (6.69). Uciekający może przejść przez własną jednostkę, ale nie może skończyć ruchu
+      w stosie z nią. Gdyby skończył w heksie zajętym przez swoich (także w strefie kontroli wroga), idzie zamiast tego **o jeden heks dalej** (z karami dla jednostki
+      stojącej wg tabeli). Uciekający jest eliminowany, jeśli ten dalszy heks jest zajęty przez jakąkolwiek jednostkę, jest w strefie kontroli wroga lub jest
+      nieprzekraczalny; jeśli jest zajęty przez swoich, ta jednostka ponosi kary „Stopping In” z tabeli.
+    keywords: [ucieczka, stos, heks dalej, Stopping In, eliminacja]
+    refs: [R-6.69.1, R-6.63.2, T-21]
+  - id: R-10.26.1
+    title: Dowódca z uciekającą jednostką
+    section: "10.26"
+    source: {text: "oryg. 10.26, s. 39", pages: "39"}
+    effect: Dowódca w stosie z uciekającą jednostką może uciekać razem z nią; poza tym ucieczka go nie dotyczy.
+    keywords: [dowódca, ucieczka]
+  - id: R-10.27.1
+    title: Skutki ucieczki
+    section: "10.27"
+    source: {text: "oryg. 10.27, s. 39", pages: "39"}
+    effect: |
+      Jednostki uciekające mają automatycznie TQ **1** (inne parametry bez zmian). Uciekająca **piechota** strzelająca jest automatycznie „Missile No” (nie dotyczy
+      jednostek konnych). Uciekające nie dostają i nie używają rozkazów innych niż reorganizacja; nie strzelają z żadnego powodu. W ruchu ucieczki nie płacą kar
+      spójności za teren. Uciekająca jednostka, która otrzyma **jakiekolwiek** dodatkowe trafienie, jest natychmiast eliminowana.
+    keywords: [skutki ucieczki, TQ 1, Missile No, eliminacja, reorganizacja]
+    refs: [R-10.28.1]
+  - id: R-10.28.1
+    title: Reorganizacja — warunki
+    section: "10.28"
+    source: {text: "oryg. 10.28 „Rally”, s. 39", pages: "39"}
+    effect: |
+      W fazie rozkazów gracz może próbować reorganizować uciekającą jednostkę w terenie czystym, która **nie** jest obok jednostki bojowej wroga **ani** w zasięgu i LOS
+      jednostki wroga z pociskami (w tym H&D), niezwiązanej (Engaged, 10.4). Dany dowódca może próbować reorganizować daną jednostkę **raz na turę** (limit dotyczy
+      dowódcy, nie jednostki — inny dowódca może spróbować w tej samej turze). Reorganizacja wymaga IO (5.22).
+    keywords: [reorganizacja, Rally, teren czysty, raz na turę, IO]
+    refs: [R-5.22.1, R-10.41.1, P-08]
+  - id: R-10.28.2
+    title: Rzut na reorganizację — inicjatywa +1
+    section: "10.28"
+    source: {text: "oryg. 10.28 + przykład, s. 39–40", pages: "39-40"}
+    effect: |
+      Rzut **≤ inicjatywa dowódcy + 1** — jednostka zreorganizowana (odwróć ROUTED na RALLIED). Wyższy — jednostka wykonuje ruch ucieczki o pełny MA (10.22),
+      chyba że wynik był też **wyższy od wydrukowanego TQ** — wtedy jest eliminowana. Słonie w szale nigdy nie są reorganizowane. Przykład: dowódca (inicjatywa 4),
+      principes TQ 7: wynik 2 — sukces; 6 — ruch ucieczki; 8 — eliminacja.
+    keywords: [reorganizacja, rzut, inicjatywa +1, eliminacja]
+    refs: [T-17]
+  - id: R-10.28.3
+    title: Po reorganizacji — trafienia z tabeli, osłabienie, brak rozkazów do następnej tury
+    section: "10.28"
+    source: {text: "oryg. 10.28, s. 40", pages: "40"}
+    effect: |
+      Po reorganizacji gracz rzuca na Tabeli reorganizacji (10.29) i daje jednostce trafienia wg wyniku i jej wydrukowanego TQ (przykład: TQ 7, wynik 5 → 2 trafienia).
+      Zreorganizowane jednostki nie dostają i nie używają rozkazów **do następnej tury**; przy reorganizacji można je za darmo (bez MP i trafień) obrócić.
+      Zreorganizowana jednostka jest automatycznie **osłabiona** (odwróć żeton); piechota strzelająca dostaje MISSILE NO.
+    keywords: [reorganizacja, Tabela reorganizacji, osłabiona, MISSILE NO]
+    refs: [R-10.29.1, R-10.31.1, T-27]
+  - id: R-10.29.1
+    title: Tabela reorganizacji (Rally Table)
+    section: "10.29"
+    source: {text: "oryg. 10.29, s. 40", pages: "40"}
+    effect: Tabela podaje liczbę trafień, które otrzymuje zreorganizowana jednostka.
+    keywords: [Tabela reorganizacji, trafienia]
+    refs: [T-27]
+  - id: R-10.31.1
+    title: Osłabienie — po reorganizacji, na stałe, bez kumulacji
+    section: "10.31"
+    source: {text: "oryg. 10.31 (i Design Note 10.3), s. 40", pages: "40"}
+    effect: |
+      Jednostka reorganizowana automatycznie staje się osłabiona. W niektórych scenariuszach jednostki zaczynają osłabione. Osłabienia się nie kumulują. Oznacza się je
+      odwróceniem żetonu; trwa do końca gry.
+    keywords: [osłabiona, Depleted, reorganizacja, rewers]
+    refs: [R-2.21.3]
+  - id: R-10.32.1
+    title: Skutki osłabienia w walce
+    section: "10.32"
+    source: {text: "oryg. 10.32, s. 40", pages: "40"}
+    effect: |
+      Jeśli w ataku wręcz bierze udział jakakolwiek osłabiona jednostka — przesunięcie **1L** na CRT; jeśli osłabiona jednostka się broni — **1R**. Ostrzał osłabionej
+      jednostki: **+1 DRM**. Osłabiona piechota barbarzyńska, która ucieka, jest eliminowana.
+    keywords: [osłabiona, 1L, 1R, +1 DRM, BI]
+    refs: [R-9.93.2, T-11, T-18]
+  - id: R-10.33.1
+    title: Reorganizacja osłabionej jednostki — +1 i +2 DRM
+    section: "10.33"
+    source: {text: "oryg. 10.33, s. 40", pages: "40"}
+    effect: |
+      Przy próbie reorganizacji osłabionej jednostki: **+1 DRM** do rzutu reorganizacji i **+2 DRM** do rzutu na Tabeli reorganizacji. Nie dotyczy jednostek osłabionych dopiero teraz — tylko tych, które były osłabione przed próbą.
+    keywords: [osłabiona, reorganizacja, +1 DRM, +2 DRM]
+    refs: [T-17, T-18]
+  - id: R-10.41.1
+    title: (opcja) Związanie (Engaged) — skutki
+    section: "10.41"
+    source: {text: "oryg. 10.41 (zasada opcjonalna 10.4 „Engaged”), s. 40", pages: "40"}
+    effect: |
+      Jednostki (i dowódcy w stosie z nimi) stają się związane w wyniku walki wręcz (8.47); kładzie się na nie znacznik ENGAGED. Jednostki związane (także dowódcy):
+      nie mogą dobrowolnie się ruszać ani zmieniać ukierunkowania; nie strzelają i nie mogą być celem ostrzału; muszą, jeśli to możliwe, dostać SHOCK-NO TQ CHECK
+      w kroku wyznaczenia walki (8.41), jeśli są w zasięgu dowodzenia aktywnego dowódcy — bez względu na ograniczenia dowodzenia (wszystkie własne jednostki w zasięgu).
+    keywords: [Engaged, związanie, zasada opcjonalna, SHOCK NO TQ CHECK]
+    flags: [optional]
+    refs: [R-8.47.5, R-8.41.1, R-7.33.3]
+  - id: R-10.42.1
+    title: (opcja) Związane jednostki szybsze mogą odstąpić o 1 heks
+    section: "10.42"
+    source: {text: "oryg. 10.42, s. 40", pages: "40"}
+    effect: |
+      Jazda, harcownicy i lekka piechota związani z jednostkami o niższym MA mogą zamiast SHOCK NO TQ CHECK odstąpić o 1 heks, zachowując ukierunkowanie. Jednostki
+      niezdolne do walki wręcz **muszą** odstąpić, jeśli mogą. Heks: wolny i dostępny normalnym ruchem; poza strefą kontroli wroga; nie obok jednostki, z którą
+      odstępujący jest związany. Jednostka zdolna do walki wręcz, która nie może odstąpić, dostaje SHOCK-NO TQ CHECK.
+    keywords: [Engaged, odstąpienie, 1 heks, jazda, harcownik, LI]
+    flags: [optional]
+  - id: R-10.43.1
+    title: (opcja) Zdjęcie znacznika ENGAGED
+    section: "10.43"
+    source: {text: "oryg. 10.43, s. 40", pages: "40"}
+    effect: ENGAGED zdejmuje się wskutek eliminacji, posunięć i ruchów ucieczki w kroku załamania (8.47) albo w dowolnej chwili, gdy związana jednostka nie ma w swojej strefie kontroli żadnej związanej jednostki wroga i sama nie jest w strefie kontroli związanej jednostki wroga.
+    keywords: [Engaged, zdjęcie znacznika]
+    flags: [optional]
+    refs: [R-8.47.5]

@@ -1,0 +1,40 @@
+--- baseline/contracts/ig/README.md
++++ contracts/ig/README.md
+@@ -102,7 +102,14 @@
+ Each reference has `mode`, `id`, declared `record_type` and optionally `aspect_id`.
+ `active` references have no revision field and resolve only through the selected
+ snapshot. `historical` references require an exact `revision_id` and resolve only in
+-the immutable store. Reference types and aspect membership must match. Old records in
++the immutable store. Reference types and aspect membership must match. A selected
++relation declared `required` or `conditional` must have selected endpoints: an active
++reference resolves normally; a historical endpoint is valid only when its exact revision
++is the selected revision of that ID. A retained unselected or superseded revision cannot
++fulfil a semantic dependency. Non-resolved links retain their null target, raw locator
++and gap without activating a candidate. Informational navigation and historical review,
++evidence, lineage and provenance pins retain their separate historical resolution.
++Old records in
+ the store never satisfy a missing active reference. Conversely a historical review,
+ supersession or mention may legitimately target an unselected revision.
+ 
+@@ -178,7 +185,20 @@
+ and formal semantics; it does not imply either human acceptance or execution. Coverage
+ entries distinguish represented/partial/unprocessed/excluded. Partial and unprocessed
+ entries require gaps; represented entries require targets and cannot count a gap as
+-represented content. Exclusion requires a reason and a human accepted scope decision.
++represented content. Coverage `target_refs` allow only `node`, `evidence` or `relation`
++source-content records, in either reference mode. Gaps belong in `gap_refs`; sources,
++regions and workflow/profile/review metadata are not content targets. A mixed list with
++a gap is invalid too. This type check does not prove the representation's source meaning.
++
++Exclusion requires a reason and a current complete human accepted `source_composition`
++review. Its optional `coverage_boundary` object must specify `purpose: coverage_exclusion`
++and exactly match the coverage entry's historical `inventory_ref`, historical `region_ref`
++and representation `level`. That exact region must be a full-record review target and
++the exact inventory a full-record review basis. Other-region, other-level, unrelated,
++stale or partial decisions cannot transfer approval. The decision targets the region
++and inventory boundary rather than the coverage record containing its own reference,
++so revision hashing remains acyclic. Authorization and decision artifacts still require
++independent human verification; matching metadata does not authenticate them.
+ `inventory` regions define the denominator; `context` regions are excluded from it.
+ Duplicate or overlapping inventory regions within a level/source revision/page/locator
+ convention are rejected. Boxes use integer millionths of a page, top-left origin;

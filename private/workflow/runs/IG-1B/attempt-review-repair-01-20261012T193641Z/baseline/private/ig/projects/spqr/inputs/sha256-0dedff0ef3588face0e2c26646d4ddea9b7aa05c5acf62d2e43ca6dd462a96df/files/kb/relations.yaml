@@ -1,0 +1,247 @@
+relations:
+  # --- Aktywacja, impet, przejęcie, rozkazy (rozdz. 4–5) ---
+  - {from: R-5.51.1, to: R-5.12.1, type: overrides, when: "gracz z elitarnym OC na początku tury", note: "Faza EIO przed normalną kolejnością od najniższej inicjatywy.", status: verified}
+  - {from: R-5.41.1, to: R-5.12.1, type: exception-to, when: "gracz aktywny próbuje przejęcia", note: "Zamiast najniżej ocenianego — wyższy dowódca, jeśli rzut ≤ jego inicjatywa.", status: verified}
+  - {from: R-5.26.2, to: R-5.12.1, type: overrides, when: "dowódca, który czekał w strefie kontroli wroga, wyszedł z niej", note: "Musi być aktywowany przed jakimkolwiek innym dowódcą.", status: verified}
+  - {from: R-5.26.2, to: R-5.15.1, type: exception-to, when: "dowódca zaczyna początkową fazę rozkazów w strefie kontroli wroga", note: "Pozostanie nieaktywnym nie kończy go (wyjątek od 5.15 pkt 4).", status: verified}
+  - {from: R-5.33.1, to: R-5.13.1, type: exception-to, when: "rzut zagłady 0–1", note: "Przeciwnik może aktywować dowódcę już skończonego.", status: verified}
+  - {from: R-5.33.1, to: R-5.15.1, type: exception-to, note: "Ponowna aktywacja skończonego dowódcy (wyjątek wymieniony w 5.15).", status: verified}
+  - {from: R-5.34.2, to: R-5.34.1, type: exception-to, when: "dowódca aktywowany najpierw w fazie EIO", note: "Przy późniejszej aktywacji może jeszcze rzucić na jeden impet.", status: verified}
+  - {from: R-5.52.1, to: R-5.14.1, type: modifies, note: "Faza EIO liczy się jako jedna faza; dowódca wraca do stanu nieaktywnego (wyjątek od „z rzędu”).", status: verified}
+  - {from: R-5.44.2, to: R-5.31.1, type: modifies, note: "Dowódca pominięty nie może używać impetu.", status: verified}
+  - {from: R-5.26.2, to: R-5.31.1, type: modifies, note: "Dowódca aktywowany po wyjściu ze strefy kontroli nie używa impetu.", status: verified}
+  - {from: R-6.81.2, to: R-5.14.1, type: modifies, when: "strona zastosowała PW", note: "OC ma tylko jedną próbę impetu w tej turze.", status: verified}
+  - {from: R-9.95.1, to: R-5.32.1, type: modifies, when: "dowódca BI z porywczością, pierwsza próba impetu", note: "–1 DRM.", status: verified}
+  - {from: R-4.93.1, to: R-5.31.1, type: exception-to, when: "opcja 4.9", note: "Dowódcy słoni nie używają impetu.", status: verified}
+  - {from: R-5.46.1, to: R-5.45.1, type: requires, note: "Przejęcie ze strefy kontroli wroga ważne tylko, jeśli dowódca coś zrobi (umożliwi walkę wręcz).", status: verified}
+  - {from: R-4.33.4, to: R-4.33.3, type: exception-to, when: "pierwsza tura", note: "Dowódcy podlegli wydają LC automatycznie.", status: verified}
+  - {from: R-4.6.1, to: R-4.33.3, type: overrides, when: "Hannibal jest OC, fazy początkowe dowódców podległych", note: "LC bez zasięgu OC i bez rzutu na strategię; w fazach impetu wraca 4.33.", status: verified}
+  - {from: R-4.6.2, to: R-4.6.1, type: exception-to, note: "Nie dotyczy dowódców zastępczych.", status: verified}
+  - {from: R-4.56.1, to: R-4.33.3, type: modifies, when: "prokonsul poza zasięgiem OC", note: "–1 DRM do rzutu na strategię.", status: verified}
+  - {from: R-4.92.1, to: R-4.33.3, type: exception-to, when: "opcja 4.9 — dowódca słoni", note: "LC bez względu na odległość od OC.", status: verified}
+  - {from: R-4.56.2, to: R-4.75.1, type: exception-to, when: "OC zginął, w armii jest prokonsul", note: "Prokonsul może zostać OC (strategia 1).", status: verified}
+  - {from: R-4.4.2, to: R-4.71.2, type: exception-to, note: "OC sam wychodzi ze strefy kontroli wroga własnym IO.", status: verified}
+  - {from: R-4.4.3, to: R-4.24.1, type: exception-to, note: "Jedyny sposób wyprowadzenia dowódcy podległego ze strefy kontroli wroga: IO od OC (2 IO).", status: verified}
+  - {from: R-5.26.1, to: R-4.24.1, type: modifies, note: "Mimo zakazu rozkazów zasięg dowodzenia wciąż umożliwia walkę wręcz (dowódca staje się skończony).", status: verified}
+  - {from: R-4.31.2, to: R-10.28.1, type: modifies, when: "dowódca wydał LC na ruch", note: "W tej fazie rozkazów nie reorganizuje.", status: verified}
+  - {from: R-4.52.3, to: R-4.52.1, type: exception-to, note: "Wszyscy velites jako jedna klasa, bez względu na legion/alę.", status: verified}
+  - {from: R-4.52.2, to: R-7.33.1, type: modifies, note: "Trybun/prefekt umożliwia walkę wręcz każdej piechocie legionu/ali (bez ograniczenia klasy).", status: verified}
+  - {from: R-4.54.1, to: R-7.33.1, type: modifies, note: "Prefekt jazdy umożliwia walkę wręcz każdej jeździe rzymskiej.", status: verified}
+  - {from: R-4.35.1, to: R-7.33.1, type: modifies, note: "Ograniczenie dowodzenia obejmuje też umożliwienie walki wręcz.", status: verified}
+  - {from: R-7.33.3, to: R-4.35.1, type: overrides, when: "opcja Engaged", note: "SHOCK NO TQ CHECK dla związanych w zasięgu bez względu na ograniczenia dowodzenia.", status: verified}
+  - {from: R-4.4.6, to: R-6.64.1, type: see, note: "Ta sama zasada: OC jednym IO porusza cały swój stos.", status: verified}
+  - {from: R-4.91.1, to: R-9.18.1, type: overrides, when: "opcja 4.9, po pierwszych rozkazach dla słoni", note: "Ruch słoni tylko przez dowódcę w stosie albo dowódcę słoni.", status: verified}
+  - {from: R-6.83.2, to: R-5.15.1, type: modifies, note: "Użycie PW kończy dowódcę (także nieaktywowanego).", status: verified}
+  - {from: R-4.33.5, to: R-4.6.1, type: overrides, when: "faza impetu kartagińskiego dowódcy podległego", note: "W fazach impetu obowiązuje 4.33 (rzut na strategię), nie 4.6.", status: verified}
+  # --- Ruch, stos, kolumna (rozdz. 6) ---
+  - {from: R-6.13.2, to: R-6.13.1, type: exception-to, note: "Harcownicy bez kary za ponowny ruch.", status: verified}
+  - {from: R-6.41.2, to: R-6.13.1, type: modifies, when: "falanga po ruchu („Moved”)", note: "Kara 2 trafienia przy MA 5, 1 przy MA 4 — nie kumulowana z 6.13 (N-08).", status: inferred}
+  - {from: R-9.96.4, to: R-6.13.1, type: exception-to, when: "LI przez całą fazę na rydwanie", note: "Bez trafień za drugi i trzeci ruch.", status: verified}
+  - {from: R-8.33.1, to: R-6.13.1, type: modifies, note: "H&D jest ruchem dla 6.13, choć żeton się nie przesuwa.", status: verified}
+  - {from: R-6.72.1, to: R-6.11.1, type: modifies, when: "jednostka w kolumnie", note: "MA +1 (falanga: wyższy MA).", status: verified}
+  - {from: R-9.95.1, to: R-6.11.1, type: modifies, when: "BI z porywczością", note: "MA +1.", status: verified}
+  - {from: R-9.68.1, to: R-6.11.1, type: modifies, when: "MLE w ramach LC", note: "Dalszy ruch z MA –2.", status: verified}
+  - {from: R-9.71.1, to: R-6.11.1, type: overrides, when: "doktryna triarii (9.7)", note: "Triarii nie ruszają się do spełnienia warunku.", status: verified}
+  - {from: R-9.52.1, to: R-6.41.1, type: overrides, when: "falanga podwójnej głębokości", note: "Zawsze MA 4.", status: verified}
+  - {from: R-9.52.1, to: R-6.44.1, type: exception-to, note: "DD nie skręca, nie odwraca się, nie używa kolumny.", status: verified}
+  - {from: R-6.22.2, to: R-6.22.1, type: exception-to, note: "Dowódcy i uciekający nie otrzymują trafień za ruch/teren.", status: verified}
+  - {from: R-9.91.1, to: R-6.22.1, type: exception-to, note: "BI bez trafień za teren przekraczalny i obrót w terenie trudnym.", status: verified}
+  - {from: R-6.72.1, to: R-6.22.1, type: modifies, when: "kolumna", note: "Mniejsze koszty spójności w niektórych terenach (np. PH: strumień, Broken).", status: verified}
+  - {from: R-6.15.1, to: R-6.21.1, type: modifies, note: "Dowódcy płacą koszty jazdy (ze słoniem — słoni).", status: verified}
+  - {from: R-9.11.3, to: R-6.62.1, type: exception-to, when: "przepuszczenie słonia", note: "Słoń przechodzi przez heks piechoty wroga.", status: verified}
+  - {from: R-9.51.1, to: R-6.61.1, type: exception-to, note: "Dwie falangi w heksie (DD).", status: verified}
+  - {from: R-6.63.1, to: R-6.61.1, type: exception-to, note: "Elastyczność manipularna wg tabel stosu.", status: verified}
+  - {from: R-9.52.2, to: R-6.63.1, type: overrides, note: "Przez stos DD nie przechodzi nikt (jak teren nieprzekraczalny).", status: verified}
+  - {from: R-6.66.2, to: R-8.21.1, type: exception-to, when: "wejście do heksu w celu utworzenia stosu obok wroga", note: "Brak ostrzału przy wejściu.", status: verified}
+  - {from: R-6.66.2, to: R-7.32.1, type: exception-to, when: "wejście do heksu w celu utworzenia stosu obok wroga", note: "Brak znacznika walki wręcz.", status: verified}
+  - {from: R-9.66.1, to: R-6.66.2, type: exception-to, note: "Przy MLE ruszają się górne jednostki wielu stosów.", status: verified}
+  - {from: R-9.64.1, to: R-6.66.1, type: modifies, note: "W stosie rzymskim LC może zmienić ukierunkowanie (kolejność nadal tylko IO).", status: verified}
+  - {from: R-10.13.1, to: R-6.68.6, type: overrides, note: "6.68 pkt 6 obowiązuje, „jeśli 10.13 nie ma pierwszeństwa”.", status: verified}
+  - {from: R-6.71.2, to: R-6.71.1, type: exception-to, note: "BI, SK i uciekający nie używają kolumny.", status: verified}
+  - {from: R-9.52.1, to: R-6.71.1, type: exception-to, note: "DD nie używa kolumny.", status: verified}
+  # --- Uporządkowane wycofanie, PW, MLE ---
+  - {from: R-6.51.3, to: R-6.51.1, type: exception-to, note: "SK: 2 heksy przed jednostkami o MA ≤, bez różnicy MA.", status: verified}
+  - {from: R-6.51.4, to: R-6.51.1, type: exception-to, note: "Uciekający i z MA ponad wydrukowany — bez OW.", status: verified}
+  - {from: R-6.77.1, to: R-6.51.1, type: exception-to, note: "Kolumna — bez OW.", status: verified}
+  - {from: R-6.77.1, to: R-7.15.1, type: exception-to, note: "Kolumna — bez zmiany ukierunkowania w reakcji.", status: verified}
+  - {from: R-9.91.1, to: R-6.51.1, type: exception-to, note: "BI — bez OW, PW, kolumny.", status: verified}
+  - {from: R-9.96.2, to: R-6.51.1, type: exception-to, when: "rydwan bez LI", note: "Rydwan nie rusza się (także OW).", status: verified}
+  - {from: R-8.55.1, to: R-6.51.1, type: exception-to, when: "wróg posuwa się po walce", note: "Brak OW wobec posunięcia.", status: verified}
+  - {from: R-6.56.2, to: R-6.56.1, type: exception-to, when: "szalejący słoń", note: "OW w dowolnej chwili, obu graczy.", status: verified}
+  - {from: R-9.16.1, to: R-6.51.1, type: modifies, when: "słoń wchodzi obok jazdy z heksu nieprzyległego", note: "OW jazdy jest obowiązkowe (jeśli możliwe).", status: verified}
+  - {from: R-6.57.1, to: R-6.51.1, type: modifies, note: "Cała linia jazdy wycofuje się naraz.", status: verified}
+  - {from: R-6.83.1, to: R-6.51.1, type: modifies, when: "PW wobec piechoty", note: "Wycofanie o 1 heks bez przewagi MA (warunek „capability” — N-09).", status: verified}
+  - {from: R-6.14.1, to: R-6.51.1, type: modifies, note: "Dowódcy mogą wycofać się przed każdą jednostką wroga.", status: verified}
+  - {from: R-6.65.1, to: R-6.51.1, type: modifies, note: "Jednostka i dowódca wycofujący się razem pozostają razem.", status: verified}
+  - {from: R-9.21.1, to: R-6.52.4, type: modifies, note: "SK — trafienie tylko przy podejściu z tyłu; velites — tylko z boku/tyłu.", status: verified}
+  - {from: R-6.53.1, to: R-10.14.1, type: see, note: "Trafienia ≥ TQ przy wycofaniu = natychmiastowa ucieczka.", status: verified}
+  - {from: R-9.67.1, to: R-6.51.1, type: see, note: "Ruch wroga może wywołać i OW, i MLE — nie tymi samymi jednostkami.", status: verified}
+  # --- Ukierunkowanie i strefy kontroli (rozdz. 7) ---
+  - {from: R-9.65.1, to: R-7.12.1, type: exception-to, note: "Piechota rzymska: 1 MP za dowolny obrót.", status: verified}
+  - {from: R-7.15.2, to: R-7.15.1, type: exception-to, when: "jazda reaguje na piechotę", note: "Bez testu.", status: verified}
+  - {from: R-7.16.1, to: R-6.45.1, type: requires, note: "Odwrócenie w reakcji tylko, gdy falanga spełnia warunki 6.45.", status: verified}
+  - {from: R-8.52.1, to: R-7.24.1, type: overrides, note: "Po posunięciu obrót o 1 wierzchołek mimo strefy kontroli.", status: verified}
+  - {from: R-6.44.1, to: R-7.23.1, type: exception-to, note: "Połowa falangi w strefie kontroli — druga może iść skrętem.", status: verified}
+  - {from: R-7.23.3, to: R-7.23.2, type: exception-to, note: "Strefa kontroli jednostki niezdolnej do walki wręcz nie blokuje wyjścia (pkt 1).", status: verified}
+  - {from: R-9.14.6, to: R-7.21.1, type: exception-to, note: "Szalejący słoń nie ma strefy kontroli.", status: verified}
+  - {from: R-9.15.1, to: R-7.23.1, type: modifies, note: "Jazda nie wchodzi dobrowolnie do strefy kontroli słonia; heksy boczne/tylne słonia — 2 trafienia za heks.", status: verified}
+  - {from: R-10.41.1, to: R-7.24.1, type: overrides, when: "opcja Engaged", note: "Związane nie zmieniają ukierunkowania w żadnych okolicznościach.", status: verified}
+  # --- Obowiązek walki wręcz (7.3) ---
+  - {from: R-7.33.2, to: R-7.31.1, type: exception-to, note: "Niezdolni do walki wręcz, uciekający, kolumna — nie atakują.", status: verified}
+  - {from: R-7.33.2, to: R-7.33.1, type: exception-to, note: "Jw.; velites tylko do przodu.", status: verified}
+  - {from: R-4.83.1, to: R-7.33.1, type: exception-to, note: "Słoń dowódcy nigdy nie atakuje.", status: verified}
+  - {from: R-8.63.1, to: R-7.33.1, type: exception-to, note: "Jazda PURSUIT/FINISHED nie atakuje wręcz do końca tury.", status: verified}
+  - {from: R-9.72.1, to: R-7.31.1, type: overrides, when: "triarii przed osiągnięciem ½ progu wycofania", note: "Zakaz ruchu połączonego z atakiem — relacja do obowiązku 7.31 niejasna (N-17).", status: inferred}
+  - {from: R-10.41.1, to: R-7.33.1, type: modifies, when: "opcja Engaged", note: "Związani w zasięgu muszą dostać SHOCK NO TQ CHECK.", status: verified}
+  - {from: R-10.42.1, to: R-10.41.1, type: exception-to, when: "jazda/SK/LI związane z wolniejszymi", note: "Mogą (niezdolni do walki wręcz — muszą) odstąpić o 1 heks.", status: verified}
+  - {from: R-7.33.4, to: R-7.33.1, type: exception-to, when: "„lekka” jednostka zrezygnowała z ataku przy ruchu", note: "Brak SHOCK NO TQ CHECK (N-13).", status: inferred}
+  - {from: R-7.32.1, to: R-8.43.1, type: precedes, note: "Znaczniki z chwili podejścia wyznaczają, kto wykonuje test przed walką.", status: verified}
+  # --- Walka wręcz (8.4–8.5, 10.13–10.15) ---
+  - {from: R-8.41.1, to: R-8.42.1, type: precedes, note: "Kolejność kroków walki wręcz.", status: verified}
+  - {from: R-8.42.1, to: R-8.43.1, type: precedes, note: "Kolejność kroków walki wręcz.", status: verified}
+  - {from: R-9.11.1, to: R-8.43.1, type: precedes, note: "Decyzja o przepuszczeniu słonia przed rzutem szarży.", status: verified}
+  - {from: R-8.43.1, to: R-8.44.1, type: precedes, note: "Kolejność kroków walki wręcz.", status: verified}
+  - {from: R-8.44.1, to: R-8.45.1, type: precedes, note: "Kolejność kroków walki wręcz.", status: verified}
+  - {from: R-8.45.1, to: R-8.46.1, type: precedes, note: "Kolejność kroków walki wręcz.", status: verified}
+  - {from: R-8.46.1, to: R-8.46.5, type: precedes, note: "Krok 1 → krok 2.", status: verified}
+  - {from: R-8.46.5, to: R-8.46.7, type: precedes, note: "Krok 2 → krok 3.", status: verified}
+  - {from: R-8.46.7, to: R-8.46.8, type: precedes, note: "Krok 3 → krok 4.", status: verified}
+  - {from: R-8.46.8, to: R-8.47.1, type: precedes, note: "Wyniki → załamanie.", status: verified}
+  - {from: R-8.47.1, to: R-8.47.3, type: precedes, note: "Załamanie krok 1 → krok 2 (ruchy ucieczki przed testami).", status: verified}
+  - {from: R-8.47.3, to: R-8.47.4, type: precedes, note: "Krok 2 → krok 3 (posunięcia/pościgi na końcu).", status: verified}
+  - {from: R-8.44.1, to: R-4.73.1, type: requires, note: "Procedura strat dowódców.", status: verified}
+  - {from: R-8.43.2, to: R-8.43.1, type: exception-to, note: "Atak na SK, na uciekających; PH/HI/LG atakowane frontalnie przez LI — bez testu.", status: verified}
+  - {from: R-9.23.1, to: R-8.43.1, type: exception-to, when: "atak na samych harcowników", note: "Atakujący bez testu przed walką (zakres względem 8.43 — N-21).", status: verified}
+  - {from: R-8.43.5, to: R-8.43.3, type: exception-to, when: "falanga miałaby uciec", note: "Rzut na utrzymanie (stoi z TQ − 1).", status: verified}
+  - {from: R-8.47.2, to: R-8.47.1, type: exception-to, when: "falanga miałaby uciec w załamaniu", note: "Procedura z 8.43.", status: verified}
+  - {from: R-8.47.2, to: R-8.43.5, type: modifies, when: "falanga broni się, atakujący miał przewagę pozycji", note: "Bez rzutu — ucieka.", status: verified}
+  - {from: R-10.15.1, to: R-8.43.3, type: overrides, when: "z testów przed walką uciekaliby wszyscy", note: "Ucieka tylko strona z większą nadwyżką trafień.", status: verified}
+  - {from: R-10.15.1, to: R-8.47.1, type: overrides, when: "w załamaniu uciekaliby wszyscy", note: "Jw.", status: verified}
+  - {from: R-8.51.2, to: R-10.14.1, type: exception-to, when: "posunięcie po walce dałoby trafienia ≥ TQ", note: "Jednostka nie ucieka, ma TQ − 1.", status: verified}
+  - {from: R-8.53.3, to: R-8.51.2, type: exception-to, when: "falanga skręca po posunięciu w całości", note: "Przy trafieniach ≥ TQ ucieka (10.21).", status: verified}
+  - {from: R-8.53.2, to: R-8.53.1, type: exception-to, when: "opuszczony tylko środkowy heks frontu, wróg w jednym z bocznych frontowych", note: "Posunięcie obrotem (skręt).", status: verified}
+  - {from: R-8.46.3, to: R-8.46.2, type: exception-to, note: "Brak przewagi pozycji (SK z boku, jazda/słoń vs słoń, atakujący z wrogiem w boku/tyle).", status: verified}
+  - {from: R-9.15.2, to: R-8.46.2, type: exception-to, note: "Jazda atakująca słonia z boku/tyłu bez przewagi pozycji.", status: verified}
+  - {from: R-9.17.1, to: R-8.46.2, type: exception-to, note: "Słoń vs słoń — bez przewagi pozycji.", status: verified}
+  - {from: R-6.75.1, to: R-8.46.1, type: overrides, when: "obrońca w kolumnie", note: "Atakujący automatycznie ma przewagę ataku.", status: verified}
+  - {from: R-8.46.6, to: R-8.46.5, type: exception-to, note: "Size pomijany: słonie vs nie-słonie; wszyscy obrońcy SK.", status: verified}
+  - {from: R-9.41.1, to: R-8.46.7, type: modifies, when: "atak w ruchu z frontu na falangę wspartą z boków", note: "2L (HI: 1L) za każdy heks boczny.", status: verified}
+  - {from: R-10.32.1, to: R-8.46.7, type: modifies, when: "udział osłabionej jednostki", note: "1L (atak) / 1R (obrona).", status: verified}
+  - {from: R-9.53.1, to: R-8.46.8, type: modifies, when: "atak wręcz z boku/tyłu na DD", note: "Trafienia obrońcy ×3 zamiast ×2.", status: verified}
+  - {from: R-9.11.3, to: R-8.46.8, type: modifies, when: "przepuszczenie słonia", note: "Trafienia obrońcy ½, słonia –1.", status: verified}
+  - {from: R-9.23.1, to: R-8.45.2, type: overrides, when: "harcownik broni się z inną jednostką", note: "Do tabel trzeba wybrać ten drugi typ; Size SK pomijane.", status: verified}
+  - {from: R-8.45.4, to: R-8.45.2, type: exception-to, note: "Niezdolnych do walki wręcz nie wybiera się do kolumny.", status: verified}
+  - {from: R-8.45.3, to: R-8.45.1, type: modifies, when: "falanga atakuje przez wierzchołek", note: "Obrońca korzysta z korzystniejszego ukierunkowania.", status: verified}
+  - {from: R-10.13.3, to: R-10.13.1, type: exception-to, when: "falanga atakuje kilka jednostek niebędących falangami", note: "Atakujący rozdziela trafienia obrońców.", status: verified}
+  - {from: R-10.13.2, to: R-10.13.1, type: exception-to, when: "słoń dowódcy w stosie z jednostką", note: "Trafienia słonia tylko ponad TQ drugiej jednostki.", status: verified}
+  - {from: R-8.47.4, to: R-8.61.1, type: precedes, note: "Pościg zamiast posunięcia dla atakującej jazdy.", status: verified}
+  - {from: R-8.61.2, to: R-8.61.1, type: exception-to, note: "Przypadki bez pościgu (wtedy posunięcie).", status: verified}
+  - {from: R-8.66.1, to: R-8.62.1, type: replaces, when: "opcja 8.66", note: "Wartości pościgu z DRM zamiast TQ.", status: verified}
+  - {from: R-8.6.1, to: R-8.61.1, type: overrides, when: "bitwa pod Beneventum", note: "Pościgu nie stosuje się.", status: verified}
+  - {from: R-8.65.1, to: R-11.2.1, type: exception-to, note: "Jazda poza mapą po pościgu nie daje punktów ucieczki.", status: verified}
+  - {from: R-8.42.2, to: R-8.61.1, type: see, note: "Obrońca może być atakowany ponownie tylko w walce z pościgu.", status: verified}
+  # --- Ostrzał (8.1–8.3, 9.x) ---
+  - {from: R-8.11.2, to: R-8.11.1, type: exception-to, note: "Łucznicy LI i skorpiony: ruch albo ostrzał.", status: verified}
+  - {from: R-9.85.1, to: R-8.11.1, type: overrides, note: "Skorpiony strzelają bez rozkazów, 2 razy na turę.", status: verified}
+  - {from: R-9.86.1, to: R-8.2.1, type: replaces, note: "Skorpiony: własny ostrzał reakcyjny (2 na fazę wroga), bez zwykłego.", status: verified}
+  - {from: R-8.25.1, to: R-8.11.1, type: exception-to, note: "Osłony słoni strzelają tylko reakcyjnie.", status: verified}
+  - {from: R-8.14.2, to: R-8.14.1, type: exception-to, note: "Do heksu przyległego zawsze można strzelać.", status: verified}
+  - {from: R-8.14.3, to: R-8.14.1, type: exception-to, when: "strzelają łucznicy", note: "Jednostka bliżej strzelca nie blokuje LOS.", status: verified}
+  - {from: R-8.14.4, to: R-8.14.1, type: exception-to, when: "LOS dla rozkazów liniowych", note: "Słonie nie blokują.", status: verified}
+  - {from: R-8.16.1, to: R-8.15.1, type: modifies, when: "cel niżej", note: "Zasięg +1, trafienie tylko na 0.", status: verified}
+  - {from: R-9.22.1, to: R-8.15.1, type: modifies, when: "cel harcownik", note: "+2 DRM.", status: verified}
+  - {from: R-10.32.1, to: R-8.15.1, type: modifies, when: "strzela osłabiona jednostka", note: "+1 DRM.", status: verified}
+  - {from: R-8.15.2, to: R-8.15.1, type: modifies, note: "Zakres modyfikatora za ruch.", status: verified}
+  - {from: R-8.17.3, to: R-8.17.1, type: replaces, when: "gracze wybierają uproszczenie z Play Note", note: "Ewidencja pocisków LG wg sąsiedztwa z wrogiem.", status: verified}
+  - {from: R-9.96.4, to: R-8.17.1, type: exception-to, when: "LI na rydwanie", note: "Bez ograniczeń zapasu pocisków.", status: verified}
+  - {from: R-10.27.1, to: R-8.17.1, type: modifies, when: "uciekająca piechota strzelająca", note: "Automatycznie Missile No.", status: verified}
+  - {from: R-8.21.2, to: R-8.21.1, type: exception-to, when: "ruch linii", note: "Ostrzał przy wejściu po zakończeniu ruchu całej linii; jeden cel.", status: verified}
+  - {from: R-9.14.6, to: R-8.2.1, type: exception-to, note: "Szalejące słonie nie wywołują ostrzału reakcyjnego.", status: verified}
+  - {from: R-9.16.1, to: R-8.24.1, type: exception-to, when: "jazda może się wycofać przed słoniem", note: "Nie może strzelać reakcyjnie.", status: verified}
+  - {from: R-8.31.3, to: R-8.31.1, type: exception-to, note: "Łucznicy SK/LI bez H&D; LC bez H&D przeciw SK.", status: verified}
+  - {from: R-8.34.1, to: R-8.31.1, type: modifies, when: "LC przeciw słoniom", note: "Nie przez front; bok/tył — 2 trafienia przed ostrzałem.", status: verified}
+  - {from: R-8.34.1, to: R-9.15.1, type: requires, note: "Ograniczenia 9.15 obowiązują przy H&D jazdy.", status: verified}
+  - {from: R-9.96.4, to: R-8.31.1, type: modifies, when: "LI na rydwanie", note: "H&D jak jazda.", status: verified}
+  - {from: R-10.41.1, to: R-8.13.1, type: exception-to, when: "opcja Engaged", note: "Związani nie strzelają i nie są celem ostrzału.", status: verified}
+  - {from: R-6.55.2, to: R-8.12.1, type: see, note: "Ostrzał konnych łuczników w trakcie OW.", status: verified}
+  # --- Ucieczka, reorganizacja, odzyskanie spójności (rozdz. 10) ---
+  - {from: R-10.11.2, to: R-10.11.1, type: exception-to, note: "Uciekający: TQ 1 w testach.", status: verified}
+  - {from: R-9.24.1, to: R-10.22.1, type: exception-to, note: "Uciekający SK są eliminowani.", status: verified}
+  - {from: R-9.87.1, to: R-10.22.1, type: exception-to, note: "Uciekający skorpion jest eliminowany.", status: verified}
+  - {from: R-9.93.2, to: R-10.22.1, type: exception-to, note: "Osłabiona BI zamiast uciekać ginie.", status: verified}
+  - {from: R-9.14.1, to: R-10.22.1, type: replaces, note: "Słoń zamiast ruchu ucieczki wpada w szał.", status: verified}
+  - {from: R-9.16.1, to: R-10.22.1, type: overrides, when: "jazda ucieka po podejściu słonia", note: "Automatyczna eliminacja.", status: verified}
+  - {from: R-9.53.1, to: R-10.22.1, type: modifies, when: "ucieka DD", note: "Uciekają obie falangi do osobnych heksów albo eliminacja.", status: verified}
+  - {from: R-10.22.2, to: R-10.22.1, type: modifies, when: "falanga", note: "Prosto/po odwróceniu, bez obrotów; inaczej eliminacja.", status: verified}
+  - {from: R-10.23.1, to: R-10.22.1, type: requires, note: "Ruch w fazie D tym samym sposobem.", status: verified}
+  - {from: R-9.93.1, to: R-10.16.1, type: exception-to, note: "BI usuwa tylko 1 trafienie.", status: verified}
+  - {from: R-10.33.1, to: R-10.28.2, type: modifies, when: "jednostka osłabiona przed próbą", note: "+1 DRM do rzutu, +2 DRM na Tabeli reorganizacji.", status: verified}
+  - {from: R-9.14.1, to: R-10.28.2, type: exception-to, when: "słoń dowódcy, wynik 7–9 w kolejnym rzucie szału", note: "Natychmiastowa reorganizacja z trafieniami TQ − 2 (bez dowódcy i rzutu).", status: verified}
+  - {from: R-9.14.6, to: R-10.28.2, type: exception-to, note: "Szalejących słoni nie reorganizuje się.", status: verified}
+  - {from: R-10.28.3, to: R-10.31.1, type: requires, note: "Reorganizacja = automatyczne osłabienie.", status: verified}
+  # --- Dowódcy i słonie ---
+  - {from: R-4.72.4, to: R-4.72.1, type: exception-to, when: "dowódca już sąsiaduje z wrogiem", note: "Nie odskakuje; ginie, gdy wróg wejdzie do jego heksu.", status: verified}
+  - {from: R-4.83.2, to: R-9.16.1, type: exception-to, note: "Słoń dowódcy nie zmusza jazdy do wycofania.", status: verified}
+  - {from: R-4.84.1, to: R-9.14.1, type: requires, when: "wynik 7–9 po śmierci dowódcy", note: "Szał słonia dowódcy.", status: verified}
+  - {from: R-4.82.1, to: R-4.73.1, type: requires, note: "Śmierć słonia → rzut na stratę dowódcy.", status: verified}
+  # --- Rzymianie, triarii, linie ---
+  - {from: R-9.7.1, to: R-9.71.1, type: requires, note: "Doktryna obowiązuje przed 200 p.n.e. bez Scypiona jako OC.", status: verified}
+  - {from: R-9.7.1, to: R-9.72.1, type: requires, note: "Jw.", status: verified}
+  - {from: R-9.72.1, to: R-11.2.1, type: requires, note: "Próg ½ poziomu wycofania liczony z RP armii rzymskiej.", status: verified}
+  - {from: R-9.63.1, to: R-6.68.5, type: see, note: "Stos rzymski różnych kolorów/klas — +1 DRM do testów TQ.", status: verified}
+  - {from: R-9.24.4, to: R-4.32.1, type: exception-to, note: "Jeden velites/SK nie przerywa linii.", status: verified}
+  - {from: R-4.32.3, to: R-4.32.2, type: exception-to, when: "jednostki przyległe bez wspólnego ustawienia", note: "Można je włączyć, jeśli są w zasięgu dowodzenia.", status: verified}
+  # --- Zwycięstwo ---
+  - {from: R-11.2.2, to: R-11.1.1, type: requires, note: "Próg porównuje się z sumą punktów ucieczki.", status: verified}
+  - {from: R-10.24.1, to: R-11.2.1, type: see, note: "Jednostki zbiegłe z mapy liczą się jak wyeliminowane.", status: verified}
+  # --- Wersja ---
+  - {from: R-1.0.2, to: R-7.24.1, type: see, note: "Jedyna wprost oznaczona zmiana względem wcześniejszych edycji (C-01).", status: verified}
+  - {from: R-8.62.4, to: R-10.24.1, type: exception-to, when: "jazda ścigająca uciekającego poza mapę", note: "Nie jest eliminowana — czeka poza mapą na przegrupowanie (8.64) i nie liczy się do RP (8.65); szczególna nad ogólną „for whatever reason”.", status: inferred}
+  # --- Scenariusze — księga 2018 (4. ed.): zasady scenariusza > zasady tytułu > zasady ogólne ---
+  - {from: R-SC0-1, to: R-11.2.2, type: modifies, when: "gra rywalizacyjna — licytacja RP (opcja)", note: "Gra rywalizacyjna (opcja): Zwycięzca licytacji obniża próg wycofania swojej strony o zaoferowane RP.", status: verified}
+  - {from: R-SC1-5, to: R-6.13.1, type: exception-to, when: "scenariusz Beneventum — marsz podejścia", note: "Scenariusz Beneventum: Wielokrotności MA bez trafień za ponowny ruch (trafienia za teren — tak).", status: verified}
+  - {from: R-SC1-7, to: R-11.2.1, type: modifies, when: "scenariusz Beneventum", note: "Scenariusz Beneventum: Jednostki epirockie niewprowadzone do końca tury 1 liczą się jako wyeliminowane.", status: verified}
+  - {from: R-SC1-9, to: R-5.12.1, type: overrides, when: "scenariusz Beneventum (atak nocny), przed alarmem", note: "Scenariusz Beneventum: Niezaalarmowani dowódcy rzymscy są skończeni; jednostki rzymskie nie ruszają się ani nie strzelają.", status: verified}
+  - {from: R-SC1-10, to: R-5.12.1, type: modifies, when: "scenariusz Beneventum — alarm w trakcie tury", note: "Scenariusz Beneventum: Aktywni tylko dowódcy rzymscy uprawnieni wg 5.12 względem skończonych dowódców epirockich; pozostali skończeni do końca tury.", status: verified}
+  - {from: R-SC1-14, to: R-4.32.1, type: modifies, when: "scenariusz Beneventum", note: "Scenariusz Beneventum: Specjalna linia 6 (velites, jazda, AS/CE) do wyjścia z obozu; nieważna, gdy wszyscy dowódcy rzymscy są poza obozem.", status: verified}
+  - {from: R-SC1-15, to: R-6.24.2, type: modifies, when: "scenariusz Beneventum", note: "Scenariusz Beneventum: Teren obozu wg T-35; cały obóz na poziomie 2.", status: verified}
+  - {from: R-SC1-16, to: R-4.33.3, type: overrides, when: "scenariusz Beneventum — dowódca rzymski w obozie", note: "Scenariusz Beneventum: LC bez rzutu na strategię OC.", status: verified}
+  - {from: R-SC1-17, to: R-9.87.1, type: overrides, when: "scenariusz Beneventum — skorpiony obozowe", note: "Scenariusz Beneventum: Nie otrzymują trafień; giną, gdy wróg wejdzie do heksu wieży.", status: verified}
+  - {from: R-SC1-17, to: R-9.81.1, type: overrides, when: "scenariusz Beneventum — skorpiony obozowe", note: "Scenariusz Beneventum: Bez TQ, typu, Size i MA; strzelają tylko w heksie z własną piechotą.", status: verified}
+  - {from: R-SC1-18, to: R-8.16.1, type: modifies, when: "scenariusz Beneventum — rzymska piechota strzelająca z wieży", note: "Scenariusz Beneventum: –1 DRM na normalnych zasięgach; zasięg +1 tylko z wynikiem „0”.", status: verified}
+  - {from: R-SC1-19, to: R-9.14.1, type: modifies, when: "Beneventum, opcja pocisków zapalających", note: "Scenariusz Beneventum (opcja): Trafienie słonia = automatyczna ucieczka i szał (wiersz Flame w MRRC — N-43).", status: verified}
+  - {from: R-SC1-20, to: R-4.22.1, type: modifies, when: "Beneventum, opcja płonących świń", note: "Scenariusz Beneventum (opcja): Dwa razy w grze rozkaz indywidualny zużyty na rzut na tabeli świń (T-43).", status: verified}
+  - {from: R-SC1-21, to: R-9.7.1, type: modifies, when: "scenariusz Beneventum", note: "Scenariusz Beneventum: Doktryna triarii dopiero po wyjściu z obozu i sformowaniu linii (N-37).", status: verified}
+  - {from: R-SC1-23, to: R-11.2.2, type: modifies, when: "scenariusz Beneventum", note: "Scenariusz Beneventum: Dodatkowe warunki zwycięstwa (obóz zajęty przez Epirotów; od tury 10 wszyscy Rzymianie w obozie) obok wycofania armii.", status: verified}
+  - {from: R-SC1-24, to: R-11.1.1, type: overrides, when: "scenariusz Beneventum", note: "Scenariusz Beneventum: Ranny Pyrrus 25 RP, zabity — zwycięstwo Rzymian; skorpiony 0 RP.", status: verified}
+  - {from: R-SC2-2, to: R-4.6.1, type: overrides, when: "scenariusz Bagradas", note: "Scenariusz Bagradas: Nie stosuje się 4.6 — dowódcy podlegli zależą od Ksantypposa (4.33).", status: verified}
+  - {from: R-SC2-2, to: R-4.74.1, type: overrides, when: "scenariusz Bagradas — strona kartagińska", note: "Scenariusz Bagradas: Bez dowódców zastępczych.", status: verified}
+  - {from: R-SC2-7, to: R-SC2-8, type: modifies, when: "Bagradas, opcja jazdy al", note: "Scenariusz Bagradas (opcja): Próg wycofania Rzymian 135 zamiast 125.", status: verified}
+  - {from: R-SC3-2, to: R-4.6.1, type: exception-to, when: "scenariusz Kanny — Maharbal", note: "Scenariusz Kanny: LC bez rzutu na strategię Hannibala; czy także w fazach impetu — N-40.", status: inferred}
+  - {from: R-SC3-4, to: R-4.32.1, type: exception-to, when: "scenariusz Kanny — centrum kartagińskie", note: "Scenariusz Kanny: MI/LI centrum tworzą linię, jeśli przylegają bez odstępów.", status: verified}
+  - {from: R-SC3-6, to: R-4.74.1, type: overrides, when: "scenariusz Kanny", note: "Scenariusz Kanny: Paullusa, Serwiliusza i Atyliusza nie zastępuje się.", status: verified}
+  - {from: R-SC3-7, to: R-5.12.1, type: overrides, when: "Kanny, wariant 4 legionów — remis inicjatywy między stronami", note: "Scenariusz Kanny: Dowódcy rzymscy idą pierwsi (zamiast rzutu).", status: verified}
+  - {from: R-SC3-8, to: R-6.81.1, type: modifies, when: "scenariusz Kanny", note: "Scenariusz Kanny: Karta LC wskazuje linię kartagińską nr 2 (celtycka MI, iberyjska LI) jako uprawnioną do PW.", status: inferred}
+  - {from: R-SC3-9, to: R-4.75.1, type: overrides, when: "scenariusz Kanny — śmierć Warrona (lub Paullusa jako OC)", note: "Scenariusz Kanny: Drugi konsul zostaje OC.", status: verified}
+  - {from: R-SC3-10, to: R-4.33.3, type: modifies, when: "Kanny, wariant Paullusa", note: "Scenariusz Kanny: Warron jako dowódca podległy nie ma automatycznego LC; Paullus ma go przy Warronie jako OC (N-39).", status: inferred}
+  - {from: R-SC3-11, to: R-4.33.3, type: overrides, when: "Kanny, wariant prokonsulów", note: "Scenariusz Kanny: Serwiliusz i Atyliusz: 1 LC na turę poza zasięgiem Warrona przy rzucie 0–4 (+1 w fazie impetu, +2 w drugiej); 5–9 — skończony.", status: verified}
+  - {from: R-SC3-11, to: R-4.56.1, type: overrides, when: "Kanny, wariant prokonsulów", note: "Scenariusz Kanny: Zamiast rzutu na strategię OC z –1 DRM.", status: verified}
+  - {from: R-SC3-14, to: R-8.43.4, type: modifies, when: "scenariusz Kanny — atak z udziałem piechoty celtyckiej", note: "Scenariusz Kanny: +1 do testu przed walką broniących się.", status: verified}
+  - {from: R-SC3-15, to: R-6.11.1, type: modifies, when: "Kanny, opcja Volturnus — wiatr wieje", note: "Scenariusz Kanny (opcja): MA –1 dla jednostek zaczynających ruch twarzą do W/SW; rzymskie strzelanie: zasięg –1, liczba trafienia –1 (N-41).", status: verified}
+  - {from: R-SC3-17, to: R-11.1.1, type: overrides, when: "scenariusz Kanny", note: "Scenariusz Kanny: Ranny Hannibal 25 RP; zabity — automatyczne zwycięstwo Rzymian.", status: verified}
+  - {from: R-SC4-1, to: R-5.53.1, type: overrides, when: "Zama, poprawka rywalizacyjna (opcja)", note: "Scenariusz Zama (opcja): Hannibal dostaje fazę EIO w 1. turze bez rzutu.", status: verified}
+  - {from: R-SC4-2, to: R-9.12.1, type: overrides, when: "scenariusz Zama", note: "Scenariusz Zama: Słonie zaczynają osłabione i bez osłon (poprawka R-SC4-1 to znosi).", status: verified}
+  - {from: R-SC4-4, to: R-4.33.3, type: exception-to, when: "Zama — Masynissa, faza początkowa", note: "Scenariusz Zama: Automatyczny LC bez względu na położenie; w fazach impetu wg 4.33.", status: verified}
+  - {from: R-SC4-4, to: R-4.74.1, type: overrides, when: "Zama — Masynissa", note: "Scenariusz Zama: Nie jest zastępowany po śmierci.", status: verified}
+  - {from: R-SC4-4, to: R-8.46.7, type: modifies, when: "Zama — Masynissa", note: "Scenariusz Zama: Charyzma „2C” działa tylko w stosie z jazdą numidyjską.", status: verified}
+  - {from: R-SC4-6, to: R-4.52.1, type: exception-to, when: "scenariusz Zama", note: "Scenariusz Zama: Trybuni i prefekci sprzymierzeńców dowodzą piechotą legionów i al (zakres — N-42).", status: verified}
+  - {from: R-SC4-9, to: R-10.28.1, type: exception-to, when: "Zama — uciekający północnoafrykańscy LI / zaciąg obok Starej Gwardii", note: "Scenariusz Zama: Reorganizacja bez dowódcy: rzut ≤ TQ jednostki Starej Gwardii; porażka — eliminacja i 1 trafienie Gwardii (N-45).", status: verified}
+  - {from: R-SC4-9, to: R-10.22.1, type: exception-to, when: "Zama — uciekający północnoafrykańscy LI / zaciąg", note: "Scenariusz Zama: Możliwa ucieczka bokiem i dookoła trzeciej linii.", status: verified}
+  - {from: R-SC4-13, to: R-11.1.1, type: overrides, when: "scenariusz Zama", note: "Scenariusz Zama: Ranny Hannibal 25 RP; zabity — zwycięstwo Rzymian; Scypion normalnie.", status: verified}
+  - {from: R-SC5-2, to: R-4.35.1, type: exception-to, when: "Kynoskefalaj — wprowadzanie posiłków", note: "Scenariusz Kynoskefalaj: Ograniczenia dowodzenia pomija się; posiłki wchodzą bez rozkazów; dowódca, który je wprowadza, jest skończony.", status: verified}
+  - {from: R-SC5-3, to: R-4.51.1, type: exception-to, when: "Kynoskefalaj (spotkaniowa) — prefekt jazdy zwiadu", note: "Scenariusz Kynoskefalaj: IO (nie LC) dla piechoty, dopóki trybun/prefekt sprzymierzeńców nie jest w zasięgu.", status: verified}
+  - {from: R-SC5-4, to: R-4.52.1, type: exception-to, when: "scenariusz Kynoskefalaj", note: "Scenariusz Kynoskefalaj: Trybuni i prefekci wydają rozkazy sprzymierzeńcom greckim.", status: verified}
+  - {from: R-SC5-6, to: R-8.14.1, type: modifies, when: "Kynoskefalaj, opcja mgły", note: "Scenariusz Kynoskefalaj (opcja): Maks. LOS 5/10/25 heksów; MA o połowę (w górę) / –1.", status: verified}
+  - {from: R-SC5-10, to: R-5.51.1, type: overrides, when: "Kynoskefalaj (ustawiona), 1. tura", note: "Scenariusz Kynoskefalaj: Faza EIO Filipa, choć nie jest elitarnym OC.", status: verified}
+  - {from: R-SC5-16, to: R-11.1.1, type: overrides, when: "scenariusz Kynoskefalaj", note: "Scenariusz Kynoskefalaj: Ranny Filip „25 TQ points” (= RP, N-44); zabity — zwycięstwo Rzymian.", status: verified}
+  - {from: R-SC6-3, to: R-11.1.1, type: overrides, when: "scenariusz szkoleniowy", note: "Scenariusz szkoleniowy: Straty słoni nie liczą się do RP.", status: verified}

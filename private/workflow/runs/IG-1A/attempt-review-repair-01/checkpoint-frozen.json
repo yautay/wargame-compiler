@@ -1,0 +1,686 @@
+{
+  "task": "IG-1A",
+  "attempt": "attempt-review-repair-01",
+  "actor": "ig-1a-executor-20261012-0540",
+  "started_utc": "2026-10-12T17:03:12.024313+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/configuration.json",
+    "sha256": "20810ac1d01121a37cbadded861f81ad6c814b721cc6572245c72b320cae33b2"
+  },
+  "input_packet": {
+    "path": "private/workflow/packets/IG-1A-06ffa55757af452f8200e1cc6a58856a/manifest.json",
+    "sha256": "fc7be33bd8393780043500be3623a947a9a6981030851b60a9e9e69e2c89ad0e"
+  },
+  "input_context": {
+    "path": "private/workflow/packets/IG-1A-06ffa55757af452f8200e1cc6a58856a/context.txt",
+    "sha256": "ead069c075669379104ce3bf20918384d0cbf45423a98e7beb6ae4c3f454e00a"
+  },
+  "review_evidence": {
+    "path": "private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/review.json",
+    "sha256": "5dab7b6d6b2851e451ce9124d7a6aa17a44624f7b6c0f6cd5b6739d519e35a39"
+  },
+  "prior_delivery": {
+    "path": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/delivery.json",
+    "sha256": "115b22ab83d71ed1cb176fee045200d14a96ad2ab54865a09d0daec2293fc0ac"
+  },
+  "base_files": [
+    {
+      "original": {
+        "path": "contracts/ig/README.md",
+        "sha256": "71163c1b98e50ac767ca10fb0b174fdd113bc4d13097eec3495065b0c09dfb88"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/contracts/ig/README.md",
+        "sha256": "71163c1b98e50ac767ca10fb0b174fdd113bc4d13097eec3495065b0c09dfb88"
+      }
+    },
+    {
+      "original": {
+        "path": "contracts/ig/source.schema.json",
+        "sha256": "749405ff52615a77bf46543e47a68504f4482f38c2c394979147c80dd01bed74"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/contracts/ig/source.schema.json",
+        "sha256": "749405ff52615a77bf46543e47a68504f4482f38c2c394979147c80dd01bed74"
+      }
+    },
+    {
+      "original": {
+        "path": "pyproject.toml",
+        "sha256": "e7d4993802db43bca3446ca0c6bc684c04a62ecf53bb7cbb0fa2019709a1571d"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/pyproject.toml",
+        "sha256": "e7d4993802db43bca3446ca0c6bc684c04a62ecf53bb7cbb0fa2019709a1571d"
+      }
+    },
+    {
+      "original": {
+        "path": "scripts/check.ps1",
+        "sha256": "587b06670b7c42c567e95e67afe1d738681f2ad95e9fe1464b4f60cfb6425f73"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/scripts/check.ps1",
+        "sha256": "587b06670b7c42c567e95e67afe1d738681f2ad95e9fe1464b4f60cfb6425f73"
+      }
+    },
+    {
+      "original": {
+        "path": "src/wgc/contracts/__init__.py",
+        "sha256": "e41623d285e0a5c24494cb81a161d63ae1816c1ef9fb3f810a657a6cf5cfdf81"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/src/wgc/contracts/__init__.py",
+        "sha256": "e41623d285e0a5c24494cb81a161d63ae1816c1ef9fb3f810a657a6cf5cfdf81"
+      }
+    },
+    {
+      "original": {
+        "path": "src/wgc/contracts/source.py",
+        "sha256": "8e045b7c96076051632ecaab6c6bbb24d8394308383a9b4d9910302b18619e10"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/src/wgc/contracts/source.py",
+        "sha256": "8e045b7c96076051632ecaab6c6bbb24d8394308383a9b4d9910302b18619e10"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/README.md",
+        "sha256": "82a5f403d0ce3df1fdb75d955173a09a9cb79c84680dce77663c16f914e0ad2b"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/README.md",
+        "sha256": "82a5f403d0ce3df1fdb75d955173a09a9cb79c84680dce77663c16f914e0ad2b"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/catalog.json",
+        "sha256": "1c28ca6fcaa72748853d9528ac8334295ecf7bf03515335f620316757646a9b8"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/catalog.json",
+        "sha256": "1c28ca6fcaa72748853d9528ac8334295ecf7bf03515335f620316757646a9b8"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-anonymous-identity-conflict.json",
+        "sha256": "656c89379b355fc478d5a9faf217116f8ff994eb2e523e2bea3704f6f5061060"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-anonymous-identity-conflict.json",
+        "sha256": "656c89379b355fc478d5a9faf217116f8ff994eb2e523e2bea3704f6f5061060"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-changed-aspect-hash.json",
+        "sha256": "2c04c31919aeb450cc48ae80e1c2f82b3713dd14c0ecfa3ff6c07e43b594c2be"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-changed-aspect-hash.json",
+        "sha256": "2c04c31919aeb450cc48ae80e1c2f82b3713dd14c0ecfa3ff6c07e43b594c2be"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-dangling-active.json",
+        "sha256": "e23234a19764662c6bd28a6570ad4c3856955a8c7f56c31199f86497a5edd90e"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-dangling-active.json",
+        "sha256": "e23234a19764662c6bd28a6570ad4c3856955a8c7f56c31199f86497a5edd90e"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-dangling-historical.json",
+        "sha256": "1875fb915556e8ef2ffbdc9bb054ee3924ca0f5a33fae8b1579d4220db0a8ef5"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-dangling-historical.json",
+        "sha256": "1875fb915556e8ef2ffbdc9bb054ee3924ca0f5a33fae8b1579d4220db0a8ef5"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-duplicate-selection.json",
+        "sha256": "fcefa6d2aa1af2e6e4d5c49f6cd33a3188ba46c50ebc4057b9c19d233ca418f2"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-duplicate-selection.json",
+        "sha256": "fcefa6d2aa1af2e6e4d5c49f6cd33a3188ba46c50ebc4057b9c19d233ca418f2"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-duplicate-store.json",
+        "sha256": "932c39e4e7c47f97a64c4a9cb34e67193f6291700d385037e7bc1b3d7f0708eb"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-duplicate-store.json",
+        "sha256": "932c39e4e7c47f97a64c4a9cb34e67193f6291700d385037e7bc1b3d7f0708eb"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-gap-counted-as-coverage.json",
+        "sha256": "c105f5a777639036b3e3f0e2eeeabb5699c5d6827a10265140bde5013ca856ad"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-gap-counted-as-coverage.json",
+        "sha256": "c105f5a777639036b3e3f0e2eeeabb5699c5d6827a10265140bde5013ca856ad"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-group-binding.json",
+        "sha256": "af5aa206a2a31926d11d31503c15aa7012d102dce2aa2627f82896689a63619a"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-group-binding.json",
+        "sha256": "af5aa206a2a31926d11d31503c15aa7012d102dce2aa2627f82896689a63619a"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-known-without-evidence.json",
+        "sha256": "bc1f5773b30fd956388dda57fa2984e5c3118a478d5faefec11be81b7f54c19f"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-known-without-evidence.json",
+        "sha256": "bc1f5773b30fd956388dda57fa2984e5c3118a478d5faefec11be81b7f54c19f"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-model-approval.json",
+        "sha256": "c12bbe40d372dd408456f88846be7c7617ac187824b5972f5078e98e4110a05f"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-model-approval.json",
+        "sha256": "c12bbe40d372dd408456f88846be7c7617ac187824b5972f5078e98e4110a05f"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-opaque-formal.json",
+        "sha256": "81588bb151374ff44141cb85964b2d4bfd9c0d3002c71dc6b043ec0f5badcda7"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-opaque-formal.json",
+        "sha256": "81588bb151374ff44141cb85964b2d4bfd9c0d3002c71dc6b043ec0f5badcda7"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-opaque-ready.json",
+        "sha256": "eaadb38dea99363e629505e4a8cc5041a031be75ad43b70794cf6a76443ec419"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-opaque-ready.json",
+        "sha256": "eaadb38dea99363e629505e4a8cc5041a031be75ad43b70794cf6a76443ec419"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-origin-path.json",
+        "sha256": "e27165a475ca06951f3c7720e08424cd143013fcc3061916777f1e009eeefd82"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-origin-path.json",
+        "sha256": "e27165a475ca06951f3c7720e08424cd143013fcc3061916777f1e009eeefd82"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-overlapping-coverage.json",
+        "sha256": "69b12e8c3ed06cf80f46f7fa18125dad1761bdace54cbeef72b6b144a9456b7e"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-overlapping-coverage.json",
+        "sha256": "69b12e8c3ed06cf80f46f7fa18125dad1761bdace54cbeef72b6b144a9456b7e"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-reference-type.json",
+        "sha256": "ce20da383d4f7b1074103300b5a2a3940de06b020ee6eba4a408383fb4d1b543"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-reference-type.json",
+        "sha256": "ce20da383d4f7b1074103300b5a2a3940de06b020ee6eba4a408383fb4d1b543"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-table-note.json",
+        "sha256": "3e59a7c9cc3d6ba213c5adaeaaa8869eee84b97f3c73c6b7e503fc5b30ed80a9"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-table-note.json",
+        "sha256": "3e59a7c9cc3d6ba213c5adaeaaa8869eee84b97f3c73c6b7e503fc5b30ed80a9"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/invalid-unknown-without-gap.json",
+        "sha256": "ee5e80d4b000bd48a518c81136bc254349e19561112987aca112db520517975b"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/invalid-unknown-without-gap.json",
+        "sha256": "ee5e80d4b000bd48a518c81136bc254349e19561112987aca112db520517975b"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-changed-aspect.json",
+        "sha256": "92ee3df90d0501e2af40528f4505d43d6ab3c88af00d4d23e3a0f176faa2a723"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-changed-aspect.json",
+        "sha256": "92ee3df90d0501e2af40528f4505d43d6ab3c88af00d4d23e3a0f176faa2a723"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-changed-dependency.json",
+        "sha256": "9fa45d5b015851ad321a936c578c5e09122fd716b86af96ef9c12db67d3c46a7"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-changed-dependency.json",
+        "sha256": "9fa45d5b015851ad321a936c578c5e09122fd716b86af96ef9c12db67d3c46a7"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-cross-section-exception.json",
+        "sha256": "6dc73a731e0e36f5dd1b8629e712cee81e2f7e9b5508d27735997a419caf19f7"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-cross-section-exception.json",
+        "sha256": "6dc73a731e0e36f5dd1b8629e712cee81e2f7e9b5508d27735997a419caf19f7"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-edition-conflict.json",
+        "sha256": "044556aac43817f78d6356e6974412c06c9b12834282353108a3833734f658a0"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-edition-conflict.json",
+        "sha256": "044556aac43817f78d6356e6974412c06c9b12834282353108a3833734f658a0"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-historical-reference.json",
+        "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-historical-reference.json",
+        "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-overlapping-context.json",
+        "sha256": "ee16f98d763e528896d3a4e063e4d1239149aed29c705ee5cba401688a5be77a"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-overlapping-context.json",
+        "sha256": "ee16f98d763e528896d3a4e063e4d1239149aed29c705ee5cba401688a5be77a"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-partial-review.json",
+        "sha256": "d12c2bf2bb7654217e57c9b77da67d1d74e0b388192dd64fc4b365190eb8939d"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-partial-review.json",
+        "sha256": "d12c2bf2bb7654217e57c9b77da67d1d74e0b388192dd64fc4b365190eb8939d"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-procedure-cycle.json",
+        "sha256": "fabc738c5423550d2a061095151a3b8a60d1e168f81a2a85f75258b011517f2b"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-procedure-cycle.json",
+        "sha256": "fabc738c5423550d2a061095151a3b8a60d1e168f81a2a85f75258b011517f2b"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/fixtures/valid-source.json",
+        "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/fixtures/valid-source.json",
+        "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/contracts/test_source.py",
+        "sha256": "8d97d98c076f65bba12f8546145fac66b68bcd477c524b4c550a19b684cd6747"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/contracts/test_source.py",
+        "sha256": "8d97d98c076f65bba12f8546145fac66b68bcd477c524b4c550a19b684cd6747"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/test_workflow.py",
+        "sha256": "c29111c6bb8703615199d7d189ae42dc115a33a445a33d4c37fade9be7826eea"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/baseline/tests/test_workflow.py",
+        "sha256": "c29111c6bb8703615199d7d189ae42dc115a33a445a33d4c37fade9be7826eea"
+      }
+    }
+  ],
+  "repair_cycle": 1,
+  "repair_findings": [
+    "F1",
+    "F2",
+    "F3"
+  ],
+  "changed_files": [
+    {
+      "path": "contracts/ig/README.md",
+      "sha256": "fc4ba2ddf9874b8d4c0d6ea3e6d51d3b5285923f327faf6296a17817de06fc9e"
+    },
+    {
+      "path": "contracts/ig/source.schema.json",
+      "sha256": "0c424d0fb627ddbc11437a24d5d35b15e80ad9448fc162798641f84a38f95cd7"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "e7d4993802db43bca3446ca0c6bc684c04a62ecf53bb7cbb0fa2019709a1571d"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "sha256": "587b06670b7c42c567e95e67afe1d738681f2ad95e9fe1464b4f60cfb6425f73"
+    },
+    {
+      "path": "src/wgc/contracts/__init__.py",
+      "sha256": "e41623d285e0a5c24494cb81a161d63ae1816c1ef9fb3f810a657a6cf5cfdf81"
+    },
+    {
+      "path": "src/wgc/contracts/source.py",
+      "sha256": "14aa5fd5129ed5f6ae65937a3f646407c3f1433483aa2145b53f942ed43509b1"
+    },
+    {
+      "path": "tests/contracts/fixtures/catalog.json",
+      "sha256": "69831e498c859c5113de5dccb53f43d7ccf18f172be4fe49f1e789cea7e7433e"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-anonymous-identity-conflict.json",
+      "sha256": "656c89379b355fc478d5a9faf217116f8ff994eb2e523e2bea3704f6f5061060"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-changed-aspect-hash.json",
+      "sha256": "2c04c31919aeb450cc48ae80e1c2f82b3713dd14c0ecfa3ff6c07e43b594c2be"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-conditional-historical-superseded.json",
+      "sha256": "cbee7ea45acdde7cb26132e4fb610c29431038681aa4c8468d76a818eb06727f"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-conditional-historical-unselected-source.json",
+      "sha256": "b6f4d90d007d6080de98bd117581fce656b752f64daed44794d133a2a9b99e0a"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-conditional-historical-unselected.json",
+      "sha256": "d266e21e556b79a5675eca4c677b32c88042520a8bb9492bea825f58a9b05a68"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-missing-inventory-basis.json",
+      "sha256": "d103636e387e277699c13e592399421e2386c1deab8f1ad0b56456acd15da79d"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-model.json",
+      "sha256": "2f16616fb1bdc3d46e9f4de53224c6b7b81915921d6a7f2c85332ec0c6de6c7d"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-inventory.json",
+      "sha256": "948141960d8aec907c31f8b9d2be0c264d66b4ac29b6613cd8a10d77daf53baa"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-level.json",
+      "sha256": "9ed60dd9f2ed3f0aa7a4f331aad3405f0f76c32c29899adaf5ebf149da33fbf1"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-region.json",
+      "sha256": "8a32ea5c9930c1e8b060c04fa809d51cdc4e9a93755a0c34e305399ad15edab8"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-partial.json",
+      "sha256": "61a72de214b3bdf33a5d2288e46e789f8d63989dedd5bc0e7e53c3e60dc16c65"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-stale.json",
+      "sha256": "19ea8d14a87cddbd059b2660aaa2c2fd0c39e328ef7c041039556d1442f8f9a5"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-unrelated.json",
+      "sha256": "6e2605d8482881447d5945afe81e88d67e5d085817c40be3f9950e98ce43a0e2"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-active-mixed.json",
+      "sha256": "5a63927ae5fedce48a271407eddf75b8c075fb6f10863e37026b536f8ab0a494"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-active.json",
+      "sha256": "0a9f71499d7fb9098c76b9302ad37d46406353cdcde915c86002a20ac4c83f89"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-historical-mixed.json",
+      "sha256": "6f6c1499914d1d2a81d2f3f538b344ff2c1dea522cd141334fe2b52254483414"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-historical.json",
+      "sha256": "a2906a1a32b34382bb5e161048a177dc0043b6bd0d5d551f0ae04811bbbe6024"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-active.json",
+      "sha256": "e23234a19764662c6bd28a6570ad4c3856955a8c7f56c31199f86497a5edd90e"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-historical.json",
+      "sha256": "1875fb915556e8ef2ffbdc9bb054ee3924ca0f5a33fae8b1579d4220db0a8ef5"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-selection.json",
+      "sha256": "fcefa6d2aa1af2e6e4d5c49f6cd33a3188ba46c50ebc4057b9c19d233ca418f2"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-store.json",
+      "sha256": "932c39e4e7c47f97a64c4a9cb34e67193f6291700d385037e7bc1b3d7f0708eb"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-gap-counted-as-coverage.json",
+      "sha256": "c105f5a777639036b3e3f0e2eeeabb5699c5d6827a10265140bde5013ca856ad"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-group-binding.json",
+      "sha256": "af5aa206a2a31926d11d31503c15aa7012d102dce2aa2627f82896689a63619a"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-known-without-evidence.json",
+      "sha256": "bc1f5773b30fd956388dda57fa2984e5c3118a478d5faefec11be81b7f54c19f"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-model-approval.json",
+      "sha256": "c12bbe40d372dd408456f88846be7c7617ac187824b5972f5078e98e4110a05f"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-formal.json",
+      "sha256": "81588bb151374ff44141cb85964b2d4bfd9c0d3002c71dc6b043ec0f5badcda7"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-ready.json",
+      "sha256": "eaadb38dea99363e629505e4a8cc5041a031be75ad43b70794cf6a76443ec419"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-origin-path.json",
+      "sha256": "e27165a475ca06951f3c7720e08424cd143013fcc3061916777f1e009eeefd82"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-overlapping-coverage.json",
+      "sha256": "69b12e8c3ed06cf80f46f7fa18125dad1761bdace54cbeef72b6b144a9456b7e"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-reference-type.json",
+      "sha256": "ce20da383d4f7b1074103300b5a2a3940de06b020ee6eba4a408383fb4d1b543"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-required-historical-superseded.json",
+      "sha256": "5e293974a670b6c9950eb013565840e065a5f1a002ed66b40c7aafbf63df7121"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-required-historical-unselected-source.json",
+      "sha256": "f76fb1e5e95485d5dd22f397cd520247814fdaa0791c72ca5c017166e9a82225"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-required-historical-unselected.json",
+      "sha256": "cc1845c0b13f9bcd6d2d9c7c5c0ef45f55173ed5af37626d4eee8048037b8f44"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-table-note.json",
+      "sha256": "3e59a7c9cc3d6ba213c5adaeaaa8869eee84b97f3c73c6b7e503fc5b30ed80a9"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-unknown-without-gap.json",
+      "sha256": "ee5e80d4b000bd48a518c81136bc254349e19561112987aca112db520517975b"
+    },
+    {
+      "path": "tests/contracts/fixtures/README.md",
+      "sha256": "82a5f403d0ce3df1fdb75d955173a09a9cb79c84680dce77663c16f914e0ad2b"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-aspect.json",
+      "sha256": "92ee3df90d0501e2af40528f4505d43d6ab3c88af00d4d23e3a0f176faa2a723"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-dependency.json",
+      "sha256": "9fa45d5b015851ad321a936c578c5e09122fd716b86af96ef9c12db67d3c46a7"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-conditional-historical-selected.json",
+      "sha256": "7dec696c435998a36b63da2b0b6dec9ffec0bf723d7b68c67d133b1a0d376f9e"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-coverage-content-evidence.json",
+      "sha256": "7e495eb2e8accc703d533a71730a107f817ad378815288ac040d5bf3f232d705"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-coverage-content-history-link.json",
+      "sha256": "06163cb572d7a953f98f7ed4dc47c274bc9b7a368a65684e75e02aecdbc0926d"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-cross-section-exception.json",
+      "sha256": "6dc73a731e0e36f5dd1b8629e712cee81e2f7e9b5508d27735997a419caf19f7"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-edition-conflict.json",
+      "sha256": "044556aac43817f78d6356e6974412c06c9b12834282353108a3833734f658a0"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-exact-coverage-exclusion.json",
+      "sha256": "d49ba267de3f78122fc4a50ae02d17ed8daf12bdb03062c9a6579d5e4018dc0e"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-historical-reference.json",
+      "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-overlapping-context.json",
+      "sha256": "ee16f98d763e528896d3a4e063e4d1239149aed29c705ee5cba401688a5be77a"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-partial-review.json",
+      "sha256": "d12c2bf2bb7654217e57c9b77da67d1d74e0b388192dd64fc4b365190eb8939d"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-procedure-cycle.json",
+      "sha256": "fabc738c5423550d2a061095151a3b8a60d1e168f81a2a85f75258b011517f2b"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-required-historical-selected.json",
+      "sha256": "56d84227f49740843d9959ed3857e68487de16312da32630f8a555bb9a0e6b3d"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-source.json",
+      "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-unresolved-conditional-dependency.json",
+      "sha256": "cc8d199b4b3bb97fe4192961e85dad5a1699d206539dfba84bbef05edf5b39c8"
+    },
+    {
+      "path": "tests/contracts/test_source.py",
+      "sha256": "83f980a41bf7f7cf6277ba67a93e1ea9d5ab03733ea078f5f2af4c5072ff0159"
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "sha256": "c29111c6bb8703615199d7d189ae42dc115a33a445a33d4c37fade9be7826eea"
+    }
+  ],
+  "completed_criteria": [
+    "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+    "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+    "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+    "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+    "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short --basetemp private/workflow/runs/IG-1A/attempt-review-repair-01/test-temp-01",
+      "exit_code": 0,
+      "tests_passed": 70,
+      "reported_seconds": 13.52
+    },
+    {
+      "command": "PYTHONPATH=src .venv/Scripts/python.exe -m pytest private/workflow/runs/IG-1A/review-independent-20261012T164949Z-163b3167/test_review.py -q -p no:cacheprovider --basetemp private/workflow/runs/IG-1A/attempt-review-repair-01/reviewer-oracle-temp-01 --tb=short",
+      "exit_code": 0,
+      "tests_passed": 16,
+      "reported_seconds": 2.86
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 0,
+      "tests_passed": 96,
+      "tests_failed": 0,
+      "reported_seconds": 49.74,
+      "log_root": "private/workflow/checks/active-b577e5c461e24bb38b9684c6ec968fb9"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-01/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": "Python SHA-256 comparison of every baseline copy and independent review artifact; expected five-file change set",
+      "exit_code": 0
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Transition repaired IG-1A delivery to review; obtain operator authorization to send a follow-up to the existing independent reviewer session, then request re-review of these exact hashes. Do not accept/done or create another task.",
+  "updated_utc": "2026-10-12T17:17:59.863629+00:00"
+}

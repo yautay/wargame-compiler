@@ -1,0 +1,773 @@
+chapter: {id: "8", title: "8.0 Walka (Combat)"}
+rules:
+  - id: R-8.0.1
+    title: Dwa rodzaje walki — ostrzał i walka wręcz
+    section: "8.0"
+    source: {text: "oryg. 8.0 „Combat”, s. 21", pages: "21"}
+    effect: |
+      Ostrzał (Missile) odbywa się w ramach ruchu (lub zamiast niego) w dowolnej chwili segmentu ruchu i ostrzału. Walka wręcz (Shock) ma
+      własny segment po wydaniu wszystkich rozkazów i zakończeniu ruchu. Jednostka strzelająca może w tej samej fazie rozkazów brać udział
+      w obu rodzajach walki. W walce wręcz liczą się typ, Size i TQ. Skutkiem walki są trafienia, które mogą wywołać ucieczkę.
+    keywords: [ostrzał, walka wręcz, trafienia]
+  - id: R-8.11.1
+    title: Ostrzał — klasy broni, ostrzał w ruchu, raz na fazę
+    section: "8.11"
+    source: {text: "oryg. 8.11 + przykłady, s. 21", pages: "21"}
+    effect: |
+      Ostrzał prowadzą jednostki z bronią miotaną. Cztery klasy: łucznicy (A), procarze (S), oszczepnicy (J) i skorpiony. Jednostka z rozkazem
+      może strzelać przed ruchem, po nim, w jego trakcie albo zamiast niego. Jeśli się rusza, może strzelić tylko wtedy, gdy bezpośrednio przed
+      strzałem szła **„naprzód”** (bliżej celu). Strzał w ruchu nie kosztuje MP. Każda jednostka z rozkazem strzela **raz na fazę rozkazów**.
+      Przykład: konny łucznik idzie 4 heksy naprzód, strzela na 2 heksy i resztą MP odjeżdża.
+    exceptions: Łucznicy lekkiej piechoty i skorpiony — ruch albo ostrzał (R-8.11.2).
+    keywords: [ostrzał, A, S, J, skorpion, ostrzał w ruchu, raz na fazę]
+    refs: [R-8.11.2]
+  - id: R-8.11.2
+    title: Łucznicy LI i skorpiony — ruch albo ostrzał
+    section: "8.11"
+    source: {text: "oryg. 8.11 „Exception”, s. 21", pages: "21"}
+    effect: Łucznicy lekkiej piechoty (LI klasy A) i skorpiony mogą w jednej fazie rozkazów albo się ruszać, albo strzelać — nigdy oba. Skorpiony strzelają bez rozkazów (9.85).
+    keywords: [łucznicy LI, skorpion, ruch albo ostrzał]
+    refs: [R-9.85.1]
+  - id: R-8.12.1
+    title: Źródła ostrzału — rozkaz, reakcja, wycofanie konnych łuczników
+    section: "8.12"
+    source: {text: "oryg. 8.12, s. 22", pages: "22"}
+    effect: Ostrzał następuje na rozkaz (8.11, 8.3), w reakcji na działania wroga (ostrzał reakcyjny, 8.2) albo w trakcie uporządkowanego wycofania konnych łuczników (6.55). Ostrzał skorpionów — 9.85–9.86.
+    keywords: [ostrzał, rozkaz, reakcja]
+    refs: [R-8.11.1, R-8.31.1, R-8.2.1, R-6.55.2, R-9.85.1, R-9.86.1]
+  - id: R-8.13.1
+    title: Cel ostrzału — jeden, w zasięgu, LOS przez front lub bok
+    section: "8.13"
+    source: {text: "oryg. 8.13, s. 22", pages: "22"}
+    effect: |
+      Jednostka strzela do **jednej** jednostki wroga w swoim zasięgu, do której ma LOS (8.14) przez jeden ze swoich heksów **frontowych lub
+      bocznych**. Jednostki strzelają osobno — nie łączą ostrzału.
+    keywords: [cel, zasięg, LOS, front, bok]
+    refs: [R-8.14.1]
+  - id: R-8.13.2
+    title: Ostrzał stosu — górna jednostka, z tyłu dolna
+    section: "8.13"
+    source: {text: "oryg. 8.13, s. 22", pages: "22"}
+    effect: Jeśli w heksie celu jest więcej jednostek bojowych, skutek dotyczy górnej, gdy strzał przechodzi przez heks frontowy lub boczny (celu), a dolnej — gdy przez heks tylny.
+    keywords: [stos, ostrzał, górna, dolna]
+    refs: [R-6.68.3]
+  - id: R-8.14.1
+    title: Linia wzroku (LOS) — wyznaczanie i przeszkody
+    section: "8.14"
+    source: {text: "oryg. 8.14, s. 22", pages: "22"}
+    effect: |
+      LOS wyznacza się ścieżką heksów od środka heksu strzelca do środka heksu celu, przez krawędzie frontowe lub boczne strzelca. LOS blokują:
+      las, miasta i jednostki bojowe (ale nie sam słoń dowódcy), chyba że leżą w heksach **niżej** niż strzelec i cel; ponadto każda część heksu
+      wyżej położonego między jednostkami. LOS biegnąca wzdłuż krawędzi między heksem blokującym i nieblokującym jest zablokowana.
+    keywords: [LOS, linia wzroku, las, miasto, wzniesienie]
+  - id: R-8.14.2
+    title: Do heksu przyległego zawsze można strzelać
+    section: "8.14"
+    source: {text: "oryg. 8.14, s. 22", pages: "22"}
+    effect: Jednostki strzelające zawsze mogą strzelać do heksów przyległych.
+    keywords: [LOS, heks przyległy]
+  - id: R-8.14.3
+    title: Łucznicy strzelają nad bliższą jednostką
+    section: "8.14"
+    source: {text: "oryg. 8.14 „Exceptions” pkt 1, s. 22; przykład (Beneventum), s. 24", pages: "22,24"}
+    effect: Dla łuczników (klasa A) jednostka bojowa nie blokuje LOS, jeśli jest **bliżej strzelca** niż celu (dokładnie w połowie — nie jest bliżej).
+    keywords: [łucznicy, LOS, strzał nad jednostką]
+  - id: R-8.14.4
+    title: Słonie nie blokują LOS przy rozkazach liniowych
+    section: "8.14"
+    source: {text: "oryg. 8.14 „Exceptions” pkt 2, s. 22", pages: "22"}
+    effect: Przy wyznaczaniu LOS dla rozkazów liniowych (4.33) słonie nie blokują LOS.
+    keywords: [LOS, słonie, rozkaz liniowy]
+    refs: [R-4.33.1]
+  - id: R-8.15.1
+    title: Rozstrzyganie ostrzału — rzut ≤ siła na danym zasięgu
+    section: "8.15"
+    source: {text: "oryg. 8.15 + przykład (Kanny), s. 22", pages: "22"}
+    effect: |
+      Skutek ostrzału ustala Tabela zasięgu i wyników ostrzału (MRRC): siła jednostki zależy od zasięgu. Za każdy ostrzał rzuca się kością;
+      wynik **≤ siła** na tym zasięgu — cel otrzymuje **1 trafienie** (w niektórych przypadkach 2). Modyfikatory podaje MRRC; sumują się, chyba
+      że tabela stanowi inaczej. Skutki ostrzału są **natychmiastowe** — przed ruchem lub ostrzałem jakiejkolwiek innej jednostki. Przykład:
+      procarze balearscy, zasięg 2 → siła 2; wynik 2 → 1 trafienie; po ruchu (+1 DRM) — bez skutku; wynik 9 — bez skutku i MISSILE LOW.
+    notes: |
+      Indeks instrukcji (s. 42, „Missile Combat — Elephants take two Hits from: 8.15”) wskazuje, że przypadkiem „2 trafień” są **słonie** jako cel;
+      szczegóły (warunki) są na MRRC (T-22, complete: false).
+    keywords: [ostrzał, MRRC, siła, zasięg, rzut, słonie 2 trafienia]
+    refs: [T-22, T-09]
+  - id: R-8.15.2
+    title: Modyfikator za ruch — nie za obrót w heksie, tak dla H&D
+    section: "8.15"
+    source: {text: "oryg. 8.15, s. 22", pages: "22"}
+    effect: Modyfikator za ruch nie dotyczy zmiany ukierunkowania bez opuszczania heksu; dotyczy natomiast ostrzału nękającego (H&D).
+    keywords: [modyfikator za ruch, H&D, zmiana ukierunkowania]
+    refs: [R-8.31.2]
+  - id: R-8.15.3
+    title: Oszczepnicy bez kary za ruch; mniejsza kara przeciw frontowi PH/HI
+    section: "8.15"
+    source: {text: "oryg. Design Note po 8.15, s. 22", pages: "22"}
+    effect: |
+      Piesi oszczepnicy nie mają kary za ruch (wariant ścisły: tylko gdy cały ruch był naprzód). Jednostki piesze i konni oszczepnicy nie strzelają
+      w trakcie uporządkowanego wycofania. Oszczepnicy mają mniejszą karę przy ostrzale frontu falangi/ciężkiej piechoty (wartości — MRRC).
+    keywords: [oszczepnicy, kara za ruch, falanga, HI]
+    flags: [summary]
+    refs: [R-6.55.2, T-22]
+  - id: R-8.16.1
+    title: Zasięg wydłużony — cel niżej, tylko wynik 0
+    section: "8.16"
+    source: {text: "oryg. 8.16 „Extended Range”, s. 22", pages: "22"}
+    effect: Strzelając do celu położonego niżej, jednostka ma zasięg większy o 1 heks. Na zasięgu wydłużonym trafia tylko przy wyniku **0**.
+    keywords: [zasięg wydłużony, wzniesienie, wynik 0]
+    refs: [T-09]
+  - id: R-8.17.1
+    title: Zapas pocisków — progi MISSILE LOW/NO
+    section: "8.17"
+    source: {text: "oryg. 8.17 „Missile Supply”, s. 22", pages: "22"}
+    effect: |
+      Jednostka strzela do wyczerpania pocisków. Łucznicy, procarze i osłony słoni: **niezmodyfikowany wynik 9** w dowolnym ostrzale → MISSILE LOW
+      (jeszcze jeden strzał). Oszczepnicy (poza LG): **niezmodyfikowane 7, 8 lub 9** → MISSILE LOW. Piechota legionowa (LG): po **pierwszym** strzale
+      automatycznie bez pocisków (MISSILE NO). Każda piechota z oszczepami biorąca udział w walce wręcz: po walce automatycznie MISSILE NO.
+    keywords: [MISSILE LOW, MISSILE NO, zapas pocisków, LG, oszczepnicy]
+    refs: [T-09]
+  - id: R-8.17.2
+    title: Strzał z MISSILE LOW → MISSILE NO
+    section: "8.17"
+    source: {text: "oryg. 8.17 pkt 5, s. 22", pages: "22"}
+    effect: Gdy strzela jednostka z MISSILE LOW, znacznik odwraca się na stronę MISSILE NO (brak pocisków).
+    keywords: [MISSILE LOW, MISSILE NO]
+  - id: R-8.17.3
+    title: Uproszczona ewidencja pocisków LG (Play Note)
+    section: "8.17"
+    source: {text: "oryg. Play Note po 8.17, s. 23", pages: "23"}
+    effect: |
+      Zamiast 8.17 można traktować jednostki LG jako mające pociski, chyba że 1) zaczęły segment obok jednostki wroga albo 2) mają znacznik
+      MISSILE NO. MISSILE NO kładzie się nie przy strzale, lecz gdy jednostka przestaje sąsiadować z wrogiem; zdejmuje się, gdy znowu sąsiaduje
+      z wrogiem po rozstrzygnięciu ostrzału, albo przy przeładowaniu (8.18). Gdy sąsiedztwo z wrogiem nie skończyło się walką wręcz ani
+      ostrzałem, MISSILE LOW oznacza, że jednostka ma pociski mimo sąsiedztwa.
+    keywords: [LG, MISSILE NO, ewidencja, uproszczenie]
+    flags: [optional]
+    refs: [R-8.18.1]
+  - id: R-8.18.1
+    title: Przeładowanie w fazie ucieczki i przeładowania
+    section: "8.18"
+    source: {text: "oryg. 8.18, s. 23", pages: "23"}
+    effect: |
+      W segmencie przeładowania własna jednostka z MISSILE LOW/NO może zdjąć znacznik (pełny zapas), jeśli: nie jest w strefie kontroli wroga
+      **i** nie jest w zasięgu i LOS jednostki wroga, która ma pociski i może strzelać.
+    keywords: [przeładowanie, MISSILE LOW, MISSILE NO, Reload]
+    refs: [R-3.0.7]
+  - id: R-8.19.1
+    title: Straty dowódców od ostrzału
+    section: "8.19"
+    source: {text: "oryg. 8.19 „Leader Casualties”, s. 23", pages: "23"}
+    effect: |
+      Jeśli w ostrzeliwanym heksie jest dowódca, a **niezmodyfikowany** wynik ostrzału to 0, rzuca się ponownie: 1–9 — nic; 0 — dowódca ponosi
+      stratę; dalej wg 4.73 (Tabela strat dowódców). Można strzelać do heksu w zasięgu, w którym jest tylko dowódca.
+    keywords: [straty dowódców, ostrzał, wynik 0]
+    refs: [R-4.73.1, T-05, T-23]
+  - id: R-8.2.1
+    title: Ostrzał reakcyjny — trzy rodzaje; słonie w szale nie prowokują
+    section: "8.2"
+    source: {text: "oryg. 8.2 „Reaction Fire”, s. 23", pages: "23"}
+    effect: Jednostki strzelające mogą strzelać w reakcji na wejście wroga do ich strefy kontroli (Entry), wyjście z niej (Retire) oraz na ostrzał skierowany przeciw nim (Return). Słonie w szale nie wywołują żadnego ostrzału reakcyjnego.
+    keywords: [ostrzał reakcyjny, Entry, Retire, Return, szał słonia]
+    refs: [R-8.21.1, R-8.22.1, R-8.23.1]
+  - id: R-8.21.1
+    title: Ostrzał przy wejściu (Entry Reaction)
+    section: "8.21"
+    source: {text: "oryg. 8.21, s. 23", pages: "23"}
+    effect: |
+      Gdy jednostka wchodzi do strefy kontroli jednostki strzelającej wroga — także przez posuwanie się po walce (8.5) — ta może strzelić do
+      wchodzącej (zasięg 1 heks) przed dalszym ruchem lub ostrzałem strony poruszającej. Jednostka wykonująca zmianę ukierunkowania w reakcji
+      (7.15) może strzelić, jeśli jednostka wywołująca jest w jej strefie kontroli.
+    exceptions: Ruch linii — R-8.21.2; stos tworzony wejściem — R-6.66.2.
+    keywords: [ostrzał przy wejściu, Entry Reaction, zasięg 1]
+    refs: [R-8.51.1, R-7.15.1, R-8.21.2, R-6.66.2]
+  - id: R-8.21.2
+    title: Ostrzał przy wejściu przy ruchu linii; jeden cel
+    section: "8.21"
+    source: {text: "oryg. 8.21 „Exception”, s. 23", pages: "23"}
+    effect: |
+      Gdy jednostki ruszają się jako linia, najpierw kończy się cały ruch, potem następuje cały ostrzał przy wejściu, a dopiero potem ostrzał
+      jednostek poruszonych. Jednostka może strzelić tylko do **jednej** jednostki, która weszła do jej strefy kontroli.
+    notes: "[wniosek] Ograniczenie „tylko do jednej” stoi w akapicie wyjątku dla ruchu linii; 8.24 dopuszcza wielokrotny ostrzał reakcyjny w trakcie ruchu wroga."
+    keywords: [ruch linii, ostrzał przy wejściu, jeden cel]
+    refs: [R-8.24.1]
+  - id: R-8.22.1
+    title: Ostrzał przy wyjściu (Retire Reaction) — zasięg 2
+    section: "8.22"
+    source: {text: "oryg. 8.22, s. 23", pages: "23"}
+    effect: |
+      Gdy jednostka opuszcza strefę kontroli jednostki strzelającej wroga o zasięgu ≥ 2 heksy, ta może do niej strzelić; skutki stosuje się przed
+      ruchem. Ostrzał przy wyjściu jest zawsze na zasięgu 2 heksów.
+    exceptions: Jednostki uciekające w początkowym ruchu ucieczki (10.22) nie wywołują tego ostrzału.
+    keywords: [ostrzał przy wyjściu, Retire Reaction, zasięg 2, ucieczka]
+    refs: [R-10.22.1]
+  - id: R-8.23.1
+    title: Ostrzał odwetowy (Return Fire)
+    section: "8.23"
+    source: {text: "oryg. 8.23, s. 23", pages: "23"}
+    effect: |
+      Nieaktywna jednostka, do której strzelano, może odpowiedzieć ogniem jednostce, która strzelała — po rozstrzygnięciu jej ostrzału (nie
+      jednocześnie). Nie może, jeśli użyła już ostrzału przy wejściu przeciw tej samej jednostce.
+    keywords: [ostrzał odwetowy, Return Fire]
+  - id: R-8.24.1
+    title: Ostrzał reakcyjny bez rozkazu, wielokrotnie
+    section: "8.24"
+    source: {text: "oryg. 8.24, s. 23", pages: "23"}
+    effect: Ostrzał reakcyjny nie wymaga rozkazu, ale wymaga pocisków. Jednostka może strzelać reakcyjnie dowolnie wiele razy w trakcie ruchu wroga, dopóki ma pociski.
+    keywords: [ostrzał reakcyjny, bez rozkazu, pociski]
+  - id: R-8.25.1
+    title: Osłony słoni strzelają tylko reakcyjnie
+    section: "8.25"
+    source: {text: "oryg. 8.25, s. 23", pages: "23"}
+    effect: Osłony słoni (Elephant Screens) strzelają wyłącznie jako ostrzał reakcyjny (dowolnego rodzaju).
+    keywords: [osłona słonia, ostrzał reakcyjny]
+    refs: [R-9.12.1]
+  - id: R-8.31.1
+    title: Ostrzał nękający (H&D) — kto i przeciw komu
+    section: "8.31"
+    source: {text: "oryg. 8.31, s. 23", pages: "23"}
+    effect: |
+      Harcownicy (SK) i lekka piechota (LI) z bronią miotaną mogą prowadzić ostrzał nękający (Harassment & Dispersal) przeciw jednostce wroga
+      o MA **równym lub niższym**; lekka jazda (LC) z bronią miotaną — przeciw jednostce o MA **niższym**.
+    exceptions: R-8.31.3.
+    keywords: [H&D, ostrzał nękający, SK, LI, LC, MA]
+    refs: [R-8.31.3]
+  - id: R-8.31.2
+    title: H&D wymaga rozkazu ruchu i zużywa cały MA
+    section: "8.31"
+    source: {text: "oryg. 8.31, s. 23", pages: "23"}
+    effect: H&D wymaga rozkazu ruchu, jest ruchem dla modyfikatorów ostrzału i zużywa **cały** MA jednostki.
+    keywords: [H&D, rozkaz ruchu, cały MA]
+  - id: R-8.31.3
+    title: H&D — wyjątki (łucznicy; LC przeciw SK)
+    section: "8.31"
+    source: {text: "oryg. 8.31 „Exceptions”, s. 23", pages: "23"}
+    effect: Łucznicy harcownicy i łucznicy lekkiej piechoty (klasa A) nie mogą prowadzić H&D. Lekka jazda (każda klasa broni) nie może prowadzić H&D przeciw harcownikom.
+    notes: "[wniosek] „Skirmisher and Light Infantry Archers (Class A)” czytam jako łuczników obu typów — 8.31 zdanie 1 dopuszcza H&D harcowników z bronią miotaną."
+    keywords: [H&D, łucznicy, LC, harcownik]
+  - id: R-8.32.1
+    title: H&D — odległość, ścieżka, LOS
+    section: "8.32"
+    source: {text: "oryg. 8.32, s. 24", pages: "24"}
+    effect: |
+      Lekka jazda musi być w odległości ≤ **4** heksów, piechota ≤ **2** heksów od celu, **ale nie obok** niego, i nie może być w strefie kontroli
+      wroga. Musi mieć LOS do celu i móc wytyczyć ścieżkę heksów **tylko przez swoje heksy frontowe**, wolną od jednostek bojowych i strefy kontroli
+      wroga (chyba że ta strefa przylega do celu). Ścieżka nie może przechodzić przez heks nieprzekraczalny, teren trudny ani w górę/dół przez krawędź
+      ze zmianą o więcej niż 1 poziom. Może przekraczać strumień.
+    keywords: [H&D, 4 heksy, 2 heksy, ścieżka, LOS, teren trudny]
+    refs: [T-09]
+  - id: R-8.33.1
+    title: H&D — procedura (strzał jak z zasięgu 1)
+    section: "8.33"
+    source: {text: "oryg. 8.33 + przykład (Beneventum), s. 24", pages: "24"}
+    effect: |
+      Wskaż jednostkę prowadzącą H&D, potem cel; strzelaj tak, jakby z zasięgu **1 heksu**. To atak w ruchu (np. konna LC: +1 DRM za ruch;
+      oszczepnicy bez kary). Żetonu nie przesuwa się na mapie, ale jest to ruch w rozumieniu 6.13.
+    keywords: [H&D, zasięg 1, atak w ruchu, zasada 6.13]
+    refs: [R-6.13.1]
+  - id: R-8.33.2
+    title: H&D — reakcje celu, ostrzał równoczesny
+    section: "8.33"
+    source: {text: "oryg. 8.33, s. 24", pages: "24"}
+    effect: |
+      Cel może zmienić ukierunkowanie w reakcji (7.15/7.16). Cel i każda inna jednostka przeciwnika mogą oddać ostrzał przy wejściu (8.21), jeśli
+      ścieżka H&D przechodzi przez przyległy heks w ich polu ostrzału (8.13). W tej sytuacji **cały ostrzał jest równoczesny**.
+    keywords: [H&D, reakcja, ostrzał przy wejściu, równoczesny]
+    refs: [R-7.15.1, R-7.16.1, R-8.21.1, R-8.13.1]
+  - id: R-8.34.1
+    title: H&D lekkiej jazdy przeciw słoniom
+    section: "8.34"
+    source: {text: "oryg. 8.34, s. 24", pages: "24"}
+    effect: |
+      Lekka jazda może prowadzić H&D przeciw słoniom, ale obowiązują ograniczenia 9.15: nie przez heks frontowy słonia. Atak H&D jazdy przez heks
+      boczny/tylny słonia daje **2 trafienia**, stosowane przed ostrzałem.
+    notes: "[wniosek] Trafienia otrzymuje jazda (por. 9.15 — jazda obok słoni) — zob. N-15."
+    keywords: [H&D, lekka jazda, słonie, 2 trafienia]
+    refs: [R-9.15.1, N-15]
+  - id: R-8.4.1
+    title: Walka wręcz w fazie rozkazów dowódcy
+    section: "8.4"
+    source: {text: "oryg. 8.4 „Procedure”, s. 24", pages: "24"}
+    effect: |
+      Walka wręcz odbywa się w segmencie walki wręcz i jest częścią fazy rozkazów dowódcy; wszystkie walki wywołane przez tego dowódcę
+      rozstrzyga się, zanim zostanie aktywowany następny dowódca lub nastąpi próba impetu.
+    keywords: [walka wręcz, segment, faza rozkazów]
+    refs: [P-05]
+  - id: R-8.4.2
+    title: Kroki walki wręcz wykonuje się dla wszystkich walk naraz
+    section: "8.4"
+    source: {text: "oryg. 8.4 „IMPORTANT” + Play Note, Design Note, s. 24–25", pages: "24-25"}
+    effect: |
+      Każdą walkę wręcz prowadzi się jako serię kroków w ustalonej kolejności dla **wszystkich** uczestniczących jednostek: najpierw 8.43 dla
+      wszystkich, potem 8.44 dla wszystkich itd. Zalecenie: rozstrzygać krok po kroku od lewej do prawej; kroki 8.45–8.46 można połączyć. Odosobnione
+      walki można rozstrzygać w całości, jeśli nie wpływa to na inne ataki.
+    keywords: [kolejność kroków, walka wręcz, wszystkie walki]
+  - id: R-8.4.3
+    title: Przegląd kroków rozstrzygania walki wręcz
+    section: "8.4"
+    source: {text: "oryg. „Shock Resolution — An Overview”, s. 25", pages: "25"}
+    effect: |
+      1) Atakujący ze znacznikiem SHOCK MUST CHECK TQ i ich obrońcy — test TQ przed walką (8.43). 2) Straty dowódców (8.44). 3) Tabela starcia
+      włóczni i mieczy — kolumna CRT (8.45). 4) Wpływ terenu, dowódców, liczebności i zdolności (8.46). 5) Rozstrzygnięcie na CRT (8.46).
+      6) Sprawdzenie ucieczki (8.47).
+    keywords: [przegląd, kroki, walka wręcz]
+    flags: [summary]
+    refs: [R-8.43.1, R-8.44.1, R-8.45.1, R-8.46.1, R-8.46.7, R-8.47.1, P-05]
+  - id: R-8.41.1
+    title: Wyznaczenie walki — znaczniki SHOCK NO TQ CHECK
+    section: "8.41"
+    source: {text: "oryg. 8.41 „Shock Designation”, s. 25", pages: "25"}
+    effect: |
+      Na jednostki, które się nie ruszały i wybierają walkę wręcz wg 7.33, kładzie się znaczniki SHOCK NO TQ CHECK (jednostki, które się ruszały,
+      mają już SHOCK MUST CHECK TQ). Atakować wręcz mogą **tylko** jednostki ze znacznikami walki.
+    keywords: [wyznaczenie walki, SHOCK NO TQ CHECK, znacznik]
+    refs: [R-7.33.1, R-7.32.1]
+  - id: R-8.42.1
+    title: Atak na wszystkie jednostki w strefie kontroli
+    section: "8.42"
+    source: {text: "oryg. 8.42 „The Basic Pre-Shock Procedure” + przykład #1, s. 25", pages: "25"}
+    effect: |
+      Jednostki atakujące wręcz muszą zaatakować **wszystkie** jednostki w swoich strefach kontroli, chyba że broniącą się jednostkę atakuje inna
+      własna jednostka w tym samym segmencie. Atakujący przypisuje jednostki do poszczególnych walk w granicach ograniczeń z R-8.42.2.
+    keywords: [walka wręcz, wszystkie w strefie kontroli, przypisanie]
+    refs: [R-8.42.2]
+  - id: R-8.42.2
+    title: Ograniczenia przy przypisywaniu walk
+    section: "8.42"
+    source: {text: "oryg. 8.42 (lista), s. 25", pages: "25"}
+    effect: |
+      Jednostka atakuje raz na segment walki wręcz. Obrońcę można zaatakować raz na segment (wyjątek: pościg jazdy, 8.6). Jednostka może atakować
+      kilka jednostek, jeśli wszystkie są w jej strefie kontroli. Atakujący (także falanga) nie dzieli swojej siły; dwie lub więcej jednostek mogą się
+      łączyć przeciw **jednej** jednostce/stosowi. Gdy broni się lub atakuje więcej jednostek — sumuje się Size. Jednostki w stosie atakują ten sam
+      heks. Poza tym atakujący dzieli ataki wg uznania.
+    keywords: [przypisanie walk, raz na segment, Size, stos, pościg]
+    refs: [R-8.61.1]
+  - id: R-8.43.1
+    title: Szarża — kto wykonuje test TQ przed walką
+    section: "8.43"
+    source: {text: "oryg. 8.43 „The Charge”, s. 25", pages: "25"}
+    effect: |
+      Wszystkie jednostki ze znacznikiem SHOCK MUST CHECK TQ **i ich cele** wykonują test TQ przed walką (rzut za każdą jednostkę, wszystkie testy
+      równocześnie). Atakujący ze znacznikiem SHOCK NO TQ CHECK i **ich** obrońcy testu nie wykonują. Obrońca atakowany przez oba rodzaje jednostek
+      wykonuje test.
+    keywords: [szarża, test TQ przed walką, SHOCK MUST CHECK TQ]
+    refs: [R-8.43.2]
+  - id: R-8.43.2
+    title: Kto nie wykonuje testu przed walką
+    section: "8.43"
+    source: {text: "oryg. 8.43 (lista), s. 25", pages: "25"}
+    effect: |
+      Testu przed walką nie wykonują: jednostki atakujące harcownika (SK); jednostki atakujące jednostkę uciekającą; falanga (PH), ciężka piechota (HI)
+      i piechota legionowa (LG) atakowane **frontalnie** przez lekką piechotę (LI).
+    keywords: [test TQ przed walką, wyjątki, SK, LI, ucieczka]
+  - id: R-8.43.3
+    title: Wynik testu przed walką — trafienia i natychmiastowa ucieczka
+    section: "8.43"
+    source: {text: "oryg. 8.43, s. 25", pages: "25"}
+    effect: |
+      Wynik **wyższy** od TQ → trafienia = wynik − TQ. Obrońca z trafieniami ≥ TQ natychmiast ucieka (10.21), a atakujący **musi** posunąć się (8.5),
+      chyba że jest w strefie kontroli innej jednostki wroga. Atakujący z trafieniami ≥ TQ natychmiast ucieka (10.21); obrońca się nie posuwa. Jeśli
+      z testów uciekałyby **wszystkie** jednostki obu stron — procedura 10.15.
+    exceptions: Falanga — R-8.43.5.
+    keywords: [test TQ przed walką, trafienia, ucieczka, posuwanie się]
+    refs: [R-10.21.1, R-8.51.1, R-10.15.1, R-8.43.5]
+  - id: R-8.43.4
+    title: Modyfikatory testu przed walką
+    section: "8.43"
+    source: {text: "oryg. 8.43 (modyfikatory), s. 26", pages: "26"}
+    effect: |
+      **+1** słoń atakujący PH lub HI przez heks frontowy; **+1** słoń afrykański atakujący słonia indyjskiego lub broniący się przed nim; **+1**
+      jednostka atakowana przez falangę podwójnej głębokości; **–1** falanga podwójnej głębokości atakowana przez dowolną jednostkę; **–1** piechota
+      barbarzyńska (BI) z furią (9.94); **+2** jednostka atakowana przez BI z furią.
+    keywords: [modyfikatory, słoń, falanga podwójna, BI, furia]
+    refs: [R-9.94.1, R-9.53.1, R-9.19.1, T-10]
+  - id: R-8.43.5
+    title: Falanga, która miałaby uciec — rzut na utrzymanie
+    section: "8.43"
+    source: {text: "oryg. 8.43 „Exception”, s. 26", pages: "26"}
+    effect: |
+      Jeśli dwuheksowa falanga miałaby uciec, właściciel rzuca kością i dodaje liczbę trafień **ponad** TQ oraz **+3, jeśli była atakującym** w tej walce.
+      Wynik > TQ — ucieka (10.21); w przeciwnym razie **stoi** w miejscu, a jej trafienia ustawia się na **TQ − 1**.
+    keywords: [falanga, ucieczka, utrzymanie, TQ − 1, +3 atakujący]
+    refs: [R-10.21.1, T-10]
+  - id: R-8.43.6
+    title: Po szarży — czy walka trwa
+    section: "8.43"
+    source: {text: "oryg. 8.43, s. 26", pages: "26"}
+    effect: Po wszystkich testach przed walką przechodzi się do następnego kroku tylko w walkach, w których nie uciekł co najmniej jeden atakujący i jeden obrońca.
+    keywords: [szarża, następny krok]
+  - id: R-8.44.1
+    title: Straty dowódców w walce wręcz; charyzma działa zawsze
+    section: "8.44"
+    source: {text: "oryg. 8.44 „Shock and Leaders”, s. 26", pages: "26"}
+    effect: Procedurą 4.73 sprawdza się, czy dowódcy w stosie z uczestniczącymi jednostkami ponoszą straty. Charyzmę dowódcy stosuje się jako DRM (na dobre lub złe) bez względu na wynik (8.46 krok 3) — tu tylko się to sprawdza.
+    keywords: [straty dowódców, charyzma]
+    refs: [R-4.73.1, R-8.46.7]
+  - id: R-8.45.1
+    title: Tabela starcia włóczni i mieczy — kolumna bazowa CRT
+    section: "8.45"
+    source: {text: "oryg. 8.45 „The Clash of Spears and Swords”, s. 26", pages: "26"}
+    effect: Krzyżuje się typ atakującego z typem obrońcy i ukierunkowaniem obrońcy względem atakującego — daje to kolumnę Tabeli wyników walki wręcz (przed modyfikacjami).
+    keywords: [starcie włóczni i mieczy, kolumna CRT, typ, ukierunkowanie]
+    refs: [T-25]
+  - id: R-8.45.2
+    title: Wybór jednostki do starcia — obrońca wybiera swoją, atakujący swoją
+    section: "8.45"
+    source: {text: "oryg. 8.45 + przykłady #2–#3, s. 26", pages: "26"}
+    effect: |
+      Przy kilku obrońcach **obrońca** wybiera, którego typu użyć; przy kilku atakujących **atakujący** wybiera jednostkę (jej typ i kąt ataku).
+      Przykład: HI atakuje hastatów (z boku) i velites (z frontu) — obrońca wybiera velites (kolumna 9 zamiast 11); atakujący i tak ma przewagę ataku.
+    keywords: [wybór jednostki, obrońca wybiera, atakujący wybiera]
+    refs: [T-25]
+  - id: R-8.45.3
+    title: Atak falangi przez wierzchołek — korzystniejsze ukierunkowanie dla obrońcy
+    section: "8.45"
+    source: {text: "oryg. 8.45, s. 26", pages: "26"}
+    effect: Jeśli falanga atakuje jednostkę przez wierzchołek między różnymi stronami (np. front/bok), obrońca korzysta z najkorzystniejszego dla siebie ukierunkowania.
+    keywords: [falanga, wierzchołek, ukierunkowanie]
+  - id: R-8.45.4
+    title: Jednostek niezdolnych do walki wręcz nie wybiera się
+    section: "8.45"
+    source: {text: "oryg. 8.45, s. 26", pages: "26"}
+    effect: Jednostek niezdolnych do walki wręcz, broniących się razem z jednostkami zdolnymi do walki wręcz, nie można wybrać do ustalenia kolumny.
+    keywords: [niezdolny do walki wręcz, wybór jednostki]
+    refs: [R-7.33.2]
+  - id: R-8.46.1
+    title: "Krok 1 — przewaga: pozycji albo systemu broni"
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 1, s. 26", pages: "26"}
+    effect: |
+      Są dwa rodzaje przewagi: pozycji i systemu broni. Jedna strona może (nie musi) uzyskać przewagę — jako przewagę ataku (AS) albo obrony (DS).
+      Przewagę ustala się wg Tabeli przewagi; często nie ma jej wcale.
+    keywords: [przewaga, AS, DS, Tabela przewagi]
+    refs: [T-24]
+  - id: R-8.46.2
+    title: Przewaga pozycji — atak z boku lub tyłu
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 1 A, s. 26", pages: "26"}
+    effect: |
+      Atakujący ma zwykle przewagę pozycji, jeśli atakuje przez heks **boczny lub tylny** obrońcy; daje mu to przewagę ataku (AS). Jednostka, której
+      atakujący używa do ustalenia przewagi pozycji, musi być tą samą, której użył do kolumny w 8.45.
+    exceptions: R-8.46.3.
+    keywords: [przewaga pozycji, bok, tył, AS]
+    refs: [R-8.46.3, R-8.45.2]
+  - id: R-8.46.3
+    title: Kiedy nie ma przewagi pozycji
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 1 A (lista), s. 26", pages: "26"}
+    effect: |
+      Brak przewagi pozycji, gdy: harcownik jest atakowany przez heks boczny; jazda atakuje słonia; słoń atakuje słonia; atakujący jest w strefie
+      kontroli jednostki wroga zdolnej do walki wręcz, która stoi w jego heksie bocznym lub tylnym. Wtedy przewagę ustala się wg systemu broni.
+    keywords: [przewaga pozycji, wyjątki, harcownik, słoń, jazda]
+    refs: [R-8.46.4]
+  - id: R-8.46.4
+    title: Przewaga systemu broni
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 1 B + Play Note, s. 26", pages: "26"}
+    effect: |
+      Bez przewagi pozycji gracze sprawdzają relację klas broni w Tabeli przewagi (8.72) — czy któryś system jest lepszy (AS lub DS). Przy kilku
+      jednostkach decydują jednostki wybrane w 8.45.
+    keywords: [przewaga systemu broni, Tabela przewagi]
+    refs: [R-8.72.1, T-24]
+  - id: R-8.46.5
+    title: Krok 2 — różnica stosunku Size i zaokrąglanie
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 2 + przykład, s. 26–27", pages: "26-27"}
+    effect: |
+      Porównaj łączne Size atakujących i obrońców. Za każdy poziom stosunku **powyżej 1:1** strona dostaje przesunięcie kolumny CRT o 1 na swoją
+      korzyść (atakujący w prawo, obrońca w lewo). Stosunek sprowadza się do #:1 (lub 1:#): jeśli **którykolwiek atakujący wszedł obok obrońcy**
+      z heksu nieprzyległego — zaokrągla się na korzyść atakującego (5:4 → 2:1; 4:5 → 1:1; 2:5 → 1:2); jeśli nikt nie wszedł — na korzyść obrońcy
+      (5:4 → 1:1; 4:5 → 1:2). Przykład: 11:5 po ruchu = 3:1 (2 kolumny w prawo); bez ruchu = 2:1 (1 kolumna).
+    keywords: [Size, stosunek, SRD, przesunięcie kolumny, zaokrąglanie]
+    refs: [T-11]
+  - id: R-8.46.6
+    title: Kiedy pomija się stosunek Size
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 2, s. 27", pages: "27"}
+    effect: Stosunek Size pomija się, gdy słonie walczą z jakimikolwiek jednostkami niebędącymi słoniami oraz w każdej walce, w której wszyscy obrońcy są harcownikami.
+    keywords: [Size, słonie, harcownik, pominięcie]
+  - id: R-8.46.7
+    title: Krok 3 — przesunięcia kolumny, rzut, charyzma
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 3 + przykład, s. 27", pages: "27"}
+    effect: |
+      Atakujący zaczyna od kolumny bazowej (8.45) i przesuwa ją o stosunek Size, jednostki i teren (wszystko na CRT). Rzuca kością, **dodając**
+      charyzmę jednego swojego dowódcy biorącego udział w walce i **odejmując** charyzmę jednego dowódcy obrońcy (wybór obrońcy). Jeśli dowódca zginął
+      (8.44), jego strona ma odwrócony modyfikator = **charyzma poległego + 2**. Przykład: Hannibal prowadzi atak → +3; poległy Maharbal (charyzma 2)
+      prowadzący atak → –4.
+    keywords: [kolumna CRT, charyzma, poległy dowódca, charyzma +2]
+    refs: [T-26, T-11]
+  - id: R-8.46.8
+    title: Krok 4 — wynik CRT i mnożniki
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 4, s. 27", pages: "27"}
+    effect: |
+      Wynik CRT to trafienia dla obu stron; liczba w nawiasie dotyczy obrońcy. Modyfikacje: przewaga ataku (AS) — wynik obrońcy **×2**; przewaga obrony
+      (DS) — wynik atakującego **×3**; obrońca harcownik — trafienia atakującego **×½ (w dół), najwyżej 1**; jeśli jednostką atakującą użytą w 8.45 jest
+      lekka jazda, a obrońca to falanga, ciężka, średnia, legionowa lub barbarzyńska piechota — trafienia obrońcy **×½ (w dół)**; ta redukcja nie dotyczy
+      obrońcy uciekającego i kumuluje się z ×2 za AS.
+    keywords: [wynik CRT, AS ×2, DS ×3, harcownik, lekka jazda ½]
+    refs: [T-11, T-26]
+  - id: R-8.46.9
+    title: Podział trafień między kilka jednostek
+    section: "8.46"
+    source: {text: "oryg. 8.46 krok 4, s. 27", pages: "27"}
+    effect: Jeśli w walce uczestniczyła więcej niż jedna jednostka tego samego gracza, trafienia rozdziela się wg 10.13.
+    keywords: [podział trafień]
+    refs: [R-10.13.1]
+  - id: R-8.47.1
+    title: "Załamanie — krok 1: trafienia ≥ TQ uciekają"
+    section: "8.47"
+    source: {text: "oryg. 8.47 pkt 1, s. 27", pages: "27"}
+    effect: |
+      Kroki wykonuje się **po kolei**. 1) Wszystkie jednostki z trafieniami ≥ TQ uciekają (10.21). Jeśli w danej walce uciekałyby **wszystkie** jednostki —
+      najpierw 10.15. Gdy obie strony mają uciekające jednostki z tej samej walki, obrońca porusza swoje pierwszy.
+    exceptions: Falanga — R-8.47.2.
+    keywords: [załamanie, Collapse, ucieczka, kolejność]
+    refs: [R-10.21.1, R-10.15.1, R-8.47.2]
+  - id: R-8.47.2
+    title: "Załamanie — falanga: rzut na utrzymanie, chyba że przewaga pozycji"
+    section: "8.47"
+    source: {text: "oryg. 8.47 pkt 1 „Exception”, s. 27", pages: "27"}
+    effect: Falanga, która miałaby uciec, stosuje procedurę wyjątku z 8.43. Jeśli jednak jest obrońcą, a atakujący miał przewagę pozycji — bez rzutu, ucieka (10.21).
+    keywords: [falanga, załamanie, przewaga pozycji]
+    refs: [R-8.43.5, R-10.21.1]
+  - id: R-8.47.3
+    title: "Załamanie — krok 2: TQ − 1 w strefie kontroli wroga"
+    section: "8.47"
+    source: {text: "oryg. 8.47 pkt 2, s. 27", pages: "27"}
+    effect: |
+      Gracze rzucają za każdą swoją uczestniczącą jednostkę, która ma trafienia **= TQ − 1** i jest w strefie kontroli wroga: wynik ≤ TQ — usuń
+      1 trafienie; wyższy — ucieczka (10.21); falanga stosuje procedurę z kroku 1. Bez rzutu dla falang, które zdały test w kroku 1.
+    keywords: [załamanie, TQ − 1, strefa kontroli, test]
+    refs: [R-10.21.1, R-8.47.2]
+  - id: R-8.47.4
+    title: "Załamanie — krok 3: posuwanie się i pościg"
+    section: "8.47"
+    source: {text: "oryg. 8.47 pkt 3 + Play Note, s. 27", pages: "27"}
+    effect: Atakujący zobowiązani do posunięcia się (8.5) robią to teraz. Atakująca jazda, która spowodowała ucieczkę/eliminację wroga, zamiast tego sprawdza pościg (8.6). Ruchy ucieczki z kroków 1–2 wykonuje się przed posuwaniem i pościgiem.
+    keywords: [posuwanie się, pościg, kolejność]
+    refs: [R-8.51.1, R-8.61.1]
+  - id: R-8.47.5
+    title: (opcja Engaged) znaczniki po załamaniu
+    section: "8.47"
+    source: {text: "oryg. 8.47 (akapit o 10.4), s. 27", pages: "27"}
+    effect: |
+      Przy zasadzie Engaged zdejmuje się ENGAGED z jednostek, które wykonały ruch ucieczki lub posunęły się; falanga, która posunęła się tylko o jeden heks
+      (obrót, 8.53), zachowuje znacznik. Jeśli wszyscy obrońcy albo wszyscy atakujący uciekli, posunęli się lub zostali wyeliminowani — zdejmij ENGAGED
+      z uczestniczących jednostek drugiej strony. Jeśli obie strony mają jednostki, które zostały w swoich heksach — połóż (lub zostaw) na nich ENGAGED.
+    keywords: [Engaged, znacznik, załamanie]
+    flags: [optional]
+    refs: [R-10.41.1, R-8.53.2]
+  - id: R-8.51.1
+    title: Obowiązkowe posunięcie się po walce
+    section: "8.51"
+    source: {text: "oryg. 8.51, s. 29", pages: "29"}
+    effect: |
+      Atakujące jednostki (i dowódcy w stosie z nimi) **muszą** wejść do każdego heksu opuszczonego przez wroga wskutek walki wręcz (8.43, 8.47);
+      wyjątek: atakujący w strefie kontroli innej jednostki wroga nie posuwa się w kroku szarży (8.43). Jednostki w stosie posuwają się razem,
+      zachowując kolejność. Posunięcie nie wymaga rozkazu, ale jednostka ponosi wszystkie koszty spójności takiego ruchu.
+    keywords: [posuwanie się po walce, obowiązek, stos]
+    refs: [R-8.43.3, R-8.47.1]
+  - id: R-8.51.2
+    title: Posunięcie, które spowodowałoby ucieczkę — trafienia = TQ − 1
+    section: "8.51"
+    source: {text: "oryg. 8.51 + Design Note, s. 29", pages: "29"}
+    effect: Jeśli posunięcie wywołałoby ucieczkę (10.2), jednostka posuwa się i nie ucieka; jej trafienia ustawia się na **TQ − 1**.
+    keywords: [posuwanie się, ucieczka, TQ − 1]
+    refs: [R-10.14.1]
+  - id: R-8.52.1
+    title: Zmiana ukierunkowania po posunięciu (wyjątek od 7.24)
+    section: "8.52"
+    source: {text: "oryg. 8.52, s. 30", pages: "30"}
+    effect: Posuwające się jednostki niebędące falangami mogą po posunięciu zmienić ukierunkowanie o jeden wierzchołek, nawet w strefie kontroli wroga. Ma to pierwszeństwo przed 7.24.
+    keywords: [posuwanie się, zmiana ukierunkowania, strefa kontroli]
+    refs: [R-7.24.1]
+  - id: R-8.53.1
+    title: Falanga posuwa się tylko w całości
+    section: "8.53"
+    source: {text: "oryg. 8.53 + diagramy, s. 30", pages: "30"}
+    effect: Posuwająca się falanga musi wejść obiema połowami do heksów opuszczonych przez wroga, jeśli może. Jeśli nie może iść naprzód w całości — nie posuwa się.
+    exceptions: Posunięcie z obrotem — R-8.53.2.
+    keywords: [falanga, posuwanie się, w całości]
+    refs: [R-8.53.2]
+  - id: R-8.53.2
+    title: Falanga — posunięcie z obrotem do środkowego heksu frontu
+    section: "8.53"
+    source: {text: "oryg. 8.53 + diagram „Pivot Advance”, s. 30", pages: "30"}
+    when: wróg stoi w lewym albo prawym (nie obu) heksie frontowym falangi, a opuszczony jest tylko środkowy heks frontowy
+    effect: Falanga musi zamiast tego obrócić się manewrem skrętu (6.44) do opuszczonego środkowego heksu, ponosząc wszystkie koszty spójności tego manewru. Jeśli miałaby uciec — stosuje się 8.51 (trafienia = TQ − 1).
+    keywords: [falanga, obrót, skręt, posuwanie się]
+    refs: [R-6.44.1, R-8.51.2]
+  - id: R-8.53.3
+    title: Falanga — skręt po posunięciu w całości
+    section: "8.53"
+    source: {text: "oryg. 8.53 + diagram „Advance with Wheel”, s. 30", pages: "30"}
+    effect: Jeśli falanga posunęła się w całości, może następnie wykonać manewr skrętu, jeśli jest okazja, płacąc jego koszty spójności. Jeśli wtedy miałaby uciec — ucieka (10.21).
+    keywords: [falanga, skręt, posuwanie się]
+    refs: [R-6.44.1, R-10.21.1]
+  - id: R-8.54.1
+    title: Więcej atakujących niż opuszczonych heksów
+    section: "8.54"
+    source: {text: "oryg. 8.54, s. 30", pages: "30"}
+    effect: |
+      Gdy atakujących jednostek/stosów jest więcej niż opuszczonych heksów, posuwają się te, które miały przewagę; gdy żadna nie miała — te z najwyższym
+      TQ; przy remisie wybiera gracz posuwający się. Gdy opuszczonych heksów jest więcej — gracz posuwający się wybiera heks(y).
+    keywords: [posuwanie się, przewaga, najwyższe TQ]
+  - id: R-8.55.1
+    title: Wobec posuwającego się — bez OW, reakcje dozwolone
+    section: "8.55"
+    source: {text: "oryg. 8.55, s. 30", pages: "30"}
+    effect: Przeciwnik nie może użyć uporządkowanego wycofania (6.51) w odpowiedzi na posunięcie, ale może zmienić ukierunkowanie (7.15–7.16) i/lub oddać ostrzał przy wejściu (8.21), jeśli może.
+    keywords: [posuwanie się, uporządkowane wycofanie, reakcja]
+    refs: [R-6.51.1, R-7.15.1, R-7.16.1, R-8.21.1]
+  - id: R-8.56.1
+    title: Brak posunięcia po samym ostrzale
+    section: "8.56"
+    source: {text: "oryg. 8.56, s. 30", pages: "30"}
+    effect: Po samym ostrzale nie ma posuwania się, bez względu na to, co zrobi cel.
+    keywords: [posuwanie się, ostrzał]
+  - id: R-8.6.1
+    title: Pościg jazdy — nie stosuje się pod Beneventum
+    section: "8.6"
+    source: {text: "oryg. 8.6 Play Note, s. 30", pages: "30"}
+    effect: Zasady pościgu jazdy nie stosuje się w bitwie pod Beneventum (brak pól pościgu na mapie).
+    keywords: [pościg, Beneventum]
+    flags: [title-specific]
+  - id: R-8.61.1
+    title: Kto może ścigać
+    section: "8.61"
+    source: {text: "oryg. 8.61, s. 30", pages: "30"}
+    effect: |
+      Atakująca jazda, która spowodowała ucieczkę obrońców w kroku 1 załamania (8.47 pkt 1), może ścigać. Ścigają tylko zwycięscy **atakujący** —
+      nigdy obrońcy. Przy kilku atakujących jednostkach jazdy ściga tylko jedna (wybór właściciela).
+    exceptions: Przypadki bez pościgu — R-8.61.2.
+    keywords: [pościg, jazda, atakujący]
+    refs: [R-8.47.1, R-8.61.2]
+  - id: R-8.61.2
+    title: Kiedy nie ma pościgu (zamiast tego posunięcie)
+    section: "8.61"
+    source: {text: "oryg. 8.61 (lista), s. 30", pages: "30"}
+    effect: |
+      Bez pościgu, gdy: obrońca ucieka z nieudanego testu załamania (8.47 pkt 2); obrońca jest otoczony jednostkami i/lub strefami kontroli wroga;
+      broniły się dwie jednostki, a uciekła jedna; jazda była związana (Engaged, 10.4) w chwili ucieczki; w każdej walce wynikłej z pościgu (8.62).
+      W tych przypadkach zwycięska jazda posuwa się po walce (8.5).
+    keywords: [pościg, wyjątki, posuwanie się]
+    refs: [R-8.47.3, R-10.41.1, R-8.62.3, R-8.51.1]
+  - id: R-8.62.1
+    title: Rzut na pościg — wynik > TQ to pościg
+    section: "8.62"
+    source: {text: "oryg. 8.62, s. 30", pages: "30"}
+    effect: Właściciel rzuca kością i porównuje wynik z TQ ścigającej jazdy. Wynik **wyższy** — jazda (i dowódcy w stosie) **musi** ścigać (Pursue); w przeciwnym razie **musi** przerwać (Break-Off).
+    exceptions: |
+      Opcja: wartości pościgu zamiast TQ — R-8.66.1.
+    keywords: [pościg, rzut, TQ, Break-Off]
+    refs: [R-8.66.1, T-12]
+  - id: R-8.62.2
+    title: Pościg — ruch za uciekającym; eliminacja obrońców
+    section: "8.62"
+    source: {text: "oryg. 8.62 „Pursue”, s. 30", pages: "30"}
+    effect: |
+      Ścigająca jazda idzie za uciekającą jednostką jej drogą ucieczki, bez kosztu MP, ale z trafieniami za teren. Jeśli wszyscy obrońcy zostali
+      wyeliminowani (uciekający, harcownicy itd.), jazda zamiast tego rusza się o **½ MA (w górę)**, jeśli któryś obrońca był piechotą, albo o **pełny MA**,
+      jeśli wszyscy byli jazdą — w kierunku, w którym uciekała jednostka (wybór ścigającego przy kilku kierunkach), albo ku krawędzi odwrotu przeciwnika,
+      jeśli żadna z wyeliminowanych jednostek nie uciekała wcześniej.
+    keywords: [pościg, ruch, ½ MA, pełny MA, krawędź odwrotu]
+    refs: [T-12]
+  - id: R-8.62.3
+    title: Pościg — zatrzymanie i kolejna walka wręcz
+    section: "8.62"
+    source: {text: "oryg. 8.62, s. 30–31 + przykład (Zama)", pages: "30-31"}
+    effect: |
+      Jazda zatrzymuje się, gdy wejdzie do strefy kontroli wroga albo obejmie jednostkę wroga swoją strefą kontroli. Ścigający rozstrzyga walkę wręcz
+      (8.43–8.47) przeciw wszystkim jednostkom wroga w jej strefie kontroli. Jeśli musi się posunąć — nie sprawdza ponownie pościgu; posuwa się wg 8.5,
+      chyba że wszyscy obrońcy uciekali na początku walki i zostali wyeliminowani — wtedy znowu rusza się o ½ MA lub pełny MA jak wyżej. Przykład (Zama):
+      HC (TQ 7) rozbija hastatów, rzut 8 → pościg; atakuje ponownie, eliminuje ich i przesuwa się o 4 MP w kierunku ich ucieczki.
+    keywords: [pościg, zatrzymanie, walka wręcz, eliminacja]
+    refs: [R-8.62.2, R-8.51.1]
+  - id: R-8.62.4
+    title: Pościg poza mapę
+    section: "8.62"
+    source: {text: "oryg. 8.62, s. 31", pages: "31"}
+    effect: Jeśli ścigana jednostka zejdzie z mapy, ścigającą jazdę i dowódców w stosie kładzie się poza mapą. Heksem wyjścia dla 8.64 jest heks, którym uciekający opuścił mapę.
+    keywords: [pościg, poza mapą, heks wyjścia]
+    refs: [R-8.64.1]
+  - id: R-8.62.5
+    title: Przerwanie pościgu (Break-Off) = posunięcie po walce
+    section: "8.62"
+    source: {text: "oryg. 8.62 „Break-Off”, s. 31", pages: "31"}
+    effect: Przy przerwaniu jazda posuwa się po walce (8.5).
+    keywords: [Break-Off, posuwanie się]
+    refs: [R-8.51.1]
+  - id: R-8.63.1
+    title: Po pościgu lub przerwaniu — jazda skończona w tej turze
+    section: "8.63"
+    source: {text: "oryg. 8.63, s. 31", pages: "31"}
+    effect: |
+      Jazda po pościgu lub przerwaniu jest skończona do końca tury: nie dostaje rozkazów ruchu ani ostrzału, ale może odzyskiwać spójność. Nie atakuje
+      wręcz, ale może reagować (6.5, 8.2 itd.) i broni się normalnie. Oznacza się ją znacznikiem PURSUIT/FINISHED.
+    keywords: [PURSUIT/FINISHED, jazda, skończona, odzyskanie spójności]
+    refs: [R-10.16.1]
+  - id: R-8.64.1
+    title: Przegrupowanie i powrót jazdy spoza mapy
+    section: "8.64"
+    source: {text: "oryg. 8.64 „Off-Map Regroup”, s. 31", pages: "31"}
+    effect: |
+      Jazda poza mapą nie wraca do gry, dopóki gracz nie ogłosi, że jego OC przeznacza **całą** swoją fazę rozkazów na przegrupowanie i powrót jazdy
+      (bez względu na zasięg i położenie). Rozkaz dotyczy całej jazdy tej armii poza mapą; jazda wraca w odległości ≤ 2 heksów od heksu wyjścia, zużywając
+      dowolną część swojego MA.
+    keywords: [przegrupowanie, powrót, poza mapą, OC, 2 heksy]
+    refs: [R-4.4.7, R-5.22.1]
+  - id: R-8.65.1
+    title: Jazda poza mapą nie daje punktów ucieczki; dowódcy poza mapą nie działają
+    section: "8.65"
+    source: {text: "oryg. 8.65, s. 31", pages: "31"}
+    effect: Jazdy poza mapą (po pościgu) nie liczy się przy punktach ucieczki. Dowódcy poza mapą nie są aktywowani.
+    keywords: [poza mapą, punkty ucieczki, dowódcy]
+    refs: [R-11.2.1]
+  - id: R-8.66.1
+    title: (opcja) Wartości pościgu zamiast TQ
+    section: "8.66"
+    source: {text: "oryg. 8.66 „Cavalry Pursuit Option”, s. 31", pages: "31"}
+    effect: |
+      Zamiast TQ (8.62) można użyć wartości pościgu: **LC/LN: 5**, **RC/HC/BC: 3**. Modyfikatory: **+1** lekka jazda numidyjska; **+2**, jeśli którakolwiek
+      uciekająca jednostka to piechota; **+/–** charyzma jednego uczestniczącego dowódcy; **–1**, jeśli jazda jest w strefie kontroli jednostki wroga.
+    notes: "Znak modyfikatora charyzmy i skrót BC nie są w instrukcji objaśnione — N-14."
+    keywords: [pościg, wartość pościgu, opcja, Numidowie, charyzma]
+    flags: [optional]
+    refs: [N-14, T-12]
+  - id: R-8.71.1
+    title: Tabela zasięgu i wyników ostrzału (MRRC)
+    section: "8.71"
+    source: {text: "oryg. 8.71, s. 31", pages: "31"}
+    effect: Służy do ustalenia siły jednostki strzelającej na danym zasięgu.
+    keywords: [MRRC, ostrzał, zasięg]
+    refs: [T-22]
+  - id: R-8.72.1
+    title: Tabela przewagi — czytać kolumnami (z punktu widzenia atakującego)
+    section: "8.72"
+    source: {text: "oryg. 8.72, s. 31", pages: "31"}
+    effect: Porównuje przewagę jednego typu jednostki nad innym, zależnie od tego, kto atakuje, a kto się broni. Zawsze czyta się **w dół kolumny** — z punktu widzenia atakującego (czytanie wierszami daje fałszywy wynik). Przewaga zwiększa trafienia.
+    keywords: [Tabela przewagi, kolumna, atakujący]
+    refs: [T-24]
+  - id: R-8.73.1
+    title: Tabela starcia włóczni i mieczy
+    section: "8.73"
+    source: {text: "oryg. 8.73, s. 31", pages: "31"}
+    effect: Wyznacza kolumnę Tabeli wyników walki wręcz (przed przesunięciami).
+    keywords: [starcie włóczni i mieczy, kolumna]
+    refs: [T-25]
+  - id: R-8.74.1
+    title: Tabela wyników walki wręcz (Shock CRT)
+    section: "8.74"
+    source: {text: "oryg. 8.74, s. 31", pages: "31"}
+    effect: Rozstrzyga walkę wręcz w trafieniach dla atakującego i obrońcy. Zob. 10.11 i 10.14.
+    keywords: [CRT, walka wręcz, trafienia]
+    refs: [T-26, R-10.11.1, R-10.14.1]
+  - id: R-8.75.1
+    title: Tabela trafień i testów TQ
+    section: "8.75"
+    source: {text: "oryg. 8.75, s. 31", pages: "31"}
+    effect: Podsumowanie, kiedy jednostki otrzymują trafienia i kiedy wykonują testy TQ.
+    keywords: [Tabela trafień i testów TQ, podsumowanie]
+    refs: [T-28]

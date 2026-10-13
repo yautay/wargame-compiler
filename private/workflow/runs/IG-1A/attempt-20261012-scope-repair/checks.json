@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 0,
+      "tests_passed": 72,
+      "tests_failed": 0,
+      "reported_pytest_seconds": 30.33,
+      "log_root": "private/workflow/checks/active-04ffe945d7c343e4871e6602878a2e62",
+      "result_artifact": {
+        "path": "private/workflow/checks/active-04ffe945d7c343e4871e6602878a2e62/result.json",
+        "sha256": "9910363a98ae48ddfbd2e6d56364fdfc1ad1a014b5f026f5d27325167391fef4"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log_artifact": {
+        "path": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": "Python SHA-256 comparison: removing exactly the three approved fixture lines recreates its original base bytes; all prior delivery hashes remain unchanged",
+      "exit_code": 0
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-12T15:30:17.258744+00:00",
+    "ended_utc": "2026-10-12T15:33:43.441465+00:00",
+    "wall_seconds": 206.182721,
+    "previous_attempt": {
+      "started_utc": "2026-10-12T14:51:29.775886+00:00",
+      "ended_utc": "2026-10-12T15:22:49.264628+00:00",
+      "wall_seconds": 1879.488742,
+      "input_tokens": null,
+      "output_tokens": null,
+      "operator_seconds": null,
+      "monetary_cost": null,
+      "unknown_reason": "Session token counters, operator time and monetary cost were not exposed/reported. Wall time includes the scope-confirmation wait."
+    },
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Session token counters, operator time and monetary cost were not exposed/reported. Attempt intervals are recorded separately; no active-work-time estimate is invented."
+  },
+  "prior_failures": "Retained immutably in attempt-20261012-0540; resolved by the explicit operator-authorized synthetic fixture baseline repair."
+}

@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "step": "compact console input inspection",
+      "observed": "UnicodeEncodeError cp1252 for Polish text; rerun with Python -X utf8",
+      "semantic_effect": "none"
+    },
+    {
+      "step": "packet materialization",
+      "observed": "StopIteration reading continuation candidate list; historical continuation uses singular output_id, explicitly mapped all7original edges then materialized",
+      "semantic_effect": "none; originals unchanged"
+    },
+    {
+      "step": "local evidence validator",
+      "observed": "KeyError empty pointer at JSON root; added RFC6901 root handling;35095spans validated",
+      "semantic_effect": "none; originals unchanged"
+    },
+    {
+      "step": "first scripts/check.ps1",
+      "observed": "1 failed,134passed: handoff next-card field contained semicolon; corrected public handoff fields/history pointer; logs retained",
+      "log": {
+        "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04b1/check-script.log",
+        "bytes": 1445,
+        "sha256": "33b2ccea459ab3b9ddb1ee8b9b9356089722929873edb20d206787a597a829a9"
+      },
+      "result": {
+        "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04b1/check-script-result.json",
+        "bytes": 306,
+        "sha256": "20f76e90d429e956fbc744162c25d317954d178737a7a81242e733c52e00ae6c"
+      }
+    },
+    {
+      "step": "final scripts/check.ps1",
+      "observed": "135 passed, diff_exit0",
+      "log": {
+        "path": "private/poc/spqr-chapter9/measurement/M-POC5A-semantic-04b1/check-script-final.log",
+        "bytes": 843,
+        "sha256": "99a9a601d002e97839ccebfa3277d04c7e9e2f7cfa4a50b42379949663bea228"
+      },
+      "result": {
+        "path": "private/poc/_checks/active-7e03847297f746deaf09e77d1587a494/result.json",
+        "bytes": 161,
+        "sha256": "cb4a670173d0d22c3e77ab5a94c96a77f3e81412be4da4f8d9fe21e5f65fab2d"
+      }
+    }
+  ],
+  "test_or_response_mutations": false
+}

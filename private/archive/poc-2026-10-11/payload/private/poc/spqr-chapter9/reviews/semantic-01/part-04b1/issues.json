@@ -1,0 +1,168 @@
+{
+  "issues": [
+    {
+      "id": "SEM-014",
+      "classes": [
+        "błędna interpretacja",
+        "brak kontekstu"
+      ],
+      "scope": [
+        "D9621013",
+        "DCTX846S4-1013",
+        "D962shock"
+      ],
+      "proposal": "D9621013 ma poprawne jawne użycie10.13, lecz false/emptygap nie wyraża zagnieżdżonej blokady within-stack6.68#6. NodeN1013 i G-D1013stack zachowują blokadę osobno; nowa Step4→10.13 ma true. Proponuję rozdzielić poprawny endpoint od oceny wystarczalności impact. Ogólne false bo cel dostępny nie ocenia kontrfaktycznego braku koniecznego celu.",
+      "impact": "Full Roman stack allocation cannot be certified from target_status. R962→Step4→10.13→missing6.68#6 is3edges, third source not acquired; expansion stopped at2.",
+      "uncertainty": "Owner must decide adequacy of distributed block declarations; no actual wrong allocation asserted.",
+      "status": "waiting_review",
+      "reviewer": "Codex — ręczna ocena w tej sesji; propozycje dla właściciela",
+      "human_reviewer": null,
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "source": {
+        "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+        "bytes": 3965827,
+        "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+      },
+      "comparison_packet": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "new_owner_decision": null
+    },
+    {
+      "id": "SEM-015",
+      "classes": [
+        "błędna interpretacja"
+      ],
+      "scope": [
+        "DEP-037",
+        "D961stack"
+      ],
+      "proposal": "D961stack z R961 do StackingCharts ma table_use/explicit i blocking=true. Źródłowe See...for a summary jest zamrożoną wzmianką, nie poleceniem wykonania lookupu. R961action/transcription zachowują wystąpienie. Proponuję różnicę kind wobec DEP-037, z poprawnym referring direction i nazwą kandydata; potrzeba chart dla innych szczegółowych stacking pytań nie zmienia roli tego wystąpienia. Nie pełne TP; brak table nie jest automatycznym FP. To dodatkowy zakres frozenmention, bez wykonania reszty .4b3.",
+      "impact": "Table_use is not full tuple match for the frozen mention; no final precision/recall award.",
+      "uncertainty": "Actual chart source and broader execution remain unknown; limited extra frozenmention comparison only.",
+      "status": "waiting_review",
+      "reviewer": "Codex — ręczna ocena w tej sesji; propozycje dla właściciela",
+      "human_reviewer": null,
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "source": {
+        "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+        "bytes": 3965827,
+        "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+      },
+      "comparison_packet": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "new_owner_decision": null
+    },
+    {
+      "id": "SEM-016",
+      "classes": [
+        "błędna interpretacja",
+        "niejednoznaczność"
+      ],
+      "scope": [
+        "D9161011",
+        "D967966",
+        "D968column"
+      ],
+      "proposal": "Tożsamości i kierunki poparte. Właściciel rozstrzyga definition/procedure_use dla TQcheck, implicit/explicit dla nazwanego MLE-use oraz mention/condition dla inColumn exclusion. Format nie precyzuje granicy tych facetów; nie uznać etykiet przez same target_status lub nazwy.",
+      "impact": "Kind/explicitness affects tuple scoring; source-local operations may remain supported independently.",
+      "uncertainty": "Bounded classification candidates, not confirmed wrong reads or certainFP.",
+      "status": "waiting_review",
+      "reviewer": "Codex — ręczna ocena w tej sesji; propozycje dla właściciela",
+      "human_reviewer": null,
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "source": {
+        "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+        "bytes": 3965827,
+        "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+      },
+      "comparison_packet": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "new_owner_decision": null
+    }
+  ],
+  "inherited_pending": [
+    "SEM-001",
+    "SEM-002",
+    "SEM-003",
+    "SEM-004",
+    "SEM-005",
+    "SEM-006",
+    "SEM-007",
+    "SEM-008",
+    "SEM-009",
+    "SEM-010",
+    "SEM-011",
+    "SEM-012",
+    "SEM-013"
+  ],
+  "SEM_004_additional_evidence": "DCTX923-S4 comparison in packet; remains pending with bounded side/factor/cap support.",
+  "structural_missing_pairs": [
+    "DEP-NEW-001",
+    "DEP-NEW-002",
+    "DEP-NEW-003",
+    "DEP-034",
+    "DEP-035",
+    "DEP-043",
+    "DEP-067-1"
+  ],
+  "confirmed_semantic_error_counts": "not_assessable",
+  "wrong_read": "not_assessable",
+  "policy": "No automatic conversion structural missing→semanticFN; retained prose assessed separately. No previous issue closed."
+}

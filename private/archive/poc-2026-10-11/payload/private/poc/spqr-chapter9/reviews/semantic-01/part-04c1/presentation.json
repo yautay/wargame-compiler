@@ -1,0 +1,115 @@
+{
+  "card": "M-POC5A.4c1",
+  "summary": {
+    "distinct_ids": 22,
+    "assigned_occurrences": 44,
+    "per_answer": {
+      "first-001": 22,
+      "context-01": 22
+    },
+    "evaluator_compared_occurrences": 44,
+    "owner_available_occurrences": 44,
+    "new_owner_reviewed_occurrences": 0,
+    "owner_pending_occurrences": 44,
+    "geometry_valid_occurrences": 44,
+    "short_quotes_supported_in_full_supplied_source": 44,
+    "strict_quote_glyph_envelope_passes": 0,
+    "strict_quote_glyph_envelope_failures": 44,
+    "readable_raster_no_observed_quote_ink_loss": 38,
+    "readable_raster_with_descenders_clipped": 4,
+    "missing_final_quote_line": 2,
+    "remaining_uncompared_locator_occurrences": 80,
+    "all_locator_scope_occurrences": 124,
+    "owner_actual_file_open_or_read": "unknown",
+    "previous_owner_relation_scopes": 257,
+    "pending_expectation_ids": [
+      "EXP-010",
+      "EXP-017",
+      "EXP-019",
+      "EXP-040",
+      "EXP-050",
+      "EXP-052",
+      "EXP-066",
+      "EXP-074"
+    ],
+    "semantic_error_counts": "not_assessable",
+    "TP_FP_FN_precision_recall": "not_assessable"
+  },
+  "decisions": [
+    {
+      "number": 1,
+      "ids": [
+        "E911a",
+        "E912",
+        "E913",
+        "E914start",
+        "E914priority",
+        "E914diagram",
+        "E914move",
+        "E914end",
+        "E914cont",
+        "E915",
+        "E916",
+        "E918",
+        "E919",
+        "E921",
+        "E922",
+        "E923",
+        "E923ex",
+        "E92",
+        "E871",
+        "E873",
+        "E874",
+        "E875"
+      ],
+      "occurrences": 44,
+      "proposal": "Accept source quote location and valid geometry separately from full quote containment. All44 fail strict whole-glyph-envelope criterion."
+    },
+    {
+      "number": 2,
+      "ids": [
+        "E911a",
+        "E912",
+        "E913",
+        "E914start",
+        "E914priority",
+        "E914diagram",
+        "E914move",
+        "E914end",
+        "E915",
+        "E918",
+        "E919",
+        "E921",
+        "E922",
+        "E923",
+        "E923ex",
+        "E92",
+        "E871",
+        "E874",
+        "E875"
+      ],
+      "occurrences": 38,
+      "proposal": "Accept only readable short raster quote without observed ink loss, retaining strict envelope limitation; no whole crop/record acceptance."
+    },
+    {
+      "number": 3,
+      "ids": [
+        "E914cont",
+        "E873",
+        "E916"
+      ],
+      "occurrences": 6,
+      "proposal": "Accept observed incomplete raster evidence:4 descender clipping and2 missing final exception line. Correct source quote does not cure locator; no automatic wrong-read/full semantic error."
+    }
+  ],
+  "excludes": [
+    "Whole evidence/node/rule records and broader crop contents",
+    "Full operative clause from partial excerpt",
+    "Counter/diagram numeric ratings, compass/map/setup values",
+    "Absent procedures/tables and semantic resolutions of older pending",
+    "No automatic strict-envelope pass, semantic TP/FP/FN, gold or full graph certification"
+  ],
+  "actual_owner_file_open_or_read": "unknown",
+  "proposal_only": true,
+  "next_after_owner_decision": "Separate .4c2,21IDs/42occurrences after estimate; .4c3 and old pending preserved."
+}

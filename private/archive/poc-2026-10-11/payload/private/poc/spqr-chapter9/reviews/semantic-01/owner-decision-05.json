@@ -1,0 +1,3714 @@
+{
+  "id": "M-POC5A-owner-decision-05",
+  "card": "M-POC5A",
+  "part": "M-POC5A.4b1",
+  "date": "2026-10-11",
+  "timezone": "Europe/Warsaw",
+  "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+  "reviewer": "owner in this chat; personal identity unknown",
+  "owner_reply_verbatim": "zgodnie z rekomendacją",
+  "decision": "accepted_recommendations_1_to_6_in_exact_presented_scopes",
+  "approval_evidence": {
+    "path": "private/poc/spqr-chapter9/measurement/M-POC5A-owner-review-005/approval-evidence.json",
+    "bytes": 5545,
+    "sha256": "7ec93be69f37283f24e99b04f5ded65dcbc491c72b7fc3aaa4c8c9534b498803"
+  },
+  "prior_decision": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/owner-decision-04.json",
+    "bytes": 1909776,
+    "sha256": "03a492db91d94cfbe9d42e836ab69ba4a512ee98e8064ba97aad1404f8f0ca16"
+  },
+  "prior_state": {
+    "path": "private/poc/spqr-chapter9/reviews/semantic-01/current-state-10.json",
+    "bytes": 7572,
+    "sha256": "3e26f15d9b4f8ecc4483ccefa43dd03a3ad381c11dc64b7a7e5f3a11ed092716"
+  },
+  "evaluation": {
+    "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+    "bytes": 4116,
+    "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+  },
+  "responses": {
+    "first-001": {
+      "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+      "bytes": 617941,
+      "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+    },
+    "context-01": {
+      "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+      "bytes": 712014,
+      "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+    }
+  },
+  "source": {
+    "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+    "bytes": 3965827,
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "judgments": [
+    {
+      "number": 1,
+      "issue": "SEM-014",
+      "edge": "D9621013",
+      "accepted": [
+        "source/target identity",
+        "direction",
+        "explicit procedure use"
+      ],
+      "decision": "Przyjąć poprawność odesłania do 10.13; deklarację blokady na tej relacji uznać za niewystarczającą.",
+      "rejected_original_facets": {
+        "impact_if_missing": "false and empty gap list fail to convey the nested missing within-stack allocation rule"
+      },
+      "expected_kind": "procedure_use",
+      "expected_explicitness": "explicit",
+      "limits": "Block exists elsewhere in answer. Missing 6.68 #6 still blocks full within-stack allocation. No actually wrong allocation asserted. Other edges generic false remain outside this decision.",
+      "status": "reviewed_in_decided_scope",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+      "whole_record_accepted": false,
+      "full_dependent_result_accepted": false,
+      "comparison_artifact": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "comparison_pointer": "/relationships/29",
+      "extra_frozen_scope": false,
+      "runs": {
+        "first-001": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+            "bytes": 617941,
+            "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+          },
+          "trace": {
+            "id": "D9621013",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+              "bytes": 617941,
+              "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+            },
+            "pointer": "/dependencies/22",
+            "raw_span": {
+              "start_byte": 433906,
+              "end_byte_exclusive": 434668,
+              "sha256": "121a149de55cb0de8218605312898793a7aa5310f7886b1f2eec97d652d0ab09"
+            },
+            "original_record": {
+              "id": "D9621013",
+              "from": "R962",
+              "to": "N1013",
+              "target_candidate": null,
+              "kind": "procedure_use",
+              "explicitness": "explicit",
+              "rationale": "9.62 allocates Shock Hits per 10.13; actual target supplied as boundary evidence, with unresolved stack distribution nested reference.",
+              "evidence_ids": [
+                "E962",
+                "E1013"
+              ],
+              "target_status": "external_with_source",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R962"
+                ],
+                "blocks_full_result": false,
+                "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+              },
+              "gap_ids": [],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/22/id",
+                "raw_span": {
+                  "start_byte": 433920,
+                  "end_byte_exclusive": 433930,
+                  "sha256": "2d98b5ae7aabc66e7d10334fa1fd6d2fc729f54382d6cd2f4f283a49008db4c6"
+                },
+                "original_value": "D9621013"
+              },
+              "from": {
+                "pointer": "/dependencies/22/from",
+                "raw_span": {
+                  "start_byte": 433946,
+                  "end_byte_exclusive": 433952,
+                  "sha256": "c28ed1e6b3ff518a293b88c5f6ff51c4bf80ab3476ef6d914439bd766d837ec6"
+                },
+                "original_value": "R962"
+              },
+              "to": {
+                "pointer": "/dependencies/22/to",
+                "raw_span": {
+                  "start_byte": 433966,
+                  "end_byte_exclusive": 433973,
+                  "sha256": "53e7ab7cd5fc9d352064b8b125b58095cfd63116c1ca6721c4bc236728e45474"
+                },
+                "original_value": "N1013"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/22/target_candidate",
+                "raw_span": {
+                  "start_byte": 434001,
+                  "end_byte_exclusive": 434005,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/22/kind",
+                "raw_span": {
+                  "start_byte": 434021,
+                  "end_byte_exclusive": 434036,
+                  "sha256": "1692c4546822e63cb532d4148e4ea58e58d1a4e2eb6f52c3f4a814f24c81c8b2"
+                },
+                "original_value": "procedure_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/22/explicitness",
+                "raw_span": {
+                  "start_byte": 434060,
+                  "end_byte_exclusive": 434070,
+                  "sha256": "152be4ba7befb9d3ec2b3c822c18e1d53a8d0a0d5120bd758f31b2231ff24f68"
+                },
+                "original_value": "explicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/22/rationale",
+                "raw_span": {
+                  "start_byte": 434091,
+                  "end_byte_exclusive": 434227,
+                  "sha256": "69e8b9964fe410e5ccca6a855968bd61c52177307110be6a60ebf235a3380f14"
+                },
+                "original_value": "9.62 allocates Shock Hits per 10.13; actual target supplied as boundary evidence, with unresolved stack distribution nested reference."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/22/evidence_ids",
+                "raw_span": {
+                  "start_byte": 434251,
+                  "end_byte_exclusive": 434292,
+                  "sha256": "0e88bba76bed57b5cbb9074a87ab8f41aba38cab73a7e507e1f86a9d56139779"
+                },
+                "original_value": [
+                  "E962",
+                  "E1013"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/22/target_status",
+                "raw_span": {
+                  "start_byte": 434317,
+                  "end_byte_exclusive": 434339,
+                  "sha256": "0da2d60d132920e7cdf85be5b29b079826bf98965b412fc078f71083b63b667c"
+                },
+                "original_value": "external_with_source"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/22/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 434368,
+                  "end_byte_exclusive": 434604,
+                  "sha256": "59940b14a2f86d9217d076b520c2b8ebe0491607b892a9e3ea33ac8ac6367fbe"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R962"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/22/gap_ids",
+                "raw_span": {
+                  "start_byte": 434623,
+                  "end_byte_exclusive": 434625,
+                  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                },
+                "original_value": []
+              },
+              "review_status": {
+                "pointer": "/dependencies/22/review_status",
+                "raw_span": {
+                  "start_byte": 434650,
+                  "end_byte_exclusive": 434662,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D9621013": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/dependencies/22",
+              "raw_span": {
+                "start_byte": 433906,
+                "end_byte_exclusive": 434668,
+                "sha256": "121a149de55cb0de8218605312898793a7aa5310f7886b1f2eec97d652d0ab09"
+              }
+            },
+            "R962": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/rules/23",
+              "raw_span": {
+                "start_byte": 296916,
+                "end_byte_exclusive": 301592,
+                "sha256": "ae11cd4ac05b78d7fd21fa35572b242282d9da3c6d8f9663a0bca89e32363e44"
+              }
+            },
+            "N1013": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/nodes/54",
+              "raw_span": {
+                "start_byte": 167304,
+                "end_byte_exclusive": 168720,
+                "sha256": "bc0f996866dc72e4a9448aa6854b32db68bdc304265d669692919f115fc354e7"
+              }
+            },
+            "G-D962target": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/44",
+              "raw_span": {
+                "start_byte": 550433,
+                "end_byte_exclusive": 550856,
+                "sha256": "6c5853bf9b92c47a85bc6a27d0a0a7ba417ef70e6309a415bad5ab91c73ef189"
+              }
+            },
+            "G-D962auto": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/45",
+              "raw_span": {
+                "start_byte": 550862,
+                "end_byte_exclusive": 551279,
+                "sha256": "3ca2ac50b5c2181ff8da245e64eb2b70c4fa2480d1f00cc617baec99a622bba5"
+              }
+            },
+            "G-D962shock": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/46",
+              "raw_span": {
+                "start_byte": 551285,
+                "end_byte_exclusive": 551743,
+                "sha256": "feddccd1eae798c1109af40a1131d66402bdffbae6842f125ea7599830635945"
+              }
+            },
+            "E962": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/38",
+              "raw_span": {
+                "start_byte": 52051,
+                "end_byte_exclusive": 53063,
+                "sha256": "268045964a4e8a0574cbaa600b300b2a4fadf8008b4c53db80e13b3f92dca22f"
+              }
+            },
+            "E1013": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/103",
+              "raw_span": {
+                "start_byte": 117936,
+                "end_byte_exclusive": 118949,
+                "sha256": "98d0874a05fb9f26922f9ae6afaf219f717b7b1d37befbd24f3b5df3a2ee78d4"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/29/runs/first-001",
+          "original_kind": "procedure_use",
+          "original_explicitness": "explicit",
+          "original_impact": {
+            "affected_ids": [
+              "R962"
+            ],
+            "blocks_full_result": false,
+            "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Block exists elsewhere in answer. Missing 6.68 #6 still blocks full within-stack allocation. No actually wrong allocation asserted. Other edges generic false remain outside this decision.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        },
+        "context-01": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+            "bytes": 712014,
+            "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+          },
+          "trace": {
+            "id": "D9621013",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+              "bytes": 712014,
+              "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+            },
+            "pointer": "/dependencies/22",
+            "raw_span": {
+              "start_byte": 509833,
+              "end_byte_exclusive": 510617,
+              "sha256": "14b44927a2ea4036ef24d4919d0704d52aaea07f38538e9931af69a12b1161a8"
+            },
+            "original_record": {
+              "id": "D9621013",
+              "from": "R962",
+              "to": "N1013",
+              "target_candidate": null,
+              "kind": "procedure_use",
+              "explicitness": "explicit",
+              "rationale": "9.62 allocates Shock Hits per 10.13; actual target supplied as boundary evidence, with unresolved stack distribution nested reference.",
+              "evidence_ids": [
+                "E962",
+                "E1013"
+              ],
+              "target_status": "external_with_source",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R962"
+                ],
+                "blocks_full_result": false,
+                "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+              },
+              "gap_ids": [],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/22/id",
+                "raw_span": {
+                  "start_byte": 509848,
+                  "end_byte_exclusive": 509858,
+                  "sha256": "2d98b5ae7aabc66e7d10334fa1fd6d2fc729f54382d6cd2f4f283a49008db4c6"
+                },
+                "original_value": "D9621013"
+              },
+              "from": {
+                "pointer": "/dependencies/22/from",
+                "raw_span": {
+                  "start_byte": 509875,
+                  "end_byte_exclusive": 509881,
+                  "sha256": "c28ed1e6b3ff518a293b88c5f6ff51c4bf80ab3476ef6d914439bd766d837ec6"
+                },
+                "original_value": "R962"
+              },
+              "to": {
+                "pointer": "/dependencies/22/to",
+                "raw_span": {
+                  "start_byte": 509896,
+                  "end_byte_exclusive": 509903,
+                  "sha256": "53e7ab7cd5fc9d352064b8b125b58095cfd63116c1ca6721c4bc236728e45474"
+                },
+                "original_value": "N1013"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/22/target_candidate",
+                "raw_span": {
+                  "start_byte": 509932,
+                  "end_byte_exclusive": 509936,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/22/kind",
+                "raw_span": {
+                  "start_byte": 509953,
+                  "end_byte_exclusive": 509968,
+                  "sha256": "1692c4546822e63cb532d4148e4ea58e58d1a4e2eb6f52c3f4a814f24c81c8b2"
+                },
+                "original_value": "procedure_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/22/explicitness",
+                "raw_span": {
+                  "start_byte": 509993,
+                  "end_byte_exclusive": 510003,
+                  "sha256": "152be4ba7befb9d3ec2b3c822c18e1d53a8d0a0d5120bd758f31b2231ff24f68"
+                },
+                "original_value": "explicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/22/rationale",
+                "raw_span": {
+                  "start_byte": 510025,
+                  "end_byte_exclusive": 510161,
+                  "sha256": "69e8b9964fe410e5ccca6a855968bd61c52177307110be6a60ebf235a3380f14"
+                },
+                "original_value": "9.62 allocates Shock Hits per 10.13; actual target supplied as boundary evidence, with unresolved stack distribution nested reference."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/22/evidence_ids",
+                "raw_span": {
+                  "start_byte": 510186,
+                  "end_byte_exclusive": 510230,
+                  "sha256": "4a182c8b281834bef6f3ac151e24b16d369a364df2738f035016374897f0a4e6"
+                },
+                "original_value": [
+                  "E962",
+                  "E1013"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/22/target_status",
+                "raw_span": {
+                  "start_byte": 510256,
+                  "end_byte_exclusive": 510278,
+                  "sha256": "0da2d60d132920e7cdf85be5b29b079826bf98965b412fc078f71083b63b667c"
+                },
+                "original_value": "external_with_source"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/22/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 510308,
+                  "end_byte_exclusive": 510550,
+                  "sha256": "12d124a97fdb33839bd6821219eae21b331f3f56bab09ae240f814472f6f846a"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R962"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/22/gap_ids",
+                "raw_span": {
+                  "start_byte": 510570,
+                  "end_byte_exclusive": 510572,
+                  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                },
+                "original_value": []
+              },
+              "review_status": {
+                "pointer": "/dependencies/22/review_status",
+                "raw_span": {
+                  "start_byte": 510598,
+                  "end_byte_exclusive": 510610,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D9621013": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/dependencies/22",
+              "raw_span": {
+                "start_byte": 509833,
+                "end_byte_exclusive": 510617,
+                "sha256": "14b44927a2ea4036ef24d4919d0704d52aaea07f38538e9931af69a12b1161a8"
+              }
+            },
+            "R962": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/23",
+              "raw_span": {
+                "start_byte": 367910,
+                "end_byte_exclusive": 372751,
+                "sha256": "661e95a04df56028793a45c4b225c06f3a371ebc9314efc42611fd5c3c3a451d"
+              }
+            },
+            "N1013": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/nodes/54",
+              "raw_span": {
+                "start_byte": 217070,
+                "end_byte_exclusive": 218522,
+                "sha256": "95c53a8041c3ca669bb7cce5161733f6d6b689b2e51ef1e4ee048bfe272004a0"
+              }
+            },
+            "G-D962target": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/44",
+              "raw_span": {
+                "start_byte": 635507,
+                "end_byte_exclusive": 635947,
+                "sha256": "f864cc9a5639f1ef1af4929b70f1ae397a33bf12ce0584b609670653b58467fb"
+              }
+            },
+            "G-D962auto": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/45",
+              "raw_span": {
+                "start_byte": 635954,
+                "end_byte_exclusive": 636388,
+                "sha256": "b43a0393483b18a32f519aef833621f2584294e76c2c42adf83554ea7e2be625"
+              }
+            },
+            "G-D962shock": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/46",
+              "raw_span": {
+                "start_byte": 636395,
+                "end_byte_exclusive": 637341,
+                "sha256": "509a59a82e0105d408795e67884d2c386317392861627fcc47a506f0fef47014"
+              }
+            },
+            "E962": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/38",
+              "raw_span": {
+                "start_byte": 88960,
+                "end_byte_exclusive": 90001,
+                "sha256": "6fb48c2726ad8c051d6da916dc898f9da9ea9abb2b9b60ebfbf1750eb310882b"
+              }
+            },
+            "E1013": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/103",
+              "raw_span": {
+                "start_byte": 156795,
+                "end_byte_exclusive": 157837,
+                "sha256": "3be970381ff5d9d88e44dd55912beec65fb8d222ec3883194207bad07a01492d"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/29/runs/context-01",
+          "original_kind": "procedure_use",
+          "original_explicitness": "explicit",
+          "original_impact": {
+            "affected_ids": [
+              "R962"
+            ],
+            "blocks_full_result": false,
+            "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Block exists elsewhere in answer. Missing 6.68 #6 still blocks full within-stack allocation. No actually wrong allocation asserted. Other edges generic false remain outside this decision.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        }
+      },
+      "source_scope": "9.62 last sentence: Shock Step4 Hits allocated per10.13",
+      "target_scope": "10.13 equal division across units/stacks; remainder priorities; two exceptions; within-stack6.68#6 absent",
+      "source_evidence": [
+        {
+          "inventory_id": "C-9.62-01",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/93",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 35,
+              "printed_page": "35",
+              "column": "left",
+              "render": "source/review-evidence/pdf-35.png",
+              "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+              "bbox_pdf_points": [
+                45.0,
+                290.1,
+                297.017,
+                372.1
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-35-left.txt",
+              "helper_lines_inclusive": [
+                19,
+                25
+              ],
+              "transcription": "9.62 Stacked Roman units combine their Size when attacking or\ndefending, but all other ratings, especially TQ, are those of the\ntop unit. Stacked Romans must Shock attack the same hex; see\n8.42. Only the top unit may fire. Each unit makes its own TQ\ncheck but uses the TQ of the top unit. Automatic Cohesion Hits\n(6.68) are applied to each unit in the stack. Cohesion Hits from\nShock resolution 8.46 Step 4 are allocated per 10.13.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        }
+      ],
+      "target_evidence": [],
+      "necessity_and_missing_impact": "Użycie konieczne do allocation. Bez6.68#6 pełny wynik stosu zablokowany; nawet dostępne10.13 nie zamyka go. Zadana liczba Hits nie dostarcza reguły within-stack."
+    },
+    {
+      "number": 2,
+      "issue": "SEM-004",
+      "edge": "DCTX923-S4",
+      "accepted": [
+        "bounded source/target",
+        "direction",
+        "implicit operation correspondence",
+        "attacker Hits half/floor/cap1 when selected defender is SK"
+      ],
+      "decision": "Przyjąć wąskie niejawne powiązanie potwierdzające operację; dodatkowy fragment nie jest niezbędny do lokalnego pół/floor/cap1.",
+      "rejected_original_facets": {},
+      "expected_kind": "procedure_use",
+      "expected_explicitness": "implicit",
+      "necessity": "supporting correspondence, not necessary for the local operator already supplied in 9.23",
+      "limits": "Requires selected defender SK. Mere SK presence in mixed defense is insufficient. Full combat, source lookup, participant selection and remaining SEM-004 stay open. procedure_use accepted only in this supporting correspondence scope, without blanket execution necessity.",
+      "status": "reviewed_in_decided_scope",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+      "whole_record_accepted": false,
+      "full_dependent_result_accepted": false,
+      "comparison_artifact": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "comparison_pointer": "/relationships/56",
+      "extra_frozen_scope": false,
+      "runs": {
+        "context-01": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+            "bytes": 712014,
+            "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+          },
+          "trace": {
+            "id": "DCTX923-S4",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+              "bytes": 712014,
+              "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+            },
+            "pointer": "/dependencies/130",
+            "raw_span": {
+              "start_byte": 611494,
+              "end_byte_exclusive": 612441,
+              "sha256": "c5d2367e4a5562b2c9ffc9cef85fb2f1b68fdc7353e08cad7074bf61aca8c3c3"
+            },
+            "original_record": {
+              "id": "DCTX923-S4",
+              "from": "R923",
+              "to": "NCTX846S4",
+              "target_candidate": null,
+              "kind": "procedure_use",
+              "explicitness": "implicit",
+              "rationale": "9.23 halved capped Skirmisher-inflicted Hits require application to attacking side; Step 4 bullet #3 identifies that side. Core restriction uses bounded application fragment; general defender/Size selection not supplied.",
+              "evidence_ids": [
+                "E923",
+                "ECTX846S4-SK"
+              ],
+              "target_status": "external_with_source",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R923"
+                ],
+                "blocks_full_result": true,
+                "reason": "Side/factor/round-down/cap supplied; ordinary selection and numeric base results block execution."
+              },
+              "gap_ids": [
+                "G-D923shock",
+                "GCTX-CRT",
+                "GCTX-applicability"
+              ],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/130/id",
+                "raw_span": {
+                  "start_byte": 611509,
+                  "end_byte_exclusive": 611521,
+                  "sha256": "f845d0f813d37a0730b3f758bd290e88948223642ab7a6e403d77b65e32732b0"
+                },
+                "original_value": "DCTX923-S4"
+              },
+              "from": {
+                "pointer": "/dependencies/130/from",
+                "raw_span": {
+                  "start_byte": 611538,
+                  "end_byte_exclusive": 611544,
+                  "sha256": "ebd3bfc7bd211cd8e748a96101dff588823a2ddfc6f7cbddbae051f6d02f0517"
+                },
+                "original_value": "R923"
+              },
+              "to": {
+                "pointer": "/dependencies/130/to",
+                "raw_span": {
+                  "start_byte": 611559,
+                  "end_byte_exclusive": 611570,
+                  "sha256": "959414e561f981e77d3caa567df3d88171fcc16476849f8021d215e38bc841ad"
+                },
+                "original_value": "NCTX846S4"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/130/target_candidate",
+                "raw_span": {
+                  "start_byte": 611599,
+                  "end_byte_exclusive": 611603,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/130/kind",
+                "raw_span": {
+                  "start_byte": 611620,
+                  "end_byte_exclusive": 611635,
+                  "sha256": "1692c4546822e63cb532d4148e4ea58e58d1a4e2eb6f52c3f4a814f24c81c8b2"
+                },
+                "original_value": "procedure_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/130/explicitness",
+                "raw_span": {
+                  "start_byte": 611660,
+                  "end_byte_exclusive": 611670,
+                  "sha256": "ed834a69acad6088fe062f44b129941a42aab7b57c15ef7f8b44a4cbeb88b029"
+                },
+                "original_value": "implicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/130/rationale",
+                "raw_span": {
+                  "start_byte": 611692,
+                  "end_byte_exclusive": 611914,
+                  "sha256": "7394a8057796d117961e6c825cab9f2481ff22042a6afb48889342ae86324dc6"
+                },
+                "original_value": "9.23 halved capped Skirmisher-inflicted Hits require application to attacking side; Step 4 bullet #3 identifies that side. Core restriction uses bounded application fragment; general defender/Size selection not supplied."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/130/evidence_ids",
+                "raw_span": {
+                  "start_byte": 611939,
+                  "end_byte_exclusive": 611990,
+                  "sha256": "32ac0721395d8c37578d9d49abf735a1851911bd65ed3610df5c43262ece84d0"
+                },
+                "original_value": [
+                  "E923",
+                  "ECTX846S4-SK"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/130/target_status",
+                "raw_span": {
+                  "start_byte": 612016,
+                  "end_byte_exclusive": 612038,
+                  "sha256": "0da2d60d132920e7cdf85be5b29b079826bf98965b412fc078f71083b63b667c"
+                },
+                "original_value": "external_with_source"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/130/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 612068,
+                  "end_byte_exclusive": 612291,
+                  "sha256": "f6c9ed7946f19dc70a0e3f610a0c832483f2db38432bd467cd5ba7e6defccda2"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R923"
+                  ],
+                  "blocks_full_result": true,
+                  "reason": "Side/factor/round-down/cap supplied; ordinary selection and numeric base results block execution."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/130/gap_ids",
+                "raw_span": {
+                  "start_byte": 612311,
+                  "end_byte_exclusive": 612396,
+                  "sha256": "8255e5829f4948b771a4ce8fffa3b07107c3841909bd4122c5650ffe62cbf466"
+                },
+                "original_value": [
+                  "G-D923shock",
+                  "GCTX-CRT",
+                  "GCTX-applicability"
+                ]
+              },
+              "review_status": {
+                "pointer": "/dependencies/130/review_status",
+                "raw_span": {
+                  "start_byte": 612422,
+                  "end_byte_exclusive": 612434,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "DCTX923-S4": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/dependencies/130",
+              "raw_span": {
+                "start_byte": 611494,
+                "end_byte_exclusive": 612441,
+                "sha256": "c5d2367e4a5562b2c9ffc9cef85fb2f1b68fdc7353e08cad7074bf61aca8c3c3"
+              }
+            },
+            "R923": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/13",
+              "raw_span": {
+                "start_byte": 311816,
+                "end_byte_exclusive": 318317,
+                "sha256": "066ba920859c29d1df823aba213262bcbd5be17764050c3c9cdeaeef6468cdf6"
+              }
+            },
+            "NCTX846S4": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/nodes/58",
+              "raw_span": {
+                "start_byte": 220891,
+                "end_byte_exclusive": 236029,
+                "sha256": "e02fb5b006c91762145edac3d61c272d1742b6e6068e344d6b91910d8ff1b005"
+              }
+            },
+            "G-D923shock": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/26",
+              "raw_span": {
+                "start_byte": 626210,
+                "end_byte_exclusive": 626981,
+                "sha256": "5b55f160a0b6027498c20ddade7492e97ad7a49cda83e66ffed7d152b175b012"
+              }
+            },
+            "GCTX-CRT": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/81",
+              "raw_span": {
+                "start_byte": 654246,
+                "end_byte_exclusive": 654895,
+                "sha256": "8e27610295c92326327400f3f16ecf988ee330a3f1ec315b6613c0daecf012f4"
+              }
+            },
+            "GCTX-applicability": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/82",
+              "raw_span": {
+                "start_byte": 654902,
+                "end_byte_exclusive": 655691,
+                "sha256": "4f1fccbc0c612ae5f0e302a72a43b91f0074917362efaaf8cd435f1b678e416a"
+              }
+            },
+            "G-D923pre": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/25",
+              "raw_span": {
+                "start_byte": 625691,
+                "end_byte_exclusive": 626203,
+                "sha256": "6dcae69677a9d947b62a301fbf8b7271468b643875d12b8a1591cb8d91ca4d7c"
+              }
+            },
+            "E923": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/22",
+              "raw_span": {
+                "start_byte": 72251,
+                "end_byte_exclusive": 73346,
+                "sha256": "11c290e2bba967856a8a11727d478685a6c1a5ec300691feca74a8456a8ad6ae"
+              }
+            },
+            "ECTX846S4-SK": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/108",
+              "raw_span": {
+                "start_byte": 163155,
+                "end_byte_exclusive": 164556,
+                "sha256": "3965f7019c01abdc82390639494bb41032f8eae71bb90f63db38fc9bfc4df5cf"
+              }
+            },
+            "ECTX846S4-header": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/105",
+              "raw_span": {
+                "start_byte": 158926,
+                "end_byte_exclusive": 160401,
+                "sha256": "ea7f0511c5508632ed3927fe3db2a05cd740c55625a2fc50884010b85d2e5ff3"
+              }
+            },
+            "ECTX846S4-AS": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/106",
+              "raw_span": {
+                "start_byte": 160408,
+                "end_byte_exclusive": 161774,
+                "sha256": "ef21b5c3d465d5821a2b71197fd757fc8a9d76878b2c422b08b7bde4ed171073"
+              }
+            },
+            "ECTX846S4-DS": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/107",
+              "raw_span": {
+                "start_byte": 161781,
+                "end_byte_exclusive": 163148,
+                "sha256": "bd390b75ab10dd28f6d3f514422c4f4eafe5c07e836a7536f99ee88f0938d213"
+              }
+            },
+            "ECTX846S4-LC": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/109",
+              "raw_span": {
+                "start_byte": 164563,
+                "end_byte_exclusive": 166142,
+                "sha256": "45d0b52b806d1632f33daa0a4cea1d420fc00dac6cc6f8be6c9c978aaa7dc29e"
+              }
+            },
+            "ECTX846S4-distribution": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/110",
+              "raw_span": {
+                "start_byte": 166149,
+                "end_byte_exclusive": 167563,
+                "sha256": "ba8caa57c19f9a1f43851fe2884f2faaa58620ab1e347ecb5ef489ddf808b31a"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/56/runs/context-01",
+          "original_kind": "procedure_use",
+          "original_explicitness": "implicit",
+          "original_impact": {
+            "affected_ids": [
+              "R923"
+            ],
+            "blocks_full_result": true,
+            "reason": "Side/factor/round-down/cap supplied; ordinary selection and numeric base results block execution."
+          },
+          "result": "correct_in_bounded_supporting_scope",
+          "scope_limits": "Requires selected defender SK. Mere SK presence in mixed defense is insufficient. Full combat, source lookup, participant selection and remaining SEM-004 stay open. procedure_use accepted only in this supporting correspondence scope, without blanket execution necessity.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        }
+      },
+      "source_scope": "9.23: SK cannot attack; Hits inflicted by SK half/floor cap1; mixed defender uses other type",
+      "target_scope": "Step4 bullet3: SK defender, halve attacker Hits floor cap1",
+      "source_evidence": [
+        {
+          "inventory_id": "C-9.23-02",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/55",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 33,
+              "printed_page": "33",
+              "column": "right",
+              "render": "source/review-evidence/pdf-33.png",
+              "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+              "bbox_pdf_points": [
+                314.995,
+                405.62,
+                457.315,
+                415.62
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-33-right.txt",
+              "helper_lines_inclusive": [
+                28,
+                28
+              ],
+              "transcription": "• Skirmishers cannot Shock attack.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        },
+        {
+          "inventory_id": "C-9.23-04",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/57",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 33,
+              "printed_page": "33",
+              "column": "right",
+              "render": "source/review-evidence/pdf-33.png",
+              "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+              "bbox_pdf_points": [
+                314.995,
+                456.5,
+                567.095,
+                490.5
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-33-right.txt",
+              "helper_lines_inclusive": [
+                32,
+                34
+              ],
+              "transcription": "• If a Skirmisher unit is defending in coordination with any other\nunit type, the other Type must be chosen as the defender. The\nSize rating of the Skirmisher is ignored.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        },
+        {
+          "inventory_id": "C-9.23-05",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/58",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 33,
+              "printed_page": "33",
+              "column": "right",
+              "render": "source/review-evidence/pdf-33.png",
+              "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+              "bbox_pdf_points": [
+                314.995,
+                493.94,
+                567.01,
+                515.94
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-33-right.txt",
+              "helper_lines_inclusive": [
+                35,
+                36
+              ],
+              "transcription": "• Any Cohesion Hits inflicted by Skirmishers in Shock Combat\nare halved (round down) with a maximum of 1 Cohesion Hit.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        }
+      ],
+      "target_evidence": [],
+      "necessity_and_missing_impact": "Źródło wspiera stronę otrzymującą Hits: zadawane przez broniącegoSK trafiają do attacker. Przy zadanych Hits operator9.23 sam wystarcza; pełne selection/CRT nadal absent."
+    },
+    {
+      "number": 3,
+      "issue": "SEM-015",
+      "edge": "D961stack",
+      "accepted": [
+        "referring direction",
+        "named Stacking Charts occurrence",
+        "explicitness"
+      ],
+      "decision": "Wystąpienie see for a summary to wzmianka; table_use modelu ma błędny rodzaj w tym zakresie.",
+      "rejected_original_facets": {
+        "kind": "table_use"
+      },
+      "expected_kind": "mention",
+      "expected_explicitness": "explicit",
+      "limits": "Only frozen DEP-037 mention occurrence. No chart content, alias resolution, full stacking, impact-field acceptance, whole record, full .4b3 review or TP/FP count.",
+      "status": "reviewed_in_decided_scope",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+      "whole_record_accepted": false,
+      "full_dependent_result_accepted": false,
+      "comparison_artifact": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "comparison_pointer": "/frozen_tuple_comparisons/10",
+      "extra_frozen_scope": true,
+      "runs": {
+        "first-001": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+            "bytes": 617941,
+            "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+          },
+          "trace": {
+            "id": "D961stack",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+              "bytes": 617941,
+              "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+            },
+            "pointer": "/dependencies/82",
+            "raw_span": {
+              "start_byte": 487500,
+              "end_byte_exclusive": 488469,
+              "sha256": "6a302f1a60d0ed6085bd1caff398a75a6fa04cc2533632d1ecd4c684c8aaff8b"
+            },
+            "original_record": {
+              "id": "D961stack",
+              "from": "R961",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Stacking Charts",
+                "description": "Roman stacking summary and exceptions",
+                "needed_context": "Actual Stacking Charts including Roman/Velites exceptions"
+              },
+              "kind": "table_use",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Stacking Charts; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result.",
+              "evidence_ids": [
+                "E961"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R961"
+                ],
+                "blocks_full_result": true,
+                "reason": "Roman stacking summary and exceptions is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D961stack"
+              ],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/82/id",
+                "raw_span": {
+                  "start_byte": 487514,
+                  "end_byte_exclusive": 487525,
+                  "sha256": "e72ba160f2d940d590b0e88f6a71e1865c3aaa5c8b43b4e27acb57ddb4f00c4d"
+                },
+                "original_value": "D961stack"
+              },
+              "from": {
+                "pointer": "/dependencies/82/from",
+                "raw_span": {
+                  "start_byte": 487541,
+                  "end_byte_exclusive": 487547,
+                  "sha256": "92a595a9431f72538440117d324aacb189cd70c2fa395b80cd528bf59b35c0c2"
+                },
+                "original_value": "R961"
+              },
+              "to": {
+                "pointer": "/dependencies/82/to",
+                "raw_span": {
+                  "start_byte": 487561,
+                  "end_byte_exclusive": 487565,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/82/target_candidate",
+                "raw_span": {
+                  "start_byte": 487593,
+                  "end_byte_exclusive": 487801,
+                  "sha256": "f4c9b3df8ecb696784e9ba5d34ff9c167a009b59fe98ff8ba0021d81a72f7aaa"
+                },
+                "original_value": {
+                  "original_reference": "Stacking Charts",
+                  "description": "Roman stacking summary and exceptions",
+                  "needed_context": "Actual Stacking Charts including Roman/Velites exceptions"
+                }
+              },
+              "kind": {
+                "pointer": "/dependencies/82/kind",
+                "raw_span": {
+                  "start_byte": 487817,
+                  "end_byte_exclusive": 487828,
+                  "sha256": "b1303d16d7d368b2feee4638bb3df98e30e17fa88b3e101c33ace921a0e54e46"
+                },
+                "original_value": "table_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/82/explicitness",
+                "raw_span": {
+                  "start_byte": 487852,
+                  "end_byte_exclusive": 487862,
+                  "sha256": "152be4ba7befb9d3ec2b3c822c18e1d53a8d0a0d5120bd758f31b2231ff24f68"
+                },
+                "original_value": "explicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/82/rationale",
+                "raw_span": {
+                  "start_byte": 487883,
+                  "end_byte_exclusive": 488048,
+                  "sha256": "a160f727906910b342a43610d9305af065cfa31740f234993981812adb2c9772"
+                },
+                "original_value": "Source refers to Stacking Charts; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/82/evidence_ids",
+                "raw_span": {
+                  "start_byte": 488072,
+                  "end_byte_exclusive": 488096,
+                  "sha256": "a7ed80cd3e4ee2373754e9b87fe6fe1fc5114b0bd3b7c32b97cad26e40c97e00"
+                },
+                "original_value": [
+                  "E961"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/82/target_status",
+                "raw_span": {
+                  "start_byte": 488121,
+                  "end_byte_exclusive": 488133,
+                  "sha256": "e3db67692bcffe55218a65c50e3686a0f7a7940960adfc734ffd88bf8b695e9a"
+                },
+                "original_value": "unresolved"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/82/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 488162,
+                  "end_byte_exclusive": 488376,
+                  "sha256": "576ba5b62c0402c62f7701f1b37d4eb8d0a3297aaae3c5d612cf55ac2460ab1e"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R961"
+                  ],
+                  "blocks_full_result": true,
+                  "reason": "Roman stacking summary and exceptions is not fully supplied; no missing content reconstructed."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/82/gap_ids",
+                "raw_span": {
+                  "start_byte": 488395,
+                  "end_byte_exclusive": 488426,
+                  "sha256": "47a1bd4029795db1e1e02fa50d4b5cb672e53575111384cf97cfffdf9b671684"
+                },
+                "original_value": [
+                  "G-D961stack"
+                ]
+              },
+              "review_status": {
+                "pointer": "/dependencies/82/review_status",
+                "raw_span": {
+                  "start_byte": 488451,
+                  "end_byte_exclusive": 488463,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D961stack": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/dependencies/82",
+              "raw_span": {
+                "start_byte": 487500,
+                "end_byte_exclusive": 488469,
+                "sha256": "6a302f1a60d0ed6085bd1caff398a75a6fa04cc2533632d1ecd4c684c8aaff8b"
+              }
+            },
+            "R961": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/rules/22",
+              "raw_span": {
+                "start_byte": 290602,
+                "end_byte_exclusive": 296910,
+                "sha256": "6b8470e5e55b69e23271008267a8bbe41527657e5a35dcdbfead196e82bce062"
+              }
+            }
+          },
+          "comparison_pointer": "/frozen_tuple_comparisons/10/runs/first-001",
+          "original_kind": "table_use",
+          "original_explicitness": "explicit",
+          "original_impact": {
+            "affected_ids": [
+              "R961"
+            ],
+            "blocks_full_result": true,
+            "reason": "Roman stacking summary and exceptions is not fully supplied; no missing content reconstructed."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Only frozen DEP-037 mention occurrence. No chart content, alias resolution, full stacking, impact-field acceptance, whole record, full .4b3 review or TP/FP count.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        },
+        "context-01": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+            "bytes": 712014,
+            "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+          },
+          "trace": {
+            "id": "D961stack",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+              "bytes": 712014,
+              "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+            },
+            "pointer": "/dependencies/82",
+            "raw_span": {
+              "start_byte": 565169,
+              "end_byte_exclusive": 566165,
+              "sha256": "5a64c6a711196f8edc448674e353defd2d3b14e7940528e15e8d0cc130f421b9"
+            },
+            "original_record": {
+              "id": "D961stack",
+              "from": "R961",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Stacking Charts",
+                "description": "Roman stacking summary and exceptions",
+                "needed_context": "Actual Stacking Charts including Roman/Velites exceptions"
+              },
+              "kind": "table_use",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Stacking Charts; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result.",
+              "evidence_ids": [
+                "E961"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R961"
+                ],
+                "blocks_full_result": true,
+                "reason": "Roman stacking summary and exceptions is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D961stack"
+              ],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/82/id",
+                "raw_span": {
+                  "start_byte": 565184,
+                  "end_byte_exclusive": 565195,
+                  "sha256": "e72ba160f2d940d590b0e88f6a71e1865c3aaa5c8b43b4e27acb57ddb4f00c4d"
+                },
+                "original_value": "D961stack"
+              },
+              "from": {
+                "pointer": "/dependencies/82/from",
+                "raw_span": {
+                  "start_byte": 565212,
+                  "end_byte_exclusive": 565218,
+                  "sha256": "92a595a9431f72538440117d324aacb189cd70c2fa395b80cd528bf59b35c0c2"
+                },
+                "original_value": "R961"
+              },
+              "to": {
+                "pointer": "/dependencies/82/to",
+                "raw_span": {
+                  "start_byte": 565233,
+                  "end_byte_exclusive": 565237,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/82/target_candidate",
+                "raw_span": {
+                  "start_byte": 565266,
+                  "end_byte_exclusive": 565478,
+                  "sha256": "022c6fee31a56f582918c28029eb54a9a4310313fc01bf5bb00deffe4fa95329"
+                },
+                "original_value": {
+                  "original_reference": "Stacking Charts",
+                  "description": "Roman stacking summary and exceptions",
+                  "needed_context": "Actual Stacking Charts including Roman/Velites exceptions"
+                }
+              },
+              "kind": {
+                "pointer": "/dependencies/82/kind",
+                "raw_span": {
+                  "start_byte": 565495,
+                  "end_byte_exclusive": 565506,
+                  "sha256": "b1303d16d7d368b2feee4638bb3df98e30e17fa88b3e101c33ace921a0e54e46"
+                },
+                "original_value": "table_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/82/explicitness",
+                "raw_span": {
+                  "start_byte": 565531,
+                  "end_byte_exclusive": 565541,
+                  "sha256": "152be4ba7befb9d3ec2b3c822c18e1d53a8d0a0d5120bd758f31b2231ff24f68"
+                },
+                "original_value": "explicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/82/rationale",
+                "raw_span": {
+                  "start_byte": 565563,
+                  "end_byte_exclusive": 565728,
+                  "sha256": "a160f727906910b342a43610d9305af065cfa31740f234993981812adb2c9772"
+                },
+                "original_value": "Source refers to Stacking Charts; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/82/evidence_ids",
+                "raw_span": {
+                  "start_byte": 565753,
+                  "end_byte_exclusive": 565779,
+                  "sha256": "1974825c35dd5c425e417afdef6c96d4c631afdb75f3cb549485f995e9b6681f"
+                },
+                "original_value": [
+                  "E961"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/82/target_status",
+                "raw_span": {
+                  "start_byte": 565805,
+                  "end_byte_exclusive": 565817,
+                  "sha256": "e3db67692bcffe55218a65c50e3686a0f7a7940960adfc734ffd88bf8b695e9a"
+                },
+                "original_value": "unresolved"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/82/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 565847,
+                  "end_byte_exclusive": 566067,
+                  "sha256": "7b46a34ba2fb94548ef0a6d3b3500d40fd7af6f95a3098015a97c90228476536"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R961"
+                  ],
+                  "blocks_full_result": true,
+                  "reason": "Roman stacking summary and exceptions is not fully supplied; no missing content reconstructed."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/82/gap_ids",
+                "raw_span": {
+                  "start_byte": 566087,
+                  "end_byte_exclusive": 566120,
+                  "sha256": "22f40a8ff0cabf9baa89dba38f01e118fe589ae51e3b591957aeddd40e33f066"
+                },
+                "original_value": [
+                  "G-D961stack"
+                ]
+              },
+              "review_status": {
+                "pointer": "/dependencies/82/review_status",
+                "raw_span": {
+                  "start_byte": 566146,
+                  "end_byte_exclusive": 566158,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D961stack": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/dependencies/82",
+              "raw_span": {
+                "start_byte": 565169,
+                "end_byte_exclusive": 566165,
+                "sha256": "5a64c6a711196f8edc448674e353defd2d3b14e7940528e15e8d0cc130f421b9"
+              }
+            },
+            "R961": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/22",
+              "raw_span": {
+                "start_byte": 361372,
+                "end_byte_exclusive": 367903,
+                "sha256": "bcb032de73b22e12958d3e579d0d9c7a13da82705652c8059b17135e5ec59a74"
+              }
+            }
+          },
+          "comparison_pointer": "/frozen_tuple_comparisons/10/runs/context-01",
+          "original_kind": "table_use",
+          "original_explicitness": "explicit",
+          "original_impact": {
+            "affected_ids": [
+              "R961"
+            ],
+            "blocks_full_result": true,
+            "reason": "Roman stacking summary and exceptions is not fully supplied; no missing content reconstructed."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Only frozen DEP-037 mention occurrence. No chart content, alias resolution, full stacking, impact-field acceptance, whole record, full .4b3 review or TP/FP count.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        }
+      },
+      "frozen_record": {
+        "id": "DEP-037",
+        "from": "C-9.61-01",
+        "to": null,
+        "target_candidate": {
+          "name": "Stacking Charts",
+          "identifier": "unknown",
+          "alias_resolution": "provisional",
+          "facet": "Stacking Charts"
+        },
+        "kind": "mention",
+        "explicitness": "explicit",
+        "evidence": [
+          {
+            "source_id": "SPQR-5E-ch9-source-v1",
+            "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+            "pdf_page": 35,
+            "printed_page": "35",
+            "column": "left",
+            "render": "source/review-evidence/pdf-35.png",
+            "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+            "bbox_pdf_points": [
+              45.0,
+              176.7,
+              297.03,
+              282.7
+            ],
+            "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+            "helper_file": "source/review-evidence/pdf-35-left.txt",
+            "helper_lines_inclusive": [
+              10,
+              18
+            ],
+            "transcription": "9.61 See the Stacking Charts for a summary of the legionary\nstacking advantages. For Romans, the rule of thumb is that two\nRoman infantry units of the same border color can stack without\npenalty. There are exceptions, such as Velites. A Roman stack\nmay move together when necessary or desired. It takes two In-\ndividual Orders to move two stacked units (only one, if stacked\nwith the OC, and he is giving the orders), but only one LC, if they\nare both eligible. Roman infantry units are also allowed spaces\nbetween them when determining lines; see 4.32.",
+            "reading_status": "visually_checked_by_codex",
+            "inventory_ref": "C-9.61-01",
+            "parent_inventory_ref": "R-9.61",
+            "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+            "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+          }
+        ],
+        "parent_record": {
+          "path": "private/poc/spqr-chapter9/evaluation/draft/dependencies.json",
+          "sha256": "1ce60f73b03178f0d205379848da8de2b197103fd1bc6a94ecf963113e1a1195",
+          "bytes": 454946,
+          "id": "DEP-037"
+        },
+        "review_status": "owner_confirmed_mention_occurrence",
+        "executable": false,
+        "criticality": "noncritical_at_this_occurrence",
+        "alias_and_external_target_identity_confirmed": false,
+        "owner_decision": {
+          "path": "private/poc/spqr-chapter9/evaluation/owner-review-002/decision-05-RQ-04.json",
+          "sha256": "e3e5cf7b77396341191ec4b85092d19e7ed5a468e74f78c87dc8960674c33f3e",
+          "bytes": 5193
+        }
+      },
+      "evaluation_pointer": "/mentions/2"
+    },
+    {
+      "number": 4,
+      "issue": "SEM-016",
+      "edge": "D9161011",
+      "accepted": [
+        "target identity",
+        "source/target scope",
+        "direction"
+      ],
+      "decision": "Cel i kierunek poprawne; potrzebne jest użycie procedury testu TQ, nie tylko definicja.",
+      "rejected_original_facets": {
+        "kind": "definition"
+      },
+      "expected_kind": "procedure_use",
+      "expected_explicitness": null,
+      "limits": "Local relation only; EXP-017 DR<=TQ branch and E916 locator remain open. No response correction.",
+      "status": "reviewed_in_decided_scope",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+      "whole_record_accepted": false,
+      "full_dependent_result_accepted": false,
+      "comparison_artifact": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "comparison_pointer": "/relationships/8",
+      "extra_frozen_scope": false,
+      "runs": {
+        "first-001": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+            "bytes": 617941,
+            "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+          },
+          "trace": {
+            "id": "D9161011",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+              "bytes": 617941,
+              "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+            },
+            "pointer": "/dependencies/26",
+            "raw_span": {
+              "start_byte": 437395,
+              "end_byte_exclusive": 438165,
+              "sha256": "040798ce6af1cfca803ee6c5b668aee59f6f24def6d77f90583a0300056fea59"
+            },
+            "original_record": {
+              "id": "D9161011",
+              "from": "R916",
+              "to": "N1011",
+              "target_candidate": null,
+              "kind": "definition",
+              "explicitness": "implicit",
+              "rationale": "9.16 requires immediate TQ check; supplied 10.11 defines TQ check and routed-unit TQ exception. This necessity is procedural, not merely wording.",
+              "evidence_ids": [
+                "E916",
+                "E1011"
+              ],
+              "target_status": "external_with_source",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R916"
+                ],
+                "blocks_full_result": false,
+                "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+              },
+              "gap_ids": [],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/26/id",
+                "raw_span": {
+                  "start_byte": 437409,
+                  "end_byte_exclusive": 437419,
+                  "sha256": "3cc547ffadf94f33630238b4b4034d5a8c7e5bbfa9332dc97547d167db66e8ce"
+                },
+                "original_value": "D9161011"
+              },
+              "from": {
+                "pointer": "/dependencies/26/from",
+                "raw_span": {
+                  "start_byte": 437435,
+                  "end_byte_exclusive": 437441,
+                  "sha256": "7f068acf3f69be4f06d4b5f575a8085cf740834e7d9107b45241f26951959a3a"
+                },
+                "original_value": "R916"
+              },
+              "to": {
+                "pointer": "/dependencies/26/to",
+                "raw_span": {
+                  "start_byte": 437455,
+                  "end_byte_exclusive": 437462,
+                  "sha256": "30f977b8b7ca0007d4251e522b1991b601b56214bbfe10e1c50bb2fb09e81343"
+                },
+                "original_value": "N1011"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/26/target_candidate",
+                "raw_span": {
+                  "start_byte": 437490,
+                  "end_byte_exclusive": 437494,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/26/kind",
+                "raw_span": {
+                  "start_byte": 437510,
+                  "end_byte_exclusive": 437522,
+                  "sha256": "58f154c54e004d23d48f9d4928dc79432b9384cd0ad077b7d5ddd0cd309dbdf4"
+                },
+                "original_value": "definition"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/26/explicitness",
+                "raw_span": {
+                  "start_byte": 437546,
+                  "end_byte_exclusive": 437556,
+                  "sha256": "ed834a69acad6088fe062f44b129941a42aab7b57c15ef7f8b44a4cbeb88b029"
+                },
+                "original_value": "implicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/26/rationale",
+                "raw_span": {
+                  "start_byte": 437577,
+                  "end_byte_exclusive": 437724,
+                  "sha256": "de5ca20c14d290c9367f3009169765b852e93d5a757165c9abbf7278a41fe480"
+                },
+                "original_value": "9.16 requires immediate TQ check; supplied 10.11 defines TQ check and routed-unit TQ exception. This necessity is procedural, not merely wording."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/26/evidence_ids",
+                "raw_span": {
+                  "start_byte": 437748,
+                  "end_byte_exclusive": 437789,
+                  "sha256": "eea52f650352a0d47bf1c940a1e16020f43da20f3020c5912be5bada540e1f71"
+                },
+                "original_value": [
+                  "E916",
+                  "E1011"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/26/target_status",
+                "raw_span": {
+                  "start_byte": 437814,
+                  "end_byte_exclusive": 437836,
+                  "sha256": "0da2d60d132920e7cdf85be5b29b079826bf98965b412fc078f71083b63b667c"
+                },
+                "original_value": "external_with_source"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/26/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 437865,
+                  "end_byte_exclusive": 438101,
+                  "sha256": "4da1ff495efabed8259a2d0e18af334586142b20a9bc0649b28fb6492da7e5df"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R916"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/26/gap_ids",
+                "raw_span": {
+                  "start_byte": 438120,
+                  "end_byte_exclusive": 438122,
+                  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                },
+                "original_value": []
+              },
+              "review_status": {
+                "pointer": "/dependencies/26/review_status",
+                "raw_span": {
+                  "start_byte": 438147,
+                  "end_byte_exclusive": 438159,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D9161011": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/dependencies/26",
+              "raw_span": {
+                "start_byte": 437395,
+                "end_byte_exclusive": 438165,
+                "sha256": "040798ce6af1cfca803ee6c5b668aee59f6f24def6d77f90583a0300056fea59"
+              }
+            },
+            "R916": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/rules/6",
+              "raw_span": {
+                "start_byte": 214754,
+                "end_byte_exclusive": 219957,
+                "sha256": "7a3e47595d7018caed44c65c56be0fb9558e0a1a69c8c87522c6e82d1d719d49"
+              }
+            },
+            "N1011": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/nodes/53",
+              "raw_span": {
+                "start_byte": 166284,
+                "end_byte_exclusive": 167298,
+                "sha256": "3fca135e973ea56e256b8aafac791a55a3da3ebc2a309bc04ec9a5ed8fa6326e"
+              }
+            },
+            "G916": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/0",
+              "raw_span": {
+                "start_byte": 528984,
+                "end_byte_exclusive": 529510,
+                "sha256": "5ace56915486ab06bd226069e9c9402e84707a60d8700dfad4c22e4c0da8059c"
+              }
+            },
+            "G-D916OW": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/16",
+              "raw_span": {
+                "start_byte": 537063,
+                "end_byte_exclusive": 537528,
+                "sha256": "38314adf9e5cfe34e9a9876f932847e009d09bec341c7dc5af355f1227c733bf"
+              }
+            },
+            "E916": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/15",
+              "raw_span": {
+                "start_byte": 28605,
+                "end_byte_exclusive": 29597,
+                "sha256": "9e4f30da57821c33dd930a08581e936b9990433103927de53462965fd0a0baf7"
+              }
+            },
+            "E1011": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/102",
+              "raw_span": {
+                "start_byte": 116899,
+                "end_byte_exclusive": 117930,
+                "sha256": "69f70ad6dd6befbe6307975b004fa72aace8a477c4564dddb4dd6415b3e9110c"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/8/runs/first-001",
+          "original_kind": "definition",
+          "original_explicitness": "implicit",
+          "original_impact": {
+            "affected_ids": [
+              "R916"
+            ],
+            "blocks_full_result": false,
+            "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Local relation only; EXP-017 DR<=TQ branch and E916 locator remain open. No response correction.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        },
+        "context-01": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+            "bytes": 712014,
+            "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+          },
+          "trace": {
+            "id": "D9161011",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+              "bytes": 712014,
+              "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+            },
+            "pointer": "/dependencies/26",
+            "raw_span": {
+              "start_byte": 513425,
+              "end_byte_exclusive": 514217,
+              "sha256": "e5f679cbfe2243f7b16b3fd47df2ef28bb8810010a966d6a409ebe15f9508bc4"
+            },
+            "original_record": {
+              "id": "D9161011",
+              "from": "R916",
+              "to": "N1011",
+              "target_candidate": null,
+              "kind": "definition",
+              "explicitness": "implicit",
+              "rationale": "9.16 requires immediate TQ check; supplied 10.11 defines TQ check and routed-unit TQ exception. This necessity is procedural, not merely wording.",
+              "evidence_ids": [
+                "E916",
+                "E1011"
+              ],
+              "target_status": "external_with_source",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R916"
+                ],
+                "blocks_full_result": false,
+                "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+              },
+              "gap_ids": [],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/26/id",
+                "raw_span": {
+                  "start_byte": 513440,
+                  "end_byte_exclusive": 513450,
+                  "sha256": "3cc547ffadf94f33630238b4b4034d5a8c7e5bbfa9332dc97547d167db66e8ce"
+                },
+                "original_value": "D9161011"
+              },
+              "from": {
+                "pointer": "/dependencies/26/from",
+                "raw_span": {
+                  "start_byte": 513467,
+                  "end_byte_exclusive": 513473,
+                  "sha256": "7f068acf3f69be4f06d4b5f575a8085cf740834e7d9107b45241f26951959a3a"
+                },
+                "original_value": "R916"
+              },
+              "to": {
+                "pointer": "/dependencies/26/to",
+                "raw_span": {
+                  "start_byte": 513488,
+                  "end_byte_exclusive": 513495,
+                  "sha256": "30f977b8b7ca0007d4251e522b1991b601b56214bbfe10e1c50bb2fb09e81343"
+                },
+                "original_value": "N1011"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/26/target_candidate",
+                "raw_span": {
+                  "start_byte": 513524,
+                  "end_byte_exclusive": 513528,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/26/kind",
+                "raw_span": {
+                  "start_byte": 513545,
+                  "end_byte_exclusive": 513557,
+                  "sha256": "58f154c54e004d23d48f9d4928dc79432b9384cd0ad077b7d5ddd0cd309dbdf4"
+                },
+                "original_value": "definition"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/26/explicitness",
+                "raw_span": {
+                  "start_byte": 513582,
+                  "end_byte_exclusive": 513592,
+                  "sha256": "ed834a69acad6088fe062f44b129941a42aab7b57c15ef7f8b44a4cbeb88b029"
+                },
+                "original_value": "implicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/26/rationale",
+                "raw_span": {
+                  "start_byte": 513614,
+                  "end_byte_exclusive": 513761,
+                  "sha256": "de5ca20c14d290c9367f3009169765b852e93d5a757165c9abbf7278a41fe480"
+                },
+                "original_value": "9.16 requires immediate TQ check; supplied 10.11 defines TQ check and routed-unit TQ exception. This necessity is procedural, not merely wording."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/26/evidence_ids",
+                "raw_span": {
+                  "start_byte": 513786,
+                  "end_byte_exclusive": 513830,
+                  "sha256": "ef33d4d995cf6c1f37d8788f375a625f8356ee44297eea9f88fe2b9417ac0742"
+                },
+                "original_value": [
+                  "E916",
+                  "E1011"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/26/target_status",
+                "raw_span": {
+                  "start_byte": 513856,
+                  "end_byte_exclusive": 513878,
+                  "sha256": "0da2d60d132920e7cdf85be5b29b079826bf98965b412fc078f71083b63b667c"
+                },
+                "original_value": "external_with_source"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/26/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 513908,
+                  "end_byte_exclusive": 514150,
+                  "sha256": "4d8189480de29ea48460845dbd8163d46d1ee7a532e9849c7a03b35d26cf42e0"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R916"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/26/gap_ids",
+                "raw_span": {
+                  "start_byte": 514170,
+                  "end_byte_exclusive": 514172,
+                  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                },
+                "original_value": []
+              },
+              "review_status": {
+                "pointer": "/dependencies/26/review_status",
+                "raw_span": {
+                  "start_byte": 514198,
+                  "end_byte_exclusive": 514210,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D9161011": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/dependencies/26",
+              "raw_span": {
+                "start_byte": 513425,
+                "end_byte_exclusive": 514217,
+                "sha256": "e5f679cbfe2243f7b16b3fd47df2ef28bb8810010a966d6a409ebe15f9508bc4"
+              }
+            },
+            "R916": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/6",
+              "raw_span": {
+                "start_byte": 282054,
+                "end_byte_exclusive": 287456,
+                "sha256": "24d2167ad17175100c6e004dadba05315767f139f2955cd85082f5ebf04f590a"
+              }
+            },
+            "N1011": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/nodes/53",
+              "raw_span": {
+                "start_byte": 216017,
+                "end_byte_exclusive": 217063,
+                "sha256": "75d141c0edfab91d090769b90ea1add40e0eaeb1d64cd6562eb2e447cb49ef06"
+              }
+            },
+            "G916": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/0",
+              "raw_span": {
+                "start_byte": 612466,
+                "end_byte_exclusive": 613008,
+                "sha256": "1149bf75c9e07c293ae890ad880b22c217a1da8ed02d6a180000371aa8fa8a56"
+              }
+            },
+            "G-D916OW": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/16",
+              "raw_span": {
+                "start_byte": 621083,
+                "end_byte_exclusive": 621565,
+                "sha256": "dc3e80a6f63c6230655d15c587ee14f8804ddb27a62325408cb93134a4a1e109"
+              }
+            },
+            "E916": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/15",
+              "raw_span": {
+                "start_byte": 64824,
+                "end_byte_exclusive": 65845,
+                "sha256": "b9ea1eb8048dde08eb59af663518460a7ac056c3419da5e46c58df1fdf78e4f8"
+              }
+            },
+            "E1011": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/102",
+              "raw_span": {
+                "start_byte": 155728,
+                "end_byte_exclusive": 156788,
+                "sha256": "bae020833e7253613c9fe8b8a5bce6fd64898b8c76892e113fa55cc9d4eb6c30"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/8/runs/context-01",
+          "original_kind": "definition",
+          "original_explicitness": "implicit",
+          "original_impact": {
+            "affected_ids": [
+              "R916"
+            ],
+            "blocks_full_result": false,
+            "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Local relation only; EXP-017 DR<=TQ branch and E916 locator remain open. No response correction.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        }
+      },
+      "source_scope": "9.16: immediate TQ check if cavalry cannot withdraw; no Leader EL",
+      "target_scope": "10.11: TQ-check concept/procedure, routed TQ=1",
+      "source_evidence": [
+        {
+          "inventory_id": "C-9.16-01",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/42",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 33,
+              "printed_page": "33",
+              "column": "left",
+              "render": "source/review-evidence/pdf-33.png",
+              "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+              "bbox_pdf_points": [
+                45.0,
+                253.147,
+                297.021,
+                371.147
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-33-left.txt",
+              "helper_lines_inclusive": [
+                16,
+                25
+              ],
+              "transcription": "9.16 Elephants vs. Cavalry: If an Elephant unit moves adjacent\nto an enemy cavalry unit from a non-adjacent hex, the cavalry\nmust attempt Orderly Withdrawal. The cavalry unit cannot use\nany form of Reaction Fire if it can withdraw. If the cavalry unit\ncannot withdraw, it must undergo an immediate TQ check. If\nthe DR is higher than a unit’s TQ, it incurs Cohesion Hits equal\nto the difference between the DR result and its TQ, with a mini-\nmum result of 1 Cohesion Hit. If the cavalry unit is routed, it is\nautomatically eliminated, no DR necessary. This rule does not\napply to Leader Elephants.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        }
+      ],
+      "target_evidence": [],
+      "necessity_and_missing_impact": "Cel wyjaśnia TQ check; jednak 9.16 samo podaje DR>TQ i Hits, więc chart nie zastępuje lokalnego operatora. Brak 10.11 nie uzasadnia blokady DR<=TQ przy zadanych faktach."
+    },
+    {
+      "number": 5,
+      "issue": "SEM-016",
+      "edge": "D967966",
+      "accepted": [
+        "source/target scope",
+        "direction",
+        "MLE operation and preserved conditions"
+      ],
+      "decision": "Odesłanie jest jawne przez nazwę operacji MLE; numer przepisu nie jest wymagany dla jawnego nazwanego odwołania.",
+      "rejected_original_facets": {
+        "explicitness": "implicit"
+      },
+      "expected_kind": null,
+      "expected_explicitness": "explicit",
+      "classification_convention": "Named operation use may be explicit without a printed rule number. No automatic reclassification of other records.",
+      "limits": "Exact named MLE use only; no acceptance of unrelated fields or complete reaction outcome.",
+      "status": "reviewed_in_decided_scope",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+      "whole_record_accepted": false,
+      "full_dependent_result_accepted": false,
+      "comparison_artifact": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "comparison_pointer": "/relationships/32",
+      "extra_frozen_scope": false,
+      "runs": {
+        "first-001": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+            "bytes": 617941,
+            "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+          },
+          "trace": {
+            "id": "D967966",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+              "bytes": 617941,
+              "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+            },
+            "pointer": "/dependencies/7",
+            "raw_span": {
+              "start_byte": 422797,
+              "end_byte_exclusive": 423544,
+              "sha256": "08bf36ff38833cf82c7bd7eadc11261d3f61bce013b7896f4204db78a86df772"
+            },
+            "original_record": {
+              "id": "D967966",
+              "from": "R967",
+              "to": "R966",
+              "target_candidate": null,
+              "kind": "procedure_use",
+              "explicitness": "implicit",
+              "rationale": "9.67 reaction timing uses the MLE operation defined in 9.66; operation is necessary to perform the timed permission.",
+              "evidence_ids": [
+                "E967",
+                "E966a",
+                "E966b"
+              ],
+              "target_status": "internal",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R967"
+                ],
+                "blocks_full_result": false,
+                "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+              },
+              "gap_ids": [],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/7/id",
+                "raw_span": {
+                  "start_byte": 422811,
+                  "end_byte_exclusive": 422820,
+                  "sha256": "1770accb47b8ce8aeb2fe81628bf3c79344a3b879a3900ccf6bf2781c6083398"
+                },
+                "original_value": "D967966"
+              },
+              "from": {
+                "pointer": "/dependencies/7/from",
+                "raw_span": {
+                  "start_byte": 422836,
+                  "end_byte_exclusive": 422842,
+                  "sha256": "b81dd045de403d61f9623824c23fba8a123521ede6aff413c2427339d5da4939"
+                },
+                "original_value": "R967"
+              },
+              "to": {
+                "pointer": "/dependencies/7/to",
+                "raw_span": {
+                  "start_byte": 422856,
+                  "end_byte_exclusive": 422862,
+                  "sha256": "7cf1aacf9c963618d6f00ef62bb2568d3afaece4345e12788403c36e452cd894"
+                },
+                "original_value": "R966"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/7/target_candidate",
+                "raw_span": {
+                  "start_byte": 422890,
+                  "end_byte_exclusive": 422894,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/7/kind",
+                "raw_span": {
+                  "start_byte": 422910,
+                  "end_byte_exclusive": 422925,
+                  "sha256": "1692c4546822e63cb532d4148e4ea58e58d1a4e2eb6f52c3f4a814f24c81c8b2"
+                },
+                "original_value": "procedure_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/7/explicitness",
+                "raw_span": {
+                  "start_byte": 422949,
+                  "end_byte_exclusive": 422959,
+                  "sha256": "ed834a69acad6088fe062f44b129941a42aab7b57c15ef7f8b44a4cbeb88b029"
+                },
+                "original_value": "implicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/7/rationale",
+                "raw_span": {
+                  "start_byte": 422980,
+                  "end_byte_exclusive": 423098,
+                  "sha256": "f1475f992dc81b54e156e58fb2a4f2d6a8b48c76d94daf575c4024fabfb9df42"
+                },
+                "original_value": "9.67 reaction timing uses the MLE operation defined in 9.66; operation is necessary to perform the timed permission."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/7/evidence_ids",
+                "raw_span": {
+                  "start_byte": 423122,
+                  "end_byte_exclusive": 423180,
+                  "sha256": "ef432073b1731a81a17e1cdcd5915b43e2761aaa3ef7fc92829fe847402eead8"
+                },
+                "original_value": [
+                  "E967",
+                  "E966a",
+                  "E966b"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/7/target_status",
+                "raw_span": {
+                  "start_byte": 423205,
+                  "end_byte_exclusive": 423215,
+                  "sha256": "a1aaebe5d6728c1dd534652f6c066659c0890fe1d764c39bef4f4cd135534c8b"
+                },
+                "original_value": "internal"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/7/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 423244,
+                  "end_byte_exclusive": 423480,
+                  "sha256": "bc93631f097c8b9576681cda5985afca3dd7e1c732091778593b31d5de35ca2b"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R967"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/7/gap_ids",
+                "raw_span": {
+                  "start_byte": 423499,
+                  "end_byte_exclusive": 423501,
+                  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                },
+                "original_value": []
+              },
+              "review_status": {
+                "pointer": "/dependencies/7/review_status",
+                "raw_span": {
+                  "start_byte": 423526,
+                  "end_byte_exclusive": 423538,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D967966": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/dependencies/7",
+              "raw_span": {
+                "start_byte": 422797,
+                "end_byte_exclusive": 423544,
+                "sha256": "08bf36ff38833cf82c7bd7eadc11261d3f61bce013b7896f4204db78a86df772"
+              }
+            },
+            "R967": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/rules/28",
+              "raw_span": {
+                "start_byte": 317531,
+                "end_byte_exclusive": 321925,
+                "sha256": "8aba3115f33776d806a6a196be0cae710b2eea2eef13c04318a89102b3d53fcc"
+              }
+            },
+            "R966": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/rules/27",
+              "raw_span": {
+                "start_byte": 312844,
+                "end_byte_exclusive": 317525,
+                "sha256": "2e7a501a9a282ca4841068af720073ea84aba9cb1de2d3ccd280e3a2103302a6"
+              }
+            },
+            "G-D967OW": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/50",
+              "raw_span": {
+                "start_byte": 553162,
+                "end_byte_exclusive": 553666,
+                "sha256": "a30fe8bcb34ccca4301d6e65df2035d7d582ba7ed191981515fe3413cea0f42e"
+              }
+            },
+            "G-D966line": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/49",
+              "raw_span": {
+                "start_byte": 552706,
+                "end_byte_exclusive": 553156,
+                "sha256": "36994bcf700bb738722bb1a53f9df4bac4b29635010cf8868b6ac10d2afd1f3c"
+              }
+            },
+            "G-D-ZOC-R966": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/78",
+              "raw_span": {
+                "start_byte": 566586,
+                "end_byte_exclusive": 567092,
+                "sha256": "2e703e31f704ab2c48680351bf3c08ef6386df79852d79e5817953ae49ca4d19"
+              }
+            },
+            "E967": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/45",
+              "raw_span": {
+                "start_byte": 59183,
+                "end_byte_exclusive": 60189,
+                "sha256": "cefb0534002bff6afee7dff335e24500f1bcb38e47fb91e241b269e2e7449e8c"
+              }
+            },
+            "E966a": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/43",
+              "raw_span": {
+                "start_byte": 57153,
+                "end_byte_exclusive": 58161,
+                "sha256": "c077528396521942cf6e7a1fde70db5059dd77af6be51502154e40d6e606e1f9"
+              }
+            },
+            "E966b": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/44",
+              "raw_span": {
+                "start_byte": 58167,
+                "end_byte_exclusive": 59177,
+                "sha256": "a8429a5852fc56988ade1d220a2a12e5751f594ad581388cf93553305a80f219"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/32/runs/first-001",
+          "original_kind": "procedure_use",
+          "original_explicitness": "implicit",
+          "original_impact": {
+            "affected_ids": [
+              "R967"
+            ],
+            "blocks_full_result": false,
+            "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Exact named MLE use only; no acceptance of unrelated fields or complete reaction outcome.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        },
+        "context-01": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+            "bytes": 712014,
+            "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+          },
+          "trace": {
+            "id": "D967966",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+              "bytes": 712014,
+              "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+            },
+            "pointer": "/dependencies/7",
+            "raw_span": {
+              "start_byte": 498376,
+              "end_byte_exclusive": 499146,
+              "sha256": "8be3881894388d836aa88a4ef06b3b430afb8f5eedb87af271542402867dcb74"
+            },
+            "original_record": {
+              "id": "D967966",
+              "from": "R967",
+              "to": "R966",
+              "target_candidate": null,
+              "kind": "procedure_use",
+              "explicitness": "implicit",
+              "rationale": "9.67 reaction timing uses the MLE operation defined in 9.66; operation is necessary to perform the timed permission.",
+              "evidence_ids": [
+                "E967",
+                "E966a",
+                "E966b"
+              ],
+              "target_status": "internal",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R967"
+                ],
+                "blocks_full_result": false,
+                "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+              },
+              "gap_ids": [],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/7/id",
+                "raw_span": {
+                  "start_byte": 498391,
+                  "end_byte_exclusive": 498400,
+                  "sha256": "1770accb47b8ce8aeb2fe81628bf3c79344a3b879a3900ccf6bf2781c6083398"
+                },
+                "original_value": "D967966"
+              },
+              "from": {
+                "pointer": "/dependencies/7/from",
+                "raw_span": {
+                  "start_byte": 498417,
+                  "end_byte_exclusive": 498423,
+                  "sha256": "b81dd045de403d61f9623824c23fba8a123521ede6aff413c2427339d5da4939"
+                },
+                "original_value": "R967"
+              },
+              "to": {
+                "pointer": "/dependencies/7/to",
+                "raw_span": {
+                  "start_byte": 498438,
+                  "end_byte_exclusive": 498444,
+                  "sha256": "7cf1aacf9c963618d6f00ef62bb2568d3afaece4345e12788403c36e452cd894"
+                },
+                "original_value": "R966"
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/7/target_candidate",
+                "raw_span": {
+                  "start_byte": 498473,
+                  "end_byte_exclusive": 498477,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "kind": {
+                "pointer": "/dependencies/7/kind",
+                "raw_span": {
+                  "start_byte": 498494,
+                  "end_byte_exclusive": 498509,
+                  "sha256": "1692c4546822e63cb532d4148e4ea58e58d1a4e2eb6f52c3f4a814f24c81c8b2"
+                },
+                "original_value": "procedure_use"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/7/explicitness",
+                "raw_span": {
+                  "start_byte": 498534,
+                  "end_byte_exclusive": 498544,
+                  "sha256": "ed834a69acad6088fe062f44b129941a42aab7b57c15ef7f8b44a4cbeb88b029"
+                },
+                "original_value": "implicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/7/rationale",
+                "raw_span": {
+                  "start_byte": 498566,
+                  "end_byte_exclusive": 498684,
+                  "sha256": "f1475f992dc81b54e156e58fb2a4f2d6a8b48c76d94daf575c4024fabfb9df42"
+                },
+                "original_value": "9.67 reaction timing uses the MLE operation defined in 9.66; operation is necessary to perform the timed permission."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/7/evidence_ids",
+                "raw_span": {
+                  "start_byte": 498709,
+                  "end_byte_exclusive": 498771,
+                  "sha256": "87f4f2d21f1bbe38ec9f4be0e37b32c88690cf701c99a65e4bc688f224c9ffd9"
+                },
+                "original_value": [
+                  "E967",
+                  "E966a",
+                  "E966b"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/7/target_status",
+                "raw_span": {
+                  "start_byte": 498797,
+                  "end_byte_exclusive": 498807,
+                  "sha256": "a1aaebe5d6728c1dd534652f6c066659c0890fe1d764c39bef4f4cd135534c8b"
+                },
+                "original_value": "internal"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/7/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 498837,
+                  "end_byte_exclusive": 499079,
+                  "sha256": "4370b7a62d078ac8818ae1d215b0828a9155b491a44db47bd54eff67b8727e0f"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R967"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/7/gap_ids",
+                "raw_span": {
+                  "start_byte": 499099,
+                  "end_byte_exclusive": 499101,
+                  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                },
+                "original_value": []
+              },
+              "review_status": {
+                "pointer": "/dependencies/7/review_status",
+                "raw_span": {
+                  "start_byte": 499127,
+                  "end_byte_exclusive": 499139,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D967966": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/dependencies/7",
+              "raw_span": {
+                "start_byte": 498376,
+                "end_byte_exclusive": 499146,
+                "sha256": "8be3881894388d836aa88a4ef06b3b430afb8f5eedb87af271542402867dcb74"
+              }
+            },
+            "R967": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/28",
+              "raw_span": {
+                "start_byte": 389285,
+                "end_byte_exclusive": 393844,
+                "sha256": "e9376d25c08d2ed7bc27163917fcc5b9fc9ec4de5df11c2c309c7a92e2ef5755"
+              }
+            },
+            "R966": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/27",
+              "raw_span": {
+                "start_byte": 384423,
+                "end_byte_exclusive": 389278,
+                "sha256": "2c3df78a88652b14a70895ae92c0bb0cf0a15d34596c536e9f59a05f1c63c10e"
+              }
+            },
+            "G-D967OW": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/50",
+              "raw_span": {
+                "start_byte": 638815,
+                "end_byte_exclusive": 639337,
+                "sha256": "e8e1c4044f70d9da03cef0a05a13f7649299a2ce8e7dba19a2e919136bdb199e"
+              }
+            },
+            "G-D966line": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/49",
+              "raw_span": {
+                "start_byte": 638341,
+                "end_byte_exclusive": 638808,
+                "sha256": "bee2eb96ffb8d82a0c1c1bbd585e610689b5481517c23b09544b42b91532194e"
+              }
+            },
+            "G-D-ZOC-R966": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/78",
+              "raw_span": {
+                "start_byte": 652746,
+                "end_byte_exclusive": 653271,
+                "sha256": "3c69b7e30dee26cd143d249fc103a1db6a2400d3b59b045165f01857b1e8ddef"
+              }
+            },
+            "E967": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/45",
+              "raw_span": {
+                "start_byte": 96302,
+                "end_byte_exclusive": 97337,
+                "sha256": "bc4bf6eb7d25b1a714ad7ffd7f9b76a1b0cbcef8d6ef2b856a04cacadf7f5c60"
+              }
+            },
+            "E966a": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/43",
+              "raw_span": {
+                "start_byte": 94212,
+                "end_byte_exclusive": 95249,
+                "sha256": "02d20b15b56c10ee5dbc37fc256145d5dd2da21a787eab0c03d8a0888249dfe1"
+              }
+            },
+            "E966b": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/44",
+              "raw_span": {
+                "start_byte": 95256,
+                "end_byte_exclusive": 96295,
+                "sha256": "2f8a30c8f0c88019b2348c1f333fc955ca1e4710a605ccc5302383ae7c79c7c3"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/32/runs/context-01",
+          "original_kind": "procedure_use",
+          "original_explicitness": "implicit",
+          "original_impact": {
+            "affected_ids": [
+              "R967"
+            ],
+            "blocks_full_result": false,
+            "reason": "Target is supplied and mapped; direction is source user to used/modified target, except chronological continuation."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Exact named MLE use only; no acceptance of unrelated fields or complete reaction outcome.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        }
+      },
+      "source_scope": "9.67: MLE reaction when enemy combat unit within2hexes, choice at later approaches; different units for OW+MLE",
+      "target_scope": "9.66: all tops in line move sideways to vacant Clear flank outside enemyZOC, facing unchanged, unstack only",
+      "source_evidence": [
+        {
+          "inventory_id": "C-9.67-01",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/103",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 35,
+              "printed_page": "35",
+              "column": "right",
+              "render": "source/review-evidence/pdf-35.png",
+              "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+              "bbox_pdf_points": [
+                314.997,
+                131.41,
+                567.05,
+                225.41
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-35-right.txt",
+              "helper_lines_inclusive": [
+                7,
+                14
+              ],
+              "transcription": "9.67 Manipular Line Extension may be undertaken as a reaction\nto enemy movement the instant an enemy combat unit comes\nwithin 2 hexes of a line of stacked Roman units. The Roman\nplayer may make his choice at any time any enemy unit so places\nitself (that is, he does not have to exercise his MLE rights the first\ntime they become available). If enemy movement triggers both\nOrderly Withdrawal as well as MLE, both may be undertaken\ntogether but not by the same units.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        }
+      ],
+      "target_evidence": [
+        {
+          "inventory_id": "C-9.66-01",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/101",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 35,
+              "printed_page": "35",
+              "column": "left",
+              "render": "source/review-evidence/pdf-35.png",
+              "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+              "bbox_pdf_points": [
+                44.997,
+                678.9,
+                297.009,
+                736.9
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-35-left.txt",
+              "helper_lines_inclusive": [
+                38,
+                42
+              ],
+              "transcription": "9.66 Manipular Line Extension: Stacked Roman units with\nunoccupied flank hexes can extend their line as part of a Line\nCommand or in reaction to enemy movement, instead of using\nOrderly Withdrawal. To undertake Manipular Line Extension\n(MLE), all the top units in the stacks in the same Line (see 4.32)",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            },
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 35,
+              "printed_page": "35",
+              "column": "right",
+              "render": "source/review-evidence/pdf-35.png",
+              "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+              "bbox_pdf_points": [
+                314.997,
+                54.01,
+                567.03,
+                124.01
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-35-right.txt",
+              "helper_lines_inclusive": [
+                1,
+                6
+              ],
+              "transcription": "may move sideways into the vacant flank hexes (see the diagram\nabove). If a Flank hex is occupied, MLE cannot be used to place\na unit in that hex. The hex entered by MLE must be Clear and\nnot in an enemy ZOC. Facing remains the same. This rule only\napplies to unstacking the units; it does not apply to stacking\nthem together.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        }
+      ],
+      "necessity_and_missing_impact": "Operacja konieczna do wykorzystania reaction permission. Timing nie uchyla target geometry/line conditions. Brak operation uniemożliwi jej wykonanie, przy supplied state lokalna ocenialność."
+    },
+    {
+      "number": 6,
+      "issue": "SEM-016",
+      "edge": "D968column",
+      "accepted": [
+        "source/target scope",
+        "direction",
+        "local in-Column MLE prohibition"
+      ],
+      "decision": "Zakaz MLE w Column jest warunkiem dopuszczalności; mention modelu ma błędny rodzaj.",
+      "rejected_original_facets": {
+        "kind": "mention"
+      },
+      "expected_kind": "condition",
+      "expected_explicitness": null,
+      "limits": "Exact in-Column exclusion only; no reclassification of other maneuver prohibitions.",
+      "status": "reviewed_in_decided_scope",
+      "reviewer": "owner in this chat; personal identity unknown",
+      "recorded_at_utc": "2026-10-11T09:34:07.053068+00:00",
+      "whole_record_accepted": false,
+      "full_dependent_result_accepted": false,
+      "comparison_artifact": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b1/comparisons.json",
+        "bytes": 11996344,
+        "sha256": "ce5a21a541bddbd0db37e6c88ab0aa84c8a774cac27e1810b33254f3b59ecddd"
+      },
+      "comparison_pointer": "/relationships/35",
+      "extra_frozen_scope": false,
+      "runs": {
+        "first-001": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+            "bytes": 617941,
+            "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+          },
+          "trace": {
+            "id": "D968column",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+              "bytes": 617941,
+              "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+            },
+            "pointer": "/dependencies/92",
+            "raw_span": {
+              "start_byte": 496976,
+              "end_byte_exclusive": 497900,
+              "sha256": "9df97bd060d2c444d88bb601df07f217462c5ae40506ceac419c6c1d27f6bc3c"
+            },
+            "original_record": {
+              "id": "D968column",
+              "from": "R968",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Column",
+                "description": "Column status excluded from MLE",
+                "needed_context": "Column formation definition"
+              },
+              "kind": "mention",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Column; direction is referring clause to the unavailable target. This is a mention/prohibition reference, not an instruction to execute that procedure.",
+              "evidence_ids": [
+                "E968"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R968"
+                ],
+                "blocks_full_result": false,
+                "reason": "Column status excluded from MLE is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D968column"
+              ],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/92/id",
+                "raw_span": {
+                  "start_byte": 496990,
+                  "end_byte_exclusive": 497002,
+                  "sha256": "630a6ed2fb11f4aaad32a04eecc74fcb92d512955d64deda69272f10379f8e4b"
+                },
+                "original_value": "D968column"
+              },
+              "from": {
+                "pointer": "/dependencies/92/from",
+                "raw_span": {
+                  "start_byte": 497018,
+                  "end_byte_exclusive": 497024,
+                  "sha256": "d4d3cb9bf49208d68c5e2d709be39917f46d477198ffd139c2258600dbd69f3b"
+                },
+                "original_value": "R968"
+              },
+              "to": {
+                "pointer": "/dependencies/92/to",
+                "raw_span": {
+                  "start_byte": 497038,
+                  "end_byte_exclusive": 497042,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/92/target_candidate",
+                "raw_span": {
+                  "start_byte": 497070,
+                  "end_byte_exclusive": 497233,
+                  "sha256": "a1d7ad2dea657efa4d4284cacc3f5d91243e9cea4c209b630f75c940102883ab"
+                },
+                "original_value": {
+                  "original_reference": "Column",
+                  "description": "Column status excluded from MLE",
+                  "needed_context": "Column formation definition"
+                }
+              },
+              "kind": {
+                "pointer": "/dependencies/92/kind",
+                "raw_span": {
+                  "start_byte": 497249,
+                  "end_byte_exclusive": 497258,
+                  "sha256": "28a9568712d74ba9e8bc55750efefa4c9c684c1cd7af5062b15d5e4bc48170fa"
+                },
+                "original_value": "mention"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/92/explicitness",
+                "raw_span": {
+                  "start_byte": 497282,
+                  "end_byte_exclusive": 497292,
+                  "sha256": "152be4ba7befb9d3ec2b3c822c18e1d53a8d0a0d5120bd758f31b2231ff24f68"
+                },
+                "original_value": "explicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/92/rationale",
+                "raw_span": {
+                  "start_byte": 497313,
+                  "end_byte_exclusive": 497483,
+                  "sha256": "5b3016910b2a5bed4aac6de39952f428492bf317acb4d01070e4bd339ecaae05"
+                },
+                "original_value": "Source refers to Column; direction is referring clause to the unavailable target. This is a mention/prohibition reference, not an instruction to execute that procedure."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/92/evidence_ids",
+                "raw_span": {
+                  "start_byte": 497507,
+                  "end_byte_exclusive": 497531,
+                  "sha256": "9b77aaded746375ff503111c174842a1c1b4a135142502820eebed49f30897a9"
+                },
+                "original_value": [
+                  "E968"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/92/target_status",
+                "raw_span": {
+                  "start_byte": 497556,
+                  "end_byte_exclusive": 497568,
+                  "sha256": "e3db67692bcffe55218a65c50e3686a0f7a7940960adfc734ffd88bf8b695e9a"
+                },
+                "original_value": "unresolved"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/92/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 497597,
+                  "end_byte_exclusive": 497806,
+                  "sha256": "194445cace84bf4ab18d9880b3e309f91c2b4e2a76f8d36e85c9b5c2bdbdc04e"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R968"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Column status excluded from MLE is not fully supplied; no missing content reconstructed."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/92/gap_ids",
+                "raw_span": {
+                  "start_byte": 497825,
+                  "end_byte_exclusive": 497857,
+                  "sha256": "586e2369f50b151741564456560be133d53ce410ebd29f825512f1f7704d5271"
+                },
+                "original_value": [
+                  "G-D968column"
+                ]
+              },
+              "review_status": {
+                "pointer": "/dependencies/92/review_status",
+                "raw_span": {
+                  "start_byte": 497882,
+                  "end_byte_exclusive": 497894,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D968column": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/dependencies/92",
+              "raw_span": {
+                "start_byte": 496976,
+                "end_byte_exclusive": 497900,
+                "sha256": "9df97bd060d2c444d88bb601df07f217462c5ae40506ceac419c6c1d27f6bc3c"
+              }
+            },
+            "R968": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/rules/29",
+              "raw_span": {
+                "start_byte": 321931,
+                "end_byte_exclusive": 326799,
+                "sha256": "4b8130db1b3f0bfe4d6e9ea3c3c7f8bcbb8db3d078654f49c01ad8a85db297bb"
+              }
+            },
+            "G-D968column": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/52",
+              "raw_span": {
+                "start_byte": 554120,
+                "end_byte_exclusive": 554568,
+                "sha256": "31e1c0b7526c50ab952bf2e1e2de2ebbaf4e71ed1ba1c13f8416ef0c5891b728"
+              }
+            },
+            "G-D968LC": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/gaps/51",
+              "raw_span": {
+                "start_byte": 553672,
+                "end_byte_exclusive": 554114,
+                "sha256": "c3228047ab59c5caaa33db9f0e2f7e74cb5dda3e5562e22870cde321bef93495"
+              }
+            },
+            "E968": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+                "bytes": 617941,
+                "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+              },
+              "pointer": "/evidence/47",
+              "raw_span": {
+                "start_byte": 61184,
+                "end_byte_exclusive": 62179,
+                "sha256": "80402872ac147ccc1bf8d2b0ada9d5b4987049a69876b6154ed7151f9f5e06a6"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/35/runs/first-001",
+          "original_kind": "mention",
+          "original_explicitness": "explicit",
+          "original_impact": {
+            "affected_ids": [
+              "R968"
+            ],
+            "blocks_full_result": false,
+            "reason": "Column status excluded from MLE is not fully supplied; no missing content reconstructed."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Exact in-Column exclusion only; no reclassification of other maneuver prohibitions.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        },
+        "context-01": {
+          "response": {
+            "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+            "bytes": 712014,
+            "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+          },
+          "trace": {
+            "id": "D968column",
+            "response": {
+              "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+              "bytes": 712014,
+              "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+            },
+            "pointer": "/dependencies/92",
+            "raw_span": {
+              "start_byte": 574969,
+              "end_byte_exclusive": 575920,
+              "sha256": "92f5d322e1be564f302b8c06636de1b95f10e1964792a9ef678ff277ccc925ce"
+            },
+            "original_record": {
+              "id": "D968column",
+              "from": "R968",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Column",
+                "description": "Column status excluded from MLE",
+                "needed_context": "Column formation definition"
+              },
+              "kind": "mention",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Column; direction is referring clause to the unavailable target. This is a mention/prohibition reference, not an instruction to execute that procedure.",
+              "evidence_ids": [
+                "E968"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R968"
+                ],
+                "blocks_full_result": false,
+                "reason": "Column status excluded from MLE is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D968column"
+              ],
+              "review_status": "unreviewed"
+            },
+            "fields": {
+              "id": {
+                "pointer": "/dependencies/92/id",
+                "raw_span": {
+                  "start_byte": 574984,
+                  "end_byte_exclusive": 574996,
+                  "sha256": "630a6ed2fb11f4aaad32a04eecc74fcb92d512955d64deda69272f10379f8e4b"
+                },
+                "original_value": "D968column"
+              },
+              "from": {
+                "pointer": "/dependencies/92/from",
+                "raw_span": {
+                  "start_byte": 575013,
+                  "end_byte_exclusive": 575019,
+                  "sha256": "d4d3cb9bf49208d68c5e2d709be39917f46d477198ffd139c2258600dbd69f3b"
+                },
+                "original_value": "R968"
+              },
+              "to": {
+                "pointer": "/dependencies/92/to",
+                "raw_span": {
+                  "start_byte": 575034,
+                  "end_byte_exclusive": 575038,
+                  "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+                },
+                "original_value": null
+              },
+              "target_candidate": {
+                "pointer": "/dependencies/92/target_candidate",
+                "raw_span": {
+                  "start_byte": 575067,
+                  "end_byte_exclusive": 575234,
+                  "sha256": "2f199919900d920eac622a40b1ad03315cec455e4b0c312e44b9c5f6ba245ba5"
+                },
+                "original_value": {
+                  "original_reference": "Column",
+                  "description": "Column status excluded from MLE",
+                  "needed_context": "Column formation definition"
+                }
+              },
+              "kind": {
+                "pointer": "/dependencies/92/kind",
+                "raw_span": {
+                  "start_byte": 575251,
+                  "end_byte_exclusive": 575260,
+                  "sha256": "28a9568712d74ba9e8bc55750efefa4c9c684c1cd7af5062b15d5e4bc48170fa"
+                },
+                "original_value": "mention"
+              },
+              "explicitness": {
+                "pointer": "/dependencies/92/explicitness",
+                "raw_span": {
+                  "start_byte": 575285,
+                  "end_byte_exclusive": 575295,
+                  "sha256": "152be4ba7befb9d3ec2b3c822c18e1d53a8d0a0d5120bd758f31b2231ff24f68"
+                },
+                "original_value": "explicit"
+              },
+              "rationale": {
+                "pointer": "/dependencies/92/rationale",
+                "raw_span": {
+                  "start_byte": 575317,
+                  "end_byte_exclusive": 575487,
+                  "sha256": "5b3016910b2a5bed4aac6de39952f428492bf317acb4d01070e4bd339ecaae05"
+                },
+                "original_value": "Source refers to Column; direction is referring clause to the unavailable target. This is a mention/prohibition reference, not an instruction to execute that procedure."
+              },
+              "evidence_ids": {
+                "pointer": "/dependencies/92/evidence_ids",
+                "raw_span": {
+                  "start_byte": 575512,
+                  "end_byte_exclusive": 575538,
+                  "sha256": "4bd2f9acc7cad3fa37378fa013cdc556abef0c4813223eee58a7fe718a9f28b6"
+                },
+                "original_value": [
+                  "E968"
+                ]
+              },
+              "target_status": {
+                "pointer": "/dependencies/92/target_status",
+                "raw_span": {
+                  "start_byte": 575564,
+                  "end_byte_exclusive": 575576,
+                  "sha256": "e3db67692bcffe55218a65c50e3686a0f7a7940960adfc734ffd88bf8b695e9a"
+                },
+                "original_value": "unresolved"
+              },
+              "impact_if_missing": {
+                "pointer": "/dependencies/92/impact_if_missing",
+                "raw_span": {
+                  "start_byte": 575606,
+                  "end_byte_exclusive": 575821,
+                  "sha256": "5c22200a28ea44a03e4bc24f47f6bff54296b0be84fa163e0a469d84ee429051"
+                },
+                "original_value": {
+                  "affected_ids": [
+                    "R968"
+                  ],
+                  "blocks_full_result": false,
+                  "reason": "Column status excluded from MLE is not fully supplied; no missing content reconstructed."
+                }
+              },
+              "gap_ids": {
+                "pointer": "/dependencies/92/gap_ids",
+                "raw_span": {
+                  "start_byte": 575841,
+                  "end_byte_exclusive": 575875,
+                  "sha256": "27dbc93b1df293a7b9d64dda4cbc739f604330a58026e1ee9c6f9b4b004a55f2"
+                },
+                "original_value": [
+                  "G-D968column"
+                ]
+              },
+              "review_status": {
+                "pointer": "/dependencies/92/review_status",
+                "raw_span": {
+                  "start_byte": 575901,
+                  "end_byte_exclusive": 575913,
+                  "sha256": "07679791835096ad98c1ede8deef8b7fe27e088c9836c449227b23ef91c544df"
+                },
+                "original_value": "unreviewed"
+              }
+            }
+          },
+          "endpoint_traces": {
+            "D968column": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/dependencies/92",
+              "raw_span": {
+                "start_byte": 574969,
+                "end_byte_exclusive": 575920,
+                "sha256": "92f5d322e1be564f302b8c06636de1b95f10e1964792a9ef678ff277ccc925ce"
+              }
+            },
+            "R968": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/rules/29",
+              "raw_span": {
+                "start_byte": 393851,
+                "end_byte_exclusive": 398910,
+                "sha256": "8b4bf17469c5987e914879bec985cb90bb189d32fa5e9a15e1e560fcf66722a1"
+              }
+            },
+            "G-D968column": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/52",
+              "raw_span": {
+                "start_byte": 639810,
+                "end_byte_exclusive": 640275,
+                "sha256": "e9a4b856ae18994e988c060e7142a3c16cc284af3c0366253b90db3009b850ef"
+              }
+            },
+            "G-D968LC": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/gaps/51",
+              "raw_span": {
+                "start_byte": 639344,
+                "end_byte_exclusive": 639803,
+                "sha256": "1cff62c90933f3c5d18771c97169c5e1eea356ec85f9d7ce7f187bf7afc66624"
+              }
+            },
+            "E968": {
+              "response": {
+                "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+                "bytes": 712014,
+                "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+              },
+              "pointer": "/evidence/47",
+              "raw_span": {
+                "start_byte": 98363,
+                "end_byte_exclusive": 99387,
+                "sha256": "61c928868ec26589d528dcde98866f817e13439e5cc398d2b6c79fcb89342e78"
+              }
+            }
+          },
+          "comparison_pointer": "/relationships/35/runs/context-01",
+          "original_kind": "mention",
+          "original_explicitness": "explicit",
+          "original_impact": {
+            "affected_ids": [
+              "R968"
+            ],
+            "blocks_full_result": false,
+            "reason": "Column status excluded from MLE is not fully supplied; no missing content reconstructed."
+          },
+          "result": "correct_in_accepted_components_with_original_facets_rejected",
+          "scope_limits": "Exact in-Column exclusion only; no reclassification of other maneuver prohibitions.",
+          "whole_record_accepted": false,
+          "full_result_accepted": false
+        }
+      },
+      "source_scope": "9.68: Units in Column may not use MLE",
+      "target_scope": "Column status/formation definition absent",
+      "source_evidence": [
+        {
+          "inventory_id": "C-9.68-01",
+          "artifact": {
+            "path": "private/poc/spqr-chapter9/evaluation/eval-v1/inventory.json",
+            "bytes": 508524,
+            "sha256": "cbbe02639e01cbd2646307384ac5ac0a250c529897715d05490c84d1aeb04b17"
+          },
+          "pointer": "/items/105",
+          "exact_source_span": null,
+          "source_span_priority": "Exact child source_span/source_transcription takes priority over containing evidence transcription; scope narrowed further by manually authored source_scope/target_scope.",
+          "evidence": [
+            {
+              "source_id": "SPQR-5E-ch9-source-v1",
+              "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+              "pdf_page": 35,
+              "printed_page": "35",
+              "column": "right",
+              "render": "source/review-evidence/pdf-35.png",
+              "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+              "bbox_pdf_points": [
+                314.997,
+                286.21,
+                567.012,
+                344.21
+              ],
+              "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+              "helper_file": "source/review-evidence/pdf-35-right.txt",
+              "helper_lines_inclusive": [
+                19,
+                23
+              ],
+              "transcription": "9.68 Manipular Line Extension may also be undertaken as part\nof a Line Command (only). If undertaken as an LC, both units\nmay move after the MLE but with their MA reduced by 2. There\nare no Cohesion Hits applied for the MLE. Units in Column may\nnot use MLE.",
+              "reading_status": "visually_checked_by_codex",
+              "human_review": "pending"
+            }
+          ]
+        }
+      ],
+      "target_evidence": [],
+      "necessity_and_missing_impact": "Stwierdzenie in Column jest warunkiem niedopuszczalności MLE, nie instrukcją wykonania Column. Brak definicji może blokować identyfikację statusu realnej jednostki; zadany status pozwala na lokalny zakaz."
+    }
+  ],
+  "newly_decided_assigned_occurrences": 9,
+  "per_answer": {
+    "first-001": 4,
+    "context-01": 5
+  },
+  "extra_frozen_mention_occurrences": 2,
+  "prior_positive_scope_occurrences_unchanged": 116,
+  "assigned_scoped_review_total": 125,
+  "original_facet_issue_occurrences_assigned": 8,
+  "original_kind_issue_occurrences_extra": 2,
+  "issue_dispositions": {
+    "SEM-014": "resolved only for D9621013 identity/direction/use and insufficient edge block declaration; full allocation still blocked",
+    "SEM-015": "resolved for DEP-037 occurrence classification only",
+    "SEM-016": "resolved for three exact classification scopes only",
+    "SEM-004": "partially resolved for DCTX923-S4 supporting operator correspondence; remaining earlier scope pending"
+  },
+  "unresolved_prior_issue_ids": [
+    "SEM-001",
+    "SEM-002",
+    "SEM-003",
+    "SEM-004",
+    "SEM-005",
+    "SEM-006",
+    "SEM-007",
+    "SEM-008",
+    "SEM-009",
+    "SEM-010",
+    "SEM-011",
+    "SEM-012",
+    "SEM-013"
+  ],
+  "pending_expectation_ids": [
+    "EXP-010",
+    "EXP-017",
+    "EXP-019",
+    "EXP-040",
+    "EXP-050",
+    "EXP-052",
+    "EXP-066",
+    "EXP-074"
+  ],
+  "excluded": [
+    "Whole original records",
+    "Unreviewed or previously excluded fields",
+    "Blanket impact=false on other necessary supplied targets",
+    "Full dependent outcomes",
+    "External aliases, chart content, ratings/setup",
+    "Locators, E916 and glyph boundaries",
+    "Missing-record repair or automatic semantic FN",
+    "Gold extension or final TP/FP/FN/precision/recall"
+  ],
+  "owner_file_open_or_read": "unknown",
+  "no_response_changes": true,
+  "no_gold_change": true,
+  "metrics": "not_assessable",
+  "new_extractions": 0,
+  "new_sources": 0,
+  "new_corrections": 0,
+  "whole_card_closed": false
+}

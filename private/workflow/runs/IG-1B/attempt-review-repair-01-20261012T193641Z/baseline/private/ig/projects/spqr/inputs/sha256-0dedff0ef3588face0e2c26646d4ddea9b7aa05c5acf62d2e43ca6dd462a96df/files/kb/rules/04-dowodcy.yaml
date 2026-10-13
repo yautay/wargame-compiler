@@ -1,0 +1,634 @@
+chapter: {id: "4", title: "4.0 Dowódcy (Leaders)"}
+rules:
+  - id: R-4.0.1
+    title: Bez rozkazu dowódcy jednostka nie rusza się i nie strzela
+    section: "4.0"
+    source: {text: "oryg. 4.0 „Leaders”, s. 7", pages: "7"}
+    effect: Jednostki bojowe **nie mogą się poruszać ani strzelać** bez rozkazu dowódcy.
+    exceptions: |
+      Ruch/ostrzał bez rozkazu: uporządkowane wycofanie (R-6.51.1), ostrzał reakcyjny (R-8.24.1), rozszerzenie linii manipularnej jako reakcja (R-9.67.1),
+      zmiana ukierunkowania w reakcji (R-7.15.1), posunięcie po walce (R-8.51.1), pościg jazdy (R-8.62.2), ruch ucieczki (R-10.22.1, R-10.23.1),
+      szał słonia (R-9.14.3), ostrzał skorpionów (R-9.85.1).
+    keywords: [rozkaz, dowódca, ruch, ostrzał]
+    refs: [R-6.51.1, R-8.24.1, R-9.67.1, R-7.15.1, R-8.51.1, R-8.62.2, R-10.22.1, R-10.23.1, R-9.14.3, R-9.85.1]
+  - id: R-4.0.2
+    title: Dwie strony żetonu dowódcy — aktywny/skończony
+    section: "4.0"
+    source: {text: "oryg. 4.0, s. 7", pages: "7"}
+    effect: |
+      Żeton dowódcy ma stronę „Activated” i „Finished”. Dowódca jeszcze nieaktywowany lub właśnie aktywowany leży stroną
+      Activated; po zakończeniu aktywacji odwraca się go na stronę Finished (skończony).
+    see: R-4.22.2, R-5.15.1
+    keywords: [żeton dowódcy, Activated, Finished, skończony]
+    refs: [R-4.22.2, R-5.15.1]
+  - id: R-4.1.1
+    title: Zasięg dowodzenia (Command Range)
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Command Range”, s. 7", pages: "7"}
+    effect: Zasięg dowodzenia to odległość w heksach, na jaką dowódca może wywierać swoją inicjatywę (wydawać rozkazy). Sposób liczenia — R-4.21.2.
+    see: R-4.21.2
+    keywords: [zasięg dowodzenia, Command Range]
+    refs: [R-4.21.2]
+  - id: R-4.1.2
+    title: Dowódca elitarny — symbol ▲
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Elite Commander”, s. 7", pages: "7"}
+    effect: Dowódcy z trójkątem (▲) obok inicjatywy są dowódcami elitarnymi; użycie — 5.5.
+    see: R-5.51.1
+    keywords: [dowódca elitarny, ▲, Elite Commander]
+    refs: [R-5.51.1]
+  - id: R-4.1.3
+    title: Inicjatywa — kolejność aktywacji, impet, liczba rozkazów
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Initiative”, s. 7", pages: "7"}
+    effect: |
+      Inicjatywa (Initiative) wyznacza kolejność aktywacji dowódców, szansę na kolejną fazę rozkazów dzięki impetowi oraz liczbę
+      rozkazów indywidualnych, jakie dowódca może wydać w każdej fazie rozkazów. Im wyższa, tym lepszy dowódca.
+    see: R-5.12.1, R-5.32.1, R-4.22.1
+    keywords: [inicjatywa, kolejność aktywacji, impet, liczba rozkazów]
+    refs: [R-5.12.1, R-5.32.1, R-4.22.1]
+  - id: R-4.1.4
+    title: Wartość rozkazów liniowych (liczba w ramce)
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Line Command”, s. 7", pages: "7"}
+    effect: |
+      Liczba w ramce na prawo od inicjatywy oznacza, że dowódca zamiast serii rozkazów indywidualnych może wydać **tyle rozkazów
+      liniowych**.
+    see: R-4.31.1
+    keywords: [rozkaz liniowy, wartość LC]
+    refs: [R-4.31.1]
+  - id: R-4.1.5
+    title: Strategia — tylko dowódca naczelny
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Strategy”, s. 7", pages: "7"}
+    effect: Strategia (Strategy) przysługuje tylko dowódcom naczelnym (OC); ułatwia wydawanie rozkazów liniowych przez dowódców podległych (rzut wg 4.33).
+    see: R-4.33.3
+    keywords: [strategia, dowódca naczelny, OC]
+    refs: [R-4.33.3]
+  - id: R-4.1.6
+    title: Charyzma — modyfikator na tabeli walki wręcz
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Charisma” + Design Note, s. 7", pages: "7"}
+    effect: |
+      Charyzma (Charisma) modyfikuje na korzyść dowódcy rzut na tabeli wyników walki wręcz (Shock CRT) dla jednostek bojowych,
+      z którymi dowódca jest w stosie. W SPQR zwykle jest niska (dowódcy tej epoki dowodzili zza linii).
+    see: R-8.46.7
+    keywords: [charyzma, modyfikator, CRT walki wręcz]
+    refs: [R-8.46.7]
+  - id: R-4.1.7
+    title: MA dowódcy = 9 (niedrukowany)
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Movement Allowance”, s. 7", pages: "7"}
+    effect: |
+      Każdy dowódca ma MA **9** punktów ruchu na fazę rozkazów; wartości nie drukuje się na żetonie. Dowódca ze słoniem dowódcy
+      (tu tylko Hannibal) też ma MA 9, bez względu na MA słonia.
+    keywords: [MA dowódcy, 9 MP, słoń dowódcy]
+    refs: [T-03]
+  - id: R-4.1.8
+    title: Ograniczenie dowodzenia (typ jednostki na żetonie)
+    section: "4.1"
+    source: {text: "oryg. 4.1 „Command Restriction”, s. 7; 4.35, s. 9", pages: "7,9"}
+    effect: |
+      Jeśli na żetonie dowódcy jest typ jednostki, dowódca **nie może w żaden sposób wpływać** na jednostki innego typu
+      (np. umożliwiać im walki wręcz).
+    see: R-4.35.1
+    keywords: [ograniczenie dowodzenia, Command Restriction, typ]
+    refs: [R-4.35.1]
+  - id: R-4.21.1
+    title: Rozkazy indywidualne w zasięgu dowodzenia
+    section: "4.21"
+    source: {text: "oryg. 4.21, s. 8", pages: "8"}
+    effect: Dowódca może wydawać rozkazy indywidualne (IO) dowolnym własnym jednostkom bojowym w swoim zasięgu dowodzenia.
+    keywords: [rozkaz indywidualny, zasięg dowodzenia]
+    refs: [R-4.21.2]
+  - id: R-4.21.2
+    title: Liczenie zasięgu dowodzenia — ścieżka bez przeszkód
+    section: "4.21"
+    source: {text: "oryg. 4.21, s. 8", pages: "8"}
+    effect: |
+      Zasięg mierzy się ścieżką heksów **bez przeszkód** o długości ≤ zasięgu, wytyczoną między dowódcą a jednostką. **Liczy się heks
+      jednostki, nie liczy heksu dowódcy.** Ścieżkę blokuje: heks zajęty przez jednostkę wroga; heks w strefie kontroli wroga;
+      teren, którego dowódca nie mógłby przekroczyć ani wejść. **Własne jednostki znoszą strefę kontroli wroga** przy wyznaczaniu
+      ścieżki rozkazów. Inne ścieżki są wolne. Zasięg sprawdza się **w chwili wydania rozkazu**.
+    keywords: [zasięg dowodzenia, ścieżka, strefa kontroli, przeszkoda]
+  - id: R-4.22.1
+    title: Zakres rozkazu indywidualnego; liczba IO = inicjatywa
+    section: "4.22"
+    source: {text: "oryg. 4.22, s. 8", pages: "8"}
+    effect: |
+      IO pozwala jednej własnej jednostce wykonać ruch i/lub ostrzał, zostać zreorganizowaną itd. (wg 5.22). W każdej fazie
+      rozkazów dowódca może wydać tyle IO, ile wynosi jego inicjatywa.
+    see: R-5.22.1
+    keywords: [rozkaz indywidualny, inicjatywa, liczba rozkazów]
+    refs: [R-5.22.1]
+  - id: R-4.22.2
+    title: Odwrócenie na stronę Finished
+    section: "4.22"
+    source: {text: "oryg. 4.22, s. 8", pages: "8"}
+    effect: Gdy dowódca nie może już wydać rozkazów i nie może być ponownie aktywowany, jego żeton odwraca się na stronę Finished.
+    keywords: [skończony, Finished]
+  - id: R-4.23.1
+    title: Rozkaz dla samego siebie albo ruch razem z jednostką
+    section: "4.23"
+    source: {text: "oryg. 4.23, s. 8", pages: "8"}
+    effect: |
+      Dowódca może wydać IO na własny ruch — liczy się on do limitu rozkazów w tej fazie. Może zamiast tego wydać IO jednostce,
+      z którą jest w stosie, i poruszać się razem z nią; musi wtedy pozostać z poruszającą się jednostką i skończyć ruch w tym samym
+      heksie.
+    keywords: [ruch dowódcy, rozkaz indywidualny, stos]
+  - id: R-4.24.1
+    title: Dowódca podległy w strefie kontroli wroga nie wydaje rozkazów
+    section: "4.24"
+    source: {text: "oryg. 4.24, s. 8", pages: "8"}
+    when: dowódca inny niż naczelny (OC) jest w strefie kontroli wroga
+    effect: |
+      Nie może wydawać rozkazów ani jednostkom, ani sobie, więc nie może opuścić tej strefy kontroli, dopóki nie wyprowadzi go z niej
+      IO dowódcy naczelnego (4.4). Zob. też 5.26.
+    see: R-4.4.3, R-5.26.1
+    keywords: [strefa kontroli, dowódca podległy, rozkazy]
+    refs: [R-4.4.3, R-5.26.1]
+  - id: R-4.24.2
+    title: Dowódca naczelny w strefie kontroli wroga — tylko ruch siebie
+    section: "4.24"
+    source: {text: "oryg. 4.24, s. 8", pages: "8"}
+    when: dowódca naczelny (OC) jest w strefie kontroli wroga
+    effect: Jedynym IO, jaki może wydać, jest rozkaz ruchu dla samego siebie.
+    see: R-4.4.2, R-5.26.1
+    keywords: [dowódca naczelny, strefa kontroli]
+    refs: [R-4.4.2, R-5.26.1]
+  - id: R-4.25.1
+    title: Dowódca skończony nie wydaje rozkazów; może go ruszyć OC
+    section: "4.25"
+    source: {text: "oryg. 4.25, s. 8", pages: "8"}
+    effect: Skończony dowódca (5.15) nie może wydawać rozkazów. Może się poruszyć tylko na rozkaz swojego dowódcy naczelnego.
+    see: R-5.15.1, R-4.4.3
+    keywords: [skończony, ruch dowódcy, OC]
+    refs: [R-5.15.1, R-4.4.3]
+  - id: R-4.31.1
+    title: Rozkazy liniowe zamiast indywidualnych
+    section: "4.31"
+    source: {text: "oryg. 4.31, s. 8", pages: "8"}
+    effect: |
+      Uprawniony dowódca może **zamiast** IO wydać jeden lub więcej rozkazów liniowych (liczba = wartość LC). Każdy LC obejmuje
+      dowolne/wszystkie jednostki tworzące linię (4.32); skład linii podaje karta uprawnień do LC scenariusza. Nie ma limitu
+      liczby jednostek; nie wszystkie uprawnione jednostki muszą wziąć udział i nie muszą trzymać się razem podczas ruchu.
+    see: R-4.32.1, R-4.1.4
+    keywords: [rozkaz liniowy, linia, Line Command Eligibility]
+    refs: [R-4.32.1, R-4.1.4]
+  - id: R-4.31.2
+    title: Rozkaz liniowy wyklucza reorganizację w tej fazie
+    section: "4.31"
+    source: {text: "oryg. Design Note po 4.35, s. 9", pages: "9"}
+    effect: Dowódca, który wydaje rozkaz liniowy na ruch, **nie może w tej fazie rozkazów reorganizować** jednostek.
+    notes: |
+      Zapis z noty projektowej, zgodny z zasadą „LC zamiast IO” (R-4.31.1) i z tym, że reorganizacja wymaga IO (R-10.28.1).
+    keywords: [rozkaz liniowy, reorganizacja]
+    refs: [R-4.31.1, R-10.28.1]
+  - id: R-4.32.1
+    title: Skład linii — przyległość lub odstęp 2 (3) heksów
+    section: "4.32"
+    source: {text: "oryg. 4.32 „Line Composition”, s. 8", pages: "8"}
+    effect: |
+      W większości linii jednostki muszą ze sobą **sąsiadować**; każda przerwa kończy linię. W niektórych liniach każda jednostka
+      musi być w odległości **2 (czasem 3) heksów** od co najmniej jednej innej jednostki linii. Heks pośredni nie może być zajęty
+      przez jednostkę wroga, własną jednostkę innej linii (wyjątek: harcownicy i velites, 9.2) ani być w strefie kontroli wroga.
+      Które jednostki mogą tworzyć linie z odstępem 2 (3) heksów, podaje karta uprawnień do LC scenariusza.
+    see: R-9.2.1
+    keywords: [linia, przyległość, odstęp, velites, harcownik]
+    refs: [R-9.2.1]
+  - id: R-4.32.2
+    title: Wspólne ustawienie linii — bok do boku albo przód do tyłu
+    section: "4.32"
+    source: {text: "oryg. 4.32, s. 8", pages: "8"}
+    effect: |
+      Linia może mieć dowolną długość, jeśli spełnia wymóg przyległości i wszystkie jej jednostki mają to samo ustawienie: **bok do
+      boku** (Flank-to-Flank) **albo** (nie: i) **przód do tyłu** (Front-to-Rear) (7.1). Dla jednostek w kolumnie heksy boczne
+      przyległe do heksu tylnego traktuje się jak tylne.
+    see: R-7.11.1, R-6.73.1
+    keywords: [linia, bok do boku, przód do tyłu, kolumna]
+    refs: [R-7.11.1, R-6.73.1]
+  - id: R-4.32.3
+    title: Linia bez wspólnego ustawienia — tylko jednostki w zasięgu dowodzenia
+    section: "4.32"
+    source: {text: "oryg. 4.32 + przykład (Kanny), s. 8", pages: "8"}
+    effect: |
+      Jeśli jednostki spełniają wymóg przyległości, ale nie mają wspólnego ustawienia, do linii można włączyć **tylko jednostki
+      w zasięgu dowodzenia** dowódcy. Linia spełniająca oba wymogi (przyległość i wspólne ustawienie) może obejmować jednostki
+      **poza** zasięgiem dowodzenia (przykład: velites pod Kannami, bok do boku).
+    keywords: [linia, zasięg dowodzenia, ustawienie]
+  - id: R-4.33.1
+    title: Warunki rozkazu liniowego — 2 heksy, LOS, poza strefą kontroli
+    section: "4.33"
+    source: {text: "oryg. 4.33 „Line Command Eligibility”, s. 8", pages: "8"}
+    effect: |
+      Prawo do LC zależy od pozycji w hierarchii i rodzaju fazy rozkazów. Wydając LC, dowódca musi **zacząć** fazę rozkazów
+      w odległości **≤ 2 heksów** od co najmniej jednej jednostki tej linii i mieć do niej wolną linię wzroku (LOS, 8.14); słonie
+      w tym przypadku nie blokują LOS. Dowódca **nie może być w strefie kontroli wroga**. Dowódca naczelny z wartością LC 2
+      (np. Hannibal) musi zacząć fazę w zasięgu 2 heksów od **obu** linii; nie może wydać jednego LC, ruszyć się i wydać drugiego.
+    see: R-8.14.1
+    keywords: [rozkaz liniowy, 2 heksy, LOS, strefa kontroli, Hannibal]
+    refs: [R-8.14.1]
+  - id: R-4.33.2
+    title: Dowódca naczelny — LC w fazie początkowej i w fazach impetu
+    section: "4.33"
+    source: {text: "oryg. 4.33 „Overall Commanders”, s. 8", pages: "8"}
+    effect: Dowódca naczelny (OC) może wydawać rozkazy liniowe w swojej początkowej fazie rozkazów i w fazach uzyskanych dzięki impetowi.
+    see: R-4.4.4
+    keywords: [dowódca naczelny, rozkaz liniowy, impet]
+    refs: [R-4.4.4]
+  - id: R-4.33.3
+    title: Dowódca podległy — LC w fazie początkowej (zasięg OC albo rzut na strategię)
+    section: "4.33"
+    source: {text: "oryg. 4.33 „Subordinate Commanders”, s. 8", pages: "8"}
+    when: dowódca podległy (SC) w swojej początkowej (nie-impetowej) fazie rozkazów
+    effect: |
+      Może wydać LC, jeśli: 1) zaczyna fazę rozkazów w zasięgu dowodzenia swojego OC; **albo** 2) jest poza tym zasięgiem, a gracz
+      rzuci kością z modyfikatorem **+1, jeśli którakolwiek jednostka proponowanej linii jest w strefie kontroli wroga**, i wynik
+      jest **≤ strategii OC**. Przy wyniku wyższym dowódca może wydawać tylko IO. Rzut wykonuje się w fazie aktywacji (3.0 A).
+    exceptions: |
+      Wyjątek #1: w **pierwszej turze** dowódca może wydawać LC automatycznie, bez względu na odległość od OC (R-4.33.4).
+      Wyjątek #2: dowodzenie kartagińskie (4.6) zastępuje te zasady (R-4.6.1). Prokonsul: –1 DRM (R-4.56.1).
+    keywords: [dowódca podległy, strategia, rzut, rozkaz liniowy, +1 DRM]
+    refs: [R-4.33.4, R-4.6.1, R-4.56.1, R-3.0.2, T-04]
+  - id: R-4.33.4
+    title: Wyjątek — pierwsza tura i dowodzenie kartagińskie
+    section: "4.33"
+    source: {text: "oryg. 4.33 „Exception #1”, „Exception #2”, s. 8", pages: "8"}
+    effect: |
+      #1: tylko w pierwszej turze dowódca podległy może automatycznie wydawać LC bez względu na odległość od OC.
+      #2: dowodzenie kartagińskie (4.6) ma pierwszeństwo przed wszystkimi powyższymi zasadami.
+    keywords: [pierwsza tura, wyjątek, dowodzenie kartagińskie]
+    refs: [R-4.6.1]
+  - id: R-4.33.5
+    title: Dowódca podległy w fazie impetu — zawsze rzut na strategię
+    section: "4.33"
+    source: {text: "oryg. 4.33, s. 8", pages: "8"}
+    when: dowódca podległy w fazie rozkazów uzyskanej dzięki impetowi
+    effect: |
+      Może wydać LC **tylko** wtedy, gdy gracz wykona rzut przeciw strategii OC jak w pkt 2 (R-4.33.3). Nie może wydać LC, jeśli
+      nie zrobił tego w swojej początkowej fazie rozkazów.
+    keywords: [impet, rozkaz liniowy, strategia, dowódca podległy]
+    refs: [R-4.33.3]
+  - id: R-4.34.1
+    title: Dowódca wydający LC może ruszyć z linią
+    section: "4.34"
+    source: {text: "oryg. 4.34, s. 9", pages: "9"}
+    effect: |
+      Dowódca, który wydał LC, **może — nie musi** — poruszać się w ramach tego rozkazu. Jeśli się rusza, musi skończyć ruch w zasięgu
+      dowodzenia jednej z jednostek tej linii.
+    keywords: [rozkaz liniowy, ruch dowódcy, zasięg dowodzenia]
+  - id: R-4.35.1
+    title: Ograniczenie dowodzenia do typu z żetonu
+    section: "4.35"
+    source: {text: "oryg. 4.35, s. 9", pages: "9"}
+    effect: |
+      Niektórzy dowódcy wydają rozkazy tylko jednostkom typu podanego na żetonie (słowo pod nazwą dowódcy). Mogą dowodzić wyłącznie
+      tymi jednostkami (rozkazy, umożliwienie walki wręcz itd.). Przykład: Maharbal (jazda numidyjska) pod Kannami. Zob. też 4.5.
+    see: R-4.1.8, R-4.51.1
+    keywords: [ograniczenie dowodzenia, Maharbal]
+    refs: [R-4.1.8, R-4.51.1]
+  - id: R-4.4.1
+    title: Dowódca naczelny i dowódcy podlegli
+    section: "4.4"
+    source: {text: "oryg. 4.4 „Overall Commanders”, s. 9", pages: "9"}
+    effect: |
+      Dowódca naczelny (OC), wskazany w każdej bitwie, dowodzi całą armią; pozostali dowódcy to dowódcy podlegli (SC). OC działa
+      jak inni dowódcy, ale po aktywacji ma uprawnienia z R-4.4.2…R-4.4.7.
+    keywords: [dowódca naczelny, OC, dowódca podległy, SC]
+    refs: [R-4.4.2, R-4.4.3, R-4.4.4, R-4.4.5, R-4.4.6, R-4.4.7]
+  - id: R-4.4.2
+    title: OC — wyjście ze strefy kontroli wroga
+    section: "4.4"
+    source: {text: "oryg. 4.4 pkt 1, s. 9", pages: "9"}
+    effect: OC może opuścić strefę kontroli wroga, wydając sobie IO ruchu.
+    keywords: [OC, strefa kontroli, ruch]
+  - id: R-4.4.3
+    title: OC — ruch innych dowódców (2 IO ze strefy kontroli)
+    section: "4.4"
+    source: {text: "oryg. 4.4 pkt 2, s. 9", pages: "9"}
+    effect: |
+      OC może wydawać IO ruchu innym własnym dowódcom — raz na dowódcę w fazie rozkazów. Jeśli przesuwany dowódca zaczyna
+      w strefie kontroli wroga, kosztuje to OC **2 IO**.
+    keywords: [OC, ruch dowódcy, 2 IO, strefa kontroli]
+  - id: R-4.4.4
+    title: OC — rozkazy liniowe dla dowolnych linii w każdej fazie
+    section: "4.4"
+    source: {text: "oryg. 4.4 pkt 3, s. 9", pages: "9"}
+    effect: OC może wydawać LC dowolnym liniom w każdej fazie rozkazów (warunki 4.33 — 2 heksy, LOS, poza strefą kontroli — nadal obowiązują).
+    notes: "[wniosek] Pkt 3 nie znosi wymogów położenia z 4.33 akapit 1; dotyczy rodzaju fazy (początkowa i impetu)."
+    keywords: [OC, rozkaz liniowy]
+    refs: [R-4.33.1]
+  - id: R-4.4.5
+    title: OC — zastąpienie wyeliminowanego dowódcy
+    section: "4.4"
+    source: {text: "oryg. 4.4 pkt 4, s. 9", pages: "9"}
+    effect: OC może wydać IO, by zastąpić wyeliminowanego dowódcę (4.74).
+    see: R-4.74.1
+    keywords: [OC, zastępca, Replacement]
+    refs: [R-4.74.1]
+  - id: R-4.4.6
+    title: OC — jeden IO na cały stos
+    section: "4.4"
+    source: {text: "oryg. 4.4 pkt 5, s. 9", pages: "9"}
+    effect: OC może jednym IO poruszyć wszystkie jednostki bojowe/dowódców w stosie w tym samym heksie (6.64).
+    see: R-6.64.1
+    keywords: [OC, stos, rozkaz indywidualny]
+    refs: [R-6.64.1]
+  - id: R-4.4.7
+    title: OC — cała faza na zebranie jazdy z pościgu
+    section: "4.4"
+    source: {text: "oryg. 4.4 pkt 6, s. 9", pages: "9"}
+    effect: OC może wykorzystać całą swoją fazę rozkazów na przegrupowanie i powrót (Regroup and Return) jazdy ścigającej poza mapą (8.64).
+    see: R-8.64.1
+    keywords: [OC, pościg, poza mapą, przegrupowanie]
+    refs: [R-8.64.1]
+  - id: R-4.5.1
+    title: Rzymska hierarchia — trybuni i prefekci (wstęp)
+    section: "4.5"
+    source: {text: "oryg. 4.5 „Roman Command: Proconsuls, Tribunes and Praefects”, s. 9", pages: "9"}
+    effect: W większości scenariuszy niższe szczeble rzymskiego dowodzenia reprezentują trybuni i prefekci (w uproszczeniu liczebności historycznej).
+    keywords: [trybun, prefekt, hierarchia rzymska]
+    flags: [summary]
+  - id: R-4.51.1
+    title: Trybuni, prefekci sprzymierzeńców, prefekci jazdy — kogo dowodzą
+    section: "4.51"
+    source: {text: "oryg. 4.51, s. 9", pages: "9"}
+    effect: |
+      Każda armia rzymska ma (wg scenariusza) trybunów i prefektów sprzymierzeńców (Praefecti Sociorum) — dla piechoty — oraz
+      prefektów jazdy (Praefecti Equitum) — dla jazdy. Imiona są fikcyjne. Trybuni i prefekci sprzymierzeńców dowodzą **tylko
+      piechotą**; prefekci jazdy **tylko jazdą**.
+    keywords: [trybun, prefekt sprzymierzeńców, prefekt jazdy, piechota, jazda]
+  - id: R-4.52.1
+    title: IO trybuna/prefekta — jedna klasa z jednego legionu/ali na fazę
+    section: "4.52"
+    source: {text: "oryg. 4.52, s. 9", pages: "9"}
+    effect: |
+      Trybuni i prefekci sprzymierzeńców mogą w jednej fazie rozkazów wydawać IO jednostkom **jednej klasy** z **jednego** legionu
+      lub ali. O ile scenariusz nie stanowi inaczej, trybuni wydają IO tylko piechocie legionowej, prefekci sprzymierzeńców tylko
+      piechocie al. Przykład: trybun może rozkazywać hastatom III Legionu albo principes V Legionu, ale nie w tej samej fazie.
+    exceptions: Velites — R-4.52.3.
+    keywords: [trybun, prefekt, klasa, legion, ala]
+    refs: [R-4.52.3]
+  - id: R-4.52.2
+    title: Umożliwienie walki wręcz bez ograniczeń klasy i legionu
+    section: "4.52"
+    source: {text: "oryg. 4.52, s. 9", pages: "9"}
+    effect: |
+      Ograniczenia klasy i legionu/ali nie dotyczą 7.33: trybun może umożliwić walkę wręcz każdej jednostce piechoty legionowej,
+      prefekt sprzymierzeńców — każdej jednostce piechoty al.
+    see: R-7.33.1
+    keywords: [walka wręcz, trybun, prefekt, umożliwienie]
+    refs: [R-7.33.1]
+  - id: R-4.52.3
+    title: Wyjątek — wszyscy velites jako jedna klasa
+    section: "4.52"
+    source: {text: "oryg. 4.52 „Exception”, s. 9", pages: "9"}
+    effect: Trybun lub prefekt może wydawać IO wszystkim velites, bez względu na nadrukowany legion lub alę — jako swojej jednej klasie.
+    keywords: [velites, trybun, prefekt, wyjątek]
+  - id: R-4.53.1
+    title: LC trybuna/prefekta sprzymierzeńców — jedna linia piechoty z karty
+    section: "4.53"
+    source: {text: "oryg. 4.53 + Play Note, s. 9", pages: "9"}
+    effect: |
+      Trybuni i prefekci sprzymierzeńców mogą wydać LC jednej linii piechoty wymienionej na karcie uprawnień do LC danej bitwy
+      (np. pod Zamą trybun — wszyscy hastati i dodatkowe kohorty al; prefekt sprzymierzeńców — linia kohort al i triarii). LC jest
+      mniej restrykcyjny niż IO.
+    keywords: [trybun, prefekt, rozkaz liniowy, Zama]
+  - id: R-4.54.1
+    title: Prefekt jazdy — jazda legionu albo ali; mieszana linia tylko za zgodą karty
+    section: "4.54"
+    source: {text: "oryg. 4.54, s. 9", pages: "9"}
+    effect: |
+      Prefekt jazdy wydaje IO jeździe legionu **albo** ali — tylko jednej z tych grup w danej fazie. LC dla mieszanej linii jazdy
+      legionu i ali — tylko jeśli wprost zezwala karta uprawnień (np. nie pod Kannami). Ograniczenie legion/ala nie dotyczy 7.33:
+      prefekt jazdy może umożliwić walkę wręcz każdej jednostce jazdy rzymskiej.
+    see: R-7.33.1
+    keywords: [prefekt jazdy, jazda, Kanny, walka wręcz]
+    refs: [R-7.33.1]
+  - id: R-4.55.1
+    title: Słabszy trybun i prefekt jazdy
+    section: "4.55"
+    source: {text: "oryg. 4.55, s. 9", pages: "9"}
+    effect: Jeden z trybunów i jeden z prefektów jazdy są słabsi od pozostałych; gracz rzymski może wybierać wyżej ocenianych, jeśli ma wybór.
+    keywords: [trybun, prefekt jazdy, wybór]
+  - id: R-4.56.1
+    title: Prokonsulowie — dowodzą każdą jednostką; –1 DRM do rzutu na LC
+    section: "4.56"
+    source: {text: "oryg. 4.56, s. 9–10", pages: "9-10"}
+    effect: |
+      Prokonsulowie (obecni pod Kannami) mogą dowodzić dowolnymi jednostkami bojowymi. Przy próbie LC poza zasięgiem OC gracz stosuje
+      **–1 DRM**.
+    keywords: [prokonsul, Kanny, –1 DRM, rozkaz liniowy]
+    refs: [T-04]
+  - id: R-4.56.2
+    title: Prokonsul zastępuje poległego OC (strategia 1)
+    section: "4.56"
+    source: {text: "oryg. 4.56, s. 10", pages: "10"}
+    effect: Jeśli OC zginął, gracz może uczynić OC prokonsula. Jego parametry się nie zmieniają, a strategia wynosi **1**.
+    keywords: [prokonsul, OC, zastąpienie, strategia 1]
+    refs: [R-4.75.1]
+  - id: R-4.6.1
+    title: Dowodzenie kartagińskie — LC bez zasięgu i rzutu
+    section: "4.6"
+    source: {text: "oryg. 4.6 „Carthaginian Command”, s. 10", pages: "10"}
+    when: bitwa, w której Hannibal jest dowódcą naczelnym (chyba że scenariusz stanowi inaczej)
+    effect: |
+      Wszyscy kartagińscy dowódcy podlegli mogą wydawać LC w swoich **początkowych** fazach rozkazów bez przebywania w zasięgu
+      Hannibala i bez rzutu na strategię. W fazach z impetu obowiązuje 4.33.
+    exceptions: Nie dotyczy dowódców zastępczych (4.74) — R-4.6.2.
+    keywords: [Hannibal, Kartagina, rozkaz liniowy, dowódca podległy]
+    refs: [R-4.6.2, R-4.33.5]
+  - id: R-4.6.2
+    title: Dowodzenie kartagińskie nie dotyczy dowódców zastępczych
+    section: "4.6"
+    source: {text: "oryg. 4.6 „Exception”, s. 10", pages: "10"}
+    effect: Uprawnienie z 4.6 nie przysługuje dowódcom zastępczym (Replacement leaders, 4.74).
+    keywords: [dowódca zastępczy, Kartagina]
+    refs: [R-4.74.1]
+  - id: R-4.71.1
+    title: Dowódca wchodzi do strefy kontroli wroga tylko z jednostką
+    section: "4.71"
+    source: {text: "oryg. 4.71, s. 10", pages: "10"}
+    effect: |
+      Dowódca może wejść do strefy kontroli wroga tylko w stosie z własną jednostką bojową (słoń dowódcy jest jednostką bojową) albo
+      jeśli ten heks strefy kontroli zajmuje już własna jednostka bojowa. Jak jednostki bojowe, dowódca musi zatrzymać się po
+      wejściu do strefy kontroli wroga.
+    keywords: [dowódca, strefa kontroli, wejście, zatrzymanie]
+  - id: R-4.71.2
+    title: Dowódca opuszcza strefę kontroli wroga tylko na rozkaz OC
+    section: "4.71"
+    source: {text: "oryg. 4.71, s. 10", pages: "10"}
+    effect: Dowódca (także ze swoim słoniem) może opuścić strefę kontroli wroga tylko na rozkaz(y) swojego OC (4.4).
+    see: R-4.4.2, R-4.4.3
+    keywords: [dowódca, strefa kontroli, OC]
+    refs: [R-4.4.2, R-4.4.3]
+  - id: R-4.72.1
+    title: Odskok dowódcy, gdy wróg podchodzi (1–3 heksy)
+    section: "4.72"
+    source: {text: "oryg. 4.72, s. 10", pages: "10"}
+    when: jednostka bojowa wroga w dowolny sposób (6.0, 8.5, 8.6 itd.) wchodzi obok własnego dowódcy, który **nie jest już** w strefie kontroli wroga
+    effect: |
+      Dowódca może natychmiast odejść o **1–3 heksy** (wybór gracza) od tej jednostki, przez heksy, do których mógłby wejść normalnym
+      ruchem (6.27). Może to zrobić sam lub w stosie z jednostką bojową, **ale nie w stosie ze słoniem dowódcy**. Odskok nie wpływa
+      na jego MA ani inne zdolności.
+    keywords: [odskok dowódcy, 1–3 heksy, podejście wroga]
+    refs: [R-6.27.1]
+  - id: R-4.72.2
+    title: Samotny dowódca, który nie odskoczy, ginie
+    section: "4.72"
+    source: {text: "oryg. 4.72, s. 10", pages: "10"}
+    when: dowódca nie jest w stosie z jednostką bojową, a wróg wszedł obok
+    effect: |
+      Jeśli nie odskoczy albo nie może (otoczony terenem nieprzekraczalnym, jednostkami lub strefami kontroli wroga, przez które
+      musiałby przejść), zostaje **wyeliminowany**.
+    keywords: [eliminacja dowódcy, odskok]
+  - id: R-4.72.3
+    title: Dowódca odchodzi razem z jednostką wykonującą uporządkowane wycofanie
+    section: "4.72"
+    source: {text: "oryg. 4.72, s. 10", pages: "10"}
+    effect: Dowódca w stosie z jednostką, która wykonuje uporządkowane wycofanie, może wycofać się razem z nią (6.51).
+    see: R-6.51.1
+    keywords: [uporządkowane wycofanie, dowódca]
+    refs: [R-6.51.1]
+  - id: R-4.72.4
+    title: Dowódca już sąsiadujący z wrogiem nie odskakuje
+    section: "4.72"
+    source: {text: "oryg. 4.72, s. 10", pages: "10"}
+    effect: Dowódca, który w inny sposób sąsiaduje z jednostką bojową wroga, nie może odskoczyć i ginie, jeśli ta jednostka w jakikolwiek sposób wejdzie do jego heksu.
+    keywords: [eliminacja dowódcy, sąsiedztwo]
+  - id: R-4.73.1
+    title: Straty dowódców w walce wręcz — rzut przed rozstrzygnięciem
+    section: "4.73"
+    source: {text: "oryg. 4.73, s. 10", pages: "10"}
+    effect: |
+      Przed rozstrzygnięciem walki wręcz, dla każdego dowódcy w stosie z jednostką biorącą udział w walce (obu stron), właściciel
+      rzuca kością: **1–9** — nic; **0** — dowódca odniósł ranę/stratę; wtedy rzuca ponownie na Tabeli strat dowódców (Leader
+      Casualty Table). Straty od ostrzału — 8.19.
+    see: R-8.19.1, R-8.44.1
+    keywords: [straty dowódców, Leader Casualty Table, wynik 0]
+    refs: [R-8.19.1, R-8.44.1, T-23, T-05]
+  - id: R-4.73.2
+    title: Wyeliminowany dowódca schodzi natychmiast
+    section: "4.73"
+    source: {text: "oryg. 4.73, s. 10", pages: "10"}
+    effect: Wyeliminowanych dowódców natychmiast usuwa się z gry.
+    keywords: [eliminacja dowódcy]
+  - id: R-4.74.1
+    title: Zastępowanie poległych dowódców (oprócz OC)
+    section: "4.74"
+    source: {text: "oryg. 4.74, s. 10", pages: "10"}
+    effect: |
+      Każdego dowódcę oprócz OC można zastąpić po eliminacji: OC wydaje IO i zastępuje poległego dowódcą zastępczym
+      (Replacement leader); wyeliminowanych trybunów i prefektów po prostu stawia się z powrotem na mapie. OC nie musi mieć
+      w zasięgu żadnej jednostki; zastępcę (lub wracającego trybuna/prefekta) stawia się w dowolnym heksie z jednostką, którą ten
+      dowódca może dowodzić. **Zastępca jest skończony do końca tej tury.**
+    keywords: [dowódca zastępczy, Replacement, trybun, prefekt, OC]
+  - id: R-4.74.2
+    title: Limit dowódców zastępczych
+    section: "4.74"
+    source: {text: "oryg. 4.74, s. 10", pages: "10"}
+    effect: Liczba dowódców zastępczych jest celowym ograniczeniem; gdy ich brak, dowódcy nie można zastąpić. Nie dotyczy to trybunów i prefektów (zawsze wracają).
+    keywords: [dowódca zastępczy, limit]
+  - id: R-4.75.1
+    title: Poległego OC się nie zastępuje
+    section: "4.75"
+    source: {text: "oryg. 4.75, s. 10", pages: "10"}
+    effect: Wyeliminowanego dowódcy naczelnego nie zastępuje się; nikt nie przejmuje dowództwa.
+    exceptions: Prokonsul może zostać OC — R-4.56.2.
+    keywords: [OC, eliminacja, brak zastępstwa]
+    refs: [R-4.56.2]
+  - id: R-4.8.1
+    title: Słonie dowódców — zasady ogólne
+    section: "4.8"
+    source: {text: "oryg. 4.8 „Leader Elephants”, s. 10", pages: "10"}
+    effect: Jedynym dowódcą ze słoniem jest Hannibal (Zama, Kanny), ale zasady napisano ogólnie.
+    keywords: [słoń dowódcy, Hannibal]
+    flags: [summary]
+  - id: R-4.81.1
+    title: Słoń dowódcy — Size 1, ruch jak dowódca (MA 9)
+    section: "4.81"
+    source: {text: "oryg. 4.81, s. 10", pages: "10"}
+    effect: Żeton słonia dowódcy ma Size 1 i imię dowódcy. Porusza się jak dowódca, z MA 9 na fazę rozkazów.
+    keywords: [słoń dowódcy, Size 1, MA 9]
+    refs: [T-03]
+  - id: R-4.82.1
+    title: Dowódca pozostaje ze słoniem; śmierć słonia
+    section: "4.82"
+    source: {text: "oryg. 4.82, s. 10", pages: "10"}
+    effect: |
+      Dowódca musi pozostać ze swoim słoniem przez całą grę, nawet podczas szału (rampage). Gdy słoń zostanie wyeliminowany,
+      sprawdza się stratę dowódcy; jeśli dowódca przeżyje, staje się zwykłym dowódcą.
+    keywords: [słoń dowódcy, szał, straty dowódców]
+    refs: [R-4.73.1]
+  - id: R-4.83.1
+    title: Słoń dowódcy jako jednostka bojowa — tylko obrona
+    section: "4.83"
+    source: {text: "oryg. 4.83, s. 10", pages: "10"}
+    effect: |
+      Słoń dowódcy jest (hybrydową) jednostką bojową. Jego typu nie wolno użyć przy ustalaniu wyniku walki wręcz, gdy broni się razem
+      z innymi jednostkami. **Nigdy nie atakuje**; broni się normalnie.
+    keywords: [słoń dowódcy, obrona, atak]
+  - id: R-4.83.2
+    title: Słoń dowódcy — brak strefy kontroli, osłon i trafień za ruch
+    section: "4.83"
+    source: {text: "oryg. 4.83, s. 10", pages: "10"}
+    effect: |
+      Jazda nie musi się cofać, gdy słoń dowódcy wejdzie do jej strefy kontroli (9.16). Słoń dowódcy nie ma osłon (screens) i nie
+      wywiera strefy kontroli. Zawsze porusza się ruchem dowódcy i nie otrzymuje trafień za ruch. Może opuścić strefę kontroli wroga
+      razem z dowódcą (4.71).
+    see: R-9.16.1, R-4.71.2
+    keywords: [słoń dowódcy, strefa kontroli, jazda, osłona]
+    refs: [R-9.16.1, R-4.71.2]
+  - id: R-4.84.1
+    title: Śmierć dowódcy na słoniu — rzut na szał
+    section: "4.84"
+    source: {text: "oryg. 4.84, s. 10", pages: "10"}
+    when: dowódca na słoniu zostaje wyeliminowany w walce
+    effect: |
+      Rzut kością — **0–6**: usuń słonia dowódcy; **7–9**: słoń z rozpaczy wpada w szał (Rampage, 9.14).
+    keywords: [słoń dowódcy, szał, rzut]
+    refs: [R-9.14.1, T-05]
+  - id: R-4.85.1
+    title: Słoń dowódcy w stosie — bez kosztu, ukierunkowanie jednostki
+    section: "4.85"
+    source: {text: "oryg. 4.85, s. 11", pages: "11"}
+    effect: |
+      Słoń dowódcy może bez dodatkowego kosztu tworzyć stos z dowolną własną jednostką **niebędącą jazdą**. Automatycznie przyjmuje
+      ukierunkowanie jednostki, z którą jest w stosie; zmienia ukierunkowanie bez kosztu.
+    keywords: [słoń dowódcy, stos, ukierunkowanie, jazda]
+  - id: R-4.91.1
+    title: (opcja) Dowodzenie słoniami — po pierwszym rozkazie tylko dwie drogi
+    section: "4.91"
+    source: {text: "oryg. 4.91 (zasada opcjonalna 4.9 „Elephant Command”), s. 11", pages: "11"}
+    effect: |
+      Gdy słonie pierwszy raz w bitwie dostają rozkazy, wykonują je normalnie. Później IO/LC **na ruch** słoni można wydać tylko:
+      a) przez dowódcę w stosie z jednym z poruszanych słoni, pozostającego z nim w stosie przez całą fazę rozkazów; **albo**
+      b) przez specjalnego dowódcę słoni (Elephant Leader): na koniec fazy ucieczki i przeładowania właściciel może położyć żetony
+      dowódców słoni na dowolnych słoniach. Dowódca słoni ma inicjatywę 1, więc zwykle działa pierwszy w następnej turze.
+    keywords: [słonie, dowódca słoni, zasada opcjonalna]
+    flags: [optional]
+  - id: R-4.92.1
+    title: (opcja) LC dowódcy słoni — przymusowy ruch słoni
+    section: "4.92"
+    source: {text: "oryg. 4.92, s. 11", pages: "11"}
+    effect: |
+      Po aktywacji dowódca słoni wydaje LC (bez względu na odległość od OC) linii słoni obejmującej słonia, na którym go położono.
+      Słonie tej linii: **muszą** wykorzystać pełny MA (jeśli to możliwe; wejście do strefy kontroli wroga je zatrzyma); nie mogą
+      zmieniać ukierunkowania, chyba że w heksie startowym przed ruchem; **przechodzą przez** własne jednostki na drodze wg zasad
+      stosu. Mogą strzelać, jeśli są uprawnione.
+    keywords: [dowódca słoni, ruch przymusowy, słonie]
+    flags: [optional]
+  - id: R-4.93.1
+    title: (opcja) Dowódca słoni — tylko jeden LC, bez impetu
+    section: "4.93"
+    source: {text: "oryg. 4.93, s. 11", pages: "11"}
+    effect: Dowódcy słoni nie korzystają z impetu, nie wydają IO (tylko LC) i nie mają innych zadań poza wydaniem LC tej linii słoni.
+    keywords: [dowódca słoni, impet]
+    flags: [optional]
+  - id: R-4.94.1
+    title: (opcja) Najwyżej dwóch dowódców słoni
+    section: "4.94"
+    source: {text: "oryg. 4.94, s. 11", pages: "11"}
+    effect: Gracz może mieć w grze najwyżej **dwóch** dowódców słoni naraz. W fazie ucieczki i przeładowania może zdjąć dowolnych dowódców słoni przed położeniem nowego.
+    keywords: [dowódca słoni, limit]
+    flags: [optional]

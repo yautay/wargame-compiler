@@ -1,0 +1,16 @@
+--- repair-01/contracts/ig/README.md
++++ repair-02/contracts/ig/README.md
+@@ -193,7 +193,12 @@
+ Exclusion requires a reason and a current complete human accepted `source_composition`
+ review. Its optional `coverage_boundary` object must specify `purpose: coverage_exclusion`
+ and exactly match the coverage entry's historical `inventory_ref`, historical `region_ref`
+-and representation `level`. That exact region must be a full-record review target and
++and representation `level`. Inventory pins in both coverage and boundary metadata use
++`whole_historical_ref`: they cannot carry `aspect_id`. The matching inventory basis is
++therefore a whole-record pin, and a different selected inventory revision makes the
++exclusion decision stale even if every particular aspect is unchanged. This restriction
++does not alter aspect-scoped targets or bases in ordinary reviews. That exact region
++must be a full-record review target and
+ the exact inventory a full-record review basis. Other-region, other-level, unrelated,
+ stale or partial decisions cannot transfer approval. The decision targets the region
+ and inventory boundary rather than the coverage record containing its own reference,

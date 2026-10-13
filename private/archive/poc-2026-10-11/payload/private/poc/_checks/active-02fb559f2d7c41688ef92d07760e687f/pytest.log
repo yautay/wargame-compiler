@@ -1,0 +1,13 @@
+........................................................................ [ 46%]
+.......................................F................................ [ 92%]
+...........                                                              [100%]
+================================== FAILURES ===================================
+_____________ test_roadmap_status_handoff_and_current_card_agree ______________
+tests\test_poc_continuity.py:112: in test_roadmap_status_handoff_and_current_card_agree
+    assert len(links) == 1, 'Handoff pointer must identify one latest session'
+E   AssertionError: Handoff pointer must identify one latest session
+E   assert 2 == 1
+E    +  where 2 = len(['handoff/2026-10-11-M-POC5A-owner13-handoff-01.md', 'handoff/2026-10-11-M-POC5A-semantic-04d3.md'])
+=========================== short test summary info ===========================
+FAILED tests/test_poc_continuity.py::test_roadmap_status_handoff_and_current_card_agree
+1 failed, 154 passed in 2.40s

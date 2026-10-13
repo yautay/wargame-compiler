@@ -1,0 +1,75 @@
+--- private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/baseline/tests/inputs/test_snapshot.py
++++ tests/inputs/test_snapshot.py
+@@ -349,3 +349,72 @@
+     path.write_text(json.dumps(manifest, indent=2), encoding='utf-8')
+     with pytest.raises(s.SnapshotError, match='not canonical'):
+         s.verify_snapshot(path.parent)
++
++
++@pytest.mark.parametrize('kind', ['input_snapshot', 'source_snapshot'])
++@pytest.mark.parametrize('operation', ['verify', 'reuse'])
++@pytest.mark.parametrize('addition', ['file', 'metadata', 'empty-directory', 'junction'])
++def test_sealed_tree_rejects_unmanifested_entries(tmp_path, monkeypatch, kind, operation, addition):
++    f = fixture(tmp_path)
++    result = freeze(f)
++    root = Path(result[kind])
++    original = {p: p.read_bytes() for p in root.rglob('*') if p.is_file()}
++    if addition == 'file':
++        extra = root / ('files/kb/unlisted.yaml' if kind == 'input_snapshot' else 'files/unlisted.pdf')
++        extra.write_bytes(b'unlisted bytes must never be admitted under the existing ID')
++    elif addition == 'metadata':
++        extra = root / ('source-pin.json' if kind == 'input_snapshot' else 'extra-metadata.json')
++        extra.write_bytes(b'{"unlisted":"metadata"}\n')
++    elif addition == 'empty-directory':
++        extra = root / 'files/empty-unlisted-directory'
++        extra.mkdir()
++    else:
++        outside = tmp_path / 'outside-sealed-tree'
++        outside.mkdir()
++        (outside / 'secret').write_bytes(b'no traversal or content read is permitted')
++        extra = root / 'files/unlisted-junction'
++        link_directory(extra, outside)
++    reads = []
++    enumerated = []
++    real_open, real_scandir = s.open_read, s.os.scandir
++    def tracked_open(path):
++        reads.append(Path(path))
++        return real_open(path)
++    def tracked_scandir(path):
++        enumerated.append(Path(path))
++        return real_scandir(path)
++    monkeypatch.setattr(s, 'open_read', tracked_open)
++    monkeypatch.setattr(s.os, 'scandir', tracked_scandir)
++    with pytest.raises(s.SnapshotError, match='snapshot tree'):
++        if operation == 'verify':
++            s.verify_snapshot(root)
++        else:
++            freeze(f)
++    # Reuse must reject the existing tree instead of repairing/overwriting it.
++    assert extra.lstat()
++    assert all(p.read_bytes() == raw for p, raw in original.items())
++    assert extra not in reads and extra not in enumerated
++    if addition == 'junction':
++        assert not any(p.is_relative_to(outside) for p in reads + enumerated)
++
++
++@pytest.mark.parametrize('operation', ['verify', 'reuse'])
++def test_missing_entry_cannot_acquire_a_blob_in_sealed_tree(tmp_path, monkeypatch, operation):
++    f = fixture(tmp_path)
++    result = freeze(f)
++    root = Path(result['input_snapshot'])
++    manifest_bytes = (root / 'manifest.json').read_bytes()
++    extra = root / 'files/docs/original.pdf'
++    extra.parent.mkdir()
++    extra.write_bytes(b'a manifest-declared missing source must have no copy')
++    reads = []
++    real_open = s.open_read
++    def tracked_open(path):
++        reads.append(Path(path))
++        return real_open(path)
++    monkeypatch.setattr(s, 'open_read', tracked_open)
++    with pytest.raises(s.SnapshotError, match='snapshot tree'):
++        s.verify_snapshot(root) if operation == 'verify' else freeze(f)
++    assert extra.read_bytes() == b'a manifest-declared missing source must have no copy'
++    assert extra not in reads
++    assert (root / 'manifest.json').read_bytes() == manifest_bytes

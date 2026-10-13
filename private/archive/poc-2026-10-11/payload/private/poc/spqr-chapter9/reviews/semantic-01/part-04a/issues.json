@@ -1,0 +1,2248 @@
+{
+  "issues": [
+    {
+      "id": "SEM-011",
+      "expectation": "EXP-052",
+      "classes": [
+        "błędna interpretacja",
+        "niejednoznaczność"
+      ],
+      "status": "pending",
+      "proposed_by": "Codex",
+      "human_reviewer": null,
+      "criticality": "critical_in_reviewed_scope",
+      "proposal": "R972 zachowuje RP >= floor(AWL/2), jednostkę Rout Points i wyjątek Shock bez ruchu przeciw enemy w własnej ZOC. R971 osobno zawiera drugą bramkę. R972.conditions/action_effect nie podaje jednak jawnie, że próg RP nie omija 9.71; brak osobnej pary DEP-NEW-001 odziedziczony. Właściciel rozstrzyga, czy dwa osobne ograniczenia wystarczają do całego reviewed_scope EXP-052, czy reprezentacja ich koniunkcji jest niepełna. Nie dopisano bramki do odpowiedzi, nie nadano FN ani ogólnego pozwolenia na atak.",
+      "reviewed_scope": "move+ShockRP>=floor(AWL/2)doesnotbypass9.71;standingShockagainsttargetinownZOCper9.72withouthavingtomove",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "right",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            315.0,
+            553.113,
+            567.008,
+            611.113
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-35-right.txt",
+          "helper_lines_inclusive": [
+            39,
+            43
+          ],
+          "transcription": "9.72 Triarii units cannot move and Shock attack unless and until\nthe Roman army has Rout Points equal to at least one-half of\nits Army Withdrawal Level (round down). They may always,\nhowever, Shock attack (without moving) against enemy units\nin their ZOC.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "C-9.72-01",
+          "parent_inventory_ref": "R-9.72",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "source_pointer": "/expectations/51",
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "evidence": {
+        "first-001": {
+          "R972": {
+            "pointer": "/rules/32",
+            "raw_span": {
+              "start_byte": 335855,
+              "end_byte_exclusive": 339867,
+              "sha256": "f304ccb85a653664ddb287c3e591dd67a2744b35cf4210ace71592b684436f5b"
+            },
+            "original_record": {
+              "id": "R972",
+              "original_label": {
+                "state": "known",
+                "value": "9.72",
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R972-C1",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E972"
+                  ],
+                  "original_label_text": "9.72",
+                  "source_clause_locator": [
+                    "Triarii cannot move and Shock attack until Rout Point threshold reached.",
+                    "Always may stationary Shock enemy in their ZOC."
+                  ]
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "They may always, however, Shock attack (without moving) against enemy units in their ZOC."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": [
+                  "Triarii cannot move and Shock attack until Rout Point threshold reached.",
+                  "Always may stationary Shock enemy in their ZOC."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "known",
+                "value": [
+                  "For combined movement and Shock: Roman Rout Points >= floor(one-half Army Withdrawal Level)."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": [
+                  "Triarii cannot move and Shock attack until Rout Point threshold reached.",
+                  "Always may stationary Shock enemy in their ZOC."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "known",
+                "value": [
+                  "Stationary Shock against enemy in own ZOC always permitted."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "parameters": {
+                "state": "known",
+                "value": [
+                  {
+                    "name": "Rout Point threshold",
+                    "value": ">= floor(Army Withdrawal Level / 2)",
+                    "unit": {
+                      "state": "known",
+                      "value": "Rout Points",
+                      "evidence_ids": [
+                        "E972"
+                      ],
+                      "reason": null,
+                      "gap_ids": []
+                    },
+                    "evidence_ids": [
+                      "E972"
+                    ]
+                  }
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": "Locally stated numerical parameters; unavailable referenced procedure/table values remain gaps.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Triarii",
+                  "Roman army",
+                  "enemy units"
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Chapter 9.0; 9.72"
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "known",
+                "value": [
+                  "Until Rout Point threshold; stationary Shock always allowed."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E972"
+              ],
+              "gap_ids": [
+                "G-D972AWL",
+                "G-D972RP",
+                "G-D-ZOC-R972"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "R971": {
+            "pointer": "/rules/31",
+            "raw_span": {
+              "start_byte": 330949,
+              "end_byte_exclusive": 335849,
+              "sha256": "8045dea61d7a9ffced7822b0dc2fc0c47620776dc6d0afa4bf6ede4ca2211ea0"
+            },
+            "original_record": {
+              "id": "R971",
+              "original_label": {
+                "state": "known",
+                "value": "9.71",
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R971-C1",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E971"
+                  ],
+                  "original_label_text": "9.71",
+                  "source_clause_locator": "Movement prohibition/facing permission"
+                },
+                {
+                  "local_clause_id": "R971-C2",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E971"
+                  ],
+                  "original_label_text": "9.71",
+                  "source_clause_locator": "OR trigger 1 — proximity and LOS"
+                },
+                {
+                  "local_clause_id": "R971-C3",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E971"
+                  ],
+                  "original_label_text": "9.71",
+                  "source_clause_locator": "OR trigger 2 — separation"
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "Triarii units cannot move, but may change facing, until and unless one of the following occurs:"
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": "Triarii cannot move, but can change facing, until either stated trigger occurs.",
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "known",
+                "value": [
+                  "Enemy combat unit other than Elephant within 3 hexes AND LOS of any unit in Triarii line; OR Triarii at least 6 hexes from all other Roman/Ala infantry lines, excluding allied infantry (Hastati, Principes or others)."
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": "Triarii cannot move, but can change facing, until either stated trigger occurs.",
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "known",
+                "value": [
+                  "Elephants excluded from proximity trigger.",
+                  "Allied infantry excluded from separation test.",
+                  "Facing permitted before release."
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "parameters": {
+                "state": "known",
+                "value": [
+                  {
+                    "name": "enemy proximity",
+                    "value": "within 3",
+                    "unit": {
+                      "state": "known",
+                      "value": "hexes AND LOS",
+                      "evidence_ids": [
+                        "E971"
+                      ],
+                      "reason": null,
+                      "gap_ids": []
+                    },
+                    "evidence_ids": [
+                      "E971"
+                    ]
+                  },
+                  {
+                    "name": "separation",
+                    "value": ">=6",
+                    "unit": {
+                      "state": "known",
+                      "value": "hexes from all other Roman/Ala infantry lines",
+                      "evidence_ids": [
+                        "E971"
+                      ],
+                      "reason": null,
+                      "gap_ids": []
+                    },
+                    "evidence_ids": [
+                      "E971"
+                    ]
+                  }
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": "Locally stated numerical parameters; unavailable referenced procedure/table values remain gaps.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Triarii",
+                  "enemy combat units except Elephants",
+                  "Roman/Ala infantry lines",
+                  "allied infantry"
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Chapter 9.0; 9.71"
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "known",
+                "value": [
+                  "Until and unless either trigger occurs."
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E971"
+              ],
+              "gap_ids": [
+                "G-D971LOS"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D972AWL": {
+            "pointer": "/gaps/54",
+            "raw_span": {
+              "start_byte": 555028,
+              "end_byte_exclusive": 555502,
+              "sha256": "7b2a49345eb5abfd06e09555c1a797ca2d0960cac20429a52f04434614135c9c"
+            },
+            "original_record": {
+              "id": "G-D972AWL",
+              "class": "missing_context",
+              "affected_ids": [
+                "R972",
+                "D972AWL"
+              ],
+              "source_regions": [
+                "pdf-35-core-right"
+              ],
+              "reason": "Scenario value for Triarii half-withdrawal threshold is referenced but unavailable.",
+              "needed_context": "Selected scenario Army Withdrawal Level",
+              "blocking": true,
+              "evidence_ids": [
+                "E972"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D972RP": {
+            "pointer": "/gaps/55",
+            "raw_span": {
+              "start_byte": 555508,
+              "end_byte_exclusive": 555991,
+              "sha256": "ecd85583d0a2f8ae358a010ae1bdbd73965717a64fd61fa126755e49e065078c"
+            },
+            "original_record": {
+              "id": "G-D972RP",
+              "class": "missing_context",
+              "affected_ids": [
+                "R972",
+                "D972RP"
+              ],
+              "source_regions": [
+                "pdf-35-core-right"
+              ],
+              "reason": "Roman Rout Point accounting needed for Triarii release is referenced but unavailable.",
+              "needed_context": "Rout Point calculation and army withdrawal rules",
+              "blocking": true,
+              "evidence_ids": [
+                "E972"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D-ZOC-R972": {
+            "pointer": "/gaps/79",
+            "raw_span": {
+              "start_byte": 567098,
+              "end_byte_exclusive": 567558,
+              "sha256": "a4d67be1b5ec9d51a406e372f6202fce147a18184e5a5f18a6425518640595a8"
+            },
+            "original_record": {
+              "id": "G-D-ZOC-R972",
+              "class": "missing_context",
+              "affected_ids": [
+                "R972",
+                "D-ZOC-R972"
+              ],
+              "source_regions": [
+                "pdf-35-core-right"
+              ],
+              "reason": "General ZOC test in rule condition is referenced but unavailable.",
+              "needed_context": "General ZOC definition and exceptions",
+              "blocking": true,
+              "evidence_ids": [
+                "E972"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        },
+        "context-01": {
+          "R972": {
+            "pointer": "/rules/32",
+            "raw_span": {
+              "start_byte": 408295,
+              "end_byte_exclusive": 412460,
+              "sha256": "efc3e461afcdf47ef5fafdc90f3c9223badabf8597ff20dc3ef7807de8842bde"
+            },
+            "original_record": {
+              "id": "R972",
+              "original_label": {
+                "state": "known",
+                "value": "9.72",
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R972-C1",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E972"
+                  ],
+                  "original_label_text": "9.72",
+                  "source_clause_locator": [
+                    "Triarii cannot move and Shock attack until Rout Point threshold reached.",
+                    "Always may stationary Shock enemy in their ZOC."
+                  ]
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "They may always, however, Shock attack (without moving) against enemy units in their ZOC."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": [
+                  "Triarii cannot move and Shock attack until Rout Point threshold reached.",
+                  "Always may stationary Shock enemy in their ZOC."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "known",
+                "value": [
+                  "For combined movement and Shock: Roman Rout Points >= floor(one-half Army Withdrawal Level)."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": [
+                  "Triarii cannot move and Shock attack until Rout Point threshold reached.",
+                  "Always may stationary Shock enemy in their ZOC."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "known",
+                "value": [
+                  "Stationary Shock against enemy in own ZOC always permitted."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "parameters": {
+                "state": "known",
+                "value": [
+                  {
+                    "name": "Rout Point threshold",
+                    "value": ">= floor(Army Withdrawal Level / 2)",
+                    "unit": {
+                      "state": "known",
+                      "value": "Rout Points",
+                      "evidence_ids": [
+                        "E972"
+                      ],
+                      "reason": null,
+                      "gap_ids": []
+                    },
+                    "evidence_ids": [
+                      "E972"
+                    ]
+                  }
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": "Locally stated numerical parameters; unavailable referenced procedure/table values remain gaps.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Triarii",
+                  "Roman army",
+                  "enemy units"
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Chapter 9.0; 9.72"
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "known",
+                "value": [
+                  "Until Rout Point threshold; stationary Shock always allowed."
+                ],
+                "evidence_ids": [
+                  "E972"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E972"
+              ],
+              "gap_ids": [
+                "G-D972AWL",
+                "G-D972RP",
+                "G-D-ZOC-R972"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "R971": {
+            "pointer": "/rules/31",
+            "raw_span": {
+              "start_byte": 403209,
+              "end_byte_exclusive": 408288,
+              "sha256": "6e94e151066b13d8cb84cbab7fe71d386ca967fe2925ed13f138ab1e272e4a25"
+            },
+            "original_record": {
+              "id": "R971",
+              "original_label": {
+                "state": "known",
+                "value": "9.71",
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R971-C1",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E971"
+                  ],
+                  "original_label_text": "9.71",
+                  "source_clause_locator": "Movement prohibition/facing permission"
+                },
+                {
+                  "local_clause_id": "R971-C2",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E971"
+                  ],
+                  "original_label_text": "9.71",
+                  "source_clause_locator": "OR trigger 1 — proximity and LOS"
+                },
+                {
+                  "local_clause_id": "R971-C3",
+                  "region_id": "pdf-35-core-right",
+                  "evidence_ids": [
+                    "E971"
+                  ],
+                  "original_label_text": "9.71",
+                  "source_clause_locator": "OR trigger 2 — separation"
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "Triarii units cannot move, but may change facing, until and unless one of the following occurs:"
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": "Triarii cannot move, but can change facing, until either stated trigger occurs.",
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "known",
+                "value": [
+                  "Enemy combat unit other than Elephant within 3 hexes AND LOS of any unit in Triarii line; OR Triarii at least 6 hexes from all other Roman/Ala infantry lines, excluding allied infantry (Hastati, Principes or others)."
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": "Triarii cannot move, but can change facing, until either stated trigger occurs.",
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "known",
+                "value": [
+                  "Elephants excluded from proximity trigger.",
+                  "Allied infantry excluded from separation test.",
+                  "Facing permitted before release."
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "parameters": {
+                "state": "known",
+                "value": [
+                  {
+                    "name": "enemy proximity",
+                    "value": "within 3",
+                    "unit": {
+                      "state": "known",
+                      "value": "hexes AND LOS",
+                      "evidence_ids": [
+                        "E971"
+                      ],
+                      "reason": null,
+                      "gap_ids": []
+                    },
+                    "evidence_ids": [
+                      "E971"
+                    ]
+                  },
+                  {
+                    "name": "separation",
+                    "value": ">=6",
+                    "unit": {
+                      "state": "known",
+                      "value": "hexes from all other Roman/Ala infantry lines",
+                      "evidence_ids": [
+                        "E971"
+                      ],
+                      "reason": null,
+                      "gap_ids": []
+                    },
+                    "evidence_ids": [
+                      "E971"
+                    ]
+                  }
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": "Locally stated numerical parameters; unavailable referenced procedure/table values remain gaps.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Triarii",
+                  "enemy combat units except Elephants",
+                  "Roman/Ala infantry lines",
+                  "allied infantry"
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Chapter 9.0; 9.71"
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "known",
+                "value": [
+                  "Until and unless either trigger occurs."
+                ],
+                "evidence_ids": [
+                  "E971"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E971"
+              ],
+              "gap_ids": [
+                "G-D971LOS"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D972AWL": {
+            "pointer": "/gaps/54",
+            "raw_span": {
+              "start_byte": 640754,
+              "end_byte_exclusive": 641245,
+              "sha256": "4501dab342ed343a618bfbff3bc2c2a58e0037d4bb0ec51b1ce768d66008b659"
+            },
+            "original_record": {
+              "id": "G-D972AWL",
+              "class": "missing_context",
+              "affected_ids": [
+                "R972",
+                "D972AWL"
+              ],
+              "source_regions": [
+                "pdf-35-core-right"
+              ],
+              "reason": "Scenario value for Triarii half-withdrawal threshold is referenced but unavailable.",
+              "needed_context": "Selected scenario Army Withdrawal Level",
+              "blocking": true,
+              "evidence_ids": [
+                "E972"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D972RP": {
+            "pointer": "/gaps/55",
+            "raw_span": {
+              "start_byte": 641252,
+              "end_byte_exclusive": 641752,
+              "sha256": "f55d0cda36ede2f89e9a06f65931deb0783be55f592e897fdf842846f390abca"
+            },
+            "original_record": {
+              "id": "G-D972RP",
+              "class": "missing_context",
+              "affected_ids": [
+                "R972",
+                "D972RP"
+              ],
+              "source_regions": [
+                "pdf-35-core-right"
+              ],
+              "reason": "Roman Rout Point accounting needed for Triarii release is referenced but unavailable.",
+              "needed_context": "Rout Point calculation and army withdrawal rules",
+              "blocking": true,
+              "evidence_ids": [
+                "E972"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D-ZOC-R972": {
+            "pointer": "/gaps/79",
+            "raw_span": {
+              "start_byte": 653278,
+              "end_byte_exclusive": 653755,
+              "sha256": "f4316df191200527106f5fdd44db596d27ef4f4760e20d7f5d07f53eae494b36"
+            },
+            "original_record": {
+              "id": "G-D-ZOC-R972",
+              "class": "missing_context",
+              "affected_ids": [
+                "R972",
+                "D-ZOC-R972"
+              ],
+              "source_regions": [
+                "pdf-35-core-right"
+              ],
+              "reason": "General ZOC test in rule condition is referenced but unavailable.",
+              "needed_context": "General ZOC definition and exceptions",
+              "blocking": true,
+              "evidence_ids": [
+                "E972"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        }
+      },
+      "impact": "Whether the entire owned scope and applicable concrete block is sufficiently represented; owner decision required.",
+      "uncertainty": "Local content is observed; no actual wrong scenario outcome demonstrated. Not automatically confirmed semantic error or FN.",
+      "exclusions": [
+        "9.71 i9.72 czytane razem; full legal attack nadal wymaga innych warunków.",
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ]
+    },
+    {
+      "id": "SEM-012",
+      "expectation": "EXP-066",
+      "classes": [
+        "brak kontekstu",
+        "niejednoznaczność"
+      ],
+      "status": "pending",
+      "proposed_by": "Codex",
+      "human_reviewer": null,
+      "criticality": "critical_in_reviewed_scope",
+      "proposal": "R996note zachowuje ignore Chariots reference on Combat Tables; N996design nie tworzy dodatkowego skutku. N-14-S2 to dokładna instrukcja, N-14-S3 appearances Sentinum/Telamon, bez listy eligibility wszystkich LI. G-D996tables deklaruje potrzebę actual tables/entries, ale blocking=false; D996tables blocks_full_result=false. Lokalny zakaz użycia wiersza znany, konkretne identyfikowanie suppressowanych entries niezamknięte. Właściciel rozstrzyga wystarczalność jawnej blokady zależnego pełnego pytania. Nie ma konkretnego niepoprawnego lookupu, nie jest to automatyczny błąd odczytu lub FP.",
+      "reviewed_scope": "GallictransportCHCombatTablesignoreinstruction retained;exacttables/entriesrequirecontext alreadyRQ05scope",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "right",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            319.0,
+            524.85,
+            563.026,
+            618.85
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-36-right.txt",
+          "helper_lines_inclusive": [
+            36,
+            43
+          ],
+          "transcription": "DESIGN NOTE: The chariots used by the Gallic tribes were\nnot, in any way, weapons systems. They were used only for\ntransport. Their only resemblance to the war chariots of “days\ngone by” was that they had wheels. Thus, ignore the reference\nto Chariots on the Combat Tables. However, the tribes were\nquite adept at using them to whatever advantage they did of-\nfer. In this module, chariots make an appearance at Sentinum\nand Telamon.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "N-14-S2",
+          "parent_inventory_ref": "N-14",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "Thus, ignore the reference\nto Chariots on the Combat Tables.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "right",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            319.0,
+            524.85,
+            563.026,
+            618.85
+          ],
+          "bbox_precision": "text-line envelope; does not include adjacent counter artwork",
+          "helper_file": "source/review-evidence/pdf-36-right.txt",
+          "helper_lines_inclusive": [
+            36,
+            43
+          ],
+          "transcription": "DESIGN NOTE: The chariots used by the Gallic tribes were\nnot, in any way, weapons systems. They were used only for\ntransport. Their only resemblance to the war chariots of “days\ngone by” was that they had wheels. Thus, ignore the reference\nto Chariots on the Combat Tables. However, the tribes were\nquite adept at using them to whatever advantage they did of-\nfer. In this module, chariots make an appearance at Sentinum\nand Telamon.",
+          "reading_status": "visually_checked_by_codex",
+          "inventory_ref": "N-14-S3",
+          "parent_inventory_ref": "N-14",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "source_span": "However, the tribes were\nquite adept at using them to whatever advantage they did of-\nfer. In this module, chariots make an appearance at Sentinum\nand Telamon.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "source_pointer": "/expectations/65",
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "evidence": {
+        "first-001": {
+          "N996design": {
+            "pointer": "/nodes/30",
+            "raw_span": {
+              "start_byte": 146679,
+              "end_byte_exclusive": 147468,
+              "sha256": "c01e2df13e259d2b65d4ec89dee199481937bd990757f3a83e9f9dc5ce3784dd"
+            },
+            "original_record": {
+              "id": "N996design",
+              "kind": "other",
+              "original_label": {
+                "state": "known",
+                "value": "DESIGN NOTE:",
+                "evidence_ids": [
+                  "E996design"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": "Gallic chariots historically transport rather than weapons. Operative instruction to ignore Combat Table Chariot references and module appearances owned by R996note.",
+                "evidence_ids": [
+                  "E996design"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E996design"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "DESIGN NOTE (9.96) — historical portion"
+            }
+          },
+          "R996note": {
+            "pointer": "/rules/45",
+            "raw_span": {
+              "start_byte": 392603,
+              "end_byte_exclusive": 396286,
+              "sha256": "3dfdaccd8a573ddf99e083715c467fb8a36ec4ad52929c71b7259de8de628ab5"
+            },
+            "original_record": {
+              "id": "R996note",
+              "original_label": {
+                "state": "known",
+                "value": "DESIGN NOTE:",
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R996note-C1",
+                  "region_id": "pdf-36-core-right",
+                  "evidence_ids": [
+                    "E996note"
+                  ],
+                  "original_label_text": "DESIGN NOTE:",
+                  "source_clause_locator": "Ignore Combat Table Chariot reference"
+                },
+                {
+                  "local_clause_id": "R996note-C2",
+                  "region_id": "pdf-36-core-right",
+                  "evidence_ids": [
+                    "E996note"
+                  ],
+                  "original_label_text": "DESIGN NOTE:",
+                  "source_clause_locator": "Module appearances"
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "Thus, ignore the reference to Chariots on the Combat Tables."
+                ],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": "Gallic chariots are transport; ignore Chariot reference on Combat Tables. In this module they appear at Sentinum and Telamon.",
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "No additional prerequisite stated in this identified clause.",
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": "Gallic chariots are transport; ignore Chariot reference on Combat Tables. In this module they appear at Sentinum and Telamon.",
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "No exception stated within this identified clause; external rules may qualify it.",
+                "gap_ids": []
+              },
+              "parameters": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "No numerical parameter stated within this identified clause.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Gallic Chariot"
+                ],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Transport role and table-reference suppression; module appearances Sentinum/Telamon."
+                ],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "not_applicable",
+                "value": null,
+                "evidence_ids": [],
+                "reason": "No separate time restriction stated; event timing, if any, is expressed in conditions/action_effect.",
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E996note"
+              ],
+              "gap_ids": [
+                "G-D996tables"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "DESIGN NOTE (9.96)"
+            }
+          },
+          "D996tables": {
+            "pointer": "/dependencies/108",
+            "raw_span": {
+              "start_byte": 512527,
+              "end_byte_exclusive": 513635,
+              "sha256": "1f7003a3d4d4e84827c18ca49ade9e7bb6d3e7bf41627b4af176911bda5c0b8a"
+            },
+            "original_record": {
+              "id": "D996tables",
+              "from": "R996note",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Chariots on the Combat Tables",
+                "description": "Combat Table Chariot references ignored for transport chariots",
+                "needed_context": "Actual combat tables only to identify suppressed Chariot entries; no execution permitted by this clause"
+              },
+              "kind": "exception",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Chariots on the Combat Tables; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result.",
+              "evidence_ids": [
+                "E996note"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R996note"
+                ],
+                "blocks_full_result": false,
+                "reason": "Combat Table Chariot references ignored for transport chariots is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D996tables"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D996tables": {
+            "pointer": "/gaps/68",
+            "raw_span": {
+              "start_byte": 561690,
+              "end_byte_exclusive": 562253,
+              "sha256": "4d25580273e2f47e9861742228dfda824e123a8c160529580af039237d78a715"
+            },
+            "original_record": {
+              "id": "G-D996tables",
+              "class": "missing_context",
+              "affected_ids": [
+                "R996note",
+                "D996tables"
+              ],
+              "source_regions": [
+                "pdf-36-core-right"
+              ],
+              "reason": "Combat Table Chariot references ignored for transport chariots is referenced but unavailable.",
+              "needed_context": "Actual combat tables only to identify suppressed Chariot entries; no execution permitted by this clause",
+              "blocking": false,
+              "evidence_ids": [
+                "E996note"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        },
+        "context-01": {
+          "N996design": {
+            "pointer": "/nodes/30",
+            "raw_span": {
+              "start_byte": 195676,
+              "end_byte_exclusive": 196492,
+              "sha256": "7ad32edfe26a51d99e6ab415bbb1f85fc82f8061c5071dd33970b43437e5378f"
+            },
+            "original_record": {
+              "id": "N996design",
+              "kind": "other",
+              "original_label": {
+                "state": "known",
+                "value": "DESIGN NOTE:",
+                "evidence_ids": [
+                  "E996design"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": "Gallic chariots historically transport rather than weapons. Operative instruction to ignore Combat Table Chariot references and module appearances owned by R996note.",
+                "evidence_ids": [
+                  "E996design"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E996design"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "DESIGN NOTE (9.96) — historical portion"
+            }
+          },
+          "R996note": {
+            "pointer": "/rules/45",
+            "raw_span": {
+              "start_byte": 467110,
+              "end_byte_exclusive": 470918,
+              "sha256": "88c04eae1baf89929461610b1d701ea1201da58987d814350fdcfb5516d2ec76"
+            },
+            "original_record": {
+              "id": "R996note",
+              "original_label": {
+                "state": "known",
+                "value": "DESIGN NOTE:",
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "clause_map": [
+                {
+                  "local_clause_id": "R996note-C1",
+                  "region_id": "pdf-36-core-right",
+                  "evidence_ids": [
+                    "E996note"
+                  ],
+                  "original_label_text": "DESIGN NOTE:",
+                  "source_clause_locator": "Ignore Combat Table Chariot reference"
+                },
+                {
+                  "local_clause_id": "R996note-C2",
+                  "region_id": "pdf-36-core-right",
+                  "evidence_ids": [
+                    "E996note"
+                  ],
+                  "original_label_text": "DESIGN NOTE:",
+                  "source_clause_locator": "Module appearances"
+                }
+              ],
+              "transcription": {
+                "state": "known",
+                "value": [
+                  "Thus, ignore the reference to Chariots on the Combat Tables."
+                ],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "Selected literal excerpts; complete operative content is separately summarized in action_effect and linked source images.",
+                "gap_ids": []
+              },
+              "interpretation": {
+                "state": "known",
+                "value": "Gallic chariots are transport; ignore Chariot reference on Combat Tables. In this module they appear at Sentinum and Telamon.",
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "Interpretation confined to supplied source; no external procedures reconstructed.",
+                "gap_ids": []
+              },
+              "conditions": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "No additional prerequisite stated in this identified clause.",
+                "gap_ids": []
+              },
+              "action_effect": {
+                "state": "known",
+                "value": "Gallic chariots are transport; ignore Chariot reference on Combat Tables. In this module they appear at Sentinum and Telamon.",
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "exceptions": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "No exception stated within this identified clause; external rules may qualify it.",
+                "gap_ids": []
+              },
+              "parameters": {
+                "state": "established_absent",
+                "value": [],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": "No numerical parameter stated within this identified clause.",
+                "gap_ids": []
+              },
+              "unit_types": {
+                "state": "known",
+                "value": [
+                  "Gallic Chariot"
+                ],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_limits": {
+                "state": "known",
+                "value": [
+                  "Transport role and table-reference suppression; module appearances Sentinum/Telamon."
+                ],
+                "evidence_ids": [
+                  "E996note"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "time_limits": {
+                "state": "not_applicable",
+                "value": null,
+                "evidence_ids": [],
+                "reason": "No separate time restriction stated; event timing, if any, is expressed in conditions/action_effect.",
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E996note"
+              ],
+              "gap_ids": [
+                "G-D996tables"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "DESIGN NOTE (9.96)"
+            }
+          },
+          "D996tables": {
+            "pointer": "/dependencies/108",
+            "raw_span": {
+              "start_byte": 590968,
+              "end_byte_exclusive": 592103,
+              "sha256": "f4555792332ddf87bf519ee6a9231583e2516e597f413bb1afa7a4b5ea93bccb"
+            },
+            "original_record": {
+              "id": "D996tables",
+              "from": "R996note",
+              "to": null,
+              "target_candidate": {
+                "original_reference": "Chariots on the Combat Tables",
+                "description": "Combat Table Chariot references ignored for transport chariots",
+                "needed_context": "Actual combat tables only to identify suppressed Chariot entries; no execution permitted by this clause"
+              },
+              "kind": "exception",
+              "explicitness": "explicit",
+              "rationale": "Source refers to Chariots on the Combat Tables; direction is referring clause to the unavailable target. Its contents are needed to fully execute or determine the stated result.",
+              "evidence_ids": [
+                "E996note"
+              ],
+              "target_status": "unresolved",
+              "impact_if_missing": {
+                "affected_ids": [
+                  "R996note"
+                ],
+                "blocks_full_result": false,
+                "reason": "Combat Table Chariot references ignored for transport chariots is not fully supplied; no missing content reconstructed."
+              },
+              "gap_ids": [
+                "G-D996tables"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "G-D996tables": {
+            "pointer": "/gaps/68",
+            "raw_span": {
+              "start_byte": 647668,
+              "end_byte_exclusive": 648248,
+              "sha256": "709d00bec15889990cc4d425d9ee7b2f041b8814b8f0bf029e59286bcc067d4b"
+            },
+            "original_record": {
+              "id": "G-D996tables",
+              "class": "missing_context",
+              "affected_ids": [
+                "R996note",
+                "D996tables"
+              ],
+              "source_regions": [
+                "pdf-36-core-right"
+              ],
+              "reason": "Combat Table Chariot references ignored for transport chariots is referenced but unavailable.",
+              "needed_context": "Actual combat tables only to identify suppressed Chariot entries; no execution permitted by this clause",
+              "blocking": false,
+              "evidence_ids": [
+                "E996note"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        }
+      },
+      "impact": "Whether the entire owned scope and applicable concrete block is sufficiently represented; owner decision required.",
+      "uncertainty": "Local content is observed; no actual wrong scenario outcome demonstrated. Not automatically confirmed semantic error or FN.",
+      "exclusions": [
+        "Exact Combat Tables and relevant entries are required; no values are guessed.",
+        "Dokładne Combat Tables i ich chariot entries, decision owner o zakresie; nie traktować Sentinum/Telamon jako listy eligibility wszystkich LI.",
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ]
+    },
+    {
+      "id": "SEM-013",
+      "expectation": "EXP-074",
+      "classes": [
+        "brak kontekstu",
+        "niejednoznaczność"
+      ],
+      "status": "pending",
+      "proposed_by": "Codex",
+      "human_reviewer": null,
+      "criticality": "conditional_on_concrete_parameter_use",
+      "proposal": "N911counter/N921counter/N981counter podają visible glyphs, lecz wyraźnie wykluczają game-wide values i rating-position inference. N966diagram mówi illustrative, not general Roman parameters; N985markers/N986marker to stany markerów. Brak twierdzenia o realnym Leader Elephant TQ6. Równocześnie nie ma osobnego gap ani jawnej conditional blocking deklaracji actual identified TQ/MA przed concrete use. Właściciel rozstrzyga, czy zapis illustrative wystarcza dla ograniczonego wymagania EXP-074. Same oględziny paneli/states nie certyfikują małych ratingów, tożsamości konkretnych jednostek ani 64 granic glifów. Criticality pozostaje conditional_on_concrete_parameter_use.",
+      "reviewed_scope": "Confirm actualidentifiedunit TQ/MA before concreteuse; not alltinygraphicratings were individuallyverified inthisreview. SyntheticinputTQ6 doesnotestablishactualLeaderElephantTQ. Keeprequires_context foractualvalues.",
+      "source_evidence": [
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 31,
+          "printed_page": "31",
+          "column": "right",
+          "render": "source/review-evidence/pdf-31.png",
+          "render_sha256": "39f86ad053725088e9c571f43d1e8ecc4dbf21f5b191cc1e7d99cc854ddc34ba",
+          "bbox_pdf_points": [
+            315,
+            482,
+            352,
+            521
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "G-01",
+          "parent_inventory_ref": "R-9.11",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 33,
+          "printed_page": "33",
+          "column": "right",
+          "render": "source/review-evidence/pdf-33.png",
+          "render_sha256": "3ba367da1aee5635f964b887ff518ec63ba48175278e3fefdb031a8e03a7d15d",
+          "bbox_pdf_points": [
+            315,
+            239,
+            352,
+            276
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "G-02",
+          "parent_inventory_ref": "R-9.21",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "left",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            45,
+            71,
+            82,
+            109
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "G-03",
+          "parent_inventory_ref": "R-9.81",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 35,
+          "printed_page": "35",
+          "column": "left",
+          "render": "source/review-evidence/pdf-35.png",
+          "render_sha256": "96b9d6d8a64767881ee17ef33519b46fb73078bb1e06d859514f638b8b34d0e7",
+          "bbox_pdf_points": [
+            80,
+            516,
+            266,
+            674
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "D-02",
+          "parent_inventory_ref": "R-9.66",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "left",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            45,
+            365,
+            120,
+            404
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "G-04",
+          "parent_inventory_ref": "R-9.85",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        },
+        {
+          "source_id": "SPQR-5E-ch9-source-v1",
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "pdf_page": 36,
+          "printed_page": "36",
+          "column": "left",
+          "render": "source/review-evidence/pdf-36.png",
+          "render_sha256": "19a8d294da3d5fda2896526b7aaa4c9ea239233ec6203c3b36d723c71fef4374",
+          "bbox_pdf_points": [
+            260,
+            528,
+            297,
+            566
+          ],
+          "bbox_precision": "manually inspected approximate graphic envelope",
+          "inventory_ref": "G-05",
+          "parent_inventory_ref": "R-9.86",
+          "locator_policy": "Containing envelope; exact child span is source_span when present; not a new glyph-level box.",
+          "M_POC1B_read": "Codex manual review of unchanged PDF31–37 renders and helper locators"
+        }
+      ],
+      "source_pointer": "/expectations/73",
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "evidence": {
+        "first-001": {
+          "N911counter": {
+            "pointer": "/nodes/31",
+            "raw_span": {
+              "start_byte": 147474,
+              "end_byte_exclusive": 148541,
+              "sha256": "23d5455d6e3e846f2793ab9162a4d52e351dec50fdbb6c82f9bbdf60726cf009"
+            },
+            "original_record": {
+              "id": "N911counter",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Africa",
+                "evidence_ids": [
+                  "E911counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "visible_text": [
+                      "Africa",
+                      "15",
+                      "J",
+                      "a",
+                      "5",
+                      "EL",
+                      "5",
+                      "7"
+                    ]
+                  },
+                  "interpretation": "Illustrative counter. Numerical glyphs retained as displayed; no game-wide values or rating-position meanings inferred. Weapon/icon geometry remains in cited image."
+                },
+                "evidence_ids": [
+                  "E911counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E911counter"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "Illustrative counter — Africa / EL"
+            }
+          },
+          "N921counter": {
+            "pointer": "/nodes/32",
+            "raw_span": {
+              "start_byte": 148547,
+              "end_byte_exclusive": 149599,
+              "sha256": "30e857892be2b6c8be03571a7cf4d4176065f50d0ebbc1464ce5742405a3dc86"
+            },
+            "original_record": {
+              "id": "N921counter",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Bal'ric",
+                "evidence_ids": [
+                  "E921counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "visible_text": [
+                      "Bal'ric",
+                      "6",
+                      "S",
+                      "1",
+                      "SK",
+                      "3",
+                      "6"
+                    ]
+                  },
+                  "interpretation": "Illustrative counter. Numerical glyphs retained as displayed; no game-wide values or rating-position meanings inferred. Weapon/icon geometry remains in cited image."
+                },
+                "evidence_ids": [
+                  "E921counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E921counter"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "Illustrative counter — Bal’ric / SK"
+            }
+          },
+          "N966diagram": {
+            "pointer": "/nodes/7",
+            "raw_span": {
+              "start_byte": 128977,
+              "end_byte_exclusive": 130323,
+              "sha256": "f5c32b1dae24067c8069c9f6a259e1da4cd473f61255ce80b5b070a71cc69689"
+            },
+            "original_record": {
+              "id": "N966diagram",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Original Deployment / After Manipular Line Extension",
+                "evidence_ids": [
+                  "E966diagram"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "captions": [
+                      "Original Deployment",
+                      "After Manipular Line Extension"
+                    ],
+                    "top_panel": "Two separated stacks; curved arrows point sideways right into adjacent empty hexes.",
+                    "bottom_panel": "Four single counters in adjacent hexes, labeled I a, I b, I c, I d.",
+                    "counter_text": [
+                      "HA",
+                      "J",
+                      "3",
+                      "LG",
+                      "7",
+                      "5"
+                    ]
+                  },
+                  "interpretation": "Illustration shows unstacking each top unit into vacant side hex, preserving facing. Numeric counter ratings are illustrative and are not general Roman unit parameters."
+                },
+                "evidence_ids": [
+                  "E966diagram"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E966diagram"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "N981counter": {
+            "pointer": "/nodes/33",
+            "raw_span": {
+              "start_byte": 149605,
+              "end_byte_exclusive": 150636,
+              "sha256": "5598ad644a67222e29a3ec1778f8d63074add8759087c77097a583b05c918b7b"
+            },
+            "original_record": {
+              "id": "N981counter",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Scorpio",
+                "evidence_ids": [
+                  "E981counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "visible_text": [
+                      "Scorpio",
+                      "1",
+                      "LI",
+                      "1",
+                      "2",
+                      "3"
+                    ]
+                  },
+                  "interpretation": "Illustrative counter. Numerical glyphs retained as displayed; no game-wide values or rating-position meanings inferred. Weapon/icon geometry remains in cited image."
+                },
+                "evidence_ids": [
+                  "E981counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E981counter"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "Illustrative counter — Scorpio / LI"
+            }
+          },
+          "N985markers": {
+            "pointer": "/nodes/34",
+            "raw_span": {
+              "start_byte": 150642,
+              "end_byte_exclusive": 151434,
+              "sha256": "7e5c2a786b20ef970bd132c76fad600d3c7f7fdf1ceda5d1f40250a08c6be599"
+            },
+            "original_record": {
+              "id": "N985markers",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Active Fire markers",
+                "evidence_ids": [
+                  "E985markers"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": [
+                    "Active Fire Once",
+                    "Active Fire Finished"
+                  ],
+                  "interpretation": "Once and Finished marker faces illustrate the two-stage Active Fire status."
+                },
+                "evidence_ids": [
+                  "E985markers"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E985markers"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "N986marker": {
+            "pointer": "/nodes/35",
+            "raw_span": {
+              "start_byte": 151440,
+              "end_byte_exclusive": 152165,
+              "sha256": "eec53b192a3f070793c45819fcd3e0ec3552a94155fabb4b3538dde4688285f7"
+            },
+            "original_record": {
+              "id": "N986marker",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Reaction Fire marker",
+                "evidence_ids": [
+                  "E986marker"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": "Reaction Fire Once",
+                  "interpretation": "Only Once face pictured here; Finished face is specified in prose R986."
+                },
+                "evidence_ids": [
+                  "E986marker"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E986marker"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        },
+        "context-01": {
+          "N911counter": {
+            "pointer": "/nodes/31",
+            "raw_span": {
+              "start_byte": 196499,
+              "end_byte_exclusive": 197607,
+              "sha256": "7b6b333e688ac23f557a2c1e1344876b6770501901c9407247d341dac0c97653"
+            },
+            "original_record": {
+              "id": "N911counter",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Africa",
+                "evidence_ids": [
+                  "E911counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "visible_text": [
+                      "Africa",
+                      "15",
+                      "J",
+                      "a",
+                      "5",
+                      "EL",
+                      "5",
+                      "7"
+                    ]
+                  },
+                  "interpretation": "Illustrative counter. Numerical glyphs retained as displayed; no game-wide values or rating-position meanings inferred. Weapon/icon geometry remains in cited image."
+                },
+                "evidence_ids": [
+                  "E911counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E911counter"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "Illustrative counter — Africa / EL"
+            }
+          },
+          "N921counter": {
+            "pointer": "/nodes/32",
+            "raw_span": {
+              "start_byte": 197614,
+              "end_byte_exclusive": 198706,
+              "sha256": "0c1388f9709c55e4e5a45fc7686880da9f5078247249284e32ca56de85771f8b"
+            },
+            "original_record": {
+              "id": "N921counter",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Bal'ric",
+                "evidence_ids": [
+                  "E921counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "visible_text": [
+                      "Bal'ric",
+                      "6",
+                      "S",
+                      "1",
+                      "SK",
+                      "3",
+                      "6"
+                    ]
+                  },
+                  "interpretation": "Illustrative counter. Numerical glyphs retained as displayed; no game-wide values or rating-position meanings inferred. Weapon/icon geometry remains in cited image."
+                },
+                "evidence_ids": [
+                  "E921counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E921counter"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "Illustrative counter — Bal’ric / SK"
+            }
+          },
+          "N966diagram": {
+            "pointer": "/nodes/7",
+            "raw_span": {
+              "start_byte": 177283,
+              "end_byte_exclusive": 178673,
+              "sha256": "36e8f4cd62347156e4d08983cd3b50a484a73b8478deddb5b4167d954c4d364d"
+            },
+            "original_record": {
+              "id": "N966diagram",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Original Deployment / After Manipular Line Extension",
+                "evidence_ids": [
+                  "E966diagram"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "captions": [
+                      "Original Deployment",
+                      "After Manipular Line Extension"
+                    ],
+                    "top_panel": "Two separated stacks; curved arrows point sideways right into adjacent empty hexes.",
+                    "bottom_panel": "Four single counters in adjacent hexes, labeled I a, I b, I c, I d.",
+                    "counter_text": [
+                      "HA",
+                      "J",
+                      "3",
+                      "LG",
+                      "7",
+                      "5"
+                    ]
+                  },
+                  "interpretation": "Illustration shows unstacking each top unit into vacant side hex, preserving facing. Numeric counter ratings are illustrative and are not general Roman unit parameters."
+                },
+                "evidence_ids": [
+                  "E966diagram"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E966diagram"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "N981counter": {
+            "pointer": "/nodes/33",
+            "raw_span": {
+              "start_byte": 198713,
+              "end_byte_exclusive": 199783,
+              "sha256": "a40fc3ffd54bad133ba38846aeb3aab44303b5e8c073a04740d3cbc39f922451"
+            },
+            "original_record": {
+              "id": "N981counter",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Scorpio",
+                "evidence_ids": [
+                  "E981counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": {
+                    "visible_text": [
+                      "Scorpio",
+                      "1",
+                      "LI",
+                      "1",
+                      "2",
+                      "3"
+                    ]
+                  },
+                  "interpretation": "Illustrative counter. Numerical glyphs retained as displayed; no game-wide values or rating-position meanings inferred. Weapon/icon geometry remains in cited image."
+                },
+                "evidence_ids": [
+                  "E981counter"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E981counter"
+              ],
+              "review_status": "unreviewed",
+              "source_locator": "Illustrative counter — Scorpio / LI"
+            }
+          },
+          "N985markers": {
+            "pointer": "/nodes/34",
+            "raw_span": {
+              "start_byte": 199790,
+              "end_byte_exclusive": 200614,
+              "sha256": "dbe361bd9cf8804ab74f36fb87df19676d1bb274181a69cbb81096f69bd1c781"
+            },
+            "original_record": {
+              "id": "N985markers",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Active Fire markers",
+                "evidence_ids": [
+                  "E985markers"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": [
+                    "Active Fire Once",
+                    "Active Fire Finished"
+                  ],
+                  "interpretation": "Once and Finished marker faces illustrate the two-stage Active Fire status."
+                },
+                "evidence_ids": [
+                  "E985markers"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E985markers"
+              ],
+              "review_status": "unreviewed"
+            }
+          },
+          "N986marker": {
+            "pointer": "/nodes/35",
+            "raw_span": {
+              "start_byte": 200621,
+              "end_byte_exclusive": 201375,
+              "sha256": "78dde9f9c9f3eb96ff736ce3906574f912063c631e83bc02f67c83e028508c80"
+            },
+            "original_record": {
+              "id": "N986marker",
+              "kind": "diagram",
+              "original_label": {
+                "state": "known",
+                "value": "Reaction Fire marker",
+                "evidence_ids": [
+                  "E986marker"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "scope_role": "core",
+              "content": {
+                "state": "known",
+                "value": {
+                  "transcription": "Reaction Fire Once",
+                  "interpretation": "Only Once face pictured here; Finished face is specified in prose R986."
+                },
+                "evidence_ids": [
+                  "E986marker"
+                ],
+                "reason": null,
+                "gap_ids": []
+              },
+              "evidence_ids": [
+                "E986marker"
+              ],
+              "review_status": "unreviewed"
+            }
+          }
+        }
+      },
+      "impact": "Whether the entire owned scope and applicable concrete block is sufficiently represented; owner decision required.",
+      "uncertainty": "Local content is observed; no actual wrong scenario outcome demonstrated. Not automatically confirmed semantic error or FN.",
+      "exclusions": [
+        "Actual identified counter TQ/MA and glyph values remain unconfirmed; criticality is conditional on changing outcome or legality.",
+        "Wybrany żeton/parametr z dokładnym źródłem i przeglądem, tylko jeśli sytuacja go potrzebuje.",
+        "any parent proposition clause not reproduced in reviewed_assertions",
+        "unshown relation metadata, aliases and external target identities",
+        "full external procedures and real-state parameters unless explicitly listed"
+      ]
+    }
+  ],
+  "inherited_pending": [
+    "SEM-001",
+    "SEM-002",
+    "SEM-003",
+    "SEM-004",
+    "SEM-005",
+    "SEM-006",
+    "SEM-007",
+    "SEM-008",
+    "SEM-009",
+    "SEM-010"
+  ],
+  "confirmed_semantic_errors": "not_assessable",
+  "wrong_read": "not_assessable",
+  "structural_observations": "SEM-006 missing critical pairs remain open; no automatic semantic FN. E916/64 boundaries unchanged. Full edge review in separate .4b.",
+  "source_blocks": "Relevant existing critical context gaps remain; local supplied facts/operators not blanket blocked.",
+  "owner_decisions": []
+}

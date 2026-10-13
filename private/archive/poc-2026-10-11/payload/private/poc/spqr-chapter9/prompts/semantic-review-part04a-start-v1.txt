@@ -1,0 +1,121 @@
+Kontynuuj M-POC5A, wykonując tylko część M-POC5A.4a: EXP-051–074.
+
+Pracuj lokalnie w C:\repo\wargame-compiler na feature/tests. To sesja
+oceniająca, nie ekstrakcyjna. Zachowaj wszystkie zastane zmiany. Nie wykonuj
+reset/clean/stash ani przełączenia, które porzuci lokalne artefakty.
+Nie twórz nowego czatu i nie wysyłaj wiadomości do innych czatów.
+
+Przeczytaj CLAUDE.md, docs/SESSION-PLAYBOOK.md, docs/STATUS.md,
+docs/HANDOFF.md i wskazany aktualny handoff, docs/ROADMAP.md,
+docs/POC-PLAN.md, ADR-0039, kartę M-POC5A i karty M-POC5A.4 oraz .4a
+pod docs/work/tasks/semantic/. Aktualny handoff:
+docs/handoff/2026-10-10-M-POC5A-owner-review-02.md.
+Przeczytaj też prompts/semantic-review-start-v1.txt pod prywatnym korzeniem;
+ten prompt określa nowszy stan decyzji i węższy zakres obecnej sesji.
+Nie zakładaj dostępności C:\dev.
+
+Prywatny korzeń P = private/poc/spqr-chapter9/.
+Najpierw sprawdź niezmienione oryginalne bajty i SHA-256:
+- P/runs/first-001/first-001.json: 617941 bajtów,
+  3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307.
+- P/runs/context-01/response.raw.txt: 712014 bajtów,
+  95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b.
+- P/evaluation/eval-v1/manifest.json:
+  7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce.
+- P/source/original-pdf-20261008-01.pdf:
+  e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e.
+
+Aktualny stan przeglądu:
+- P/reviews/semantic-01/current-state-05.json;
+- owner-decision-01.json i owner-decision-02.json;
+- owner-review-overlay-02.json i owner-review-summary-02.md.
+Właściciel zaakceptował w obu wynikach 43/66 dokładnych lokalnych zakresów
+oraz przejrzał poprawność 2/8 wymagań źródła (EXP-031 i EXP-033).
+To wymagania/blokady źródła, nie pełne domknięcie kontekstu lub wyników.
+23 lokalne i 6 kontekstu nadal pending, razem 29 oczekiwań.
+Wcześniejsze pending: EXP-010, EXP-017, EXP-019, EXP-040, EXP-050.
+Ostatnie 24 oczekiwania EXP-051–074 są zakresem tej części .4a.
+
+Akceptację odnotowano tylko w pokazanych reviewed_scope. Nie przenoś jej
+na inne klauzule tych samych reguł, całe rekordy inwentarza, pola/aliasy,
+ratingi grafik, relacje, lokatory, sytuacje, pełny graf lub budżet czasu.
+175 par rubryka/EXP dotyczy tylko przyjętych komponentów i nie daje
+175 dodatkowych punktów reguł. Pełne metryki i TP/FP/FN not_assessable.
+SEM-001/002/003/009/010 i inne nieprzejrzane kwestie pozostają pending;
+nie wybieraj wariantów za właściciela. Akceptacja EXP-031 nie rozstrzyga
+nowych operatorów/wyjątku SEM-003 ani kolejności AS/LC.
+
+Przeczytaj pełne wymagane wejścia z oryginalnego promptu: oba run.json
+i session-evidence.txt; oba proposal.json i provenance.json; zamknięte
+report.md, errors.json, inventory.json, metrics.json, dependency-comparison.json,
+manifest.json i closure.json obu wyników; context-comparison.json,
+measurement/M-POC4B-context-01/report-reference-supplement.json oraz
+reviews/context-source-01/decision-01.json i review-closure-01.json.
+Źródła i wejścia prowadzą source/source-v1.json, zweryfikowana kopia PDF,
+inputs/v1/manifest.json, context/pass-01/manifest.json i freeze-v1.json
+oraz rzeczywisty transfer/context-v1/context/pass-01/manifest.json.
+Jako oceniający przeczytaj zamrożone eval-v1: expectations.json,
+inventory.json, dependencies.json i measurement-policy.json.
+
+Pierwszy rejestr reviews/semantic-01/checklist.json, review.md, issues.json
+oraz pakiety part-02/ i part-03/ są historycznymi dowodami z hashami w
+zamkniętych pomiarach. Ich pierwotne pending/zero nie prowadzą nowszego
+stanu — prowadzą go wskazane decyzje i additive overlays.
+Nie nadpisuj żadnego z tych dawnych plików ani zamkniętych pomiarów.
+
+Wykonaj tylko .4a:
+1. Porównaj każde EXP-051–074 z dokładnym źródłowym reviewed_scope i obiema
+   odpowiedziami osobno na tym samym eval-v1. Zweryfikuj całe odpowiednie
+   warunki, skutki, wyjątki, liczby/jednostki, negacje, czas, noty i grafiki.
+   Source_span ma pierwszeństwo przed szerszą kopertą; mapowanie przez
+   rodzica nie jest dowodem poprawności każdego child. Oddziel wybrane
+   literalne cytaty od podsumowań i interpretacji pól.
+2. Pokaż konkretne porównania właścicielowi; każde ma źródło, hash/pointer
+   i dokładny zakres surowych bajtów obu wyników, oceniającego, zakres
+   proponowanej oceny, niepewności i wyłączenia. Znaczenie akceptuje
+   właściciel; brak decyzji pozostaje pending/waiting_review.
+3. Zachowaj oddzielnie błąd odczytu, interpretacji, brak kontekstu,
+   niejednoznaczność i obserwacje strukturalne. Wcześniejsze krytyczne
+   brakujące pary nadal są otwarte, bez automatycznych semantycznych FN.
+   Reguły Triarii porównuj z uwzględnieniem obu bramek, wyjątków i źródła,
+   bez poprawiania brakującej relacji w odpowiedzi.
+4. Powiąż tylko właściwe zakresy inwentarza/rubryk dla tych 24 oczekiwań.
+   Nie rozstrzygaj teraz całego grafu, 64 granic glifów, E916 ani szerszych
+   pozostałych pozycji. Przykłady stanów grafik nie certyfikują małych
+   rzeczywistych ratingów; EXP-074 ma własny ograniczony zakres.
+5. Krytyczny brak źródła blokuje zależny pełny wynik. Lokalne operatory
+   i zadane syntetyczne fakty nie są automatycznie blokowane brakiem
+   pełnego realnego setupu. Nie zgaduj danych scenariusza/żetonu/kompasu.
+
+Zapisz nowy pakiet P/reviews/semantic-01/part-04a/ (porównania, review,
+issues, owner-focus, prezentacja i manifest), nowy additive current-state
+oraz osobny katalog P/measurement/M-POC5A-semantic-04a/.
+Jeżeli właściciel podejmie decyzję, zapisz ją jako nowy owner-decision
+z dokładnym zakresem/hashami, nie poprawiaj poprzednich decyzji.
+Aktualizuj STATUS, ROADMAP, handoff i append-only sessions.jsonl
+według faktycznego zakresu. M-POC5 pozostaje jedynym next; nie oznaczaj
+M-POC5A lub nadrzędnej .4 jako done bez rozliczenia całego przeglądu.
+Uruchom scripts/check.ps1 i git diff --check, zapisz rzeczywiste logi,
+końcowy audyt niezmienności i ograniczenia. Kontrole nie akceptują znaczenia.
+
+Podział .4 został zapisany PRZED wykonaniem:
+.4a — EXP-051–074; .4b — wszystkie relacje obu wyników;
+.4c — E916 i 64 granice glifów; .4d — reszta inwentarza, wcześniejsze
+pending oraz rozliczenie 66/8/207 i rubryk. Każda część do 90 minut;
+jeśli .4a lub dalsza część tego nie pomieści, podziel ją jawnie przed
+wykonaniem z listą ID i aktualizacją kart/ROADMAP/STATUS. Nie uruchamiaj
+.4b/.4c/.4d w tej samej sesji i nie pomijaj ich zakresów.
+
+Bez nowych źródeł/pass-02, ekstrakcji, API inferencji, korekt odpowiedzi,
+automatycznych procesów modelowych, M-POC5B/20 sytuacji, M-POC6/7 i architektury.
+Łącznie nadal 1 dodatkowa strona/1 reguła/0 tabel, 1 runda kontekstu,
+0 korekt, 0 pełnych domknięć luk, 4 częściowe uzupełnienia i 4 nowe deklaracje.
+Nowa ścieżka 3 krawędzi kończy się brakującym celem; źródła trzeciego kroku
+nie pozyskano, stop rozszerzania na granicy 2 zachowany. Nie poświadczaj
+zgodności całego grafu ani aktywnego budżetu czasu.
+
+Niezależnie potwierdzono listing/path discovery poza allowlistą w context-01.
+Odczyt treści oceny niezaobserwowany; ekspozycja i czysty kontekst unknown,
+bez dowodu skażenia lub pełnej izolacji. Samoopis nie jest niezależnym dowodem.
+Historyczne first-001, selektory, aktywne czasy, tokeny/cena i budżet unknown.
+Kalendarzowe czasy turnu/zapisu nie mierzą aktywnego budżetu.

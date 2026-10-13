@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/contracts -q -p no:cacheprovider --tb=short --basetemp private/workflow/runs/IG-1A/attempt-20261012-0540/test-temp-04",
+      "exit_code": 0,
+      "tests_passed": 46,
+      "reported_seconds": 5.36
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe scripts/workflow.py dry-run --task IG-1A",
+      "exit_code": 0
+    },
+    {
+      "command": "PYTHONPATH=src .\\.venv\\Scripts\\python.exe -m wgc.contracts.source tests/contracts/fixtures/valid-source.json",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/diff-check-final.log",
+        "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1",
+      "exit_code": 1,
+      "tests_passed": 65,
+      "tests_failed": 7,
+      "reported_seconds": 50.9,
+      "log_root": "private/workflow/checks/active-f430d107590d4118bcc85544a59ef6fd",
+      "result": "The pre-existing workflow sandbox copied live in_progress status/events; minimal out-of-card repair awaits operator authorization. The dry-run ready-only failure has been repaired inside the allowed check script, then verified through explicit dry-run."
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-12T14:51:29.775886+00:00",
+    "ended_utc": "2026-10-12T15:20:21.934166+00:00",
+    "wall_seconds": 1732.15828,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "unknown_reason": "Session token counters, operator time and monetary cost were not exposed/reported. Wall time includes the scope-confirmation wait."
+  },
+  "prior_failures": [
+    {
+      "test": "fixed canonical SHA-256 vector",
+      "status": "corrected"
+    },
+    {
+      "test": "default pytest temp path",
+      "status": "corrected using an explicit new private basetemp"
+    },
+    {
+      "test": "check dry-run without ready task",
+      "status": "corrected in allowed scripts/check.ps1"
+    },
+    {
+      "test": "live status/events in synthetic workflow sandbox",
+      "status": "pending operator authorization"
+    }
+  ]
+}

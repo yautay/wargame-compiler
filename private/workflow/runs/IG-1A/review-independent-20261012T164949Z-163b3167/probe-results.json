@@ -1,0 +1,920 @@
+[
+  {
+    "name": "gap-as-represented-target",
+    "expected": "invalid",
+    "actual": "valid",
+    "met": false,
+    "basis": "Architecture: Gaps never count as represented content; criterion 3.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "current",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "unrelated-exclusion-approval",
+    "expected": "invalid",
+    "actual": "valid",
+    "met": false,
+    "basis": "Data model: exclusions need an approved scope boundary; scoped acceptance cannot accept siblings; criterion 3.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 1,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 1
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "current",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "historical-required-dependency",
+    "expected": "invalid",
+    "actual": "valid",
+    "met": false,
+    "basis": "Data model: references used as active rules resolve only in selected snapshot; historical retention does not activate rules; criterion 2.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "current",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "unknown-normative-formal",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Opaque/unknown meaning cannot claim formal execution impact; criterion 3.",
+    "error": "unknown normative aspect requires execution blocker",
+    "report": null
+  },
+  {
+    "name": "wrong-table-coordinate",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Data model: table coordinates resolve to participating axes; criterion 4.",
+    "error": "table coordinates do not match participating axes",
+    "report": null
+  },
+  {
+    "name": "empty-table-note-scope",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Mechanics: note scope must be explicit; criterion 4.",
+    "error": "table note requires explicit scope",
+    "report": null
+  },
+  {
+    "name": "empty-group-effect",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Data model: explicit condition/effect composition; criterion 1.",
+    "error": "semantic group needs an effect",
+    "report": null
+  },
+  {
+    "name": "duplicated-group-condition",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Stable aspect composition cannot contain duplicate members; criterion 1.",
+    "error": "duplicate semantic group member",
+    "report": null
+  },
+  {
+    "name": "complete-empty-review-basis",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Data model: incomplete basis cannot prove current freshness; criterion 3.",
+    "error": "schema: $/records/35: oneOf requires exactly one matching shape; $/records/35/data/basis: too few items",
+    "report": null
+  },
+  {
+    "name": "unknown-review-basis",
+    "expected": "valid",
+    "actual": "valid",
+    "met": true,
+    "basis": "Data model: unknown completeness gives unknown freshness.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "unknown",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "model-observation",
+    "expected": "valid",
+    "actual": "valid",
+    "met": true,
+    "basis": "Model observations are distinct from human acceptance.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "observation",
+          "kind": "interpretation",
+          "actor_role": "model",
+          "freshness": "current",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "validator-acceptance",
+    "expected": "invalid",
+    "actual": "invalid",
+    "met": true,
+    "basis": "Only human authority metadata can record accepted decisions.",
+    "error": "schema: $/records/35: oneOf requires exactly one matching shape; $/records/35/data/actor_role: unexpected enum value",
+    "report": null
+  },
+  {
+    "name": "unrelated-aspect-change",
+    "expected": "valid",
+    "actual": "valid",
+    "met": true,
+    "basis": "Data model: scoped decisions do not accept sibling aspects; unchanged scoped target can remain current.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "current",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "changed-target-description-whole-review",
+    "expected": "valid",
+    "actual": "valid",
+    "met": true,
+    "basis": "Whole-record target changes must make review stale.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "stale",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "missing-selected-basis",
+    "expected": "valid",
+    "actual": "valid",
+    "met": true,
+    "basis": "Historical source evidence persists but missing selected basis is stale.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "stale",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "reordered-store",
+    "expected": "valid",
+    "actual": "valid",
+    "met": true,
+    "basis": "Stable identities do not depend on record store order.",
+    "error": null,
+    "report": {
+      "structural_validation": "passed",
+      "snapshot_id": "synthetic:snapshot",
+      "import": {
+        "status": "complete",
+        "basis_refs": [
+          {
+            "mode": "historical",
+            "id": "synthetic:binding",
+            "record_type": "origin_binding",
+            "revision_id": "sha256:9b48df961fc3d324a3d43e5c1aa002659f7ec3b55d67d30754524e7f023d23fc"
+          }
+        ]
+      },
+      "coverage_inventory_region_counts": {
+        "transcription": {
+          "represented": 2,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "descriptive_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        },
+        "formal_semantics": {
+          "represented": 0,
+          "partial": 0,
+          "unprocessed": 0,
+          "excluded": 0
+        }
+      },
+      "reviews": [
+        {
+          "id": "synthetic:review",
+          "decision": "accepted",
+          "kind": "interpretation",
+          "actor_role": "human_owner",
+          "freshness": "current",
+          "scope": "Only the lit-condition aspect; not the effect.",
+          "authority_authenticated": false
+        }
+      ],
+      "executable": {
+        "status": "blocked",
+        "source_blocker_ids": [
+          "synthetic:clause",
+          "synthetic:gap",
+          "synthetic:parameter",
+          "synthetic:procedure"
+        ],
+        "reason": "Opaque effect and incomplete formal semantics; source validation grants no execution."
+      },
+      "semantic_acceptance_granted": false
+    }
+  },
+  {
+    "name": "boolean-not-integer-const",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "boolean-not-integer-type",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "strict-oneOf-overlap",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "local-ref-with-sibling",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "if-then",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "additional-property",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "items-minItems",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "bounds-valid",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "pattern-maxLength",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "Bundled offline schema keyword semantics."
+  },
+  {
+    "name": "valid-source.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-1A criteria 1, 3, 4; IG-DATA-MODEL: Collections, Reviews and readiness; IG-MECHANICS-PROFILES.",
+    "error": null
+  },
+  {
+    "name": "valid-historical-reference.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Identity and record envelope, historical versus active resolution.",
+    "error": null
+  },
+  {
+    "name": "valid-partial-review.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Reviews and readiness, incomplete basis implies unknown.",
+    "error": null
+  },
+  {
+    "name": "valid-changed-aspect.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-WGU-ARCHITECTURE: Acceptance is never inherited by a changed aspect.",
+    "error": null
+  },
+  {
+    "name": "valid-changed-dependency.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-WGU-ARCHITECTURE: Review bases pin evidence, profile and dependencies.",
+    "error": null
+  },
+  {
+    "name": "invalid-unknown-without-gap.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Knowledge and representation.",
+    "error": "schema: $/records/13: oneOf requires exactly one matching shape; $/records/13/data/description: oneOf requires exactly one matching shape; $/records/13/data/description/unit/gap_refs: too few items"
+  },
+  {
+    "name": "invalid-changed-aspect-hash.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-1A ID and revision hash criterion; stable aspect content integrity.",
+    "error": "changed aspect hash"
+  },
+  {
+    "name": "invalid-model-approval.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Only an authorized human grants semantic acceptance.",
+    "error": "schema: $/records/35: oneOf requires exactly one matching shape; $/records/35/data/actor_role: unexpected enum value"
+  },
+  {
+    "name": "invalid-dangling-active.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: References used as active rules resolve only in the selected snapshot.",
+    "error": "dangling active reference: synthetic:retired-concept"
+  },
+  {
+    "name": "invalid-dangling-historical.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Historical review and supersession references resolve in immutable revision store.",
+    "error": "dangling historical reference: synthetic:retired-concept"
+  },
+  {
+    "name": "invalid-duplicate-selection.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: A snapshot selects at most one revision per ID.",
+    "error": "duplicate identity in selected snapshot"
+  },
+  {
+    "name": "invalid-duplicate-store.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Validate identity/revision uniqueness.",
+    "error": "duplicate identity/revision in revision store"
+  },
+  {
+    "name": "invalid-opaque-formal.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-LEGAL-ACTIONS: Opaque meaning affecting effect blocks executable readiness.",
+    "error": "opaque normative aspect requires execution blocker"
+  },
+  {
+    "name": "invalid-opaque-ready.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-1A: Source-level opaque is accepted without granting execution.",
+    "error": "schema: $/records/41: oneOf requires exactly one matching shape; $/records/41/data/assessments/executable/status: unexpected enum value"
+  },
+  {
+    "name": "invalid-group-binding.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Shared subject ID does not bind conditions to effects.",
+    "error": "semantic group member has wrong aspect/facet"
+  },
+  {
+    "name": "invalid-table-note.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Validate table notes/axes; IG-MECHANICS-PROFILES: note scopes.",
+    "error": "dangling table note scope"
+  },
+  {
+    "name": "invalid-known-without-evidence.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Knowledge states.",
+    "error": "schema: $/records/13: oneOf requires exactly one matching shape; $/records/13/data/description: oneOf requires exactly one matching shape; $/records/13/data/description/value_type/evidence_refs: too few items"
+  },
+  {
+    "name": "invalid-reference-type.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Validate typed references.",
+    "error": "typed reference mismatch: synthetic:retired-concept"
+  },
+  {
+    "name": "invalid-origin-path.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-WGU-ARCHITECTURE: safe paths and path escapes.",
+    "error": "origin binding requires a safe relative POSIX path"
+  },
+  {
+    "name": "invalid-anonymous-identity-conflict.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: anonymous identities use persisted registry; ambiguous rematches are conflicts.",
+    "error": "duplicate identity registry origin key"
+  },
+  {
+    "name": "invalid-gap-counted-as-coverage.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-WGU-ARCHITECTURE: Gaps never count as represented content.",
+    "error": "represented coverage cannot count gaps"
+  },
+  {
+    "name": "valid-procedure-cycle.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-DATA-MODEL: rule graphs may contain cycles; procedures need termination rules.",
+    "error": null
+  },
+  {
+    "name": "valid-edition-conflict.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-WGU-ARCHITECTURE: exact editions and no universal precedence.",
+    "error": null
+  },
+  {
+    "name": "valid-cross-section-exception.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Exception/modification direction and cross-chapter tests.",
+    "error": null
+  },
+  {
+    "name": "invalid-overlapping-coverage.json",
+    "expected": false,
+    "actual": false,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Validate coverage denominators; no overlapping context in denominator.",
+    "error": "overlapping coverage denominator regions"
+  },
+  {
+    "name": "valid-overlapping-context.json",
+    "expected": true,
+    "actual": true,
+    "met": true,
+    "basis": "IG-DATA-MODEL: Do not add overlapping context regions to denominator.",
+    "error": null
+  }
+]

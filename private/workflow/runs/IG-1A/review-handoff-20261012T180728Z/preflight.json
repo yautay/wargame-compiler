@@ -1,0 +1,20 @@
+{
+  "commands": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0,
+      "observed_output": "Validated 39 tasks, DAG, scope, context and derived views."
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py next",
+      "exit_code": 0,
+      "observed_output": "No ready task."
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py packet --task IG-1A",
+      "exit_code": 0,
+      "observed_output": "private/workflow/packets/IG-1A-d3fb657a205e4e368f212a9f2bea81b5"
+    }
+  ],
+  "note": "Transcribed exact preflight tool results; no claim or transition command invoked."
+}

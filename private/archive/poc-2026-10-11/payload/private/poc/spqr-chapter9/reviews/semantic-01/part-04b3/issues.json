@@ -1,0 +1,117 @@
+{
+  "issues": [
+    {
+      "id": "SEM-018",
+      "scope": [
+        "D951terrain"
+      ],
+      "occurrences": 2,
+      "classes": [
+        "interpretacja jawności i rodzaju",
+        "brak treści celu"
+      ],
+      "proposal": "Przyjąć jawne wymaganie normal terrain cost i source→cost. Konkretne table_use nie jest nazwanym odesłaniem w9.51; zależność od tabeli wyłącznie wnioskowana, bez actualchart/alias. Nie zaakceptować pary table_use/explicit jako literalnego chart reference.",
+      "uncertainty": "Nie kwestionuje konieczności realnego kosztu ani lokalnego+1; brak wykazanego błędnego wyniku gry. Explicit może opisywać tylko namedcost; dlatego decyzja ograniczona do różnicy cost versus explicitchart.",
+      "status": "waiting_review",
+      "reviewer": "Codex — ręczne porównanie, właściciel akceptuje znaczenie",
+      "human_reviewer": null,
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "source": {
+        "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+        "bytes": 3965827,
+        "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+      },
+      "comparison_packet": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b3/comparisons.json",
+        "bytes": 3985324,
+        "sha256": "48212044f45ac2170d04dd868a4db49fdeb994ec44673e8ae041168490a873c5"
+      },
+      "actual_wrong_played_outcome": "not_demonstrated"
+    },
+    {
+      "id": "SEM-019",
+      "scope": [
+        "D961stack"
+      ],
+      "occurrences": 2,
+      "classes": [
+        "zakres konieczności i blokady",
+        "brak wyjątków"
+      ],
+      "proposal": "Zachować wcześniejsze mentionSEM-015 bez ponownej decyzji. Odrzucić traktowanie summarylookup jako koniecznej procedury z9.61; brak summary nie blokuje lokalnego odczytu. Pełna legalność stosu z nieznanymi wyjątkami nadal zablokowana warunkowo; nie nadać dowolnej legalności ze zdania ruleofthumb.",
+      "uncertainty": "blocks=true może zamierzać pełną legalność, ale source/gapnie rozróżniają jej odsummary. Nowa decyzja tylko o wcześniej wyłączonym impact/necessity, bez chartcontent/aliasu i bez wznowienia rodzaju.",
+      "status": "waiting_review",
+      "reviewer": "Codex — ręczne porównanie, właściciel akceptuje znaczenie",
+      "human_reviewer": null,
+      "evaluation": {
+        "path": "private/poc/spqr-chapter9/evaluation/eval-v1/manifest.json",
+        "bytes": 4116,
+        "sha256": "7debb9edffd9e0256a0065be335a743ce796660c67d5c6cdcfdddf433d3e8dce"
+      },
+      "responses": {
+        "first-001": {
+          "path": "private/poc/spqr-chapter9/runs/first-001/first-001.json",
+          "bytes": 617941,
+          "sha256": "3a4f7d9a1d20373fe5c320850456b8cb1acce5db00b86b5ca98f410656c51307"
+        },
+        "context-01": {
+          "path": "private/poc/spqr-chapter9/runs/context-01/response.raw.txt",
+          "bytes": 712014,
+          "sha256": "95b2254026aef3ba7c22a69917f8758d9f1bafa777c4d906f820bfeaca263c9b"
+        }
+      },
+      "source": {
+        "path": "private/poc/spqr-chapter9/source/original-pdf-20261008-01.pdf",
+        "bytes": 3965827,
+        "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+      },
+      "comparison_packet": {
+        "path": "private/poc/spqr-chapter9/reviews/semantic-01/part-04b3/comparisons.json",
+        "bytes": 3985324,
+        "sha256": "48212044f45ac2170d04dd868a4db49fdeb994ec44673e8ae041168490a873c5"
+      },
+      "actual_wrong_played_outcome": "not_demonstrated"
+    }
+  ],
+  "inherited_pending": [
+    "SEM-001",
+    "SEM-002",
+    "SEM-003",
+    "SEM-004",
+    "SEM-005",
+    "SEM-006",
+    "SEM-007",
+    "SEM-008",
+    "SEM-009",
+    "SEM-010",
+    "SEM-011",
+    "SEM-012",
+    "SEM-013"
+  ],
+  "previous_dispositions_preserved": {
+    "SEM-014": "resolved only for D9621013 identity/direction/use and insufficient edge block declaration; full allocation still blocked",
+    "SEM-015": "resolved for DEP-037 occurrence classification only",
+    "SEM-016": "resolved for three exact classification scopes only",
+    "SEM-004": "partially resolved for DCTX923-S4 supporting operator correspondence; remaining earlier scope pending",
+    "SEM-017": "Resolved only for four presented local exception relations and block-scope adequacy; applicable full execution remains blocked by missing source."
+  },
+  "wrong_read": "not_assessable",
+  "confirmed_semantic_error_counts": "not_assessable",
+  "policy": "Two narrowly scoped proposals. No old pending or full dependent outcome closed; D961stack kind is already decided and not reasked."
+}

@@ -1,0 +1,36 @@
+--- baseline/src/wgc/contracts/source.py
++++ src/wgc/contracts/source.py
+@@ -263,6 +263,12 @@
+             else:
+                 stale |= old["revision_id"] != current["revision_id"]
+         return "stale" if stale else ("current" if data["basis_completeness"] == "complete" else "unknown")
++
++    def require_selected(reference: dict[str, Any]) -> None:
++        target = resolve(reference)
++        current = selected.get(target["id"])
++        if current is None or current["revision_id"] != target["revision_id"]:
++            raise ContractError("semantic dependency endpoint is not the selected revision")
+ 
+     # Historical edges always resolve in the immutable store. Active edges in old
+     # unselected revisions belong to their original snapshots and are not activated.
+@@ -368,8 +374,18 @@
+                 raise ContractError("represented coverage cannot count gaps")
+             if data["status"] == "excluded" and active_record:
+                 review = resolve(data["scope_decision_ref"], "review")["data"]
+-                if review["decision"] != "accepted" or review_freshness(review) != "current":
+-                    raise ContractError("coverage exclusion needs an accepted scope decision")
++                boundary = review.get("coverage_boundary")
++                expected = {"purpose": "coverage_exclusion", "inventory_ref": data["inventory_ref"],
++                            "region_ref": data["region_ref"], "level": data["level"]}
++                if (review["decision"] != "accepted" or review["kind"] != "source_composition"
++                        or review_freshness(review) != "current" or boundary != expected
++                        or data["region_ref"] not in review["targets"]
++                        or data["inventory_ref"] not in review["basis"]):
++                    raise ContractError("coverage exclusion needs a current accepted decision for its exact inventory/region/level boundary")
++        elif kind == "relation" and active_record and data["requirement"] != "informational":
++            require_selected(data["from_ref"])
++            if data["target_status"] == "resolved":
++                require_selected(data["target_ref"])
+         elif kind == "identity_registry":
+             keys = set()
+             for entry in data["entries"]:

@@ -1,0 +1,901 @@
+chapter: {id: "12", title: "12. Scenariusze — księga scenariuszy 4. edycji (2018): Beneventum, Bagradas, Kanny, Zama, Kynoskefalaj, scenariusz szkoleniowy"}
+rules:
+  # --- SC0: zasady ogólne księgi (s. 2) ---
+  - id: R-SC0-1
+    title: Gra rywalizacyjna — licytacja punktów ucieczki (Rout Point Bid)
+    section: "SC0 Rules for Competitive Play #1"
+    source: {text: "księga scen. 2018 (4. ed.), „Rules for Competitive Play” #1, s. 2", pages: "2", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    when: "gracze chcą wyrównać szanse w bitwie niezbalansowanej historycznie (zalecane dla graczy znających grę i bitwę)"
+    effect: |
+      Gracze licytują punkty ucieczki (RP) za prawo gry wybraną (zwykle faworyzowaną) stroną. Zwycięzca licytacji **odejmuje** zaoferowaną liczbę RP od progu
+      wycofania swojej strony. Przykład: Zama — gracz #2 oferuje 35 RP za Scypiona; jego armia wycofuje się przy **195** RP zamiast 230.
+    keywords: [licytacja RP, gra rywalizacyjna, próg wycofania, wyważenie]
+    flags: [title-specific, optional]
+    refs: [R-11.2.2, R-11.0.1, T-42]
+  - id: R-SC0-2
+    title: Gra rywalizacyjna — poprawki zasad (Game Rule Fix)
+    section: "SC0 Rules for Competitive Play #2"
+    source: {text: "księga scen. 2018 (4. ed.), „Rules for Competitive Play” #2, s. 2", pages: "2", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Drugi sposób wyrównania szans: księga przy każdej bitwie (sekcja „Difficulty and Balance”) wskazuje zasady, które należy zastosować albo pominąć
+      („Rules Fix”). Wynik może wtedy odbiegać od historycznego.
+    keywords: [poprawka zasad, Rules Fix, wyważenie]
+    flags: [title-specific, optional]
+    refs: [R-SC1-1, R-SC2-1, R-SC3-1, R-SC4-1, R-SC5-1]
+  - id: R-SC0-3
+    title: Tabele „Size and Troop Quality” w warunkach zwycięstwa
+    section: "SC0 Size and Troop Quality Charts"
+    source: {text: "księga scen. 2018 (4. ed.), „Size and Troop Quality Charts”, s. 2", pages: "2", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Tabela w sekcji zwycięstwa każdej bitwy podaje liczbę jednostek, łączne Size armii, łączne RP i średnie TQ na jednostkę. Średnie TQ liczy się z TQ
+      jednostek (nie z RP) — także dla harcowników, słoni i jednostek podwójnych. Dane: T-42.
+    keywords: [Size, TQ, Rout Ratio, statystyki armii]
+    flags: [title-specific, summary]
+    refs: [T-42, R-11.1.1]
+  # --- SC1: Beneventum, 275 p.n.e. (s. 3–7, 10) ---
+  - id: R-SC1-1
+    title: Beneventum — mapa, warianty i wyważenie
+    section: "SC1 Beneventum — General Information"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „General Information”, s. 4", pages: "4", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Mapa Beneventum. Dwa warianty: **Atak nocny / bitwa spotkaniowa** (Night Attack/Meeting Engagement — Rzymianie w obozie, Epiroci wchodzą marszem
+      podejścia) oraz **swobodne rozstawienie** (Free Set-Up, bitwa ustawiona — R-SC1-13). Rzymianie są lekko faworyzowani (bardziej w bitwie ustawionej);
+      zalecana metoda wyrównania — licytacja RP (R-SC0-1). Czas gry: ok. 2 godz. (ustawiona), +1 godz. (spotkaniowa).
+    notes: "Nazewnictwo wariantów w księdze jest niespójne (nagłówek „THE MEETING ENGAGEMENT” stoi nad wariantem swobodnym) — N-44."
+    keywords: [Beneventum, mapa, warianty, wyważenie]
+    flags: [title-specific]
+    refs: [R-SC1-13, R-SC0-1, N-44, T-43]
+  - id: R-SC1-2
+    title: Beneventum (atak nocny) — rozstawienie rzymskie w obozie
+    section: "SC1 Beneventum — Initial Deployment (Roman)"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „The Roman Army under Curius Dentatus”, s. 4", pages: "4", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Rzymianie używają legionów i al III i V, rozstawionych **w obozie** wg T-43 (ukierunkowanie: legion III — wierzchołek SE, legion V — NE, kohorty al
+      lewego skrzydła — S, prawego — N, jazda al i extraordinarii — NW lub SW). Jedna jednostka velites z każdego legionu „śpi”, pozostałe dwie są w straży
+      obozu. Ale mają mało jazdy (po jednej zwykłej jednostce jazdy z każdej ali) i piechoty (bez triarii al; po 8 kohort i jednej kohorcie extraordinarii
+      z każdej ali). Gracz wyznacza, która ala jest lewym, a która prawym skrzydłem. Strażników bram w chwili alarmu natychmiast umieszcza się w wolnym heksie
+      namiotu velites, z dowolnym ukierunkowaniem.
+    keywords: [Beneventum, rozstawienie, obóz, straż obozu, velites]
+    flags: [title-specific]
+    refs: [T-43, R-SC1-9]
+  - id: R-SC1-3
+    title: Beneventum (atak nocny) — armia epirocka poza mapą, pięć sekcji
+    section: "SC1 Beneventum — The Epirote/Italian Army"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „The Epirote/Italian Army”, s. 5", pages: "5", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Na początku scenariusza **nie ma** jednostek epirockich na mapie; wszystkie wchodzą w fazie marszu podejścia. Dowódcy: Pyrrus, Aleksander, Leonnatos,
+      Milon. Armia dzieli się na pięć sekcji: straż przednia, siły główne, osłona lewego skrzydła, osłona prawego skrzydła, straż tylna (skład — T-43).
+    keywords: [Beneventum, Epiroci, sekcje, marsz podejścia]
+    flags: [title-specific]
+    refs: [T-43, R-SC1-4]
+  - id: R-SC1-4
+    title: Beneventum — faza marszu podejścia (Approach March Phase) — kolejność i mnożniki
+    section: "SC1 Beneventum — Approach March Order"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Approach March Order”, s. 5", pages: "5", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Faza marszu podejścia poprzedza start gry (przed normalną sekwencją). Trwa, dopóki Rzymianie nie zostaną zaalarmowani albo gracz epirocki nie ogłosi
+      końca. Kolejność sekcji, mnożnik początkowego marszu podejścia (IAM) i heks wejścia: 1) straż przednia 4×/3044; 2) siły główne 2×/3143, 3044 i/lub 2943
+      (można dzielić); 3) osłona lewego skrzydła 2×/2644; 4) osłona prawego skrzydła 2×/3343; 5) straż tylna 1×/3044.
+    keywords: [marsz podejścia, IAM, mnożnik, heks wejścia]
+    flags: [title-specific]
+    refs: [T-43, R-SC1-5]
+  - id: R-SC1-5
+    title: "Beneventum — początkowy marsz podejścia (IAM): ruch = MA × mnożnik"
+    section: "SC1 Beneventum — Approach March Order"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Approach March Order”, s. 5", pages: "5", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Każda sekcja porusza się o pełny MA **razy** swój mnożnik IAM. Trafienia za teren się płaci, ale **nie** za wielokrotny ruch w tej samej turze. Przykład:
+      macedońska lekka jazda straży przedniej wchodzi przez 3044 z MA 32 (8 × 4). Jeśli w dowolnym momencie Rzymianie zostaną zaalarmowani, faza marszu
+      podejścia **natychmiast** się kończy i scenariusz startuje wg normalnej sekwencji gry.
+    exceptions: Kara za ponowny ruch (R-6.13.1) nie obowiązuje przy wielokrotnościach marszu.
+    keywords: [IAM, MA × mnożnik, alarm, koniec marszu]
+    flags: [title-specific]
+    refs: [R-6.13.1, R-SC1-9]
+  - id: R-SC1-6
+    title: "Beneventum — procedura IAM: kolejne wielokrotności, dowódcy, koszt wejścia"
+    section: "SC1 Beneventum — Initial Approach March Procedure"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Initial Approach March Procedure”, s. 5", pages: "5", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Ruch jednej wielokrotności MA wykonuje cała sekcja, zanim zacznie się następną. Dowódców można umieścić z dowolną sekcją; używają mnożnika sekcji, z którą
+      wchodzą. Każda wchodząca jednostka płaci koszt terenu heksu wejścia **plus** 1 MP za każdą jednostkę tej sekcji, która weszła tym samym heksem wcześniej
+      (np. trzeci kreteński łucznik przez 3044: 3 MP). Gracz epirocki musi wprowadzić na mapę wszystkie jednostki — nie może żadnych wstrzymać. Gdy wszystkie
+      sekcje wykonały IAM, a Rzymianie nie są zaalarmowani, może wybrać przedłużony marsz (R-SC1-8).
+    exceptions: Alarm w trakcie IAM kończy cały ruch podejścia (R-SC1-5).
+    keywords: [IAM, koszt wejścia, kolejka, dowódcy]
+    flags: [title-specific]
+    refs: [R-SC1-5, R-SC1-8]
+  - id: R-SC1-7
+    title: Beneventum — jednostki epirockie niewprowadzone do końca tury 1 liczą się jako wyeliminowane
+    section: "SC1 Beneventum — Initial Approach March Procedure (Important)"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Important”, s. 5", pages: "5", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Jednostki epirockie, które nie weszły na mapę do końca tury 1, już nigdy nie wchodzą do gry, ale **liczą się jako wyeliminowane** przy wycofaniu armii.
+    keywords: [posiłki, wyeliminowane, punkty ucieczki, tura 1]
+    flags: [title-specific]
+    refs: [R-11.2.1]
+  - id: R-SC1-8
+    title: Beneventum — przedłużony marsz podejścia i zmęczenie marszem nocnym
+    section: "SC1 Beneventum — Extended Approach March"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Extended Approach March” + „Night March Fatigue Table”, s. 5–6", pages: "5-6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    when: "po IAM, jeśli jednostki epirockie nie zostały wykryte"
+    effect: |
+      Gracz epirocki ogłasza, czy przedłuża marsz. Jeśli nie — scenariusz zaczyna się od tury 1. Jeśli tak — rusza sekcjami w tej samej kolejności, każda
+      jednostka do **2×** MA. Po ruchu każdej sekcji (albo w chwili alarmu) rzuca **jedną kością na całą sekcję** i porównuje wynik z TQ każdej jednostki,
+      która się ruszyła, wg tabeli zmęczenia marszem nocnym (T-43): ≤ TQ — bez skutku; 1–2 ponad TQ — 1 trafienie; 3+ ponad TQ — 2 trafienia. Słonie nie
+      podlegają zmęczeniu. Po przedłużonym marszu (albo alarmie) zaczyna się scenariusz.
+    keywords: [przedłużony marsz, zmęczenie, marsz nocny, trafienia]
+    flags: [title-specific]
+    refs: [T-43, R-SC1-9]
+  - id: R-SC1-9
+    title: Beneventum — alarm rzymski (Roman Alert)
+    section: "SC1 Beneventum — Roman Alert"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Roman Alert”, s. 6", pages: "6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Żadna jednostka rzymska nie może się ruszać ani strzelać, dopóki armia rzymska nie zostanie zaalarmowana. Alarm następuje **w chwili**, gdy jakakolwiek
+      jednostka rzymska ma LOS (wg oświetlenia — R-SC1-11) do jednostki epirockiej, albo na początku tury 5 — co nastąpi pierwsze. Niezaalarmowani dowódcy
+      rzymscy są traktowani jako skończeni (Rzymianie nie mogą nic robić).
+    keywords: [alarm, LOS, dowódcy skończeni, tura 5]
+    flags: [title-specific]
+    refs: [R-SC1-11, R-5.15.1]
+  - id: R-SC1-10
+    title: Beneventum — kto dowodzi po alarmie
+    section: "SC1 Beneventum — Roman Alert"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Roman Alert” + przykład, s. 6", pages: "6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Alarm w fazie marszu podejścia — wszyscy dowódcy rzymscy mogą być aktywowani od początku pierwszej tury. Alarm **w trakcie** zwykłej tury — dowódcy
+      rzymscy z inicjatywą niższą niż skończeni dowódcy epiroccy pozostają skończeni w tej turze; aktywni są tylko ci, którzy byliby uprawnieni do aktywacji wg
+      5.12. Przykład: Leonnatos i Milon skończeni, alarm podczas rozkazu Aleksandra — uprawniony jest tylko Dentatus (inicjatywa 5), trybuni i prefekci są
+      skończeni w tej turze. Po alarmie **wszystkie** jednostki rzymskie mogą otrzymywać rozkazy; LC są dozwolone wewnątrz obozu; strażników bram umieszcza się
+      w namiotach velites (R-SC1-2).
+    keywords: [alarm, aktywacja, inicjatywa, kolejność, LC w obozie]
+    flags: [title-specific]
+    refs: [R-5.12.1, R-SC1-2]
+  - id: R-SC1-11
+    title: Beneventum — pora dnia, linie alarmu i LOS
+    section: "SC1 Beneventum — Time of Day and Line of Sight"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Time of Day and Line of Sight” + przykłady #1–#2, s. 6", pages: "6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Trzy warunki oświetlenia: cała faza marszu podejścia — **noc**; tury 1–3 — **świt**; tura 4 i dalej — **dzień**. Na mapie są trzy linie alarmu (Night,
+      Dawn, Day Alert Line). Gdy jednostka epirocka wejdzie „do środka” (bliżej obozu) linii alarmu odpowiadającej oświetleniu — zostaje wykryta i Rzymianie są
+      zaalarmowani. Wyjątek: las blokuje LOS alarmu — LOS wchodzi do heksu lasu, ale nigdy przez niego. Przykład #1 (noc): 3024 → 2923 → 2823 → 2723 —
+      wykryta w chwili wejścia do 2823. Przykład #2 (świt): 1114 → 1214 → 1313 — bez alarmu, drzewa blokują LOS.
+    keywords: [noc, świt, dzień, linia alarmu, LOS, las]
+    flags: [title-specific]
+    refs: [R-SC1-9, R-8.14.1]
+  - id: R-SC1-12
+    title: Beneventum — przykład marszu podejścia
+    section: "SC1 Beneventum — An Example of Approach March"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „An Example of Approach March”, s. 6", pages: "6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Straż przednia wchodzi przez 3044, każda jednostka 4 × MA (jazda 32 heksy, harcownicy 24, lekka piechota 20) na południowy zachód (czołowa jazda
+      ok. 1321). Siły główne wchodzą przez 2943, 3044, 3143 (2 × MA), czoło ok. 2034; osłona lewego skrzydła przez 2644 na lewo od sił głównych, prawego przez
+      3343 na prawo; na końcu straż tylna przez 3044. Jednostki nigdy nie zbliżyły się na 10 heksów do Rzymian (noc), więc bez alarmu; gracz nie przedłuża
+      marszu — start wg normalnej sekwencji.
+    notes: "[wniosek] Przykład sugeruje, że nocna linia alarmu leży ok. 10 heksów od jednostek rzymskich; o wykryciu decyduje jednak linia na mapie (R-SC1-11)."
+    keywords: [marsz podejścia, przykład, linia alarmu]
+    flags: [title-specific, summary]
+    refs: [R-SC1-4, R-SC1-11]
+  - id: R-SC1-13
+    title: Beneventum — wariant swobodnego rozstawienia (Free Set-Up)
+    section: "SC1 Beneventum — The Meeting Engagement / Free Set-Up Scenario"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Free Set-Up Scenario”, s. 6", pages: "6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Bitwa ustawiona: najpierw cała armia rzymska w dowolnych heksach **xx18 i na zachód** (włącznie; można w obozie), potem armia epirocka w dowolnych heksach
+      **xx31 i na wschód** (włącznie). Zasady marszu podejścia się pomija; jest dzień; pozostałe zasady obowiązują.
+    keywords: [swobodne rozstawienie, bitwa ustawiona, xx18, xx31]
+    flags: [title-specific]
+    refs: [R-SC1-1, N-44]
+  - id: R-SC1-14
+    title: Beneventum — karta uprawnień do LC i specjalna linia wyjścia z obozu
+    section: "SC1 Beneventum — Line Command Eligibility"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Line Command Eligibility”, s. 6", pages: "6", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Linie wg T-29 (Beneventum). Linie oznaczone „*” nie muszą przylegać (w księdze „see 4.24” — w 5. ed. 4.32). Linia rzymska nr 6 („**”: velites, jazda,
+      AS/CE) służy do **wychodzenia z obozu**; gdy wszyscy dowódcy rzymscy są poza obozem, nie można jej używać jako linii. Triarii nie mają „*” (por. nota
+      historyczna 4.32).
+    keywords: [LC, karta uprawnień, linia wyjścia z obozu, triarii]
+    flags: [title-specific]
+    refs: [T-29, R-4.32.1, N-23]
+  - id: R-SC1-15
+    title: "Beneventum — obóz rzymski: teren specjalny i poziom 2"
+    section: "SC1 Beneventum — The Roman Camp"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „The Roman Camp”, s. 7", pages: "7", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Obóz ma specjalne efekty terenu wg karty „Roman Camp Terrain Effects” (T-35): bramy, rów/wał (berm), wieże, kwatery. Bramy nie mają „drzwi” — wejście
+      blokuje zapora pokazana na mapie. Cały obóz jest na **poziomie 2** — tym samym co wzgórze, na którym stoi.
+    keywords: [obóz rzymski, brama, rów, wał, wieża, poziom 2]
+    flags: [title-specific]
+    refs: [T-35, R-6.24.2]
+  - id: R-SC1-16
+    title: "Beneventum — wyjście z obozu: bramy przez 5 tur i LC bez rzutu w obozie"
+    section: "SC1 Beneventum — Exiting the Camp"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Exiting the Camp”, s. 7", pages: "7", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Przez pierwsze **5 tur** po alarmie jednostki rzymskie w obozie mogą wychodzić tylko wyznaczonymi bramami (T-43): legiony III i V — Porta Decumana; kohorty
+      al lewego skrzydła — Porta Principis Sinistra; prawego — Porta Principis Dextra; wszystkie pozostałe oprócz straży obozu — Porta Praetoria; straż obozu —
+      dowolna brama. Po 5. turze ograniczenie znika. Ponadto **każdy dowódca rzymski w obozie** może wydać LC bez rzutu na strategię.
+    keywords: [wyjście z obozu, bramy, 5 tur, LC bez rzutu]
+    flags: [title-specific]
+    refs: [T-43, R-4.33.3]
+  - id: R-SC1-17
+    title: Beneventum — skorpiony obozowe
+    section: "SC1 Beneventum — Camp Scorpios"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Camp Scorpios”, s. 7", pages: "7", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Skorpiony są częścią umocnień obozu: **nie mają TQ, typu, Size ani MA** — tylko zasięg. Strzelają wg 9.84–9.86, ale heks skorpiona musi być zajęty przez
+      własną jednostkę piechoty. Skorpiony **nie otrzymują trafień**. Gdy jednostka epirocka wejdzie do heksu wieży, skorpion jest automatycznie wyeliminowany.
+      Skorpiony są warte **0 RP** (R-SC1-24).
+    keywords: [skorpion, obóz, wieża, bez TQ, bez trafień]
+    flags: [title-specific]
+    refs: [R-9.81.1, R-9.82.1, R-9.84.1, R-9.85.1, R-9.86.1, R-9.87.1, R-SC1-24]
+  - id: R-SC1-18
+    title: "Beneventum — wieże: limit stosu i premie ostrzału"
+    section: "SC1 Beneventum — Towers"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Towers”, s. 7", pages: "7", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      W heksie wieży może być najwyżej jedna jednostka piechoty i jeden skorpion. Rzymska piechota zdolna do ostrzału w wieży: **–1 DRM** do ostrzału na
+      normalnych zasięgach; może strzelać na zasięg o 1 większy od maksymalnego — wtedy trafia tylko wynik „0” (bez DRM za wieżę).
+    keywords: [wieża, ostrzał, –1 DRM, zasięg +1]
+    flags: [title-specific]
+    refs: [T-35, R-8.15.1, R-8.16.1]
+  - id: R-SC1-19
+    title: "(opcja) Beneventum — pociski zapalające skorpionów"
+    section: "SC1 Beneventum — The Scorpion's Fiery Sting (Optional)"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „The Scorpion’s Fiery Sting…” (Benefits/Drawbacks), s. 7", pages: "7", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Każdy skorpion można przestawić na pociski zapalające samą deklaracją gracza rzymskiego. **Korzyść:** trafienie słonia pociskiem zapalającym = automatyczna
+      ucieczka (i szał); na inne jednostki działa jak zwykłe trafienie. **Wady:** zasięg –1 (najwyżej 6 heksów) i +1 do rzutu poza zasięgiem 1 i 2 heksów.
+      Raz rozpoczęty ostrzał zapalający z wieży nie może być przerwany. Jeśli piechota w wieży używającej pocisków zapalających ucieka — jednostka zostaje
+      wyeliminowana, a heks jest odtąd płonący: nikt nie może do niego wejść do końca scenariusza; wymuszone wejście eliminuje jednostkę.
+    notes: "Wiersz „Scorpio (Flame)” w MRRC (T-22) ma już niższe wartości od zasięgu 3 i brak zasięgu 7 — czy dodawać jeszcze +1 DRM, zob. N-43."
+    keywords: [skorpion, pociski zapalające, słoń, szał, płonąca wieża]
+    flags: [title-specific, optional]
+    refs: [T-22, R-9.14.1, N-43]
+  - id: R-SC1-20
+    title: "(opcja) Beneventum — płonące świnie"
+    section: "SC1 Beneventum — Roman Flaming Pigs (Optional)"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Roman Flaming Pigs…” + „The Flaming Pig Table”, s. 7, 10", pages: "7, 10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Dwa razy w grze gracz rzymski może zamiast rozkazu indywidualnego rzucić na tabeli płonących świń (T-43); liczy się to jako rozkaz indywidualny.
+      0 — słoń wyznaczony rzutem atakuje najbliższą jednostkę bojową (rzymską lub epirocką) wprost przed swoim frontem (kilka celów — rzut; dalej niż 4 heksy —
+      bez skutku); 1–7 — bez skutku; 8 — +1 trafienie dowolnemu jednemu słoniowi; 9 — dowolny jeden słoń: rzut, trafienia = DR – TQ, co najmniej 1.
+    keywords: [płonące świnie, słonie, rozkaz indywidualny]
+    flags: [title-specific, optional]
+    refs: [T-43, R-4.22.1]
+  - id: R-SC1-21
+    title: Beneventum — doktryna triarii od wyjścia z obozu
+    section: "SC1 Beneventum — Triarii Doctrine"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Triarii Doctrine”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Doktryna triarii (9.7) obowiązuje od chwili, gdy Rzymianie opuścili obóz i sformowali linie.
+    notes: "[wniosek] Do tego momentu triarii nie podlegają 9.71–9.72. Księga nie precyzuje, kiedy linie są „sformowane”."
+    keywords: [doktryna triarii, obóz]
+    flags: [title-specific]
+    refs: [R-9.7.1, R-9.71.1, R-9.72.1]
+  - id: R-SC1-22
+    title: Beneventum — krawędzie odwrotu
+    section: "SC1 Beneventum — Retreat Edges"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Retreat Edges”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Epiroci — wschodnia krawędź mapy; Rzymianie — zachodnia.
+    keywords: [krawędź odwrotu]
+    flags: [title-specific]
+    refs: [R-10.22.1]
+  - id: R-SC1-23
+    title: Beneventum — warunki zwycięstwa
+    section: "SC1 Beneventum — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Victory”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Gra trwa, dopóki: a) Epiroci mają **co najmniej 5 jednostek bojowych w obozie** i w obozie nie ma żadnej rzymskiej jednostki bojowej — Epiroci wygrywają
+      automatycznie; ALBO b) od tury **10** wszystkie nieuciekające jednostki rzymskie są w obozie — jeśli Rzymianin wycofa wszystkie jednostki do obozu,
+      przegrywa; ALBO c) jedna armia się wycofuje: Rzymianie przy **120** RP, Epiroci przy **100** RP.
+    keywords: [zwycięstwo, obóz, próg wycofania, "120", "100"]
+    flags: [title-specific]
+    refs: [T-42, R-11.2.2]
+  - id: R-SC1-24
+    title: Beneventum — punkty ucieczki Pyrrusa i skorpionów
+    section: "SC1 Beneventum — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), Beneventum „Victory”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Ranny Pyrrus jest wart **25 RP**; jeśli zginie — wygrywa gracz rzymski. Skorpiony są warte **0 RP**.
+    keywords: [Pyrrus, ranny, zabity, punkty ucieczki, skorpion 0 RP]
+    flags: [title-specific]
+    refs: [R-11.1.1, T-23]
+  # --- SC2: Bagradas, 255 p.n.e. (s. 8–10) ---
+  - id: R-SC2-1
+    title: Bagradas — mapa, poziom trudności, wyważenie
+    section: "SC2 Bagradas — General Information"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „General Information”, s. 8–9", pages: "8-9", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Mapa Zamy albo Kann; teren można całkowicie pominąć. Scenariusz zalecany na pierwszą grę („najłatwiejsza” bitwa, ok. 2 godz.). Wyważenie mocno sprzyja
+      Kartagińczykom; poza licytacją RP jako poprawka zasad — dać Rzymianom całą jazdę al (R-SC2-7).
+    keywords: [Bagradas, mapa, wyważenie, nauka gry]
+    flags: [title-specific]
+    refs: [R-SC0-1, R-SC2-7]
+  - id: R-SC2-2
+    title: Bagradas — dowodzenie kartagińskie bez 4.6 i bez dowódców zastępczych
+    section: "SC2 Bagradas — Carthaginian Army under Xanthippus"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „Carthaginian Army under Xanthippus”, s. 9", pages: "9", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki kartagińskie twarzą na SE (rozstawienie — T-44). **Nie stosuje się 4.6** — dowódcy podlegli zależą od Ksantypposa przy LC (4.33).
+      Gracz kartagiński **nie może** używać dowódców zastępczych.
+    notes: "[wniosek] 4.6 i tak dotyczy tylko bitew z Hannibalem jako OC — zapis potwierdza, że Ksantyppos nie ma tej zdolności."
+    keywords: [Ksantyppos, "4.6", dowódcy zastępczy, LC]
+    flags: [title-specific]
+    refs: [T-44, R-4.6.1, R-4.74.1, R-4.33.3]
+  - id: R-SC2-3
+    title: Bagradas — armia rzymska bez jazdy al, manipuły w „podwójnej głębokości”
+    section: "SC2 Bagradas — The Roman Army under M. Atilius Regulus"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „The Roman Army…”, s. 9", pages: "9", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki rzymskie twarzą na NW. Pełna armia konsularna **bez jazdy al**; legiony/ale III i V (standardowe). Regulus ustawił manipuły „w podwójnej
+      głębokości” zamiast w rozciągniętej linii, więc jednostki **nie zaczynają w stosach**. Dowódcy: Regulus — dowolnie; 2 trybunów i 2 prefektów
+      sprzymierzeńców — po jednym z każdą osobną linią HA/PR, z dowolną jednostką piechoty lub obok niej; 2 prefektów jazdy — 2808, 2833. Rozstawienie — T-44.
+    notes: "„Double depth” jest tu opisowe (głębokie ugrupowanie manipułów), a nie formacją falangi z 9.5 — N-23."
+    keywords: [Regulus, rozstawienie, bez jazdy al, bez stosów]
+    flags: [title-specific]
+    refs: [T-44, N-23, R-9.51.1]
+  - id: R-SC2-4
+    title: Bagradas — karta uprawnień do LC
+    section: "SC2 Bagradas — Line Command Eligibility"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „Line Command Eligibility”, s. 9", pages: "9", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Linie wg T-29 (Bagradas). „*” — linia nie musi przylegać (w księdze „see 4.24”; w 5. ed. 4.32). Triarii (linia 4) bez „*” — muszą przylegać.
+    notes: "Nota historyczna 4.32 sugeruje, że pod Bagradas Rzymianie „dostosowali” linię triarii — karta tego nie odzwierciedla (N-38)."
+    keywords: [LC, karta uprawnień, triarii]
+    flags: [title-specific]
+    refs: [T-29, R-4.32.1, N-23, N-38]
+  - id: R-SC2-5
+    title: Bagradas — doktryna triarii obowiązuje
+    section: "SC2 Bagradas — Triarii Doctrine"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „Triarii Doctrine”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Doktryna triarii (9.7) obowiązuje w tym scenariuszu.
+    keywords: [doktryna triarii]
+    flags: [title-specific]
+    refs: [R-9.7.1]
+  - id: R-SC2-6
+    title: Bagradas — krawędzie odwrotu
+    section: "SC2 Bagradas — Retreat Edge"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „Retreat Edge”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Krawędzie odwrotu to krawędzie bezpośrednio za każdą z armii.
+    keywords: [krawędź odwrotu]
+    flags: [title-specific]
+    refs: [R-10.22.1]
+  - id: R-SC2-7
+    title: "(opcja) Bagradas — jazda al dla Regulusa"
+    section: "SC2 Bagradas — Alae Cavalry (Optional)"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „Alae Cavalry (Optional)” + „Victory”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Dla wyrównania gry Regulus dostaje jazdę al: jazdę rzymską na jednym skrzydle, jazdę al na drugim; można też zmienić rozstawienie rzymskie. W tym
+      wariancie armia rzymska wycofuje się przy **135** RP (zamiast 125).
+    keywords: [jazda al, wariant, wyważenie, próg 135]
+    flags: [title-specific, optional]
+    refs: [R-SC2-8, T-42]
+  - id: R-SC2-8
+    title: Bagradas — warunki zwycięstwa
+    section: "SC2 Bagradas — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), Bagradas „Victory”, s. 10", pages: "10", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Armia kartagińska wycofuje się przy co najmniej **110** RP; rzymska przy **125** RP (z jazdą al — **135**).
+    keywords: [zwycięstwo, próg wycofania, "110", "125", "135"]
+    flags: [title-specific]
+    refs: [T-42, R-11.2.2]
+  # --- SC3: Kanny, 216 p.n.e. (s. 11–17) ---
+  - id: R-SC3-1
+    title: Kanny — mapa, warianty (8 i 4 legiony) i zalecenia rywalizacyjne
+    section: "SC3 Cannae — General Information"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „General Information”, s. 12", pages: "12", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Mapa Kann; bitwa bazowa — 8 podwójnych legionów (wersja historyczna wg Polibiusza–Delbrücka–Connolly’ego); wariant „rewizjonistyczny” — 4 legiony.
+      Wyważenie: 8 legionów — lekko na korzyść Kartagińczyków; 4 legiony — mocno. Zalecenia rywalizacyjne: 8 legionów — zasada Volturnus, bez wariantu Paullusa
+      i bez wariantu prokonsulów, licytacja RP; 4 legiony — warianty Paullusa i prokonsulów, bez Volturnus, licytacja RP. Czas gry: 6–8 godz.
+    keywords: [Kanny, 8 legionów, 4 legiony, wyważenie]
+    flags: [title-specific]
+    refs: [R-SC3-10, R-SC3-11, R-SC3-15, R-SC0-1]
+  - id: R-SC3-2
+    title: Kanny — rozstawienie kartagińskie i Maharbal
+    section: "SC3 Cannae — Carthaginian Army under Hannibal Barca"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Carthaginian Army…” + przypisy a, c, s. 12–13", pages: "12-13", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki twarzą na NE (heksy — T-45). Maharbal [a] może wydawać LC **bez odwoływania się do strategii Hannibala** — dowodzenie kartagińskie jest
+      przez to całkowicie niezależne. Jazda celtycka i iberyjska to lansjerzy (LN), nie ciężka jazda [c].
+    notes: "Czy zdolność Maharbala wykracza poza 4.6 (fazy impetu) — N-40."
+    keywords: [Kanny, Hannibal, Maharbal, rozstawienie, LN]
+    flags: [title-specific]
+    refs: [T-45, R-4.6.1, R-4.33.3, R-4.35.1, N-40]
+  - id: R-SC3-3
+    title: Kanny — wariant „falangi cofnięte” (start po manewrze Hannibala)
+    section: "SC3 Cannae — Carthaginian Army, przypis b"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny przypis b, s. 12–13", pages: "12-13", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Gracze mogą zacząć od chwili, gdy Hannibal cofnął afrykańskie falangi: 1702/1703 i 1735/1736 (twarzą NE), 1604/1504, 1405/1305, 1534/1635 (twarzą SE)
+      oraz 1333/1434 (twarzą N); numidyjską jazdę Maharbala przesuwa się do linii 2400, by wydłużyć i osłonić front. Księga **zdecydowanie zaleca** ten start.
+    keywords: [Kanny, falangi afrykańskie, wariant rozstawienia]
+    flags: [title-specific, optional]
+    refs: [T-45]
+  - id: R-SC3-4
+    title: Kanny — linia centrum kartagińskiego
+    section: "SC3 Cannae — Carthaginian Line Composition"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Carthaginian Line Composition”, s. 13", pages: "13", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Centrum kartagińskie (cała średnia i lekka piechota) nie stoi w linii w rozumieniu zasad podstawowych, ale gracz kartagiński może traktować te jednostki
+      jako linię, dopóki każda jednostka jest w przyległym heksie i między jednostkami nie ma odstępów.
+    keywords: [linia, centrum, przyległość, Kanny]
+    flags: [title-specific]
+    refs: [R-4.32.1]
+  - id: R-SC3-5
+    title: "Kanny — armia rzymska (8 legionów): skład, pominięte jednostki, osłabienie"
+    section: "SC3 Cannae — The Roman Army under Consul G. Terentius Varro"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „The Roman Army…” pkt 1–3, s. 13", pages: "13", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki twarzą na SW; 8 legionów i 8 al, ale: 1) tylko jazda legionów i jazda al VII, XIV, XV i XIX (bez jazdy al I, III, V, X);
+      2) bez triarii al, bez velites al i bez jednej jednostki velites z legionów I, III, V i X (ok. 10 000 ludzi w obozie); 3) **osłabione** od początku:
+      wszystkie LG, HI i LI legionów i al I, III, V, X oraz cała jazda legionów I i X. Heksy — T-45.
+    keywords: [Kanny, 8 legionów, osłabione, velites, triarii al]
+    flags: [title-specific]
+    refs: [T-45, R-10.31.1]
+  - id: R-SC3-6
+    title: "Kanny — dowódcy rzymscy: dowodzą każdym, trzech nie zastępuje się"
+    section: "SC3 Cannae — Roman leaders, przypis a"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny tabela dowódców + przypis a, s. 13", pages: "13", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Warron (OC) 3106, Paullus 3129, Serwiliusz 3229, Atyliusz 3627; 3 trybunów i 2 prefektów sprzymierzeńców z dowolną jednostką piechoty lub obok niej;
+      2 prefektów jazdy 3103, 3136. Warron, Paullus, Serwiliusz i Atyliusz **mogą dowodzić dowolnymi jednostkami** (historycznie Warron zaczął przy jeździe
+      legionów). Paullus, Serwiliusz i Atyliusz **nie mogą być zastąpieni** po śmierci.
+    keywords: [Warron, Paullus, prokonsulowie, dowódcy zastępczy]
+    flags: [title-specific]
+    refs: [T-45, R-4.74.1, R-4.56.1]
+  - id: R-SC3-7
+    title: Kanny — wariant 4 legionów (rewizjonistyczny „DeSanctis/Liwiusz”)
+    section: "SC3 Cannae — The Revisionist 4 Legion Deployment"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „The Revisionist…”, s. 14", pages: "14", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki twarzą na W; tylko legiony i ale rekruckie VII, XIV, XV, XIX (heksy — T-45). Przy remisie aktywacji (5.12) **dowódcy rzymscy idą
+      pierwsi**. Dowódcy: Warron (OC) 3005, Paullus 3028, Serwiliusz 3110, Atyliusz 3228, 2 trybunów z piechotą lub obok niej, 1 prefekt jazdy 3036; bez
+      prefektów sprzymierzeńców. Konsulowie i prokonsulowie dowodzą dowolnymi oddziałami.
+    keywords: [Kanny, 4 legiony, remis aktywacji, dowódcy]
+    flags: [title-specific, optional]
+    refs: [T-45, R-5.12.1]
+  - id: R-SC3-8
+    title: Kanny — karta uprawnień do LC (także PW centrum kartagińskiego)
+    section: "SC3 Cannae — Line Command Eligibility"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Line Command Eligibility”, s. 14", pages: "14", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Linie wg T-29 (Kanny). „*” — nie muszą przylegać (w księdze „see 4.24”; w 5. ed. 4.32). Linia kartagińska nr 2 („**”: celtycka MI i iberyjska LI) może
+      używać uprzednio przygotowanego wycofania (w księdze „6.58”; w 5. ed. 6.8). Jazda legionów i jazda al to osobne linie (5 i 6) — zgodnie z 4.54
+      (mieszana linia niedozwolona pod Kannami).
+    notes: "[wniosek] Karta stoi po wariancie 4 legionów, ale nie ma osobnej karty dla wersji 8 legionów — obowiązuje w obu wersjach."
+    keywords: [LC, karta uprawnień, PW, jazda al]
+    flags: [title-specific]
+    refs: [T-29, R-4.32.1, R-4.54.1, R-6.81.1, N-23]
+  - id: R-SC3-9
+    title: Kanny — dowódcy naczelni; Paullus zastępuje Warrona (i odwrotnie)
+    section: "SC3 Cannae — Overall Commanders"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Overall Commanders”, s. 14", pages: "14", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Hannibal jest OC Kartagińczyków, Warron — Rzymian. Jeśli Warron zginie, Paullus zostaje OC (i odwrotnie).
+    keywords: [OC, Warron, Paullus, zastępstwo OC]
+    flags: [title-specific]
+    refs: [R-4.75.1, R-4.56.2]
+  - id: R-SC3-10
+    title: "(opcja) Kanny — wariant Paullusa"
+    section: "SC3 Cannae — The Paullus Variant"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „The Paullus Variant”, s. 14", pages: "14", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Dla zmiany wyważenia gracze mogą uczynić OC Paullusa. Wtedy Warron **nie może** automatycznie używać LC („as does Paullus when Varro is in charge”).
+    notes: "Księga nie podaje wprost, że Paullus ma automatyczny LC przy Warronie jako OC — wynika to tylko z tego nawiasu (N-39)."
+    keywords: [Paullus, OC, wariant, automatyczny LC]
+    flags: [title-specific, optional]
+    refs: [R-SC3-9, R-4.33.3, N-39]
+  - id: R-SC3-11
+    title: "(opcja) Kanny — wariant prokonsulów"
+    section: "SC3 Cannae — The Proconsul Variant"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „The Proconsul Variant”, s. 14", pages: "14", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    when: "tylko jako element wyważenia w grze rywalizacyjnej"
+    effect: |
+      Prokonsulowie Serwiliusz i Atyliusz mogą wydać po **jednym LC na turę** bez bycia w zasięgu Warrona: w swojej fazie (początkowej albo impetu) rzucają
+      kością — **0–4** LC dozwolony; **5–9** dowódca skończony. DRM: **+1** w fazie impetu; **+2** w drugiej fazie impetu.
+    keywords: [prokonsul, LC, rzut 0–4, faza impetu]
+    flags: [title-specific, optional]
+    refs: [R-4.33.3, R-4.56.1]
+  - id: R-SC3-12
+    title: Kanny — doktryna triarii obowiązuje
+    section: "SC3 Cannae — Triarii Doctrine"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Triarii Doctrine”, s. 14", pages: "14", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Doktryna triarii (9.7) obowiązuje w tym scenariuszu.
+    keywords: [doktryna triarii]
+    flags: [title-specific]
+    refs: [R-9.7.1]
+  - id: R-SC3-13
+    title: "Kanny — teren: Aufidus nieprzekraczalny, skrzydła oparte o krawędź mapy"
+    section: "SC3 Cannae — Terrain Note"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Terrain Note”, s. 15", pages: "15", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Rzeka Aufidus jest nieprzekraczalna — nie można do niej wejść. Oba skrzydła są „oparte” (rzeka po prawej Rzymian, płaskowyż po lewej) — reprezentuje to
+      krawędź mapy.
+    keywords: [Aufidus, teren nieprzekraczalny, krawędź mapy]
+    flags: [title-specific]
+    refs: [R-6.24.1]
+  - id: R-SC3-14
+    title: Kanny — miecze Celtów (+1 do testu przed walką obrońcy)
+    section: "SC3 Cannae — Swords of the Celts"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Swords of the Celts” + Play Note, s. 15", pages: "15", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      W kroku szarży walki wręcz (w księdze „8.33”; w 5. ed. 8.43) jednostki broniące się przed **każdym** atakiem z udziałem piechoty celtyckiej dodają **+1**
+      do rzutu testu TQ przed walką. Zasada dotyczy **tylko Kann**.
+    keywords: [Celtowie, test TQ przed walką, "+1", szarża]
+    flags: [title-specific]
+    refs: [R-8.43.1, R-8.43.4, N-23]
+  - id: R-SC3-15
+    title: "(opcja) Kanny — Volturnus (wiatr z pyłem)"
+    section: "SC3 Cannae — The Volturnus (Optional)"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „The Volturnus (Optional)”, s. 15", pages: "15", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Na początku każdej tury, przed aktywacją dowódców, jest faza Volturnus: gracz rzymski rzuca — **0–6** wiatr wieje; **7–9** wiatr chwilowo ustał (bez
+      skutku w tej turze). Gdy wieje: każda jednostka, która zaczyna ruch twarzą do wierzchołka W lub SW, ma **MA –1** (do wszystkich celów, także wycofania);
+      wszystkie jednostki rzymskie zaczynają grę w takim położeniu. Rzymskie jednostki strzelające w tych kierunkach mają zasięg –1 (min. 1 heks) i liczbę
+      trafienia –1 (min. 0) na każdym zasięgu. Wiatr zawsze wieje z tego samego kierunku. Zalecane przy grze o historyczny wynik.
+    notes: "Księga odsyła do rysunku („as below”), którego nie ma; zakres „any unit” — N-41."
+    keywords: [Volturnus, wiatr, MA –1, ostrzał, kierunek W/SW]
+    flags: [title-specific, optional]
+    refs: [R-6.11.1, R-8.15.1, N-41]
+  - id: R-SC3-16
+    title: Kanny — krawędzie odwrotu
+    section: "SC3 Cannae — Retreat Edge"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Retreat Edge”, s. 15", pages: "15", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Rzymianie uciekają ku krawędzi NE mapy, Kartagińczycy — ku SW.
+    keywords: [krawędź odwrotu]
+    flags: [title-specific]
+    refs: [R-10.22.1]
+  - id: R-SC3-17
+    title: Kanny — warunki zwycięstwa
+    section: "SC3 Cannae — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), Kanny „Victory”, s. 15–16", pages: "15-16", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Armia kartagińska wycofuje się przy **195** RP; rzymska przy **240** RP (8 legionów) albo **165** RP (4 legiony). Ranny Hannibal jest wart **25 RP**;
+      jeśli zginie — Rzymianie wygrywają automatycznie.
+    keywords: [zwycięstwo, próg wycofania, Hannibal, "195", "240", "165"]
+    flags: [title-specific]
+    refs: [T-42, R-11.1.1, R-11.2.2, T-23]
+  # --- SC4: Zama, 202 p.n.e. (s. 18–22) ---
+  - id: R-SC4-1
+    title: Zama — mapa, wyważenie, poprawki zasad dla gry rywalizacyjnej
+    section: "SC4 Zama — General Information"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „General Information”, s. 19", pages: "19", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Mapa Zamy; ok. 6 godz.; przy równych graczach Rzymianie lekko faworyzowani. Poprawki dla gry rywalizacyjnej: 1) Hannibal dostaje fazę elitarną (EIO) w
+      pierwszej turze (tak było historycznie); 2) bez zasady „Blow, Scipio, Blow”; 3) pełne 80 słoni (16 jednostek), wszystkie „weterańskie” — nie zaczynają
+      osłabione i mają osłony.
+    keywords: [Zama, wyważenie, EIO, słonie, Rules Fix]
+    flags: [title-specific, optional]
+    refs: [R-5.53.1, R-SC4-8, R-SC4-2, R-SC4-10]
+  - id: R-SC4-2
+    title: Zama — rozstawienie kartagińskie; słonie osłabione i bez osłon
+    section: "SC4 Zama — The Carthaginian Army under Hannibal Barca"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „The Carthaginian Army…” + przypisy *, a–g, s. 19–20", pages: "19-20", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki twarzą na NW (heksy — T-46). Wszystkie słonie zaczynają **osłabione** i **bez osłon** (zdolność strzelecka „a” jest ignorowana).
+      Jednostki linii najemników [c] i zaciągu [d] mogą być rozstawione/przemieszane w swojej linii dowolnie. Opcjonalnie [e]: dwie macedońskie falangi zamiast
+      dwóch afrykańskich.
+    keywords: [Zama, rozstawienie, słonie osłabione, bez osłon, najemnicy]
+    flags: [title-specific]
+    refs: [T-46, R-9.12.1, R-10.31.1]
+  - id: R-SC4-3
+    title: "Zama — armia rzymska: legiony I i X + kohorty rekruckie"
+    section: "SC4 Zama — Roman Army under P. Cornelius Scipio"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Roman Army…”, s. 20–21", pages: "20-21", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Wszystkie jednostki twarzą na SE (heksy — T-46). Legion i ala I i X plus **22 dodatkowe kohorty** (bez extraordinarii) z dowolnych al rekruckich
+      (AS/VII, AS/XIV, AS/XV, AS/XIX); kolorowe obramowania tych kohort **nadal obowiązują** przy zasadach stosu. Dla zmiany wyważenia można podstawić
+      legiony/ale niższej jakości. Numidyjczycy po stronie rzymskiej używają żetonów z puli rzymskiej. W każdej linii jedna kohorta al zaczyna w stosie z
+      kohortą innej ali (Play Note).
+    keywords: [Zama, Scypion, kohorty rekruckie, kolor, stos, Numidyjczycy]
+    flags: [title-specific]
+    refs: [T-46, R-6.63.1, R-9.63.1]
+  - id: R-SC4-4
+    title: "Zama — Masynissa: charyzma „2C”, automatyczny LC, brak zastępstwa"
+    section: "SC4 Zama — Roman leaders, przypis a"
+    source: {text: "księga scen. 2018 (4. ed.), Zama przypis a, s. 20", pages: "20", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Masynissa ma charyzmę „**2C**” — może jej użyć tylko w stosie z jednostką jazdy numidyjskiej. W swojej **fazie początkowej** automatycznie wydaje LC,
+      bez względu na położenie na polu bitwy; LC w fazach impetu — wg 4.33. Jeśli zginie, **nie jest zastępowany**. Rozstawienie: z dowolną jednostką jazdy
+      numidyjskiej lub obok niej.
+    keywords: [Masynissa, charyzma 2C, automatyczny LC, Numidyjczycy]
+    flags: [title-specific]
+    refs: [R-4.33.3, R-4.33.5, R-4.74.1, R-8.46.7]
+  - id: R-SC4-5
+    title: "Zama — Leliusz: prefekt jazdy całej jazdy rzymskiej"
+    section: "SC4 Zama — Roman leaders, przypis b"
+    source: {text: "księga scen. 2018 (4. ed.), Zama przypis b, s. 20", pages: "20", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Gajusz Leliusz jest prefektem jazdy (Praefectus Equitum) dowodzącym całą jazdą rzymską; jeśli zginie, zastępuje go prefekt jazdy. Rozstawienie: z dowolną
+      jednostką jazdy legionu lub al albo obok niej.
+    keywords: [Leliusz, prefekt jazdy, zastępstwo]
+    flags: [title-specific]
+    refs: [R-4.54.1, R-4.74.1]
+  - id: R-SC4-6
+    title: Zama — trybuni i prefekci sprzymierzeńców dowodzą piechotą legionów i al
+    section: "SC4 Zama — Roman leaders, przypis c"
+    source: {text: "księga scen. 2018 (4. ed.), Zama przypis c, s. 20", pages: "20", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Trybuni rzymscy i prefekci sprzymierzeńców mogą dowodzić wszystkimi typami piechoty legionów/al („any and all types of legion/alae infantry”).
+    notes: "Czy znosi to też ograniczenie do jednej klasy na fazę (4.52) — N-42."
+    keywords: [trybun, prefekt sprzymierzeńców, piechota legionów i al]
+    flags: [title-specific]
+    refs: [R-4.51.1, R-4.52.1, N-42]
+  - id: R-SC4-7
+    title: Zama — karta uprawnień do LC
+    section: "SC4 Zama — Line Command Eligibility"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Line Command Eligibility”, s. 21", pages: "21", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Linie wg T-29 (Zama). „*” — nie muszą przylegać (w księdze „see 4.24”; w 5. ed. 4.32). Kartagińska linia 7 („**” — balearscy procarze): jednostki mogą
+      być w odległości do **3 heksów** od innej (bez jednostek pomiędzy itd.). Rzymska linia 5 łączy jazdę legionów i al (dozwolone wg 4.54).
+    keywords: [LC, karta uprawnień, 3 heksy, procarze]
+    flags: [title-specific]
+    refs: [T-29, R-4.32.1, R-4.54.1, N-23]
+  - id: R-SC4-8
+    title: Zama — „Blow, Scipio, Blow” (trąby przeciw słoniom)
+    section: "SC4 Zama — Blow Scipio, Blow"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Blow Scipio, Blow”, s. 21", pages: "21", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      **Raz w grze**, w dowolnym momencie, zamiast LC Scypiona (tylko Scypiona) gracz rzymski rzuca jedną kością za **każdego słonia na mapie**: wynik **wyższy**
+      niż TQ — słoń otrzymuje trafienia równe różnicy (obowiązują zwykłe zasady ucieczki); wynik ≤ TQ — bez skutku.
+    keywords: [Scypion, słonie, trafienia, raz w grze]
+    flags: [title-specific]
+    refs: [R-10.21.1, R-9.14.1]
+  - id: R-SC4-9
+    title: Zama — ucieczka zaciągu i reorganizacja przez „Starą Gwardię”
+    section: "SC4 Zama — Levy Retreat and Old Guard Rally"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Levy Retreat and Old Guard Rally”, s. 21", pages: "21", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    when: "ucieka jednostka północnoafrykańskiej LI albo kartagińskiego zaciągu (Levy MI)"
+    effect: |
+      Gracz kartagiński wybiera dla każdej takiej jednostki: A) zamiast cofać ją wprost, prowadzi ucieczkę **bokiem i dookoła** trzeciej linii (afrykańskie
+      falangi i piechota z Bruttium); po minięciu Starej Gwardii jednostka idzie wprost ku krawędzi mapy; ALBO B) ucieczka wprost do tyłu jak zwykle — w chwili
+      wejścia obok nieuciekającej afrykańskiej falangi lub jednostki z Bruttium rzuca kością: wynik ≤ TQ jednostki Starej Gwardii — uciekająca jednostka jest
+      **automatycznie zreorganizowana**; wyższy — uciekająca jednostka zostaje **wyeliminowana**, a jednostka Starej Gwardii otrzymuje 1 trafienie. Tylko
+      jednostki Starej Gwardii mogą tak reorganizować; zasada dotyczy wyłącznie uciekających Północnoafrykańczyków i zaciągu.
+    notes: "Czy „automatycznie zreorganizowana” oznacza rzut na Tabeli reorganizacji i osłabienie — N-45."
+    keywords: [zaciąg, Stara Gwardia, ucieczka, reorganizacja, Bruttium]
+    flags: [title-specific]
+    refs: [R-10.22.1, R-10.23.1, R-10.28.1, R-10.29.1, N-45]
+  - id: R-SC4-10
+    title: "(wariant) Zama — liczba słoni Hannibala"
+    section: "SC4 Zama — Hannibal's Elephants"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Hannibal’s Elephants”, s. 21–22", pages: "21-22", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Gracze mogą zmienić liczbę jednostek słoni (rozstawienie podstawowe: 16 jednostek = 80 słoni; minimum 4 jednostki). Propozycja: dwa rzuty kością,
+      suma = liczba jednostek słoni (powyżej 16 — 16; poniżej 4 — 4). Słonie stoją w tej samej linii; ich położenie wybiera gracz kartagiński, ale obowiązuje
+      ograniczenie linii z odstępem dwóch heksów. Progi wycofania się nie zmieniają (R-SC4-13).
+    keywords: [słonie, liczba, rzut, linia]
+    flags: [title-specific, optional]
+    refs: [T-46, R-4.32.1, R-SC4-13]
+  - id: R-SC4-11
+    title: Zama — bez doktryny triarii
+    section: "SC4 Zama — Triarii Doctrine"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Triarii Doctrine”, s. 22", pages: "22", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Doktryny triarii (9.7) **nie** stosuje się w tym scenariuszu.
+    notes: "Zgodne z 9.7 (Scypion jest OC)."
+    keywords: [doktryna triarii, Scypion]
+    flags: [title-specific]
+    refs: [R-9.7.1]
+  - id: R-SC4-12
+    title: Zama — krawędzie odwrotu
+    section: "SC4 Zama — Retreat Edges"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Retreat Edges”, s. 22", pages: "22", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Rzymianie uciekają ku krawędzi NW, Kartagińczycy — ku SE.
+    keywords: [krawędź odwrotu]
+    flags: [title-specific]
+    refs: [R-10.22.1]
+  - id: R-SC4-13
+    title: Zama — warunki zwycięstwa
+    section: "SC4 Zama — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), Zama „Victory”, s. 22", pages: "22", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Armia rzymska wycofuje się przy **230** RP, kartagińska przy **170** RP — bez względu na liczbę słoni. Ranny Hannibal jest wart **25 RP**; jeśli zginie —
+      Rzymianie wygrywają automatycznie. Scypion jest traktowany normalnie: jego śmierć **nie** daje automatycznego zwycięstwa Kartagińczykom.
+    keywords: [zwycięstwo, próg wycofania, Hannibal, Scypion, "230", "170"]
+    flags: [title-specific]
+    refs: [T-42, R-11.1.1, R-11.2.2, T-23]
+  # --- SC5: Kynoskefalaj, 197 p.n.e. (s. 23–27) ---
+  - id: R-SC5-1
+    title: Kynoskefalaj — mapa, warianty i wyważenie
+    section: "SC5 Cynoscephalae — General Information"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „General Information”, s. 24", pages: "24", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Mapa Cynoscephalae. Warianty: **bitwa spotkaniowa** (Meeting Engagement — historyczne tury przybycia; opcjonalna mgła i ukryty ruch) oraz **bitwa
+      ustawiona** (Set-Piece — także jako scenariusz na pierwszą grę). Bitwa dość wyrównana, lekka przewaga Rzymian. Gra rywalizacyjna: licytacja RP; poprawka
+      zasad — wzmocniona jazda rzymska (R-SC5-17), ale **bez** podnoszenia progu wycofania. Czas: ok. 2 godz. (ustawiona), +1 godz. (spotkaniowa).
+    keywords: [Kynoskefalaj, warianty, wyważenie, mgła]
+    flags: [title-specific]
+    refs: [R-SC0-1, R-SC5-17, R-SC5-6]
+  - id: R-SC5-2
+    title: Kynoskefalaj (spotkaniowa) — wprowadzanie posiłków
+    section: "SC5 Cynoscephalae — Reinforcements"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Reinforcements” + „Roman/Macedonian Reinforcements”, s. 24–25", pages: "24-25", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Dowódcy posiłków aktywują się w kolejności inicjatywy, jakby byli na mapie. Przy wprowadzaniu posiłków ograniczenia dowodzenia się pomija; w jednej
+      aktywacji może wejść dowolna liczba jednostek (bez rozkazów). Dowódca, który wprowadza posiłki, jest **skończony**; z powodu limitu jednostek na turę może
+      pozostać poza mapą, aż wejdą wszystkie posiłki jego grupy. Wejście: Rzymianie — heksy „R” w rogu SE (1037–1044), maks. **16** jednostek bojowych na turę;
+      Macedończycy — heksy „M” (4216–4221), maks. **5** na turę. Każda jednostka płaci koszt MP i spójności heksu plus koszt MP heksu za każdą wcześniejszą
+      jednostkę wchodzącą tym samym heksem. Dowódcy bez limitu; uprawnione jednostki mogą wejść w kolumnie; po wejściu nie mogą dobrowolnie opuścić mapy.
+    keywords: [posiłki, wejście, limit 16, limit 5, dowódca skończony]
+    flags: [title-specific]
+    refs: [T-47, R-4.35.1, R-5.15.1]
+  - id: R-SC5-3
+    title: Kynoskefalaj (spotkaniowa) — oddziały zwiadowcze i prefekt jazdy
+    section: "SC5 Cynoscephalae — Reconnaissance Parties"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Reconnaissance Party” (obie strony), s. 24–25", pages: "24-25", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Na mapie na starcie są tylko oddziały zwiadowcze (T-47): rzymski (etolska LC, etolska LI 1–2, prefekt jazdy) w promieniu 3 heksów od 2020; macedoński
+      (tesalska HC 1–2, macedońska LI 1–4, Filokles) w promieniu 2 heksów od 2718. Rzymski prefekt jazdy może wydawać **rozkazy indywidualne (nie LC) piechocie**,
+      dopóki do gry nie wejdzie trybun lub prefekt sprzymierzeńców i nie będzie w zasięgu.
+    keywords: [zwiad, prefekt jazdy, piechota, IO]
+    flags: [title-specific]
+    refs: [T-47, R-4.51.1, R-4.54.1]
+  - id: R-SC5-4
+    title: Kynoskefalaj — sprzymierzeńcy greccy pod rozkazami trybunów i prefektów
+    section: "SC5 Cynoscephalae — Roman Reinforcements"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Roman Reinforcements”, s. 25", pages: "25", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Prefekci i trybuni mogą wydawać rozkazy sprzymierzeńcom greckim. Ale III i V są mocno uszczuplone (skład — T-47).
+    keywords: [Grecy, sprzymierzeńcy, trybun, prefekt]
+    flags: [title-specific]
+    refs: [R-4.51.1, R-4.52.1, T-47]
+  - id: R-SC5-5
+    title: Kynoskefalaj (spotkaniowa) — harmonogram posiłków bez mgły
+    section: "SC5 Cynoscephalae — Game Turn 3/5/7/8 groups"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj grupy #1–#4, s. 25", pages: "25", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Bez zasady mgły posiłki wchodzą w turach historycznych (T-47): tura 3 — grupa #1 (Rzymianie); tura 5 — grupa #2 (Macedończycy); tura 7 — grupa #3
+      (Macedończycy, z Filipem V); tura 8 — grupa #4 (Rzymianie, gracz wybiera kolejność wejścia, z Flamininusem).
+    keywords: [posiłki, tury, grupy]
+    flags: [title-specific]
+    refs: [T-47, R-SC5-8]
+  - id: R-SC5-6
+    title: "(opcja) Kynoskefalaj — mgła: widoczność i podnoszenie mgły"
+    section: "SC5 Cynoscephalae — Fog (Optional)"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Fog (Optional)” + tabele, s. 25", pages: "25", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Trzy stopnie widoczności: gęsta mgła (LOS maks. 5 heksów; MA o połowę, w górę), lekka mgła (10 heksów; MA –1), przejrzyście (25 heksów — drobna mżawka;
+      bez wpływu). Żadna jednostka nie widzi jednostek poza maksymalnym LOS; pozostałe zasady LOS obowiązują. Start: gęsta mgła. Od tury 3, na początku tury
+      przed każdą inną fazą, rzut na podniesienie mgły o jeden stopień: tury 3–4 — 0–1; tura 5 — 0–3; tura 6 — 0–6; od tury 7 do przejrzystości — 0–8.
+    keywords: [mgła, widoczność, LOS, MA]
+    flags: [title-specific, optional]
+    refs: [T-47, R-8.14.1, R-6.11.1]
+  - id: R-SC5-7
+    title: "(opcja) Kynoskefalaj — mgła: ruch ukryty do pierwszego wykrycia"
+    section: "SC5 Cynoscephalae — The Fog/Hidden Movement Rule"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „The Fog/Hidden Movement Rule”, s. 25–26", pages: "25-26", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      W pierwszej turze żadna strona nie stawia jednostek na mapie — zapisuje ich ruchy (obowiązują zasady ruchu i spójności). Ograniczenia: rzymski prefekt
+      jazdy stoi w 2020, jednostki bojowe w 2020 lub na południe od niego i w zasięgu; Filokles w 2718, jednostki bojowe „w 2178 lub na północ od niego” i w
+      zasięgu; jednostki zwiadu muszą zawsze pozostawać w zasięgu swojego dowódcy. Od tury 2 gracze stawiają na mapie **tylko żetony dowódców** (od tury 3 —
+      po rzucie na widoczność). Jeśli którakolwiek jednostka ma LOS do żetonu wrogiego dowódcy, gracz to ogłasza i **obie strony** stawiają wszystkie swoje
+      jednostki w grze. Do wykrycia trwa ruch ukryty.
+    notes: "„2178” to najpewniej literówka (2718) — N-44."
+    keywords: [mgła, ruch ukryty, zapis ruchu, wykrycie]
+    flags: [title-specific, optional]
+    refs: [R-SC5-6, N-44]
+  - id: R-SC5-8
+    title: "(opcja) Kynoskefalaj — mgła: harmonogram posiłków"
+    section: "SC5 Cynoscephalae — Fog Reinforcement Schedule"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Fog Reinforcement Schedule” + przykład, s. 26", pages: "26", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Z zasadą mgły grupy posiłków mogą wejść: #1 — 1 turę po uzyskaniu LOS; #2 — 3 tury; #3 — 5 tur; #4 — 6 tur. Przykład: LOS na początku tury 3 → #1 w turze
+      4, #2 w 6, #3 w 8, #4 w 9.
+    keywords: [mgła, posiłki, LOS]
+    flags: [title-specific, optional]
+    refs: [T-47, R-SC5-5]
+  - id: R-SC5-9
+    title: "(opcja zaawansowana) Kynoskefalaj — pełny ruch ukryty"
+    section: "SC5 Cynoscephalae — Hidden Movement (Advanced Optional Rule)"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Hidden Movement”, s. 26", pages: "26", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Na podstawie mgły i LOS ustala się, które jednostki się widzą; niewidziane (także wchodzące posiłki) poruszają się w ukryciu do wykrycia. Wymaga
+      dodatkowych zapisów i uzgodnionych wcześniej zasad domowych.
+    keywords: [ruch ukryty, LOS, zasady domowe]
+    flags: [title-specific, optional]
+    refs: [R-SC5-7]
+  - id: R-SC5-10
+    title: Kynoskefalaj (ustawiona) — start fazą EIO Filipa
+    section: "SC5 Cynoscephalae — The Set-Piece Battle (Important)"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „The Set-Piece Battle” (Important), s. 26", pages: "26", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Gra zaczyna się od fazy inicjatywy elitarnej (5.5) gracza macedońskiego z **Filipem** jako wybranym dowódcą, choć Filip nie jest elitarnym OC. Tylko w
+      pierwszej turze.
+    keywords: [EIO, Filip V, pierwsza tura]
+    flags: [title-specific]
+    refs: [R-5.51.1]
+  - id: R-SC5-11
+    title: Kynoskefalaj (ustawiona) — rozstawienie
+    section: "SC5 Cynoscephalae — The Set-Piece Battle"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj Set-Piece (obie armie), s. 26–27", pages: "26-27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Rzymianie twarzą na N; dowódcy (Flamininus, 2 trybunów, 3 prefektów sprzymierzeńców, 2 prefektów jazdy) w dowolnym heksie z własną jednostką (nie w zwykłej
+      szachownicy). Część jednostek rzymskich nie jest rozstawiona — uznaje się je za rozbite we wcześniejszych walkach. Macedończycy twarzą na S, chyba że w
+      kolumnie: falangi 1–6 w **podwójnej głębokości** (po dwie w heksie), falangi 7–12 **w kolumnie**. Heksy — T-47. Hoplici i Atamanowie Ligi Etolskiej mają
+      czerwone żetony (kolor Macedończyków).
+    keywords: [bitwa ustawiona, rozstawienie, podwójna głębokość, kolumna]
+    flags: [title-specific]
+    refs: [T-47, R-9.51.1, R-6.71.1]
+  - id: R-SC5-12
+    title: Kynoskefalaj — karta uprawnień do LC
+    section: "SC5 Cynoscephalae — Line Command Eligibility"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Line Command Eligibility”, s. 27", pages: "27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Linie wg T-29 (Kynoskefalaj). „*” — nie muszą przylegać (w księdze „see 4.24”; w 5. ed. 4.32). Rzymska linia 2 obejmuje dowolne 4 jednostki greckiej
+      piechoty; linia 6 — grecka piechota sprzymierzona; linia 7 — słonie.
+    keywords: [LC, karta uprawnień, Grecy, słonie]
+    flags: [title-specific]
+    refs: [T-29, R-4.32.1, N-23]
+  - id: R-SC5-13
+    title: Kynoskefalaj — macedońskie falangi podwójnej głębokości
+    section: "SC5 Cynoscephalae — Macedonian Double-depth Phalanxes"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Macedonian Double-depth Phalanxes”, s. 27", pages: "27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Gracz macedoński może używać podwójnej głębokości (9.5). Falangi zaczynające na prawym skrzydle są od początku w podwójnej głębokości; pozostałe zaczynają
+      jako pojedyncze (w kolumnie) i mogą tworzyć podwójną głębokość w trakcie bitwy wg 9.51.
+    keywords: [podwójna głębokość, falanga, Filip V]
+    flags: [title-specific]
+    refs: [R-9.51.1, R-9.52.1, R-9.53.1]
+  - id: R-SC5-14
+    title: Kynoskefalaj — bez doktryny triarii
+    section: "SC5 Cynoscephalae — Triarii Doctrine"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Triarii Doctrine”, s. 27", pages: "27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Doktryny triarii (9.7) **nie** stosuje się w tym scenariuszu.
+    notes: "Zgodne z 9.7 (bitwa po 200 p.n.e.)."
+    keywords: [doktryna triarii]
+    flags: [title-specific]
+    refs: [R-9.7.1]
+  - id: R-SC5-15
+    title: Kynoskefalaj — krawędzie odwrotu
+    section: "SC5 Cynoscephalae — Retreat Edges"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Retreat Edges”, s. 27", pages: "27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Rzymianie uciekają ku południowej krawędzi mapy, Macedończycy — ku północnej.
+    keywords: [krawędź odwrotu]
+    flags: [title-specific]
+    refs: [R-10.22.1]
+  - id: R-SC5-16
+    title: Kynoskefalaj — warunki zwycięstwa
+    section: "SC5 Cynoscephalae — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Victory”, s. 27", pages: "27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Bitwa spotkaniowa: armia rzymska wycofuje się przy **140** RP; bitwa ustawiona: **135** RP. W obu wersjach armia macedońska wycofuje się przy **115** RP.
+      Ranny Filip jest wart „25 TQ points” (tak w tekście — [wniosek] chodzi o RP); jeśli zginie — Rzymianie wygrywają automatycznie.
+    keywords: [zwycięstwo, próg wycofania, Filip V, "140", "135", "115"]
+    flags: [title-specific]
+    refs: [T-42, R-11.1.1, R-11.2.2, N-44]
+  - id: R-SC5-17
+    title: "(opcja) Kynoskefalaj — wzmocniona jazda rzymska"
+    section: "SC5 Cynoscephalae — Augmented Roman Cavalry (Optional)"
+    source: {text: "księga scen. 2018 (4. ed.), Kynoskefalaj „Augmented Roman Cavalry (Optional)”, s. 27", pages: "27", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Pełny kontyngent jazdy rzymskiej: w bitwie spotkaniowej dodaj brakujące 5 jednostek jazdy al do grupy #4; w bitwie ustawionej postaw AS/V RC w 2008, 2009
+      i AS/III RC w 1843–1845. W grze rywalizacyjnej nie podnosi się przy tym progu wycofania (R-SC5-1).
+    keywords: [jazda al, wariant, posiłki, wyważenie]
+    flags: [title-specific, optional]
+    refs: [T-47, R-SC5-1]
+  # --- SC6: scenariusz szkoleniowy (s. 28) ---
+  - id: R-SC6-1
+    title: Scenariusz szkoleniowy — siły i mapa
+    section: "SC6 A Learning Scenario"
+    source: {text: "księga scen. 2018 (4. ed.), „A Learning Scenario”, s. 28", pages: "28", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Abstrakcyjna potyczka na mapie Kann. Rzymianie: „III Alae Legion” z Flamininusem, jednym trybunem i dwoma prefektami jazdy (na wypadek podziału jazdy na
+      dwa skrzydła). Kartagińczycy: 2 afrykańskie falangi, 4 iberyjskie LI, 2 balearskich procarzy, 2 numidyjskie LC, 2 celtyckie LN, 2 afrykańskie słonie;
+      Hannibal (bez słonia dowódcy), Magon i Tychajos.
+    notes: "„III Alae Legion” — [wniosek] legion III i ala III (N-44)."
+    keywords: [scenariusz szkoleniowy, nauka gry, siły]
+    flags: [title-specific]
+    refs: [T-48, N-44]
+  - id: R-SC6-2
+    title: Scenariusz szkoleniowy — rozstawienie i zalecenia
+    section: "SC6 A Learning Scenario — Deployment"
+    source: {text: "księga scen. 2018 (4. ed.), „A Learning Scenario” — Deployment, s. 28", pages: "28", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: |
+      Rzymianie rozstawiają się pierwsi, Kartagińczycy drudzy; między armiami co najmniej **5 rzędów heksów**, obie strony mniej więcej w równej odległości od
+      krawędzi mapy. Można używać dowolnych zasad opcjonalnych (zalecane minimum). Sugerowane ograniczenie: Hannibal — jeden LC na turę.
+    keywords: [rozstawienie, 5 rzędów, Hannibal 1 LC]
+    flags: [title-specific]
+    refs: [T-48]
+  - id: R-SC6-3
+    title: Scenariusz szkoleniowy — zwycięstwo (słonie się nie liczą)
+    section: "SC6 A Learning Scenario — Victory"
+    source: {text: "księga scen. 2018 (4. ed.), „A Learning Scenario” — Victory, s. 28", pages: "28", document: "docs/scen_book/SPQR-Scenario-Book-2018-5.pdf"}
+    effect: Rzymianie uciekają po utracie **34** RP, Kartagińczycy po **25** RP. Straty słoni **nie** liczą się do tych sum.
+    keywords: [zwycięstwo, próg, słonie 0 RP]
+    flags: [title-specific]
+    refs: [T-48, T-42, R-11.1.1]

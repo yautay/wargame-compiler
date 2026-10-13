@@ -1,0 +1,21 @@
+{
+  "role": "executor",
+  "actor": "ig-1a-executor-20261012-0540",
+  "criteria": [
+    "Operator scope exception resolves the recorded blocker; dependencies and all frozen product hashes remain verified."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/scope-exception.json",
+      "sha256": "2e42ebdd10c779302726b470521823c9ccefaad7176b1ab4b34a782b32b7c486"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-scope-repair/configuration.json",
+      "sha256": "20810ac1d01121a37cbadded861f81ad6c814b721cc6572245c72b320cae33b2"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Operator UI confirmation retained in configuration.json; exact runtime configuration metadata are unavailable.",
+  "summary": "Restore IG-1A readiness: no dependencies, original input context/product hashes verified, and the sole additional write is explicitly authorized by the operator."
+}

@@ -1,0 +1,22 @@
+{
+  "role": "executor",
+  "actor": "ig-1a-executor-20261012-0540",
+  "summary": "Claim IG-1A after operator UI configuration confirmation, unchanged input hashes and owned-path baseline verification. Existing staged changes are preserved.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/configuration.json",
+      "sha256": "d26b08a66d911264efae6580112c3cf29de5b4ae3c33fde80bb2492d6b37a620"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-20261012-0540/checkpoint.json",
+      "sha256": "861bbaee5f204b3079d845b76febfb601b5e49101c77e5b42752ff81d2780dde"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Operator confirmed current session UI: GPT-6.1 Sol / reasoning high - TAK; see configuration.json."
+}

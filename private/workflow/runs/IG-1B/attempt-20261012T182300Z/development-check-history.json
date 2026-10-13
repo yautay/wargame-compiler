@@ -1,0 +1,50 @@
+[
+  {
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/tests-01.log",
+      "sha256": "f60329f1e8a7b06e8123b82c82ef88ed2acdd9ec6eeb76e7f7ec89523898260e"
+    },
+    "exit_code": 1,
+    "passed": 14,
+    "failed": 13,
+    "reported_pytest_seconds": 8.3,
+    "cause": "Sandbox denied GetFinalPathNameByHandleW, actual junction creation and hardlink creation. The code failed closed; no private product snapshot was attempted here.",
+    "resolution": "The explicit scoped local test command was approved under require_escalated; protections were not removed."
+  },
+  {
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/tests-02.log",
+      "sha256": "036a7080f8594784ed071cb8e88ed2a15f4199fbcd6d6c515f9f21fdc0b30707"
+    },
+    "exit_code": 1,
+    "passed": 16,
+    "failed": 11,
+    "reported_pytest_seconds": 4.65,
+    "cause": "Newly created Windows files exposed differing ctime through fstat and pathname stat, causing false mutation rejection. Real link-boundary tests passed after sandbox escalation.",
+    "resolution": "Preserve same-handle ctime comparison; compare pathname device/inode/size/mtime, retain independent and global byte hashes. No assertion was weakened."
+  },
+  {
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/tests-03.log",
+      "sha256": "30e4cd6079998e0b71734bd93483c14d9445a6922002c2abdc75563087dab80b"
+    },
+    "exit_code": 0,
+    "passed": 27,
+    "failed": 0,
+    "reported_pytest_seconds": 3.7,
+    "cause": "Corrected Windows metadata comparison.",
+    "resolution": "Added final metadata/publication/cleanup-boundary tests and executed the changed scope once."
+  },
+  {
+    "log": {
+      "path": "private/workflow/runs/IG-1B/attempt-20261012T182300Z/tests-04.log",
+      "sha256": "b5ba464e801b5ffe487c0527515416ed432e02ae4e68e810bcb23e160c4867a0"
+    },
+    "exit_code": 0,
+    "passed": 33,
+    "failed": 0,
+    "reported_pytest_seconds": 4.69,
+    "cause": "Final input contract and all required safety/mutation controls.",
+    "resolution": "Ready to freeze for separate independent review."
+  }
+]
