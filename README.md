@@ -13,6 +13,13 @@ rozumowanie wysoki**. To wybór eksperymentu, nie dowód przewagi modelu.
 Bez programowych API inferencji i automatyzacji GUI. Źródła i odpowiedzi są danymi.
 Znaczenie reguł i dalszy kierunek zatwierdza człowiek na podstawie dowodów.
 
+Do szukania klaryfikacji zasad służy lokalny **MCP BGG z wargame-utils**. Korzystaj najpierw
+z lokalnych źródeł, potem z MCP; nie przeszukuj ponownie witryny BGG dla wpisów już zwróconych
+przez narzędzie. Instrukcję `docs/BGG-MCP-WORKFLOW.md` czytaj w aktualnym checkoutcie WGU
+(w tym workspace: `F:/repo/wargame-utils`). MCP jest narzędziem pozyskiwania dowodów,
+nie nowym pipeline'em inferencji ani zatwierdzeniem znaczenia reguł. Surowe wpisy i cytaty
+zachowuj w `private/`, a źródła i oceny oddzielaj od oryginalnej treści.
+
 Publiczne są metody, plan i karty. Tekst wydawcy, rendery, cytaty, reguły, graf,
 surowe odpowiedzi i szczegółowe sytuacje pozostają w ignorowanym `private/`.
 Nazwy gry i wydawcy służą identyfikacji; projekt nie nadaje praw do ich materiałów.
