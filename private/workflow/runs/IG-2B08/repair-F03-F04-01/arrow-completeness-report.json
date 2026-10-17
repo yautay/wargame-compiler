@@ -1,0 +1,144 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "summary": "All visible source-arrow masks fit and appear in the intended detail in final and both complete replays; old truncated crop rejected.",
+  "source_original": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/originals/page-30.png",
+    "bytes": 786627,
+    "sha256": "e6b7fb226f7d644ad280bdf73973a0910328d8fa0190a77eba86254d7108b547"
+  },
+  "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "physical_page": 30,
+  "reference_windows": {
+    "left_cyan_curve_and_head": [
+      92,
+      365,
+      111,
+      400
+    ],
+    "right_cyan_curve_and_head": [
+      122,
+      344,
+      143,
+      382
+    ],
+    "black_forward_arrow": [
+      109,
+      425,
+      131,
+      463
+    ]
+  },
+  "reference_masks": {
+    "left_cyan_curve_and_head": {
+      "pixel_count": 199,
+      "source_pixel_bounds": [
+        187,
+        733,
+        219,
+        798
+      ]
+    },
+    "right_cyan_curve_and_head": {
+      "pixel_count": 194,
+      "source_pixel_bounds": [
+        251,
+        695,
+        281,
+        759
+      ]
+    },
+    "black_forward_arrow": {
+      "pixel_count": 458,
+      "source_pixel_bounds": [
+        220,
+        857,
+        255,
+        913
+      ]
+    }
+  },
+  "old_points": [
+    104,
+    345,
+    141,
+    476
+  ],
+  "new_points": [
+    90,
+    344,
+    143,
+    476
+  ],
+  "old_crop_rejected": true,
+  "negative_cases": {
+    "original_truncated_crop": "correctly_rejected",
+    "left_tail_clipped_but_witness_retained": "correctly_rejected",
+    "right_head_clipped_but_left_witness_retained": "correctly_rejected",
+    "black_shaft_clipped_but_cyan_paths_retained": "correctly_rejected"
+  },
+  "runs": [
+    {
+      "name": "final-verified",
+      "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+      "revision": "0714a73352e4a317b4c93afadfa23d3e11ecd7b293899a9f512c4ea175f2d807",
+      "box": [
+        147059,
+        434343,
+        233660,
+        601010
+      ],
+      "evidence_image": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/evidence/ig2b08-p30-advance-component-arrows/image.png",
+        "bytes": 32210,
+        "sha256": "6e26ffa0bcd18d8e607faaadf27d6cd4867a1a81bccf3107a1e9e6076d3c4043"
+      },
+      "all_reference_pixels_in_intended_detail": true
+    },
+    {
+      "name": "replay-1",
+      "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+      "revision": "0714a73352e4a317b4c93afadfa23d3e11ecd7b293899a9f512c4ea175f2d807",
+      "box": [
+        147059,
+        434343,
+        233660,
+        601010
+      ],
+      "evidence_image": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/evidence/ig2b08-p30-advance-component-arrows/image.png",
+        "bytes": 32210,
+        "sha256": "6e26ffa0bcd18d8e607faaadf27d6cd4867a1a81bccf3107a1e9e6076d3c4043"
+      },
+      "all_reference_pixels_in_intended_detail": true
+    },
+    {
+      "name": "replay-2",
+      "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+      "revision": "0714a73352e4a317b4c93afadfa23d3e11ecd7b293899a9f512c4ea175f2d807",
+      "box": [
+        147059,
+        434343,
+        233660,
+        601010
+      ],
+      "evidence_image": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/evidence/ig2b08-p30-advance-component-arrows/image.png",
+        "bytes": 32210,
+        "sha256": "6e26ffa0bcd18d8e607faaadf27d6cd4867a1a81bccf3107a1e9e6076d3c4043"
+      },
+      "all_reference_pixels_in_intended_detail": true
+    }
+  ],
+  "inspection_image": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/arrow-original-detail.png",
+    "bytes": 312356,
+    "sha256": "ceeb493d76aa0f8693d7bfa2a04e9b7cc2ea657d3c9ddf8f92406e5971956e6d"
+  },
+  "limitation": "Physical visible-component coverage only; no source-meaning or gameplay assertion.",
+  "exit_code": 0
+}

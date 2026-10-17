@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\repo\wargame-compiler\private\workflow\runs\IG-1D\replacement-rereview-20261013T140127Z\accounting.py", line 84, in <module>
+    assert verify_snapshot(INPUT) == im and verify_snapshot(SOURCE) == sm
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\src\wgc\inputs\snapshot.py", line 347, in verify_snapshot
+    return _verify_snapshot(directory)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\src\wgc\inputs\snapshot.py", line 297, in _verify_snapshot
+    manifest = read_structured(directory / 'manifest.json', require_canonical=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\src\wgc\inputs\snapshot.py", line 243, in read_structured
+    with open_read(path) as stream:
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\src\wgc\inputs\snapshot.py", line 115, in open_read
+    raise SnapshotError('cannot verify opened source path; WinError ' + str(ctypes.get_last_error()))
+wgc.inputs.snapshot.SnapshotError: cannot verify opened source path; WinError 5

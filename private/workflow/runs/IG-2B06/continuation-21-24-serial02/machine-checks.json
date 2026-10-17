@@ -1,0 +1,98 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "All task-specific preservation, identity, source locator, complete replay, and denominator assertions passed.",
+  "final_inventory": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+    "bytes": 2367836,
+    "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9"
+  },
+  "final_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/packet.json",
+    "bytes": 7992,
+    "sha256": "56deb7f7edc010974152ca949664cc5606c2dc7212be772b5d32be59fa5c6c88"
+  },
+  "selected_task": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/task.json",
+    "bytes": 9944,
+    "sha256": "c65290b9050558293fe39ebaf166c698095a3af1ed7a17df72c6a3fadda19e48"
+  },
+  "refinement_contract": {
+    "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json",
+    "bytes": 18176,
+    "sha256": "7a2371a47de970cc8959be74a4386fea66970d4fd6087e5f88eaddc870ce11f3"
+  },
+  "authored_input": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/inventory.json",
+    "bytes": 2159004,
+    "sha256": "698f05b0a4305d8e9aa5c2fb18c013cb5fc68c4dfd8df8f424e3ca2393cea82d"
+  },
+  "authored_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/reports.py",
+  "exit_code": 0,
+  "checks": {
+    "complete_source_and_registry_preservation": true,
+    "exact_four_placeholder_retirement": true,
+    "assigned_count_112_context_count_2": true,
+    "all_114_fresh_evidence_triples_in_each_run": true,
+    "both_independent_replays_and_final_bytes_equal": true,
+    "all_assigned_pages_fully_partitioned_into_regions_and_explicit_gaps": true,
+    "all_source_input_hashes_rechecked": true
+  },
+  "reports": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/preservation-report.json",
+      "bytes": 8525,
+      "sha256": "46a497a3af16b5bcca6c4278179ecc09a545587ed7c0981c69ab896da54cc653"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-report.json",
+      "bytes": 239936,
+      "sha256": "5b84e160bf41416aa6a5b57ad3f12e145c309150e6d9c59fde661ff627a83e4e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json",
+      "bytes": 600116,
+      "sha256": "f5494f69952871a1029d388b0748e49408be26601f6383e7ea76d337986756be"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json",
+      "bytes": 214815,
+      "sha256": "4878c991f2d987585d2b5d194f91969a1589d40dbe9afefef7944ebaf8e9bb7b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json",
+      "bytes": 77843,
+      "sha256": "c5bcdbc719e1e94f3e428c60dd4c9dc196b1b87c9afe0a495fa29afee3f7d0fb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/original-page-inspection.json",
+      "bytes": 84873,
+      "sha256": "555872290c240da5245537acd3e6ad050bf42b666ad3876717901343e5bcecdb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+      "bytes": 4989,
+      "sha256": "524d8924e0432137c1a085c699d7aabdd1dd5985edd16ca78cad5696573c1121"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json",
+      "bytes": 289556,
+      "sha256": "a384fb16f243ecba70ab7992ad218c4e3d2c453c26f96f4f1b2c1bf36b6b2cce"
+    }
+  ]
+}

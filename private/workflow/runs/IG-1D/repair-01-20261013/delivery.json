@@ -1,0 +1,363 @@
+{
+  "role": "executor",
+  "actor": "ig1-stage-executor-20261013",
+  "task": "IG-1D",
+  "summary": "First bounded repairs for four independent identity/decision/reference/merge-child findings; 108 strict public/reviewer controls, 102 project tests and complete private byte/field/binding accounting/reproducibility pass. Independent re-review pending.",
+  "criteria": [
+    "Repeated identical bytes yield identical identities and export content; timestamps are outside canonical hashes.",
+    "Reordering anonymous terms/relations preserves identities when unambiguous; collisions become review gaps.",
+    "Many-to-many origin bindings preserve file/field locations; wildcard and subpoint references have exact targets or explicit unresolved scope.",
+    "Export validates revision/hash closure and never inherits semantic approval."
+  ],
+  "artifacts": [
+    {
+      "path": "src/wgc/wgu_adapter/identity.py",
+      "sha256": "0bce05f603a0c6fad21ad9533c9649a207277f9100783b7d92812b6ce1aaf75b"
+    },
+    {
+      "path": "src/wgc/wgu_adapter/references.py",
+      "sha256": "2052794a3ce213fa3951607c7f0c9f3fdab9f4f882dd2cb2117b4c9db23f9f96"
+    },
+    {
+      "path": "src/wgc/export/README.md",
+      "sha256": "35b00ae20d52d8957053d16ffae5d679f52319da207307e876b1ad17e7820779"
+    },
+    {
+      "path": "src/wgc/export/source-export.schema.json",
+      "sha256": "2a1f619eb4773d1432470cf0a340ac55c2f74451661c92002a6c89a7864bd768"
+    },
+    {
+      "path": "src/wgc/export/source.py",
+      "sha256": "bf58eb6ac141ede3a9d3f2fa9ffc858be61c73252a596480d0edc4e62f6b407b"
+    },
+    {
+      "path": "src/wgc/export/storage.py",
+      "sha256": "eef41dcf6c752dbd5c48621fb3c2c052bbccc3a393ba656703fef1c0d5f21b52"
+    },
+    {
+      "path": "tests/wgu_adapter/test_identity.py",
+      "sha256": "71ef55e5cf8d1330ac26cc80ee87cb6d88439bdc1134e6317a117183ca2bede0"
+    },
+    {
+      "path": "tests/wgu_adapter/test_importer.py",
+      "sha256": "1eef689b79c41010effec2ebdb129ec73ea26c3b30757fab322d7c2c5e0b8226"
+    },
+    {
+      "path": "tests/wgu_adapter/test_references.py",
+      "sha256": "a911ab4f76953ecbc317736b96a73e02f3f920dfd4af39e3df0f289a4a768572"
+    },
+    {
+      "path": "tests/wgu_adapter/test_repair_contract.py",
+      "sha256": "76bc72c5186912c4b8baf5e757f0fb5a5bbca3a6f63af382002cfb2b16021b6f"
+    },
+    {
+      "path": "tests/wgu_adapter/test_review_repairs.py",
+      "sha256": "5b7f893e5b3c9358e3e64904edd5b905939063e2709aa71d4b2da7cb7680c10e"
+    },
+    {
+      "path": "tests/export/test_review_repairs.py",
+      "sha256": "f6dcadb7f5ad9c90279fcde0157bd311a5464b5f4f9dcb2774aa9685bd93eca9"
+    },
+    {
+      "path": "tests/export/test_source.py",
+      "sha256": "c6265b078cae847143c09762ca06cf3b35158a7b54508375eea230c8eaaef64e"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/src/wgc/export/source.py",
+      "sha256": "bf58eb6ac141ede3a9d3f2fa9ffc858be61c73252a596480d0edc4e62f6b407b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/src/wgc/wgu_adapter/identity.py",
+      "sha256": "d478fe816a7312e1999a63e0fac341a90cdbd563f8fe1f37f77cd6ea163faa6f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/src/wgc/wgu_adapter/references.py",
+      "sha256": "5baa40257ab527428bdf86e2ff6e76621b8cf8ec3a52467576ee817fb4974f22"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/tests/export/test_source.py",
+      "sha256": "c6265b078cae847143c09762ca06cf3b35158a7b54508375eea230c8eaaef64e"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/tests/wgu_adapter/test_identity.py",
+      "sha256": "aaaf49a059113688abea26c2d56c54f46f3b56f0b05887463aefd00280d9a5c8"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/tests/wgu_adapter/test_references.py",
+      "sha256": "a911ab4f76953ecbc317736b96a73e02f3f920dfd4af39e3df0f289a4a768572"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline-manifest.json",
+      "sha256": "2cf8160e578aca5e94f540d942c6254c604fa27980634ced39b9759252bede13"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/capture_checks.py",
+      "sha256": "8f8ae4e535c1e272d351c27473de5ebdb13c5fb20c13eede14338df8e76806cf"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/captured-checks.json",
+      "sha256": "af4905a509ae4593065ddfb2649d0ee49961e72edc66e425e67683767c968d37"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/checkpoint.json",
+      "sha256": "cbc2d06fdecfd07eef769f78a9f41a14687b047aebacbdc2fa4bcfcdce7130ae"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/checks.json",
+      "sha256": "d25cf6027b06ad4b6d155164ca5f841508b4ce1c9eb510d293a7ca315c0a088b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/claim.json",
+      "sha256": "78b8d0919c22d546e1e37f3b631f4510ff7facd39065a38ed399da98e09b574d"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/configuration.json",
+      "sha256": "3f0ee7aa346918f7a65c83fea1004a20fb09f63f77932e3426370e8ead4ed956"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/diff.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/explicit.log",
+      "sha256": "816cb87cf04a5cfcad0fc2a3ac1986ccd65f55604b205acad2b16a72de811c5f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/freeze.py",
+      "sha256": "2af197229ca0f4c096c4a803f67604e85a84281d40ec013c52af91854c1b8420"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/full-export-accounting-final.json",
+      "sha256": "b1cc378954c8fc930e2bd7dc5638a23805177820a083a5966b3f99f512f07ba1"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/full_audit.py",
+      "sha256": "3ea95d5c54d023e1e66f47380b4ac8ba11ee62ee8f167e0991779f974de874b0"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/hypothesis.json",
+      "sha256": "3137f85b9e94eb6b961a6c0322cf93a21b6ace5bf8e4cc6ffedb03882d681dcf"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/measurement.json",
+      "sha256": "78aee31d81bde875cdc79535403143e007e38a8b1f4a486cb1bb7a8e49a908f9"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/packet.json",
+      "sha256": "f2f1fc406044f569039ebf7b6f3e2b0970916fdc001aba98123f2e59b32fa317"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/prepare.py",
+      "sha256": "2d36ba17d679b8962019415d36c99fde2893886af1210e0af6f0d9704bd1d011"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/preservation.json",
+      "sha256": "324ec739391c4123b87576e13aa879354fea1742f20e2223f6d9738bd4787ab8"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/queue.log",
+      "sha256": "4bc7f03f70cccb8176ea715d33681d18057bd7243208ba14e4a90bbd371f18cd"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/repair-scope.json",
+      "sha256": "0adcda3f656ca80b6a70e536437bcf0d5928eed051b1d6d3c2a6fc229ee82a75"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/report.md",
+      "sha256": "6f0b535bf672838c546a88251f4cf9792293329ef4651c6f90e869fdfcbff9d3"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/runner-correction.json",
+      "sha256": "b706f4057555187ab9af07697ea58a901a1e47dc1de3507179b82515d39aad25"
+    },
+    {
+      "path": "private/ig/projects/spqr/records/exports/sha256-ba0548e6fd9f650c2295c7bd587e4b1724c8b93e055727feab329fbaece692cc/identity-registry.json",
+      "sha256": "05eaf2ef84dc457fcbdac04e92abff19620831086fda12eddd26a154b37e7539"
+    },
+    {
+      "path": "private/ig/projects/spqr/records/exports/sha256-ba0548e6fd9f650c2295c7bd587e4b1724c8b93e055727feab329fbaece692cc/manifest.json",
+      "sha256": "e34a0f71198358c602c5a04aa5d0ff1b357506b32f2a9f75acd35c69ac98a48e"
+    },
+    {
+      "path": "private/ig/projects/spqr/records/exports/sha256-ba0548e6fd9f650c2295c7bd587e4b1724c8b93e055727feab329fbaece692cc/references.json",
+      "sha256": "ce1e9259b75408a634c00bccadd29b5c45333151e5a9fd75ffd71883b780669f"
+    },
+    {
+      "path": "private/ig/projects/spqr/records/exports/sha256-ba0548e6fd9f650c2295c7bd587e4b1724c8b93e055727feab329fbaece692cc/source-ig.json",
+      "sha256": "ac9370c5535a5d49b513deba7f6136d9eebe538f71599cc1dd468fb0921d5ebb"
+    },
+    {
+      "path": "private/ig/projects/spqr/records/exports/operations/operation-1376827b37014e3e93adce1dc11a8df2.json",
+      "sha256": "fb00fc4bffa8b3b5ac8caca24bd29053566f98ef8a0129d3ff1285550410b3e8"
+    },
+    {
+      "path": "private/ig/projects/spqr/records/exports/operations/operation-cf1ce11287054b7ba527c704aa396a9c.json",
+      "sha256": "d6b3d53fa980b505404e39cf7fd493bda027942d0a9e4e73c4c056fe8cc4b56d"
+    },
+    {
+      "path": "private/workflow/checks/active-39a4fb89432a4b458fb71adf87ce534f/dry-run.log",
+      "sha256": "9396b87d169e5f72246f6e43ce0219aa529e0423e3edf0ed5b6e8474fafc8bf3"
+    },
+    {
+      "path": "private/workflow/checks/active-39a4fb89432a4b458fb71adf87ce534f/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-39a4fb89432a4b458fb71adf87ce534f/pytest.log",
+      "sha256": "e73a1703bebdf07e717e0d8f8e3e51892feedf8151ccff2f486c857ec0d30a0f"
+    },
+    {
+      "path": "private/workflow/checks/active-39a4fb89432a4b458fb71adf87ce534f/result.json",
+      "sha256": "884e447ceeff2127133c5d2744b25072adaa1da7d86a06842ddabe3286281e5d"
+    }
+  ],
+  "checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter tests/export private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/dr5 --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/wgu_adapter",
+        "tests/export",
+        "private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py",
+        "private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/dr5",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T13:12:15.068790+00:00",
+      "ended_utc": "2026-10-13T13:12:23.821185+00:00",
+      "wall_seconds": 8.75,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\explicit.log"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T13:12:23.821185+00:00",
+      "ended_utc": "2026-10-13T13:12:24.268566+00:00",
+      "wall_seconds": 0.4529999999795109,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\queue.log"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T13:12:24.268566+00:00",
+      "ended_utc": "2026-10-13T13:12:25.650212+00:00",
+      "wall_seconds": 1.375,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\diff.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1D/repair-01-20261013/full_audit.py (normally reviewed native escalation)",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/full-export-accounting-final.json",
+        "sha256": "b1cc378954c8fc930e2bd7dc5638a23805177820a083a5966b3f99f512f07ba1"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1D",
+      "exit_code": 0,
+      "tests_passed": 102,
+      "reported_seconds": 40.84,
+      "result": {
+        "path": "private/workflow/checks/active-39a4fb89432a4b458fb71adf87ce534f/result.json",
+        "sha256": "884e447ceeff2127133c5d2744b25072adaa1da7d86a06842ddabe3286281e5d"
+      }
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1D/repair-01-20261013/configuration.json",
+    "sha256": "3f0ee7aa346918f7a65c83fea1004a20fb09f63f77932e3426370e8ead4ed956"
+  },
+  "input_packet": {
+    "path": "private\\workflow\\packets\\IG-1D-42f98c10fa584f9690b3090bd9badaa4\\manifest.json",
+    "sha256": "6ac97641c915781a98e3317562935f6805fc83d5ce78bc2455a01f0334510e97",
+    "all_hashes_match": true,
+    "unchanged_named_context_retained": true
+  },
+  "parent_delivery": {
+    "path": "private/workflow/runs/IG-1D/preflight-20261013/delivery.json",
+    "sha256": "f510ae8830d5a5cbf1311c8383a4a8e0581d3e5421e64283b4d4820cae8f4154"
+  },
+  "parent_review": {
+    "path": "private/workflow/runs/IG-1D/review-20261013T122807Z/review.json",
+    "sha256": "ef9955c57e22a85ecd76a54ea08fda9dcfedbba7419cfc85ff91497abf468b00"
+  },
+  "repair_findings": [
+    {
+      "finding_id": "IG1D-R01",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Collect and compare applicable anonymous rematch evidence before committing assignments. If independently justified label/body/endpoint/number evidence contradicts candidate identities, preserve the candidate IDs in a gap until an explicit binding decision resolves the conflict.",
+      "required_verification": [
+        "Keep this strict contradictory-evidence probe unchanged and make it pass with all affected observations unresolved and full candidate/origin retention",
+        "Add conflicting-evidence cases for other anonymous kinds where multiple applicable descriptors disagree",
+        "Retain unambiguous edit, rename, reorder, insert/delete/file-move, repeated-input and endpoint-alias tests",
+        "Use explicit hints to resolve the conflict without changing raw observations or reusing generated identities",
+        "Rerun full private accounting, canonical reproducibility, affected suites and required project/diff checks"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R02",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Validate overlap between forced lineage child locators and hints. Reject incompatible combinations before reconciliation or preserve an explicit conflict gap carrying both decisions; do not silently prioritize one branch. If compatible overlap is supported, define and verify its exact reconciliation rule and receipts.",
+      "required_verification": [
+        "Keep the strict overlap probe unchanged; incompatible inputs reject or return an explicit unresolved assignment",
+        "Cover merge and split overlap, compatible/identical duplicates if supported, decision replay and preserved previous-registry immutability on rejection",
+        "Retain disjoint many-to-many hints, keyed indistinguishable children and ordinary lineage replay",
+        "Rerun affected suites, full private accounting and required checks"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R03",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Add exact active identity resolution with an explicit basis and retain collision/scope rules. Preserve role/navigation and no-approval behavior. Retired IDs must not resolve as active merely because they remain in history.",
+      "required_verification": [
+        "Keep the exact-current-ID probe unchanged and make it return the exact singleton target",
+        "Cover direct IDs in relation from/to and navigation cycle detection",
+        "Cover retired/non-current IDs, external alias collisions, raw strings resembling IDs, and explicit wildcard/subpoint scopes",
+        "Verify both endpoints still must resolve before the source relationship is resolved",
+        "Rerun affected suites and required controls"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R04",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Match an existing uniquely identified lineage child by its persisted receipt/decision and exact child contract independently of corrected content. Preserve gaps for genuine multi-child ambiguity or conflicting decisions; do not allocate a replacement or require unrelated semantic acceptance for a text correction.",
+      "required_verification": [
+        "Keep the strict unique-child correction probe unchanged and make it retain the existing child ID/origin_key",
+        "Cover repeated correction and rename of a single merged child, retained old origins and exact historical parent references",
+        "Retain keyed identical split children, multiple-child ambiguity, changed/colliding decision rejection and unchanged replay tests",
+        "Re-run affected suites, full private canonical reproducibility and required checks"
+      ]
+    }
+  ],
+  "repair_cycles_per_finding": 1,
+  "semantic_acceptance_granted": false,
+  "source_coverage_granted": false,
+  "executable_readiness_granted": false,
+  "unmet_lifecycle_gates": [
+    "Independent re-review",
+    "Coordinator acceptance/done"
+  ]
+}

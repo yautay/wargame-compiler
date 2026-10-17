@@ -1,0 +1,193 @@
+{
+  "outcome": "CHANGES_REQUESTED",
+  "severity_counts": {
+    "P1": 3,
+    "P2": 2
+  },
+  "findings": [
+    {
+      "id": "IG2A-R01",
+      "severity": "P1",
+      "title": "Evidence stays current after the page coordinate basis changes",
+      "locations": [
+        {
+          "path": "src/wgc/sources/inventory.py",
+          "start": 182,
+          "end": 187
+        },
+        {
+          "path": "contracts/ig/regions.schema.json",
+          "json_pointer": "/$defs/evidence"
+        },
+        {
+          "path": "src/wgc/sources/pdf.py",
+          "start": 74,
+          "end": 85
+        }
+      ],
+      "reproduction": "Reseal page 1 after changing /Rotate to 90, UserUnit from 1 to 2, or CropBox/effective CropBox x0 to 10 native points. Leave the region revision, evidence locators and artifact bytes unchanged. validate(document, root) accepts all three.",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/stale_page_rotation.input.json",
+          "sha256": "87376a11ce13c711a0df842afe461b81248cbb7235e4efa8bbf5f98c8ca50bf9"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/stale_page_userunit.input.json",
+          "sha256": "3e6cb5c5030046790ca45ffa30effbfb78ef0c0cddafeb71581ec620f3947e35"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/stale_page_crop.input.json",
+          "sha256": "46743bbf12529e03abdc81b27648b3c10675849319be89fb1a2b6f92e5c39f70"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/probe-results.json",
+          "sha256": "758d3da6498f345fa73dfc9fe1942d4e334f4281c4ee4b89e64a6e6ed021dd54"
+        }
+      ],
+      "observed_exit_code": 0,
+      "observed_result": "All listed invalid candidate documents were accepted by validate(document, root).",
+      "consequence": "Normalized box coordinates depend on page geometry and units. Old text/PNG/derived-PDF files are accepted as current evidence for a different native/displayed crop. Page hashes are checked only against themselves, and evidence has no pinned page-geometry revision.",
+      "required_change": "Bind the evidence derivation to a non-circular exact page geometry/physical-page basis and verify it against the pinned PDF when claiming source-grounded validity. Reject stale geometry even when page/document hashes were correctly recomputed. Preserve explicit author region identity across legitimate revisions.",
+      "repair_verification": "On a clean valid migrated baseline, change CropBox, effective crop, rotation and UserUnit independently, reseal the page/container and retain old evidence. Each must fail with a freshness/source-basis error; fresh evidence for an unchanged actual source basis must pass. Keep all four independent asymmetric pixel/rotation/UserUnit oracles passing.",
+      "semantic_acceptance_granted": false
+    },
+    {
+      "id": "IG2A-R02",
+      "severity": "P2",
+      "title": "DPI metadata is not checked against crop geometry and image dimensions",
+      "locations": [
+        {
+          "path": "src/wgc/sources/inventory.py",
+          "start": 198,
+          "end": 200
+        }
+      ],
+      "reproduction": "Change the first evidence render_parameters.dpi from 144 to 72, preserving its 400 by 600 PNG, source geometry, file pins and all other settings; reseal the container. validate(document, root) accepts it.",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/false_render_dpi.input.json",
+          "sha256": "d9b69d9bdba08b97fc8ce524c79aa8bc424eb9370522d40b8764f56a016a39cd"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/probe-results.json",
+          "sha256": "758d3da6498f345fa73dfc9fe1942d4e334f4281c4ee4b89e64a6e6ed021dd54"
+        }
+      ],
+      "observed_exit_code": 0,
+      "observed_result": "All listed invalid candidate documents were accepted by validate(document, root).",
+      "consequence": "The documented render settings can describe an impossible render. Width/height are compared only to the PNG header, so the recorded DPI does not substantiate accurate coordinate/pixel evidence.",
+      "required_change": "Cross-check DPI, normalized crop physical dimensions, UserUnit, rotation and render dimensions with an explicit Poppler rounding convention. Do not authenticate arbitrary settings solely from their presence in the schema.",
+      "repair_verification": "The retained false_render_dpi input must fail for inconsistent rendering metadata, while actual 72/144-DPI evidence for nonzero origins, fractional UserUnit and all rotations passes with independently calculated pixel dimensions.",
+      "semantic_acceptance_granted": false
+    },
+    {
+      "id": "IG2A-R03",
+      "severity": "P2",
+      "title": "A verified printed label can cite evidence from another page",
+      "locations": [
+        {
+          "path": "src/wgc/sources/inventory.py",
+          "start": 203,
+          "end": 204
+        }
+      ],
+      "reproduction": "Set page 1 label to verified value 2 and cite the exact evidence ID for page 2. Reseal the page and document. The referenced evidence exists, so validation accepts the wrong-page association.",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/wrong_page_printed_label.input.json",
+          "sha256": "1ce8de8cdc1d4fa3f4f507b95fdfc30e0a9e9415bccc51e544865d96049dae42"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/probe-results.json",
+          "sha256": "758d3da6498f345fa73dfc9fe1942d4e334f4281c4ee4b89e64a6e6ed021dd54"
+        }
+      ],
+      "observed_exit_code": 0,
+      "observed_result": "All listed invalid candidate documents were accepted by validate(document, root).",
+      "consequence": "The printed-label mapping is not technically bound to its physical page. A downstream locator can appear visually verified using an unrelated page image; ID existence alone is insufficient.",
+      "required_change": "Require the label evidence to resolve to the same physical page/source and a current geometry/region basis. Verifying the visible glyph remains a reviewer observation, separate from structural association.",
+      "repair_verification": "Cross-page evidence must be rejected even if the evidence itself is valid. Same-page current evidence must pass. Preserve unknown cover labels and embedded_unverified PageLabels without promoting metadata to visual verification.",
+      "semantic_acceptance_granted": false
+    },
+    {
+      "id": "IG2A-R04",
+      "severity": "P1",
+      "title": "Exclusion freshness omits the author region and registry basis",
+      "locations": [
+        {
+          "path": "src/wgc/sources/inventory.py",
+          "start": 105,
+          "end": 110
+        },
+        {
+          "path": "src/wgc/sources/inventory.py",
+          "start": 166,
+          "end": 170
+        },
+        {
+          "path": "contracts/ig/README.md",
+          "start": 193,
+          "end": 205
+        }
+      ],
+      "reproduction": "Start with the passing synthetic exact exclusion. Keep its decision bytes, box and boundary unchanged; change the region kind/uncertainty and reseal it, or change its author key and corresponding registry entry while retaining the UUID. The same exclusion remains valid. Physical-page remapping is also absent from the partition basis (see R05).",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/exclusion_after_region_revision.input.json",
+          "sha256": "62972d4b5838efc128ec82abac3cad2ee3486559454e2b213bbcc4634406883a"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/exclusion_after_registry_change.input.json",
+          "sha256": "f0f843639eadc7f56cb3ea8e26a998a4bc4fd20e9b31ccf1928bc7347c07fc5b"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/exclusion_after_page_remap.input.json",
+          "sha256": "08cbc2e1c92abfad207c51fc0ae4a2b4f3b160f1b37e702cf60674ebeec95731"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/probe-results.json",
+          "sha256": "758d3da6498f345fa73dfc9fe1942d4e334f4281c4ee4b89e64a6e6ed021dd54"
+        }
+      ],
+      "observed_exit_code": 0,
+      "observed_result": "All listed invalid candidate documents were accepted by validate(document, root).",
+      "consequence": "partition_hash covers only source SHA and inventory region IDs/page IDs/boxes. It cannot invalidate a decision after author/registry scope revisions. The frozen IG-1A exclusion contract requires an exact current whole-region and inventory basis; this sidecar must not transfer a prior scope decision into a changed basis merely because its rectangles are unchanged.",
+      "required_change": "Pin an exact, coverage-independent author/registry/page/partition decision basis that avoids circular coverage hashing, or explicitly report the decision freshness as unknown/stale until reconciliation establishes the required IG-1A basis. Keep technical claim validation separate from human authority/decision authentication; do not invent acceptance.",
+      "repair_verification": "Change region key, classification, uncertainty, registry scope, source and physical-page mapping separately after a valid exclusion. Old decision basis must become stale/unknown or fail and must not be reported as a current approved exclusion. Unchanged exact basis and separately authentic human evidence can retain their limited scope. The current partition-change rejection must continue to pass.",
+      "semantic_acceptance_granted": false
+    },
+    {
+      "id": "IG2A-R05",
+      "severity": "P1",
+      "title": "Root validation can accept omitted PDF pages and physical identity remapping",
+      "locations": [
+        {
+          "path": "src/wgc/sources/inventory.py",
+          "start": 127,
+          "end": 148
+        }
+      ],
+      "reproduction": "For the unchanged pinned two-page synthetic PDF, set page_count and both named independent count records to 1, retain only page/region/order entry 1, and remove evidence; reseal. Root validation accepts a one-page inventory. Independently, swap pdf_page numbers 1 and 2 while retaining physical-page author keys, IDs and registry and removing evidence; validation also accepts.",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/false_consistent_page_count.input.json",
+          "sha256": "be8e3b776b1cffd5390265c0686c6ef3ffc00ed0769dece5f1ae4a9b72392a10"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/physical_page_remapping.input.json",
+          "sha256": "c640484ee72da0a9285259c3e80b31845aaf58da2d84a37bfc15a0cb1addf9d5"
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/p2/probe-results.json",
+          "sha256": "758d3da6498f345fa73dfc9fe1942d4e334f4281c4ee4b89e64a6e6ed021dd54"
+        }
+      ],
+      "observed_exit_code": 0,
+      "observed_result": "All listed invalid candidate documents were accepted by validate(document, root).",
+      "consequence": "The counter claims are compared to each other, not the byte-pinned source, and physical identity keys are not bound to immutable physical addresses. A missing real page becomes invisible and persisted IDs silently move to another page without any explicit mapping decision. The frozen 44-page delivery is correct, but the validator is insufficient for downstream edited inventories.",
+      "required_change": "Use an exact independently verified source-structure basis for page count and page addresses. Validate author-key/registry physical-page bindings against that basis and reject silent remapping. Keep changed-PDF SHA registry reuse refusal intact.",
+      "repair_verification": "With a two-page byte-pinned PDF, consistent forged one-page counters must fail with actual missing-page/source-basis diagnostics. Swapping physical addresses under the same persisted IDs must fail. Reordering the pages array without changing physical addresses and two fresh registry replays must pass.",
+      "semantic_acceptance_granted": false
+    }
+  ]
+}

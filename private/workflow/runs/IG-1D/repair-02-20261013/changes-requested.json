@@ -1,0 +1,263 @@
+{
+  "actor": "ig1-continuation-executor-20261013",
+  "criteria": [
+    "Repeated identical bytes yield identical identities and export content; timestamps are outside canonical hashes.",
+    "Reordering anonymous terms/relations preserves identities when unambiguous; collisions become review gaps.",
+    "Many-to-many origin bindings preserve file/field locations; wildcard and subpoint references have exact targets or explicit unresolved scope.",
+    "Export validates revision/hash closure and never inherits semantic approval."
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1D/resume-audit-20261013T134548Z/configuration-confirmed.json",
+    "sha256": "3dfebc8c0fae403be0caa491af60d66031a9ea443a31e0858ee770f4e46a4e69"
+  },
+  "role": "coordinator",
+  "summary": "Record finalized independent replacement review: R01-R03 closed; one bounded second repair remains for R04 typed-child receipt contract.",
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/review.json",
+      "sha256": "bd053c6d858dfbb2656a5e10b9ea395d14aee6f2e04f56f4f1d0176746accfba"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/review-manifest.json",
+      "sha256": "1004a11d1faaab6ed4bce69a64bbbb33031d9eb1240608e659a1e059dc181448"
+    }
+  ],
+  "reviewer_checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -B C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\accounting.py",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\accounting.py"
+      ],
+      "exit_code": 1,
+      "start_utc": "2026-10-13T14:03:41.501196+00:00",
+      "end_utc": "2026-10-13T14:03:42.560933+00:00",
+      "wall_seconds": 1.0593006000854075,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\accounting.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -B C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\accounting.py",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\accounting.py"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:04:04.193648+00:00",
+      "end_utc": "2026-10-13T14:11:39.247121+00:00",
+      "wall_seconds": 455.0533231999725,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\accounting-native.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:12:29.918773+00:00",
+      "end_utc": "2026-10-13T14:12:31.500912+00:00",
+      "wall_seconds": 1.5815990001428872,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\diff.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter tests/export -q -p no:cacheprovider --basetemp private/workflow/checks/r3-explicit --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/wgu_adapter",
+        "tests/export",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r3-explicit",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "start_utc": "2026-10-13T14:03:41.430962+00:00",
+      "end_utc": "2026-10-13T14:03:59.386167+00:00",
+      "wall_seconds": 17.955890000099316,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\explicit.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter tests/export -q -p no:cacheprovider --basetemp private/workflow/checks/r3-explicit-native --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/wgu_adapter",
+        "tests/export",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r3-explicit-native",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:04:34.335115+00:00",
+      "end_utc": "2026-10-13T14:04:45.310414+00:00",
+      "wall_seconds": 10.97604460013099,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\explicit-native.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\export_history_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r3-history --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\export_history_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r3-history",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:03:41.696198+00:00",
+      "end_utc": "2026-10-13T14:03:49.103278+00:00",
+      "wall_seconds": 7.407108800020069,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\history.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\probes.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\lineage_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r3-original --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\probes.py",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\lineage_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r3-original",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "start_utc": "2026-10-13T14:03:41.429965+00:00",
+      "end_utc": "2026-10-13T14:03:53.968396+00:00",
+      "wall_seconds": 12.53822740004398,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\original.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\probes.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\lineage_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r3-original-native --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\probes.py",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z\\lineage_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r3-original-native",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:04:46.748352+00:00",
+      "end_utc": "2026-10-13T14:04:53.986647+00:00",
+      "wall_seconds": 7.238328600069508,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\original-native.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1D",
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-1D"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:03:41.559899+00:00",
+      "end_utc": "2026-10-13T14:05:11.861524+00:00",
+      "wall_seconds": 90.30168830021285,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\project.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\risk_probes.py C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\receipt_edge_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r3-risk --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\risk_probes.py",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\receipt_edge_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r3-risk",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "start_utc": "2026-10-13T14:03:41.531974+00:00",
+      "end_utc": "2026-10-13T14:03:49.481253+00:00",
+      "wall_seconds": 7.949724500067532,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\replacement-rereview-20261013T140127Z\\risk.log",
+      "process_local_import_path": [
+        "C:\\repo\\wargame-compiler\\src",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\review-20261013T122807Z"
+      ]
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/supplemental_audit.py",
+      "exit_code": 0,
+      "start_utc": "2026-10-13T14:08:12.075056+00:00",
+      "end_utc": "2026-10-13T14:08:25.906176+00:00",
+      "wall_seconds": 13.831453599967062,
+      "result": {
+        "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/supplemental-accounting.json",
+        "sha256": "fb4b76030a6313b2bc8762987185a6e363dc251882e8886388a3a237e57fb2d2",
+        "bytes": 2815911
+      },
+      "capture_note": "Direct tool completion exit 0; command output also included in result JSON. No separate stdout log."
+    }
+  ],
+  "technical_result": "changes_requested"
+}

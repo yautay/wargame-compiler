@@ -1,0 +1,133 @@
+{
+  "recorded_utc": "2026-10-13T10:13:11.337841+00:00",
+  "accepted_delivery": {
+    "path": "private/workflow/runs/IG-1C/repair-01-20261013/delivery.json",
+    "sha256": "5392446d5e9d2112b048d4b74030b6a8790fd1848d2de1df4812590decedd7ad"
+  },
+  "independent_pass": {
+    "path": "private/workflow/runs/IG-1C/rereview-20261013T100001Z/review.json",
+    "sha256": "c1ee79e0cdf23fe31e1fc7831aa23f4042d00ce6e1cbce938aecdb9eb61d0144"
+  },
+  "exact_delivery_artifact_count": 34,
+  "review_evidence_artifact_count": 41,
+  "all_hashes_match": true,
+  "criteria": [
+    {
+      "criterion": "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+      "status": "pass",
+      "evidence": [
+        "independent-accounting.json",
+        "original-probes.log",
+        "risk-probes.log",
+        "metadata-edges.log"
+      ]
+    },
+    {
+      "criterion": "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+      "status": "pass",
+      "evidence": [
+        "independent-accounting.json",
+        "original-probes.log",
+        "risk-probes.log",
+        "metadata-edges.log"
+      ]
+    },
+    {
+      "criterion": "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+      "status": "pass",
+      "evidence": [
+        "independent-accounting.json",
+        "original-probes.log",
+        "risk-probes.log",
+        "metadata-edges.log"
+      ]
+    },
+    {
+      "criterion": "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results.",
+      "status": "pass",
+      "evidence": [
+        "independent-accounting.json",
+        "original-probes.log",
+        "risk-probes.log",
+        "metadata-edges.log"
+      ]
+    }
+  ],
+  "finding_dispositions": [
+    {
+      "finding_id": "IG1C-R01",
+      "disposition": "closed",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "reviewed_location": {
+        "path": "src/wgc/wgu_adapter/parser.py",
+        "start": 36,
+        "end": 54
+      },
+      "basis": "Unchanged malformed bool/timestamp/int/float probes pass. Six new explicit scalar cases include invalid calendar values and binary Unicode; each returns exactly one raw-preserved error with escaped field pointer and exact line/column. Independent multi-file snapshot preserves both malformed files and all following valid/raw files. Unrelated string constructor KeyError still propagates.",
+      "independent_controls": [
+        "original-probes.log",
+        "risk-probes.log"
+      ],
+      "required_verification_complete": true
+    },
+    {
+      "finding_id": "IG1C-R02",
+      "disposition": "closed",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "reviewed_location": {
+        "path": "src/wgc/wgu_adapter/importer.py",
+        "start": 45,
+        "end": 77
+      },
+      "basis": "Embedded schema exactly equals the pinned WGU schema, independently extracted from a literal JSON AST without executing product code. All four original optional-field counterexamples pass. Fourteen new nested/file type/enum cases and three missing-manifest metadata cases produce located structural errors; missing chapter metadata uses its parent location. Valid extensions, unconstrained data and integer/string step numbering survive, while bool numbering fails. Complete actual corpus has zero errors and unchanged full field/record ledger.",
+      "independent_controls": [
+        "verification-before.json",
+        "original-probes.log",
+        "risk-probes.log",
+        "metadata-edges.log",
+        "independent-accounting.json"
+      ],
+      "required_verification_complete": true
+    },
+    {
+      "finding_id": "IG1C-R03",
+      "disposition": "closed",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "reviewed_location": {
+        "path": "src/wgc/wgu_adapter/importer.py",
+        "start": 102,
+        "end": 116
+      },
+      "basis": "Original scalar-confusables probe passes unchanged. New heterogeneous null/bool/integer/empty-string/list/mapping entries retain exact values without false errors; incidental confusable IDs do not cause duplicate entity identities. Genuine entity-record errors and cross-file/nested duplicate IDs remain covered by unchanged strict probes. Full actual corpus mappings/raw bytes remain unchanged.",
+      "independent_controls": [
+        "original-probes.log",
+        "risk-probes.log",
+        "independent-accounting.json",
+        "import-compatibility.json"
+      ],
+      "required_verification_complete": true
+    }
+  ],
+  "independent_checks_all_pass": true,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1C/rereview-20261013T100001Z/configuration.json",
+    "sha256": "fe78cc9f14d9ccd9dadbb8b5d205ca0aabec688ea1250dccc7234abc5897318f",
+    "source": {
+      "source": "Direct current reviewer-chat operator confirmation in response to explicit request to inspect this chat UI",
+      "verbatim_response": "GPT-6.1 Sol / high",
+      "independent_of_executor_configuration": true,
+      "exact_confirmation_timestamp": null
+    },
+    "same_reviewer_session": true
+  },
+  "semantic_acceptance_required": false,
+  "semantic_acceptance_granted": false,
+  "source_coverage_granted": false,
+  "executable_readiness_granted": false,
+  "next_operation": "Record accepted then done via workflow transitions; only afterward refine/readiness/claim IG-1D."
+}

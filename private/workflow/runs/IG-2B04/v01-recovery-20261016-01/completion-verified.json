@@ -1,0 +1,118 @@
+{
+  "role": "coordinator",
+  "actor": "operator-authorized-v01-recovery-20261016-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder actual configuration unavailable; fresh executor/reviewer metadata independently verified.",
+  "verified_utc": "2026-10-16T14:39:04.441069+00:00",
+  "task": "IG-2B04",
+  "status": "done",
+  "summary": "Validation-only repair passed fresh independent review and deterministic supervisor checks; B04 accepted and done with every original reviewed artifact unchanged.",
+  "original_delivery": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/delivery-manifest.json",
+    "sha256": "ba026675123a5e9f3b397ebc41b8840dcdc349d04391037a4d74ec5abd6463fc",
+    "bytes": 594869
+  },
+  "original_artifacts_verified_unchanged": 2325,
+  "delivery": {
+    "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/delivery-manifest.json",
+    "sha256": "49e98ba9350e2bd985c0db6d1c3cc2c82c402331def4331638b6de5814253b19",
+    "bytes": 598702
+  },
+  "independent_review": {
+    "path": "private/workflow/runs/IG-2B04/review-4fab98d5-01/review.json",
+    "sha256": "cd7bdda9e0040e0264b4cbf21cefacafaf16c630104aeb249ac7cd2344c9a2fc",
+    "bytes": 610791
+  },
+  "closure": {
+    "path": "private/workflow/runs/IG-2B04/closure-002-IG-2B04-reviewer-4fab98d5/done.json",
+    "sha256": "a6c41a92fcff58d4eeb1ccb31bcbda915575e8e5a39372cfe0861482ab00250e",
+    "bytes": 610494
+  },
+  "complete_delivery_artifacts": 2350,
+  "executor_actor": "ig2:001-IG-2B04-executor-6dd7a7ee:executor",
+  "reviewer_actor": "ig2:002-IG-2B04-reviewer-4fab98d5:reviewer",
+  "executor_configuration": {
+    "path": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/runtime-configuration.json",
+    "sha256": "c01d034f18cd1515a7f7f95d64626fad327c49d10db2409fa04af689623d8870",
+    "bytes": 740
+  },
+  "reviewer_configuration": {
+    "path": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/002-IG-2B04-reviewer-4fab98d5/runtime-configuration.json",
+    "sha256": "d47049988f0457e2fe61476f04e1d5fe0827b1551d829af6d1d245a36f8d1c37",
+    "bytes": 740
+  },
+  "review_checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B04/review-4fab98d5-01/audit.py hash-audit-initial.json",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp C:/repo/wargame-compiler/private/workflow/runs/IG-2B04/review-4fab98d5-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B04/review-4fab98d5-01/audit.py hash-audit-final.json",
+      "exit_code": 0
+    }
+  ],
+  "supervisor_and_review_checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B04/review-4fab98d5-01/audit.py hash-audit-initial.json",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp C:/repo/wargame-compiler/private/workflow/runs/IG-2B04/review-4fab98d5-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B04/review-4fab98d5-01/audit.py hash-audit-final.json",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "accepted_event": {
+    "from": "review",
+    "to": "accepted",
+    "utc": "2026-10-16T14:37:32.321976+00:00",
+    "evidence": "private/workflow/runs/IG-2B04/review-4fab98d5-01/review.json",
+    "sha256": "cd7bdda9e0040e0264b4cbf21cefacafaf16c630104aeb249ac7cd2344c9a2fc"
+  },
+  "done_event": {
+    "from": "accepted",
+    "to": "done",
+    "utc": "2026-10-16T14:37:36.169931+00:00",
+    "evidence": "private/workflow/runs/IG-2B04/closure-002-IG-2B04-reviewer-4fab98d5/done.json",
+    "sha256": "a6c41a92fcff58d4eeb1ccb31bcbda915575e8e5a39372cfe0861482ab00250e"
+  },
+  "orchestrator": {
+    "state": "blocked",
+    "task": "IG-2B04",
+    "role": "reviewer"
+  },
+  "source_regenerated_by_this_repair": false,
+  "semantic_acceptance_granted": false
+}

@@ -1,0 +1,148 @@
+[
+  {
+    "packet": {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/input-packet.json",
+      "sha256": "6d658d2f1255cd2caf8a3b08ee0bef410e72112d37ed420e898814fe8a263dbc",
+      "bytes": 549
+    },
+    "manifest": {
+      "path": "private/workflow/packets/IG-2B01-3d1a33cc640f4493b34d972d025464f3/manifest.json",
+      "sha256": "5f74fa791e4ac38afb8761922f051d67eca3b8c07dba75d3088572cfd359baaf",
+      "bytes": 4295
+    },
+    "context": {
+      "path": "private/workflow/packets/IG-2B01-3d1a33cc640f4493b34d972d025464f3/context.txt",
+      "sha256": "99a70e7cbcf6b868ff78db9eefa1a4627d03d1b95174ea4b89275513513e7335",
+      "bytes": 88340
+    },
+    "snapshot_pins_verified": true,
+    "current_projection_drift": [
+      {
+        "path": "docs/STATUS.md",
+        "expected": "110ed9b7a1f7f209a4c60f463d7b3eef8a6d59094390d2c5f66c95a871310e28",
+        "current": "9ad20a32a57796ef9f64246d6f470794f89358945fee983199ed8a23f7cf2b76",
+        "diff": [
+          "--- frozen packet\n",
+          "+++ current queue projection\n",
+          "@@ -2,7 +2,7 @@\n",
+          " ",
+          " <!-- Generated from docs/work/queue.json. -->",
+          " ",
+          "-Queue updated: 2026-10-14. Next ready task: **IG-2B01**.",
+          "+Queue updated: 2026-10-14. Next ready task: **none**.",
+          " Done tasks: 6/39.",
+          " The planning tools do not certify game behavior. Source import, source coverage,",
+          " human semantic acceptance, compilation and gameplay readiness are separate gates."
+        ]
+      },
+      {
+        "path": "docs/HANDOFF.md",
+        "expected": "2abf366c81681bb8007061cb035f6c6b7c218caac0e92742dce6cbe8d2e68148",
+        "current": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395",
+        "diff": [
+          "--- frozen packet\n",
+          "+++ current queue projection\n",
+          "@@ -2,13 +2,13 @@\n",
+          " ",
+          " <!-- Generated from docs/work/queue.json. -->",
+          " ",
+          "-Next ready task: **IG-2B01**. Choose one task; do not execute a whole stage.",
+          "+Next ready task: **none**. Choose one task; do not execute a whole stage.",
+          " Read [workflow](work/WORKFLOW.md), then use [operator prompts](work/PROMPTS.md).",
+          " ",
+          " ```powershell",
+          " pwsh -NoProfile -File scripts/check.ps1",
+          " .\\.venv\\Scripts\\python.exe scripts/workflow.py next",
+          "-.\\.venv\\Scripts\\python.exe scripts/workflow.py packet --task IG-2B01",
+          "+.\\.venv\\Scripts\\python.exe scripts/workflow.py packet",
+          " ```",
+          " ",
+          " The packet lists exact context and hashes. It does not launch a model or claim the task."
+        ]
+      },
+      {
+        "path": "docs/work/tasks/IG-2B01.md",
+        "expected": "af6fe210694a5aab4b9427e3e8173c19d75b279e7208b6664338d5f81ccf7fe6",
+        "current": "c93756f8ce6cc4af43796632fd7e4e676b50f693dd147ec05a2722564a83e9ea",
+        "diff": [
+          "--- frozen packet\n",
+          "+++ current queue projection\n",
+          "@@ -2,7 +2,7 @@\n",
+          " ",
+          " <!-- Generated from docs/work/queue.json; edit the queue, then render. -->",
+          " ",
+          "-- Status: `ready`; kind: `content`.",
+          "+- Status: `review`; kind: `content`.",
+          " - Executor: **GPT-6.1 Sol; reasoning high**. Record actual configuration separately.",
+          " - Dependencies: [IG-2A](IG-2A.md)",
+          " - Human semantic acceptance required: false.",
+          "@@ -13,10 +13,11 @@\n",
+          " ",
+          " ## Concrete deliverables",
+          " ",
+          "-- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/authored/inventory.json (full 44-page wgc-inventory-1; only physical pages 1-4 authored)",
+          "-- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/authored/identity-registry.json",
+          "-- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/ (separate region text, PNG, crop PDF)",
+          "-- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/region-ledger.json, scope-report.json, continuations.json, gaps.json",
+          "+- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json (full 44-page wgc-inventory-1; pages 1-4 authored; original placeholder records 5-44 retained)",
+          "+- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/identity-registry.json",
+          "+- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/authored/ (replayable pre-evidence inventory and extended persisted registry)",
+          "+- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/ (131 exact region text/PNG/crop-PDF triples, including 1 context-only region)",
+          "+- private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/region-ledger-final.json, scope-report-final.json, continuations.json, uncertainty.json, gaps.json, geometric-gaps.json",
+          " - private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/delivery-manifest.json, delivery.json, delivery-handoff.md",
+          " ",
+          " ## Start conditions",
+          "@@ -47,7 +48,7 @@\n",
+          " ## Allowed write scope",
+          " ",
+          " - private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/",
+          "-- private/workflow/packets/IG-2B01-/",
+          "+- private/workflow/packets/",
+          " - private/workflow/checks/",
+          " ",
+          " ## Exclusions"
+        ]
+      }
+    ],
+    "disposition": "Preserve snapshots. Differences correspond to refinement/final output selection and status progression to review; current queue is authority. No frozen packet rewritten."
+  },
+  {
+    "packet": {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-input-packet.json",
+      "sha256": "7ba9436849066b6b301785b3a5bfb406be5ecbe06317933ad5626e03e7c0e0fb",
+      "bytes": 1062
+    },
+    "manifest": {
+      "path": "private/workflow/packets/IG-2B01-1c7f08bccbc345da9a6bc82e486931f8/manifest.json",
+      "sha256": "c2d1cbd35942de0d265ae143a0cbd1e6c9e20d719b131270b65f16b23073c24b",
+      "bytes": 4295
+    },
+    "context": {
+      "path": "private/workflow/packets/IG-2B01-1c7f08bccbc345da9a6bc82e486931f8/context.txt",
+      "sha256": "b4b8466a8a9f52f8eb193eb5c57e61a9d8a9b968775686bf98e5b77fed62d3c8",
+      "bytes": 88624
+    },
+    "snapshot_pins_verified": true,
+    "current_projection_drift": [
+      {
+        "path": "docs/work/tasks/IG-2B01.md",
+        "expected": "7542015672f634bb9aaaf90175dd2a66275f94dcc05ef3373c9a9a0c49671639",
+        "current": "c93756f8ce6cc4af43796632fd7e4e676b50f693dd147ec05a2722564a83e9ea",
+        "diff": [
+          "--- frozen packet\n",
+          "+++ current queue projection\n",
+          "@@ -2,7 +2,7 @@\n",
+          " ",
+          " <!-- Generated from docs/work/queue.json; edit the queue, then render. -->",
+          " ",
+          "-- Status: `in_progress`; kind: `content`.",
+          "+- Status: `review`; kind: `content`.",
+          " - Executor: **GPT-6.1 Sol; reasoning high**. Record actual configuration separately.",
+          " - Dependencies: [IG-2A](IG-2A.md)",
+          " - Human semantic acceptance required: false."
+        ]
+      }
+    ],
+    "disposition": "Preserve snapshots. Differences correspond to refinement/final output selection and status progression to review; current queue is authority. No frozen packet rewritten."
+  }
+]

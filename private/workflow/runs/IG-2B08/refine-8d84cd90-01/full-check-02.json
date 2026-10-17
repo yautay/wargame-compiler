@@ -1,0 +1,36 @@
+{
+  "format": "wgc-coordinator-check-execution-1",
+  "task": "IG-2B08",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B08-coordinator-8d84cd90:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/001-IG-2B08-coordinator-8d84cd90/runtime-configuration.json",
+  "configuration_sha256": "6c19c296fa6ae7aeb13455fa4baf8e3c500b018d22bd793b17c53706c776e168",
+  "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+  "exit_code": 0,
+  "started_utc": "2026-10-17T06:51:17.233594+00:00",
+  "ended_utc": "2026-10-17T06:51:54.355190+00:00",
+  "wall_seconds": 37.09399999999732,
+  "log": {
+    "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/full-check-02.log",
+    "sha256": "69bf99deb80663f0bc41ad90cf548924c9a1103e1b3894196cb3f13a11769bac",
+    "bytes": 5877
+  },
+  "selected_check_summaries": [
+    "Validated 39 tasks, DAG, scope, context and derived views.",
+    "288 passed in 33.39s"
+  ],
+  "validation_assertions_changed": false,
+  "check_result": {
+    "path": "private/workflow/checks/active-b04fb8a35f1147468bd5ec6f0bd3e70b/result.json",
+    "sha256": "e27f767bf10395d77a045728e688781803559b56b308d60122876ebdaf03e888",
+    "bytes": 206
+  },
+  "check_exits": {
+    "plan_exit": 0,
+    "dry_run_exit": 0,
+    "tests_exit": 0,
+    "diff_exit": 0
+  }
+}

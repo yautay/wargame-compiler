@@ -1,0 +1,11 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "private\\workflow\\runs\\IG-2B02\\preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8\\prepare.py"
+  ],
+  "exit_code": 1,
+  "error": "Coordinator audit compared a historical mutable context-policy.json pin as immutable: expected 5254bbc48499f34ce2a25717f576ee8e179b573fa63116792a30a33d1d9724ba, actual 005967eadb7b3ab12fa2e76a7c7a9594332831f3472633faac27fd524de39a3d.",
+  "impact": "Failed before any queue/policy edits. Frozen source/tool/product pins are still required to match.",
+  "resolution": "Treat the coordinator-owned current allowlist as a historical mutable snapshot like queue/generated views; record old and actual pins. Preserve first script; use a distinct revised coordinator script. This is not a source-tool failure."
+}

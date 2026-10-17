@@ -1,0 +1,200 @@
+{
+  "role": "executor",
+  "actor": "ig2:002-IG-2B07-executor-78a83e6c:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/002-IG-2B07-executor-78a83e6c/runtime-configuration.json",
+  "configuration_sha256": "86b268a63be952b272f095821fee7bb6cd40a3e2a8cb3cba60a11ecfb5c0a95a",
+  "format": "wgc-frozen-inventory-validation-1",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/inventory-25-28-01/pytest-sources -p no:cacheprovider --tb=short",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "71 passed in 15.50s"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "274 passed in 49.80s; plan, dry-run, tests and diff all zero."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/inventory.json",
+      "execution": "restricted",
+      "exit_code": 0,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/source-validation.log",
+        "bytes": 10915,
+        "sha256": "2a71352d37211a85ffe1ba284a3a405c79c929604a855b0ef09cea842d36ac3e"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "execution": "restricted",
+      "exit_code": 0,
+      "output": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/inventory-25-28-01/check_accounting.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/glyph-accounting-report.json",
+        "bytes": 2622,
+        "sha256": "549d3b26e5d26e35a1f8539b48638710a7a4ad22d486e9b5ce693b1c5cfd6737"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/inventory-25-28-01/run_inventory.py --output private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/derivation-report.json",
+        "bytes": 134682,
+        "sha256": "3e0c7a293bed5fa751b8ec065794a1d87cadda547cfb1a9204d2c04cbf7cf19d"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/final-generation.log",
+        "bytes": 629,
+        "sha256": "06c38baf03a711ba40f2dab42e732b610ae66982a26011b2b5f07f4dc3a150cb"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/inventory-25-28-01/run_inventory.py --output private/workflow/runs/IG-2B07/inventory-25-28-01/replay-1",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/replay-1/derivation-report.json",
+        "bytes": 132421,
+        "sha256": "d1d44160f244326c422c99932a638e8bdf48c2b35741438dc375a4815cf14ddd"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/replay-1.log",
+        "bytes": 569,
+        "sha256": "2ed9f79f8a5bb26a98626bbf90ece59581ac5102d5999f27aebd06cfa290e98a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/inventory-25-28-01/run_inventory.py --output private/workflow/runs/IG-2B07/inventory-25-28-01/replay-2",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/replay-2/derivation-report.json",
+        "bytes": 132420,
+        "sha256": "8fb26d234bba9d5a0ddebbabfdd899d7913407b5d9694196cfba89ebeefc1210"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/replay-2.log",
+        "bytes": 567,
+        "sha256": "25a4ce6452123ed8b1d09cb5d60d77db4060287aa9ec23a1662b620d289e478d"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/inventory-25-28-01/report_inventory.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/replay-report.json",
+        "bytes": 475216,
+        "sha256": "a8580000ddc0b4302e1b6d784f268fd319c6a011ef6a7578af8428cf840893f3"
+      }
+    }
+  ],
+  "prior_environment_failures": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/validation-command-observations.json",
+    "bytes": 6357,
+    "sha256": "98bae15066ea47a2bc9ac3ffc7ab9586c4dac02238f8e8f7a1db7fa7fa9e4a12"
+  },
+  "input_pins_reverified": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+      "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9",
+      "bytes": 2367836
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+      "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218",
+      "bytes": 85021
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json",
+      "sha256": "f5494f69952871a1029d388b0748e49408be26601f6383e7ea76d337986756be",
+      "bytes": 600116
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json",
+      "sha256": "4878c991f2d987585d2b5d194f91969a1589d40dbe9afefef7944ebaf8e9bb7b",
+      "bytes": 214815
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json",
+      "sha256": "c5bcdbc719e1e94f3e428c60dd4c9dc196b1b87c9afe0a495fa29afee3f7d0fb",
+      "bytes": 77843
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json",
+      "sha256": "a384fb16f243ecba70ab7992ad218c4e3d2c453c26f96f4f1b2c1bf36b6b2cce",
+      "bytes": 289556
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+      "sha256": "524d8924e0432137c1a085c699d7aabdd1dd5985edd16ca78cad5696573c1121",
+      "bytes": 4989
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/refined-contract-v2.json",
+      "sha256": "5d972c42425b36f8d3ec4a59d6a372289dff6535fe6eb4b8766356e35e331351",
+      "bytes": 20483
+    }
+  ],
+  "packet": {
+    "path": "private/workflow/orchestrator/20261016T195516Z-332903f5/002-IG-2B07-executor-78a83e6c/packet.json",
+    "bytes": 7459,
+    "sha256": "4cc686bffb691043199c3c35cd8dbd9e340bba20ec6e00c877d617e2ec758007"
+  },
+  "full_inventory_count": 849,
+  "task_inventory_count": 100,
+  "full_context_count": 91,
+  "new_nested_components": 86,
+  "new_boundary_contexts": 2,
+  "context_denominator_contribution": 0,
+  "source_structure": "All 44 actual PDF page geometries and both page counters validated; extraction restricted to assigned pages and exact boundary strips.",
+  "glyph_accounting": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/glyph-accounting-report.json",
+    "bytes": 2622,
+    "sha256": "549d3b26e5d26e35a1f8539b48638710a7a4ad22d486e9b5ce693b1c5cfd6737"
+  },
+  "preservation": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/preservation-report.json",
+    "bytes": 12469,
+    "sha256": "5159a51ada70fdf77d7f689b95c8010e907fadbace40b7dcb7db7799085ce4be"
+  },
+  "complete_replays": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/replay-report.json",
+    "bytes": 475216,
+    "sha256": "a8580000ddc0b4302e1b6d784f268fd319c6a011ef6a7578af8428cf840893f3"
+  },
+  "source_inspection": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/original-page-inspection.json",
+    "bytes": 48230,
+    "sha256": "8c7595fc22b9cbedbd3a0e842f0adcf455a8e20343835b680197d8296d4cff8a"
+  },
+  "unresolved_limits": [
+    "Independent technical/source-accounting review is pending.",
+    "Full transcription and tiny raster counter glyph readings remain unverified.",
+    "Descriptive/formal semantic representation and executable readiness remain unprocessed.",
+    "Unassigned pages 29-44 retain their inherited unprocessed placeholders."
+  ],
+  "semantic_acceptance_granted": false,
+  "executable_readiness": "unverified"
+}

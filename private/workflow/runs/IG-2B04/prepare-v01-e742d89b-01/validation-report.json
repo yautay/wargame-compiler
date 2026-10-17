@@ -1,0 +1,81 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B04-coordinator-e742d89b:coordinator",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/003-IG-2B04-coordinator-e742d89b/runtime-configuration.json",
+  "configuration_sha256": "b854f1213ea47feb42692a6d0a554537dd36efe3e4773d982cebb16c87b9d73f",
+  "utc": "2026-10-16T12:48:52.534274+00:00",
+  "summary": "Coordinator repair contract validation passed. No task transition, executor claim, source repair or acceptance performed.",
+  "authorization": {
+    "path": "private/workflow/runs/IG-2B04/prepare-v01-e742d89b-01/authorization.json",
+    "sha256": "2a35fee32552104b1a4bd3904edee3832ae0a034ccc2e798916c29447ad539bd",
+    "bytes": 3092
+  },
+  "scope": {
+    "path": "private/workflow/runs/IG-2B04/prepare-v01-e742d89b-01/scope.json",
+    "sha256": "673fb2044a39819722d0d27b7ab7138feeeda152345e61409ff6c8eae14946f7",
+    "bytes": 9466
+  },
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py render",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0,
+      "sandbox_permissions": "require_escalated",
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/prepare-v01-e742d89b-01/repository-check.log",
+        "sha256": "77c3662abfe7d0c0d5d02cd0d6193115cf6652019b0bd086d26602523a52d114",
+        "bytes": 5640
+      },
+      "result": {
+        "path": "C:/repo/wargame-compiler/private/workflow/checks/active-29e35394ed394e179a28ee6ee11059b4/result.json",
+        "sha256": "c9cc86ec3e69a9a0d03b74fa409ad3f960e2b2d3e623ea3b0893bf51433a6cc3",
+        "bytes": 206
+      },
+      "pytest_result": "242 passed in 52.32s",
+      "subchecks": {
+        "plan_exit": 0,
+        "dry_run_exit": 0,
+        "tests_exit": 0,
+        "diff_exit": 0
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/checks/b04-prepare-e742d89b-src -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "sandbox_permissions": "require_escalated",
+      "observed_output": "71 passed in 21.75s",
+      "output_capture": "Observed tool stdout; no separate source-suite log was created."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/prepare-v01-e742d89b-01/diff-check.log",
+        "sha256": "32941c923bb223d0849790d8ef839aff1dd818a869aa426bb9c1cfe5dedc885d",
+        "bytes": 275706
+      }
+    },
+    {
+      "command": "scripts.orchestrate_ig2.verify_repair_authorization(root, selected_task)",
+      "exit_code": 0
+    }
+  ],
+  "operational_observations": [
+    "The first in-process authorization audit import failed because scripts was absent from sys.path (ModuleNotFoundError: workflow). Added the exact scripts directory only to this audit process sys.path and reran the audit; no repository file or inherited PYTHONPATH was changed."
+  ],
+  "status": "changes_requested",
+  "attempt_absent": true,
+  "acceptance_and_tests_unchanged": true,
+  "review_event_unchanged": true,
+  "delivery_artifacts_verified": 2325,
+  "blocked_preservation_pins_verified": 828,
+  "all_frozen_hashes_unchanged": true,
+  "control_file_hashes_unchanged": true,
+  "semantic_acceptance_granted": false
+}

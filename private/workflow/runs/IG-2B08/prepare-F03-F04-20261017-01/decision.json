@@ -1,0 +1,37 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-F03-F04-preparation-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable; this is not an executor claim. Fresh observed gpt-6.1-sol/high runtime is required for execution/review.",
+  "utc": "2026-10-17T15:13:52.100881+00:00",
+  "summary": "The prior task-wide cap incorrectly blocked new F03/F04. The corrected limit counts each stable finding ID separately; existing review and source scope stay valid.",
+  "task": "IG-2B08",
+  "operator_request": "Popraw limit napraw, żeby dotyczył każdego ustalenia osobno, przygotuj naprawy F03 i F04 i wznów orkiestrator od IG-2B08 w świeżej sesji.",
+  "budget_before_current_request": {
+    "limit_per_finding": 2,
+    "prior_requests": {
+      "F01": 1,
+      "F02": 1
+    },
+    "current_findings": [
+      "F03",
+      "F04"
+    ],
+    "exhausted": []
+  },
+  "immutable_review": {
+    "path": "private/workflow/runs/IG-2B08/review-18a665c9/review.json",
+    "sha256": "c053064faa7a66120610e495dbcca6659872d78f682a624df9247a67c2cfdb57",
+    "bytes": 2780735
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/delivery.json",
+    "sha256": "fd6e791cb25d7b28d3c571c4b18dae4d0213e8e252aa22646c8da5cb34931e4f",
+    "bytes": 2747051
+  },
+  "correction": "At most two repair requests for each stable finding ID across hash-verified authoritative prior reviews; combined requests count once per included ID. Missing/duplicate IDs or changed history stop evaluation. New IDs do not consume F01/F02 budgets.",
+  "current_resolution": "Prepare only F03/F04 at a fresh absent root; retain resolved F01/F02, all original criteria/tests/source clipping and independent review.",
+  "semantic_acceptance": false,
+  "executable_readiness": false
+}

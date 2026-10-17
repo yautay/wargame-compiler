@@ -1,0 +1,51 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B03-reviewer-b3172589:reviewer",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T164901Z-046553b7/002-IG-2B03-reviewer-b3172589/runtime-configuration.json",
+  "configuration_sha256": "697d66bf79eff76acfdb4ee23403c905402111f3e4484023ba4bca3fba13a305",
+  "checked_regions": 135,
+  "checked_components": 22,
+  "errors": [],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-final-verified.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-a-verified/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-replay-a-verified.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-b-verified/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-replay-b-verified.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-components.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-a/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-components-replay-a.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-b/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-components-replay-b.log"
+    }
+  ],
+  "semantic_acceptance_granted": false
+}

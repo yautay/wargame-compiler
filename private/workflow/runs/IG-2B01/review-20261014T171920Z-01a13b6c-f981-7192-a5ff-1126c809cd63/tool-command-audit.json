@@ -1,0 +1,453 @@
+{
+  "scope": "Own current session shell/tool commands through this snapshot; exact inputs and observed exit/timing metadata. Subprocess logs retain full required check outputs. Truncated read outputs are not reconstructed.",
+  "batches": [
+    {
+      "call_id": "call_8c8634fa315a42b9b6a55efca6be9940",
+      "started_utc": "2026-10-14T17:19:30.174Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"Get-Content AGENTS.md; Get-Content README.md; Get-Content docs/STATUS.md; Get-Content docs/HANDOFF.md\",max_output_tokens:16000})); \ntext(await tools.exec_command({cmd:\"Get-ChildItem Env: | Where-Object { $_.Name -match 'CODEX|MODEL|REASON|SESSION|THREAD' } | Format-Table -AutoSize\",max_output_tokens:2500}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "9166a7",
+          "wall_time_seconds": 0.9807541,
+          "original_token_count": 1471
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "9bdc94",
+          "wall_time_seconds": 3.6956018,
+          "original_token_count": 318
+        }
+      ],
+      "ended_utc": "2026-10-14T17:19:35.613Z"
+    },
+    {
+      "call_id": "call_abcd019a62074699992e521d0d090713",
+      "started_utc": "2026-10-14T17:19:43.477Z",
+      "tool_input": "const results = await Promise.allSettled([\ntools.exec_command({cmd:\"Get-Content docs/work/WORKFLOW.md\",max_output_tokens:12000}),\ntools.exec_command({cmd:\"Get-Content docs/work/EVIDENCE.md\",max_output_tokens:9000}),\ntools.exec_command({cmd:\"Get-Content docs/skills/wgc-review/SKILL.md\",max_output_tokens:9000}),\ntools.exec_command({cmd:\"Get-ChildItem -LiteralPath C:/Users/yauta/.codex/sessions/2026/10/14 -Filter '*01a13b6c-f981-7192-a5ff-1126c809cd63*' | Select-Object FullName,Length\",max_output_tokens:1000})\n]); results.forEach(text);\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "d6af05",
+          "wall_time_seconds": 1.4309281999999999,
+          "original_token_count": 2042
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "43d964",
+          "wall_time_seconds": 1.3609985,
+          "original_token_count": 778
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "997fb4",
+          "wall_time_seconds": 1.3765454,
+          "original_token_count": 243
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "b98875",
+          "wall_time_seconds": 1.4812665,
+          "original_token_count": 92
+        }
+      ],
+      "ended_utc": "2026-10-14T17:19:45.986Z"
+    },
+    {
+      "call_id": "call_584089e29b4345ae8c30c24eb91f94a6",
+      "started_utc": "2026-10-14T17:19:53.285Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"$sessionMetadataPath = 'C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T19-19-20-01a13b6c-f981-7192-a5ff-1126c809cd63.jsonl'\\nGet-Content -LiteralPath $sessionMetadataPath | ForEach-Object { $entry = $_ | ConvertFrom-Json; if ($entry.type -in @('session_meta','turn_context')) { $entry | ConvertTo-Json -Depth 12 -Compress } }\",max_output_tokens:5000}));\ntext(await tools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe scripts/workflow.py validate\",max_output_tokens:3000}));\ntext(await tools.exec_command({cmd:\"Get-Content scripts/search.ps1\\n.\\\\.venv\\\\Scripts\\\\python.exe scripts/workflow.py --help\",max_output_tokens:6000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "ea433c",
+          "wall_time_seconds": 0.8813295,
+          "original_token_count": 7190
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "66aa90",
+          "wall_time_seconds": 3.0272049,
+          "original_token_count": 15
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "c1f127",
+          "wall_time_seconds": 1.1383003999999999,
+          "original_token_count": 226
+        }
+      ],
+      "ended_utc": "2026-10-14T17:19:59.312Z"
+    },
+    {
+      "call_id": "call_e528f38e5f564f708ecf801ec7d4e862",
+      "started_utc": "2026-10-14T17:20:20.017Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"$reviewPath = 'private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63'\\nif (Test-Path -LiteralPath $reviewPath) { throw 'Review directory already exists' }\\nNew-Item -ItemType Directory -Path $reviewPath | Out-Null\\n$metaPath = 'C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T19-19-20-01a13b6c-f981-7192-a5ff-1126c809cd63.jsonl'\\n$records = Get-Content -LiteralPath $metaPath | ForEach-Object { $_ | ConvertFrom-Json } | Where-Object { $_.type -eq 'turn_context' } | Select-Object -First 1\\n$evidence = [ordered]@{ actor='codex-01a13b6c-f981-7192-a5ff-1126c809cd63'; session_id=$env:CODEX_SESSION_ID; executor='codex-01a13b57-40e6-78d2-9d17-0b3e91afba77'; metadata_path=$metaPath; timestamp=$records.timestamp; turn_id=$records.payload.turn_id; model=$records.payload.model; effort=$records.payload.effort; collaboration_model=$records.payload.collaboration_mode.settings.model; collaboration_reasoning=$records.payload.collaboration_mode.settings.reasoning_effort; started_utc='2026-10-14T17:19:20.197Z'; verification='Own current turn_context, not requested launch settings'; input_tokens=$null; output_tokens=$null; cost=$null; operator_seconds=$null }\\n[IO.File]::WriteAllText((Join-Path (Resolve-Path $reviewPath) 'configuration.json'), ($evidence | ConvertTo-Json -Depth 6), [Text.UTF8Encoding]::new($false))\\n$queue = Get-Content docs/work/queue.json -Raw | ConvertFrom-Json\\n$queue.tasks | Where-Object id -eq 'IG-2B01' | ConvertTo-Json -Depth 20\",max_output_tokens:10000}));\ntext(await tools.exec_command({cmd:\"$deliveryPath = 'private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'\\n$names = @('final-seal.json','delivery.json','delivery-manifest.json','delivery-handoff.md','final-verified/inventory.json')\\n$names | ForEach-Object { Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $deliveryPath $_) | Select-Object Path,Hash }\\nGet-Content -LiteralPath (Join-Path $deliveryPath 'input-packet.json')\\nGet-Content -LiteralPath (Join-Path $deliveryPath 'final-input-packet.json')\",max_output_tokens:12000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "da546a",
+          "wall_time_seconds": 0.7720782,
+          "original_token_count": 1600
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "fa8336",
+          "wall_time_seconds": 0.8090875,
+          "original_token_count": 599
+        }
+      ],
+      "ended_utc": "2026-10-14T17:20:22.313Z"
+    },
+    {
+      "call_id": "call_53b25031f1254bd9be113dd3199fb5c7",
+      "started_utc": "2026-10-14T17:20:36.396Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport hashlib,json\\nbase=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\npins={'final-seal.json':'92d0497dcdd19876127217917bb30240ff17e8893d7cc2b195d342fb53d69e13','delivery.json':'9fd4b11bdfd04e75edafca96daa29add39151612291b2fefbd7a68e534325ef7','delivery-manifest.json':'1d8ad7eaa494f14a95c762de3197ae7b9c4be057a1e4470e11987d56761fd5fc','delivery-handoff.md':'cc1db56c976a7b3742944b1f6b4cc5891aaff1961344b3d4864cabf756235f3b','final-verified/inventory.json':'42adf9a1598bd682917eb087e295fe899212e59dd81aed5c293e2187b9c587bb'}\\nfor name, expected in pins.items():\\n actual=hashlib.sha256((base/name).read_bytes()).hexdigest()\\n assert actual==expected,(name,actual)\\n print(name,actual,'MATCH')\\nfor name in ['final-seal.json','delivery-manifest.json','dependency-verification.json']:\\n print(name,(base/name).read_text(encoding='utf-8'))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:11000}));\ntext(await tools.exec_command({cmd:\"Get-Content docs/work/cards/IG-2B01.md\\nGet-Content src/wgc/sources/README.md\\nGet-Content contracts/ig/README.md\\nGet-Content contracts/ig/regions.schema.json\",max_output_tokens:15000}));\n",
+      "outcomes": [],
+      "ended_utc": "2026-10-14T17:20:39.592Z"
+    },
+    {
+      "call_id": "call_2fd6c5ab74474840be69d8ecb50ad096",
+      "started_utc": "2026-10-14T17:20:55.486Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport hashlib,json\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'); out=Path('private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63')\\nrecords=[]\\ndef walk(x):\\n if isinstance(x,dict):\\n  if isinstance(x.get('path'),str) and 'sha256' in x:\\n   p=Path(x['path']); raw=p.read_bytes(); actual=hashlib.sha256(raw).hexdigest(); ok=actual==x['sha256'] and ('bytes' not in x or len(raw)==x['bytes']); records.append({'path':str(p),'expected':x['sha256'],'actual':actual,'bytes':len(raw),'ok':ok}); assert ok,(p,actual,x['sha256'])\\n  for v in x.values(): walk(v)\\n elif isinstance(x,list):\\n  for v in x: walk(v)\\nfor name in ['final-seal.json','delivery-manifest.json','delivery.json','input-packet.json','final-input-packet.json','dependency-verification.json']:\\n d=json.loads((b/name).read_text(encoding='utf-8')); walk(d)\\n if name=='dependency-verification.json': print(name,json.dumps(d,indent=2))\\nfor name in ['input-packet.json','final-input-packet.json']:\\n d=json.loads((b/name).read_text(encoding='utf-8')); m=json.loads(Path(d['manifest']['path']).read_text(encoding='utf-8')); walk(m); print('packet',name,json.dumps(m,indent=2))\\n(out/'pin-verification.json').write_text(json.dumps({'count':len(records),'all_match':True,'records':records},indent=2)+'\\\\n',encoding='utf-8')\\nprint('VERIFIED',len(records),'pin references')\\nprint('inventory keys',json.loads((b/'final-verified/inventory.json').read_text()).keys())\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:7000}));\ntext(await tools.exec_command({cmd:\"Get-Content src/wgc/sources/README.md\\nGet-Content contracts/ig/README.md\",max_output_tokens:8000}));\ntext(await tools.exec_command({cmd:\"pwsh -NoProfile -File scripts/search.ps1 -Pattern 'IG-2B01|def .*inventory|def .*revision|def .*registry'\",max_output_tokens:4000}));\n",
+      "outcomes": [],
+      "ended_utc": "2026-10-14T17:21:00.912Z"
+    },
+    {
+      "call_id": "call_b6d0f302847d4f598a0773da7635f3f0",
+      "started_utc": "2026-10-14T17:21:24.241Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport hashlib,json\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'); out=Path('private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63')\\nrecords=[]\\ndef walk(x,group):\\n if isinstance(x,dict):\\n  if isinstance(x.get('path'),str) and 'sha256' in x:\\n   p=Path(x['path']); raw=p.read_bytes(); actual=hashlib.sha256(raw).hexdigest(); ok=actual==x['sha256'] and ('bytes' not in x or len(raw)==x['bytes']); records.append({'group':group,'path':p.as_posix(),'expected':x['sha256'],'actual':actual,'bytes':len(raw),'ok':ok})\\n  for v in x.values(): walk(v,group)\\n elif isinstance(x,list):\\n  for v in x: walk(v,group)\\nfor name in ['final-seal.json','delivery-manifest.json','delivery.json','input-packet.json','final-input-packet.json','dependency-verification.json']:\\n walk(json.loads((b/name).read_text(encoding='utf-8')),name)\\nfor name in ['input-packet.json','final-input-packet.json']:\\n d=json.loads((b/name).read_text(encoding='utf-8')); m=json.loads(Path(d['manifest']['path']).read_text(encoding='utf-8')); walk(m,name+' current context'); print(name,'manifest keys',list(m),'entries',len(m.get('files',[])))\\nfailed=[r for r in records if not r['ok']]\\n(out/'pin-verification.json').write_text(json.dumps({'count':len(records),'failed':failed,'records':records},indent=2)+'\\\\n',encoding='utf-8')\\nprint('PIN COUNTS',len(records),'failed',json.dumps(failed,indent=2))\\nfor n in ['scope-report-final.json','continuations.json','uncertainty.json','gaps.json','geometric-gaps.json','locator-audit.json','word-center-audit.json','visual-inspection.json','repeatability-final.json','logo-correction.json','context-access-authorization.json','context-overread.json','criteria.json','defects-and-limits.json','preservation.json','configuration.json','measurement.json','toolchain.json']:\\n s=(b/n).read_text(encoding='utf-8'); print('\\\\nREPORT',n,s if len(s)<18000 else 'KEYS '+str(list(json.loads(s)))+' SIZE '+str(len(s)))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:12000}));\ntext(await tools.exec_command({cmd:\"Get-Content docs/work/tasks/IG-2B01.md\\nGet-Content contracts/ig/regions.schema.json -TotalCount 160\",max_output_tokens:6000}));\n",
+      "outcomes": [],
+      "ended_utc": "2026-10-14T17:21:26.952Z"
+    },
+    {
+      "call_id": "call_d2ac58a04aea44f9affa4cb7914707b5",
+      "started_utc": "2026-10-14T17:21:49.583Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nimport json\\nfrom pathlib import Path\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\nfor n in ['locator-audit.json','word-center-audit.json','visual-inspection.json','repeatability-final.json','context-access-authorization.json','context-overread.json','criteria.json','logo-correction.json','gaps.json','geometric-gaps.json']:\\n d=json.loads((b/n).read_text()); print('\\\\n',n)\\n if isinstance(d,dict):\\n  for k,v in d.items(): print(k, json.dumps(v) if len(json.dumps(v))<3500 else '[large: '+str(len(v))+' records; first] '+json.dumps(v[:1] if isinstance(v,list) else list(v)[:10]))\\n else: print('list',len(d),json.dumps(d[:2]))\\nd=json.loads((b/'region-ledger-final.json').read_text()); print('LEDGER TYPE',type(d).__name__); print(json.dumps(d[:3] if isinstance(d,list) else {k:(v[:1] if isinstance(v,list) else v) for k,v in d.items()},indent=2)[:6500])\\nd=json.loads((b/'final-verified/inventory.json').read_text()); print('INV',list(d)); print('REGISTRY',json.dumps(d['registry'])[:900]); print('PAGE',d['pages'][0]); print('EVIDENCE',d['evidence'][0])\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:8000}));\ntext(await tools.exec_command({cmd:\"Get-Content src/wgc/sources/pdf.py\\nGet-Content src/wgc/sources/geometry.py\",max_output_tokens:7000}));\n",
+      "outcomes": [],
+      "ended_utc": "2026-10-14T17:21:52.230Z"
+    },
+    {
+      "call_id": "call_4ae05dc5f6aa494fa845ce940d206312",
+      "started_utc": "2026-10-14T17:23:26.297Z",
+      "tool_input": "const rs=await Promise.allSettled([\ntools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py checks\",yield_time_ms:1000,max_output_tokens:2000}),\ntools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py reproduce\",yield_time_ms:1000,max_output_tokens:2000})\n]);rs.forEach(text);\n",
+      "outcomes": [
+        {
+          "session_id": 48833,
+          "chunk_id": "a6a3eb",
+          "wall_time_seconds": 10.0020907,
+          "original_token_count": 0
+        },
+        {
+          "exit_code": 1,
+          "chunk_id": "572fbb",
+          "wall_time_seconds": 1.6517236,
+          "original_token_count": 499,
+          "error_excerpt": "Xref table not zero-indexed. ID numbers for objects will be corrected.\r\nversion-pdfinfo 0\r\nversion-pdftoppm 0\r\nTraceback (most recent call last):\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\independent_review.py\", line 119, in <module>\r\n    elif sys.argv[1]=='reproduce': reproduce()\r\n                                   ^^^^^^^^^^^\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\independent_review.py\", line 45, in reproduce\r\n    path=BUNDLE/'native/poppler/Library/bin'/f'{exe}.exe'; p=run('version-'+exe,[path,'-v']); toolchain['native'][exe]={'path':str(path),'sha256':sha(path),'exit_code':p.returncode,'version':(p.stdout+p.stderr).decode()}\r\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\independent_review.py\", line 21, in run\r\n    p=subprocess.run([str(a) for a in args],cwd=ROOT,capture_output=True,env=os.environ)\r\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\subprocess.py\", line 548, in run\r\n    with Popen(*popenargs, **kwargs) as process:\r\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\subprocess.py\", line 1026, in __init__\r\n    self._execute_child(args, executable, preexec_fn, close_fds,\r\n  File \"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\subprocess.py\", line 1538, in _execute_child\r\n    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,\r\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nFileNotFoundError: [WinError 2] The system cannot find the file specified\r\n"
+        }
+      ],
+      "ended_utc": "2026-10-14T17:23:36.488Z"
+    },
+    {
+      "call_id": "call_1c0eeac34aad4c6ca912a1ae5639804a",
+      "started_utc": "2026-10-14T17:23:51.155Z",
+      "tool_input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py\\n@@\\n-    for exe in ['pdfinfo','pdftoppm','pdftotext']:\\n+    for exe in ['pdfinfo','pdftoppm']:\\n@@\\n-    run('poppler-text-pages-1-4',[BUNDLE/'native/poppler/Library/bin/pdftotext.exe','-f','1','-l','4','-layout','-enc','UTF-8',source,OUT/'pages-1-4-poppler.txt'])\\n+    from pdfminer.high_level import extract_text\\n+    (OUT/'pages-1-4-pdfminer.txt').write_text(extract_text(source,page_numbers=[0,1,2,3]),encoding='utf-8')\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py reproduce\",yield_time_ms:1000,max_output_tokens:1500}));\ntext(await tools.write_stdin({session_id:48833,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "outcomes": [
+        {
+          "session_id": 81469,
+          "chunk_id": "1a308a",
+          "wall_time_seconds": 10.015431,
+          "original_token_count": 36
+        },
+        {
+          "session_id": 48833,
+          "chunk_id": "f0c7b2",
+          "wall_time_seconds": 5.0067663,
+          "original_token_count": 0
+        }
+      ],
+      "ended_utc": "2026-10-14T17:24:07.081Z"
+    },
+    {
+      "call_id": "call_7ba667b428754801b4edb1cba61ac66e",
+      "started_utc": "2026-10-14T17:24:16.440Z",
+      "tool_input": "const base=\"C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\";\nfor (const p of [\"page-01.png\",\"page-02.png\"]) {const r=await tools.view_image({path:base+\"/\"+p});image(r.image_url);}\ntext(await tools.exec_command({cmd:\"@'\\nimport json\\nfrom pathlib import Path\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\nl=json.loads((b/'region-ledger-final.json').read_text())\\nfor r in l:\\n if r['page']<=2:\\n  print(r['reading_order_index'],r['key'],r['kind'],r['native_top_left_points'],r['label'],'COMPONENTS',r['components'],'UNCERTAINTY',r['uncertainty'])\\n  print(Path(r['evidence']['text']['path']).read_text(encoding='utf-8'))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:8500}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "537514",
+          "wall_time_seconds": 2.3823729,
+          "original_token_count": 3854
+        }
+      ],
+      "ended_utc": "2026-10-14T17:24:19.179Z"
+    },
+    {
+      "call_id": "call_4cbf35ba5cde4052b1afb9d05f9a33ea",
+      "started_utc": "2026-10-14T17:24:32.206Z",
+      "tool_input": "text(await tools.write_stdin({session_id:81469,chars:\"\",yield_time_ms:1000,max_output_tokens:1500}));\ntext(await tools.write_stdin({session_id:48833,chars:\"\",yield_time_ms:1000,max_output_tokens:1500}));\nconst base=\"C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\";\nfor (const p of [\"page-03.png\",\"page-04.png\"]) {const r=await tools.view_image({path:base+\"/\"+p});image(r.image_url);}\ntext(await tools.exec_command({cmd:\"@'\\nimport json\\nfrom pathlib import Path\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\nfor r in json.loads((b/'region-ledger-final.json').read_text()):\\n if r['page']==3:\\n  print(r['reading_order_index'],r['key'],r['kind'],r['native_top_left_points'],r['label'],'COMPONENTS',r['components'],'UNCERTAINTY',r['uncertainty'])\\n  print(Path(r['evidence']['text']['path']).read_text(encoding='utf-8'))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:6500}));\n",
+      "outcomes": [
+        {
+          "session_id": 81469,
+          "chunk_id": "43eb71",
+          "wall_time_seconds": 5.0158379,
+          "original_token_count": 18
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "d79fde",
+          "wall_time_seconds": 2.53e-05,
+          "original_token_count": 18
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "0798f7",
+          "wall_time_seconds": 1.551478,
+          "original_token_count": 2664
+        }
+      ],
+      "ended_utc": "2026-10-14T17:24:39.216Z"
+    },
+    {
+      "call_id": "call_d387799b5a254a5185e1bab791970f8a",
+      "started_utc": "2026-10-14T17:24:50.362Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"Get-Content private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/root-inventory-validate.stderr\\nGet-Content src/wgc/sources/__main__.py\\nGet-Content private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/check.stdout\\nGet-Content private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/character-word-audit.json\",max_output_tokens:5000}));\ntext(await tools.exec_command({cmd:\"@'\\nimport json\\nfrom pathlib import Path\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\nfor r in json.loads((b/'region-ledger-final.json').read_text()):\\n if r['page']==4:\\n  print(r['reading_order_index'],r['key'],r['kind'],r['native_top_left_points'],r['label'],'COMPONENTS',r['components'],'UNCERTAINTY',r['uncertainty'])\\n  print(Path(r['evidence']['text']['path']).read_text(encoding='utf-8'))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:6500}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "cc5b84",
+          "wall_time_seconds": 1.9871275000000002,
+          "original_token_count": 3085
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "1652c6",
+          "wall_time_seconds": 1.5554426000000001,
+          "original_token_count": 2603
+        }
+      ],
+      "ended_utc": "2026-10-14T17:24:54.374Z"
+    },
+    {
+      "call_id": "call_4ee4af9e8a704b70becc1702d4648e77",
+      "started_utc": "2026-10-14T17:25:26.819Z",
+      "tool_input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py\\n@@\\n if __name__=='__main__':\\n     if sys.argv[1]=='checks': checks()\\n     elif sys.argv[1]=='reproduce': reproduce()\\n+    elif sys.argv[1]=='validate-corrected': run('root-inventory-validate-corrected',[sys.executable,'-B','-m','wgc.sources','validate',(BASE/'final-verified/inventory.json').relative_to(ROOT).as_posix()])\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py validate-corrected\",yield_time_ms:1000,max_output_tokens:1500}));\ntext(await tools.write_stdin({session_id:81469,chars:\"\",yield_time_ms:1000,max_output_tokens:1500}));\ntext(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\ni=json.loads((b/'final-verified/inventory.json').read_text()); u=json.loads((b/'uncertainty.json').read_text()); um={r['region_id']:r for r in u}\\nprint('Uncertainty records',len(u))\\nfor e in i['evidence']:\\n t=Path(e['text']['path']).read_text(encoding='utf-8')\\n if e['pdf_page']==1 and t:\\n  print(e['region_id'],repr(t[:100]),'special',sorted({(c,hex(ord(c))) for c in t if ord(c)<32 or ord(c)>126}))\\n count=t.count('\\\\ufffd')\\n if count!=um[e['region_id']]['replacement_character_count']: print('MISMATCH',e['region_id'],count,um[e['region_id']]['replacement_character_count'])\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:2500}));\n",
+      "outcomes": [
+        {
+          "session_id": 22599,
+          "chunk_id": "54aa08",
+          "wall_time_seconds": 10.0137892,
+          "original_token_count": 0
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "41cdd3",
+          "wall_time_seconds": 0.8919089,
+          "original_token_count": 7
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "f716da",
+          "wall_time_seconds": 1.7008597,
+          "original_token_count": 537
+        }
+      ],
+      "ended_utc": "2026-10-14T17:25:40.490Z"
+    },
+    {
+      "call_id": "call_4c8543dd21ab43d38cccded8ae3b1e68",
+      "started_utc": "2026-10-14T17:26:00.905Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"Get-Content src/wgc/sources/inventory.py -TotalCount 130\\nGet-Content private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/root-inventory-validate-corrected.stdout -TotalCount 100\\nGet-Content private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json\",max_output_tokens:4500}));\nconst b=\"C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\";\nfor (const name of [\"overlay-01.png\",\"overlay-03.png\",\"overlay-04.png\"]) { const r=await tools.view_image({path:b+\"/\"+name});image(r.image_url); }\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "1926e6",
+          "wall_time_seconds": 0.8472678,
+          "original_token_count": 2645
+        }
+      ],
+      "ended_utc": "2026-10-14T17:26:02.176Z"
+    },
+    {
+      "call_id": "call_933269f58f364878b2a12a441f0a3725",
+      "started_utc": "2026-10-14T17:26:25.548Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\nfor pn in ['input-packet.json','final-input-packet.json']:\\n p=json.loads((b/pn).read_text()); m=json.loads(Path(p['manifest']['path']).read_text()); print(pn,[(x['path'],x.get('bytes')) for x in m['files']]); c=Path(p['context']['path']).read_text(encoding='utf-8'); print('CONTEXT HEADER',c[:1000]); print('HEADERS',[l for l in c.splitlines() if l.startswith('## ') or l.startswith('===')][:50])\\nfor n in ['gaps.json','geometric-gaps.json','uncertainty.json']:\\n d=json.loads((b/n).read_text()); print(n,'type',type(d).__name__)\\n if isinstance(d,dict):\\n  print({k:len(v) if isinstance(v,(list,dict)) else v for k,v in d.items()})\\n  for k,v in d.items():\\n   if not isinstance(v,list) or len(v)<10: print(k,json.dumps(v)[:1300])\\n else: print('records',len(d))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:4000}));\ntext(await tools.write_stdin({session_id:22599,chars:\"\",yield_time_ms:1000,max_output_tokens:1500}));\nconst b=\"C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\";\nconst paths=[\"overlay-02.png\",\"reproduced/05-e8d77349-41ce-47d0-b678-eab1d0c8e8ed.png\",\"reproduced/01-63afb463-88b1-44a3-b039-597a637658cb.png\",\"reproduced/01-74a8c133-e1a5-4ec4-8ebc-517987e6b24f.png\"];\nfor (const p of paths) {const r=await tools.view_image({path:b+\"/\"+p});image(r.image_url);}\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "507b7b",
+          "wall_time_seconds": 0.701145,
+          "original_token_count": 1850
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "7fb46e",
+          "wall_time_seconds": 1.32e-05,
+          "original_token_count": 10
+        }
+      ],
+      "ended_utc": "2026-10-14T17:26:26.557Z"
+    },
+    {
+      "call_id": "call_4648404fe2814bbb9d4f740c35cc69df",
+      "started_utc": "2026-10-14T17:26:55.298Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"Get-Content contracts/ig/README.md | Select-Object -Skip 79 -First 63\\nGet-Content private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/delivery-handoff.md\",max_output_tokens:4200}));\ntext(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77')\\nd=json.loads((b/'dependency-verification.json').read_text())\\nfor pin in d['pins']:\\n if 'IG-2A' not in pin['path'] or '/inventory-one/' in pin['path'] or pin['path'].endswith('verified-inventory.json'): continue\\n x=json.loads(Path(pin['path']).read_text()); print('\\\\n',pin['path'])\\n for k,v in x.items():\\n  if k in ['artifacts','files','checks']: print(k,'count',len(v),json.dumps(v[:2])[:500])\\n  elif k in ['format','role','actor','summary','status','model','reasoning','delivery','manifest','review','acceptance','done','configuration_evidence','findings','result','outcome','corrected_review_handoff','executor','independent_review']: print(k,json.dumps(v)[:1600])\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:5000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "c345e6",
+          "wall_time_seconds": 0.682134,
+          "original_token_count": 2424
+        },
+        {
+          "exit_code": 0,
+          "chunk_id": "41d946",
+          "wall_time_seconds": 0.6865893,
+          "original_token_count": 2128
+        }
+      ],
+      "ended_utc": "2026-10-14T17:26:57.045Z"
+    },
+    {
+      "call_id": "call_a4b18903601c423d9f1d3cca1958d31a",
+      "started_utc": "2026-10-14T17:27:53.915Z",
+      "tool_input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py\\n@@\\n def reproduce():\\n@@\\n     print('REPRODUCTION COMPLETE',len(crop_results),flush=True)\\n+\\n+def secondary():\\n+    from fractions import Fraction\\n+    import uuid\\n+    from wgc.sources.inventory import assign,assemble\\n+    inv=read(BASE/'final-verified/inventory.json'); ledger=read(BASE/'region-ledger-final.json')\\n+    canonical=lambda x: json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')\\n+    revision=lambda x: hashlib.sha256(canonical({k:v for k,v in x.items() if k!='revision'})).hexdigest()\\n+    records=[inv,*inv['pages'],*inv['regions']]\\n+    assert all(revision(r)==r['revision'] for r in records)\\n+    for r in inv['registry']['entries']: uuid.UUID(r['id'].split(':')[1])\\n+    reg=copy.deepcopy(inv['registry'])\\n+    ids=[assign(reg,e['kind'],e['key']) for e in reversed(inv['registry']['entries'])]\\n+    assert reg==inv['registry'] and ids==[e['id'] for e in reversed(inv['registry']['entries'])]\\n+    reconstructed=assemble(inv['source'],inv['pages'],inv['regions'],reg,reading_order=inv['reading_order'],links=inv['links'],evidence=inv['evidence'],toolchain=inv['toolchain'])\\n+    assert canonical(reconstructed)==canonical(inv)\\n+    (OUT/'replayed-inventory.json').write_bytes(canonical(reconstructed)+b'\\\\n')\\n+    gap_report=read(BASE/'geometric-gaps.json'); gap_results=[]\\n+    for n in range(1,5):\\n+        rs=[r for r in ledger if r['page']==n]; boxes=[r['box'] for r in rs]\\n+        for j,a in enumerate(boxes):\\n+            assert all(not (max(a[0],b[0])<min(a[2],b[2]) and max(a[1],b[1])<min(a[3],b[3])) for b in boxes[j+1:])\\n+        complement=next(g for g in gap_report if g['pdf_page']==n)\\n+        rects=complement['complement_rectangles']; area=lambda b:(b[2]-b[0])*(b[3]-b[1])\\n+        assert sum(area(b) for b in boxes)+sum(area(b) for b in rects)==10**12\\n+        assert sum(area(b) for b in rects)==complement['unaccounted_area_trillionths']\\n+        for j,a in enumerate(rects):\\n+            assert all(not (max(a[0],b[0])<min(a[2],b[2]) and max(a[1],b[1])<min(a[3],b[3])) for b in boxes+rects[j+1:])\\n+        for r in rs:\\n+            b=r['box']; rational=[Fraction(612*b[0],10**6),Fraction(792*(10**6-b[3]),10**6),Fraction(612*b[2],10**6),Fraction(792*(10**6-b[1]),10**6)]\\n+            assert r['exact_native_bottom_left_bounds_rational']==[{'numerator':v.numerator,'denominator':v.denominator} for v in rational]\\n+        gap_results.append({'page':n,'complement_rectangles':len(rects),'gap_area_trillionths':sum(area(b) for b in rects),'disjoint_complete_partition':True})\\n+    uncertainty=read(BASE/'uncertainty.json'); um={u['region_id']:u for u in uncertainty}; gaps=read(BASE/'gaps.json'); gm={g['region_id']:g for g in gaps['regions']}; uresults=[]\\n+    for e in inv['evidence']:\\n+        text=(ROOT/e['text']['path']).read_text(encoding='utf-8'); u=um[e['region_id']]\\n+        assert u['evidence_id']==e['id'] and u['text_pin']==e['text'] and u['replacement_character_count']==text.count('\\\\ufffd') and u['empty_extraction']==(text=='')\\n+        assert u['known_replacement_offsets']==[i for i,c in enumerate(text) if c=='\\\\ufffd']\\n+        uresults.append({'region_id':e['region_id'],'empty_text':text=='','replacement_count':text.count('\\\\ufffd'),'uncertainty_bound_to_final_evidence':True})\\n+    for r in ledger:\\n+        g=gm[r['region_id']]; assert g['region_revision']==r['region_revision'] and g['levels']==r['coverage']\\n+    assert read(BASE/'continuations.json')['links']==inv['links']\\n+    baseline=read(ROOT/'private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one/inventory.json')\\n+    stripped=copy.deepcopy(inv); stripped['evidence']=[]\\n+    for p in stripped['pages']: p.update(copy.deepcopy(baseline['pages'][p['pdf_page']-1]))\\n+    stripped['revision']=revision(stripped)\\n+    replay=read(BASE/'final-verified/replay-without-evidence.json')\\n+    assert canonical(stripped)==canonical(replay)\\n+    save('secondary-independent.json',{'all_216_enclosing_revisions_recomputed':len(records),'registry_reverse_lookup_replay_identical':True,'assembled_inventory_exact_canonical_replay':True,'executor_author_replay_verified_independently':True,'geometric_partitions':gap_results,'all_130_rational_bbox_values_exact':True,'all_131_uncertainty_records_current':True,'all_130_gap_records_current':True,'all_15_links_equal_report_and_inventory':True,'uncertainty_records':uresults})\\n+    print('SECONDARY COMPLETE',len(records),flush=True)\\n@@\\n     elif sys.argv[1]=='validate-corrected': run('root-inventory-validate-corrected',[sys.executable,'-B','-m','wgc.sources','validate',(BASE/'final-verified/inventory.json').relative_to(ROOT).as_posix()])\\n+    elif sys.argv[1]=='secondary': secondary()\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py secondary\",yield_time_ms:1000,max_output_tokens:2000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "ac721a",
+          "wall_time_seconds": 4.2930723,
+          "original_token_count": 6
+        }
+      ],
+      "ended_utc": "2026-10-14T17:27:58.714Z"
+    },
+    {
+      "call_id": "call_4d2a2d2f4d8f4e12b0f30fc95e693b42",
+      "started_utc": "2026-10-14T17:29:01.865Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nimport sys,json\\nfrom pathlib import Path\\nsys.path.insert(0,'C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages')\\nfrom PIL import Image,ImageDraw\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'); o=Path('private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63'); l=json.loads((b/'region-ledger-final.json').read_text())\\nitems=[r for r in l if r['kind']=='diagram' and r['page']>1]\\nw=1050; sizes=[]\\nfor r in items:\\n im=Image.open(o/'reproduced'/f'{r[\\\"page\\\"]:02}-{r[\\\"region_id\\\"].split(\\\":\\\")[1]}.png').convert('RGB'); im=im.resize((im.width*2,im.height*2)); sizes.append((r,im))\\nh=sum(im.height+35 for r,im in sizes); panel=Image.new('RGB',(w,h),'white'); d=ImageDraw.Draw(panel); y=0\\nfor r,im in sizes:\\n d.text((8,y+8),f'{r[\\\"reading_order_index\\\"]}: {r[\\\"label\\\"]}',fill='black'); panel.paste(im,(8,y+30)); y+=im.height+35\\npanel.save(o/'diagram-detail-contact.png'); print('diagram details',len(items),'pixels',panel.size)\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:1000}));\nconst r=await tools.view_image({path:\"C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/diagram-detail-contact.png\",detail:\"original\"});image(r.image_url);\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "3fb687",
+          "wall_time_seconds": 0.9371314,
+          "original_token_count": 10
+        }
+      ],
+      "ended_utc": "2026-10-14T17:29:03.166Z"
+    },
+    {
+      "call_id": "call_2f0450dd764948d197828c426bbce24f",
+      "started_utc": "2026-10-14T17:29:29.116Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json\\np=Path('C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T19-19-20-01a13b6c-f981-7192-a5ff-1126c809cd63.jsonl')\\ntypes={}\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line); k=x['type']; types[k]=types.get(k,0)+1\\nprint(types)\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line)\\n if x['type']=='response_item' and x['payload'].get('type') in ['function_call','function_call_output']:\\n  print(x['timestamp'],x['payload'].get('type'),x['payload'].get('name'),list(x['payload'])); break\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:1000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "9afafe",
+          "wall_time_seconds": 0.7731471,
+          "original_token_count": 69
+        }
+      ],
+      "ended_utc": "2026-10-14T17:29:30.094Z"
+    },
+    {
+      "call_id": "call_e834848376db4fbab463d6ba564f1c1d",
+      "started_utc": "2026-10-14T17:29:46.217Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json\\np=Path('C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T19-19-20-01a13b6c-f981-7192-a5ff-1126c809cd63.jsonl')\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line)\\n if x['type']=='response_item' and x['payload'].get('type')=='function_call': print(x['timestamp'],{k:v for k,v in x['payload'].items() if k!='arguments'}); break\\nlast=None\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line)\\n if x['type']=='token_usage_record': last=x\\nif last: print('TOKEN_RECORD',json.dumps(last)[:3000])\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:1500}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "d3b1d0",
+          "wall_time_seconds": 0.7671463,
+          "original_token_count": 241
+        }
+      ],
+      "ended_utc": "2026-10-14T17:29:47.184Z"
+    },
+    {
+      "call_id": "call_f4ae7521ba0b45baac8a95c010975863",
+      "started_utc": "2026-10-14T17:29:59.018Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json,collections\\np=Path('C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T19-19-20-01a13b6c-f981-7192-a5ff-1126c809cd63.jsonl')\\nc=collections.Counter()\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line)\\n if x['type']=='response_item': c[x['payload'].get('type')]+=1\\nprint(c)\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line)\\n if x['type']=='response_item' and x['payload'].get('type') in ['custom_tool_call','custom_tool_call_output']: print(x['timestamp'],list(x['payload']),str(x['payload'])[:350]); break\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:1000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "7f4235",
+          "wall_time_seconds": 0.737612,
+          "original_token_count": 151
+        }
+      ],
+      "ended_utc": "2026-10-14T17:29:59.961Z"
+    },
+    {
+      "call_id": "call_60fa36d0e737404f80741e3b4696f5e7",
+      "started_utc": "2026-10-14T17:30:11.543Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json\\np=Path('C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T19-19-20-01a13b6c-f981-7192-a5ff-1126c809cd63.jsonl')\\nfor line in p.open(encoding='utf-8'):\\n x=json.loads(line)\\n if x['type']=='response_item' and x['payload'].get('type')=='custom_tool_call_output': print(list(x['payload'])); print(str(x['payload'])[:800]); break\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:1000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "1ec242",
+          "wall_time_seconds": 0.6972211,
+          "original_token_count": 222
+        }
+      ],
+      "ended_utc": "2026-10-14T17:30:12.442Z"
+    },
+    {
+      "call_id": "call_d7a1994f68024cbb8359ccf05d179984",
+      "started_utc": "2026-10-14T17:31:51.870Z",
+      "tool_input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/assess_and_freeze.py\\n+\\\"\\\"\\\"Freeze independent observations without writing the queue or executor artifacts.\\\"\\\"\\\"\\n+from pathlib import Path\\n+import hashlib,json,sys,datetime,re\\n+OUT=Path(__file__).resolve().parent\\n+ROOT=OUT.parents[4]\\n+BASE=ROOT/'private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'\\n+ACTOR='codex-01a13b6c-f981-7192-a5ff-1126c809cd63'\\n+def read(p): return json.loads(Path(p).read_text(encoding='utf-8'))\\n+def save(name,x): (OUT/name).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\\\\n',encoding='utf-8')\\n+def pin(p):\\n+    p=Path(p); raw=p.read_bytes()\\n+    return {'path':p.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw)}\\n+def canonical(x): return json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')\\n+\\n+expected={\\n+1:{'expected_regions':26,'visible_features':['Series and volume line','SPQR vector logotype including Q descender and full R','Republic subtitle','Battle illustration with complete white frame','Designer credit','Rule Book title','5th Edition line','Table of Contents heading','Twelve TOC rows, both columns, section/name, dot leaders and destinations','Four TOC panel borders','Publisher address'], 'hidden_features':['Invisible running header and physical folio 1 in the text layer','Hidden copyright overlapping publisher address','Rule Book font boxes contaminate edition extraction with E/B'], 'notes':'Hidden template furniture is retained without inventing a visible page label. Complete source image and extraction were compared. No destination pages were inspected.'},\\n+2:{'expected_regions':31,'visible_features':['Running header, folio 2, horizontal rule and copyright','1.0 Introduction heading','Three introductory paragraphs','5th Edition Note','Note to Players','New-player note in two columns','2.0 Game Components and Terminology heading and list introduction','Ten component bullets including the two-line player-aid item','2.1 Maps heading and paragraph','2.2 Playing Pieces heading and paragraph','2.21 complete clause and inline missile/flip references','2.22 complete clause and inline examples','2.23 opening paragraph, incomplete at page end'], 'notes':'Read left column before the right-column note continuation; 2.23 continues into physical page 3. No separate outcome table/footnote or illustration appears here.'},\\n+3:{'expected_regions':38,'visible_features':['Running header, folio 3, horizontal rule and copyright','2.23 continuation and skill-list introduction','Four distinct skill bullets','Legion-number paragraph and AS example','Border-color paragraph','2.24 complete historical/adjustment paragraph','Leaders paragraph and raw 4.1 reference','Informational Markers paragraph and printed examples','2.25 heading','Five annotated groups: phalanx, infantry pair, cavalry pair, scorpion, elephant','Five sample counters with captions: camel, archer, chariot, leader, elephant leader','Four examples-panel borders','2.3 heading and die paragraph including literal zero convention','2.4 heading and introduction','Five terminology entries: Active Leader, Class with inline example, Cohesion, Depletion, DR'], 'notes':'Panel label/caption/connector/raster content is inventoried as ten grouped illustration regions. Every external legend and leader line falls inside its group. The long left paragraph is preserved as one clause, including the final adjustment sentence.'},\\n+4:{'expected_regions':35,'visible_features':['Running header, folio 4, horizontal rule and copyright','Sixteen left-column entries: DRM, Finished Leader, Inactive Leader, Leader, Line, MA, Missile Fire, Momentum, MP, Order/Line Command, Orders Phase, Shock Combat, Size, Superiority, TQ, Trump','Type with inline examples','ZOC entry','Combat-types introduction','Consular Army paragraph','Legion paragraph','Velites text and counter','Hastati text beside/below counter and counter','Principes text beside/below counter and counter','Triarii incomplete text and counter'], 'notes':'All sixteen left entries and all right paragraphs were compared line by line to literal extraction and render. Counter adjacency and wrapped text continuations are preserved. Triarii ends at the source boundary; only the specified two-line crop on page 5 was read.'}}\\n+\\n+def prepare():\\n+    inv=read(BASE/'final-verified/inventory.json'); ledger=read(BASE/'region-ledger-final.json')\\n+    save('independent-expectations.json',{'basis':'Reviewer observation of original-source page renders and text pages 1-4; expected feature list is stated separately from executor test results. Counts describe this authored partition, not a unique semantic atomization.','pages':expected,'no_gameplay_legality_or_semantic_acceptance':True})\\n+    observations=[]\\n+    for r in ledger:\\n+        special=[]\\n+        if r['key']=='ig2b01:cover:hidden-running-template': special=['Text-layer header/folio retained; pixels show no visible cover header/folio.']\\n+        if r['key']=='ig2b01:cover:edition': special=['PNG reads 5th Edition. Raw text is E5th EdBition; unrelated font-box overlap produces extra E at codepoint 0 and B at codepoint 7. It remains partial evidence, not a transcription.']\\n+        if r['key']=='ig2b01:cover:rulebook-title': special=['Eight nominal font boxes extend below the region; visible black contours are wholly inside the crop. Metric overshoot is not an ink omission.']\\n+        if r['key']=='ig2b01:cover:publisher-address': special=['Visible address and hidden copyright interleave in raw text; final PNG preserves visible line.']\\n+        if r['key']=='ig2b01:cover:spqr-logotype': special=['Final x=416 endpoint preserves complete R and Q tail. Empty extraction is expected for outlines.']\\n+        observations.append({'page':r['page'],'region_id':r['region_id'],'region_revision':r['region_revision'],'key':r['key'],'box':r['box'],'reading_order_index':r['reading_order_index'],'review_result':'PASS','method':'Compared source render, independent overlay, complete literal region text and source-derived reproduced PNG; exact evidence text and pixels match.','components_verified':r['components'],'component_granularity':'Sufficient for independent inventory; embedded marks remain raw image evidence and a transcription gap.' if r['kind']=='diagram' else None,'observations':special})\\n+    save('content-observations.json',{'actor':ACTOR,'role':'independent_reviewer','pages':expected,'regions':observations,'all_130_regions_inspected':True,'whole_page_images':['page-01.png','page-02.png','page-03.png','page-04.png'],'overlays':['overlay-01.png','overlay-02.png','overlay-03.png','overlay-04.png'],'diagram_detail':'diagram-detail-contact.png','reading_order':'Cover visible progression plus explicitly hidden furniture; pages 2-4 left column then right, headers first and copyright last. Page-2 split note, page-2/3 sentence, page-3/4 list, Hastati/Principes wraps and page-4/5 Triarii continuation checked.','geometric_gaps':'Unassigned regions are margins, gutters, interparagraph spaces, panel interiors/background and cover background. No omitted visible source-bearing text, raster diagram, annotation or border was found. They remain explicit unapproved geometric gaps.','context_page_5':{'region_id':'region:e8d77349-41ce-47d0-b678-eab1d0c8e8ed','box':[71895,63131,495099,98485],'observed':'Exactly the two-line completion of the incomplete Triarii sentence; no neighboring entry seen in this review.','denominator':0},'limits':'This is inventory/source-accounting review, not independently accepted transcription, source-IG exact whole-record review, human authentication, semantic acceptance or executable readiness.'})\\n+    # Packet snapshots remain byte-pinned. Assess mutable current-file differences explicitly.\\n+    packet_results=[]\\n+    for name in ['input-packet.json','final-input-packet.json']:\\n+        p=read(BASE/name); m=read(ROOT/p['manifest']['path']); context=(ROOT/p['context']['path']).read_text(encoding='utf-8')\\n+        sections={}\\n+        pieces=re.split(r'\\\\n--- FILE: ([^\\\\n]+) ---\\\\n',context)\\n+        for i in range(1,len(pieces),2): sections[pieces[i]]=pieces[i+1]\\n+        drift=[]\\n+        for f in m['files']:\\n+            if f['path'] in ['docs/STATUS.md','docs/HANDOFF.md','docs/work/tasks/IG-2B01.md']:\\n+                raw=(ROOT/f['path']).read_bytes()\\n+                if hashlib.sha256(raw).hexdigest()!=f['sha256']:\\n+                    old=sections[f['path']].rstrip('\\\\n'); current=raw.decode('utf-8').replace('\\\\r\\\\n','\\\\n').rstrip('\\\\n')\\n+                    import difflib\\n+                    delta=list(difflib.unified_diff(old.splitlines(),current.splitlines(),fromfile='frozen packet',tofile='current queue projection'))\\n+                    drift.append({'path':f['path'],'expected':f['sha256'],'current':pin(ROOT/f['path'])['sha256'],'diff':delta})\\n+        packet_results.append({'packet':pin(BASE/name),'manifest':p['manifest'],'context':p['context'],'snapshot_pins_verified':True,'current_projection_drift':drift,'disposition':'Preserve snapshots. Differences correspond to refinement/final output selection and status progression to review; current queue is authority. No frozen packet rewritten.'})\\n+    save('packet-assessment.json',packet_results)\\n+    # Dependency closure is metadata inspection of named current artifacts only.\\n+    dep=read(BASE/'dependency-verification.json'); dep_results=[]\\n+    allowed=[x for x in dep['pins'] if '/IG-2A/' in x['path']]\\n+    for target in allowed:\\n+        path=ROOT/target['path']; actual=pin(path); assert actual==target\\n+        doc=read(path)\\n+        refs=[]\\n+        def verify_refs(x):\\n+            if isinstance(x,dict):\\n+                if isinstance(x.get('path'),str) and 'sha256' in x:\\n+                    p=ROOT/x['path']; a=pin(p); ok=a['sha256']==x['sha256'] and ('bytes' not in x or a['bytes']==x['bytes']); refs.append({'path':x['path'],'ok':ok}); assert ok\\n+                for v in x.values(): verify_refs(v)\\n+            elif isinstance(x,list):\\n+                for v in x: verify_refs(v)\\n+        verify_refs(doc)\\n+        dep_results.append({'artifact':actual,'role':doc.get('role'),'actor':doc.get('actor'),'status':doc.get('status'),'outcome':doc.get('outcome'),'referenced_byte_pins_verified':len(refs)})\\n+    save('dependency-assessment.json',{'scope':'Only dependency-verification.json named current IG-2A artifacts were parsed for closure and registry. Referenced bytes were hashed, without reading source contents or expanding history.','records':dep_results,'baseline_registry_preservation':'Independently checked in structural-independent.json and secondary-independent.json.','no_semantic_acceptance_transferred':True})\\n+    products=read(BASE/'preservation.json')['base_files']; assert all(pin(ROOT/p['path'])==p for p in products)\\n+    delivery=read(BASE/'delivery.json'); manifest=read(BASE/'delivery-manifest.json'); seal=read(BASE/'final-seal.json')\\n+    for p in manifest['artifacts']: assert pin(ROOT/p['path'])==p\\n+    save('preservation-independent.json',{'checked_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'public_products_tools_and_contracts':products,'all_public_product_pins_match_executor_preflight':True,'all_frozen_delivery_manifest_members_match':True,'delivery_manifest_members':len(manifest['artifacts']),'source_and_provenance_pins':[inv['source']['pdf'],inv['source']['provenance']],'queue_pin_at_review_snapshot':pin(ROOT/'docs/work/queue.json'),'queue_status':next(t['status'] for t in read(ROOT/'docs/work/queue.json')['tasks'] if t['id']=='IG-2B01'),'writes_by_reviewer':'Only this review directory and standard scripts/check.ps1 private/workflow/checks scratch. No queue, public, executor, packet or baseline mutation.'})\\n+    print('ASSESSMENT PREPARED',len(observations),len(manifest['artifacts']))\\n+\\n+if __name__=='__main__': prepare()\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/assess_and_freeze.py\",yield_time_ms:1000,max_output_tokens:2000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 1,
+          "chunk_id": "e3d796",
+          "wall_time_seconds": 0.6196997,
+          "original_token_count": 311,
+          "error_excerpt": "Traceback (most recent call last):\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\assess_and_freeze.py\", line 75, in <module>\r\n    if __name__=='__main__': prepare()\r\n                             ^^^^^^^^^\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\assess_and_freeze.py\", line 66, in prepare\r\n    verify_refs(doc)\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\assess_and_freeze.py\", line 63, in verify_refs\r\n    for v in x.values(): verify_refs(v)\r\n                         ^^^^^^^^^^^^^^\r\n  File \"C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\assess_and_freeze.py\", line 62, in verify_refs\r\n    p=ROOT/x['path']; a=pin(p); ok=a['sha256']==x['sha256'] and ('bytes' not in x or a['bytes']==x['bytes']); refs.append({'path':x['path'],'ok':ok}); assert ok\r\n                                                                                                                                                              ^^\r\nAssertionError\r\n"
+        }
+      ],
+      "ended_utc": "2026-10-14T17:31:52.938Z"
+    },
+    {
+      "call_id": "call_2232d3a6b6e64fbaac40453255650326",
+      "started_utc": "2026-10-14T17:32:08.019Z",
+      "tool_input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: C:/repo/wargame-compiler/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/assess_and_freeze.py\\n@@\\n-                    p=ROOT/x['path']; a=pin(p); ok=a['sha256']==x['sha256'] and ('bytes' not in x or a['bytes']==x['bytes']); refs.append({'path':x['path'],'ok':ok}); assert ok\\n+                    p=ROOT/x['path']; a=pin(p); ok=a['sha256']==x['sha256'] and ('bytes' not in x or a['bytes']==x['bytes']); refs.append({'path':x['path'],'ok':ok,'expected':x['sha256'],'actual':a['sha256']})\\n@@\\n-        dep_results.append({'artifact':actual,'role':doc.get('role'),'actor':doc.get('actor'),'status':doc.get('status'),'outcome':doc.get('outcome'),'referenced_byte_pins_verified':len(refs)})\\n+        mismatches=[p for p in refs if not p['ok']]\\n+        print('DEPENDENCY',path.name,'references',len(refs),'mismatches',mismatches)\\n+        dep_results.append({'artifact':actual,'role':doc.get('role'),'actor':doc.get('actor'),'status':doc.get('status'),'outcome':doc.get('outcome'),'referenced_byte_pins_checked':len(refs),'mismatches':mismatches})\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\".\\\\.venv\\\\Scripts\\\\python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/assess_and_freeze.py\",yield_time_ms:1000,max_output_tokens:2000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "6966f7",
+          "wall_time_seconds": 2.9751969000000003,
+          "original_token_count": 419
+        }
+      ],
+      "ended_utc": "2026-10-14T17:32:11.462Z"
+    },
+    {
+      "call_id": "call_6227eb4d5f5e47e89e1143672d4e234a",
+      "started_utc": "2026-10-14T17:33:00.220Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport json,difflib\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'); o=Path('private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63')\\np=json.loads((b/'context-policy-before.json').read_text()); c=json.loads(Path('docs/work/context-policy.json').read_text()); print('POLICY DIFF',list(difflib.unified_diff(json.dumps(p,indent=2).splitlines(),json.dumps(c,indent=2).splitlines())))\\nq=json.loads(Path('docs/work/queue.json').read_text()); t=next(t for t in q['tasks'] if t['id']=='IG-2A'); print('IG2A CURRENT',t['status'],'EVENTS',t['events'][-2:])\\nfor packet in json.loads((o/'packet-assessment.json').read_text()):\\n print('PACKET',packet['packet']['path'])\\n for d in packet['current_projection_drift']: print(d['path'],'\\\\n'.join(d['diff']))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -\",max_output_tokens:3500}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "573cde",
+          "wall_time_seconds": 0.9850316,
+          "original_token_count": 1622
+        }
+      ],
+      "ended_utc": "2026-10-14T17:33:01.617Z"
+    },
+    {
+      "call_id": "call_5f24532744e64cb78ec7827196db9b3e",
+      "started_utc": "2026-10-14T17:35:47.350Z",
+      "tool_input": "text(await tools.exec_command({cmd:\"@'\\nfrom pathlib import Path\\nimport sys,json,hashlib,importlib\\nsys.path.insert(0,'C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages')\\no=Path('private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63'); rows=[]\\nfor name in ['pypdf','pdfplumber','PIL','pdfminer','pytest']:\\n m=importlib.import_module(name); p=Path(m.__file__); rows.append({'name':name,'version':m.__version__,'loaded_entrypoint':str(p),'entrypoint_sha256':hashlib.sha256(p.read_bytes()).hexdigest()})\\n(o/'dependency-runtime.json').write_text(json.dumps({'libraries':rows,'hash_scope':'Loaded package entrypoint bytes, not a package-wide supply-chain attestation.','process_only':True,'installs':0},indent=2)+'\\\\n',encoding='utf-8'); print(rows)\\nr=json.loads((o/'region-ledger-final.json').read_text()) if (o/'region-ledger-final.json').exists() else None\\nb=Path('private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77'); l=json.loads((b/'region-ledger-final.json').read_text()); print('EDITION LOCATOR',next(r['box'] for r in l if r['key']=='ig2b01:cover:edition'))\\nprint('CROPS',len(json.loads((o/'crop-reproduction.json').read_text())),'BYTE PNG MATCHES',sum(r['png_bytes_equal'] for r in json.loads((o/'crop-reproduction.json').read_text())))\\n'@ | .\\\\.venv\\\\Scripts\\\\python.exe -B -\",max_output_tokens:2000}));\n",
+      "outcomes": [
+        {
+          "exit_code": 0,
+          "chunk_id": "abb1fe",
+          "wall_time_seconds": 1.3405098,
+          "original_token_count": 361
+        }
+      ],
+      "ended_utc": "2026-10-14T17:35:48.910Z"
+    }
+  ]
+}

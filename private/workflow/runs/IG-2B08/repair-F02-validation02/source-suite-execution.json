@@ -1,0 +1,37 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F02-validation02/source-pytest -p no:cacheprovider --tb=short",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "permissions": "restricted",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/source-suite-restricted.log",
+        "bytes": 4373,
+        "sha256": "862d801e6eefdc7cea9fec5e6ea4cdc7f73b681eaa63ca1ef5c0fb3bc8b1db7d"
+      },
+      "windows_access_denied": true,
+      "counts": []
+    },
+    {
+      "exit_code": 0,
+      "permissions": "require_escalated",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/source-suite-approved.log",
+        "bytes": 102,
+        "sha256": "9b96046ff84a9c19d7c8aa7561a66f3a892534f1dc68bb025bb1a61a6050100e"
+      },
+      "windows_access_denied": false,
+      "counts": [
+        "71 passed"
+      ]
+    }
+  ],
+  "tests_assertions_unchanged": true,
+  "approved_exact_validation_command": true
+}

@@ -1,0 +1,23 @@
+--- verified-product-before/contracts/ig/regions.schema.json
++++ contracts/ig/regions.schema.json
+@@ -975,6 +975,10 @@
+             "minLength": 1
+           },
+           "minItems": 1
++        },
++        "page_basis_hash": {
++          "type": "string",
++          "pattern": "^[0-9a-f]{64}$"
+         }
+       },
+       "required": [
+@@ -993,7 +997,8 @@
+         "text_parameters",
+         "render_parameters",
+         "crop_parameters",
+-        "uncertainty"
++        "uncertainty",
++        "page_basis_hash"
+       ],
+       "additionalProperties": false
+     }

@@ -1,0 +1,39 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:004-IG-2B07-coordinator-2aa0a4f8:coordinator",
+  "task": "IG-2B07",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/004-IG-2B07-coordinator-2aa0a4f8/runtime-configuration.json",
+  "configuration_sha256": "382676e3501a08f4994e313e0a5a26714ad1800075abe9fc2e4a0498c7e67298",
+  "summary": "Bounded queue edit and derived views validate; no status/event/acceptance/test or other-task changes; frozen delivery reverified.",
+  "scope": {
+    "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+    "sha256": "de0f651557362f57f96a5a225dc5c796f89387d5e3ba689ab19361e9bd93ea5a",
+    "bytes": 17242
+  },
+  "authorization": {
+    "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/coordinator-authorization.json",
+    "sha256": "1e22af511284fdbdfade01efcc4a2c763dea932e2e817500011eb500adc21124",
+    "bytes": 4655
+  },
+  "queue_before_sha256": "2d557e8161e89888f22e85828ab08c760ce829557d3460c18c4baa4ec3d7b9f2",
+  "queue_after_sha256": "a458f5e1e89caea3ccf7620f2b14e2b4865a246e30d22c11f0924480d7312343",
+  "context_policy_before_sha256": "908ef6c4200e5dcd7cdac3e8d44b1a0cfc73d0cc5444ef217b5883b8c7f67c04",
+  "context_policy_after_sha256": "39dcf8eee5da94d5c20ee9d7f70f78af62a8d1856c4e6eba563619f74a4b177a",
+  "unchanged_fields": [
+    "status",
+    "events",
+    "acceptance",
+    "tests"
+  ],
+  "other_task_records_unchanged": true,
+  "new_attempt_absent": true,
+  "immutable_artifacts_reverified": 2956,
+  "checks": [
+    {
+      "command": "workflow.validate(q, ROOT, check_views=False); workflow.render(q, ROOT); workflow.validate(q, ROOT)",
+      "exit_code": 0
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "task": "IG-2B06",
+  "status": "done",
+  "next_task": "IG-2B07",
+  "next_role": "coordinator",
+  "old_review_session_unchanged": true,
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B06",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "queue_sha256": "c39a99aeac2f5972bbaf9e4c5e565056e52edb3f8b72baeaae3c83d1a98cf49b"
+}

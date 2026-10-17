@@ -1,0 +1,204 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:001-IG-2B08-reviewer-86a341a9:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T111422Z-80dfde30/001-IG-2B08-reviewer-86a341a9/runtime-configuration.json",
+  "configuration_sha256": "b830d0c1bb4129c162f9efc6d15eae478001801c2df3fe15fdcd36d8bdbcc0eb",
+  "summary": "Independent hashes, baseline preservation, complete replay sets, normalized evidence and current indexes verified. Source-bound F02 confirmed separately; structural equality is not component completeness.",
+  "counts": {
+    "delivery_artifacts": 5302,
+    "preserved_artifacts": 10358,
+    "preserved_regions": 937,
+    "preserved_evidence": 925,
+    "preserved_links": 229,
+    "preserved_registry_entries": 1013,
+    "retained_reading_order": 937,
+    "new_regions": 269,
+    "primary_regions": 183,
+    "new_context_regions": 86,
+    "component_entries": 189,
+    "source_index_artifacts": 5229,
+    "current_reports": 22
+  },
+  "runs": [
+    {
+      "name": "final-verified",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+        "sha256": "a1e1342c0863cb7d9ef342a5b86cf98dcd39d8fe6222ecf98b3e670969e8a3a5",
+        "bytes": 5085001
+      },
+      "new_region_count": 269,
+      "evidence_artifacts": 807,
+      "normalized_evidence_digest": "a55797a1532595998b23b61e72fe886b9d4096581d10e5a004abe62cc29dff83"
+    },
+    {
+      "name": "replay-1",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+        "sha256": "477774e685e477176c89056eb7f8568f4076dd3257a7ed60e4f6acc0d75157ce",
+        "bytes": 5080159
+      },
+      "new_region_count": 269,
+      "evidence_artifacts": 807,
+      "normalized_evidence_digest": "a55797a1532595998b23b61e72fe886b9d4096581d10e5a004abe62cc29dff83"
+    },
+    {
+      "name": "replay-2",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+        "sha256": "dac6b140998d258fae468dae0063ab12d5979e6320be8ca34fb8969078499a6b",
+        "bytes": 5080159
+      },
+      "new_region_count": 269,
+      "evidence_artifacts": 807,
+      "normalized_evidence_digest": "a55797a1532595998b23b61e72fe886b9d4096581d10e5a004abe62cc29dff83"
+    }
+  ],
+  "preservation_hashes": {
+    "regions": "bfa47f5bc851b1f879057854a02c9833841aa38ba34e1710579ff1b31ee89db4",
+    "retained_reading_order": "8d45c223497cf0b212593bbfacdcbb0887b177e50583d9a040cc5cd0f6377130"
+  },
+  "F01_verification": {
+    "fresh_original": {
+      "path": "private/workflow/runs/IG-2B08/review-86a341a9/originals/page-30.png",
+      "sha256": "e6b7fb226f7d644ad280bdf73973a0910328d8fa0190a77eba86254d7108b547",
+      "bytes": 786627
+    },
+    "old_crop_rejected": true,
+    "source_mask_pixel_counts": {
+      "left_curve_head": 199,
+      "right_curve_head": 194,
+      "black_forward": 458
+    },
+    "runs": [
+      {
+        "name": "final-verified",
+        "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+        "revision": "0714a73352e4a317b4c93afadfa23d3e11ecd7b293899a9f512c4ea175f2d807",
+        "evidence_image": {
+          "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/evidence/ig2b08-p30-advance-component-arrows/image.png",
+          "bytes": 32210,
+          "sha256": "6e26ffa0bcd18d8e607faaadf27d6cd4867a1a81bccf3107a1e9e6076d3c4043"
+        },
+        "all_source_arrow_masks_present": true
+      },
+      {
+        "name": "replay-1",
+        "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+        "revision": "0714a73352e4a317b4c93afadfa23d3e11ecd7b293899a9f512c4ea175f2d807",
+        "evidence_image": {
+          "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/evidence/ig2b08-p30-advance-component-arrows/image.png",
+          "bytes": 32210,
+          "sha256": "6e26ffa0bcd18d8e607faaadf27d6cd4867a1a81bccf3107a1e9e6076d3c4043"
+        },
+        "all_source_arrow_masks_present": true
+      },
+      {
+        "name": "replay-2",
+        "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+        "revision": "0714a73352e4a317b4c93afadfa23d3e11ecd7b293899a9f512c4ea175f2d807",
+        "evidence_image": {
+          "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/evidence/ig2b08-p30-advance-component-arrows/image.png",
+          "bytes": 32210,
+          "sha256": "6e26ffa0bcd18d8e607faaadf27d6cd4867a1a81bccf3107a1e9e6076d3c4043"
+        },
+        "all_source_arrow_masks_present": true
+      }
+    ]
+  },
+  "F02_probe": {
+    "source": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    "fresh_original": {
+      "path": "private/workflow/runs/IG-2B08/review-86a341a9/originals/page-29.png",
+      "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e",
+      "bytes": 756272
+    },
+    "window_points": [
+      130,
+      513,
+      138,
+      523
+    ],
+    "selected_digit_pixels": 123,
+    "runs": [
+      {
+        "run": "final-verified",
+        "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+        "revision": "beca666ef8bca81a63508f8741814b2abd7a61e33abdd0dd88762e66c43275d7",
+        "box": [
+          173203,
+          626263,
+          217320,
+          665404
+        ],
+        "intended_detail_image": {
+          "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/evidence/ig2b08-p29-collapse-diagram-component-c-hits/image.png",
+          "bytes": 1806,
+          "sha256": "10c4c24be667ea19aab60f2ff67a2d8c1a039db63da03f7394e6805f9d4db89e"
+        },
+        "missing_visible_stem_pixels": 51,
+        "missing_pixel_bounds": [
+          266,
+          1026,
+          272,
+          1040
+        ]
+      },
+      {
+        "run": "replay-1",
+        "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+        "revision": "beca666ef8bca81a63508f8741814b2abd7a61e33abdd0dd88762e66c43275d7",
+        "box": [
+          173203,
+          626263,
+          217320,
+          665404
+        ],
+        "intended_detail_image": {
+          "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/evidence/ig2b08-p29-collapse-diagram-component-c-hits/image.png",
+          "bytes": 1806,
+          "sha256": "10c4c24be667ea19aab60f2ff67a2d8c1a039db63da03f7394e6805f9d4db89e"
+        },
+        "missing_visible_stem_pixels": 51,
+        "missing_pixel_bounds": [
+          266,
+          1026,
+          272,
+          1040
+        ]
+      },
+      {
+        "run": "replay-2",
+        "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+        "revision": "beca666ef8bca81a63508f8741814b2abd7a61e33abdd0dd88762e66c43275d7",
+        "box": [
+          173203,
+          626263,
+          217320,
+          665404
+        ],
+        "intended_detail_image": {
+          "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/evidence/ig2b08-p29-collapse-diagram-component-c-hits/image.png",
+          "bytes": 1806,
+          "sha256": "10c4c24be667ea19aab60f2ff67a2d8c1a039db63da03f7394e6805f9d4db89e"
+        },
+        "missing_visible_stem_pixels": 51,
+        "missing_pixel_bounds": [
+          266,
+          1026,
+          272,
+          1040
+        ]
+      }
+    ]
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false,
+  "exit_code": 0
+}

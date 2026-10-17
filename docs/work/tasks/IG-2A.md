@@ -2,7 +2,7 @@
 
 <!-- Generated from docs/work/queue.json; edit the queue, then render. -->
 
-- Status: `planned`; kind: `refine`.
+- Status: `done`; kind: `implementation`.
 - Executor: **GPT-6.1 Sol; reasoning high**. Record actual configuration separately.
 - Dependencies: [IG-1E](IG-1E.md)
 - Human semantic acceptance required: false.
@@ -13,8 +13,10 @@ Create page/region inventory, evidence locator and coverage-accounting tools.
 
 ## Concrete deliverables
 
-- Source inventory contract and local tool
-- Render/text provenance and coverage report
+- contracts/ig/regions.schema.json and documented wgc-inventory-1 contract
+- Local source page/region inventory, coordinate/evidence/coverage tools and synthetic tests
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/ inventories, evidence, repeatability and regression reports
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/ frozen repair delivery and independent-review handoff
 
 ## Start conditions
 
@@ -23,19 +25,30 @@ Create page/region inventory, evidence locator and coverage-accounting tools.
 
 ## Input contracts
 
-- Pinned full PDF and source manifest
-- Synthetic multi-column, table/note and cross-page examples
+- Official PDF private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e; independent physical page count 44
+- Fresh official provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json SHA256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b
+- Synthetic public layout/geometry/coverage cases; real evidence verification physical pages 1-4 only; all-page geometry and embedded-label accounting.
+- Final coordinator refinement private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json; stable persisted identity and evidence/coverage contracts.
 
 ## Required context
 
 - docs/IG-WGU-ARCHITECTURE.md
 - docs/IG-DATA-MODEL.md
+- contracts/ig/README.md
+- src/wgc/contracts/source.py
+- private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json
+- private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json
+- private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/scope.json
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/dispositions-before.json
 
 ## Allowed write scope
 
 - src/wgc/sources/
 - tests/sources/
 - contracts/ig/regions.schema.json
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/
 
 ## Exclusions
 
@@ -53,6 +66,8 @@ Create page/region inventory, evidence locator and coverage-accounting tools.
 
 - Synthetic missing-page, duplicate-region, overlapping-context, table-note and coordinate-conversion cases.
 - Check independent PDF page count and stable region IDs.
+- Explicit tests/sources with fresh short basetemp and -p no:cacheprovider; check.ps1 -Task IG-2A while active; workflow validate; git diff --check.
+- Two fresh structural inventories with reused persisted registry; compare identical canonical bytes and region identities; independent Poppler and pypdf count; inspect real rendered pages 1-4.
 
 ## Blockers and escalation
 

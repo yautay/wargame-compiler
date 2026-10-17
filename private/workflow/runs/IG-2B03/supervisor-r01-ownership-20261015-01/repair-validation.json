@@ -1,0 +1,54 @@
+{
+  "role": "coordinator",
+  "actor": "operator-restart-r01-20261015",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Actual builder configuration unavailable; no executor or semantic acceptance claim.",
+  "operator_request": "Restart IG-2 after checking B03 review and B04 readiness.",
+  "summary": "Continuation ownership may retire only through verified review-repair lineage; preserve old blocked and continuation artifacts and retain fresh repair ownership gates.",
+  "artifacts": [
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "725dc8c3c039a4c4c26eb6178bfa2cb393f7e213fa540c022e178b387a347816"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "c5af2d9b451a8e5364afaf41f6076a2b2022e7fae94579f107d350174af024e9"
+    },
+    {
+      "path": "docs/work/IG2-ORCHESTRATOR.md",
+      "sha256": "3c678926e2257805c6c2770a69e3ed480ed7ff9e0e2962b442152fc3c1b1739c"
+    }
+  ],
+  "checks": [
+    {
+      "command": "targeted orchestrator/search pytest, continuation-r01-01",
+      "exit_code": 0,
+      "result": "90 passed"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 0,
+      "result": "192 passed; plan/dry-run/tests/diff all zero"
+    },
+    {
+      "command": "actual executor prepare preflight",
+      "exit_code": 0,
+      "result": "3001 preserved entries; new repair attempt absent; queue unchanged; packet 96212 bytes"
+    }
+  ],
+  "independent_control_review": {
+    "actor": "/root/review_orchestrator",
+    "open_findings": [],
+    "actual_model": null,
+    "actual_reasoning": null
+  },
+  "search_audit": {
+    "scope": "Original resumed executor and finished reviewer/coordinator session commands only",
+    "legacy_or_global_search_detected": false,
+    "unlisted_search_requests_denied": 1,
+    "denied_file": "src/wgc/sources/inventory.py",
+    "denied_session": "002-IG-2B03-reviewer-b3172589"
+  },
+  "task_state": "changes_requested for source-reference index R01; B04 waits for fresh technical acceptance."
+}

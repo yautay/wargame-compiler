@@ -1,0 +1,40 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "created_utc": "2026-10-15T14:49:57.322536+00:00",
+  "summary": "Frozen validation-only delivery entered review; every delivery artifact and original ordered prefix verified after transition.",
+  "delivery": {
+    "path": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/delivery.json",
+    "bytes": 1219205,
+    "sha256": "4ce9c0085fc8b40b36a2c7f05f088cbe07e1fef67d35e16430ae35fbafe6dd29"
+  },
+  "manifest": {
+    "path": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/delivery-manifest.json",
+    "bytes": 1206452,
+    "sha256": "1341e8c653149874ac0ce0500e81c80d90e7678d0409094782303462bfe59ec8"
+  },
+  "transition_report": {
+    "path": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/review-transition.json",
+    "bytes": 1206,
+    "sha256": "6ba57cf2b171d59be3a14861695ffe6dbcd49b379a10dfa69b6f99069b058093"
+  },
+  "queue_event": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-15T14:49:55.095788+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/delivery.json",
+    "sha256": "4ce9c0085fc8b40b36a2c7f05f088cbe07e1fef67d35e16430ae35fbafe6dd29"
+  },
+  "status": "review",
+  "artifact_count": 4409,
+  "original_ordered_prefix_length": 4375,
+  "all_artifacts_verified": true,
+  "base_files_preserved": true,
+  "acceptance_granted": false,
+  "next_action": "Supervisor supplies a fresh independent review; executor stops after this role."
+}

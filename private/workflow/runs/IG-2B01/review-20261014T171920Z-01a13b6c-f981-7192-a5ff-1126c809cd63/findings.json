@@ -1,0 +1,80 @@
+{
+  "outcome": "PASS",
+  "blocking_product_findings": 0,
+  "observations": [
+    {
+      "id": "IG2B01-R01",
+      "severity": "P2",
+      "category": "process_scope",
+      "blocking": false,
+      "status": "contained_disclosed_coordinator_disposition_required",
+      "title": "Initial page-5 probe exposed adjacent content",
+      "locator": {
+        "reports": [
+          {
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/context-access-authorization.json",
+            "bytes": 472,
+            "sha256": "31121d958e229365c30f4c20a177e8521bf520533be72421754b1205a53250bd"
+          },
+          {
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/context-overread.json",
+            "bytes": 758,
+            "sha256": "d47b3a427b4b0430af904ac88a45b7f67a9f060fceca7e194e7ea3b7da3c4bde"
+          }
+        ],
+        "physical_page": 5,
+        "initial_top_left_points": [
+          44,
+          50,
+          303,
+          105
+        ],
+        "final_region_id": "region:e8d77349-41ce-47d0-b678-eab1d0c8e8ed",
+        "final_box": [
+          71895,
+          63131,
+          495099,
+          98485
+        ]
+      },
+      "reproduction": "Compare already-pinned disclosure/access metadata and final narrow evidence; do not open initial probe or adjacent source content.",
+      "impact": "Real bounded access deviation. No demonstrated damage to final inventory or denominator; final narrowing cannot undo prior exposure.",
+      "minimum_correction": "Coordinator records explicit disposition before technical acceptance; preserve immutable disclosure, use narrowly predetermined continuation probes in future. No artifact repair requested.",
+      "verification": "Recheck narrow final context and zero denominator. No neighboring-entry access.",
+      "basis_limit": "Disclosure/metadata evidence only; prohibited neighboring content was not independently inspected."
+    },
+    {
+      "id": "IG2B01-R02",
+      "severity": "P3",
+      "category": "transcription_advisory",
+      "blocking": false,
+      "status": "future_transcription_refinement",
+      "title": "Edition raw text contains font-overlap E/B",
+      "locator": {
+        "physical_page": 1,
+        "region_id": "region:74a8c133-e1a5-4ec4-8ebc-517987e6b24f",
+        "key": "ig2b01:cover:edition",
+        "box": [
+          441176,
+          715909,
+          562091,
+          741161
+        ],
+        "extra_codepoint_offsets": [
+          0,
+          7
+        ]
+      },
+      "reproduction": "Exact literal extraction E5th EdBition reproduces; PNG visibly reads 5th Edition.",
+      "impact": "Potential downstream confusion if partial machine evidence is treated as transcription; current coverage/generic uncertainty prevent that claim.",
+      "minimum_correction": "Future transcription work should explicitly record this anomaly/offsets and PNG comparison. Preserve raw text and source bytes.",
+      "verification": "Compare codepoints and PNG at the exact unchanged region revision."
+    }
+  ],
+  "severity_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 1,
+    "P3": 1
+  }
+}

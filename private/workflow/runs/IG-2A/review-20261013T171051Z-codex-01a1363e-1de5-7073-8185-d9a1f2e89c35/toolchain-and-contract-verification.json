@@ -1,0 +1,80 @@
+{
+  "executables": [
+    {
+      "name": "pdfinfo",
+      "path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdfinfo.EXE",
+      "expected_sha256": "5b8d00a8c99f6160d2ba0961c9055ad5a91f3a07ecef94cb22bd535dfc62e505",
+      "actual_sha256": "5b8d00a8c99f6160d2ba0961c9055ad5a91f3a07ecef94cb22bd535dfc62e505",
+      "matches": true
+    },
+    {
+      "name": "pdftoppm",
+      "path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+      "expected_sha256": "3e1c47976d2b7ea26ee979cfae7e24b62b920518e1af5dbb44638939ca46875d",
+      "actual_sha256": "3e1c47976d2b7ea26ee979cfae7e24b62b920518e1af5dbb44638939ca46875d",
+      "matches": true
+    }
+  ],
+  "actual_libraries": {
+    "pypdf": "6.10.0",
+    "pdfplumber": "0.11.9",
+    "Pillow": "12.3.0",
+    "reportlab": "4.4.9"
+  },
+  "frozen_IG1_contract_hashes": [
+    {
+      "path": "contracts/ig/README.md",
+      "expected": "c2d05b9cb20da646de21dc8b3f715799fae2006f06f322c7be800f0cb7e8db57",
+      "actual": "c2d05b9cb20da646de21dc8b3f715799fae2006f06f322c7be800f0cb7e8db57",
+      "matches": true
+    },
+    {
+      "path": "contracts/ig/source.schema.json",
+      "expected": "8593fb5f3929f72a97657593272c9089a34faeac74ce10a2f7a925a00fddab13",
+      "actual": "8593fb5f3929f72a97657593272c9089a34faeac74ce10a2f7a925a00fddab13",
+      "matches": true
+    },
+    {
+      "path": "src/wgc/contracts/source.py",
+      "expected": "14aa5fd5129ed5f6ae65937a3f646407c3f1433483aa2145b53f942ed43509b1",
+      "actual": "14aa5fd5129ed5f6ae65937a3f646407c3f1433483aa2145b53f942ed43509b1",
+      "matches": true
+    }
+  ],
+  "extra_path_probes": [
+    {
+      "path": "private/a//b",
+      "rejected": true
+    },
+    {
+      "path": "private/a/./b",
+      "rejected": true
+    },
+    {
+      "path": "private/aux.txt",
+      "rejected": true
+    },
+    {
+      "path": "private/file:ads",
+      "rejected": true
+    },
+    {
+      "path": "private/COM1",
+      "rejected": true
+    },
+    {
+      "path": "private/LPT9.txt",
+      "rejected": true
+    },
+    {
+      "path": "private/a. /b",
+      "rejected": true
+    },
+    {
+      "path": "private/a/../b",
+      "rejected": true
+    }
+  ],
+  "no_install": true,
+  "environment_scope": "Child processes only; values supplied from frozen toolchain.json."
+}

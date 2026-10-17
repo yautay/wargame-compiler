@@ -1,0 +1,20 @@
+{
+  "preliminary_operations": "Instruction reads and current-session metadata inspection before substantive review; no product mutation.",
+  "errors": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/verify_inputs.py",
+      "exit_code": 1,
+      "wall_seconds": 2.3550699,
+      "started_utc": null,
+      "ended_utc": null,
+      "error": "AttributeError: module workflow has no attribute load_queue",
+      "resolution": "Read the actual workflow API and use workflow.read_json(ROOT/workflow.QUEUE). No input hashes were changed."
+    },
+    {
+      "command_record": "verify-inputs.json",
+      "error": "importlib.metadata.PackageNotFoundError: jsonschema",
+      "resolution": "Record only dependencies actually used by WGC and the review; its schema evaluator is offline internal code, not jsonschema. No installation required."
+    }
+  ],
+  "measurement_limit": "First helper failure UTC boundaries were not captured; tool returned elapsed wall time. They remain null rather than reconstructed."
+}

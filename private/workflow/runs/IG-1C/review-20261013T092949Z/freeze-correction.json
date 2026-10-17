@@ -1,0 +1,11 @@
+{
+  "attempt": 1,
+  "failure": "freeze_review.py referenced diff-check.log under project check run, but Tee-Object did not create it for empty git diff --check output.",
+  "product_failure": false,
+  "product_assertion_changed": false,
+  "prior_generated_configuration_measurements_report": "Preserved byte-for-byte; no overwrite or deletion",
+  "changed_hypothesis": "The actual project result.json records diff_exit=0. Independent reviewer diff.log exists and independently records exit 0. Do not require a nonexistent empty project log as an artifact.",
+  "correction": "complete_review.py performs explicit in-memory packaging-only transformations of the preserved freeze_review.py; asserts prior draft files match, completes new review.json/review-manifest.json and records completion timestamp.",
+  "product_repair_cycles_consumed": 0,
+  "unchanged_failure_retries": 0
+}

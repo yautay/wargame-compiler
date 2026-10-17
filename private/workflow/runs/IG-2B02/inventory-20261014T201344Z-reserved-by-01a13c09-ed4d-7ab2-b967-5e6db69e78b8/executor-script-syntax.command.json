@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+    "-B",
+    "-c",
+    "from pathlib import Path;root=Path('private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8');files=sorted(root.glob('*.py'));[(compile(p.read_text(encoding='utf-8'),str(p),'exec')) for p in files];print('Syntax checked',len(files),'owned scripts without bytecode writes')"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-14T20:59:23.624018+00:00",
+  "ended_utc": "2026-10-14T20:59:23.756898+00:00",
+  "wall_seconds": 0.125,
+  "stdout": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/executor-script-syntax.stdout",
+    "bytes": 57,
+    "sha256": "d8ff17bda7132c59453530cb5b451a1b78d968bc57179e75f31b2ff2cab453a1"
+  },
+  "stderr": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/executor-script-syntax.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

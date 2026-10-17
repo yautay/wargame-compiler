@@ -1,0 +1,20 @@
+.....................F.................................................. [ 29%]
+........................................................................ [ 59%]
+........................................................................ [ 89%]
+..........................                                               [100%]
+================================== FAILURES ===================================
+____________________ test_default_ripgrep_excludes_history ____________________
+tests\test_workflow.py:142: in test_default_ripgrep_excludes_history
+    result=subprocess.run(['rg','--files'],cwd=ROOT,capture_output=True,text=True,check=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:548: in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:1026: in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:1538: in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+E   FileNotFoundError: [WinError 2] The system cannot find the file specified
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_default_ripgrep_excludes_history - FileNo...
+1 failed, 241 passed in 57.09s

@@ -2,8 +2,8 @@
 
 <!-- Generated from docs/work/queue.json. -->
 
-Queue updated: 2026-10-11. Next ready task: **none**.
-Done tasks: 2/39.
+Queue updated: 2026-10-17. Next ready task: **none**.
+Done tasks: 13/39.
 The planning tools do not certify game behavior. Source import, source coverage,
 human semantic acceptance, compilation and gameplay readiness are separate gates.
 

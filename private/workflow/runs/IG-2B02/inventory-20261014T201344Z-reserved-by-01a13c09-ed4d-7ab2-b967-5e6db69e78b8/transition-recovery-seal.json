@@ -1,0 +1,58 @@
+{
+  "task": "IG-2B02",
+  "current_status": "in_progress",
+  "last_event": {
+    "from": "ready",
+    "to": "in_progress",
+    "utc": "2026-10-14T20:40:26.833762+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/claim.json",
+    "sha256": "52eb54c0857946e702c0f334ee1fba3bb80a51f47a30410e333f9b760fab86fa"
+  },
+  "recorded_utc": "2026-10-14T21:07:32.562981+00:00",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "original_delivery": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery.json",
+    "bytes": 809657,
+    "sha256": "77aacb3a37f957b917dced04b148c5f05de3c23740a71a68d90c068d81602ba5"
+  },
+  "original_manifest": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-manifest.json",
+    "bytes": 801187,
+    "sha256": "593fbe0c8af8166b241382df47513e20e05851ae65ab30c03f9c46834732796b"
+  },
+  "candidate": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "bytes": 811893,
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "diagnosis": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition-diagnosis.json",
+    "bytes": 3081,
+    "sha256": "c966072fcbecba9a8c71789692c85fe21a8aabf16c04926a5ae6fbee0613f8c5"
+  },
+  "proposal": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-proposal.json",
+    "bytes": 3485,
+    "sha256": "64ef4cdc4e74b6e49863619c51fd13de415c3a81f55e8afc9e7376c452fe10de"
+  },
+  "recovery_preflight": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-preflight.json",
+    "bytes": 626,
+    "sha256": "423b8c76274470fece495ab49b49608e3a74fa15d1b9b5471edf65969e8c94ed"
+  },
+  "checkpoint": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/checkpoint-review-transition-failed.json",
+    "bytes": 1048721,
+    "sha256": "808fa4d90d65b2a948ed0b1026108da2c78b13382b191dce5216c010f9af5c5e"
+  },
+  "handoff": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-handoff.md",
+    "bytes": 1806,
+    "sha256": "1ce621f2a771440008fb3c474fc7847df7982bb88a635cf57f6690988985032b"
+  },
+  "all_original_frozen_artifact_bytes_verified": true,
+  "all_candidate_artifact_bytes_verified": true,
+  "frozen_files_overwritten": false,
+  "status_gate": "Pending operator/coordinator decision; no retry authorized or executed.",
+  "self_exclusion": "This append-only recovery seal excludes itself. It is not final-seal.json and does not claim review reached."
+}

@@ -1,0 +1,52 @@
+{
+  "task": "IG-2A",
+  "actor": "codex-01a139bc-256f-7da0-b4a7-8940ca16fc81",
+  "status": "review",
+  "delivery": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery.json",
+    "sha256": "c69df3b2867f440c6b330159a2d335dff6bf959192ebb9d3ac5d0ea59977195e",
+    "bytes": 82701
+  },
+  "manifest": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery-manifest.json",
+    "sha256": "3652874c7a029100efe81b93914934e469ba5b519bf1b66b0ff2b209645a7d49",
+    "bytes": 88935
+  },
+  "handoff": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery-handoff.md",
+    "sha256": "0ad1c51043eaef5859f6e99484889ae9e2aa0eda4c837dd9f75c754165b0e758",
+    "bytes": 4365
+  },
+  "checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:51:54.858736+00:00",
+      "ended_utc": "2026-10-14T09:51:57.176200+00:00",
+      "wall_seconds": 2.3119999999180436,
+      "stdout": "post-review-workflow.stdout",
+      "stderr": "post-review-workflow.stderr"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:51:57.177456+00:00",
+      "ended_utc": "2026-10-14T09:51:58.464593+00:00",
+      "wall_seconds": 1.297000000020489,
+      "stdout": "post-review-diff.stdout",
+      "stderr": "post-review-diff.stderr"
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Separate independent review of this delivery and all five finding closure conditions; no executor self-approval or IG-2B."
+}

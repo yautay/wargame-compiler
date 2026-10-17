@@ -1,0 +1,1604 @@
+
+--- FILE: AGENTS.md ---
+# WGC repository instructions
+
+Write repository content in English; preserve source and historical bytes.
+Read README.md, docs/STATUS.md, docs/HANDOFF.md, then the selected task packet.
+Use docs/work/queue.json as the only queue/status authority. Follow
+docs/work/WORKFLOW.md and only the relevant local skill in docs/skills/.
+
+Build the full SPQR product incrementally; no new POC. Import, coverage, semantic
+acceptance, and executable readiness are separate. Never resolve gameplay legality
+with an LLM. Human semantic acceptance is separate from model/code review.
+
+Default context and search use scripts/workflow.py and scripts/search.ps1.
+History (including Git history) needs an explicit operator scope and purpose;
+see docs/ARCHIVES.md. An ignore file is not a read permission barrier.
+
+Preserve existing changes; no reset, clean, stash, commit, push, global configuration,
+new chats, agents, automation, or external APIs unless the current operator requests them.
+Keep game evidence under private/. Do not modify neighbouring repositories.
+Run scripts/check.ps1 and git diff --check. Record actual model/reasoning evidence;
+unknown is not the requested GPT-6.1 Sol/high configuration.
+
+
+--- FILE: README.md ---
+# Wargame Compiler
+
+WGC turns a WGU knowledge base and complete source materials into an evidence-backed
+Instruction Graph, formal rule semantics, a compiled rules package, and deterministic
+legal actions and state transitions. A future AI opponent spends its context on
+strategy and chooses through a compact player interface. Gameplay legality never
+requires an LLM call.
+
+The product target includes the **entire SPQR 5E core rulebook from the start**.
+Incremental tasks build lasting parts of that product. No further POC is planned.
+There is currently no new importer, compiler, game runtime, or AI opponent.
+
+Start with [status](docs/STATUS.md), [handoff](docs/HANDOFF.md), and the
+[workflow](docs/work/WORKFLOW.md). The only task/status source of truth is
+[queue.json](docs/work/queue.json); [roadmap](docs/ROADMAP.md) and task cards are generated.
+
+- [Architecture](docs/IG-WGU-ARCHITECTURE.md), [data contracts](docs/IG-DATA-MODEL.md),
+  [mechanics and profiles](docs/IG-MECHANICS-PROFILES.md), [legal action contract](docs/IG-LEGAL-ACTIONS.md).
+- [Implementation plan](docs/IG-PLAN.md), [operator prompts](docs/work/PROMPTS.md),
+  [local skills](docs/work/SKILLS.md), [environment evidence](docs/work/ENVIRONMENT.md).
+- [Archive locations and explicit access](docs/ARCHIVES.md).
+
+Repository prose and tooling use English. Publisher text, imported KB data, and
+immutable historical records retain their original language and bytes. Game content,
+source documents, positions, and source-derived examples belong in `private/`.
+
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet --task IG-1A
+```
+
+The packet command prepares local context; it does not start a model or change task
+state. Checks validate planning and workflow, not the unimplemented game's correctness.
+Archive integrity is an explicit separate command, never part of routine checks.
+
+
+--- FILE: docs/STATUS.md ---
+# WGC status
+
+<!-- Generated from docs/work/queue.json. -->
+
+Queue updated: 2026-10-11. Next ready task: **none**.
+Done tasks: 5/39.
+The planning tools do not certify game behavior. Source import, source coverage,
+human semantic acceptance, compilation and gameplay readiness are separate gates.
+
+Requested planning configuration: GPT-6 Astra/high. Recorded actual model/reasoning:
+unknown/unknown.
+Future executor target: GPT-6.1 Sol/high; verify its actual configuration at claim time.
+
+## Infrastructure blockers
+
+- ARCHIVE-WRITE: blocked. Destination outside writable roots; approval_policy=never. No originals removed. Operator runs the prepared verified migration in a session with write permission to C:/repo/wargame-compiler-archive.
+- SKILL-INSTALL: blocked. .agents is read-only in this session; skills are staged in docs/skills. Use explicit skill paths in prompts now; install and verify discovery in a permitted session.
+
+See [handoff](HANDOFF.md), [workflow](work/WORKFLOW.md), [archive register](ARCHIVES.md)
+and [environment evidence](work/ENVIRONMENT.md). No inherited commit/push approval exists.
+
+
+--- FILE: docs/HANDOFF.md ---
+# WGC handoff
+
+<!-- Generated from docs/work/queue.json. -->
+
+Next ready task: **none**. Choose one task; do not execute a whole stage.
+Read [workflow](work/WORKFLOW.md), then use [operator prompts](work/PROMPTS.md).
+
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet
+```
+
+The packet lists exact context and hashes. It does not launch a model or claim the task.
+Use the staged [execution skill](skills/wgc-execute/SKILL.md) explicitly; automatic
+installation is pending. Operator selects GPT-6.1 Sol/high, records actual settings,
+and follows claim → implementation → independent review → repair → acceptance → done.
+Checkpoints and evidence live in private/workflow/runs; preserve prior attempts.
+
+The active SPQR PDF is in private/ig/sources/spqr-5e with verified provenance.
+The WGU inspection is input evidence, not a semantic acceptance or an exact current count.
+Neighbouring KB/WGU repositories are read-only. Required scenarios/options, missing
+materials, authorized semantic reviewer and performance hardware/thresholds must be
+pinned in the tasks that need them; they do not prevent the first source-contract task.
+
+External history relocation remains governed by [the archive register](ARCHIVES.md)
+and the queue infrastructure blockers. No archive content is needed for this packet.
+Do not use old prompts, archived operational approvals or Git history as default context.
+
+
+--- FILE: docs/work/WORKFLOW.md ---
+# Local task workflow
+
+The only authoritative queue, dependencies, task content and status are in
+[queue.json](queue.json). Cards, [roadmap](../ROADMAP.md) and the generated portions
+of status/handoff are projections checked by `scripts/workflow.py validate`.
+Edit queue.json, run `scripts/workflow.py render`, then `scripts/check.ps1`.
+This tool is a local planner; it launches no model, chat, agent, scheduler or API.
+
+## Roles and ownership
+
+The coordinator selects ready work, refines future contracts, owns the queue, checks
+handoffs and records acceptance evidence. The executor owns only the task's listed
+write paths. The independent reviewer reads the frozen result and writes review findings;
+they do not silently repair the executor's code. Source-meaning review is separately
+identified. The owner (or explicitly authorized human) accepts exact semantic revisions.
+Model review and green tests never substitute for that decision.
+
+Default execution is sequential: one claimed task and one writer. A separate review
+session may use the same requested Sol/high configuration but a fresh reviewer identity
+and task context. No sessions are created automatically. Parallel work needs explicit
+operator authorization, satisfied dependencies, disjoint writes, and a coordinator-owned
+integration task. Two tasks writing queue.json are never parallel writers.
+
+## State machine
+
+| From | Allowed next states | Gate |
+|---|---|---|
+| planned | ready, blocked | Dependencies done; context available; refinement resolved |
+| ready | in_progress, blocked | Executor identity, actual config evidence, exact scope and checkpoint |
+| in_progress | review, blocked | Frozen delivery manifest, meaningful checks and handoff |
+| review | changes_requested, accepted, blocked | Separate technical review; meaning review and human decision when required |
+| changes_requested | in_progress, blocked | Bounded repair scope and new attempt |
+| accepted | done, changes_requested | Coordinator verifies every criterion, evidence and required owner decisions |
+| blocked | planned | New evidence resolves recorded blocker; reevaluate readiness, never jump to done |
+| done | planned | Explicit reopening reason; prior acceptance preserved in event history |
+
+`ready` is explicit and checked, not inferred from file existence. `next` prints the first
+ready task in queue order. At most one task is in_progress/review/changes_requested/accepted.
+`done` means its lasting deliverables, tests, independent review and applicable human
+acceptance are complete. `blocked` records missing fact, failed assumption or unavailable
+input, impact, smallest resolution action, and owner. Source gaps can be valid importer
+outputs while still blocking later gameplay; do not mark import blocked for every missing PDF.
+
+Use `transition --task ID --to STATE --evidence PATH`. Evidence is JSON with `role`,
+`actor`, `summary`, `criteria`, `artifacts`, `model`, `reasoning`, `configuration_evidence`,
+and optional `semantic_decision`. Unknown measured configuration is null with a reason.
+For delivery/review/acceptance also supply `checks`, a nonempty list of command and
+exit_code records. All required checks must have exit code zero. In-progress claims
+require confirmed `model: gpt-6.1-sol` and `reasoning: high`; unknown configuration
+is recorded as a blocker until the operator confirms the actual session settings.
+The command checks structural gates and file hashes, not the truth or authority of a
+human statement. Evidence is append-only by hash in queue events; changes invalidate checks.
+See [evidence shapes](EVIDENCE.md) for a checkpoint/delivery example. Executor status
+updates go through the transition command; the coordinator owns structural queue edits.
+For a semantic task, accepted requires a human decision artifact from the owner or a
+documented authorized reviewer. Do not fabricate one. Routine technical acceptance can
+be recorded by the coordinator after independent review without another owner confirmation.
+
+## One task cycle
+
+1. Coordinator validates queue and chooses `next`. Resolve `refine` before readiness.
+2. Generate a packet with exact allowed context. Binary source references are hashed,
+   not dumped into text; read only pages/IDs named by the task. External WGU context is
+   explicitly scoped in the card, never scanned through historical manifests.
+3. Operator starts the selected executor manually using [the launch prompt](PROMPTS.md).
+   Confirm Sol/high from UI/session metadata; requested settings are not evidence.
+4. Record claim and checkpoint; implement only this increment; record changed files,
+   checks, measured usage and unresolved assumptions. Preserve unrelated working changes.
+5. Freeze delivery hashes and enter review. Operator supplies the review prompt to a
+   separate reviewer. Evaluate source meaning separately from code mechanics.
+6. Repair scoped findings, rerun affected checks and obtain a new review of changed hashes.
+7. Coordinator records acceptance then done, renders views, makes the next eligible task
+   ready, and prepares a new handoff. Do not start the next task just to finish this one.
+
+## Refinement and corpus partitioning
+
+`refine` tasks are not executable until exact prerequisites/paths/cases are pinned. Edit
+the record to `implementation` or `content` after refinement; keep the decision in events.
+For a corpus task, create bounded child records with explicit target IDs, context-only
+IDs, source hashes/pages and disjoint output paths. The parent becomes a closure task
+depending on children, while children inherit the parent's former dependencies (never
+depend on the parent). Rewire downstream tasks through parent closure. Validate the DAG,
+check target-set coverage without overlaps, and render child cards. No recursive platform
+or agent manager is needed. Work partitions do not reduce the full-rulebook target.
+
+## Checkpoints, interruption and conflicts
+
+Write `private/workflow/runs/<task>/<attempt>/checkpoint.json` before starting and after
+each usable increment: task/attempt, actor, actual config, base file hashes, changed-file
+hashes, input packet hash, completed criteria, command results, blocker and next operation.
+Freeze a delivery manifest of all reviewed files and record reports in the same run folder.
+Do not overwrite prior attempts. A interrupted task remains in_progress until triaged.
+Resume by comparing checkpoint hashes with disk and the current queue; record divergences,
+retain both versions and resolve only owned files. Never reset, clean or stash the worktree.
+If an unexpected writer changed an owned path, block that path and ask the coordinator
+to integrate. A checkpoint is not a commit and never authorizes push.
+
+At most two repair cycles per review finding and two retries for the same unchanged
+failure. Then block with evidence and the smallest decision needed. A new hypothesis
+or changed external condition must be recorded before another attempt. No silent scope
+expansion or weakened tests to clear a blocker.
+
+## Measurements and report
+
+Record start/end UTC, elapsed wall time, executor/reviewer identities, requested and
+observed configuration, token counts only if exposed, operator time only if reported,
+tests and defect counts by severity. Unknown values are null, not zero. Separate code
+quality from source meaning and full-profile readiness. No invented monetary cost.
+Final handoff includes outcome, paths/hashes, criteria met/unmet, commands and exits,
+independent review, human decisions where needed, remaining risks, and next exact action.
+
+## Permissions and context limitations
+
+Packets enforce their own allowlist and reject history paths, path escapes and symlinks.
+They are not an OS sandbox for arbitrary tools. `.rgignore` controls default ripgrep only;
+explicit paths, `--no-ignore`, other tools and Git can bypass search exclusions.
+Read [archive isolation](../ARCHIVES.md) before any historical access. The current session
+cannot migrate outside its writable roots or install under protected `.agents/`.
+
+
+--- FILE: docs/skills/wgc-execute/SKILL.md ---
+---
+name: wgc-execute
+description: Implement one ready WGC task within its declared file scope and produce a tested, frozen delivery for independent review.
+---
+
+# wgc-execute
+
+Read the supplied packet and only its named context, plus docs/work/WORKFLOW.md.
+Confirm task readiness, input hashes, write ownership and actual model/reasoning evidence.
+Claim the task with a checkpoint under private/workflow/runs/<task>/<attempt>/.
+Build only the listed deliverables; task exclusions and dependency gates remain binding.
+Use synthetic public tests and private source-derived fixtures. Meaningful tests need
+source-justified expectations, not merely mirrored implementation assumptions.
+Run relevant tests and scripts/check.ps1, freeze file hashes and report unmet criteria.
+Hand off for a separate review; never grant yourself semantic acceptance or start the
+next task. Resume via checkpoint/hash comparison. Do not load historical gold by default.
+
+
+--- FILE: docs/work/tasks/IG-2A.md ---
+# IG-2A: Build independent source inventory tooling
+
+<!-- Generated from docs/work/queue.json; edit the queue, then render. -->
+
+- Status: `review`; kind: `implementation`.
+- Executor: **GPT-6.1 Sol; reasoning high**. Record actual configuration separately.
+- Dependencies: [IG-1E](IG-1E.md)
+- Human semantic acceptance required: false.
+
+## Goal
+
+Create page/region inventory, evidence locator and coverage-accounting tools.
+
+## Concrete deliverables
+
+- contracts/ig/regions.schema.json and documented wgc-inventory-1 contract
+- Local source page/region inventory, coordinate/evidence/coverage tools and synthetic tests
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/ inventories, evidence, repeatability and regression reports
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/ frozen repair delivery and independent-review handoff
+
+## Start conditions
+
+- All dependencies are done; input revisions and assigned file scope are pinned.
+- Actual executor configuration and ownership are recorded; unresolved refinement prevents start.
+
+## Input contracts
+
+- Official PDF private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e; independent physical page count 44
+- Fresh official provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json SHA256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b
+- Synthetic public layout/geometry/coverage cases; real evidence verification physical pages 1-4 only; all-page geometry and embedded-label accounting.
+- Final coordinator refinement private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json; stable persisted identity and evidence/coverage contracts.
+
+## Required context
+
+- docs/IG-WGU-ARCHITECTURE.md
+- docs/IG-DATA-MODEL.md
+- contracts/ig/README.md
+- src/wgc/contracts/source.py
+- private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json
+- private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json
+- private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/scope.json
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/dispositions-before.json
+
+## Allowed write scope
+
+- src/wgc/sources/
+- tests/sources/
+- contracts/ig/regions.schema.json
+- private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/
+
+## Exclusions
+
+- Archives and Git history; neighbouring repositories; global configuration.
+- Downstream tasks, unrelated changes, online services, commits and pushes.
+- Publisher content in public fixtures; automatic semantic acceptance.
+
+## Acceptance criteria
+
+- Every PDF page and region is addressable with coordinate conventions and printed-label mapping.
+- Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.
+- Unknown or excluded areas are visible; partial/gap is never represented.
+
+## Required validation
+
+- Synthetic missing-page, duplicate-region, overlapping-context, table-note and coordinate-conversion cases.
+- Check independent PDF page count and stable region IDs.
+- Explicit tests/sources with fresh short basetemp and -p no:cacheprovider; check.ps1 -Task IG-2A while active; workflow validate; git diff --check.
+- Two fresh structural inventories with reused persisted registry; compare identical canonical bytes and region identities; independent Poppler and pypdf count; inspect real rendered pages 1-4.
+
+## Blockers and escalation
+
+- A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.
+- After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed.
+
+## Final report and handoff
+
+- Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.
+- Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation.
+
+Use [the shared workflow](../WORKFLOW.md) for transitions, review, retries and recovery.
+Read only assigned pages/IDs from binary or private inputs; never recursively load a source directory.
+
+
+--- FILE: docs/IG-WGU-ARCHITECTURE.md ---
+# WGC architecture
+
+This is the active architectural proposal; machine contracts are established task by
+task. [Queue](work/queue.json) defines execution order, [data model](IG-DATA-MODEL.md)
+defines record invariants, and [runtime contract](IG-LEGAL-ACTIONS.md) defines gameplay.
+
+```mermaid
+flowchart LR
+  KB[WGU KB] --> IN[Frozen inputs and read-only adapter]
+  SRC[Complete rulebook and required materials] --> INV[Independent source inventory]
+  IN --> IG[Source IG with evidence and gaps]
+  INV --> IG
+  IG --> SEM[Typed rule semantics]
+  SEM --> REV[Source review and human acceptance]
+  REV --> REF[Reference executor]
+  REV --> COMP[Compiler]
+  COMP --> PKG[Immutable rules package]
+  PKG --> RUN[Deterministic legal runtime]
+  REF --> EQ[Differential checks]
+  RUN --> EQ
+  RUN --> VIEW[Player view and exact choices]
+  VIEW --> AI[Strategy selection]
+  AI --> VAL[Validate against current revision]
+  VAL --> RUN
+```
+
+## Ownership and boundaries
+
+WGU maintains its KB. WGC reads a frozen directory snapshot and original documents,
+preserves both, records discrepancies, and builds versioned interpretations.
+It never edits WGU as an import side effect. Corrections are separate WGC proposals.
+The runtime owns authoritative game state and history; an LLM description is not state.
+AI owns strategy only. UI, online services, providers, and a graph database are not
+prerequisites. Start with local JSON/JSONL, deterministic exports and derived indexes.
+
+| Module / future path | Responsibility | Output |
+|---|---|---|
+| `src/wgc/inputs/` | Snapshot, safe paths, hashes, availability | Immutable input manifest |
+| `src/wgc/wgu_adapter/` | Safe parsing, unknown fields, identities | Import records and origin bindings |
+| `src/wgc/sources/` | Pages, regions, evidence, independent inventory | Coverage denominator |
+| `src/wgc/reconcile/` | Matches, disagreements, omissions, editions | Source IG and explicit gaps |
+| `src/wgc/review/` | Review packets, decisions, freshness | Revision-scoped decision ledger |
+| `src/wgc/semantics/` | Types, expressions, actions, procedure IR | Formal IG linked to source clauses |
+| `src/wgc/reference/` | Simple deterministic execution | Independent comparison baseline |
+| `src/wgc/compiler/` | Type/closure checks and lowering | Reproducible executable package |
+| `src/wgc/runtime/` | Actions, validation, events, replay | State transitions and legal choices |
+| `src/wgc/player/` | Visibility, compact views and deltas | Player-safe decision interface |
+
+These are planned boundaries, not existing implementations. Tests live in corresponding
+`tests/<module>/` directories; public fixtures are synthetic. Source-derived data lives
+in `private/ig/projects/spqr/`. Planning tools in `scripts/` do not implement these modules.
+
+## Existing input evidence
+
+The 2026-10-11 textual inspection recorded 523 rules (438 core, 85 scenario-book),
+233 relations, 48 tables, 134 terms, 79 ambiguities, 3 changes, 59 control questions,
+11 main procedures, 4 subprocedures and 80 steps. These are inventory observations,
+not successful YAML/schema validation or source review. The 27 inspected files were
+hashed. All 36 configured source paths were unavailable at that inspection.
+The private inventory is preserved under `private/ig/planning/wgu-spqr-2026-10-11/`.
+Recheck bytes when implementing; do not turn these counts into hard-coded gold.
+
+An archived 44-page SPQR 5E PDF has been copied, hash-verified, into the active source
+registry `private/ig/sources/spqr-5e/`. Its provenance records the old path and hash.
+Identity with WGU's unavailable original is **unknown**. Explicitly pin it as the source
+of a new IG; reconcile WGU content against it rather than claiming to recover WGU's original.
+
+## Import contract
+
+Primary input: game `wgu.yaml`, complete `kb/`, and explicitly enumerated auxiliary
+files. The optional `wgu/kb-bundle@1` route is later work: the current exporter omits
+some auxiliary files and full source configuration, abbreviates revision information,
+and adds a generation time. A bundle alone cannot establish complete input accounting.
+
+Freeze raw bytes, relative paths, sizes, SHA-256, schema/adapter versions and import
+configuration. Git commit and dirty state are supporting metadata; record unknown
+when inaccessible. Detect source changes during snapshotting. Reject unsafe YAML tags,
+duplicate keys, traversal, and paths escaping the allowlist; preserve unknown fields.
+Unavailable PDFs block source verification, not import of available KB records.
+
+| WGU entity | Source IG mapping | Never infer |
+|---|---|---|
+| Rule, when/effect/exceptions | Clause container, addressable aspects and groups | Executable logic or correct atomization |
+| Source locator | Provenance claim, then evidenced region binding | PDF page identity or exact quotation |
+| refs / see | Navigational references | Required semantic dependencies |
+| Relations | Typed candidates, original status retained | IG acceptance from `verified` |
+| Procedures | Nested steps, local identities and declared order | Binding lifetime, triggers or continuation semantics |
+| Tables | Axes/cells/notes; distinguish editorial summaries | Literal publisher table from `complete: true` |
+| Terms without IDs | Persistent mapping registry | Identity from list position or content hash |
+| Ambiguities / changes | Claims, gaps and evidence | Human resolution or complete edition history |
+| scenarios / questions | Imported evaluation candidates | Battle scenarios or independent expected answers |
+| Unknown fields and files | Lossless payload plus mapping status | Silent exclusion |
+
+One KB rule may map to several clauses and vice versa. IDs are stable and separate
+from content revisions. Reordering, splits, merges and ambiguous matches preserve
+lineage and require explicit resolution. Wildcards and subpoint references retain
+their raw form until an exact target set is justified.
+
+## Complete sources and reconciliation
+
+Inventory all 44 PDF pages independently of the KB: headings, clauses, notes, examples,
+tables, legends, diagrams, and editorial regions. Keep PDF page number separate from
+printed labels. Text extraction is a helper; diagrams and meaningful decorations need
+image evidence. Every region is represented, partially represented, a gap, or excluded
+with a reason. Gaps never count as represented content.
+
+Reconcile all imported records: exact/partial match, contradiction, missing KB content,
+missing source, or possible duplicate. Preserve KB bytes, candidate interpretations,
+evidence, and corrections separately. Cross-chapter exceptions and external tables
+remain explicit dependencies. A table assembled by KB authors can cite multiple clauses;
+do not invent a single publisher region for it.
+
+Each profile pins edition, mode, options, scenario, source revisions and compatibility
+decisions. A 2018 4E scenario book does not inherit 5E authority from the KB manifest.
+Do not invent universal 'newer wins' or 'more specific wins' precedence. Unofficial
+aids remain secondary material. An empty errata list is not proof that no errata exist.
+
+## Revision, review and updates
+
+One logical source IG links to one formal semantic representation; the executable
+package is derived and immutable. All operations map back to exact clause/evidence
+revisions. Do not maintain three independent hand-edited descriptions of a rule.
+
+Review records pin target revision/aspect, evidence, profile and dependencies.
+Technical checks, source/meaning review, and human acceptance are separate. Model
+observations cannot grant semantic acceptance. Incomplete review bases imply unknown
+freshness; changed bases imply stale. Acceptance is never inherited by a changed aspect.
+
+Updates compare old WGU, new WGU and current WGC. Deletion in WGU retires provenance,
+not IG history. Recompute impact through reads/writes, triggers, bindings, table/profile
+dependencies and unresolved references. Preserve decisions; request new ones for affected
+meaning. Rebuild packages and replay regressions before promoting an updated profile.
+
+## Product readiness
+
+Report input accounting, source coverage at each representation level, current human
+acceptance, resolved dependencies, compiled scope, and gameplay readiness separately.
+Opaque text is valid in a working source IG. If it affects legal choices, timing,
+visibility, costs or effects, it blocks executable readiness of the dependent scope.
+Unknown conditions cannot be assumed inactive to bypass a dependency.
+
+## Provenance of this consolidation
+
+Preserves the active IG design and 2026-10-11 WGU inspection, including IG-0 findings on
+semantic groups, review bases, causal history, continuation instances, stable bindings,
+random-pool multiplicities and visibility of diagnostics. Supersedes the earlier pilot
+recommendation and broad IG-1 task. Pre-edit documents are byte-preserved in the
+planning snapshot listed by [the archive register](ARCHIVES.md); they are not bootstrap context.
+
+
+--- FILE: docs/IG-DATA-MODEL.md ---
+# IG data contract proposal
+
+This document consolidates the earlier `ig-draft-0.2` design. It is not a machine schema
+or accepted game semantics. IG-1A establishes the source contract; IG-3A establishes
+the executable language after source reconciliation. See [architecture](IG-WGU-ARCHITECTURE.md).
+
+## Identity and record envelope
+
+Each record has stable `id`, `record_type`, `schema_version`, `revision_id`, `run_id`,
+`supersedes_refs`, and canonical content hash. Stable identity is separate from revision,
+file path, array position and content hash. External WGU IDs are namespaced by KB.
+`origin_bindings` link many-to-many IG IDs to input snapshot/file/field locators.
+Anonymous terms and relations use a persisted identity registry; ambiguous rematches
+become conflicts. Split/merge lineage does not transfer acceptance automatically.
+
+References used as active rules resolve only in the selected snapshot. Historical
+review and supersession references resolve in an immutable revision store. A snapshot
+selects at most one revision per ID, but may retain conflicting assertions with different
+IDs. The presence of an old revision does not activate it. Namespaced IDs must be safely
+encoded as Windows file names rather than used literally with colons.
+
+## Collections and invariants
+
+| Collection | Minimum content and constraints |
+|---|---|
+| sources / artifacts | Role, publisher/system/edition/language, part, media type, bytes, SHA-256, availability and compatibility |
+| regions / evidence | Source revision, PDF page (1-based), printed label, reading order, coordinate/offset convention, precise region links |
+| nodes | Sections, clauses, concepts, procedures/steps, tables/axes/cells, diagrams, components and mechanical definitions |
+| assertions | Subject, stable aspect, knowledge state, literal/normalized/interpreted representation, value, scope, evidence and gaps |
+| semantic_groups | Stable aspect IDs and explicit condition/effect/exception/timing composition |
+| relations | Typed directed link, applicability, target status, candidates, evidence, requirement grouping |
+| gaps | Missing source, unreadable, unprocessed, ambiguity, conflict or unsupported interpretation; affected targets and blocked operations |
+| profiles | System, edition, rules mode, options, scenario, maps/counters, pinned materials and compatibility decisions |
+| reviews | Exact targets and basis revisions, kind, actor role, decision/observation, scope and supersession |
+| coverage | Inventory revision, region, representation level, status and exclusion reason |
+| snapshots | Selected revisions and hashes, profile, conflicts, manifest and independent readiness reports |
+| runs / evaluation | Raw proposals, context manifest, actual configuration evidence, measurements and independently justified expectations |
+
+`sources.role`: rulebook, errata, faq, scenario, map, counter_sheet, player_aid, other.
+Edition labels do not establish compatibility. Exact transcription, normalization,
+uncertain symbols and interpretation remain distinguishable. Evidence roles are direct,
+context and counterevidence. Attaching a whole page does not prove every assertion.
+
+Nodes include action, event_type, state_variable, resource, timing_window, choice,
+selector, spatial_policy, randomizer, calculation and outcome. Their source representation
+may precede formal execution. A generic payload field alone is not demonstrated support.
+Editorial parentage is not an execution dependency. Clause boundaries preserve complete
+conditions and effects; aspects can be separately reviewed inside a container revision.
+
+## Knowledge and representation
+
+Knowledge states: `known` (evidenced proposal, review separate), `established_absent`
+(source proves absence in an explicit scope), `unknown` (null plus gap/reason), and
+`not_applicable` (null plus reason). Missing fields and empty lists never prove absence.
+Representations: literal, normalized, interpreted. A normative assertion has an explicit
+execution impact: formal, informational with reviewed rationale, or blocking.
+
+Facets include transcription, condition, effect, parameter, exception, timing, scope,
+definition, permission, obligation, prohibition, trigger, cost, choice, calculation,
+transition, duration, aggregation, visibility and victory. A shared subject ID does
+not bind several conditions to the right effects; semantic groups do that explicitly.
+Units, comparison operators, rounding stage, temporal bounds and causal filters are typed.
+Opaque is preserved text with an execution limitation, never a runtime LLM callback.
+
+## Relations
+
+Navigation (`mention`) is distinct from dependency (`procedure_use`, `table_use`,
+`definition`, `condition`). Exception/modification points from modifying rule to base.
+`applies_to` points from clause to scope object; `illustrates` from example to rule;
+`precedes` from earlier to later step with its condition. `continuation` alone is not
+an executable stack frame. Mechanical relations are specified in the mechanics contract.
+
+`target_status`: resolved, unresolved, ambiguous, unsupported. Non-resolved references
+retain raw locator, edition, candidate IDs and a gap. Targets can select exact aspects.
+`requirement`: required, conditional, informational; groups explicitly specify all/any.
+Unknown applicability cannot be treated as false. Rule graphs may contain cycles;
+the task dependency graph may not. Procedure cycles need termination/continuation rules.
+
+## Reviews and readiness
+
+Review kinds distinguish transcription, interpretation, source composition and situation
+outcomes. Roles distinguish human_owner, authorized human_reviewer, model, validator.
+Only an authorized human grants semantic acceptance. Store the decision artifact,
+actor, exact target/aspect revisions, scope and basis (sources, definitions, bindings,
+profile and dependencies). Basis completeness is complete, partial or unknown.
+Freshness is independently computed as current, stale or unknown. A newer date does
+not resolve contradictory decisions; explicit supersession and rationale are required.
+
+Coverage statuses are represented, partial, unprocessed, excluded, measured separately
+for transcription, descriptive semantics and formal semantics. Exclusions need a reason
+and approved scope boundary. Do not add overlapping context regions to the denominator.
+Executable readiness is a query over snapshot/profile/dependency closure and available
+state/history, not a global `rule_ready` flag.
+
+## Storage and validation
+
+Use `private/ig/projects/spqr/{inputs,sources,records,runs,reviews,snapshots,reports,evaluation}/`.
+The promoted source registry at `private/ig/sources/` is a read-only input to later project
+snapshots. Source-derived material stays private; public schema fixtures are synthetic.
+One record per file is optional. Containers retain stable aspect IDs and raw input mapping.
+Indexes are derived. Snapshot states draft/sealed describe structural integrity, not quality.
+
+Validate identity/revision uniqueness, hashes, typed references, evidence scope, unknown
+values with gaps, table notes/axes, group composition, review authority and freshness,
+coverage denominators, conflicts, and historical versus active reference resolution.
+The first schema must represent all required mechanical concepts without implementing
+a universal game language. Later formal contracts must make those concepts executable.
+
+Tests need a clause spanning pages, cross-chapter exception, table note, missing unit,
+procedure cycle, edition conflict, partial acceptance and regression after dependency
+change. Expected meanings are justified against sources, independently of implementation.
+
+
+--- FILE: contracts/ig/README.md ---
+# Source Instruction Graph contract, version 1
+
+`source.schema.json` is the JSON Schema Draft 2020-12 shape for `wgc-source-1`.
+The accompanying validator checks the additional invariants below. Both are required;
+schema-only validation cannot check content hashes, selected references or freshness.
+This is the lasting source layer of WGC's complete SPQR product. All public examples
+are invented copper-token material, with no publisher text or SPQR rules.
+
+## Bundle and records
+
+A bundle contains `schema_version`, `snapshot_id` and an immutable `records` store.
+Every record carries `id`, `record_type`, `schema_version`, `revision_id`,
+`content_hash`, `run_id`, `supersedes_refs`, `lineage_refs` and typed `data`.
+The store may contain several revisions of one identity. Duplicate `(id, revision_id)`
+pairs and changes to an identity's record type are invalid. The named snapshot has
+exactly one revision in the bundle. Its selected manifest pins one revision, type and
+hash per identity. Snapshots cannot select other snapshots, including themselves.
+`draft` and `sealed` describe structural selection; neither certifies source meaning.
+
+| Record type | Addressable source content |
+|---|---|
+| `source` | Role, publisher, system, edition, language, part, media type, bytes, SHA-256, availability, compatibility and gaps |
+| `region` | Exact source revision, 1-based PDF page, separate printed label, reading order and a precise box or text interval |
+| `evidence` | Exact region revisions, direct/context/counterevidence role, literal text, separate normalization and uncertain symbols |
+| `node` | Typed descriptions, stable aspects and explicit semantic groups; editorial parentage is separate |
+| `relation` | Typed directed links, applicability, target status, raw locator, edition, candidates, evidence, gaps and all/any requirement groups |
+| `gap` | Missing/unreadable/unprocessed/ambiguous/conflicting/unsupported content, affected targets, candidates and blocked operations |
+| `origin_binding` | Many-to-many input snapshot/hash/path/field locators to IG identities/aspects, namespaced external IDs and mapping status |
+| `coverage` | Inventory revision, exact region, representation level, status, targets/gaps and explicit denominator membership |
+| `profile` | System, edition, rules mode, options, scenario, maps/counters, pinned materials and compatibility decisions |
+| `run` | Proposal/context hashes, observed configuration and evidence, UTC timestamps, measured values or explicit unknowns, expectation basis |
+| `review` | Exact target/aspect and basis revisions, scope, kind, actor/role, decision artifact, authorization, rationale and explicit supersession |
+| `snapshot` | Selected revision manifest, profile, conflicts and independent import/coverage/review/execution assessments |
+| `identity_registry` | Persisted origin keys and assigned IDs; ambiguous rematches retain candidates and a gap |
+
+`run_id` names a run in the supplied store. The record hash includes this provenance.
+The bundle is a closed structural validation unit: unavailable external records must
+be represented by source availability/gaps and unresolved raw locators, not fabricated
+resolved references. Origins name input snapshots by ID/hash without reading them.
+No validator opens an origin path, source file, URL or decision artifact.
+
+## Identity and revision rules
+
+IDs are ASCII namespaced strings, at most 100 characters, matching the schema's ID
+pattern; they are not paths. External IDs must be namespaced by their input KB.
+An anonymous identity is allocated once, assigned a persisted `origin_key` in an
+`identity_registry`, and reused after reorder or correction. Neither an array index,
+content hash, title nor filename is an identity generator. Ambiguous rematches require
+an `ambiguous` entry and a gap, not an automatic best match. Several origin keys may
+bind to the same IG ID. Duplicate origin keys within a registry revision are invalid.
+
+Within a node, `aspect_id` and `group_id` are stable local identifiers. Their full
+address is `(node ID, aspect ID)` or `(node ID, group ID)`; record array order is irrelevant
+to identity. Aspect IDs may remain stable when meaning changes, but hashes and review
+freshness then change. Preserve unchanged aspect IDs across container revisions.
+Tables similarly name axes, cells and notes; source coordinates name the participating
+axis and its descriptive position. Note scopes and merged cells resolve
+inside that table revision. Axes have distinct explicit orders. Cells identify their
+participating axes; detailed formal coordinate/value-domain typing belongs to IG-3A.
+
+`supersedes_refs` names earlier immutable revisions of the same identity/type.
+`lineage_refs` preserves exact origins when splitting or merging records with other IDs;
+new IDs, aspects and groups receive their own decisions. Lineage never transfers
+acceptance. Do not rewrite old revisions to make a new decision appear current.
+
+The optional storage helper uses `id-<lowercase hex of UTF-8 ID>.json`. This is injective,
+Windows-safe, case-sensitive in its encoded identity, and under the filename length
+limit for allowed IDs. Literal colon-bearing IDs must never be used as Windows paths.
+
+## WGC-C14N-1 canonical bytes
+
+This is a specified WGC profile, not a claim to implement RFC 8785. Input is UTF-8 JSON
+without BOM, duplicate object keys, floating-point/nonfinite numbers or Unicode
+surrogates. Booleans are distinct from integers. Quantities use integer amounts and
+explicit units; fractional quantities use a signed integer numerator and positive
+integer denominator, with an explicit unit. Fractions are not automatically reduced:
+different source spellings remain different content.
+
+Canonicalization recursively sorts object keys by Unicode scalar value, keeps arrays
+in their supplied order, emits Unicode directly as UTF-8 and uses only `,` and `:`
+separators with no insignificant spaces or trailing newline. Strings retain their
+original scalar sequence: no NFC conversion, trimming, line-ending normalization or
+source transcription repair. Quote, backslash and control escaping follows Python
+`json.dumps(..., ensure_ascii=False, sort_keys=True, separators=(',', ':'))` under this
+integer/scalar-only profile. The fixed byte/hash vectors in `tests/contracts/test_source.py`
+provide a portable oracle. Original source bytes are separately pinned by SHA-256;
+canonicalization never rewrites those bytes.
+
+`content_hash = SHA-256(canonical(record minus revision_id and content_hash))`, lowercase
+hex. All other fields, including schema version, ID, run, lineage, references, review
+metadata and data, participate. `revision_id = 'sha256:' + content_hash`. An aspect hash
+uses the same canonicalization over the aspect minus only `aspect_hash`. Changing a
+statement, facet, scope, evidence or execution annotation changes its hash. Whitespace
+outside JSON strings does not change a content hash; reordering an ordered array does.
+Reordering the bundle's record store does not change any record identity or revision.
+
+The library's `seal_record` returns a copy with these hashes. It performs no acceptance,
+validation, storage write, snapshot promotion or inference.
+
+## Reference resolution
+
+Each reference has `mode`, `id`, declared `record_type` and optionally `aspect_id`.
+`active` references have no revision field and resolve only through the selected
+snapshot. `historical` references require an exact `revision_id` and resolve only in
+the immutable store. Reference types and aspect membership must match. A selected
+relation declared `required` or `conditional` must have selected endpoints: an active
+reference resolves normally; a historical endpoint is valid only when its exact revision
+is the selected revision of that ID. A retained unselected or superseded revision cannot
+fulfil a semantic dependency. Non-resolved links retain their null target, raw locator
+and gap without activating a candidate. Informational navigation and historical review,
+evidence, lineage and provenance pins retain their separate historical resolution.
+Old records in
+the store never satisfy a missing active reference. Conversely a historical review,
+supersession or mention may legitimately target an unselected revision.
+
+All historical references, including those in unselected revisions, must resolve.
+Active references inside an unselected revision belonged to its original snapshot:
+they are not activated or resolved against the current selection. Local shape/hash,
+aspect/group/table, field-reference type and path invariants still apply to old records.
+To validate their old active dependency closure, supply their original snapshot as a
+separate bundle. This permits historical retention without silently substituting new
+targets into old rules. Exact historical pins provide acyclic hashing; active ID edges
+allow procedure graph cycles without recursive revision hashes.
+
+`mention` is navigation. `procedure_use`, `table_use`, `definition` and `condition` are
+dependencies. `exception` and `modifies` point from modifying rule to base rule;
+`applies_to` from clause to scope; `illustrates` from example to rule; `precedes` from
+earlier to later step. Mechanical links retain reads/writes, event triggers, scheduled
+windows, reaction resumes, constraints and persistent bindings. Neither a link name nor
+an editorial parent implements its behavior. Unresolved/ambiguous/unsupported targets
+have null `target_ref`, raw locator, edition and gaps; candidate references identify
+known stored candidates. Required and conditional links never treat unknown applicability
+as false. Cycles are valid source descriptions and cannot certify termination.
+
+## Knowledge, aspects and source mechanics
+
+Each descriptive statement explicitly specifies knowledge, representation, value,
+reason, gap references, evidence references and scope references. `known` is an
+evidenced proposal with a non-null typed value, not acceptance. `established_absent`
+has null value and requires evidence, reason and explicit scope. `unknown` has null
+value, reason and at least one gap. `not_applicable` has null value and a reason for
+the scope exclusion. Missing fields, empty lists and zero measurements prove no absence.
+Literal, normalized and interpreted statements remain distinct.
+
+Values distinguish text, symbol with legend references, integer quantity, rational,
+reference and opaque text with an execution limitation. Facets distinguish condition,
+effect, exception, timing, parameter, permission, obligation, prohibition, trigger,
+cost, choice, calculation, transition, duration, aggregation, visibility and victory,
+as well as transcription, scope and definition. Groups explicitly bind correctly typed
+condition/effect/exception/timing aspect IDs with all/any/sequence composition. A common
+subject does not implicitly combine its aspects. Group effects cannot be empty.
+
+Every normative aspect declares `formal`, `informational` or `blocking` execution impact.
+`formal` is a source-side classification to be formalized later, not compiled behavior.
+Opaque or unknown normative aspects require `blocking`. An informational normative aspect needs
+a current, complete human accepted review of that exact stable aspect and a recorded rationale. The
+validator checks the metadata, but does not authenticate the human statement or establish
+that information cannot affect gameplay. Such authority and source interpretation remain
+separate human review obligations.
+
+Node descriptions have explicit fields, each addressable by node ID and field name:
+
+| Concepts | Dedicated source fields include |
+|---|---|
+| State/resources | Value type, unit, owner, bounds, reset, pool composition |
+| Causal events/history | Cause filter, attempt/commit/invalidation, read moment, ordered writes, limits/reset window, positions, first occurrence, attempts, counters, participants, paid costs |
+| Parameters/actions/procedures | Value type, domain, units/comparisons/bounds, actor, guard, inputs/outputs, branches, loops, termination, failure, windows |
+| Persistent choices | Owner, selection mode, selector, cardinality, constraints, binding ID, lifetime, reselection and eligible/selected/committed/participating/affected sets |
+| Timing/reactions/continuations | Instance hierarchy, opening/closing, priorities/ties, eligible player, attempt limit, resume/replace/cancel/restart, surviving effects/costs/history, invocation frame, environment, return point |
+| Costs/durations | Attempt versus success, payer/resource/amount, checkpoint, pay-once key, cancellation survival, start/expiry/refresh and snapshot reads |
+| Geometry/spatial policies | Map/sheet/hex, occupied hexes, anchor/orientation, zones/pivot, terrain/elevation/infrastructure, off-map/stack constraints, metric, endpoints, admissible nodes/edges, cost, path quantifier, optimality/tied selection |
+| Calculations/aggregation/loss | Ordered operations, units/comparisons, rounding stage/method/beneficiary, modifiers/stacking, set/filter/measure/operator, allocation owner/proportions/overflow/elimination timing |
+| Tables/outcomes | Ordered axes, boundaries/units, addressed cells, merged cells, scoped notes, missing/out-of-range policy, decorations/legend, participant bindings, original symbols and ordered conditional effects |
+| Chance | Physical symbols/meaning, draw count, combination, independence, replacement, multiplicities/instances, raw/modified results, draw identity, rerolls and sharing |
+| Visibility/victory | State and domains, rejected choices, reasons/proofs/gaps/IDs/cursors/caches, legal attempts/reveal checkpoint, metric/set/checkpoint/comparison/termination/ties/control history |
+
+These fields preserve source descriptions and their uncertainties. They are not a
+generic payload escape hatch or a universal game expression language. No rule legality,
+state transition, arithmetic, randomness or player observation is evaluated here.
+
+## Coverage, reviews and readiness
+
+Snapshot assessments report four independent dimensions. Import complete is only an
+input-accounting claim. Coverage is measured by transcription, descriptive semantics
+and formal semantics; it does not imply either human acceptance or execution. Coverage
+entries distinguish represented/partial/unprocessed/excluded. Partial and unprocessed
+entries require gaps; represented entries require targets and cannot count a gap as
+represented content. Coverage `target_refs` allow only `node`, `evidence` or `relation`
+source-content records, in either reference mode. Gaps belong in `gap_refs`; sources,
+regions and workflow/profile/review metadata are not content targets. A mixed list with
+a gap is invalid too. This type check does not prove the representation's source meaning.
+
+Exclusion requires a reason and a current complete human accepted `source_composition`
+review. Its optional `coverage_boundary` object must specify `purpose: coverage_exclusion`
+and exactly match the coverage entry's historical `inventory_ref`, historical `region_ref`
+and representation `level`. Inventory pins in both coverage and boundary metadata use
+`whole_historical_ref`: they cannot carry `aspect_id`. The matching inventory basis is
+therefore a whole-record pin, and a different selected inventory revision makes the
+exclusion decision stale even if every particular aspect is unchanged. This restriction
+does not alter aspect-scoped targets or bases in ordinary reviews. That exact region
+must be a full-record review target and
+the exact inventory a full-record review basis. Other-region, other-level, unrelated,
+stale or partial decisions cannot transfer approval. The decision targets the region
+and inventory boundary rather than the coverage record containing its own reference,
+so revision hashing remains acyclic. Authorization and decision artifacts still require
+independent human verification; matching metadata does not authenticate them.
+`inventory` regions define the denominator; `context` regions are excluded from it.
+Duplicate or overlapping inventory regions within a level/source revision/page/locator
+convention are rejected. Boxes use integer millionths of a page, top-left origin;
+text intervals use Unicode codepoints, half-open bounds, and a pinned extracted-text
+hash. Across box and text conventions no overlap equivalence is inferred; the inventory
+author must use one convention per partition or independently justify a mixed partition.
+Counts are region counts, not percentages or proof of complete rulebook representation.
+
+Reviews distinguish transcription, interpretation, source composition, situation outcomes
+and technical observations. Only a declared human_owner or human_reviewer with authorization
+and a decision artifact may record `accepted`. A model or validator may record observations
+or rejection. Structural checks do not authenticate identities, authority, artifacts or
+source meanings. Dates do not override contradictory decisions; preserve both and use
+explicit review supersession plus rationale. There is no automatic effective acceptance
+aggregation in this increment.
+
+For selected reviews, freshness is independently computed from exact targets and bases.
+Changed/missing selected bases or changed target aspect hashes yield `stale`. Aspect-scoped
+targets compare that aspect, so a change to an unrelated aspect need not invalidate them;
+whole-record bases compare exact revisions. An unchanged but partial/unknown basis yields
+`unknown`; only a declared complete, nonempty, unchanged basis yields `current`. Completeness
+itself is a review claim; the validator cannot prove that all semantic dependencies were listed.
+Partial acceptance remains bounded by explicit targets and scope; it does not accept siblings.
+
+The source schema allows executable `unassessed` or `blocked`, never `ready`. The validator
+reports selected opaque/unknown/blocking nodes, unresolved required/conditional links
+and execution gaps as blockers and always returns
+`semantic_acceptance_granted: false`. It neither grants a gameplay release nor asks an LLM
+to resolve opacity. Executable readiness belongs to later formalization, authorized meaning
+review, dependency closure, state/history requirements, compilation and independent runtime
+evidence. An opaque source record can pass this contract while its dependent scope remains
+blocked for execution.
+
+## Local validation and tests
+
+No dependency installation or network is required. From the repository root:
+
+```powershell
+$env:PYTHONPATH = 'src'
+.\.venv\Scripts\python.exe -m wgc.contracts.source tests/contracts/fixtures/valid-source.json
+.\.venv\Scripts\python.exe -m pytest tests/contracts -q -p no:cacheprovider --basetemp private/workflow/checks/contract-review-new
+pwsh -NoProfile -File scripts/check.ps1
+git diff --check
+```
+
+Choose a fresh `--basetemp` path for each check. CLI exit 0 means structural validity,
+including hash/reference invariants; invalid input or unreadable files exit 1 with an
+error. The standard project suite includes `tests/contracts`. The offline evaluator is
+explicitly limited to the bundled schema's keyword subset and rejects unknown keywords;
+it is not a general-purpose JSON Schema implementation. It opens no schema URLs.
+
+`tests/contracts/fixtures/catalog.json` records each independently specified oracle and
+its architectural basis. Static cases cover unknown units, changed aspect integrity and
+freshness, dependency regression, model approval, active/historical dangling references,
+duplicate identities, opaque blockers, group composition, table notes, edition conflicts,
+procedure cycles and scoped review. Additional tests use fixed canonical bytes/hashes,
+strict JSON, reordered records, mechanism field expectations and CLI status. The synthetic
+accepted metadata in fixtures grants no real semantic acceptance.
+
+## Open formal-language decisions for IG-3A
+
+IG-3A must choose the actual value/domain/expression type system, exact operators and
+unit conversions; ordered event writes, transactional boundaries and causal history;
+invocation bindings, loops/termination, reaction scheduling and cancellation survival;
+table coordinates/lookups/decoding/modifier order; geometry/path/stack algorithms;
+chance distributions, multiplicities and authoritative draws; visibility-safe complete
+observations and legal attempts; and profile/dependency closure/readiness queries.
+It must also pin how external formal contracts and reports attach to these source IDs,
+and how changed dependencies invalidate acceptance and compiled packages. Nothing in
+this source contract selects universal precedence, a reaction queue, a rollback policy,
+a randomizer distribution or an execution algorithm.
+
+
+--- FILE: src/wgc/contracts/source.py ---
+"""Offline source-IG structural validation and revision integrity checks.
+
+This module does not evaluate rule descriptions or authorize gameplay. Its small
+schema evaluator supports only the keywords used by the bundled source schema;
+it rejects unsupported schema keywords rather than silently ignoring them.
+"""
+from __future__ import annotations
+
+import argparse
+import copy
+import hashlib
+import json
+import re
+import sys
+from pathlib import Path
+from typing import Any
+
+SCHEMA_PATH = Path(__file__).resolve().parents[3] / "contracts/ig/source.schema.json"
+SCHEMA_VERSION = "wgc-source-1"
+
+
+class ContractError(ValueError):
+    """Invalid source-contract bytes, shape or cross-record invariant."""
+
+
+def _pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ContractError(f"duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def _no_float(value: str) -> Any:
+    raise ContractError(f"non-integer JSON number: {value}; use a rational")
+
+
+def load_json(path: Path) -> Any:
+    """Strict UTF-8 JSON; no duplicate keys, floats, BOM or nonfinite numbers."""
+    try:
+        return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_pairs,
+                          parse_float=_no_float, parse_constant=_no_float)
+    except (UnicodeError, json.JSONDecodeError) as error:
+        raise ContractError(f"invalid UTF-8 JSON: {error}") from error
+
+
+def canonical_bytes(value: Any) -> bytes:
+    """WGC-C14N-1: integer-only JSON, scalar strings, ordered arrays, sorted keys."""
+    def inspect(item: Any) -> None:
+        if item is None or type(item) in (bool, int):
+            return
+        if isinstance(item, str):
+            if any(0xD800 <= ord(char) <= 0xDFFF for char in item):
+                raise ContractError("Unicode surrogate is not a scalar value")
+            return
+        if isinstance(item, list):
+            for child in item:
+                inspect(child)
+            return
+        if isinstance(item, dict) and all(isinstance(key, str) for key in item):
+            for key, child in item.items():
+                inspect(key)
+                inspect(child)
+            return
+        raise ContractError("canonical content must contain only integer JSON values")
+    inspect(value)
+    return json.dumps(value, ensure_ascii=False, sort_keys=True,
+                      separators=(",", ":"), allow_nan=False).encode("utf-8")
+
+
+def content_hash(record: dict[str, Any]) -> str:
+    body = {key: value for key, value in record.items()
+            if key not in {"revision_id", "content_hash"}}
+    return hashlib.sha256(canonical_bytes(body)).hexdigest()
+
+
+def aspect_hash(aspect: dict[str, Any]) -> str:
+    body = {key: value for key, value in aspect.items() if key != "aspect_hash"}
+    return hashlib.sha256(canonical_bytes(body)).hexdigest()
+
+
+def seal_record(record: dict[str, Any]) -> dict[str, Any]:
+    """Return a copy with computed hashes; does not validate or promote a record."""
+    result = copy.deepcopy(record)
+    if result.get("record_type") == "node":
+        for aspect in result["data"]["aspects"]:
+            aspect["aspect_hash"] = aspect_hash(aspect)
+    result["content_hash"] = content_hash(result)
+    result["revision_id"] = "sha256:" + result["content_hash"]
+    return result
+
+
+def storage_name(identity: str) -> str:
+    """An injective Windows-safe filename, independent of identity semantics."""
+    return "id-" + identity.encode("utf-8").hex() + ".json"
+
+
+KEYWORDS = {"$schema", "$id", "title", "description", "$defs", "$ref", "type",
+            "properties", "required", "additionalProperties", "const", "enum",
+            "oneOf", "allOf", "if", "then", "items", "minItems", "minLength", "maxLength",
+            "pattern", "minimum", "maximum"}
+
+
+def _check_schema(schema: dict[str, Any], root: dict[str, Any]) -> None:
+    if set(schema) - KEYWORDS:
+        raise ContractError(f"unsupported schema keywords: {sorted(set(schema) - KEYWORDS)}")
+    if "$ref" in schema:
+        name = schema["$ref"]
+        if not name.startswith("#/$defs/") or name[8:] not in root["$defs"]:
+            raise ContractError("only existing local schema definitions are supported")
+    for key in ("properties", "$defs"):
+        for child in schema.get(key, {}).values():
+            _check_schema(child, root)
+    for key in ("oneOf", "allOf"):
+        for child in schema.get(key, []):
+            _check_schema(child, root)
+    for key in ("items", "if", "then"):
+        if key in schema:
+            _check_schema(schema[key], root)
+
+
+def _shape(value: Any, schema: dict[str, Any], root: dict[str, Any], path: str) -> list[str]:
+    errors = []
+    if "$ref" in schema:
+        errors += _shape(value, root["$defs"][schema["$ref"][8:]], root, path)
+    if "oneOf" in schema:
+        branches = [_shape(value, child, root, path) for child in schema["oneOf"]]
+        if sum(not branch for branch in branches) != 1:
+            closest = min(branches, key=len)
+            errors.append(f"{path}: oneOf requires exactly one matching shape")
+            errors += closest[:3]
+    for child in schema.get("allOf", []):
+        errors += _shape(value, child, root, path)
+    if "if" in schema and not _shape(value, schema["if"], root, path):
+        errors += _shape(value, schema.get("then", {}), root, path)
+    # JSON equality must distinguish booleans from integers.
+    same = lambda a, b: canonical_bytes(a) == canonical_bytes(b)
+    if "const" in schema and not same(value, schema["const"]):
+        errors.append(f"{path}: unexpected constant")
+    if "enum" in schema and not any(same(value, choice) for choice in schema["enum"]):
+        errors.append(f"{path}: unexpected enum value")
+    kinds = {"object": isinstance(value, dict), "array": isinstance(value, list),
+             "string": isinstance(value, str), "integer": type(value) is int,
+             "boolean": type(value) is bool, "null": value is None}
+    if "type" in schema and not kinds[schema["type"]]:
+        return errors + [f"{path}: expected {schema['type']}"]
+    if isinstance(value, dict):
+        for key in schema.get("required", []):
+            if key not in value:
+                errors.append(f"{path}: missing {key}")
+        for key, child in value.items():
+            if key in schema.get("properties", {}):
+                errors += _shape(child, schema["properties"][key], root, f"{path}/{key}")
+            elif schema.get("additionalProperties") is False:
+                errors.append(f"{path}: unexpected property {key}")
+    if isinstance(value, list):
+        if len(value) < schema.get("minItems", 0):
+            errors.append(f"{path}: too few items")
+        if "items" in schema:
+            for index, child in enumerate(value):
+                errors += _shape(child, schema["items"], root, f"{path}/{index}")
+    if isinstance(value, str):
+        if len(value) < schema.get("minLength", 0):
+            errors.append(f"{path}: string too short")
+        if "maxLength" in schema and len(value) > schema["maxLength"]:
+            errors.append(f"{path}: string too long")
+        if "pattern" in schema and not re.search(schema["pattern"], value, flags=re.ASCII):
+            errors.append(f"{path}: invalid pattern")
+    if type(value) is int:
+        if "minimum" in schema and value < schema["minimum"]:
+            errors.append(f"{path}: below minimum")
+        if "maximum" in schema and value > schema["maximum"]:
+            errors.append(f"{path}: above maximum")
+    return errors
+
+
+def _walk(value: Any):
+    if isinstance(value, dict):
+        yield value
+        for child in value.values():
+            yield from _walk(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from _walk(child)
+
+
+def validate_bundle(bundle: dict[str, Any], schema_path: Path = SCHEMA_PATH) -> dict[str, Any]:
+    """Check shapes, hashes, selected resolution and authority metadata.
+
+    Review freshness is a structural comparison of pinned bases, not a truth or
+    authority judgment. Unknown dependency completeness remains unknown.
+    """
+    canonical_bytes(bundle)
+    schema = load_json(schema_path)
+    _check_schema(schema, schema)
+    errors = _shape(bundle, schema, schema, "$")
+    if errors:
+        raise ContractError("schema: " + "; ".join(errors[:8]))
+    records = bundle["records"]
+    store = {}
+    identity_types = {}
+    for record in records:
+        key = (record["id"], record["revision_id"])
+        if key in store:
+            raise ContractError("duplicate identity/revision in revision store")
+        if record["id"] in identity_types and identity_types[record["id"]] != record["record_type"]:
+            raise ContractError("stable identity changed record type")
+        identity_types[record["id"]] = record["record_type"]
+        store[key] = record
+        digest = content_hash(record)
+        if digest != record["content_hash"] or record["revision_id"] != "sha256:" + digest:
+            raise ContractError(f"revision hash mismatch: {record['id']}")
+        if record["record_type"] == "node":
+            seen = set()
+            for aspect in record["data"]["aspects"]:
+                if aspect["aspect_id"] in seen:
+                    raise ContractError("duplicate stable aspect identity")
+                seen.add(aspect["aspect_id"])
+                if aspect_hash(aspect) != aspect["aspect_hash"]:
+                    raise ContractError("changed aspect hash")
+
+    snapshots = [r for r in records if r["id"] == bundle["snapshot_id"]]
+    if len(snapshots) != 1 or snapshots[0]["record_type"] != "snapshot":
+        raise ContractError("bundle must name exactly one snapshot revision")
+    snapshot = snapshots[0]
+    selected = {}
+    for selection in snapshot["data"]["selected"]:
+        if selection["id"] in selected:
+            raise ContractError("duplicate identity in selected snapshot")
+        record = store.get((selection["id"], selection["revision_id"]))
+        if record is None or record["record_type"] != selection["record_type"] or record["content_hash"] != selection["content_hash"]:
+            raise ContractError("selected revision/hash/type does not match store")
+        if record["record_type"] == "snapshot":
+            raise ContractError("snapshot selections cannot include snapshots")
+        selected[selection["id"]] = record
+
+    def resolve(reference: dict[str, Any], expected: str | None = None) -> dict[str, Any]:
+        if reference["mode"] == "active":
+            target = selected.get(reference["id"])
+        else:
+            target = store.get((reference["id"], reference["revision_id"]))
+        if target is None:
+            raise ContractError(f"dangling {reference['mode']} reference: {reference['id']}")
+        if target["record_type"] != reference["record_type"] or (expected and target["record_type"] != expected):
+            raise ContractError(f"typed reference mismatch: {reference['id']}")
+        if "aspect_id" in reference:
+            if target["record_type"] != "node" or not any(a["aspect_id"] == reference["aspect_id"] for a in target["data"]["aspects"]):
+                raise ContractError("dangling stable aspect reference")
+        return target
+
+    def review_freshness(data: dict[str, Any]) -> str:
+        stale = False
+        for reference in [*data["targets"], *data["basis"]]:
+            old = resolve(reference)
+            current = selected.get(old["id"])
+            if current is None:
+                stale = True
+            elif "aspect_id" in reference:
+                old_aspect = next(a for a in old["data"]["aspects"] if a["aspect_id"] == reference["aspect_id"])
+                current_aspect = next((a for a in current["data"]["aspects"] if a["aspect_id"] == reference["aspect_id"]), None)
+                stale |= current_aspect is None or old_aspect["aspect_hash"] != current_aspect["aspect_hash"]
+            else:
+                stale |= old["revision_id"] != current["revision_id"]
+        return "stale" if stale else ("current" if data["basis_completeness"] == "complete" else "unknown")
+
+    def require_selected(reference: dict[str, Any]) -> None:
+        target = resolve(reference)
+        current = selected.get(target["id"])
+        if current is None or current["revision_id"] != target["revision_id"]:
+            raise ContractError("semantic dependency endpoint is not the selected revision")
+
+    # Historical edges always resolve in the immutable store. Active edges in old
+    # unselected revisions belong to their original snapshots and are not activated.
+    selected_keys = {(r["id"], r["revision_id"]) for r in selected.values()}
+    for record in records:
+        if identity_types.get(record["run_id"]) != "run":
+            raise ContractError("run_id must identify a stored run")
+        for item in _walk(record):
+            if item.get("mode") == "historical":
+                resolve(item)
+        for previous in record["supersedes_refs"]:
+            resolve(previous, record["record_type"])
+            if previous["id"] != record["id"] or previous["revision_id"] == record["revision_id"]:
+                raise ContractError("supersession requires a previous revision of the same identity")
+        if record["record_type"] == "snapshot":
+            manifest_ids = set()
+            for entry in record["data"]["selected"]:
+                if entry["id"] in manifest_ids:
+                    raise ContractError("duplicate identity in selected snapshot")
+                manifest_ids.add(entry["id"])
+                target = store.get((entry["id"], entry["revision_id"]))
+                if target is None or any(target[key] != entry[key] for key in ("record_type", "content_hash")):
+                    raise ContractError("selected revision/hash/type does not match store")
+                if target["record_type"] == "snapshot":
+                    raise ContractError("snapshot selections cannot include snapshots")
+    expected_ref_fields = {
+        "gap_refs": "gap", "blocker_refs": "gap", "conflict_refs": "gap",
+        "evidence_refs": "evidence", "coverage_refs": "coverage",
+        "semantic_review_refs": "review", "supersedes_review_refs": "review",
+        "region_refs": "region", "source_ref": "source", "region_ref": "region",
+        "profile_ref": "profile", "inventory_ref": "node",
+        "scope_decision_ref": "review", "informational_review_ref": "review",
+        "material_refs": "source", "map_refs": "source", "counter_refs": "source",
+    }
+    for record in records:
+        active_record = (record["id"], record["revision_id"]) in selected_keys or record is snapshot
+        for item in _walk(record):
+            if active_record and item.get("mode") == "active":
+                resolve(item)
+            for name, expected in expected_ref_fields.items():
+                if name in item:
+                    references = item[name] if isinstance(item[name], list) else [item[name]]
+                    for reference in references:
+                        if reference is not None:
+                            if reference["record_type"] != expected:
+                                raise ContractError(f"typed field reference mismatch: {name}")
+                            if active_record or reference["mode"] == "historical":
+                                resolve(reference, expected)
+        data = record["data"]
+        kind = record["record_type"]
+        if kind == "region":
+            loc = data["locator"]
+            if (loc["kind"] == "box" and (loc["x0"] >= loc["x1"] or loc["y0"] >= loc["y1"])) or (loc["kind"] == "offset" and loc["start"] >= loc["end"]):
+                raise ContractError("empty or inverted region locator")
+        elif kind == "node":
+            aspects = {a["aspect_id"]: a for a in data["aspects"]}
+            groups = set()
+            for group in data["semantic_groups"]:
+                if group["group_id"] in groups:
+                    raise ContractError("duplicate semantic group identity")
+                groups.add(group["group_id"])
+                if not group["effects"]:
+                    raise ContractError("semantic group needs an effect")
+                for role, facet in [("conditions", "condition"), ("effects", "effect"), ("exceptions", "exception"), ("timing", "timing")]:
+                    if len(group[role]) != len(set(group[role])):
+                        raise ContractError("duplicate semantic group member")
+                    if any(member not in aspects or aspects[member]["facet"] != facet for member in group[role]):
+                        raise ContractError("semantic group member has wrong aspect/facet")
+            for aspect in aspects.values():
+                value = aspect["statement"]["value"]
+                if value and value["kind"] == "opaque" and aspect["normative"] and aspect["execution_impact"] != "blocking":
+                    raise ContractError("opaque normative aspect requires execution blocker")
+                if aspect["statement"]["knowledge"] == "unknown" and aspect["normative"] and aspect["execution_impact"] != "blocking":
+                    raise ContractError("unknown normative aspect requires execution blocker")
+                review_ref = aspect["informational_review_ref"]
+                if aspect["normative"] and aspect["execution_impact"] == "informational" and active_record:
+                    if review_ref is None:
+                        raise ContractError("informational normative aspect needs a reviewed rationale")
+                    review = resolve(review_ref, "review")["data"]
+                    if review["decision"] != "accepted" or review_freshness(review) != "current" or not any(t["id"] == record["id"] and t.get("aspect_id") == aspect["aspect_id"] for t in review["targets"]):
+                        raise ContractError("informational rationale does not accept this aspect")
+            description = data["description"]
+            if description["kind"] == "table":
+                axis_ids = [a["axis_id"] for a in description["axes"]]
+                cell_ids = [c["cell_id"] for c in description["cells"]]
+                note_ids = [n["note_id"] for n in description["notes"]]
+                orders = [a["order"] for a in description["axes"]]
+                if any(len(values) != len(set(values)) for values in [axis_ids, cell_ids, note_ids, orders]):
+                    raise ContractError("duplicate table address/order")
+                for cell in description["cells"]:
+                    if any(a not in axis_ids for a in cell["axis_members"]) or any(c not in cell_ids for c in cell["merged_members"]):
+                        raise ContractError("dangling table axis/merged cell")
+                    coordinate_ids = [c["axis_id"] for c in cell["coordinates"]]
+                    if len(coordinate_ids) != len(set(coordinate_ids)) or set(coordinate_ids) != set(cell["axis_members"]):
+                        raise ContractError("table coordinates do not match participating axes")
+                for note in description["notes"]:
+                    if not note["axis_ids"] and not note["cell_ids"]:
+                        raise ContractError("table note requires explicit scope")
+                    if any(a not in axis_ids for a in note["axis_ids"]) or any(c not in cell_ids for c in note["cell_ids"]):
+                        raise ContractError("dangling table note scope")
+        elif kind == "coverage":
+            if data["status"] == "represented" and data["gap_refs"]:
+                raise ContractError("represented coverage cannot count gaps")
+            if data["status"] == "excluded" and active_record:
+                review = resolve(data["scope_decision_ref"], "review")["data"]
+                boundary = review.get("coverage_boundary")
+                expected = {"purpose": "coverage_exclusion", "inventory_ref": data["inventory_ref"],
+                            "region_ref": data["region_ref"], "level": data["level"]}
+                if (review["decision"] != "accepted" or review["kind"] != "source_composition"
+                        or review_freshness(review) != "current" or boundary != expected
+                        or data["region_ref"] not in review["targets"]
+                        or data["inventory_ref"] not in review["basis"]):
+                    raise ContractError("coverage exclusion needs a current accepted decision for its exact inventory/region/level boundary")
+        elif kind == "relation" and active_record and data["requirement"] != "informational":
+            require_selected(data["from_ref"])
+            if data["target_status"] == "resolved":
+                require_selected(data["target_ref"])
+        elif kind == "identity_registry":
+            keys = set()
+            for entry in data["entries"]:
+                if entry["origin_key"] in keys:
+                    raise ContractError("duplicate identity registry origin key")
+                keys.add(entry["origin_key"])
+                if entry["status"] == "assigned" and entry["id"] not in identity_types:
+                    raise ContractError("registry identity is not stored")
+                if entry["status"] == "ambiguous" and not entry["gap_refs"]:
+                    raise ContractError("ambiguous identity needs a gap")
+        elif kind == "origin_binding":
+            path = data["relative_path"]
+            if "\\" in path or ":" in path or path.startswith("/") or any(p in ("", ".", "..") for p in path.split("/")):
+                raise ContractError("origin binding requires a safe relative POSIX path")
+
+    # A coverage denominator is an inventory partition, never overlapping context.
+    coverage_keys = set()
+    boxes = {}
+    coverage = {level: {status: 0 for status in ("represented", "partial", "unprocessed", "excluded")}
+                for level in ("transcription", "descriptive_semantics", "formal_semantics")}
+    for record in selected.values():
+        if record["record_type"] != "coverage":
+            continue
+        data = record["data"]
+        if data["denominator_role"] == "context":
+            continue
+        region = resolve(data["region_ref"], "region")
+        key = (data["level"], region["id"], region["revision_id"])
+        if key in coverage_keys:
+            raise ContractError("duplicate coverage denominator region/level")
+        coverage_keys.add(key)
+        rd = region["data"]
+        loc = rd["locator"]
+        source_key = (data["level"], rd["source_ref"]["id"], rd["source_ref"]["revision_id"], rd["pdf_page"], loc["kind"])
+        for previous in boxes.get(source_key, []):
+            if loc["kind"] == "box":
+                overlap = max(loc["x0"], previous["x0"]) < min(loc["x1"], previous["x1"]) and max(loc["y0"], previous["y0"]) < min(loc["y1"], previous["y1"])
+            else:
+                overlap = loc["text_sha256"] == previous["text_sha256"] and max(loc["start"], previous["start"]) < min(loc["end"], previous["end"])
+            if overlap:
+                raise ContractError("overlapping coverage denominator regions")
+        boxes.setdefault(source_key, []).append(loc)
+        coverage[data["level"]][data["status"]] += 1
+
+    reviews = []
+    for record in selected.values():
+        if record["record_type"] != "review":
+            continue
+        data = record["data"]
+        freshness = review_freshness(data)
+        reviews.append({"id": record["id"], "decision": data["decision"], "kind": data["kind"],
+                        "actor_role": data["actor_role"], "freshness": freshness,
+                        "scope": data["scope"], "authority_authenticated": False})
+    blockers = set()
+    for record in selected.values():
+        if record["record_type"] == "gap" and "execution" in record["data"]["blocked_operations"]:
+            blockers.add(record["id"])
+        if record["record_type"] == "node":
+            if any(item.get("kind") == "opaque" or item.get("knowledge") == "unknown" for item in _walk(record["data"])) or any(a["execution_impact"] == "blocking" for a in record["data"]["aspects"]):
+                blockers.add(record["id"])
+        if record["record_type"] == "relation" and record["data"]["requirement"] != "informational":
+            if record["data"]["target_status"] != "resolved" or record["data"]["applicability"]["knowledge"] == "unknown":
+                blockers.add(record["id"])
+    assessments = snapshot["data"]["assessments"]
+    return {"structural_validation": "passed", "snapshot_id": snapshot["id"],
+            "import": assessments["import"], "coverage_inventory_region_counts": coverage,
+            "reviews": sorted(reviews, key=lambda r: r["id"]),
+            "executable": {"status": "blocked" if blockers else assessments["executable"]["status"],
+                           "source_blocker_ids": sorted(blockers),
+                           "reason": assessments["executable"]["reason"]},
+            "semantic_acceptance_granted": False}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("bundle", type=Path)
+    args = parser.parse_args()
+    try:
+        report = validate_bundle(load_json(args.bundle))
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        return 0
+    except (ContractError, OSError) as error:
+        print(f"Invalid source IG: {error}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+
+
+--- FILE: private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json ---
+{
+  "role": "coordinator",
+  "actor": "codex-01a135f6-cdab-7723-bd6a-9e0044d12323",
+  "task": "IG-2A",
+  "input_pins": [
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/dependency-verification.json",
+      "sha256": "5f0c87a6a534576f8777c03b8f5dd2e819466879cd3b4dc4e8321792648d83fa"
+    }
+  ],
+  "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "physical_page_count": 44,
+  "real_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "allowed_write_scope": [
+    "src/wgc/sources/",
+    "tests/sources/",
+    "contracts/ig/regions.schema.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/",
+    "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/",
+    "private/workflow/runs/IG-2A/attempt-20261013T155212Z/"
+  ],
+  "contracts": {
+    "version": "wgc-inventory-1",
+    "identity": "Persisted UUID registry keyed by explicit author page/region keys, bound to exact source revision; no geometry/content-derived region identity or auto-rematch on source change.",
+    "geometry": "PDF native bottom-left points and UserUnit to unrotated effective CropBox top-left integer millionths; MediaBox intersection; explicit clockwise display rotation. Serialized native box coordinates are integer micro-points; UserUnit is a rational.",
+    "reading_order": "Explicit region IDs and continuation/note links, never inferred from extraction ordering.",
+    "evidence": "Separate UTF-8 text and crop PNG files with paths, bytes, SHA256, extraction/render settings and exact region revision/bbox/source pins.",
+    "coverage": "Disjoint inventory boxes; context excluded from denominator; duplicate IDs/keys and overlapping inventory rejected. Three representation levels; partial/unprocessed never represented; approved exclusion boundary required. Per-page uncovered area remains an explicit gap.",
+    "structural_seed": "All physical pages receive an unprocessed full-page placeholder; no substantive classification or source-meaning coverage granted. IG-2B replaces placeholders in its bounded outputs.",
+    "validation": "Missing page; multi-column explicit ordering; table notes; cross-page links; duplicate/overlap; CropBox/MediaBox/UserUnit/rotations; revision and artifact tamper; path escapes; source mutation; replay; independent page count."
+  },
+  "dependencies": "All IG-1A through IG-1E done evidence and delivery files rehashed; no regeneration.",
+  "downstream_implications": "Measured 44 pages supports existing 11 four-page partitions numerically. Each future IG-2B packet must pin this fresh acquisition and IG-2A contract; no downstream state or content changed.",
+  "measurement": {
+    "started_utc": "2026-10-13T15:52:12.187Z",
+    "tokens": null,
+    "cost": null,
+    "operator_seconds": null
+  },
+  "unresolved": "Independent technical review and all substantive page inventory remain pending; WGU-original identity unknown."
+}
+
+
+--- FILE: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json ---
+{
+  "format": "wgc-official-source-acquisition-1",
+  "source_id": "source:spqr:5e:core",
+  "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "pdf": {
+    "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "referring_page": "https://www.gmtgames.com/p-1118-spqr-deluxe-5th-edition.aspx",
+  "link_label": "LIVING RULES / 5th Edition / 5th Edition Rulebook",
+  "http": {
+    "requested_url": "https://gmtwebsiteassets.s3.us-west-2.amazonaws.com/gbsp/SPQR+Deluxe_Rule+book_WEB.pdf",
+    "final_url": "https://gmtwebsiteassets.s3.us-west-2.amazonaws.com/gbsp/SPQR+Deluxe_Rule+book_WEB.pdf",
+    "status": 200,
+    "headers": {
+      "x-amz-id-2": "v0vXsNI6LocaFMxwAsZglfkg4YIVMn9aozMdWRgpMYflFZT6/FLazMRpTk++5V7KNNfMNMy9RhE=",
+      "x-amz-request-id": "5Z81D3SH4X6TZV8P",
+      "Date": "Tue, 13 Oct 2026 15:57:11 GMT",
+      "Last-Modified": "Tue, 07 Jul 2026 14:37:44 GMT",
+      "ETag": "\"c36b41df623ac4eba73aabc0b7614289\"",
+      "x-amz-storage-class": "INTELLIGENT_TIERING",
+      "x-amz-server-side-encryption": "AES256",
+      "Accept-Ranges": "bytes",
+      "Content-Type": "application/pdf",
+      "Content-Length": "3965827",
+      "Server": "AmazonS3",
+      "Connection": "close"
+    },
+    "redirects": [],
+    "started_utc": "2026-10-13T15:57:08.924680+00:00",
+    "acquired_utc": "2026-10-13T15:57:11.657694+00:00",
+    "bytes": 3965827,
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  },
+  "referring_page_evidence": {
+    "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/referring-page.html",
+    "sha256": "e1e877c4abe152ba6b5a3118f3554c844242b60a5ae0e56da4d392f2975d4a46"
+  },
+  "bytes": 3965827,
+  "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "edition": "5th Edition",
+  "edition_evidence": {
+    "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/edition-page-001.txt",
+    "sha256": "b00e815c783273527d6b4bbfc2fc1102bc4dc7eacf2512c90ee14718668e29e7"
+  },
+  "publication_date": null,
+  "publication_date_reason": "No verified publication date; HTTP Last-Modified and PDF metadata are not publication dates.",
+  "page_count": 44,
+  "independent_page_counts": {
+    "pypdf": 44,
+    "poppler_pdfinfo": 44
+  },
+  "previous_frozen_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "byte_identity_to_previous": true,
+  "identity_to_wgu_original": "unknown",
+  "identity_note": "Fresh official acquisition provenance is separate from verified byte identity.",
+  "metadata": {
+    "/CreationDate": "D:20260627105309+02'00'",
+    "/Creator": "Adobe InDesign 21.3 (Windows)",
+    "/ModDate": "D:20260627105312+02'00'",
+    "/Producer": "Adobe PDF Library 18.0",
+    "/Trapped": "/False"
+  }
+}
+
+
+--- FILE: private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json ---
+{
+  "task": "IG-2A",
+  "actor": "codex-01a139bc-256f-7da0-b4a7-8940ca16fc81",
+  "session_id": "01a139bc-256f-7da0-b4a7-8940ca16fc81",
+  "identity_evidence": "Current process CODEX_THREAD_ID",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Operator explicitly confirmed this current chat: Potwierdzam: GPT-6.1 Sol / high",
+  "confirmation_scope": "Current session only; no previous identity or configuration reused",
+  "started_utc": "2026-10-14T09:30:01.464954+00:00",
+  "preliminary_read_seconds": null,
+  "tokens": null,
+  "cost": null,
+  "operator_seconds": null
+}
+
+
+--- FILE: private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/scope.json ---
+{
+  "task": "IG-2A",
+  "findings": [
+    "IG2A-R01",
+    "IG2A-R02",
+    "IG2A-R03",
+    "IG2A-R04",
+    "IG2A-R05"
+  ],
+  "product_write_scope": [
+    "src/wgc/sources/",
+    "tests/sources/",
+    "contracts/ig/regions.schema.json"
+  ],
+  "evidence_write_scope": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/",
+  "source_read_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "all_page_access": "Structure/count/geometry only",
+  "source_pdf": {
+    "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "bytes": 3965827
+  },
+  "excluded": "IG-2B, frozen workflow tools and prior runs, source PDF, IG-1A contract, acceptance/done, external APIs, agents, Git history",
+  "repair_plan": "Pin evidence page basis; verify actual source count/geometry; bind physical-page author keys; cross-check DPI with Poppler ceiling dimensions; bind label to same page; hash coverage-independent exact author/registry/page/partition scope."
+}
+
+
+--- FILE: private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/dispositions-before.json ---
+[
+  {
+    "id": "IG2A-R01",
+    "severity": "P1",
+    "disposition": "confirmed",
+    "evidence": [
+      "stale_page_rotation",
+      "stale_page_userunit",
+      "stale_page_crop"
+    ],
+    "consequence": "Normalized box coordinates depend on page geometry and units. Old text/PNG/derived-PDF files are accepted as current evidence for a different native/displayed crop. Page hashes are checked only against themselves, and evidence has no pinned page-geometry revision.",
+    "closure_condition": "On a clean valid migrated baseline, change CropBox, effective crop, rotation and UserUnit independently, reseal the page/container and retain old evidence. Each must fail with a freshness/source-basis error; fresh evidence for an unchanged actual source basis must pass. Keep all four independent asymmetric pixel/rotation/UserUnit oracles passing.",
+    "repair_cycles": 0
+  },
+  {
+    "id": "IG2A-R02",
+    "severity": "P2",
+    "disposition": "confirmed",
+    "evidence": [
+      "false_render_dpi"
+    ],
+    "consequence": "The documented render settings can describe an impossible render. Width/height are compared only to the PNG header, so the recorded DPI does not substantiate accurate coordinate/pixel evidence.",
+    "closure_condition": "The retained false_render_dpi input must fail for inconsistent rendering metadata, while actual 72/144-DPI evidence for nonzero origins, fractional UserUnit and all rotations passes with independently calculated pixel dimensions.",
+    "repair_cycles": 0
+  },
+  {
+    "id": "IG2A-R03",
+    "severity": "P2",
+    "disposition": "confirmed",
+    "evidence": [
+      "wrong_page_printed_label"
+    ],
+    "consequence": "The printed-label mapping is not technically bound to its physical page. A downstream locator can appear visually verified using an unrelated page image; ID existence alone is insufficient.",
+    "closure_condition": "Cross-page evidence must be rejected even if the evidence itself is valid. Same-page current evidence must pass. Preserve unknown cover labels and embedded_unverified PageLabels without promoting metadata to visual verification.",
+    "repair_cycles": 0
+  },
+  {
+    "id": "IG2A-R04",
+    "severity": "P1",
+    "disposition": "confirmed",
+    "evidence": [
+      "exclusion_after_region_revision",
+      "exclusion_after_registry_change",
+      "exclusion_after_page_remap"
+    ],
+    "consequence": "partition_hash covers only source SHA and inventory region IDs/page IDs/boxes. It cannot invalidate a decision after author/registry scope revisions. The frozen IG-1A exclusion contract requires an exact current whole-region and inventory basis; this sidecar must not transfer a prior scope decision into a changed basis merely because its rectangles are unchanged.",
+    "closure_condition": "Change region key, classification, uncertainty, registry scope, source and physical-page mapping separately after a valid exclusion. Old decision basis must become stale/unknown or fail and must not be reported as a current approved exclusion. Unchanged exact basis and separately authentic human evidence can retain their limited scope. The current partition-change rejection must continue to pass.",
+    "repair_cycles": 0
+  },
+  {
+    "id": "IG2A-R05",
+    "severity": "P1",
+    "disposition": "confirmed",
+    "evidence": [
+      "false_consistent_page_count",
+      "physical_page_remapping"
+    ],
+    "consequence": "The counter claims are compared to each other, not the byte-pinned source, and physical identity keys are not bound to immutable physical addresses. A missing real page becomes invisible and persisted IDs silently move to another page without any explicit mapping decision. The frozen 44-page delivery is correct, but the validator is insufficient for downstream edited inventories.",
+    "closure_condition": "With a two-page byte-pinned PDF, consistent forged one-page counters must fail with actual missing-page/source-basis diagnostics. Swapping physical addresses under the same persisted IDs must fail. Reordering the pages array without changing physical addresses and two fresh registry replays must pass.",
+    "repair_cycles": 0
+  }
+]

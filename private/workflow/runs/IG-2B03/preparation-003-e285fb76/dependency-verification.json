@@ -1,0 +1,62 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "format": "wgc-dependency-verification-1",
+  "observed_utc": "2026-10-15T15:04:28.676539+00:00",
+  "events": {
+    "done": {
+      "from": "accepted",
+      "to": "done",
+      "utc": "2026-10-15T15:00:16.751944+00:00",
+      "evidence": "private/workflow/runs/IG-2B02/closure-002-IG-2B02-reviewer-e259028c/done.json",
+      "sha256": "38ca83fa34cce3a7eca2faa0107b05838c8b3433e79ef6507935c5d1fee04c7f"
+    },
+    "accepted": {
+      "from": "review",
+      "to": "accepted",
+      "utc": "2026-10-15T15:00:07.360973+00:00",
+      "evidence": "private/workflow/runs/IG-2B02/review-20261015-e259028c/review.json",
+      "sha256": "23e7b8e7737f04a611e8c475618e5987da72c0216ea27431f84113ebe4f2a454"
+    },
+    "review": {
+      "from": "in_progress",
+      "to": "review",
+      "utc": "2026-10-15T14:49:55.095788+00:00",
+      "evidence": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/delivery.json",
+      "sha256": "4ce9c0085fc8b40b36a2c7f05f088cbe07e1fef67d35e16430ae35fbafe6dd29"
+    }
+  },
+  "delivery": {
+    "path": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/delivery.json",
+    "bytes": 1219205,
+    "sha256": "4ce9c0085fc8b40b36a2c7f05f088cbe07e1fef67d35e16430ae35fbafe6dd29"
+  },
+  "accepted_review": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/review.json",
+    "bytes": 1229835,
+    "sha256": "23e7b8e7737f04a611e8c475618e5987da72c0216ea27431f84113ebe4f2a454"
+  },
+  "closure": {
+    "path": "private/workflow/runs/IG-2B02/closure-002-IG-2B02-reviewer-e259028c/done.json",
+    "bytes": 1252145,
+    "sha256": "38ca83fa34cce3a7eca2faa0107b05838c8b3433e79ef6507935c5d1fee04c7f"
+  },
+  "artifact_count": 4409,
+  "all_frozen_artifacts_verified": true,
+  "product_inventory": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json",
+    "bytes": 942151,
+    "sha256": "5e2c85c83e9682d484492a2c765d0f958d37c2ca0d5e63986f05ec40a3e1f96b"
+  },
+  "registry": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/identity-registry.json",
+    "bytes": 37379,
+    "sha256": "cf6d44fd993587a8731af253b2522885d028873ff3e7b4deb2acb2cd5cdfa9e0"
+  },
+  "semantic_acceptance_granted": false
+}

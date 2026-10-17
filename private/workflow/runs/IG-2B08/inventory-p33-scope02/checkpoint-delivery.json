@@ -1,0 +1,186 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "task": "IG-2B08",
+  "attempt": "inventory-p33-scope02",
+  "summary": "Complete bounded source inventory and validation ready to freeze for fresh independent review.",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/packet.json",
+    "bytes": 7568,
+    "sha256": "ebb7eb61374bd1258f177fc94504c05302db55626e0c9a50cb8226dbb006badf"
+  },
+  "source_revisions": [
+    "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+  ],
+  "changed_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+      "bytes": 5085000,
+      "sha256": "3293d35ffb2d81004af8f10edab49e4e3ff019b17a79ca48bf8879adee4660b6"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/inventory.json",
+      "bytes": 5080158,
+      "sha256": "7dd4497f9ee93b3c584301e61d5d90f66c21de1cf3f260150a7147443a4d0812"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/inventory.json",
+      "bytes": 5080158,
+      "sha256": "6e4aa3aef77305dfb34a478678a666781d594590b97d771ac00639efa156c767"
+    }
+  ],
+  "completed_criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports."
+  ],
+  "pending_criteria": [
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "commands": [
+    {
+      "command": "Local exact packet/control/input/runtime hash verification; 25 preserved old-attempt artifact pins; absent-owned-directory verification",
+      "exit_code": 0
+    },
+    {
+      "command": "Final selected queue contract/status ownership check and packet control-file/runtime hash revalidation",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/inspect_originals.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/author_specs.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py prepare",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py final-verified",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py replay-1",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py replay-2",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/inventory-p33-scope02/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "Approved exact unchanged command after documented Windows restricted-token temp access denial.",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/source-suite-execution.json",
+        "bytes": 5842,
+        "sha256": "ba75bf6a592afb0484e696c2b862ba9451e13d827a465519cc1566ee04835e59"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:41:47.646651+00:00",
+      "ended_utc": "2026-10-17T07:41:59.819422+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified-cli-validation.log",
+        "bytes": 11222,
+        "sha256": "e385472588eb0a0855c950f56a49289b43a2a8a36a1078b354ec290d22f06db0"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:41:59.827778+00:00",
+      "ended_utc": "2026-10-17T07:42:13.751003+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1-cli-validation.log",
+        "bytes": 11222,
+        "sha256": "e385472588eb0a0855c950f56a49289b43a2a8a36a1078b354ec290d22f06db0"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:42:13.761676+00:00",
+      "ended_utc": "2026-10-17T07:42:28.939533+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2-cli-validation.log",
+        "bytes": 11222,
+        "sha256": "e385472588eb0a0855c950f56a49289b43a2a8a36a1078b354ec290d22f06db0"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/verify_batch.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/batch-verification.json",
+        "bytes": 986,
+        "sha256": "b161ecf4cdc94a503f7cc41076f79e6e4ee2deebaba7e249712fbfce5546b6e7"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "execution": "Approved exact unchanged command; 288 tests passed.",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/full-check-execution.json",
+        "bytes": 3872,
+        "sha256": "631898ac3c459f6ff8c1edcebc00ec2e5ca38a8708f61acda1e0edb81864a10d"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/diff-check-execution.json",
+        "bytes": 892,
+        "sha256": "35b458b0266602ce321c0a55025d5f8e96f657030111c75b7bfbf52a291e9423"
+      }
+    },
+    {
+      "command": "Fresh visual review of every assigned original, proposed boundary overlay, component sheet and exact page-33 crop",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/visual-qa.json",
+        "bytes": 6137,
+        "sha256": "32c5c65a4a2cc8f2474cb42a808dce47a3533dd5eb203d82a555990b9ecbc99d"
+      }
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Transition frozen delivery to review; supervisor launches the independent reviewer.",
+  "measurement": {
+    "started_utc": "2026-10-17T07:18:21.968680+00:00",
+    "ended_utc": "2026-10-17T07:45:33.250634+00:00",
+    "elapsed_wall_seconds": 1631.281954,
+    "operator_seconds": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "unknown_reason": "Token and operator-time measurements were not exposed.",
+    "executor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+    "reviewer": null,
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning": "high",
+    "observed_model": "gpt-6.1-sol",
+    "observed_reasoning": "high"
+  }
+}

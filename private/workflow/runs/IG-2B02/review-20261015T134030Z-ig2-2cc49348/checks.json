@@ -1,0 +1,110 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:001-IG-2B02-reviewer-2cc49348:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T134030Z-67077de2/001-IG-2B02-reviewer-2cc49348/runtime-configuration.json",
+  "configuration_sha256": "08a6707d96b7bb082262bf18bbb307077f8475c8f8fb0e9bbb59c91a6e50a4c5",
+  "checks": [
+    {
+      "name": "root-inventory",
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B02\\repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c\\final-verified\\inventory.json"
+      ],
+      "exit_code": 2,
+      "started_utc": "2026-10-15T13:42:46.098267+00:00",
+      "wall_seconds": 0.1870000000053551,
+      "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/root-inventory.stdout",
+      "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/root-inventory.stderr"
+    },
+    {
+      "name": "sources-tests",
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/sources",
+        "--basetemp",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\rb02-2cc49348",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-15T13:42:46.286159+00:00",
+      "wall_seconds": 22.812999999994645,
+      "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/sources-tests.stdout",
+      "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/sources-tests.stderr"
+    },
+    {
+      "name": "repository-check",
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-15T13:43:09.102874+00:00",
+      "wall_seconds": 27.297000000005937,
+      "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/repository-check.stdout",
+      "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/repository-check.stderr"
+    },
+    {
+      "name": "workflow-validate",
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T13:43:36.393514+00:00",
+      "wall_seconds": 0.4369999999908032,
+      "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/workflow-validate.stdout",
+      "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/workflow-validate.stderr"
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T13:43:36.830276+00:00",
+      "wall_seconds": 0.5630000000091968,
+      "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/diff-check.stdout",
+      "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/diff-check.stderr"
+    },
+    {
+      "name": "original-pages",
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdftoppm.exe",
+        "-f",
+        "5",
+        "-l",
+        "8",
+        "-r",
+        "144",
+        "-png",
+        "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B02\\review-20261015T134030Z-ig2-2cc49348\\original"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T13:43:37.393285+00:00",
+      "wall_seconds": 2.8589999999967404,
+      "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/original-pages.stdout",
+      "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/original-pages.stderr"
+    }
+  ]
+}

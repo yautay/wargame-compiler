@@ -1,0 +1,48 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B04-coordinator-e742d89b:coordinator",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/003-IG-2B04-coordinator-e742d89b/runtime-configuration.json",
+  "configuration_sha256": "b854f1213ea47feb42692a6d0a554537dd36efe3e4773d982cebb16c87b9d73f",
+  "utc": "2026-10-16T12:46:01.638702+00:00",
+  "summary": "Authorize only fresh validation-only repair V01 against the current changes_requested review. Preparation grants no execution, inspection, acceptance or readiness claim.",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Preserve the complete pinned 44-page inventory, every nonassigned record/link/evidence and all persisted registry bindings; replace only assigned placeholders and retain retired registry entries.",
+    "Freeze fresh original-page inspection and every assigned region evidence artifact, two complete independent replays, full/task/context denominators, preservation and reference audits, and independent review of the frozen complete delivery.",
+    "Use the exact execution-contract input pins and output layout, including the current repaired ledger/continuations and final-verified inventory plus companion registry; retain unresolved boundaries outside the authorized pages."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B04/prepare-v01-e742d89b-01/scope.json",
+      "sha256": "673fb2044a39819722d0d27b7ab7138feeeda152345e61409ff6c8eae14946f7",
+      "bytes": 9466
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/review-ce506337-01/review.json",
+      "sha256": "f6946697d279730c5fada8bd8dc3fabd7e1dc1c4a594ed875ab8a2680e1e6c2e",
+      "bytes": 684922
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/prepare-v01-e742d89b-01/input-audit.json",
+      "sha256": "8f8df0a71e2a026d1166264c2afdc1864d7b6477de302dc3c73ff877277493db",
+      "bytes": 1744
+    }
+  ],
+  "review_evidence": "private/workflow/runs/IG-2B04/review-ce506337-01/review.json",
+  "review_sha256": "f6946697d279730c5fada8bd8dc3fabd7e1dc1c4a594ed875ab8a2680e1e6c2e",
+  "finding_ids": [
+    "V01"
+  ],
+  "attempt": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/",
+  "mode": "validation_only",
+  "operational_observations": [
+    "One initial review metadata selection unintentionally emitted the oversized review_artifacts list and was truncated. Subsequent reads use explicit selected fields; no old transcripts or out-of-scope source pages were read. Disclosed for supervisor assessment."
+  ],
+  "semantic_acceptance_granted": false,
+  "next_operation": "Supervisor assesses coordinator output, then alone launches a fresh executor with this exact repair scope and fresh observed configuration."
+}

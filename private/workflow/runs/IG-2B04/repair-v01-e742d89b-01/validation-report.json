@@ -1,0 +1,89 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B04-executor-6dd7a7ee:executor",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/runtime-configuration.json",
+  "configuration_sha256": "c01d034f18cd1515a7f7f95d64626fad327c49d10db2409fa04af689623d8870",
+  "utc": "2026-10-16T14:29:38.298533+00:00",
+  "summary": "V01 environment repair validation passes unchanged repository and source commands; no tests, guards, assertions, source artifacts or prior attempts changed.",
+  "finding_ids": [
+    "V01"
+  ],
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/repository-check.json",
+        "sha256": "1a98d8f986677f103688e46ba02e04d94366e34c27339b67a818e9942bb876c9",
+        "bytes": 2692
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/sources-check.json",
+        "sha256": "f0d96a6b5efb78fc76369add4620365360d48195cabc1784a530aef1472d475b",
+        "bytes": 2058
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/diff-check.json",
+        "sha256": "7e278154e9fd9ae86a25338db926856efa9c8c55f31ef16c3e6454564bb89394",
+        "bytes": 803
+      }
+    }
+  ],
+  "repository_subchecks": {
+    "tests_exit": 0,
+    "diff_exit": 0,
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-e537c60366b442d2a51eb9285bad1e4a\\pytest",
+    "dry_run_exit": 0,
+    "plan_exit": 0
+  },
+  "repository_tests_passed": 247,
+  "source_tests_passed": 71,
+  "repository_check_artifacts": [
+    {
+      "path": "private/workflow/checks/active-e537c60366b442d2a51eb9285bad1e4a/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/checks/active-e537c60366b442d2a51eb9285bad1e4a/dry-run.log",
+      "sha256": "42f5bf66fdecf3a77536bba68a0cf4d8de738a46f59ebba0812f8cd301e04f27",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/checks/active-e537c60366b442d2a51eb9285bad1e4a/pytest.log",
+      "sha256": "a7dbd009a059e90ec86bf470eb5fe2df1e1de0ffeadeecdb627eeacf73fac6c7",
+      "bytes": 346
+    },
+    {
+      "path": "private/workflow/checks/active-e537c60366b442d2a51eb9285bad1e4a/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c",
+      "bytes": 5064
+    },
+    {
+      "path": "private/workflow/checks/active-e537c60366b442d2a51eb9285bad1e4a/result.json",
+      "sha256": "5360782d728f6851c40a132d1be09f324bf12573c603144bba0a5841b87b428d",
+      "bytes": 206
+    }
+  ],
+  "environment_correction": "Hash-verified installed rg and pinned Poppler directories prepended process-locally to the complete inherited PATH for each approved validation; both pinned PYTHONPATH entries retained.",
+  "new_source_review_performed": false,
+  "prior_source_review": {
+    "path": "private/workflow/runs/IG-2B04/review-ce506337-01/review.json",
+    "sha256": "f6946697d279730c5fada8bd8dc3fabd7e1dc1c4a594ed875ab8a2680e1e6c2e",
+    "basis": "Preserved independent review reports original pages 13-16 and all 113 ledger components; this executor makes no new source-inspection claim."
+  },
+  "independent_rereview_required": true,
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false
+}

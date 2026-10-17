@@ -1,0 +1,47 @@
+{
+  "role": "executor",
+  "actor": "ig2:005-IG-2B07-executor-32eedee6:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/runtime-configuration.json",
+  "configuration_sha256": "510c7584378a512c42f72d5523ae6f9c3697ade1c0aa2da3d0d2059e7e795444",
+  "task": "IG-2B07",
+  "attempt": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01",
+  "started_utc": "2026-10-16T20:48:02.975977+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/packet.json",
+    "sha256": "1b2eda0e73d2f460a1fcfbde6bf0fa5e2359953afa34221b0d7c480b0cf321f9",
+    "bytes": 7909
+  },
+  "task_contract": {
+    "path": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/task.json",
+    "sha256": "8b9b92da15074131bb4eded0ea324abee411f2a92a3a4ca5f8a48ac458f6216d",
+    "bytes": 22664
+  },
+  "base_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+      "sha256": "de0f651557362f57f96a5a225dc5c796f89387d5e3ba689ab19361e9bd93ea5a",
+      "bytes": 17242
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/coordinator-authorization.json",
+      "sha256": "1e22af511284fdbdfade01efcc4a2c763dea932e2e817500011eb500adc21124",
+      "bytes": 4655
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/delivery.json",
+      "sha256": "cee94ecd856edb0da9439881a0e002f7515f45f334a1b4e02fcd16b3f20cab27"
+    }
+  ],
+  "verification": {
+    "verified_pins": 3003,
+    "all_prior_delivery_artifacts": 2956,
+    "fresh_directory_absent_before_creation": true,
+    "dependency": "IG-2B06 done, prepared hash-bound summary/outputs verified"
+  },
+  "completed_criteria": [],
+  "changed_file_hashes": [],
+  "blocker": null,
+  "next_operation": "Inspect original page-28 second diagram and every nested component; author only F01 addition; regenerate full serial evidence and two replays."
+}

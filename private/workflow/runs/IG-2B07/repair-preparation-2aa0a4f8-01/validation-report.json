@@ -1,0 +1,128 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:004-IG-2B07-coordinator-2aa0a4f8:coordinator",
+  "task": "IG-2B07",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/004-IG-2B07-coordinator-2aa0a4f8/runtime-configuration.json",
+  "configuration_sha256": "382676e3501a08f4994e313e0a5a26714ad1800075abe9fc2e4a0498c7e67298",
+  "outcome": "progress",
+  "summary": "Current F01 bounded repair authorization prepared; coordinator validation passes. This is not execution, delivery acceptance or a task transition.",
+  "authorization": {
+    "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/coordinator-authorization.json",
+    "sha256": "1e22af511284fdbdfade01efcc4a2c763dea932e2e817500011eb500adc21124",
+    "bytes": 4655
+  },
+  "scope": {
+    "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+    "sha256": "de0f651557362f57f96a5a225dc5c796f89387d5e3ba689ab19361e9bd93ea5a",
+    "bytes": 17242
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/delivery.json",
+    "sha256": "cee94ecd856edb0da9439881a0e002f7515f45f334a1b4e02fcd16b3f20cab27"
+  },
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "274 passed in 32.29s; queue/view validation, dry-run and diff checks passed.",
+      "result": {
+        "path": "private/workflow/checks/active-362f5c5d8bf34326b05faab167c1522a/result.json",
+        "sha256": "5428a06ca063f8ebc2d021973f2a0ff8a0bcd104b6657b49677d5fe6a5d75271",
+        "bytes": 206
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/source-suite-result.json",
+        "sha256": "13c950cf2d553fa03008381dd9b80b59c31b0ac675e85c9151235a874dc77314",
+        "bytes": 818
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/diff-check.log",
+        "sha256": "e6e2be098b0bdba69069e103bbba699bce2a370dd773dafe5e10e54865b41a8e",
+        "bytes": 275941
+      }
+    },
+    {
+      "command": "Post-check workflow.validate and exact contract/current-review/authorization pin verification",
+      "exit_code": 0
+    },
+    {
+      "command": "Post-check SHA-256 verification of frozen prior delivery and all frozen artifact pins",
+      "exit_code": 0,
+      "artifacts_verified": 2956
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/prepare_repair.py",
+      "sha256": "34007b540b57da0e6bf2a73cb97efcecf75641b509f6061a21a6cac30cf4ea75",
+      "bytes": 17091
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/input-verification.json",
+      "sha256": "1c7b0036fbd390405e11b7360857ebfa2d00256b6ee883f79babdbb23c775729",
+      "bytes": 1668
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/structural-verification.json",
+      "sha256": "255d911591a0c54b14153855d5f3783f664e52c5e7e2ef009e56190f700c0946",
+      "bytes": 1792
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/source-suite-result.json",
+      "sha256": "13c950cf2d553fa03008381dd9b80b59c31b0ac675e85c9151235a874dc77314",
+      "bytes": 818
+    },
+    {
+      "path": "private/workflow/checks/active-362f5c5d8bf34326b05faab167c1522a/result.json",
+      "sha256": "5428a06ca063f8ebc2d021973f2a0ff8a0bcd104b6657b49677d5fe6a5d75271",
+      "bytes": 206
+    },
+    {
+      "path": "private/workflow/checks/active-362f5c5d8bf34326b05faab167c1522a/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/checks/active-362f5c5d8bf34326b05faab167c1522a/dry-run.log",
+      "sha256": "94a63eb5bb4bb89c0c574ecb56a3eb09848cd4a397cdc0583d469d791c4510f5",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/checks/active-362f5c5d8bf34326b05faab167c1522a/pytest.log",
+      "sha256": "4267c8d24fb99fea1df0e8dec3428f34016a04617f0b193b978ad7b7ba7483ec",
+      "bytes": 346
+    },
+    {
+      "path": "private/workflow/checks/active-362f5c5d8bf34326b05faab167c1522a/diff-check.log",
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+      "bytes": 5187
+    }
+  ],
+  "preservation": {
+    "status": "changes_requested",
+    "events_unchanged": true,
+    "acceptance_and_tests_verbatim": true,
+    "queue_sha256": "a458f5e1e89caea3ccf7620f2b14e2b4865a246e30d22c11f0924480d7312343",
+    "context_policy_sha256": "39dcf8eee5da94d5c20ee9d7f70f78af62a8d1856c4e6eba563619f74a4b177a",
+    "frozen_delivery_artifacts_reverified": 2956,
+    "executor_attempt_absent": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/",
+    "product_files_modified": false,
+    "no_executor_launched": true
+  },
+  "context_access_error": "Coordinator mistakenly requested the entire current review JSON with Get-Content; tool output was truncated. Subsequent review/delivery reads used selected JSON fields. No prior transcript or dependency closure was requested. Supervisor must retain this observation when evaluating the session.",
+  "ended_utc": "2026-10-16T20:46:15.722651+00:00",
+  "semantic_acceptance_granted": false,
+  "next_operation": "Supervisor evaluates the recorded context-access error and current authorization before any next process; this coordinator role stops here."
+}

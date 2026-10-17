@@ -1,0 +1,74 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:003-IG-2B07-reviewer-3f57d66e:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/003-IG-2B07-reviewer-3f57d66e/runtime-configuration.json",
+  "configuration_sha256": "c0e94d206603c35ac751704a43bfb9068437671d980d746109f8879e48a71391",
+  "task": "IG-2B07",
+  "outcome": "changes_requested",
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "medium",
+      "title": "Second page-28 diagram omits the upper black arrow beside Phalanx B from component accounting",
+      "location": {
+        "artifact": "private/workflow/runs/IG-2B07/inventory-25-28-01/component-ledger.json",
+        "parent_region_id": "region:93a4c97f-54e6-4b11-95c2-f0a704491226",
+        "parent_key": "ig2b07:p28-diagram-after",
+        "physical_page": 28,
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "inspection_box": [
+          695000,
+          272000,
+          738000,
+          301000
+        ],
+        "coordinate_basis": "Unrotated effective CropBox, top-left integer page millionths"
+      },
+      "observation": "The original second diagram visibly retains a black arrow pointing down/right from the upper right edge of B toward the now-empty hex to its right. The frozen component ledger lists after-aa, after-au, after-av, after-bx, after-cy and after-cz, but no distinct upper-B-arrow component. It is visible in the full parent/grid image and partly in the B-counter crop; neither substitutes for the required separate component locator. The separate yellow rout arrow is already present and is a different visible component. This is a visual accounting observation, with no gameplay legality determination.",
+      "consequence": "The claim that every external arrow has a separate crop is false, and all 86-component/188-target set-equality checks reproduce an incomplete authored set.",
+      "affected_criteria": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+        "Freshly inspect every original assigned page, column, note, example, diagram and component; pin exact source/page/box evidence for all new regions and components, uncertainty and explicit gaps. Boundary context is limited to the authorized page-24 bottom and page-29 top strips and contributes zero denominator.",
+        "Freeze final-verified/inventory.json and identity-registry.json plus all root reports named in the refined contract under the new owned inventory-25-28-01 attempt. Keep complete full/task/context denominators separate and retain the persisted registry binding.",
+        "Generate evidence serially and complete two separate independent full replays, preserving every new region/component and checking complete target-set equality, stable IDs, evidence freshness, reading order, links and path-normalized output comparisons."
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/originals/p28-after-b-upper-arrow.png",
+          "sha256": "10cafa295ad8e9a5c450c70630a70419a940cbd2b403dc1f28f999af7db7258b",
+          "bytes": 3917
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/originals/page-28.png",
+          "sha256": "1dcf9a5c2562da49bbdd3ca89f3f6df5c120797976d9742b88bf505ac33edd7a",
+          "bytes": 825760
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/component-ledger.json",
+          "sha256": "5f1bbeee99127575e66f91a79de5afd5b3128e417f00b906be55d7ba31d781b6",
+          "bytes": 394900
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/evidence/ig2b07-p28-diagram-after/image.png",
+          "bytes": 154565,
+          "sha256": "36a980ecf2d7beee5a0dee4fa24fb44d30d7b072e8d0da34e04df24d7d9614ef"
+        }
+      ],
+      "requested_repair": "In a fresh authorized attempt, preserve this frozen delivery and all inherited records/registry identities. Add one new stable nested context component for the entire visible upper black arrow beside B, with its exact parent, box and fresh source-derived crop/text/image evidence. Record visual position without inventing a legal target or semantics. Update the complete region/component ledgers, inventory/registry, source pins, inspection sheets, coverage/continuation endpoint indices, reports and delivery manifest consistently. Do not alter inventory parent boxes or increase the task/full inventory denominator.",
+      "repair_validation": [
+        "Independently inspect the new crop against original physical page 28 and verify the whole visible arrow is retained. Recheck every component in the affected second diagram and retain prior complete page/ledger review coverage.",
+        "For a single-component addition, expect 87 new nested components, 189 new total targets, 92 full context regions and 941 total region records; assigned inventory remains 100 and full inventory remains 849. Retain all previous IDs and evidence byte pins.",
+        "Run two separate complete serial replays for the revised complete target/component sets, not only the new crop. Recheck stable identities, exact inherited preservation, normalized output equality and zero component/context denominator contribution.",
+        "Rerun source inventory validation, unchanged tests/sources, scripts/check.ps1 -Task IG-2B07 and git diff --check with the permitted exact-command approval path where required. Freeze a new delivery for independent rereview."
+      ]
+    }
+  ],
+  "defect_counts": {
+    "medium": 1,
+    "high": 0,
+    "critical": 0
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "format": "wgc-coordinator-readiness-verification-1",
+  "task": "IG-2B05",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B05-coordinator-6daf4d13:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T150146Z-33452c9a/001-IG-2B05-coordinator-6daf4d13/runtime-configuration.json",
+  "configuration_sha256": "6e17d82295f8e774f65eec4a6860750834056f7d5eeb663ea396329be68846a5",
+  "status": "ready",
+  "summary": "Refined IG-2B05 pages 17-20 with exact accepted IG-2B04 inputs, full-sidecar preservation, fresh source evidence and two complete replay requirements, independent review and unchanged human gates. All required coordinator checks passed through exact approved commands.",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Use the exact accepted IG-2B04 baseline and companion registry in the pinned dependency-inputs.json; retain the complete 44-page sidecar. Copy every nonassigned page, region, evidence record and link unchanged. Replace only the four assigned unprocessed placeholder memberships on physical pages 17-20, retaining all old registry entries and identity bindings.",
+    "Freshly inspect the pinned original PDF physical pages 17, 18, 19 and 20 in full, including every visible component, column, heading, clause, exception, note, example, diagram, marker, bullet, caption, header/footer and editorial area. Document uncertainty and proposed boundaries; extraction or inherited coordinator observations cannot substitute for original-page inspection.",
+    "Provide explicit disjoint regions and reading order, component/region reconciliation, precise evidence locators and source references. Keep structural inventory, transcription, descriptive semantics, formal semantics, exclusions and executable readiness separate. Never treat an unprocessed placeholder, geometric gap, unknown meaning or excluded region as represented.",
+    "Create fresh path-dependent cropped PDF, PNG and UTF-8 text evidence for every new assigned region at 144 DPI, with exact hashes, bytes, geometry and page_basis_hash. Revalidate all retained evidence without rewriting its bytes. Keep label verification separate from merely finding a printed glyph.",
+    "Write final-verified/inventory.json and final-verified/identity-registry.json under the new owned attempt, with region-ledger.json, continuations.json, coverage-report.json, source-pins.json and toolchain.json at its root. All reports must pin the final inventory revision/hash and registry, source, assigned IDs and evidence; source-reference indexes must resolve against these exact current reports.",
+    "Provide two complete independent fresh derivation replays from the same authored partition and persisted registry in disjoint replay-1/ and replay-2/ outputs. Compare the complete logical sidecar, registry identities, all assigned crop PDF/PNG/text bytes and locators, with explicit normalization only for actual path-dependent fields; record complete set equality, counts and hashes, not sampled comparisons.",
+    "Report full 44-page inventory counts/denominators, assigned-page task counts/denominators and context-only counts/denominators separately. Preserve unresolved nonassigned placeholders explicitly; context-only observations contribute zero assigned inventory denominator.",
+    "Trace incoming, internal and outgoing continuation boundaries, including pages 17-18, 18-19 and page 20 exit. Accepted page-16 exit is context only. Adjacent physical page 16 or 21 may be inspected only for a named continuation boundary; record exact inspected boxes/IDs and purpose before access, keep evidence in context-only outputs and do not inventory or claim coverage of unassigned content. Other referenced source targets remain unresolved.",
+    "Freeze every delivered product, helper, evidence artifact, report and check log with SHA-256. Obtain fresh independent technical/source-page review by a different actor against every assigned original page, proposed boundaries/components, the complete region ledger, preservation report and both complete replays. Green tooling and model review grant no human semantic acceptance or gameplay readiness."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/prepare.py",
+      "sha256": "1877b29e80206779e11c546b92fb153ae0d135b8bf2a0573a34a0f4cba12c6e3",
+      "bytes": 3431
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/preflight.json",
+      "sha256": "5604f99b557c409ff12d5b737d1d1ceb33a605857851389cca15031b696a6d1e",
+      "bytes": 7904
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/dependency-inputs.json",
+      "sha256": "6721d9070742dad0035bbdc3a3b7aaaf87672702ae9c6bdabb24c179bb2da15a",
+      "bytes": 9554
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/page-navigation.json",
+      "sha256": "2ddab1bbe74b7a65ec45aa1c4ac405ccaed3c09b6915ba98dc2088f6dd900be1",
+      "bytes": 2966
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/refine.py",
+      "sha256": "00b0720c94fdffdfbffd7e69e0f3e9b2a7e308df894d0aa770d1b948ee4e2951",
+      "bytes": 14558
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/refined-contract.json",
+      "sha256": "0edb76cf667200681df1b9661179f3dd8f22be6afe07bcae052db4b274850878",
+      "bytes": 18160
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/refinement-report.json",
+      "sha256": "875ff43751985ceb2c4f442b8598121345f6754be93df578fa73e4c72e8fc93e",
+      "bytes": 1540
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/ready.py",
+      "sha256": "e05add572c621b87a2fa6db2c03cdc7b69b53cfdc6efc8e9244de4c3e272cf4f",
+      "bytes": 4852
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/input-validation.json",
+      "sha256": "f59d3652d80747324a6e7206cf7ff56f625e8cf8e3e2aebc3b4e5b719a3518e1",
+      "bytes": 738
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/ready.json",
+      "sha256": "0cb0d86733177fee6657e71ea70493d49d47f4ad3df0718019ce890e63d5a6d5",
+      "bytes": 8308
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/finalize.py",
+      "sha256": "f1ddaba60bb9b6139b10ac80cf4954fae57da888a1aa67fd540c80dfdeff885d",
+      "bytes": 6712
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checkpoint-final.json",
+      "sha256": "a5c155f92aabda17393a24622409f1a17b8dd17ae485c7601f35d1a1027712ef",
+      "bytes": 4177
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-restricted/result.json",
+      "sha256": "e0c576b4068d1d8434f8eeccdea06cfbdfcda76ff07ca798775c36c272a8c9c8",
+      "bytes": 206
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-restricted/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-restricted/dry-run.log",
+      "sha256": "371f5ac364addd07647389f5c06ff9d2d2437b758a2b438e784e0b1c760d862b",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-restricted/pytest.log",
+      "sha256": "e95f94d04d0d91c2a0c03d349bd52fe72b6a04d8617afdc217d081560e42dd44",
+      "bytes": 4618
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-restricted/diff-check.log",
+      "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3",
+      "bytes": 277613
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/result.json",
+      "sha256": "1453473fcbbbb1fa0040e132b946a4389c82897d6be1cb73653d8c2e17cfbf3a",
+      "bytes": 206
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/dry-run.log",
+      "sha256": "371f5ac364addd07647389f5c06ff9d2d2437b758a2b438e784e0b1c760d862b",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/pytest.log",
+      "sha256": "223e94a10bf0a5232ae5e1d9c4159d750c99c6ad4c6418e3a674498c70edc800",
+      "bytes": 346
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/diff-check.log",
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+      "bytes": 5187
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved exact unchanged command",
+      "result": "71 passed in 15.17s"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/ready.py",
+      "exit_code": 0,
+      "scope": "accepted baseline structural validation, byte pins, assigned IDs, exact context and fresh output absence"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B05",
+      "exit_code": 0,
+      "execution": "approved exact unchanged command",
+      "result": "256 passed in 32.95s; plan, packet dry-run and diff checks passed",
+      "report": {
+        "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/result.json",
+        "sha256": "1453473fcbbbb1fa0040e132b946a4389c82897d6be1cb73653d8c2e17cfbf3a",
+        "bytes": 206
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "execution": "also run by unchanged approved scripts/check.ps1",
+      "report": {
+        "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/diff-check.log",
+        "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+        "bytes": 5187
+      }
+    }
+  ],
+  "readiness_event_evidence": {
+    "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/ready.json",
+    "sha256": "0cb0d86733177fee6657e71ea70493d49d47f4ad3df0718019ce890e63d5a6d5",
+    "bytes": 8308
+  },
+  "packet_check": {
+    "context_files": 16,
+    "context_bytes": 92610,
+    "queue_unchanged": true,
+    "models_launched": 0
+  },
+  "preservation": {
+    "original_acceptance_and_tests_preserved_verbatim": true,
+    "human_semantic_gate_unchanged": true,
+    "other_task_records_unchanged": true,
+    "accepted_input_pins_reverified": true,
+    "executor_attempt_still_absent": true
+  },
+  "restricted_check": {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B05",
+    "exit_code": 1,
+    "report": {
+      "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-restricted/result.json",
+      "sha256": "e0c576b4068d1d8434f8eeccdea06cfbdfcda76ff07ca798775c36c272a8c9c8",
+      "bytes": 206
+    },
+    "cause": "Windows restricted-token pytest temporary-directory Access Denied. Exact unchanged approved rerun passed; no test, assertion, ACL or library changes."
+  },
+  "limitations": [
+    "No executor inventory deliverable created or accepted.",
+    "Fresh executor inspection/evidence/replays and fresh independent review remain required.",
+    "No human semantic acceptance or executable/gameplay readiness is asserted."
+  ],
+  "next_operation": "Supervisor launches the next authorized executor session; this coordinator stops after this role.",
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed to this role."
+  }
+}

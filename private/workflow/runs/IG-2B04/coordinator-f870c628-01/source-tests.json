@@ -1,0 +1,27 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B04-coordinator-f870c628:coordinator",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T200250Z-56a048a1/001-IG-2B04-coordinator-f870c628/runtime-configuration.json",
+  "configuration_sha256": "b3a8ee701b424bf7acaf754d661c5f02c56509509559794ec3069fd3431ee313",
+  "utc": "2026-10-15T20:09:06.604843+00:00",
+  "summary": "Exact unchanged source suite passed with approved permissions after restricted-token temporary-directory denial.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B04/coordinator-f870c628-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "permissions": "restricted",
+      "result": "Windows WinError 5: pytest basetemp inaccessible"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B04/coordinator-f870c628-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "permissions": "approved",
+      "result": "71 passed in 29.21s"
+    }
+  ],
+  "assertions_changed": false,
+  "libraries_or_acls_changed": false
+}

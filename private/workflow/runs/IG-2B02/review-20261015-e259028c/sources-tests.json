@@ -1,0 +1,37 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B02-reviewer-e259028c:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/runtime-configuration.json",
+  "configuration_sha256": "951b8c432c4a5ec518dc48ee332113ff597a708c469982f3d3ed67e00468f437",
+  "task": "IG-2B02",
+  "name": "sources-tests",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/sources",
+    "--basetemp",
+    "private/workflow/checks/rb02-e259028c-s1",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T14:52:43.038964+00:00",
+  "ended_utc": "2026-10-15T14:53:02.003082+00:00",
+  "wall_seconds": 18.969000000011874,
+  "stdout": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/sources-tests.stdout",
+    "bytes": 102,
+    "sha256": "5b8acc333657cd93391f45ee9dcf208e8a1b8b0a1e37475183194b6109d8f6c6"
+  },
+  "stderr": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/sources-tests.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

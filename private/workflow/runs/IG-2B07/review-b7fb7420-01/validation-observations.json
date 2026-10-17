@@ -1,0 +1,130 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:006-IG-2B07-reviewer-b7fb7420:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/006-IG-2B07-reviewer-b7fb7420/runtime-configuration.json",
+  "configuration_sha256": "30fe41b59d1c9c8dc884ac03170f586fea4b392ee3ba97679763e447513411ee",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/source-validation.log",
+        "bytes": 10987,
+        "sha256": "5d5e944618b8cb0999e47d32688d8efede1eef5c7caaeb02c20f648b6825904b"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/review-b7fb7420-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/pytest-sources.log",
+        "bytes": 102,
+        "sha256": "20019fcdf1e473c73e60fa813aea496dcb2c25628da0dc1d657a95242918253d"
+      },
+      "tests_passed": 71,
+      "execution": "Approved require_escalated exact unchanged command after restricted-token mode-0700 denial"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/repository-check.log",
+        "bytes": 5877,
+        "sha256": "7c6f13b15811740efba8aaf053f71dd7fdacc17d07af94fd8d0368f654827bf3"
+      },
+      "tests_passed": 274,
+      "execution": "Approved require_escalated exact unchanged command after restricted-token mode-0700 denial"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-b7fb7420-01/verify_review.py structure",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/structure-verification.json",
+        "bytes": 16190,
+        "sha256": "49d875dfe376dc04f0660e17334ca79dc6ce6a8b389f8168542de41b25a3a27e"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-b7fb7420-01/verify_review.py 1",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/independent-replay-1.json",
+        "bytes": 194910,
+        "sha256": "bafe7fd6822572ff549e62c716bb11bda67c63c4005c7956a0b97c8c6a96d24d"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-b7fb7420-01/verify_review.py 2",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/independent-replay-2.json",
+        "bytes": 194910,
+        "sha256": "45f4b0d7c3d907cfe69f7d08b1813eae6af09c7cee57042f8278bede7f25efcc"
+      }
+    },
+    {
+      "command": "Independent local SHA-256 verification before and after review of every current/prior artifact, prior review support and pinned input",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/frozen-reverification.json",
+        "bytes": 1607378,
+        "sha256": "2e2ad47421dcadc43bd0324fc414a7b022e32721034cf0f759edfdd037373ab8"
+      }
+    },
+    {
+      "command": "Independent source geometry comparison for all 44 pages and recursive exact pin verification of current reports",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/pins-and-geometry.json",
+        "bytes": 1037886,
+        "sha256": "f84c3c23ef1dd81bdb2d2dbf43fc709287c5bd6acba5f6340a3cf3e2f5a05b1b"
+      }
+    },
+    {
+      "command": "Independent visual accounting of original physical pages 25-28, authorized boundary strips, complete ledger, and all 43 affected diagram component crops",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/visual-inspection.json",
+        "bytes": 26142,
+        "sha256": "378e29ea87074d2580d26799ff4afc04a47d84a54eef4777356536cde71ada5a"
+      }
+    }
+  ],
+  "restricted_failures": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/review-b7fb7420-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "reason": "Windows restricted token cannot access pytest mode-0700 basetemp; unchanged approved execution passed.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/pytest-sources-restricted-failure.log",
+        "bytes": 4369,
+        "sha256": "08ac50431b348a3ce97231a0bed6f8d5089bb73ba80677cdb1eaf090fed3472a"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "exit_code": 1,
+      "reason": "Windows restricted token cannot access pytest mode-0700 basetemp; unchanged approved execution passed.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/repository-check-restricted-failure.log",
+        "bytes": 282865,
+        "sha256": "e9f368d60267beaa4507ecd701ef1bcfff9f6ef69cfb14a213b5074395d5dd86"
+      }
+    }
+  ],
+  "review_tooling_correction": "The first structure verification assumed registry entries were a mapping; actual entries are a list. Reviewer tooling was corrected to compare every original entry by its stable ID; assertions were retained and the corrected check passed.",
+  "context_access_observations": [
+    "An initial direct delivery.json read printed a large truncated artifact list. A later selected prior-review read retained an oversized review_support_artifacts field and was truncated. A selected continuation-field read also printed nested evidence and was truncated. These were authorized exact task artifact paths, but insufficiently bounded output selections; recorded for supervisor evaluation. No old transcript, dependency closure, archive or whole-PDF text was read. No context-helper refusal occurred."
+  ]
+}

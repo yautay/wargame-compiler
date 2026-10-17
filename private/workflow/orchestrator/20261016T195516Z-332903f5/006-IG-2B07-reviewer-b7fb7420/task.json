@@ -1,0 +1,372 @@
+{
+  "id": "IG-2B07",
+  "title": "Inventory SPQR PDF pages 25Ã¢â‚¬â€œ28",
+  "stage": "IG-2",
+  "status": "review",
+  "kind": "content",
+  "depends": [
+    "IG-2B06"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/region-ledger.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/continuations.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/coverage-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/source-pins.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/toolchain.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/original-page-inspection.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/component-ledger.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/preservation-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/delivery-handoff.md"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/"
+  ],
+  "inputs": [
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json (SHA-256 054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9)",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json (SHA-256 2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218)",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf (SHA-256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e)",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json (SHA-256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b)",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json (SHA-256 f5494f69952871a1029d388b0748e49408be26601f6383e7ea76d337986756be)",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json (SHA-256 4878c991f2d987585d2b5d194f91969a1589d40dbe9afefef7944ebaf8e9bb7b)",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json (SHA-256 c5bcdbc719e1e94f3e428c60dd4c9dc196b1b87c9afe0a495fa29afee3f7d0fb)",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json (SHA-256 a384fb16f243ecba70ab7992ad218c4e3d2c453c26f96f4f1b2c1bf36b6b2cce)",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json (SHA-256 524d8924e0432137c1a085c699d7aabdd1dd5985edd16ca78cad5696573c1121)",
+    "Assigned original physical pages 25-28 only; page-24 bottom third and page-29 top third solely for continuation context.",
+    "Refined contract: private/workflow/runs/IG-2B07/coordinator-999c866b-01/refined-contract-v2.json (SHA-256 5d972c42425b36f8d3ec4a59d6a372289dff6535fe6eb4b8766356e35e331351)."
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+    "private/workflow/runs/IG-2B07/coordinator-999c866b-01/refined-contract-v2.json",
+    "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+    "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/coordinator-authorization.json"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Use the hash-pinned accepted IG-2B06 full 44-page inventory and companion identity registry; preserve all nonassigned records, inherited evidence/links and registry bindings. Retire only the four pages-25-28 placeholder memberships without deleting registry entries.",
+    "Freshly inspect every original assigned page, column, note, example, diagram and component; pin exact source/page/box evidence for all new regions and components, uncertainty and explicit gaps. Boundary context is limited to the authorized page-24 bottom and page-29 top strips and contributes zero denominator.",
+    "Freeze final-verified/inventory.json and identity-registry.json plus all root reports named in the refined contract under the new owned inventory-25-28-01 attempt. Keep complete full/task/context denominators separate and retain the persisted registry binding.",
+    "Generate evidence serially and complete two separate independent full replays, preserving every new region/component and checking complete target-set equality, stable IDs, evidence freshness, reading order, links and path-normalized output comparisons.",
+    "Obtain fresh independent technical/source-accounting review against original assigned pages, the complete region/component ledgers and the entire frozen delivery. Preserve all human semantic gates; this inventory grants no gameplay legality or executable readiness."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Verify every pinned input SHA-256 before/after execution; validate the final complete inventory against actual source bytes, all 44 physical page geometries, exact evidence and the companion registry.",
+    "Compare baseline/result internally: unchanged nonassigned records/evidence/links and all existing registry entries; exactly four placeholder memberships removed; additions restricted to assigned/context scope; no stale source-reference index pins.",
+    "Verify complete region/component and continuation endpoint sets, two independent replay target-set equalities, complete full/task/context denominators and zero context contribution; explicitly retain remaining unprocessed pages and all uncertainty.",
+    "Run both complete serial evidence replays in separate fresh directories and freeze actual invocation commands, output hashes and comparison reports; review every original assigned page and every fresh region/component crop independently.",
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/inventory.json",
+    ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/inventory-25-28-01/pytest-sources -p no:cacheprovider --tb=short",
+    "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+    "git diff --check"
+  ],
+  "start_conditions": [
+    "Task remains changes_requested. Read and hash-verify the CURRENT F01 repair scope and coordinator authorization before a new claim; do not use obsolete initial ownership.",
+    "The new repair attempt must be absent before claim. Record fresh observed gpt-6.1-sol/high configuration, unique executor ownership and a fresh checkpoint.",
+    "Verify current review, frozen prior delivery and all artifact/input pins before and after repair. Prior delivery, review and accepted dependency artifacts are immutable.",
+    "Only the current bounded source-component accounting repair is authorized. Preserve exact acceptance/tests, source boundaries and human gates; two complete serial replays and fresh independent rereview remain required.",
+    "Use only prepared dependency projections and assigned source scope. Preserve inherited process-local PYTHONPATH with both repo/src and bundled site-packages and installed Poppler paths."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance.",
+    "Unassigned source content, whole-PDF analysis, old dependency transcripts, evidence replay claims inherited from prior roles, worker-process pools and source-semantic acceptance by a model."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze a NEW complete delivery under the owned F01 attempt, with exact paths/SHA-256, current input packet pin, criteria met/unmet, commands/exits, reports and fresh independent review request.",
+    "Record exact inherited preservation, complete revised region/component and continuation endpoint indices, unchanged full/task inventory denominators, all fresh evidence and both complete independent serial replay sets.",
+    "Record actual actor/model/reasoning/configuration path and SHA-256, UTC/wall time, exposed tokens or null, defects and unresolved decisions. No semantic acceptance or executable readiness is granted."
+  ],
+  "semantic_acceptance_required": false,
+  "source_scope": {
+    "source_id": "source:spqr:5e:core",
+    "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "source_page_count": 44,
+    "assigned_physical_pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "assigned_page_metadata": [
+      {
+        "id": "page:20868f6f-32e3-4afb-b1fa-7efe01e3acd8",
+        "key": "physical-page:25",
+        "revision": "6821ce96088da9b51acc5580898f1752b39536b159cfa6b07ed0360870e8c00d",
+        "pdf_page": 25,
+        "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "media_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "effective_crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "rotation": 0,
+        "user_unit": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      {
+        "id": "page:8c7f2649-351d-4c77-b3ba-adcbc65afb06",
+        "key": "physical-page:26",
+        "revision": "46b82d439ec2f70e07f8b0fc96eabc1c327da5ccd87703326b996f57d00580db",
+        "pdf_page": 26,
+        "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "media_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "effective_crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "rotation": 0,
+        "user_unit": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      {
+        "id": "page:30d0cdb9-7468-4edf-ab3a-3dd92c3b9806",
+        "key": "physical-page:27",
+        "revision": "e0b01609536b5785125ce29f3dbe4e88bddaae2bdff04605525a9ef2fb127a56",
+        "pdf_page": 27,
+        "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "media_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "effective_crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "rotation": 0,
+        "user_unit": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      },
+      {
+        "id": "page:a9673627-a82b-43c3-830a-b0035fd147d2",
+        "key": "physical-page:28",
+        "revision": "b4df2a009c5169f3ba9508357ceadf5b21754552f15d82da82909e5e58ae1f4a",
+        "pdf_page": 28,
+        "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "media_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "effective_crop_box": [
+          0,
+          0,
+          612000000,
+          792000000
+        ],
+        "rotation": 0,
+        "user_unit": {
+          "denominator": 1,
+          "numerator": 1
+        }
+      }
+    ],
+    "replace_only_region_ids": [
+      "region:54d36002-1ca9-42cf-924c-48f1e1aa91ca",
+      "region:744677a0-4ce1-4894-acc5-1172f685cd95",
+      "region:adc5bbe1-c10f-4d22-ae5a-ce337cf113d7",
+      "region:e4f67fc0-dae8-4141-92f9-932505e02941"
+    ],
+    "preserve_existing_assigned_page_context": [
+      {
+        "id": "region:c7a33827-8b76-4b2e-918d-e1de4d24239d",
+        "key": "ig2b06:outgoing-context",
+        "revision": "32e71cb92e5bbaeeb5de1a3bdb2b528a379be5793c26639d5832ad555ed2ab41",
+        "page_id": "page:20868f6f-32e3-4afb-b1fa-7efe01e3acd8",
+        "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "kind": "clause",
+        "box": [
+          60000,
+          60000,
+          940000,
+          410000
+        ],
+        "denominator_role": "context"
+      }
+    ],
+    "context_only_pages": [
+      24,
+      29
+    ],
+    "context_only_boxes": {
+      "24": [
+        0,
+        666666,
+        1000000,
+        1000000
+      ],
+      "29": [
+        0,
+        0,
+        1000000,
+        333334
+      ]
+    },
+    "context_limit": "Only the named boundary strips; do not analyze other adjacent-page text or diagrams. If insufficient, checkpoint a missing-context blocker for a new scoped session.",
+    "baseline_inventory": {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+      "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9",
+      "bytes": 2367836
+    },
+    "identity_registry": {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+      "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218",
+      "bytes": 85021
+    },
+    "source_pdf": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    "source_provenance": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    },
+    "current_reports": {
+      "region-ledger.json": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json",
+        "sha256": "f5494f69952871a1029d388b0748e49408be26601f6383e7ea76d337986756be",
+        "bytes": 600116
+      },
+      "continuations.json": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json",
+        "sha256": "4878c991f2d987585d2b5d194f91969a1589d40dbe9afefef7944ebaf8e9bb7b",
+        "bytes": 214815
+      },
+      "coverage-report.json": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json",
+        "sha256": "c5bcdbc719e1e94f3e428c60dd4c9dc196b1b87c9afe0a495fa29afee3f7d0fb",
+        "bytes": 77843
+      },
+      "source-pins.json": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json",
+        "sha256": "a384fb16f243ecba70ab7992ad218c4e3d2c453c26f96f4f1b2c1bf36b6b2cce",
+        "bytes": 289556
+      },
+      "toolchain.json": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+        "sha256": "524d8924e0432137c1a085c699d7aabdd1dd5985edd16ca78cad5696573c1121",
+        "bytes": 4989
+      }
+    },
+    "baseline_counts": {
+      "pages": 44,
+      "regions": 756,
+      "evidence": 736,
+      "links": 158
+    },
+    "attempt_root": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01",
+    "preservation": "Keep all 44 pages, all nonassigned region/link/evidence records and registry bindings unchanged. Remove only four assigned placeholder memberships; retain their old registry entries. Preserve the existing page-25 context record, its evidence and links. Append new assigned regions/evidence and narrowly scoped context regions; no ancestor baseline or report substitution.",
+    "evidence_generation": "Generate every new region/component crop, text and image serially in the current Python process using installed tooling. No multiprocessing, worker pools or external service. Recheck source and input hashes before and after.",
+    "replays": {
+      "count": 2,
+      "directories": [
+        "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-1",
+        "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-2"
+      ],
+      "requirement": "Run two separate complete independent regenerations from the pinned author input and persisted registry into absent directories. Each replay regenerates the entire new region/component set, not a sample or copied evidence. Freeze exact commands, pins and output-set comparisons. Compare stable IDs, author fields, geometry, reading order, links, coverage and payload hashes after explicitly normalizing only output-path-dependent fields; preserve both raw outputs and explain any engine metadata differences."
+    },
+    "report_contracts": {
+      "region-ledger.json": "Complete assigned-page region accounting: stable IDs/keys, kind, box, reading order, evidence IDs, coverage statuses, uncertain readings and all leftovers. Retain a structural preservation index for nonassigned entries without re-reading their source content.",
+      "component-ledger.json": "Enumerate every visible component of both page-28 diagrams and any other assigned diagram/artwork/table: counters, markers, annotations, arrows, legends and labels. Pin parent region, box and fresh evidence per component. Nested component observations have zero additional inventory denominator and do not create overlapping inventory boxes.",
+      "continuations.json": "Pin every within-page/column and cross-page continuation endpoint and evidence; preserve cross-batch links and inherited context. Include assigned_range_entry and assigned_range_exit with physical_page 25 and 28 respectively, explicit observation, exact endpoint IDs and page-24/page-29 context-only locators. Empty prior boundary projection is unknown, not absence.",
+      "coverage-report.json": "Report separate full-44-page inventory, assigned-page inventory and context-only ID sets/counts; check set equality and disjointness where applicable. Preserve nonassigned unprocessed gaps; count exclusions and uncertainty visibly. Context contributes zero denominator. Geometry, substantive accounting, transcription, descriptive/formal semantics and executable readiness remain separate.",
+      "source-pins.json": "Pin actual accepted baseline inventory/registry, every current report, original source/provenance, original-page render evidence, every fresh region/component evidence input and two replay outputs. Locators carry source SHA, physical page, region/component ID, box, exact path, bytes and SHA-256. No obsolete placeholder source paths.",
+      "toolchain.json": "Pin actual interpreter, bundled process_pythonpath (both repo/src and bundled site-packages), process_path_prefix, resolved Poppler binaries and hashes, library/engine versions and rendering settings. Preserve process-local inherited settings; no installs or global changes.",
+      "original-page-inspection.json": "Fresh executor visual inspection of all four original assigned pages, both columns, notes/examples/diagrams, proposed boundaries/components and exact permitted adjacent strips. Pin source/render hashes and observations. Coordinator observations do not transfer inspection claims.",
+      "preservation-report.json": "Compare the complete baseline and result internally. Prove every nonassigned page and region, all inherited evidence/links, existing registry entries and bindings remain unchanged; assigned-page geometry/source identity unchanged. Show exactly four placeholder memberships retired, no other deletion, and new IDs/links/evidence restricted to the assigned/context scope. Freeze counts and hashes without dumping unassigned source text.",
+      "replay-report.json": "Pin both complete independent replay command logs, all input/output hashes, complete target-set equality, component equality, stable registry identity and normalized comparison results; no partial/sampled replay.",
+      "validation-report.json": "Freeze exact commands, exits and report/log hashes, full/task/context denominators, artifact validation and unresolved limits; green structure is not human semantic acceptance."
+    }
+  },
+  "refinement_evidence": {
+    "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/refined-contract-v2.json",
+    "sha256": "5d972c42425b36f8d3ec4a59d6a372289dff6535fe6eb4b8766356e35e331351",
+    "bytes": 20483
+  },
+  "repair_authorization": {
+    "review_evidence": "private/workflow/runs/IG-2B07/review-3f57d66e-01/review.json",
+    "review_sha256": "98d7acd1306af8945840711d5f7f3cf7809cff9d0a696a087577b110f4f5735e",
+    "scope": {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+      "sha256": "de0f651557362f57f96a5a225dc5c796f89387d5e3ba689ab19361e9bd93ea5a",
+      "bytes": 17242
+    },
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/coordinator-authorization.json",
+      "sha256": "1e22af511284fdbdfade01efcc4a2c763dea932e2e817500011eb500adc21124",
+      "bytes": 4655
+    },
+    "attempt": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/"
+  }
+}

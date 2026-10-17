@@ -1,0 +1,249 @@
+{
+  "id": "IG-2B08",
+  "title": "Inventory SPQR PDF pages 29Ã¢â‚¬â€œ32",
+  "stage": "IG-2",
+  "status": "changes_requested",
+  "kind": "content",
+  "depends": [
+    "IG-2B07"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/region-ledger.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/continuations.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/coverage-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/source-pins.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/toolchain.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/original-page-inspection.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/component-ledger.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/preservation-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/replay-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/validation-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/delivery-handoff.md",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/F02-completeness-report.json"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/"
+  ],
+  "inputs": [
+    "Accepted IG-2B07 complete 44-page inventory: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json (SHA-256 24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d).",
+    "Persisted companion identity registry: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json (SHA-256 5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701).",
+    "Official source: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf (SHA-256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e); physical pages 29-32 only, with bounded page-28/33 continuation context as pinned in private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json.",
+    "Official provenance: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json (SHA-256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b).",
+    "Original baseline/source/provenance and historical input pins are retained in private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json. Current frozen F01 delivery reports and helpers are pinned ONLY by the CURRENT F02 repair-context.json.",
+    "IG-2A locator contract as implemented by the current hash-pinned contracts/ig/regions.schema.json and src/wgc/sources/ tooling; all 44 pages remain present.",
+    "CURRENT F02 finding, frozen delivery and named current candidate input pins: private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json. Read only the bounded current context; the old delivery and all earlier corrections remain immutable."
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "src/wgc/sources/README.md",
+    "docs/work/EVIDENCE.md",
+    "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+    "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/scope.json",
+    "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+    "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Run .venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short with the inherited pinned toolchain. Keep tests/assertions unchanged; if restricted-token temp access fails, request approved execution of that exact unchanged command.",
+    "Run .venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-8d84cd90-01/final-verified/inventory.json and validate both replay inventories with actual root/source access. Validate final companion registry equality and canonical hashes; pin commands/exits in validation-report.json.",
+    "Add and run an owned batch verifier over the complete accepted baseline and result: source/44-page set equality, preserved nonassigned record/link/evidence objects and registry entries, retained reading-order subsequence, exactly four placeholders retired, assigned/context target set separation, disjoint positive geometry, complete new evidence/component index and all artifact hashes. It must fail for missing regions/components, stale/missing index paths or a replay that omits any assigned component.",
+    "Run complete replay-1 and replay-2 separately; require equal full assigned region/component sets and stable identities, complete registry bindings, normalized evidence bytes/locators and zero missing artifact references. Check fresh original-page renders plus visual inspection on every assigned page and each authorized context boundary.",
+    "Run scripts/check.ps1 -Task IG-2B08 and git diff --check; preserve reports, actual exits and any approved exact-command execution evidence. If context-guard process termination is denied by the restricted token, request approved execution of the exact unchanged validation command without changing tests, ACLs or assertions.",
+    "Operational recovery binding: original commands above remain required with only the prior attempt prefix inventory-8d84cd90-01 replaced by inventory-p33-scope02. Do not run test basetemp or write any artifact into the frozen attempt. Preserve every original suite/assertion and verify the new context boundary before access.",
+    "Verify all old-attempt artifact hashes using the pinned preservation manifest before product writes and at delivery; verify page-33 context pixels/text exclude the following note and use exact source/page/box pins.",
+    "CURRENT F01 repair command mapping: for all original/appended test and output command operands, map inventory-8d84cd90-01/ and inventory-p33-scope02/ under this task to repair-F01-manifest02/. Preserve every suite/assertion; never write test artifacts into either frozen attempt.",
+    "F01: independently inspect the complete page-30 Advance arrows; corrected detail component evidence in final and both complete serial replays must include PDF point [94,367], both complete cyan curves/heads and the black forward arrow. Do not satisfy this using a primary tile or neighboring counter crop.",
+    "Add a source-bound component-completeness regression check which rejects the original [104,345,141,476] crop and proves full visible arrow coverage; key-set equality or checking only a single point is insufficient.",
+    "Recheck all assigned components and exact page-33 context; verify unchanged disjoint primary tiles, accepted 44-page baseline, registry history and zero context denominator. Regenerate affected final/replay evidence, ledgers, current indexes and all changed reports, then obtain fresh independent review.",
+    "Hash-verify every artifact in the CURRENT pinned preserve-manifest internally before writes and delivery, emitting only counts/status. The independent reviewer rechecks all preserved inputs."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "FIRST read the current F02 repair-scope.json and compact repair-context.json pinned by repair_authorization. Current F02 ownership and command mapping replace obsolete F01/review-only instructions. The operator context recovery source/output limits remain binding.",
+    "Observed confirmed gpt-6.1-sol/high configuration and a distinct fresh actor are required. Claim only the exact new absent repair attempt, write a fresh checkpoint and verify all preserved inputs before product writes. Do not recreate or write any frozen root.",
+    "Correct only the current F02 component and dependent evidence/reports in the fresh run; preserve resolved F01, all primary tiles, accepted nonassigned records, registry history and zero context denominator. Keep every original acceptance criterion and test unchanged; apply the latest scope command-prefix mapping.",
+    "Original source scope remains pages 29-32, reference-only page 28 and exact page-33 continuation crop. Set clipping before text/pixel output. A context/helper refusal or indispensable extra source requirement stops the session for new coordinator scope.",
+    "Generate the complete final and two independent serial replay artifact sets separately. No multiprocessing or worker pools. Do not inherit old observations or green checks; freshly inspect every assigned original/boundary/component and revalidate all required checks.",
+    "Preserve the inherited pinned toolchain paths including bundled site-packages and Poppler. Capture all validation/check output in new private logs; release commands/exits and scoped summaries only. Use approved exact unchanged execution for observed Windows access failures; no denied restricted retry, ACL changes or weakened tests.",
+    "Only the supervisor launches subsequent roles. No source/product tooling/schema/test edits outside the owned repair run, online services, global configuration, nested agents, unrelated tasks, semantic acceptance or downstream IG-3 work."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation.",
+    "Provide complete source-pins, preservation and replay reports; exact full/task/context denominator counts, source uncertainties and entry/exit continuation IDs; the independent reviewer must validate the exhaustive frozen artifact set and all original/appended criteria.",
+    "Actual runtime configuration_evidence/configuration_sha256 and actor/model/reasoning belong on every claim/delivery/review. Record UTC/wall time, tokens only when exposed (otherwise null), failures/retries and unresolved decisions without inventing semantic approval."
+  ],
+  "semantic_acceptance_required": false,
+  "tool_context": [
+    "README.md",
+    "docs/work/WORKFLOW.md",
+    "scripts/workflow.py",
+    "scripts/check.ps1",
+    "scripts/search_task.py",
+    "scripts/dependency_context.py",
+    "scripts/context_guard.py",
+    "scripts/task_access.py",
+    "scripts/orchestrate_ig2.py",
+    "docs/skills/wgc-queue/SKILL.md",
+    "docs/work/EVIDENCE.md",
+    "contracts/ig/README.md",
+    "contracts/ig/regions.schema.json",
+    "src/wgc/sources/README.md",
+    "src/wgc/sources/__init__.py",
+    "src/wgc/sources/__main__.py",
+    "src/wgc/sources/inventory.py",
+    "src/wgc/sources/geometry.py",
+    "src/wgc/sources/pdf.py",
+    "docs/skills/wgc-execute/SKILL.md",
+    "docs/skills/wgc-review/SKILL.md"
+  ],
+  "dependency_scope": {
+    "physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  "inventory_contract": {
+    "format": "wgc-inventory-batch-contract-1",
+    "input_pins": {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+      "sha256": "e05b6bd9b1d2cc528f4721f916872ace358a2f9b84a5e119dc76c30970753f3d",
+      "bytes": 12381
+    },
+    "attempt_root": "private/workflow/runs/IG-2B08/repair-F02-7582f722",
+    "physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only_physical_pages": [
+      28,
+      33
+    ],
+    "placeholder_target_ids": [
+      "region:d82e8fe6-a402-40f2-9f6a-8778c4e392a2",
+      "region:1129da76-b660-47f5-ae4d-1135333a447f",
+      "region:f8abe014-2cf3-4d93-ad65-411a23fd81bb",
+      "region:b57e73bf-1c15-4d79-a39e-d5e342b5cc6d"
+    ],
+    "retained_context_ids": [
+      "region:720a5d03-c721-469b-8a5e-2b91cb653a02"
+    ],
+    "full_source_page_count": 44,
+    "independent_replay_count": 2,
+    "evidence_generation": "Serial in the current Python process; no multiprocessing, ProcessPoolExecutor or worker process pools.",
+    "scope": "Physical source inventory and transcription/descriptive observations only; no source-meaning approval or executable gameplay claims.",
+    "fresh_context_only_physical_pages": [
+      33
+    ],
+    "source_access": {
+      "inventory_physical_pages": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "context_only": [
+        {
+          "physical_page": 28,
+          "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+        },
+        {
+          "physical_page": 33,
+          "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+          "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+          "box_points": [
+            45,
+            50,
+            306,
+            80
+          ],
+          "box_normalized": [
+            73529,
+            63131,
+            500000,
+            101011
+          ],
+          "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+          "raster_144dpi": {
+            "x": 90,
+            "y": 100,
+            "width": 522,
+            "height": 60
+          },
+          "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+        }
+      ],
+      "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+      "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+    }
+  },
+  "context_recovery_authorization": {
+    "incident": {
+      "path": "private/workflow/runs/IG-2B08/review-4705d02f/context-incident.json",
+      "sha256": "d20abb948fcd451e9b049ad30c791af68a2c4aa9d5f0bb1f73837ca7a767bc75",
+      "bytes": 3092
+    },
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/scope.json",
+      "sha256": "4a373345b2224961f1b11f325bd977c895ffe265ce4a429221c03e3bc3b31f56",
+      "bytes": 6585
+    },
+    "assessment": {
+      "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+      "sha256": "c7f1ffa405dba10eba5f20ae63d34314caa2de3832074509fc3f256718924a2e",
+      "bytes": 2387
+    }
+  },
+  "repair_authorization": {
+    "review_evidence": "private/workflow/runs/IG-2B08/review-86a341a9/review.json",
+    "review_sha256": "4f5e6693ed8159c02d0ef85f2cbf16ad76e83a4a2135e495b47e21f95faeabe7",
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-scope.json",
+      "sha256": "bae2982cb7c203611152224e9cc757e7f2c5f370a21165767d11525de5db473b",
+      "bytes": 21623
+    },
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/authorization-verified.json",
+      "sha256": "1e578c8790ce88257c1dd01d1d324ce3d96ef36550e29c4124f0bd5d445fb759",
+      "bytes": 8046
+    },
+    "attempt": "private/workflow/runs/IG-2B08/repair-F02-7582f722/"
+  }
+}

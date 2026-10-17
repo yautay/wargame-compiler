@@ -1,0 +1,116 @@
+--- verified-product-before/src/wgc/sources/inventory.py
++++ src/wgc/sources/inventory.py
+@@ -102,11 +102,27 @@
+     return {'path':relative,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}
+ 
+ 
++def page_basis(page):
++    """Physical address and coordinate basis, independent of labels/evidence."""
++    return {k:page[k] for k in ('id','key','source_revision','pdf_page','media_box',
++                               'crop_box','effective_crop_box','rotation','user_unit')}
++
++
++def page_basis_hash(page):
++    return digest(page_basis(page))
++
++
+ def partition_hash(document):
+-    """Coverage-independent scope basis avoids a circular exclusion hash."""
+-    return digest({'source_revision':document['source']['sha256'],
+-                   'regions':sorted([{'id':r['id'],'page_id':r['page_id'],'box':r['box']}
+-                                     for r in document['regions'] if r['denominator_role']=='inventory'],key=lambda r:r['id'])})
++    """Exact author scope before coverage decisions, avoiding circular hashes.
++
++    This sidecar basis is not the frozen IG-1A whole-record review basis. That
++    separate reconciliation and human decision must still be established.
++    """
++    return digest({'source':document['source'], 'registry':document['registry'],
++                   'pages':sorted([page_basis(p) for p in document['pages']],key=lambda p:p['id']),
++                   'regions':sorted([{k:v for k,v in r.items() if k not in ('coverage','revision')}
++                                     for r in document['regions']],key=lambda r:r['id']),
++                   'reading_order':document['reading_order'], 'links':document['links']})
+ 
+ 
+ def validate(document, root=None):
+@@ -126,6 +142,12 @@
+         raise ValueError('source SHA differs from PDF pin')
+     if len(source['independent_counts']) < 2 or len({c['tool'] for c in source['independent_counts']}) < 2 or any(c['count'] != source['page_count'] for c in source['independent_counts']):
+         raise ValueError('independent PDF page count disagreement')
++    actual_geometry = None
++    if root is not None:
++        from .pdf import source_structure
++        actual_geometry, _ = source_structure(safe_artifact(root,source['pdf']['path']))
++        if len(actual_geometry) != source['page_count']:
++            raise ValueError('missing PDF page/source structure count mismatch')
+     entries = {(e['kind'],e['key']):e['id'] for e in registry['entries']}
+     pages = {}; nums = set()
+     for page in document['pages']:
+@@ -133,10 +155,16 @@
+         if page['id'] in pages or page['pdf_page'] in nums: raise ValueError('duplicate page')
+         if page['id'] != entries.get(('page',page['key'])) or page['source_revision'] != source['sha256']:
+             raise ValueError('page registry/source mismatch')
++        if page['key'] != f'physical-page:{page["pdf_page"]}':
++            raise ValueError('physical page identity remapping is forbidden')
+         for box in [page['media_box'],page['crop_box']]:
+             if len(box)!=4 or box[0]>=box[2] or box[1]>=box[3]: raise ValueError('invalid PDF page box')
+         if effective_crop(page['media_box'],page['crop_box']) != page['effective_crop_box']:
+             raise ValueError('effective CropBox/MediaBox mismatch')
++        if actual_geometry is not None:
++            actual = actual_geometry.get(page['pdf_page'])
++            if actual is None or any(page[k] != v for k,v in actual.items()):
++                raise ValueError('stale page geometry/source structure basis')
+         if page['label']['status'] == 'unknown' and (page['label']['value'] is not None or not page['label']['reason']):
+             raise ValueError('unknown printed label requires null and reason')
+         if page['label']['status'] != 'unknown' and not page['label']['value']:
+@@ -178,13 +206,19 @@
+         if key in links or link['from'] not in regions or link['to'] not in regions or link['from']==link['to']:
+             raise ValueError('duplicate/dangling/self region link')
+         links.add(key)
+-    evidence_ids = set()
++    evidence_ids = {}
+     for ev in document['evidence']:
+         region = regions.get(ev['region_id'])
+         if ev['id'] in evidence_ids or region is None or ev['region_revision'] != region['revision'] or ev['box'] != region['box'] or ev['source_sha256'] != source['sha256']:
+             raise ValueError('duplicate/stale evidence locator')
+         if ev['page_id']!=region['page_id'] or ev['pdf_page']!=pages[region['page_id']]['pdf_page']:
+             raise ValueError('evidence page locator mismatch')
++        page = pages[region['page_id']]
++        if ev['page_basis_hash'] != page_basis_hash(page):
++            raise ValueError('stale evidence page geometry/physical address basis')
++        from .geometry import render_size_pixels
++        if (ev['render_parameters']['width_pixels'],ev['render_parameters']['height_pixels']) != render_size_pixels(region['box'],page,ev['render_parameters']['dpi']):
++            raise ValueError('render DPI/geometry pixel dimensions mismatch')
+         for name in ('text','image','crop_pdf'):
+             artifact = ev[name]; safe_artifact(root or Path.cwd(),artifact['path'])
+             if root is not None and file_pin(root,artifact['path']) != artifact:
+@@ -198,11 +232,19 @@
+             with Image.open(safe_artifact(root,ev['image']['path'])) as image:
+                 if image.size != (ev['render_parameters']['width_pixels'],ev['render_parameters']['height_pixels']):
+                     raise ValueError('render pixel dimensions mismatch')
+-        evidence_ids.add(ev['id'])
++        evidence_ids[ev['id']] = ev
+     for page in pages.values():
+         if page['label']['status']=='verified' and page['label']['evidence'] not in evidence_ids:
+             raise ValueError('printed label evidence missing')
+-    return coverage(document)
++        if page['label']['status']=='verified':
++            ev = evidence_ids[page['label']['evidence']]
++            if ev['page_id'] != page['id'] or ev['pdf_page'] != page['pdf_page']:
++                raise ValueError('printed label evidence belongs to another physical page')
++    if root is not None and file_pin(root,source['pdf']['path']) != source['pdf']:
++        raise ValueError('PDF changed during validation')
++    report = coverage(document)
++    report['source_structure_verification'] = 'verified' if root is not None else 'unverified'
++    return report
+ 
+ 
+ def coverage(document):
+@@ -220,4 +262,8 @@
+                       'gap_reason':'No inventory region accounts for this page area' if assigned<SCALE*SCALE else None})
+     return {'denominator_regions':len(inventory),'context_regions':len(document['regions'])-len(inventory),
+             'levels':levels,'pages':pages,'semantic_acceptance_granted':False,'executable_readiness':'unverified',
++            'exclusion_claims':[{'region_id':r['id'],'level':level,
++                                 'author_scope_freshness':'current' if cov['boundary'] is not None and cov['boundary']['partition_hash']==partition_hash(document) else 'stale',
++                                 'source_ig_review_freshness':'unknown','human_authority':'unverified'}
++                                for r in inventory for level,cov in r['coverage'].items() if cov['status']=='excluded'],
+             'note':'Region counts and geometric accounting do not establish substantive source completeness.'}

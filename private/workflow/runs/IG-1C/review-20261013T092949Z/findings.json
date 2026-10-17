@@ -1,0 +1,48 @@
+{
+  "result": "changes_requested",
+  "findings": [
+    {
+      "id": "IG1C-R01",
+      "priority": "P2",
+      "title": "Account malformed explicit safe scalar tags instead of aborting the import",
+      "location": {"path": "src/wgc/wgu_adapter/parser.py", "start": 114, "end": 115},
+      "related_location": "src/wgc/wgu_adapter/importer.py:126 catches only ParseError",
+      "consequence": "!!bool invalid raises KeyError and !!timestamp invalid raises AttributeError. Neither is converted to ParseError, so import_bytes and the entire import_snapshot abort instead of preserving an error file/record and accounting subsequent files. The current frozen corpus is unaffected; the required malformed-input failure contract is incomplete.",
+      "reproducers": ["terms: [{en: Alpha, extension: !!bool invalid}]\n", "terms: [{en: Alpha, extension: !!timestamp invalid}]\n"],
+      "evidence": {"test": "probes.py::test_malformed_explicit_safe_scalars_are_accounted", "log": "probes.log", "observed_failures": ["KeyError: invalid", "AttributeError: NoneType object has no attribute groupdict"]},
+      "expected_result_justification": "Malformed YAML input must remain raw bytes plus explicit error accounting. Safe constructor selection does not guarantee that invalid scalar content only raises yaml.YAMLError. This follows the task's malformed-record/failure controls and per-file/per-record deliverables, independently of the implementation's exception list.",
+      "required_change": "Normalize malformed supported scalar-constructor failures to a located ParseError without masking unrelated programming defects; retain raw bytes and explicit file/record errors.",
+      "required_verification": ["Both strict existing reviewer probes pass with raw_base64 unchanged and exactly one error record", "Add production regressions including exact file/field/line/column diagnostics", "Verify a multi-file import continues accounting valid files alongside malformed-tag files", "Rerun affected adapter controls, full private accounting and required project/diff checks"],
+      "repair_cycles_used": 0
+    },
+    {
+      "id": "IG1C-R02",
+      "priority": "P2",
+      "title": "Diagnose malformed known WGU structure before counting records as processed",
+      "location": {"path": "src/wgc/wgu_adapter/importer.py", "start": 59, "end": 70},
+      "consequence": "Only required fields, optional id and refs are checked. Known fields that violate the pinned WGU type/enum/container contract receive no diagnostic and count as processed structural candidates. Examples include numeric term definition, invalid rule flag, mapping instead of a table array and unsupported relation type. Raw preservation succeeds, but the processed/raw/error accounting does not distinguish these malformed structures.",
+      "reproducers": ["terms: [{en: Alpha, definition: 42}]", "rules: [{id: R-A, title: A, flags: [unsupported]}]", "tables: [{id: T-A, title: A, tables: {rows: invalid}}]", "relations: [{from: R-A, to: R-B, type: unsupported, status: verified}]"],
+      "evidence": {"test": "probes.py::test_known_schema_invalid_fields_are_not_processed", "log": "probes.log", "observed": "All four cases have zero errors and no structural diagnostics"},
+      "expected_result_justification": "The exact pinned kb.schema.json defines term.definition as Markdown/string, rule.flags as an enum array, table.tables as an array of table objects, and relation.type as an enum. These checks are structural, independent of gameplay meaning. Extensions and deliberately supported local numbering forms still need lossless retention; unknown fields are not to be rejected merely for being unknown.",
+      "required_change": "Validate or explicitly diagnose known optional field types, enumerations and nested collection shapes against the pinned contract; preserve raw/unknown fields. Document explicit supported extensions such as integer step numbering instead of silently treating all arbitrary known-field shapes as processed.",
+      "required_verification": ["All four strict reviewer counterexamples produce located structural errors and retain raw bytes", "Cover malformed optional nested objects/collections, enums and scalar types across known WGU collections", "Keep valid anonymous terms, integer/string nested numbering, terminology and unknown extensions working", "Re-inventory the complete corpus and report any genuine input diagnostics without weakening assertions", "Rerun adapter and required project/diff checks"],
+      "repair_cycles_used": 0
+    },
+    {
+      "id": "IG1C-R03",
+      "priority": "P2",
+      "title": "Preserve schema-valid scalar confusables without false malformed-record errors",
+      "location": {"path": "src/wgc/wgu_adapter/importer.py", "start": 55, "end": 57},
+      "consequence": "Every recognized collection item is forced to be a mapping, including confusables. The pinned termsFile schema permits arbitrary confusables array items. A valid array of strings is preserved but incorrectly creates error records and makes the CLI return failure. The current corpus happens to use mapping items, so executor fixtures do not expose this false rejection.",
+      "reproducer": "terms: [{en: Alpha}]\nconfusables: [Alpha, Beta]\n",
+      "evidence": {"test": "probes.py::test_schema_valid_confusable_scalar_is_preserved_without_false_error", "log": "probes.log", "observed": "2 errors; expected 0"},
+      "expected_result_justification": "The exact pinned schema $defs.termsFile.properties.confusables specifies only type=array and no item type restriction. Scalar strings are therefore contract-valid. Unsupported mapping should be raw/unprocessed when necessary, not mislabeled malformed input.",
+      "required_change": "Apply entity-specific shape rules to confusables; preserve schema-valid scalar/sequence/null entries as supported records or explicit raw/unprocessed records without fabricated structural errors.",
+      "required_verification": ["The existing strict string-array reviewer probe passes with all three records and exact values preserved", "Add coverage for heterogeneous contract-valid confusables entries and extensions", "Retain genuine malformed required entity-record diagnostics and duplicate-ID controls", "Rerun adapter, full private accounting and project/diff checks"],
+      "repair_cycles_used": 0
+    }
+  ],
+  "product_implementation_modified": false,
+  "product_finding_repair_cycles_consumed_by_workflow_gate_recovery": 0,
+  "unchanged_failure_retries": 0
+}

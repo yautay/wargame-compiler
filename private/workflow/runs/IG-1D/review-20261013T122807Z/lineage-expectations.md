@@ -1,0 +1,7 @@
+# Additional explicit merge receipt expectation
+
+The first independent suite covered keyed identical split-child edits/replay and exact lineage history, but had not separately tested content correction of a unique merged child. This unresolved coverage concern justified the additional three-test lineage suite. It runs once; no original failing assertion was retried or weakened.
+
+The merge has two exact prior parent IDs and exactly one declared child. Its operation, decision_id, basis, child kind and scope remain unchanged. The persisted receipt has one matching allocated child. Correcting only that child's definition therefore cannot introduce a choice between multiple child identities. The existing allocation should remain while observations/origin history and revisions change. This expectation derives from the task's persisted allocation and unambiguous correction/replay contract, not from a content fingerprint.
+
+Two controls pass: unchanged merge replay retains the exact registry, and source export retains both exact prior parent revisions plus repeatable canonical bundle bytes without inherited approval. The third probe fails because the implementation compares current value to prior child value before using the uniquely identifying receipt. IG1D-R04 records that failure. Multi-child indistinguishability still requires explicit stable keys or a gap; this probe does not ask the system to guess a split-child mapping.

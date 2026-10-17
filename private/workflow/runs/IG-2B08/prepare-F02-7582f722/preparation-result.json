@@ -1,0 +1,41 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:002-IG-2B08-coordinator-7582f722:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T111422Z-80dfde30/002-IG-2B08-coordinator-7582f722/runtime-configuration.json",
+  "configuration_sha256": "4d8925de4427f1fad224a46afb9a4e9c8cb4e248356752bb48603b0fb0d820e8",
+  "task": "IG-2B08",
+  "status": "changes_requested",
+  "events_unchanged": true,
+  "acceptance_unchanged": true,
+  "tests_unchanged": true,
+  "attempt_absent": true,
+  "queue_sha256": "e4b0fe77d3bdd993aed63c7cb1ace21ce21dd89b877990c50e35bb56c728167e",
+  "scope": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-scope.json",
+    "sha256": "bae2982cb7c203611152224e9cc757e7f2c5f370a21165767d11525de5db473b",
+    "bytes": 21623
+  },
+  "authorization": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/authorization.json",
+    "sha256": "982169ae61cc55a48d5c35093aab88d5eb3b391728caf1e0116896ae2bf3be20",
+    "bytes": 6258
+  },
+  "checks": [
+    {
+      "command": "Verify current review, immutable delivery, complete preservation manifest and named current input hashes",
+      "exit_code": 0,
+      "delivery_artifacts": 5302,
+      "preserved_artifacts": 10358
+    },
+    {
+      "command": "Verify fresh owned attempt is absent and preserve exact acceptance/tests",
+      "exit_code": 0
+    },
+    {
+      "command": "Coordinator queue delta, render, view validation and repair authorization validation",
+      "exit_code": 0
+    }
+  ]
+}

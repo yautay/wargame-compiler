@@ -1,0 +1,53 @@
+{
+  "criteria": [
+    {
+      "criterion": "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+      "outcome": "PASS",
+      "basis": [
+        "independent-expectations.json",
+        "content-observations.json",
+        "character-word-audit.json",
+        "secondary-independent.json"
+      ],
+      "limit": "No approved editorial exclusion or semantic acceptance."
+    },
+    {
+      "criterion": "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+      "outcome": "PASS",
+      "basis": [
+        "crop-reproduction.json",
+        "secondary-independent.json",
+        "content-observations.json"
+      ],
+      "limit": "Literal extraction remains partial; explicit R02 advisory is not normalized into source bytes."
+    },
+    {
+      "criterion": "Independent review compares the assigned pages against the complete region ledger.",
+      "outcome": "PASS",
+      "basis": [
+        "configuration.json",
+        "content-observations.json",
+        "review-report.md"
+      ],
+      "limit": "Distinct current session inspected originals and complete final ledger; not executor self-review."
+    }
+  ],
+  "coordinator_assessment": "All exact queue criteria are met in the bounded inventory scope based on the separate reviewer PASS and verified frozen evidence. P2/P3 disposition is recorded separately; no semantic approval is inferred.",
+  "basis": [
+    {
+      "path": "private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/review.json",
+      "bytes": 155239,
+      "sha256": "d6dd7856f8171cae8831b282e820f69c8e65091ec48fe74e5e01a95fa43db3bb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/closure-20261014T183702Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/verification.json",
+      "bytes": 283358,
+      "sha256": "81fa2f2a19e719424233cf6a962663f557d41c04f80fae92b1812ae74a3affe4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/closure-20261014T183702Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/finding-dispositions.json",
+      "bytes": 6582,
+      "sha256": "13ce865b58d99de2c81506250c51b7979956d037142a226f736d7d5a06fff743"
+    }
+  ]
+}

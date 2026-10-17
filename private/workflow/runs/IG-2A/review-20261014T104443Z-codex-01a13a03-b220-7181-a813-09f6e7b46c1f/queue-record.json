@@ -1,0 +1,119 @@
+{
+  "id": "IG-2A",
+  "title": "Build independent source inventory tooling",
+  "stage": "IG-2",
+  "status": "review",
+  "kind": "implementation",
+  "depends": [
+    "IG-1E"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Create page/region inventory, evidence locator and coverage-accounting tools.",
+  "outputs": [
+    "contracts/ig/regions.schema.json and documented wgc-inventory-1 contract",
+    "Local source page/region inventory, coordinate/evidence/coverage tools and synthetic tests",
+    "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/ inventories, evidence, repeatability and regression reports",
+    "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/ frozen repair delivery and independent-review handoff"
+  ],
+  "write_scope": [
+    "src/wgc/sources/",
+    "tests/sources/",
+    "contracts/ig/regions.schema.json",
+    "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/"
+  ],
+  "inputs": [
+    "Official PDF private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e; independent physical page count 44",
+    "Fresh official provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json SHA256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+    "Synthetic public layout/geometry/coverage cases; real evidence verification physical pages 1-4 only; all-page geometry and embedded-label accounting.",
+    "Final coordinator refinement private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json; stable persisted identity and evidence/coverage contracts."
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "contracts/ig/README.md",
+    "src/wgc/contracts/source.py",
+    "private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json",
+    "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/scope.json",
+    "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/dispositions-before.json"
+  ],
+  "acceptance": [
+    "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "Unknown or excluded areas are visible; partial/gap is never represented."
+  ],
+  "tests": [
+    "Synthetic missing-page, duplicate-region, overlapping-context, table-note and coordinate-conversion cases.",
+    "Check independent PDF page count and stable region IDs.",
+    "Explicit tests/sources with fresh short basetemp and -p no:cacheprovider; check.ps1 -Task IG-2A while active; workflow validate; git diff --check.",
+    "Two fresh structural inventories with reused persisted registry; compare identical canonical bytes and region identities; independent Poppler and pypdf count; inspect real rendered pages 1-4."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+  ],
+  "semantic_acceptance_required": false,
+  "events": [
+    {
+      "from": "planned",
+      "to": "ready",
+      "utc": "2026-10-13T15:59:34.440138+00:00",
+      "evidence": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/ready.json",
+      "sha256": "e96692ed74389b0cdb33c21db06ebdd887624322c8745291dc71faa9f104c6e0"
+    },
+    {
+      "from": "ready",
+      "to": "in_progress",
+      "utc": "2026-10-13T15:59:36.800777+00:00",
+      "evidence": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/claim.json",
+      "sha256": "750915e9c1146c0955e65b062b6d156a9e7f23124dc068fc69704b346ce1ef58"
+    },
+    {
+      "from": "in_progress",
+      "to": "review",
+      "utc": "2026-10-13T16:17:53.321661+00:00",
+      "evidence": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery.json",
+      "sha256": "31a175fb77f14a586f03327c3674a05a4b4ae9f7296932ef757669428d454290"
+    },
+    {
+      "from": "review",
+      "to": "changes_requested",
+      "utc": "2026-10-14T09:32:21.020206+00:00",
+      "evidence": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/coordinator-decision.json",
+      "sha256": "8190eac51f8dc792acb8e48c31c885d1952d1707000c30dd8980032b9bc994cd"
+    },
+    {
+      "from": "changes_requested",
+      "to": "in_progress",
+      "utc": "2026-10-14T09:32:29.160286+00:00",
+      "evidence": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/claim.json",
+      "sha256": "e3fd9da4e74fb2f3007219c993be64973095dcbd9ca3b79228e01e78c2cc5212"
+    },
+    {
+      "from": "in_progress",
+      "to": "review",
+      "utc": "2026-10-14T09:48:32.959173+00:00",
+      "evidence": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery.json",
+      "sha256": "c69df3b2867f440c6b330159a2d335dff6bf959192ebb9d3ac5d0ea59977195e"
+    }
+  ]
+}

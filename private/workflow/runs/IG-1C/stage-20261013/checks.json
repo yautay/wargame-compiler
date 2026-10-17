@@ -1,0 +1,24 @@
+[
+  {
+    "command": ".venv/Scripts/python.exe -m pytest tests/wgu_adapter -q -p no:cacheprovider --basetemp private/workflow/checks/c2 --tb=short",
+    "exit_code": 0,
+    "tests_passed": 31,
+    "reported_seconds": 0.68
+  },
+  {
+    "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1C/stage-20261013/full_audit.py (authorized native handle escalation)",
+    "exit_code": 0,
+    "independent_report": "private/ig/projects/spqr/runs/import/ig1c-20261013/independent-accounting.json"
+  },
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1C",
+    "exit_code": 0,
+    "tests_passed": 102,
+    "reported_seconds": 75.53,
+    "result": "private/workflow/checks/active-34524a59441f41569faf8bd8a244281d/result.json"
+  },
+  {
+    "command": "git diff --check",
+    "exit_code": 0
+  }
+]

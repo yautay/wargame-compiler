@@ -1,0 +1,41 @@
+{
+  "task": "IG-2B08",
+  "role": "executor",
+  "actor": "ig2:002-IG-2B08-executor-1edb0a28:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/002-IG-2B08-executor-1edb0a28/runtime-configuration.json",
+  "configuration_sha256": "c406cdcd45f72e382cfbc948014f8c9db3d10acec7628f181d92974ee04858b6",
+  "summary": "Blocked after the fresh page-33 upper-edge crop included part of the following design note beyond the authorized initial continuation block.",
+  "criteria": [
+    "Source access remained limited by the assigned page/region contract; an overbroad boundary crop prevents continuing this role."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-context-incident.json",
+      "sha256": "03165b8451856403b8599a111119a81e5af23a779669627635200f98e941e190",
+      "bytes": 3014
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/checkpoint-blocked.json",
+      "sha256": "f3d585ad5ec65c39a52778a5125436d178ee9c9514d075204cfcda95324613db",
+      "bytes": 4545
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py transition --task IG-2B08 --to in_progress --evidence private/workflow/runs/IG-2B08/inventory-8d84cd90-01/claim.json",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-8d84cd90-01/inspect_originals.py",
+      "exit_code": 0
+    }
+  ],
+  "blocker": {
+    "fact": "Page-33 crop included part of the next note outside the initial continuation.",
+    "impact": "The session has observed source content outside its bounded authorization. Source-access gates remain binding; the session cannot supply a clean inventory delivery.",
+    "resolution": "Assess the scoped incident and prepare a fresh executor session with exact page-33 continuation bounds. Preserve this attempt as immutable and unaccepted; authorize any reuse explicitly.",
+    "owner": "coordinator/operator"
+  }
+}

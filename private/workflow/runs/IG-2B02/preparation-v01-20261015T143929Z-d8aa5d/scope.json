@@ -1,0 +1,64 @@
+{
+  "format": "wgc-validation-repair-scope-1",
+  "task": "IG-2B02",
+  "created_utc": "2026-10-15T14:39:29.457024+00:00",
+  "review_evidence": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+  "review_sha256": "9a0b8d62bc16db1770175c6ff537d262070b4478a83b298af0c5c069f0a956c8",
+  "finding_ids": [
+    "IG-2B02-V01"
+  ],
+  "mode": "validation_only",
+  "attempt": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/",
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/delivery.json",
+    "sha256": "41ae905b02b47fce1c6f5545e617df563963ab041406a8c2f483e8dc233ccf6f"
+  },
+  "acceptance": [
+    "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+    "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+    "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+    "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+    "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact."
+  ],
+  "tests": [
+    "Root inventory.validate/CLI validates byte-pinned PDF, strict pypdf and Poppler 44-page counts, actual all-page geometry, schema/canonical revisions, registry, partitions and reading order.",
+    "Visual inspection of every original assigned page 5-8 and all proposed region boundaries/components; exact current evidence artifact SHA256/bytes, rational crop bounds, Unicode offsets, page_basis_hash and predicted/actual PNG dimensions.",
+    "Compare accepted nested records 1-4, 9-44 placeholders, registry entries, old evidence and old links with baseline; repeat persisted-registry authoring in fresh output directories and compare identical canonical bytes/IDs.",
+    "Check zero context denominator, page-5 context-to-new-author correspondence and recorded bounded continuation access; explicit content/representation/geometric gaps at all levels.",
+    "Run explicit unchanged tests/sources with fresh short basetemp and -p no:cacheprovider; scripts/check.ps1 -Task IG-2B02 while active; workflow validate; git diff --check. Reproduce/escalate tool failures without editing tools/tests/contracts or weakening checks."
+  ],
+  "allowed_changes": [
+    "New claim/checkpoint, approved validation logs, environment/configuration evidence and preservation reports in the fresh attempt only.",
+    "New delivery envelope preserving every original ordered artifact entry as its prefix and appending fresh operational evidence."
+  ],
+  "prohibited_changes": [
+    "No edits to frozen R01/R02 delivery, source, inventory, registry, evidence, IDs, revisions, boxes, links, coverage, denominators, implementation, tests, tools, contracts, libraries, ACLs or global settings.",
+    "No source content authoring or new semantic acceptance. No reuse of an existing attempt."
+  ],
+  "validation_environment": {
+    "basis": "Use process_pythonpath and process_path_prefix from the pinned task toolchain.json; both repo/src and bundled Python site-packages are required.",
+    "permissions": "Default workspace-write; exact unchanged validation command may request automatic approval through --approve-for-me. No sandbox bypass.",
+    "changed_condition": "Original restricted-token mode0700 pytest directory failure is avoided by approved test execution. Existing reportlab is reached through complete pinned PYTHONPATH."
+  },
+  "required_checks": [
+    "Unchanged tests/sources with fresh short basetemp and -p no:cacheprovider; do not reuse failed directories.",
+    "scripts/check.ps1 -Task IG-2B02; scripts/workflow.py validate; git diff --check.",
+    "Reverify every immutable original artifact and preserve the entire original ordered manifest; inspect environment/tool/configuration provenance."
+  ],
+  "verified_remedy_evidence": [
+    {
+      "path": "private/workflow/checks/v01-permitted-host-02/sources-result.json",
+      "sha256": "9bcbef56d4ee197a75c796bdf0f2b0a3d531667ebd531ef4d1f48d3061ef5f1f"
+    },
+    {
+      "path": "private/workflow/checks/v01-permitted-host-02/sources-tests.log",
+      "sha256": "9efc670c4ee71f5744e872d2cf6e03ca1c8f4d98d4646d1fe200f6b7a5a2a84c"
+    },
+    {
+      "path": "private/workflow/checks/active-77c47c3a170b47889fa1981ee6449cb0/result.json",
+      "sha256": "737e9e3707432a24e868dc78f88e169a4b80ae371ba434f46598460583aa19d2"
+    }
+  ],
+  "prior_failed_attempts": "Preserved unchanged. R01/R02 are completed source corrections, not the current repair authorization.",
+  "next_operation": "Fresh gpt-6.1-sol/high executor validates these pins/ownership, claims the new absent attempt, reruns required checks with permitted execution, freezes a new delivery, and stops for independent review."
+}

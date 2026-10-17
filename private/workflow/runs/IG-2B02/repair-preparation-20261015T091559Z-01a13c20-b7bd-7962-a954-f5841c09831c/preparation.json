@@ -1,0 +1,65 @@
+{
+  "purpose": "Repair instruction preparation only; no repair, session creation, queue transition or acceptance.",
+  "prepared_utc": "2026-10-15T09:15:59.789772+00:00",
+  "preparer_actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "preparation_directory": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "reserved_absent_repair_attempt": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "queue_snapshot": {
+    "path": "docs/work/queue.json",
+    "bytes": 152236,
+    "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+  },
+  "review_event": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-14T21:57:09.490446+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "original_delivery_directory": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+  "independent_review_directory": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634",
+  "original_delivery": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "bytes": 811893,
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "original_delivery_manifest": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-manifest.json",
+    "bytes": 801187,
+    "sha256": "593fbe0c8af8166b241382df47513e20e05851ae65ab30c03f9c46834732796b"
+  },
+  "original_delivery_seal": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-seal.json",
+    "bytes": 27796,
+    "sha256": "4fad3c1c4284105d93763dca713313a008c80ea0a72a30e7ffb23cd386bdc878"
+  },
+  "review": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review.json",
+    "bytes": 1092972,
+    "sha256": "15b956fa0db53afc77a9ab58b882aacd2dfb2a93226ad7847043d4326c3a714a"
+  },
+  "review_manifest": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review-manifest.json",
+    "bytes": 1156383,
+    "sha256": "89b71e3a09d9dd54cbd8a52f01096bfcd24134cd1d5bd32036187c8bef59fe59"
+  },
+  "review_seal": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review-seal.json",
+    "bytes": 285018,
+    "sha256": "5321bd541b8417a84ab4d6d7a73667c803407caa5c2d0b49d3900fb695142e65"
+  },
+  "findings": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/findings.json",
+    "bytes": 10934,
+    "sha256": "5b8ed6cbbea4855a57531b6b298c39017c84626151e2844177c07cbb5e96653a"
+  },
+  "task_acceptance_unchanged": [
+    "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+    "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+    "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+    "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+    "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact."
+  ],
+  "authorization": "Current operator requested preparation only. Applying coordinator queue setup or executing repair requires a subsequent operator instruction.",
+  "scope_gate": "Current task is review and write_scope still names frozen original executor. A coordinator must record bounded changes_requested and authorize exact new repair scope before new executor claim."
+}

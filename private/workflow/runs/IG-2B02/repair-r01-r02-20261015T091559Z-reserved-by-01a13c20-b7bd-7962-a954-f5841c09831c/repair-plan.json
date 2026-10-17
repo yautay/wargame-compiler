@@ -1,0 +1,113 @@
+{
+  "task": "IG-2B02",
+  "actor": "codex-01a13f2d-eb41-7760-9e94-99f0508d544a",
+  "created_utc": "2026-10-15T10:54:19.113663+00:00",
+  "configuration": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json",
+    "bytes": 1353,
+    "sha256": "2aabecba69bda9bf8464169d85c76bdaa9e7d7d6c077cace419da4a8a4f564ed"
+  },
+  "coordinator_handoff": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-handoff.json",
+    "bytes": 10212,
+    "sha256": "25981b997260db9081fec33f61083c2fcf52e0a7c26928e22c55300f776dcb09"
+  },
+  "claim": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/claim.json",
+    "bytes": 4310,
+    "sha256": "862c1174cc31d7ec562fd0183306652f05a81935030d2f8aecae2f2f5ebd4234"
+  },
+  "scope": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json",
+    "bytes": 24506,
+    "sha256": "50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9"
+  },
+  "targets": [
+    {
+      "finding_id": "IG-2B02-R01",
+      "region_id": "region:cbf6f8d6-889b-4fcb-bc54-a41a8d9052d0",
+      "key": "ig2b02:p5:alae:counter",
+      "before": [
+        "AS XIVa identifier (small glyph uncertain)",
+        "CO",
+        "J missile glyph",
+        "3",
+        "LG",
+        "6",
+        "5",
+        "Soldier illustration"
+      ],
+      "after": [
+        "AS XIVa identifier (small glyph uncertain)",
+        "CO",
+        "J missile glyph",
+        "3",
+        "LG",
+        "5",
+        "5",
+        "Soldier illustration"
+      ]
+    },
+    {
+      "finding_id": "IG-2B02-R02",
+      "region_id": "region:c3d45e49-7d30-4572-92f7-7ffcb468e840",
+      "key": "ig2b02:p5:light-infantry:counter",
+      "before": [
+        "Thrace",
+        "J missile glyph",
+        "5",
+        "LI",
+        "5",
+        "5",
+        "Soldier illustration"
+      ],
+      "after": [
+        "Thrace",
+        "1",
+        "J missile glyph",
+        "5",
+        "LI",
+        "5",
+        "5",
+        "Soldier illustration"
+      ]
+    },
+    {
+      "finding_id": "IG-2B02-R02",
+      "region_id": "region:66a11202-3a57-4637-a1ac-308cb62e2662",
+      "key": "ig2b02:p5:javelinists:counter",
+      "before": [
+        "Thrace",
+        "J missile glyph",
+        "5",
+        "LI",
+        "5",
+        "5",
+        "Soldier illustration"
+      ],
+      "after": [
+        "Thrace",
+        "1",
+        "J missile glyph",
+        "5",
+        "LI",
+        "5",
+        "5",
+        "Soldier illustration"
+      ]
+    }
+  ],
+  "effective_components_rule": "For each specification key, use corrections_after_enlargement[key] when present, otherwise specification.components. Canonical inventory records never contain these component sidecars. Original generators and drafts are historical inputs only.",
+  "source_observations": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/source-observations.json",
+    "bytes": 9908,
+    "sha256": "0c8501b1d5ffe3f9e8e840944a21ad38247521820a74eaa93701bd3f798a1f5d"
+  },
+  "cycle": 1,
+  "max_cycles_per_finding": 2,
+  "max_unchanged_retries": 2,
+  "canonical_policy": "Byte-identical snapshot copies; no canonical identity/revision/evidence/geometry/coverage change.",
+  "unchanged_report_policy": "Explicit inherited baseline payload plus immutable attribution; current snapshot/report authority is separate and pinned.",
+  "replay_policy": "Persist code and replay twice into fresh children. All logical metadata references remain the primary new attempt, so output bytes are exactly reproducible.",
+  "stop": "Review only; no acceptance or reviewer launch."
+}

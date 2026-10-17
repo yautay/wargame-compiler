@@ -1,0 +1,64 @@
+{
+  "actor": "ig2:001-IG-2B08-coordinator-8d84cd90:coordinator",
+  "role": "coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/001-IG-2B08-coordinator-8d84cd90/runtime-configuration.json",
+  "configuration_sha256": "6c19c296fa6ae7aeb13455fa4baf8e3c500b018d22bd793b17c53706c776e168",
+  "format": "wgc-inventory-refinement-check-1",
+  "task": "IG-2B08",
+  "result": "passed",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "assigned_pages": [
+    29,
+    30,
+    31,
+    32
+  ],
+  "placeholder_count": 4,
+  "baseline_counts": {
+    "pages": 44,
+    "regions": 941,
+    "evidence": 925,
+    "links": 229
+  },
+  "input_pin_count": 9,
+  "input_hashes_verified": true,
+  "dependency_done_pin_verified": true,
+  "other_tasks_unchanged": true,
+  "original_acceptance_and_tests_preserved_verbatim": true,
+  "human_gate_unchanged": true,
+  "future_executor_directory_absent": true,
+  "estimated_packet_bytes_upper_bound": 66803,
+  "product_writes": 0,
+  "source_inspection_claims": 0,
+  "queue_after_refinement": {
+    "path": "docs/work/queue.json",
+    "sha256": "8db27a99d11c176082f86a9aed9c1854e0c9fe76dc460454312163f1294d3ebb",
+    "bytes": 250247
+  },
+  "context_policy_after_refinement": {
+    "path": "docs/work/context-policy.json",
+    "sha256": "c7c9780750b78273db3e41ffc3e954f26361481e8ddd3060987efeec1a8d079a",
+    "bytes": 11061
+  },
+  "input_pins": {
+    "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/input-pins.json",
+    "sha256": "257fbc9a5014cb1370d2566e26a8913333cb4df5cf953c7e0b3df5b9ad7a3ba5",
+    "bytes": 10973
+  },
+  "next_operation": "Run unchanged sources tests and diff check; freeze real ready evidence and transition only this task."
+}

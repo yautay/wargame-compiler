@@ -1,0 +1,143 @@
+{
+  "role": "executor",
+  "actor": "ig2:002-IG-2B07-executor-78a83e6c:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/002-IG-2B07-executor-78a83e6c/runtime-configuration.json",
+  "configuration_sha256": "86b268a63be952b272f095821fee7bb6cd40a3e2a8cb3cba60a11ecfb5c0a95a",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/inventory-25-28-01/pytest-sources -p no:cacheprovider --tb=short",
+      "execution": "restricted",
+      "exit_code": 1,
+      "observation": "PermissionError: [WinError 5] Access is denied to the mode-0700 pytest basetemp; fixture setup and session cleanup failed. No restricted retry."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/inventory-25-28-01/pytest-sources -p no:cacheprovider --tb=short",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "71 passed in 15.50s"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "execution": "restricted",
+      "exit_code": 1,
+      "observation": "WinError 5 on pytest basetemp. Plan and task dry-run passed; pytest=1, diff=0."
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "274 passed in 49.80s; plan, dry-run, tests and diff all zero."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/inventory.json",
+      "execution": "restricted",
+      "exit_code": 0,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/source-validation.log",
+        "bytes": 10915,
+        "sha256": "2a71352d37211a85ffe1ba284a3a405c79c929604a855b0ef09cea842d36ac3e"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "execution": "restricted",
+      "exit_code": 0,
+      "output": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/inventory-25-28-01/check_accounting.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/glyph-accounting-report.json",
+        "bytes": 2622,
+        "sha256": "549d3b26e5d26e35a1f8539b48638710a7a4ad22d486e9b5ce693b1c5cfd6737"
+      }
+    }
+  ],
+  "repository_check_logs": [
+    {
+      "execution": "restricted",
+      "source_log_root": "private/workflow/checks/active-2c8e3751b17e4bffaef524c3e25e9912",
+      "reports": [
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/restricted/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/restricted/dry-run.log",
+          "bytes": 185,
+          "sha256": "9bf9218e36955739f7c3b853841897a58e7f67676eb07d25208baffc1ed77b53"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/restricted/pytest.log",
+          "bytes": 4618,
+          "sha256": "3255c3ce80fb76a6de430a76dc40adbbb17478c25934c5b2686febdb3e2de0a2"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/restricted/diff-check.log",
+          "bytes": 277613,
+          "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/restricted/result.json",
+          "bytes": 206,
+          "sha256": "105c855cace8faab3a316eac6fbe5a9d99d99e0053439ef61403d4a5e2d95241"
+        }
+      ],
+      "result": {
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-2c8e3751b17e4bffaef524c3e25e9912\\pytest",
+        "tests_exit": 1,
+        "diff_exit": 0,
+        "plan_exit": 0,
+        "dry_run_exit": 0
+      }
+    },
+    {
+      "execution": "approved",
+      "source_log_root": "private/workflow/checks/active-1470e03dd2714e37b581c423c22abbd0",
+      "reports": [
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/approved/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/approved/dry-run.log",
+          "bytes": 185,
+          "sha256": "9bf9218e36955739f7c3b853841897a58e7f67676eb07d25208baffc1ed77b53"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/approved/pytest.log",
+          "bytes": 346,
+          "sha256": "d103b0bbff5b31b17f78fedb0af4202db01783ff892d69302350fe3ac9ced47d"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/approved/diff-check.log",
+          "bytes": 5187,
+          "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/check-logs/approved/result.json",
+          "bytes": 206,
+          "sha256": "04f0af0d24d8e2683dc0e2a64f4d98b3d3758a3b6b5d67525ea6821be31f4d9f"
+        }
+      ],
+      "result": {
+        "tests_exit": 0,
+        "plan_exit": 0,
+        "diff_exit": 0,
+        "dry_run_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-1470e03dd2714e37b581c423c22abbd0\\pytest"
+      }
+    }
+  ],
+  "policy": "Exact commands, tests, assertions, ACLs, dependencies and global configuration unchanged. Approved execution followed the operator-authorized Windows restricted-token validation path.",
+  "recorded_utc": "2026-10-16T20:27:40.752777+00:00"
+}

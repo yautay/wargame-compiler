@@ -1,0 +1,257 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "summary": "F03/F04 complete intended components verified; F01/F02 regressions, complete independent serial replays, preservation, indexes and unchanged required suites passed.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/inspect_originals.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/original-inspection.log",
+        "bytes": 705,
+        "sha256": "4b561aa199ab8eac608725b51ce37fdc04db2f64206ee461dd094eedc211ce7e"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py prepare",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/prepare-corrected.log",
+        "bytes": 70,
+        "sha256": "c2e9918d2a21b77f6c2795bdf0fd1cb69e2ca88eaba8b1f2dc25adafbed4cceb"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/preflight.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/proposal-preflight-corrected.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py final-verified",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-generation.log",
+        "bytes": 618,
+        "sha256": "34d84eb4f504d2bb9abc87cdfc4c57113415a595c0c7399547ac8327ba63f28d"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py replay-1",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1-generation.log",
+        "bytes": 576,
+        "sha256": "3ea83e1af715f3a4650ab2e5307c93dfe8bd5cb4673686138e550d3ee8c8bb27"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py replay-2",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2-generation.log",
+        "bytes": 576,
+        "sha256": "dfe12a4737b7517e1a7d276c0273d23426321fb8b02e3cdb4ba797d4261c39d5"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F03-F04-01/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/source-suite-execution.json",
+        "bytes": 1406,
+        "sha256": "47df2f83dd39b161e3fc44f898fff7f1d4b8146970e5aa73bc15fb5a52f29f40"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/task_access.py validate-source --file private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/inventory.json",
+      "validator_command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/inventory.json",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/inventory.json",
+        "bytes": 5081773,
+        "sha256": "928de3aba4fee015013173f6e0e9278cd16ae40239992b034cdb7069963bb800"
+      },
+      "exit_code": 0,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-4f6fdb30/ad58ec301bf44331becbe49d64e6274f/stdout.log",
+        "bytes": 11148,
+        "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-4f6fdb30/ad58ec301bf44331becbe49d64e6274f/stderr.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/task_access.py validate-source --file private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/inventory.json",
+      "validator_command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/inventory.json",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/inventory.json",
+        "bytes": 5076931,
+        "sha256": "f5a85768ba667f4a7f5e3ec9b99ca46077673d29a5b355f45f3b5ec56e38308b"
+      },
+      "exit_code": 0,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-4f6fdb30/35ea375661ad4186934a3ce4403fba5b/stdout.log",
+        "bytes": 11148,
+        "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-4f6fdb30/35ea375661ad4186934a3ce4403fba5b/stderr.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/task_access.py validate-source --file private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/inventory.json",
+      "validator_command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/inventory.json",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/inventory.json",
+        "bytes": 5076931,
+        "sha256": "cc0197bfaa6f7fbc859477019ca6f6f7826e22b02a9cbff4109b38fef8257476"
+      },
+      "exit_code": 0,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-4f6fdb30/bdacb854235b4bedaa484c6c0178a538/stdout.log",
+        "bytes": 11148,
+        "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-4f6fdb30/bdacb854235b4bedaa484c6c0178a538/stderr.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/probe_geometry.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/geometric-content-probe.json",
+        "bytes": 3770,
+        "sha256": "e90540aa4dfeeb9b0707d016e2c37ad8a116380b26c4c4cb12d0ff8748252bca"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/check_arrow_completeness.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/arrow-completeness-report.json",
+        "bytes": 4385,
+        "sha256": "632391cdfd30b9d5988385ec806e0e2207c7580ba55d00d70c6a737bf90f45d8"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/check_hit_completeness.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/F02-completeness-report.json",
+        "bytes": 4684,
+        "sha256": "223fdbacc0b1419ae236d47737df445979727a6fd7cfa133b7aa20b69eaf6284"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/check_component_completeness.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/F03-F04-completeness-report.json",
+        "bytes": 7440,
+        "sha256": "8f1a7be7fca75821203b4afeb6772b16304dcf9f30ba0d09855f6b8f54e25236"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/verify_batch.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/batch-verification.json",
+        "bytes": 986,
+        "sha256": "0c17e95b4b907d606848fbaab3a8e0b07064a4d4acb11c01b36b2076f1add5f1"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/full-check-execution.json",
+        "bytes": 4147,
+        "sha256": "a1b0524dabafae210ea5639dcea2f6d87c6b655564fcc3d603bd116cb46c75df"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/diff-check-execution.json",
+        "bytes": 631,
+        "sha256": "caaec5735baecb2a88cd94e3d273cf1ad23d5d58c936a349484b46b5d0aabbfa"
+      }
+    },
+    {
+      "command": "Fresh original pages, all authored boundaries/components and exact page-33 visual inspection",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/visual-qa.json",
+        "bytes": 4530,
+        "sha256": "065827a49192ee595f5d3a4de8a847933be3f03ea5cfd3519d9a5ed64bb8e41f"
+      }
+    },
+    {
+      "command": "Verify all current preservation manifest and frozen input delivery bytes before writes and at delivery",
+      "exit_code": 0,
+      "counts": {
+        "preservation": 19579,
+        "old_delivery": 10255
+      }
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-17T15:20:11.281624+00:00",
+    "ended_utc": "2026-10-17T15:34:32.274645+00:00",
+    "elapsed_wall_seconds": 860.993021,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token counts and operator time were not exposed.",
+    "observed_model": "gpt-6.1-sol",
+    "observed_reasoning": "high"
+  },
+  "repair_findings": [
+    "F03",
+    "F04"
+  ],
+  "repair_cycles": {
+    "F03": 1,
+    "F04": 1
+  },
+  "development_observations": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/development-observations.json",
+    "bytes": 369,
+    "sha256": "0dd66060ecdc95d40b9a97e1e9ebfbdb5e7071e1f92dc821b08435463e2f3702"
+  },
+  "source_suite": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/source-suite-execution.json",
+    "bytes": 1406,
+    "sha256": "47df2f83dd39b161e3fc44f898fff7f1d4b8146970e5aa73bc15fb5a52f29f40"
+  },
+  "repository_check": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/full-check-execution.json",
+    "bytes": 4147,
+    "sha256": "a1b0524dabafae210ea5639dcea2f6d87c6b655564fcc3d603bd116cb46c75df"
+  },
+  "preserved_input_artifacts": 19579,
+  "prior_delivery_artifacts": 10255,
+  "defects_addressed": {
+    "medium": 1,
+    "low": 1
+  },
+  "independent_review": "Pending fresh supervisor-launched reviewer.",
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false
+}

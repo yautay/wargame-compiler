@@ -1,0 +1,74 @@
+{
+  "role": "coordinator",
+  "actor": "operator-b04-context-recovery-20261015",
+  "task": "IG-2B04",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Actual builder configuration is not exposed; no executor claim or semantic acceptance.",
+  "operator_request": "Fix B04 dependency overread, prepare a fresh coordinator and restart IG-2 within its packet.",
+  "format": "wgc-context-assessment-1",
+  "observed_utc": "2026-10-15T18:38:07.030730+00:00",
+  "summary": "The prior coordinator overread dependency metadata. It stopped before readiness or product work. Fresh bounded dependency projections replace raw records/manifests.",
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-ebfb9526-context-block/blocked.json",
+      "sha256": "b6caeb4397dacc52624882b514cec43dbd9ff554368c30ffdfbb20b91584c8f5",
+      "bytes": 2375
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/status.json",
+      "sha256": "e2f76d1e9e0d110c0a28486986aad03ad5586b8cb6676f294df49f13b70fd732",
+      "bytes": 1081
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/task.json",
+      "sha256": "215fe18141bd22b62f831dd4e426cbfc026f6bbbe3f7f48fc03de07e8bd16368",
+      "bytes": 2683
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/packet.json",
+      "sha256": "6e36f2c0fcc1131cf806095e676cb304446547ff708435b83b699d16c0f556f8",
+      "bytes": 1488
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/references.json",
+      "sha256": "5453a0195114b57a92814eff1bc93fe57f66353b5ee5ed840d0a10991cd937fc",
+      "bytes": 339
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/runtime-configuration.json",
+      "sha256": "a4298d4aea80a93d2841dcbbde64ac1321b81b90bcae635820345bd070b6a3ad",
+      "bytes": 1210
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/response.json",
+      "sha256": "5d2d390a742a4d56eea12483e6b900d612e8ce865e19e292a37d0ad86694c71e",
+      "bytes": 317
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/process-result.json",
+      "sha256": "a57e55f40d6d6303218010fde3f46ff6398c13b03e0990e3f6819d64b16597f9",
+      "bytes": 281
+    }
+  ],
+  "incident": {
+    "path": "private/workflow/runs/IG-2B04/coordinator-ebfb9526-context-block/blocked.json",
+    "sha256": "b6caeb4397dacc52624882b514cec43dbd9ff554368c30ffdfbb20b91584c8f5",
+    "bytes": 2375
+  },
+  "facts": {
+    "queue_matches_prior_dispatch": true,
+    "source_pages_accessed_by_prior_coordinator": [],
+    "B03_status": "done",
+    "B03_review": "pass",
+    "old_session_completed": true,
+    "old_supervisor_stopped": true,
+    "fresh_session_required": true
+  },
+  "limits": [
+    "No publisher text/source-page analysis is inherited from the interrupted session.",
+    "No old transcript, dependency event history or full closure/delivery manifest may be printed.",
+    "Pins and prompts define the supported workflow; the OS sandbox remains the technical permission boundary."
+  ],
+  "decision": "Authorize fresh B04 coordination only with exact bounded dependency sections; retain all readiness and independent-review gates."
+}

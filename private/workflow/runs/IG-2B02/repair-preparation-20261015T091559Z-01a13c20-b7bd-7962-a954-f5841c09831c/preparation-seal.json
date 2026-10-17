@@ -1,0 +1,255 @@
+{
+  "task": "IG-2B02",
+  "role": "repair_instruction_preparer",
+  "sealed_utc": "2026-10-15T09:30:07.912888+00:00",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "purpose": "Complete new local GPT-6.1 Sol/high repair instruction for R01/R02 and fresh independent rereview; preparation only.",
+  "original_queue_snapshot": {
+    "path": "docs/work/queue.json",
+    "bytes": 152236,
+    "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+  },
+  "queue_unchanged": true,
+  "status": "review",
+  "event_count": 3,
+  "reserved_repair_attempt_absent": true,
+  "frozen_unique_refs_verified_before_and_after": 4246,
+  "preparation_checks": {
+    "repository_check_exit": 0,
+    "workflow_validate_exit": 0,
+    "git_diff_check_exit": 0,
+    "full_suite": "102 passed",
+    "note": "Existing Xref/line-ending warnings remain in actual logs; no warnings suppressed. These are preparation checks, not source-content review or repair verification."
+  },
+  "instruction": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-launch.txt",
+    "bytes": 35478,
+    "sha256": "8903ed388eb549d23c988a2d5270c2758077bb4c5917b608ffa1daef49408f40"
+  },
+  "coordinator_setup_plan": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-setup.txt",
+    "bytes": 19933,
+    "sha256": "ce3fb5e072946ee798650603d79625828e948d40889aaf37e7d44b5f15617a8a"
+  },
+  "rereview_template": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/independent-rereview-template.txt",
+    "bytes": 6831,
+    "sha256": "7074a21c0c6a790488a2ebefa598dbf3096f516ccebff947c9599f8d0751d2f3"
+  },
+  "selected_queue_patch": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-queue-patch-v2.json",
+    "bytes": 8873,
+    "sha256": "43878efbbf1431ea50f671dcb497ca33049c225b20ff554f081c9dd1814a2913"
+  },
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/audit-instruction-package.py",
+      "bytes": 4219,
+      "sha256": "525656e6a04b2e70da6968c4ec88e7c3a26253c6c2b818f5c5a1d9db84595348"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/build-repair-instructions.py",
+      "bytes": 39159,
+      "sha256": "d60792e6e284ef514705e8d8962b3fe13eef3b3d0ac73260f0fd19d71b1db8e1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/checks.json",
+      "bytes": 2874,
+      "sha256": "790d31cde5fd5ef713308599a98e38b3f0bcb7e70d729880a1314d90ed4c96d7"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-queue-patch-v2.json",
+      "bytes": 8873,
+      "sha256": "43878efbbf1431ea50f671dcb497ca33049c225b20ff554f081c9dd1814a2913"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-queue-patch.json",
+      "bytes": 8578,
+      "sha256": "0681d595f2fdc27a4bf1e66ff87209400e0c64de5e5b8f542eade9f69dbba49b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-setup.txt",
+      "bytes": 19933,
+      "sha256": "ce3fb5e072946ee798650603d79625828e948d40889aaf37e7d44b5f15617a8a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.command.json",
+      "bytes": 712,
+      "sha256": "0ead5b353d5a2b79d1b1e81e83178ba41d6b746a4a3128e5202356fc13fc74e1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stderr",
+      "bytes": 5143,
+      "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-base-pins.json",
+      "bytes": 1164819,
+      "sha256": "328b2fed4fcd34b125c29ac3f5dd5f3036bf2c20f5f6faa1497118a22af1f692"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-base-verification.json",
+      "bytes": 848,
+      "sha256": "a9ac73bac6664909c689243fda1941110e4db69c8060220409078c4dd8072dc3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/independent-rereview-template.txt",
+      "bytes": 6831,
+      "sha256": "7074a21c0c6a790488a2ebefa598dbf3096f516ccebff947c9599f8d0751d2f3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/instruction-delivery.json",
+      "bytes": 2914,
+      "sha256": "4740c6d60e65d3c670c909f285b49d5ce83c2f631260c4db87f7b62d802923d3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/instruction-package-audit.json",
+      "bytes": 1544,
+      "sha256": "2d0adb5494d92951c54a0360dfc27ce31775c8b11372059bff6991e609eed1fb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/launch-gate-pins.json",
+      "bytes": 17165,
+      "sha256": "79cdb8d8681bc86147dd01fab9638b29224d57dc477fb7733bca77c8c957b1bc"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/postchecks-frozen-base-verification.json",
+      "bytes": 849,
+      "sha256": "1ff682f13dabbf4d24fab7d0e9b7800021c81048c20f81f4c455dff2dcf9e59f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/postchecks-frozen-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/postchecks-frozen-verification.stdout",
+      "bytes": 865,
+      "sha256": "f596636d340365e0b9c9dce80fa4f106ef39129bbb81c4b938c80ad44e8b34bf"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/preparation.json",
+      "bytes": 4707,
+      "sha256": "ae1f1afa7ab8b454cc721384033915a6f26b30f136c9e83c5b766f44a9dda088"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/prepare-repair-scope.py",
+      "bytes": 10211,
+      "sha256": "5ac46adf34f79bd97f72528bafd5531e5861c6696a0fb01c94427262fb30e5bb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/proposal-validation.json",
+      "bytes": 1196,
+      "sha256": "6bbfe05e8b4b71dca6033cc91931e5bca4bda1e61734318a4f39e86f8a32b938"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-context-index.json",
+      "bytes": 1458,
+      "sha256": "8850b2e74b050e202ea23d638f0df800462a3abecf41af37103a1e70971f1780"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-launch.txt",
+      "bytes": 35478,
+      "sha256": "8903ed388eb549d23c988a2d5270c2758077bb4c5917b608ffa1daef49408f40"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json",
+      "bytes": 24506,
+      "sha256": "50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.command.json",
+      "bytes": 879,
+      "sha256": "fcc62a8bb456f757393ec7d854ffb1d20bc0bda9bc6ed14a44416b584ae84f33"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stdout",
+      "bytes": 5715,
+      "sha256": "1dc1b8510bd1e1b7a15ce341022d343a595810059bb76936b33c8e74ffe5b495"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/run-preparation-checks.py",
+      "bytes": 2605,
+      "sha256": "4bcabb0c6e4de32a0b014d41f9fa1d5f6b2aa13f6c387e9a50fb93b60f0a382d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/seal-preparation.py",
+      "bytes": 4821,
+      "sha256": "07c8b17e214e60faec936b36a2c2b4ce3518887ea73fac4c61b942af9654604b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/verify-frozen-bases.py",
+      "bytes": 2380,
+      "sha256": "29a67385fadfa6d54c7f6d145447438adcf20212dfbc9b1b9a3fda440967d2a0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.command.json",
+      "bytes": 816,
+      "sha256": "8687ac4c082615588bc4d41f03d4c3c253dbabe44d072840914bbc065a2ceef2"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B02-R01-R02-20261015T091559Z.json",
+      "bytes": 1464,
+      "sha256": "8519e7867dd11f3c7c1313328e7d1c627ccc554e406a992568a3230545a01ebc"
+    },
+    {
+      "path": "private/workflow/checks/active-7501b9c65f6f4d65be7e4be1220d2087/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-7501b9c65f6f4d65be7e4be1220d2087/dry-run.log",
+      "bytes": 185,
+      "sha256": "d591962ea319673eb306a64da7da9cd0c9a37e5fdb87471c3284b22580ff70bd"
+    },
+    {
+      "path": "private/workflow/checks/active-7501b9c65f6f4d65be7e4be1220d2087/pytest.log",
+      "bytes": 184,
+      "sha256": "a2ef65e756a0ce4c219121c2799198a7027526a2665a1e5096ee1b168110e361"
+    },
+    {
+      "path": "private/workflow/checks/active-7501b9c65f6f4d65be7e4be1220d2087/diff-check.log",
+      "bytes": 5187,
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+    },
+    {
+      "path": "private/workflow/checks/active-7501b9c65f6f4d65be7e4be1220d2087/result.json",
+      "bytes": 206,
+      "sha256": "5f3ca502ba48e97e57c8915f27b1d2f971d5bfa2725716f7a2475d0f0c0fe119"
+    }
+  ],
+  "self_exclusion_policy": "This seal excludes itself. Its actual SHA256 and bytes are reported separately; no sealed instruction is rewritten.",
+  "future_queue_and_repair_hashes": null,
+  "future_hashes_reason": "Coordinator setup and repair have not run. Actual future packet/event/output pins must be filled and verified at their stated gates.",
+  "session_created": false,
+  "repair_executed": false,
+  "queue_transition_performed": false,
+  "acceptance_granted": false,
+  "token_usage": null,
+  "token_usage_reason": "Exact usage unavailable to this preparation.",
+  "cost": null,
+  "cost_reason": "Exact cost unavailable.",
+  "operator_time": null,
+  "operator_time_reason": "Not measured.",
+  "next_operation": "Operator may separately authorize coordinator setup; then a new actual-configuration-confirmed repair executor. No launch or acceptance is performed by this preparation."
+}

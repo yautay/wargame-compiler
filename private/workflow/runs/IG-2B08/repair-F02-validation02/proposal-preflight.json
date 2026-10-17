@@ -1,0 +1,99 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "summary": "Exact proposed F02 detail preflight against every strict source-mask pixel before complete regeneration.",
+  "points": [
+    106,
+    495,
+    148,
+    528
+  ],
+  "normalized_box": [
+    173203,
+    625000,
+    241830,
+    666667
+  ],
+  "evidence": {
+    "id": "evidence:550e35487dde393b1cdeea3558a6778e53953d7ab73210bb5081d970242e4e95",
+    "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+    "region_revision": "188734d4dbf600646903254a9c86b2e589cd95785ec29e9941adbc6ec2f0390b",
+    "page_id": "page:8ec728ed-7ab8-4716-b084-6812398a147f",
+    "pdf_page": 29,
+    "box": [
+      173203,
+      625000,
+      241830,
+      666667
+    ],
+    "page_basis_hash": "54b92a7a20c7ed4549e32a048cfb591e596169399a917cb7c54b7ddd37597c14",
+    "crop_pdf": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/proposal-preflight/evidence/crop.pdf",
+      "bytes": 682674,
+      "sha256": "0b25e7e9ae83e22c1650b9d55ded32526f7a3795c208e704ace2bcbb02805ebb"
+    },
+    "text": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/proposal-preflight/evidence/text.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "image": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/proposal-preflight/evidence/image.png",
+      "bytes": 4346,
+      "sha256": "fe81519ade97847d5f0cbafad8fb4c42355a5da24c8e842c74d265117b9ffecd"
+    },
+    "text_codepoints": 0,
+    "text_offsets": {
+      "unit": "unicode_codepoints",
+      "bounds": "half_open",
+      "start": 0,
+      "end": 0
+    },
+    "text_parameters": {
+      "engine": "pdfplumber",
+      "version": "0.11.9",
+      "x_tolerance": 3,
+      "y_tolerance": 3,
+      "layout": false
+    },
+    "render_parameters": {
+      "engine": "poppler-pdftoppm",
+      "version": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC",
+      "dpi": 144,
+      "cropbox": true,
+      "format": "png",
+      "width_pixels": 84,
+      "height_pixels": 67
+    },
+    "crop_parameters": {
+      "engine": "pypdf",
+      "version": "6.10.0",
+      "user_unit_normalized": true,
+      "frame": "displayed-crop-top-left"
+    },
+    "uncertainty": [
+      "Original-page clipped machine extraction; punctuation, diagram labels and counter glyphs unverified; no accepted source meaning."
+    ]
+  },
+  "mask_matches": {
+    "visible_digit": {
+      "expected": 522,
+      "matched": 522
+    },
+    "visible_marker_frame": {
+      "expected": 1463,
+      "matched": 1463
+    },
+    "reported_stem_patch": {
+      "expected": 130,
+      "matched": 130
+    }
+  },
+  "strict_geometry_passed": true,
+  "exit_code": 0
+}

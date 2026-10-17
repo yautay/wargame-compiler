@@ -1,0 +1,36 @@
+{
+  "task": "IG-2B08",
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-18a665c9:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/002-IG-2B08-reviewer-18a665c9/runtime-configuration.json",
+  "configuration_sha256": "e8b64f19063ce2ad9a5eecf98b6116995e09b6ec3948ef466baeadfc5119cfc5",
+  "summary": "Independent exhaustive new evidence/index and negative omission/stale-pin checks passed.",
+  "new_region_count": 269,
+  "new_artifacts": 2421,
+  "original_artifacts": 20,
+  "runs": [
+    {
+      "name": "final-verified",
+      "regions": 269,
+      "evidence_artifacts": 807
+    },
+    {
+      "name": "replay-1",
+      "regions": 269,
+      "evidence_artifacts": 807
+    },
+    {
+      "name": "replay-2",
+      "regions": 269,
+      "evidence_artifacts": 807
+    }
+  ],
+  "negative_cases": {
+    "missing_component": "correctly_rejected",
+    "incomplete_replay": "correctly_rejected",
+    "missing_index_path": "correctly_rejected",
+    "stale_index_hash": "correctly_rejected"
+  }
+}

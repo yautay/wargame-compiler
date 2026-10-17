@@ -1,0 +1,27 @@
+{
+  "role": "executor",
+  "actor": "codex-01a135f6-cdab-7723-bd6a-9e0044d12323",
+  "summary": "Claim only IG-2A after verified Sol/high, readiness and packet verification.",
+  "criteria": [
+    "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "Unknown or excluded areas are visible; partial/gap is never represented."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/checkpoint-claim.json",
+      "sha256": "98da0f9437d49ef061d4659325c8628d94e48b5c621548853a45d706f99f6abd"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/packet-verification.json",
+      "sha256": "362b704fd5724ba2000ae8b23d4136ac09d79e064f64de2ba32a17a47ecd27cf"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/configuration.json",
+      "sha256": "22196578010e5d8f40c98b3db308506f6d9eaaa0d7b2f4de12a0d264b3be4343"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/configuration.json"
+}

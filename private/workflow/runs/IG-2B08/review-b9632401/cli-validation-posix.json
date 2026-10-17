@@ -1,0 +1,47 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-b9632401:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/002-IG-2B08-reviewer-b9632401/runtime-configuration.json",
+  "configuration_sha256": "8352778a725af1eb4e8e98e236dd53fef1283888842cc9e22069fb1edbb7f75e",
+  "summary": "Independent unchanged final and both replay CLI validation commands with actual repository/source access; corrected reviewer wrapper path separators after CLI rejected backslashes.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:55:43.568822+00:00",
+      "ended_utc": "2026-10-17T07:56:05.015286+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-b9632401/final-verified-cli-validation-posix.log",
+        "bytes": 11220,
+        "sha256": "2b610ca43eb8fdbd8ec120aeb30f1a29d8bc82273934ad1fe648c4c61ad11c3f"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:56:05.015286+00:00",
+      "ended_utc": "2026-10-17T07:56:26.919203+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-b9632401/replay-1-cli-validation-posix.log",
+        "bytes": 11220,
+        "sha256": "2b610ca43eb8fdbd8ec120aeb30f1a29d8bc82273934ad1fe648c4c61ad11c3f"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:56:26.922738+00:00",
+      "ended_utc": "2026-10-17T07:56:46.926370+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-b9632401/replay-2-cli-validation-posix.log",
+        "bytes": 11220,
+        "sha256": "2b610ca43eb8fdbd8ec120aeb30f1a29d8bc82273934ad1fe648c4c61ad11c3f"
+      },
+      "root_source_access": true
+    }
+  ]
+}

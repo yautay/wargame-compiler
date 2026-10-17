@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 1205, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 1200, in main
+    return run(root, cli, run_dir, args.max_sessions, args.session_seconds, args.total_seconds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 1096, in run
+    environment = launch_environment(root, task, session, cli)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 405, in launch_environment
+    return dict(validation_environment(root, effective, ripgrep), WGC_TASK_ID=task['id'],
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 371, in validation_environment
+    if not Path(prefix).is_dir():
+           ^^^^^^^^^^^^
+  File "C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1162, in __init__
+    super().__init__(*args)
+  File "C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 373, in __init__
+    raise TypeError(
+TypeError: argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'list'

@@ -1,0 +1,16 @@
+{
+  "resolved": [
+    {"severity": "process", "issue": "Preflight native version comparison used raw CRLF decoding against LF text-mode observation", "evidence": "preflight-initial-error.json", "resolution": "Same text-mode version observation; exact binary pins unchanged"},
+    {"severity": "process", "issue": "Direct preflight invocation omitted process-only bundled PYTHONPATH", "evidence": "preflight-environment-error.json", "resolution": "Owned ops.py invokes subprocess with authorized process-only environment"},
+    {"severity": "process", "issue": "Inspection line display used Windows default cp1252 reading and then cp1252 stdout", "errors": ["UnicodeDecodeError at byte 0x9d", "UnicodeEncodeError at U+25B2"], "command": "PowerShell literal stdin line-summary script via .venv/Scripts/python.exe -B -", "exit_codes": [1, 1], "resolution": "Explicit UTF-8 file reading and ASCII-escaped console display; original source and extraction bytes never changed"},
+    {"severity": "process", "issue": "Bounded search call supplied unsupported -Path parameter to scripts/search.ps1", "error": "A parameter cannot be found that matches parameter name Path", "resolution": "Read exact named schema structurally; no broad search performed"},
+    {"severity": "authoring", "issue": "Three adjacent heading/prose selections overlapped by one normalized unit", "evidence": "author-run.command.json and diagnose-boxes.command.json", "resolution": "Changed three boundaries within visible whitespace; frozen validator unchanged; corrected author run passed"},
+    {"severity": "authoring", "issue": "Initial new Triarii link reason incorrectly said accepted page-4 crop ended Roman", "resolution": "Authorized exact page-4 text/PNG shows spear-armed; changed only new link description; retained pre-correction artifacts; old region/link unchanged"},
+    {"severity": "process", "issue": "apply_patch boundary edit used incomplete expected line", "error": "Patch verification failed before changes", "resolution": "Exact counted replacements in owned unsealed scripts; no frozen file edits"},
+    {"severity": "process", "issue": "Read attempted live buffered evidence-run.stdout before ops.py wrote it", "error": "Cannot find path evidence-run.stdout", "resolution": "Use count of appended evidence-records and incremental checkpoint artifacts for progress"},
+    {"severity": "inventory-observation", "issue": "Small counter initial component list contained omitted glyphs and guessed missile glyphs", "resolution": "Enlarged original-page QA crops inspected; component-observations.json gives corrected descriptive list and retains small-glyph uncertainty; no source text normalized"}
+  ],
+  "open_material_defects": [],
+  "review_status": "Separate independent reviewer pending. Executor source completeness inspection is not independent review or human semantic acceptance.",
+  "retry_policy": "No unchanged failing operation retried more than twice; each correction records a changed hypothesis. No tools/tests/contracts modified or validations weakened."
+}

@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 1174, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 1169, in main
+    return run(root, cli, run_dir, args.max_sessions, args.session_seconds, args.total_seconds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 1059, in run
+    prepare(root, q, task, role, session)
+  File "C:\repo\wargame-compiler\scripts\orchestrate_ig2.py", line 544, in prepare
+    dump(session / 'dependency-view.json', dep_context.build(root, q, task))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\scripts\dependency_context.py", line 153, in build
+    view['inventory'], view['boundary'], view['toolchain'] = inventory_projection(root, dep, artifacts, pages)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\scripts\dependency_context.py", line 129, in inventory_projection
+    toolchain['native'][name] = {k: value[k] for k in ('version',) if k in value}
+                                    ~~~~~^^^
+TypeError: string indices must be integers, not 'str'

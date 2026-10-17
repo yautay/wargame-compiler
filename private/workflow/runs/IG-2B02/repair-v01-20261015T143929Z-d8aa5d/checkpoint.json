@@ -1,0 +1,31 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "attempt": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d",
+  "created_utc": "2026-10-15T14:44:55.233563+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/packet.json",
+    "bytes": 5938,
+    "sha256": "80ba66fb449e93cf1bc94e238fea31b09ba94dd9552e59dc452dec2e0f2fd06f"
+  },
+  "base_files": {
+    "path": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/base-files.json",
+    "bytes": 18878,
+    "sha256": "1cff63253199fbfca8833c896cbffe0f46d15ef6e56aa9034db4701733189f31"
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/delivery.json",
+    "sha256": "41ae905b02b47fce1c6f5545e617df563963ab041406a8c2f483e8dc233ccf6f"
+  },
+  "completed_criteria": [
+    "Current V01 preflight and immutable artifact verification"
+  ],
+  "commands": [],
+  "blocker": null,
+  "next_operation": "Claim current V01 repair, then run unchanged validations with permitted execution."
+}

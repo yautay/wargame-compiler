@@ -1,0 +1,87 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-page33-scope-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Exact coordinating model/reasoning metadata unavailable. This is not an executor claim; fresh observed gpt-6.1-sol/high is required for execution/review.",
+  "summary": "Operator-authorized fresh B08 execution scope after source-context incident assessment.",
+  "format": "wgc-source-context-recovery-1",
+  "task": "IG-2B08",
+  "mode": "fresh_rebuild_no_drafts",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-context-incident.json",
+    "sha256": "03165b8451856403b8599a111119a81e5af23a779669627635200f98e941e190",
+    "bytes": 3014
+  },
+  "blocked_evidence": {
+    "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/blocked.json",
+    "sha256": "f6492722aa968b88161e1667450c13ce2513196951aa7b4437024596226f91de",
+    "bytes": 2113
+  },
+  "preserved_attempt": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/",
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/preserve-manifest.json",
+    "sha256": "1e9c8d874df16c158ab99ee922a1d5172363032ff482a4a9c8b4693b23cec596",
+    "bytes": 5846
+  },
+  "fresh_attempt": "private/workflow/runs/IG-2B08/inventory-p33-scope02/",
+  "effective_input_contract": {
+    "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/input-pins.json",
+    "sha256": "1532cbd612dd4171d7f01ea0e53856727412229cf830f873d6a68b74bcb74b84",
+    "bytes": 12066
+  },
+  "assessment": {
+    "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/assessment.json",
+    "sha256": "4c9c91c5cf50833ad5262bbfdb4a017e2aac733d6974df5481186b576aed3cb8",
+    "bytes": 2733
+  },
+  "assigned_physical_pages": [
+    29,
+    30,
+    31,
+    32
+  ],
+  "fresh_original_context": [
+    {
+      "physical_page": 33,
+      "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+      "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+      "box_points": [
+        45,
+        50,
+        306,
+        80
+      ],
+      "box_normalized": [
+        73529,
+        63131,
+        500000,
+        101011
+      ],
+      "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+      "raster_144dpi": {
+        "x": 90,
+        "y": 100,
+        "width": 522,
+        "height": 60
+      },
+      "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+    }
+  ],
+  "incoming_context_policy": {
+    "physical_page": 28,
+    "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+  },
+  "acceptance_sha256": "07bd28fd216d30ea6fc32ba008263667b87b0d8e78d6f9f42b74f15683a81077",
+  "original_tests_sha256": "33f0792e4f435aee5736cb2d52176bda32ac873396f3294330f5002c85366b7a",
+  "command_path_mapping": {
+    "from": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/",
+    "to": "private/workflow/runs/IG-2B08/inventory-p33-scope02/",
+    "purpose": "Replace only frozen prior-attempt output/test operands; never alter test assertions or suites."
+  },
+  "reuse_policy": "No prior draft, image, extracted text, derivation helper, transcript, inspection or check result is an execution input. Accepted dependency/source pins remain authoritative. Boundary proof gives coordinates only; fresh inspection/evidence must be regenerated.",
+  "preservation_checks": "Internally hash every artifact named by preserve-manifest.json before product writes and again before delivery; print only verification counts/status, never manifest contents or old source text. Independent review verifies preservation again.",
+  "stop_policy": "Any extra context requirement, clipped continuation or helper refusal ends this session for fresh coordinator refinement. Do not estimate a larger rectangle or silently include the following note.",
+  "human_semantic_acceptance": false,
+  "gameplay_readiness": false
+}

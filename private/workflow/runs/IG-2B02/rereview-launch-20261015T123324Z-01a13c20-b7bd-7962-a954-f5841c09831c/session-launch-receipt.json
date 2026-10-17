@@ -1,0 +1,52 @@
+{
+  "task": "IG-2B02",
+  "role": "coordinator_launch_record",
+  "recorded_utc": "2026-10-15 12:34:18 UTC",
+  "authorization": "Current human operator explicitly requested one new local independent review session of the IG-2B02-R01/R02 repair on GPT-6.1 Sol/high, without acceptance or downstream work.",
+  "created_thread_id": "01a13f8d-fa1f-7991-92c2-0c64bfe3a157",
+  "host_id": "local",
+  "project_id": "d338100d-b18c-44d2-b55b-bde478272daa",
+  "environment": "local",
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning": "high",
+  "actual_reviewer_configuration": null,
+  "actual_configuration_reason": "New session is active and must independently verify its own runtime identity/model/reasoning before substantive review; requested creation settings are not actual configuration proof.",
+  "instruction": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/independent-rereview-launch.txt",
+    "bytes": 21882,
+    "sha256": "c1db1ef5dd01784287bd08c0a846fd3e1f8c0dc157b5a31fc041df2da8088f8c"
+  },
+  "final_seal": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-seal.json",
+    "bytes": 33977,
+    "sha256": "e8a6dafff6de73761a7422d8a6fe6ad161320d8bcdbddc85ab4f5be67ac8b598"
+  },
+  "full_instruction_transmitted": true,
+  "prelaunch_verified_unique_pins": 4413,
+  "prelaunch_ordered_delivery_artifact_count": 4375,
+  "prelaunch_queue_status": "review",
+  "prelaunch_queue_sha256": "99e272c17c3549f49986df241327e21c66ee979c034043c7e2544aa81ebcd2f2",
+  "creation_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"threadId\":\"01a13f8d-fa1f-7991-92c2-0c64bfe3a157\",\"hostId\":\"local\"}"
+      }
+    ],
+    "isError": false
+  },
+  "initial_progress": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"timedOut\":true,\"wake\":null,\"polls\":[{\"schemaVersion\":1,\"cursor\":\"d28ee08e-c706-4741-9d92-e825fcad621d:1\",\"revision\":1,\"changed\":true,\"thread\":{\"id\":\"01a13f8d-fa1f-7991-92c2-0c64bfe3a157\",\"hostId\":\"local\",\"status\":{\"type\":\"active\",\"activeFlags\":[]}},\"latestTurn\":{\"id\":\"01a13f8e-008d-77e0-ae57-c0def50d546d\",\"status\":\"inProgress\",\"error\":null,\"startedAt\":1792067633,\"completedAt\":null,\"durationMs\":null},\"latestAssistantMessageId\":null,\"latestAssistantMessage\":null,\"latestToolMarkerId\":null,\"latestToolMarker\":null}]}"
+      }
+    ],
+    "isError": false
+  },
+  "frozen_files_modified": false,
+  "queue_transition_performed": false,
+  "acceptance_granted": false,
+  "downstream_task_started": false,
+  "additional_sessions_created": false
+}

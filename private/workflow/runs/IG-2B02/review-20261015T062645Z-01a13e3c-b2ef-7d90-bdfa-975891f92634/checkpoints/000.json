@@ -1,0 +1,50 @@
+{
+  "task": "IG-2B02",
+  "role": "reviewer",
+  "session_id": "01a13e3c-b2ef-7d90-bdfa-975891f92634",
+  "actor": "codex-01a13e3c-b2ef-7d90-bdfa-975891f92634",
+  "attempt": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634",
+  "utc": "2026-10-15T06:26:45.7383149Z",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration": "configuration.json",
+  "completed": [
+    "Saved launch bytes verified",
+    "Independent session identity and requested actual configuration verified"
+  ],
+  "unmet": [
+    "All substantive review criteria"
+  ],
+  "queue": {
+    "expected_sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a",
+    "verified": false,
+    "path": "docs/work/queue.json"
+  },
+  "packet": {
+    "expected_sha256": "6551a560b418ac7603538d732ca21ca5121091c5c00573bd7e4ebf1cb2fa701d",
+    "verified": false,
+    "path": "private/workflow/packets/IG-2B02-0851cf2e8efe4e0b818505d7727cb94f/context.txt"
+  },
+  "source_contract_tool_baseline_registry_pins": null,
+  "pins_null_reason": "Pending byte gate before assessment.",
+  "commands": [
+    {
+      "operation": "Initial own metadata OpenText",
+      "exit_code": 1,
+      "failure": "Active journal sharing violation and null reader cleanup."
+    },
+    {
+      "operation": "Own metadata shared read; selected session_meta/turn_context fields",
+      "exit_code": 0,
+      "changed_hypothesis": "Use FileShare.ReadWrite for active journal."
+    }
+  ],
+  "base_owned_hashes": [],
+  "current_owned_hashes": [],
+  "blocker": null,
+  "retry_hypothesis": null,
+  "next_operation": "Read fresh packet/selected context and inspect frozen byte/status helper; verify all input pins.",
+  "start_utc": "2026-10-15T06:25:39.9926307Z",
+  "wall_seconds": null,
+  "wall_null_reason": "Initial checkpoint; interval not yet measured."
+}

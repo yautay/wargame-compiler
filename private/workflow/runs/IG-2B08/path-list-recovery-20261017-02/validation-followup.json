@@ -1,0 +1,6 @@
+{
+  "cause": "The new path-list test assumed no inherited WGC_RIPGREP binding; the full supervisor environment correctly prepended the verified rg directory before the inherited PATH tail.",
+  "fix": "The regression now runs with and without an explicit binding and asserts the entire exact PATH in both cases. No production behavior or existing checks were weakened.",
+  "targeted_result": "18 passed",
+  "next_operation": "Fresh preparation and unchanged full checks after this fixture correction; preserve previous validation evidence."
+}

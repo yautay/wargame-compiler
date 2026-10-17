@@ -1,0 +1,7 @@
+{
+  "outcome": "preparation_context_guard",
+  "queue_published": false,
+  "models_launched": 0,
+  "cause": "workflow.transition immediately validates the new context policy; the exact new references had not been registered yet.",
+  "correction": "Register exact new references before transitions. Preserve existing preparation evidence and the original stopped-attempt snapshot; reuse only byte-consistent records."
+}

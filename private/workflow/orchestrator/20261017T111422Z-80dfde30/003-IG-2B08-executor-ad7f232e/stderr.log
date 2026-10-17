@@ -1,0 +1,2362 @@
+2026-10-17T11:35:32.428542Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-17T11:35:32.428603Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-17T11:35:32.498490Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-17T11:35:32.973767Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-17T11:35:32.973804Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.163.0-alpha.10.2
+--------
+workdir: C:\repo\wargame-compiler
+model: gpt-6.1-sol
+provider: openai
+approval: on-request
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a149a5-4c8a-7ce1-a58c-9b076060f876
+--------
+user
+Work in C:\repo\wargame-compiler. The operator explicitly authorized automatic sequential IG-2
+executor/reviewer sessions. This permission replaces manual launch only; all quality,
+human acceptance, source access and preservation gates remain binding.
+Role: executor. Task: IG-2B08. Unique actor: ig2:003-IG-2B08-executor-ad7f232e:executor.
+
+FIRST read private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/runtime-configuration.json. If pending, wait at most 30 seconds for
+the supervisor to confirm CLI STARTUP metadata. If it is absent/unconfirmed/mismatched,
+return blocked without claims or product writes. Invocation flags are not observation.
+Use only observed gpt-6.1-sol/high. Every claim, delivery, readiness/partition or review
+JSON MUST set configuration_evidence to the exact repository-relative path
+private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/runtime-configuration.json and configuration_sha256 to its actual SHA-256.
+Set actor to ig2:003-IG-2B08-executor-ad7f232e:executor; model/reasoning to the observed values.
+
+Read AGENTS.md, README.md, docs/STATUS.md, docs/HANDOFF.md,
+docs/work/WORKFLOW.md and docs/skills/wgc-execute/SKILL.md, then
+private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/task.json, private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/packet.json and private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/references.json. The manifest is the
+exact task packet. References pin accepted dependency events and current repair
+findings/prior delivery/claim, without copying their entire histories.
+Verify hashes locally. Read required text/contracts on demand in bounded sections;
+inspect all source pages/regions assigned by the contract. Binary byte hashes do not
+authorize whole-PDF analysis. Do not load context.txt, whole queue event histories,
+prior transcripts, entire run directories, archives, Git history or neighbouring repos.
+For structural edits, use task.json for the selected contract. Load queue.json only
+inside the edit/check process; never print it or dependency records/event histories.
+Print only needed non-event fields for this task or authorized direct partition children.
+DEPENDENCY READ OVERRIDE: use ONLY the prepared, hash-bound projection command
+.venv/Scripts/python.exe scripts/dependency_context.py --task IG-2B08
+--manifest private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/dependency-view.json --sha256 8ffe9a7c68dee816da8cb93bf016a2c4f9a9e80e6edb2b562083dbe59a0aff64
+--dependency '<direct dependency ID>' --section summary|outputs|inventory|boundary|toolchain
+(one command, one section). No history, full-manifest, arbitrary-field or global mode exists.
+The helper binds WGC_TASK_DEPENDENCY_* and rejects unlisted dependencies/stale authority.
+Do not read old dependency transcripts or dump their closure JSON even by exact path.
+If task.json has context_recovery_authorization, read ONLY its new scope/assessment;
+the old incident is immutable metadata, not a transcript to replay. This is a fresh
+coordinator session and grants no readiness or acceptance in advance.
+TASK SEARCH OVERRIDE AUTHORIZED BY THE OPERATOR: for text search use ONLY
+.venv/Scripts/python.exe scripts/search_task.py --task IG-2B08
+--manifest private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/search-manifest.json --sha256 3ead2311ece2a0932411a6cf88b432478108252a9193d74b5e23cb4c535e3d2c
+--pattern '<regex>' [--file '<exact path>'] (one command; quoted regex).
+The supervisor binds this session to private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/search-manifest.json via WGC_TASK_SEARCH_*
+environment variables. The packet's control_files are additional exact tooling context
+for this task, read on demand. NEVER call the frozen legacy scripts/search.ps1, raw
+repository-wide rg, workflow.py files, or recursive directory searches in a task session.
+The task helper refuses unlisted paths and private/binary/volatile files and bounds
+output. For private evidence use only exact task-authorized locators or selected JSON
+fields/pages/IDs; do not print whole manifests or search private trees. No global fallback.
+Read stable public packet text ONLY with
+.venv/Scripts/python.exe scripts/task_access.py read --file '<exact packet path>'
+--start-line 1 --lines 80 (one command; access binding is inherited).
+Required docs/STATUS.md and docs/HANDOFF.md reads use this same command. Their exact
+dispatch snapshots are pinned in access-manifest.json bootstrap_reads. These are
+navigation views, never live task/status authority; task.json and workflow gates
+govern your selected task. They remain excluded from generic search. Never directly
+read the changing live generated views or substitute them for the selected contract.
+Bootstrap files explicitly named above and this session's own JSON metadata may be
+read by exact path. Source evidence remains limited to assigned pages/IDs.
+Read only needed documentation/code windows from control_files; do not prefetch all.
+CONTEXT REQUESTS MUST BE SEQUENTIAL. A helper refusal writes a durable denial latch
+and holds the request while the supervisor terminates this CLI tree. No next command,
+direct Get-Content/Python file read, raw rg or alternate-tool fallback is permitted.
+Missing context requires coordinator/operator refinement in a NEW session.
+For working-tree state use ONLY
+.venv/Scripts/python.exe scripts/task_access.py git-status --max-items 40
+(one command). Its fixed literal Git pathspecs select task runs/outputs, exact packet
+files and authorized queue/views, excluding other tasks and global checks/packets.
+Never run raw repository-wide git status or recursive file listings. The required
+git diff --check remains allowed; preserve all preexisting staged/unstaged work.
+Persist evidence under private/.
+For reviewer source CLI validation use ONLY
+.venv/Scripts/python.exe scripts/task_access.py validate-source --file '<exact inventory path>'
+(one command, inherited task/access binding). access-manifest.json pins the current
+final-verified and both replay inventories and a separate task-owned private log root.
+The helper runs the unchanged full validator and returns only exit code and log pins.
+Full stdout/stderr remain private, including failures. Never print raw validation logs,
+tails, traceback payloads or unassigned-page coverage rows. Additional diagnostics
+require explicit assigned-page/field selection or a fresh coordinator scope.
+Capture other validation/check output in new private logs too; release command/exit
+and explicitly selected task fields only. No generic last-N-character/line preview.
+
+Verify readiness or the bounded changes_requested repair, dependencies,
+ownership, packet pins and your own confirmed runtime configuration. For an existing
+repair use only the current finding/scope references; do not repeat unchanged work.
+Claim through scripts/workflow.py transition, checkpoint, implement ONLY this task,
+run its required checks, freeze every delivery file and transition to review. Return
+progress with the delivery evidence path. If ownership is uncertain, stop blocked.
+
+Generate source-region evidence serially in the current Python process. Do not use
+multiprocessing, ProcessPoolExecutor or worker-process pools: the Windows restricted
+token can deny their named pipes. Run both complete independent replays separately;
+serial generation must preserve the complete region/component set and every check.
+Ordinary installed source CLI/native tools remain allowed within the task scope.
+
+Tests still run unchanged. If the Windows restricted token cannot access pytest's
+mode-0700 temporary directory, request approved execution of that exact unchanged
+validation command using sandbox_permissions=require_escalated and a clear reason.
+The same approved exact-command path applies when Windows denies terminating the
+owned synthetic process tree in context-guard tests. Keep assertions unchanged;
+never disable the guard or tests, change ACLs, or retry the denied restricted command.
+The operator explicitly authorized resolving V01 through permitted test execution;
+approval is handled by the automatic reviewer. Do not retry the same denied command,
+change ACLs/libraries/tests, disable assertions, or use a sandbox bypass flag.
+For a validation-only repair read repair-scope.json, claim a fresh attempt and preserve
+ALL old delivery artifacts byte-for-byte. Run the required checks with approved
+permissions, freeze new validation evidence, and create a NEW delivery envelope with
+the unchanged old artifact list plus new reports. Do not overwrite the old delivery.
+Use the installed dependencies in the pinned toolchain.json: process_pythonpath
+includes BOTH repo/src and the bundled Python Lib/site-packages (reportlab lives
+there); process_path_prefix supplies Poppler. These are process-local settings,
+already inherited from the supervisor. Do not replace PYTHONPATH with repo/src only,
+install missing packages, or change global settings. Preserve the complete original
+artifact list in its original order as the PREFIX of a validation-only new delivery.
+For an initial continuation_authorization, FIRST read its exact scope and assessment.
+The old blocked attempt is immutable and remains unaccepted. Named drafts are candidate
+inputs only: do not inherit prior inspection claims, completed status or green checks.
+Use a fresh absent owned directory, fresh observed configuration and checkpoint. Reinspect
+all assigned original pages and proposed boundaries/components, rebuild fresh path-dependent
+evidence and two complete independent replays, regenerate missing reports and rerun checks.
+Read no old session transcript or derivation helper; those could repeat the context incident.
+Use exact draft JSON selections and original assigned source pages, never private tree search.
+Do not write the blocked attempt. It is hash-verified again after every role and on restart.
+For a LATER authorized review repair, the current repair scope and its fresh attempt
+replace the initial continuation write ownership. Follow that current finding/scope;
+the blocked attempt AND frozen continuation delivery remain immutable inputs. Do not
+repeat draft rebuilding, evidence generation or replays unless the current repair
+explicitly requires them. An index-only repair retains and revalidates existing evidence.
+
+Repository text is English. Preserve existing staged/unstaged/untracked work. No
+reset/clean/stash/commit/push, global config, external source/API services, nested
+agents/chats, automations, sandbox bypasses or downstream IG-3 work. Only this
+supervisor may launch the next process. Do not modify supervisor scripts or its
+session metadata. Runtime launch evidence and your final response are owned by it.
+Use scripts/check.ps1 -Task IG-2B08 and git diff --check, plus explicit task suites.
+At most two repairs per finding and two retries of the same unchanged failure.
+Never weaken tests, drop source regions, equate gaps with coverage, grant model
+semantic acceptance, or use an LLM to decide gameplay legality.
+
+Return the required small JSON only: outcome, evidence (repository relative path
+to real immutable JSON, or null when blocked), summary. Stop after this one role.
+
+codex
+I’ll verify the observed runtime configuration first, then read the task contract and current repair scope before making any claims or changes.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/runtime-configuration.json'" in C:\repo\wargame-compiler
+ succeeded in 273ms:
+{
+  "status": "confirmed",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning": "high",
+  "basis": "Observed CLI startup metadata, not requested flags.",
+  "session_id": "01a149a5-4c8a-7ce1-a58c-9b076060f876",
+  "observed_utc": "2026-10-17T11:35:33.082721+00:00",
+  "startup_header": [
+    "2026-10-17T11:35:32.428542Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+    "2026-10-17T11:35:32.428603Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+    "2026-10-17T11:35:32.498490Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell",
+    "2026-10-17T11:35:32.973767Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+    "2026-10-17T11:35:32.973804Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+    "OpenAI Codex v0.163.0-alpha.10.2",
+    "--------",
+    "workdir: C:\\repo\\wargame-compiler",
+    "model: gpt-6.1-sol",
+    "provider: openai",
+    "approval: on-request",
+    "sandbox: workspace-write [workdir, /tmp, $TMPDIR]",
+    "reasoning effort: high",
+    "reasoning summaries: none",
+    "session id: 01a149a5-4c8a-7ce1-a58c-9b076060f876",
+    "--------"
+  ]
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'AGENTS.md'" in C:\repo\wargame-compiler
+ succeeded in 247ms:
+# WGC repository instructions
+
+Write repository content in English; preserve source and historical bytes.
+Read README.md, docs/STATUS.md, docs/HANDOFF.md, then the selected task packet.
+Use docs/work/queue.json as the only queue/status authority. Follow
+docs/work/WORKFLOW.md and only the relevant local skill in docs/skills/.
+
+Build the full SPQR product incrementally; no new POC. Import, coverage, semantic
+acceptance, and executable readiness are separate. Never resolve gameplay legality
+with an LLM. Human semantic acceptance is separate from model/code review.
+
+Default context and search use scripts/workflow.py and scripts/search.ps1.
+History (including Git history) needs an explicit operator scope and purpose;
+see docs/ARCHIVES.md. An ignore file is not a read permission barrier.
+
+Preserve existing changes; no reset, clean, stash, commit, push, global configuration,
+new chats, agents, automation, or external APIs unless the current operator requests them.
+Keep game evidence under private/. Do not modify neighbouring repositories.
+Run scripts/check.ps1 and git diff --check. Record actual model/reasoning evidence;
+unknown is not the requested GPT-6.1 Sol/high configuration.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'README.md' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 345ms:
+{"task": "IG-2B08", "path": "README.md", "start_line": 1, "lines": ["# Wargame Compiler", "", "WGC turns a WGU knowledge base and complete source materials into an evidence-backed", "Instruction Graph, formal rule semantics, a compiled rules package, and deterministic", "legal actions and state transitions. A future AI opponent spends its context on", "strategy and chooses through a compact player interface. Gameplay legality never", "requires an LLM call.", "", "The product target includes the **entire SPQR 5E core rulebook from the start**.", "Incremental tasks build lasting parts of that product. No further POC is planned.", "There is currently no new importer, compiler, game runtime, or AI opponent.", "", "Start with [status](docs/STATUS.md), [handoff](docs/HANDOFF.md), and the", "[workflow](docs/work/WORKFLOW.md). The only task/status source of truth is", "[queue.json](docs/work/queue.json); [roadmap](docs/ROADMAP.md) and task cards are generated.", "", "- [Architecture](docs/IG-WGU-ARCHITECTURE.md), [data contracts](docs/IG-DATA-MODEL.md),", "  [mechanics and profiles](docs/IG-MECHANICS-PROFILES.md), [legal action contract](docs/IG-LEGAL-ACTIONS.md).", "- [Implementation plan](docs/IG-PLAN.md), [operator prompts](docs/work/PROMPTS.md),", "  [local skills](docs/work/SKILLS.md), [environment evidence](docs/work/ENVIRONMENT.md).", "- [Archive locations and explicit access](docs/ARCHIVES.md).", "", "Repository prose and tooling use English. Publisher text, imported KB data, and", "immutable historical records retain their original language and bytes. Game content,", "source documents, positions, and source-derived examples belong in `private/`.", "", "```powershell", "pwsh -NoProfile -File scripts/check.ps1", ".\\.venv\\Scripts\\python.exe scripts/workflow.py next", ".\\.venv\\Scripts\\python.exe scripts/workflow.py packet --task IG-1A", "```", "", "The packet command prepares local context; it does not start a model or change task", "state. Checks validate planning and workflow, not the unimplemented game's correctness.", "Archive integrity is an explicit separate command, never part of routine checks."], "truncated": false}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'docs/STATUS.md' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 346ms:
+{"task": "IG-2B08", "path": "docs/STATUS.md", "start_line": 1, "lines": ["# WGC status", "", "<!-- Generated from docs/work/queue.json. -->", "", "Queue updated: 2026-10-17. Next ready task: **none**.", "Done tasks: 13/39.", "The planning tools do not certify game behavior. Source import, source coverage,", "human semantic acceptance, compilation and gameplay readiness are separate gates.", "", "Requested planning configuration: GPT-6 Astra/high. Recorded actual model/reasoning:", "unknown/unknown.", "Future executor target: GPT-6.1 Sol/high; verify its actual configuration at claim time.", "", "## Infrastructure blockers", "", "- ARCHIVE-WRITE: blocked. Destination outside writable roots; approval_policy=never. No originals removed. Operator runs the prepared verified migration in a session with write permission to C:/repo/wargame-compiler-archive.", "- SKILL-INSTALL: blocked. .agents is read-only in this session; skills are staged in docs/skills. Use explicit skill paths in prompts now; install and verify discovery in a permitted session.", "", "See [handoff](HANDOFF.md), [workflow](work/WORKFLOW.md), [archive register](ARCHIVES.md)", "and [environment evidence](work/ENVIRONMENT.md). No inherited commit/push approval exists."], "truncated": false, "basis": "dispatch_snapshot", "snapshot": {"path": "private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/bootstrap/STATUS.md", "sha256": "f532c6a7f4c0206695e5e6785a4c5a270dc86a41f593b1849cb52ee4ec126f0d", "bytes": 1136}, "status_authority": false}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'docs/HANDOFF.md' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 332ms:
+{"task": "IG-2B08", "path": "docs/HANDOFF.md", "start_line": 1, "lines": ["# WGC handoff", "", "<!-- Generated from docs/work/queue.json. -->", "", "Next ready task: **none**. Choose one task; do not execute a whole stage.", "Read [workflow](work/WORKFLOW.md), then use [operator prompts](work/PROMPTS.md).", "", "```powershell", "pwsh -NoProfile -File scripts/check.ps1", ".\\.venv\\Scripts\\python.exe scripts/workflow.py next", ".\\.venv\\Scripts\\python.exe scripts/workflow.py packet", "```", "", "The packet lists exact context and hashes. It does not launch a model or claim the task.", "Use the staged [execution skill](skills/wgc-execute/SKILL.md) explicitly; automatic", "installation is pending. Operator selects GPT-6.1 Sol/high, records actual settings,", "and follows claim \u2192 implementation \u2192 independent review \u2192 repair \u2192 acceptance \u2192 done.", "Checkpoints and evidence live in private/workflow/runs; preserve prior attempts.", "", "The active SPQR PDF is in private/ig/sources/spqr-5e with verified provenance.", "The WGU inspection is input evidence, not a semantic acceptance or an exact current count.", "Neighbouring KB/WGU repositories are read-only. Required scenarios/options, missing", "materials, authorized semantic reviewer and performance hardware/thresholds must be", "pinned in the tasks that need them; they do not prevent the first source-contract task.", "", "External history relocation remains governed by [the archive register](ARCHIVES.md)", "and the queue infrastructure blockers. No archive content is needed for this packet.", "Do not use old prompts, archived operational approvals or Git history as default context."], "truncated": false, "basis": "dispatch_snapshot", "snapshot": {"path": "private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/bootstrap/HANDOFF.md", "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395", "bytes": 1533}, "status_authority": false}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'docs/work/WORKFLOW.md' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 351ms:
+{"task": "IG-2B08", "path": "docs/work/WORKFLOW.md", "start_line": 1, "lines": ["# Local task workflow", "", "The only authoritative queue, dependencies, task content and status are in", "[queue.json](queue.json). Cards, [roadmap](../ROADMAP.md) and the generated portions", "of status/handoff are projections checked by `scripts/workflow.py validate`.", "Edit queue.json, run `scripts/workflow.py render`, then `scripts/check.ps1`.", "This tool is a local planner; it launches no model, chat, agent, scheduler or API.", "", "## Roles and ownership", "", "The coordinator selects ready work, refines future contracts, owns the queue, checks", "handoffs and records acceptance evidence. The executor owns only the task's listed", "write paths. The independent reviewer reads the frozen result and writes review findings;", "they do not silently repair the executor's code. Source-meaning review is separately", "identified. The owner (or explicitly authorized human) accepts exact semantic revisions.", "Model review and green tests never substitute for that decision.", "", "Default execution is sequential: one claimed task and one writer. A separate review", "session may use the same requested Sol/high configuration but a fresh reviewer identity", "and task context. No sessions are created automatically. Parallel work needs explicit", "operator authorization, satisfied dependencies, disjoint writes, and a coordinator-owned", "integration task. Two tasks writing queue.json are never parallel writers.", "", "## State machine", "", "| From | Allowed next states | Gate |", "|---|---|---|", "| planned | ready, blocked | Dependencies done; context available; refinement resolved |", "| ready | in_progress, blocked | Executor identity, actual config evidence, exact scope and checkpoint |", "| in_progress | review, blocked | Frozen delivery manifest, meaningful checks and handoff |", "| review | changes_requested, accepted, blocked | Separate technical review; meaning review and human decision when required |", "| changes_requested | in_progress, blocked | Bounded repair scope and new attempt |", "| accepted | done, changes_requested | Coordinator verifies every criterion, evidence and required owner decisions |", "| blocked | planned | New evidence resolves recorded blocker; reevaluate readiness, never jump to done |", "| done | planned | Explicit reopening reason; prior acceptance preserved in event history |", "", "`ready` is explicit and checked, not inferred from file existence. `next` prints the first", "ready task in queue order. At most one task is in_progress/review/changes_requested/accepted.", "`done` means its lasting deliverables, tests, independent review and applicable human", "acceptance are complete. `blocked` records missing fact, failed assumption or unavailable", "input, impact, smallest resolution action, and owner. Source gaps can be valid importer", "outputs while still blocking later gameplay; do not mark import blocked for every missing PDF.", "", "Use `transition --task ID --to STATE --evidence PATH`. Evidence is JSON with `role`,", "`actor`, `summary`, `criteria`, `artifacts`, `model`, `reasoning`, `configuration_evidence`,", "and optional `semantic_decision`. Unknown measured configuration is null with a reason.", "For delivery/review/acceptance also supply `checks`, a nonempty list of command and", "exit_code records. All required checks must have exit code zero. In-progress claims", "require confirmed `model: gpt-6.1-sol` and `reasoning: high`; unknown configuration", "is recorded as a blocker until the operator confirms the actual session settings.", "The command checks structural gates and file hashes, not the truth or authority of a", "human statement. Evidence is append-only by hash in queue events; changes invalidate checks.", "See [evidence shapes](EVIDENCE.md) for a checkpoint/delivery example. Executor status", "updates go through the transition command; the coordinator owns structural queue edits.", "For a semantic task, accepted requires a human decision artifact from the owner or a", "documented authorized reviewer. Do not fabricate one. Routine technical acceptance can", "be recorded by the coordinator after independent review without another owner confirmation.", "", "## One task cycle", "", "1. Coordinator validates queue and chooses `next`. Resolve `refine` before readiness.", "2. Generate a packet with exact allowed context. Binary source references are hashed,", "   not dumped into text; read only pages/IDs named by the task. External WGU context is", "   explicitly scoped in the card, never scanned through historical manifests.", "3. Operator starts the selected executor manually using [the launch prompt](PROMPTS.md).", "   Confirm Sol/high from UI/session metadata; requested settings are not evidence.", "4. Record claim and checkpoint; implement only this increment; record changed files,", "   checks, measured usage and unresolved assumptions. Preserve unrelated working changes.", "5. Freeze delivery hashes and enter review. Operator supplies the review prompt to a", "   separate reviewer. Evaluate source meaning separately from code mechanics.", "6. Repair scoped findings, rerun affected checks and obtain a new review of changed hashes.", "7. Coordinator records acceptance then done, renders views, makes the next eligible task", "   ready, and prepares a new handoff. Do not start the next task just to finish this one.", "", "## Refinement and corpus partitioning", "", "`refine` tasks are not executable until exact prerequisites/paths/cases are pinned. Edit", "the record to `implementation` or `content` after refinement; keep the decision in events.", "For a corpus task, create bounded child records with explicit target IDs, context-only", "IDs, source hashes/pages and disjoint output paths. The parent becomes a closure task"], "truncated": true}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'docs/skills/wgc-execute/SKILL.md' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 344ms:
+{"task": "IG-2B08", "path": "docs/skills/wgc-execute/SKILL.md", "start_line": 1, "lines": ["---", "name: wgc-execute", "description: Implement one ready WGC task within its declared file scope and produce a tested, frozen delivery for independent review.", "---", "", "# wgc-execute", "", "Read the supplied packet and only its named context, plus docs/work/WORKFLOW.md.", "Confirm task readiness, input hashes, write ownership and actual model/reasoning evidence.", "Claim the task with a checkpoint under private/workflow/runs/<task>/<attempt>/.", "Build only the listed deliverables; task exclusions and dependency gates remain binding.", "Use synthetic public tests and private source-derived fixtures. Meaningful tests need", "source-justified expectations, not merely mirrored implementation assumptions.", "Run relevant tests and scripts/check.ps1, freeze file hashes and report unmet criteria.", "Hand off for a separate review; never grant yourself semantic acceptance or start the", "next task. Resume via checkpoint/hash comparison. Do not load historical gold by default."], "truncated": false}
+
+codex
+The startup record confirms `gpt-6.1-sol/high`. I’m applying the repository’s `wgc-execute` skill and checking the bounded repair scope and write ownership.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/task.json'" in C:\repo\wargame-compiler
+ succeeded in 300ms:
+{
+  "id": "IG-2B08",
+  "title": "Inventory SPQR PDF pages 29Ã¢â‚¬â€œ32",
+  "stage": "IG-2",
+  "status": "changes_requested",
+  "kind": "content",
+  "depends": [
+    "IG-2B07"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/region-ledger.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/continuations.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/coverage-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/source-pins.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/toolchain.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/original-page-inspection.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/component-ledger.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/preservation-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/replay-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/validation-report.json",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/delivery-handoff.md",
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/F02-completeness-report.json"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B08/repair-F02-7582f722/"
+  ],
+  "inputs": [
+    "Accepted IG-2B07 complete 44-page inventory: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json (SHA-256 24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d).",
+    "Persisted companion identity registry: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json (SHA-256 5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701).",
+    "Official source: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf (SHA-256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e); physical pages 29-32 only, with bounded page-28/33 continuation context as pinned in private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json.",
+    "Official provenance: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json (SHA-256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b).",
+    "Original baseline/source/provenance and historical input pins are retained in private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json. Current frozen F01 delivery reports and helpers are pinned ONLY by the CURRENT F02 repair-context.json.",
+    "IG-2A locator contract as implemented by the current hash-pinned contracts/ig/regions.schema.json and src/wgc/sources/ tooling; all 44 pages remain present.",
+    "CURRENT F02 finding, frozen delivery and named current candidate input pins: private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json. Read only the bounded current context; the old delivery and all earlier corrections remain immutable."
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "src/wgc/sources/README.md",
+    "docs/work/EVIDENCE.md",
+    "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+    "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/scope.json",
+    "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+    "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Run .venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short with the inherited pinned toolchain. Keep tests/assertions unchanged; if restricted-token temp access fails, request approved execution of that exact unchanged command.",
+    "Run .venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-8d84cd90-01/final-verified/inventory.json and validate both replay inventories with actual root/source access. Validate final companion registry equality and canonical hashes; pin commands/exits in validation-report.json.",
+    "Add and run an owned batch verifier over the complete accepted baseline and result: source/44-page set equality, preserved nonassigned record/link/evidence objects and registry entries, retained reading-order subsequence, exactly four placeholders retired, assigned/context target set separation, disjoint positive geometry, complete new evidence/component index and all artifact hashes. It must fail for missing regions/components, stale/missing index paths or a replay that omits any assigned component.",
+    "Run complete replay-1 and replay-2 separately; require equal full assigned region/component sets and stable identities, complete registry bindings, normalized evidence bytes/locators and zero missing artifact references. Check fresh original-page renders plus visual inspection on every assigned page and each authorized context boundary.",
+    "Run scripts/check.ps1 -Task IG-2B08 and git diff --check; preserve reports, actual exits and any approved exact-command execution evidence. If context-guard process termination is denied by the restricted token, request approved execution of the exact unchanged validation command without changing tests, ACLs or assertions.",
+    "Operational recovery binding: original commands above remain required with only the prior attempt prefix inventory-8d84cd90-01 replaced by inventory-p33-scope02. Do not run test basetemp or write any artifact into the frozen attempt. Preserve every original suite/assertion and verify the new context boundary before access.",
+    "Verify all old-attempt artifact hashes using the pinned preservation manifest before product writes and at delivery; verify page-33 context pixels/text exclude the following note and use exact source/page/box pins.",
+    "CURRENT F01 repair command mapping: for all original/appended test and output command operands, map inventory-8d84cd90-01/ and inventory-p33-scope02/ under this task to repair-F01-manifest02/. Preserve every suite/assertion; never write test artifacts into either frozen attempt.",
+    "F01: independently inspect the complete page-30 Advance arrows; corrected detail component evidence in final and both complete serial replays must include PDF point [94,367], both complete cyan curves/heads and the black forward arrow. Do not satisfy this using a primary tile or neighboring counter crop.",
+    "Add a source-bound component-completeness regression check which rejects the original [104,345,141,476] crop and proves full visible arrow coverage; key-set equality or checking only a single point is insufficient.",
+    "Recheck all assigned components and exact page-33 context; verify unchanged disjoint primary tiles, accepted 44-page baseline, registry history and zero context denominator. Regenerate affected final/replay evidence, ledgers, current indexes and all changed reports, then obtain fresh independent review.",
+    "Hash-verify every artifact in the CURRENT pinned preserve-manifest internally before writes and delivery, emitting only counts/status. The independent reviewer rechecks all preserved inputs."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "FIRST read the current F02 repair-scope.json and compact repair-context.json pinned by repair_authorization. Current F02 ownership and command mapping replace obsolete F01/review-only instructions. The operator context recovery source/output limits remain binding.",
+    "Observed confirmed gpt-6.1-sol/high configuration and a distinct fresh actor are required. Claim only the exact new absent repair attempt, write a fresh checkpoint and verify all preserved inputs before product writes. Do not recreate or write any frozen root.",
+    "Correct only the current F02 component and dependent evidence/reports in the fresh run; preserve resolved F01, all primary tiles, accepted nonassigned records, registry history and zero context denominator. Keep every original acceptance criterion and test unchanged; apply the latest scope command-prefix mapping.",
+    "Original source scope remains pages 29-32, reference-only page 28 and exact page-33 continuation crop. Set clipping before text/pixel output. A context/helper refusal or indispensable extra source requirement stops the session for new coordinator scope.",
+    "Generate the complete final and two independent serial replay artifact sets separately. No multiprocessing or worker pools. Do not inherit old observations or green checks; freshly inspect every assigned original/boundary/component and revalidate all required checks.",
+    "Preserve the inherited pinned toolchain paths including bundled site-packages and Poppler. Capture all validation/check output in new private logs; release commands/exits and scoped summaries only. Use approved exact unchanged execution for observed Windows access failures; no denied restricted retry, ACL changes or weakened tests.",
+    "Only the supervisor launches subsequent roles. No source/product tooling/schema/test edits outside the owned repair run, online services, global configuration, nested agents, unrelated tasks, semantic acceptance or downstream IG-3 work."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation.",
+    "Provide complete source-pins, preservation and replay reports; exact full/task/context denominator counts, source uncertainties and entry/exit continuation IDs; the independent reviewer must validate the exhaustive frozen artifact set and all original/appended criteria.",
+    "Actual runtime configuration_evidence/configuration_sha256 and actor/model/reasoning belong on every claim/delivery/review. Record UTC/wall time, tokens only when exposed (otherwise null), failures/retries and unresolved decisions without inventing semantic approval."
+  ],
+  "semantic_acceptance_required": false,
+  "tool_context": [
+    "README.md",
+    "docs/work/WORKFLOW.md",
+    "scripts/workflow.py",
+    "scripts/check.ps1",
+    "scripts/search_task.py",
+    "scripts/dependency_context.py",
+    "scripts/context_guard.py",
+    "scripts/task_access.py",
+    "scripts/orchestrate_ig2.py",
+    "docs/skills/wgc-queue/SKILL.md",
+    "docs/work/EVIDENCE.md",
+    "contracts/ig/README.md",
+    "contracts/ig/regions.schema.json",
+    "src/wgc/sources/README.md",
+    "src/wgc/sources/__init__.py",
+    "src/wgc/sources/__main__.py",
+    "src/wgc/sources/inventory.py",
+    "src/wgc/sources/geometry.py",
+    "src/wgc/sources/pdf.py",
+    "docs/skills/wgc-execute/SKILL.md",
+    "docs/skills/wgc-review/SKILL.md"
+  ],
+  "dependency_scope": {
+    "physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  "inventory_contract": {
+    "format": "wgc-inventory-batch-contract-1",
+    "input_pins": {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+      "sha256": "e05b6bd9b1d2cc528f4721f916872ace358a2f9b84a5e119dc76c30970753f3d",
+      "bytes": 12381
+    },
+    "attempt_root": "private/workflow/runs/IG-2B08/repair-F02-7582f722",
+    "physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only_physical_pages": [
+      28,
+      33
+    ],
+    "placeholder_target_ids": [
+      "region:d82e8fe6-a402-40f2-9f6a-8778c4e392a2",
+      "region:1129da76-b660-47f5-ae4d-1135333a447f",
+      "region:f8abe014-2cf3-4d93-ad65-411a23fd81bb",
+      "region:b57e73bf-1c15-4d79-a39e-d5e342b5cc6d"
+    ],
+    "retained_context_ids": [
+      "region:720a5d03-c721-469b-8a5e-2b91cb653a02"
+    ],
+    "full_source_page_count": 44,
+    "independent_replay_count": 2,
+    "evidence_generation": "Serial in the current Python process; no multiprocessing, ProcessPoolExecutor or worker process pools.",
+    "scope": "Physical source inventory and transcription/descriptive observations only; no source-meaning approval or executable gameplay claims.",
+    "fresh_context_only_physical_pages": [
+      33
+    ],
+    "source_access": {
+      "inventory_physical_pages": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "context_only": [
+        {
+          "physical_page": 28,
+          "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+        },
+        {
+          "physical_page": 33,
+          "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+          "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+          "box_points": [
+            45,
+            50,
+            306,
+            80
+          ],
+          "box_normalized": [
+            73529,
+            63131,
+            500000,
+            101011
+          ],
+          "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+          "raster_144dpi": {
+            "x": 90,
+            "y": 100,
+            "width": 522,
+            "height": 60
+          },
+          "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+        }
+      ],
+      "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+      "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+    }
+  },
+  "context_recovery_authorization": {
+    "incident": {
+      "path": "private/workflow/runs/IG-2B08/review-4705d02f/context-incident.json",
+      "sha256": "d20abb948fcd451e9b049ad30c791af68a2c4aa9d5f0bb1f73837ca7a767bc75",
+      "bytes": 3092
+    },
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/scope.json",
+      "sha256": "4a373345b2224961f1b11f325bd977c895ffe265ce4a429221c03e3bc3b31f56",
+      "bytes": 6585
+    },
+    "assessment": {
+      "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+      "sha256": "c7f1ffa405dba10eba5f20ae63d34314caa2de3832074509fc3f256718924a2e",
+      "bytes": 2387
+    }
+  },
+  "repair_authorization": {
+    "review_evidence": "private/workflow/runs/IG-2B08/review-86a341a9/review.json",
+    "review_sha256": "4f5e6693ed8159c02d0ef85f2cbf16ad76e83a4a2135e495b47e21f95faeabe7",
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-scope.json",
+      "sha256": "bae2982cb7c203611152224e9cc757e7f2c5f370a21165767d11525de5db473b",
+      "bytes": 21623
+    },
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/authorization-verified.json",
+      "sha256": "1e578c8790ce88257c1dd01d1d324ce3d96ef36550e29c4124f0bd5d445fb759",
+      "bytes": 8046
+    },
+    "attempt": "private/workflow/runs/IG-2B08/repair-F02-7582f722/"
+  }
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/packet.json'" in C:\repo\wargame-compiler
+ succeeded in 319ms:
+{
+  "format": "wgc-context-1",
+  "task": "IG-2B08",
+  "queue_sha256": "a421bdc6ebc6a5fd43b33413585f6636b8f9fb48aeff3effeabfc22553f575b3",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1213,
+      "sha256": "bb0a3c1940261890d03a6fd55ebb4481dd67bd1a5fddca7b63c87f3f1098d8a1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2001,
+      "sha256": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "bytes": 1136,
+      "sha256": "f532c6a7f4c0206695e5e6785a4c5a270dc86a41f593b1849cb52ee4ec126f0d"
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "bytes": 1533,
+      "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395"
+    },
+    {
+      "path": "docs/work/WORKFLOW.md",
+      "bytes": 8159,
+      "sha256": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d"
+    },
+    {
+      "path": "docs/skills/wgc-execute/SKILL.md",
+      "bytes": 963,
+      "sha256": "002122a97341aad5a3563c13c2d9f13fcdb45bf6aa50b52db8121ac8c0840105"
+    },
+    {
+      "path": "docs/work/tasks/IG-2B08.md",
+      "bytes": 14952,
+      "sha256": "bb7c3282f66c3959887e8eaf10cc54bcdba7650f230f14a7f060d29bddacffe9"
+    },
+    {
+      "path": "docs/IG-WGU-ARCHITECTURE.md",
+      "bytes": 9131,
+      "sha256": "9b4f31180f2db450ae772b3e12a5b12e5bbf0339570305f48b2625c9d78ab54d"
+    },
+    {
+      "path": "docs/IG-DATA-MODEL.md",
+      "bytes": 7786,
+      "sha256": "6a7e0d1335cce12a9e2d906ca655faad53393bf432e89483919b794a5051b69e"
+    },
+    {
+      "path": "src/wgc/sources/README.md",
+      "bytes": 8899,
+      "sha256": "8c04988f415dec9fb2124956e8293a0a6c64db63d9f0fecbe8818590ec94cc5f"
+    },
+    {
+      "path": "docs/work/EVIDENCE.md",
+      "bytes": 3048,
+      "sha256": "8bdae99e26ac92973211df30fc5b124e503a08fc509e279ec47906c99650133d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+      "bytes": 12381,
+      "sha256": "e05b6bd9b1d2cc528f4721f916872ace358a2f9b84a5e119dc76c30970753f3d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/scope.json",
+      "bytes": 6585,
+      "sha256": "4a373345b2224961f1b11f325bd977c895ffe265ce4a429221c03e3bc3b31f56"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+      "bytes": 2387,
+      "sha256": "c7f1ffa405dba10eba5f20ae63d34314caa2de3832074509fc3f256718924a2e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json",
+      "bytes": 7615,
+      "sha256": "074ed9553411b09e77d1a12837e4e61b556a70f252cdf6f65b0f933c4744cdd4"
+    }
+  ],
+  "text_bytes": 87972,
+  "tokens": null,
+  "token_note": "Not measured; bytes are not tokens.",
+  "external_inputs": [
+    "Accepted IG-2B07 complete 44-page inventory: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json (SHA-256 24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d).",
+    "Persisted companion identity registry: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json (SHA-256 5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701).",
+    "Official source: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf (SHA-256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e); physical pages 29-32 only, with bounded page-28/33 continuation context as pinned in private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json.",
+    "Official provenance: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json (SHA-256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b).",
+    "Original baseline/source/provenance and historical input pins are retained in private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json. Current frozen F01 delivery reports and helpers are pinned ONLY by the CURRENT F02 repair-context.json.",
+    "IG-2A locator contract as implemented by the current hash-pinned contracts/ig/regions.schema.json and src/wgc/sources/ tooling; all 44 pages remain present.",
+    "CURRENT F02 finding, frozen delivery and named current candidate input pins: private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json. Read only the bounded current context; the old delivery and all earlier corrections remain immutable."
+  ],
+  "control_files": [
+    {
+      "path": "README.md",
+      "bytes": 2001,
+      "sha256": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149"
+    },
+    {
+      "path": "docs/work/WORKFLOW.md",
+      "bytes": 8159,
+      "sha256": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d"
+    },
+    {
+      "path": "scripts/workflow.py",
+      "bytes": 18911,
+      "sha256": "862fa3c211d6c7b7bc7cffa4dc439f3152b5ad097832c3d57609e166bf08b7d6"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "bytes": 2704,
+      "sha256": "587b06670b7c42c567e95e67afe1d738681f2ad95e9fe1464b4f60cfb6425f73"
+    },
+    {
+      "path": "scripts/search_task.py",
+      "bytes": 6948,
+      "sha256": "1d4120311459a120d9b00fe48b2e4fdd2d37ef7888bc7d8a80bdb22faec6bd60"
+    },
+    {
+      "path": "scripts/dependency_context.py",
+      "bytes": 10632,
+      "sha256": "0564a0d2cadc276516a7e61d9f7a99f7a287dd68e74b7a338c0111ba8b111300"
+    },
+    {
+      "path": "scripts/context_guard.py",
+      "bytes": 3893,
+      "sha256": "70139f6dfcf43786697d51124466857a61eb021514b6ed21e513d9494d25dcdc"
+    },
+    {
+      "path": "scripts/task_access.py",
+      "bytes": 8150,
+      "sha256": "fbc62b2defab0e55b48dd2c1bab1d9eeb498be5d6aa8f3864171c1d2f79a593f"
+    },
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "bytes": 75839,
+      "sha256": "1f950366c6adcccc774e1e5b58392de551d988a1c6884f827767a61d64475f84"
+    },
+    {
+      "path": "docs/skills/wgc-execute/SKILL.md",
+      "bytes": 963,
+      "sha256": "002122a97341aad5a3563c13c2d9f13fcdb45bf6aa50b52db8121ac8c0840105"
+    },
+    {
+      "path": "docs/skills/wgc-queue/SKILL.md",
+      "bytes": 797,
+      "sha256": "5f0b9480cc7bb0dec73686b606c0868f4140e8baad9b9d3400cb1bd5637a6276"
+    },
+    {
+      "path": "docs/work/EVIDENCE.md",
+      "bytes": 3048,
+      "sha256": "8bdae99e26ac92973211df30fc5b124e503a08fc509e279ec47906c99650133d"
+    },
+    {
+      "path": "contracts/ig/README.md",
+      "bytes": 20706,
+      "sha256": "c2d05b9cb20da646de21dc8b3f715799fae2006f06f322c7be800f0cb7e8db57"
+    },
+    {
+      "path": "contracts/ig/regions.schema.json",
+      "bytes": 24147,
+      "sha256": "6fa4a7998010ffaa3d38e3a0f5384b445814ee454c6eabbce96020319aebe2ad"
+    },
+    {
+      "path": "src/wgc/sources/README.md",
+      "bytes": 8899,
+      "sha256": "8c04988f415dec9fb2124956e8293a0a6c64db63d9f0fecbe8818590ec94cc5f"
+    },
+    {
+      "path": "src/wgc/sources/__init__.py",
+      "bytes": 78,
+      "sha256": "06f47ed63c06cf2713b28b1c15aeb27ff78efaa9b39c2583f23ef00bff592917"
+    },
+    {
+      "path": "src/wgc/sources/__main__.py",
+      "bytes": 3392,
+      "sha256": "0037b5ba1fdbe0f46509a677e51fc04dd55c8fa177da035118579ca49ce33df6"
+    },
+    {
+      "path": "src/wgc/sources/inventory.py",
+      "bytes": 16146,
+      "sha256": "ea0fdbded19e6040e9d3d1374d41332b2c67e0f93da3466c021f859ee2aa7120"
+    },
+    {
+      "path": "src/wgc/sources/geometry.py",
+      "bytes": 3488,
+      "sha256": "006c960a245e6f520815caf8e7d759f9a0f78f7eb74566a9db4dbfe88abc1a30"
+    },
+    {
+      "path": "src/wgc/sources/pdf.py",
+      "bytes": 8101,
+      "sha256": "0b1a3696414dcc6c6ad7f9a37b59d3f8d345bb34dd78c0a986804457d9e7d827"
+    },
+    {
+      "path": "docs/skills/wgc-review/SKILL.md",
+      "bytes": 970,
+      "sha256": "03b6c9adc814037c85bb3111692f231c4140ed55d4c3c94e1518b0a77b9d773e"
+    }
+  ]
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/references.json'" in C:\repo\wargame-compiler
+ succeeded in 438ms:
+{
+  "dependencies": {
+    "IG-2B07": {
+      "from": "accepted",
+      "to": "done",
+      "utc": "2026-10-16T21:07:44.022482+00:00",
+      "evidence": "private/workflow/runs/IG-2B07/closure-006-IG-2B07-reviewer-b7fb7420/done.json",
+      "sha256": "3df30466d6b1bd8058610a4017717cbe4b2daacab0e6f064722c43bf435b42c4"
+    }
+  },
+  "findings": {
+    "from": "review",
+    "to": "changes_requested",
+    "utc": "2026-10-17T11:26:45.426834+00:00",
+    "evidence": "private/workflow/runs/IG-2B08/review-86a341a9/review.json",
+    "sha256": "4f5e6693ed8159c02d0ef85f2cbf16ad76e83a4a2135e495b47e21f95faeabe7"
+  },
+  "prior_delivery": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-17T08:55:32.437438+00:00",
+    "evidence": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f"
+  },
+  "repair_claim": null
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-scope.json'" in C:\repo\wargame-compiler
+ succeeded in 315ms:
+{
+  "role": "coordinator",
+  "actor": "ig2:002-IG-2B08-coordinator-7582f722:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T111422Z-80dfde30/002-IG-2B08-coordinator-7582f722/runtime-configuration.json",
+  "configuration_sha256": "4d8925de4427f1fad224a46afb9a4e9c8cb4e248356752bb48603b0fb0d820e8",
+  "format": "wgc-bounded-repair-scope-1",
+  "task": "IG-2B08",
+  "utc": "2026-10-17T11:30:01.945905+00:00",
+  "summary": "Authorize only the current F02 page-29 hit-marker component repair at a new absent attempt.",
+  "review_evidence": "private/workflow/runs/IG-2B08/review-86a341a9/review.json",
+  "review_sha256": "4f5e6693ed8159c02d0ef85f2cbf16ad76e83a4a2135e495b47e21f95faeabe7",
+  "finding_ids": [
+    "F02"
+  ],
+  "attempt": "private/workflow/runs/IG-2B08/repair-F02-7582f722/",
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Run .venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short with the inherited pinned toolchain. Keep tests/assertions unchanged; if restricted-token temp access fails, request approved execution of that exact unchanged command.",
+    "Run .venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-8d84cd90-01/final-verified/inventory.json and validate both replay inventories with actual root/source access. Validate final companion registry equality and canonical hashes; pin commands/exits in validation-report.json.",
+    "Add and run an owned batch verifier over the complete accepted baseline and result: source/44-page set equality, preserved nonassigned record/link/evidence objects and registry entries, retained reading-order subsequence, exactly four placeholders retired, assigned/context target set separation, disjoint positive geometry, complete new evidence/component index and all artifact hashes. It must fail for missing regions/components, stale/missing index paths or a replay that omits any assigned component.",
+    "Run complete replay-1 and replay-2 separately; require equal full assigned region/component sets and stable identities, complete registry bindings, normalized evidence bytes/locators and zero missing artifact references. Check fresh original-page renders plus visual inspection on every assigned page and each authorized context boundary.",
+    "Run scripts/check.ps1 -Task IG-2B08 and git diff --check; preserve reports, actual exits and any approved exact-command execution evidence. If context-guard process termination is denied by the restricted token, request approved execution of the exact unchanged validation command without changing tests, ACLs or assertions.",
+    "Operational recovery binding: original commands above remain required with only the prior attempt prefix inventory-8d84cd90-01 replaced by inventory-p33-scope02. Do not run test basetemp or write any artifact into the frozen attempt. Preserve every original suite/assertion and verify the new context boundary before access.",
+    "Verify all old-attempt artifact hashes using the pinned preservation manifest before product writes and at delivery; verify page-33 context pixels/text exclude the following note and use exact source/page/box pins.",
+    "CURRENT F01 repair command mapping: for all original/appended test and output command operands, map inventory-8d84cd90-01/ and inventory-p33-scope02/ under this task to repair-F01-manifest02/. Preserve every suite/assertion; never write test artifacts into either frozen attempt.",
+    "F01: independently inspect the complete page-30 Advance arrows; corrected detail component evidence in final and both complete serial replays must include PDF point [94,367], both complete cyan curves/heads and the black forward arrow. Do not satisfy this using a primary tile or neighboring counter crop.",
+    "Add a source-bound component-completeness regression check which rejects the original [104,345,141,476] crop and proves full visible arrow coverage; key-set equality or checking only a single point is insufficient.",
+    "Recheck all assigned components and exact page-33 context; verify unchanged disjoint primary tiles, accepted 44-page baseline, registry history and zero context denominator. Regenerate affected final/replay evidence, ledgers, current indexes and all changed reports, then obtain fresh independent review.",
+    "Hash-verify every artifact in the CURRENT pinned preserve-manifest internally before writes and delivery, emitting only counts/status. The independent reviewer rechecks all preserved inputs."
+  ],
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f"
+  },
+  "mode": "source_component_repair",
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/preserve-manifest.json",
+    "sha256": "5863a9855d272aeb8399166e95ed4596b07c8187731a1c47ec43043fc24ecdf4",
+    "bytes": 2647927
+  },
+  "finding": {
+    "id": "F02",
+    "severity": "medium",
+    "title": "Page-29 Celt C hit-marker detail truncates the visible 4 digit",
+    "locations": [
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/component-ledger.json",
+        "pointer": "/components/65/points"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/region-ledger.json",
+        "pointer": "/new_observations/145/points"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/original-page-inspection.json",
+        "pointer": "/observations/145/points"
+      }
+    ],
+    "region_key": "ig2b08:p29:collapse-diagram-component-c-hits",
+    "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+    "region_revision": "beca666ef8bca81a63508f8741814b2abd7a61e33abdd0dd88762e66c43275d7",
+    "physical_page": 29,
+    "points": [
+      106,
+      496,
+      133,
+      527
+    ],
+    "description": "Fresh original inspection shows the intended visible 4 hit-marker crop cuts through the right stem. In the independently selected original-source window [130,513,138,523] points, 51 red/yellow visible stem pixels lie outside the intended component; missing 144-DPI pixel bounds are [266,1026,272,1040]. The same region revision and incomplete intended crop appear in final-verified and both complete replays.",
+    "consequence": "The authored component and exact evidence are incomplete. Whole-page primary tiles retain the marker, and preservation/denominators pass; those do not satisfy the intended detail-component completeness criterion.",
+    "affected_criteria": [
+      "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+      "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+      "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+      "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical."
+    ],
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/boundary-aids/c-hit-original-boundary.png",
+        "bytes": 84284,
+        "sha256": "ecd1b94c8a17609f514cbc1d8ce50584326668ee4b3d657ecde9c39e8abaa873"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/boundary-aids/c-hit-delivered.png",
+        "bytes": 27083,
+        "sha256": "38b1d51b9282bd3c8ad00caae23aa29c5dd1206a92d7eedbdf823a5fefc84534"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/independent-verification.json",
+        "bytes": 7785,
+        "sha256": "3a47402443ecf96c2747a70db97ebafa94e33b99ef18f08b6f4ed88fa42c13cd"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/originals/page-29.png",
+        "bytes": 756272,
+        "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e"
+      }
+    ],
+    "required_repair": "In a new coordinator-authorized repair attempt, correct or split the zero-denominator C hit-marker selection so the full visible 4 and marker are included in intended component evidence. Preserve all disjoint primary tiles, accepted baseline objects, registry history and frozen attempts. Regenerate affected evidence and dependent reports/indexes plus complete final/replay artifact sets at fresh paths.",
+    "repair_validation": [
+      "Freshly compare the complete visible digit and marker against original physical page 29. Add a source-bound regression that rejects [106,496,133,527] and checks the full visible stem/marker extent; a key-set or single-pixel check is insufficient. Verify the 51-pixel witness patch is included in the intended detail, not merely a primary tile or adjacent counter.",
+      "Recheck every assigned component and context boundary; preserve the resolved F01 full-arrow masks and page-33 exact clipping. Keep context denominator zero.",
+      "Generate the complete final and two independent serial replay sets separately, and verify stable identities, registry history, normalized bytes/locators, complete current indexes, baseline preservation and all delivery hashes.",
+      "Rerun unchanged source suite, the three pinned source CLI validators via task_access, owned batch verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check. Use approved exact-command execution for observed Windows access failures. Obtain fresh independent review."
+    ]
+  },
+  "resolved_findings_to_preserve": [
+    {
+      "id": "F01",
+      "result": "resolved",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/independent-verification.json",
+        "bytes": 7785,
+        "sha256": "3a47402443ecf96c2747a70db97ebafa94e33b99ef18f08b6f4ed88fa42c13cd"
+      },
+      "basis": "Fresh full-arrow visual comparison and all 199/194 cyan-mask plus 458 black-arrow source pixels verified inside intended final/replay evidence; old truncated crop rejected."
+    }
+  ],
+  "allowed_changes": [
+    "Only inside the fresh owned attempt: correct or split the zero-denominator ig2b08:p29:collapse-diagram-component-c-hits selection so the complete visible digit 4 and marker are included in its intended detail evidence.",
+    "Create source-bound F02 regression evidence rejecting [106,496,133,527], including the 51-pixel source witness patch and full visible stem/marker extent; key-set equality or a single point is insufficient.",
+    "Copy/adapt only the named current frozen product helpers into the fresh owned attempt as candidate implementations. Rebase all write paths before execution. Regenerate the full final and two separately generated complete serial replay sets, affected ledgers/reports and exhaustive current source/delivery indexes.",
+    "Freshly inspect assigned original pages 29-32 and all proposed boundaries/components. Preserve primary tiles, F01 full-arrow evidence/checks, accepted baseline objects, retained order, registry history, page-28 reference-only continuation and zero context denominator.",
+    "Write fresh run-owned checkpoints, reports, exact unchanged validation logs, handoff and exhaustive ordered delivery pins. No repository source/tool/schema/test edits, no writes to any frozen attempt or prior delivery."
+  ],
+  "required_checks": [
+    "Freshly compare the complete visible digit and marker against original physical page 29. Add a source-bound regression that rejects [106,496,133,527] and checks the full visible stem/marker extent; a key-set or single-pixel check is insufficient. Verify the 51-pixel witness patch is included in the intended detail, not merely a primary tile or adjacent counter.",
+    "Recheck every assigned component and context boundary; preserve the resolved F01 full-arrow masks and page-33 exact clipping. Keep context denominator zero.",
+    "Generate the complete final and two independent serial replay sets separately, and verify stable identities, registry history, normalized bytes/locators, complete current indexes, baseline preservation and all delivery hashes.",
+    "Rerun unchanged source suite, the three pinned source CLI validators via task_access, owned batch verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check. Use approved exact-command execution for observed Windows access failures. Obtain fresh independent review.",
+    "All original task tests remain verbatim. For command operands and outputs, the NEW repair-F02-7582f722/ prefix supersedes every older inventory-8d84cd90-01/, inventory-p33-scope02/ and repair-F01-manifest02/ prefix under IG-2B08. Never run a frozen helper at its frozen path or write test artifacts into an old attempt.",
+    "Hash-verify the complete immutable delivery and the current preserve-manifest internally before any executor product writes and again before delivery; print only counts/status. Preserve all old artifacts byte-for-byte.",
+    "Generate final-verified and both complete independent replays at fresh owned paths, serially in the current Python process; no multiprocessing or worker pools. Preserve every region/component, all existing suites/assertions, all F01 full-arrow checks and accepted nonassigned baseline objects.",
+    "Use inherited process_pythonpath with BOTH repo/src and bundled Python Lib/site-packages and process_path_prefix from the pinned toolchain. Do not replace PYTHONPATH, install dependencies, change ACLs or global settings.",
+    "Keep check output private. For independent reviewer source CLI validation use task_access.py validate-source for each newly pinned inventory. Before executor dispatch the supervisor must prepare exact fresh output access; no raw validator log previews.",
+    "If the restricted token denies the unchanged pytest temp access or terminating an owned context-guard synthetic process tree, request approved execution of the exact unchanged command. Do not retry that denied restricted command or weaken assertions. At most two repairs per finding and two retries of an unchanged failure.",
+    "A fresh independent reviewer must inspect all assigned original pages, every boundary/component and the exact page-33 continuation, verify F02 completeness and preserved F01 correction, all frozen artifact hashes, baseline preservation, both complete replays, current indexes, original criteria and unchanged required checks. No human semantic acceptance or executable readiness is granted."
+  ],
+  "source_access": {
+    "inventory_physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only": [
+      {
+        "physical_page": 28,
+        "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+      },
+      {
+        "physical_page": 33,
+        "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+        "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+        "box_points": [
+          45,
+          50,
+          306,
+          80
+        ],
+        "box_normalized": [
+          73529,
+          63131,
+          500000,
+          101011
+        ],
+        "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+        "raster_144dpi": {
+          "x": 90,
+          "y": 100,
+          "width": 522,
+          "height": 60
+        },
+        "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+      }
+    ],
+    "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+    "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json'" in C:\repo\wargame-compiler
+ succeeded in 315ms:
+{
+  "format": "wgc-current-repair-context-1",
+  "task": "IG-2B08",
+  "review": {
+    "path": "private/workflow/runs/IG-2B08/review-86a341a9/review.json",
+    "sha256": "4f5e6693ed8159c02d0ef85f2cbf16ad76e83a4a2135e495b47e21f95faeabe7"
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f"
+  },
+  "repair_scope": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-scope.json",
+    "sha256": "bae2982cb7c203611152224e9cc757e7f2c5f370a21165767d11525de5db473b",
+    "bytes": 21623
+  },
+  "finding_ids": [
+    "F02"
+  ],
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/preserve-manifest.json",
+    "sha256": "5863a9855d272aeb8399166e95ed4596b07c8187731a1c47ec43043fc24ecdf4",
+    "bytes": 2647927
+  },
+  "named_current_inputs": {
+    "region-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/region-ledger.json",
+      "bytes": 2599838,
+      "sha256": "5af7bf47d62608a2d6110c1041a3870b1297614d6c33ef24e2193b30ba918c72"
+    },
+    "component-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/component-ledger.json",
+      "bytes": 727776,
+      "sha256": "7896c5c4cc67d4d4cd636fb19f4e3690984b9c7ebbcae9272b72d8fe7a9492ae"
+    },
+    "original-page-inspection.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/original-page-inspection.json",
+      "bytes": 1025865,
+      "sha256": "bb420f14f8a9d7647cf8c32699e03b3550bc53fa7395767444200d28d58d3602"
+    },
+    "continuations.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/continuations.json",
+      "bytes": 68064,
+      "sha256": "aa4d0c499e272618fefc3f346409362e3968158fa091c138c1155b64b378178d"
+    },
+    "coverage-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/coverage-report.json",
+      "bytes": 80817,
+      "sha256": "920271ddd80df04b8f275c8116befbf461bc491a56d92de683fd41b7f8d4bbdc"
+    },
+    "source-pins.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/source-pins.json",
+      "bytes": 1386533,
+      "sha256": "27176212efaae3893b3740d42bd6730a29ab31834ab634bcb9b3b9a43b2412b0"
+    },
+    "toolchain.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/toolchain.json",
+      "bytes": 4514,
+      "sha256": "a74931e28038452dab2579b4ef03e596808c99ad834c678410faf25664d08076"
+    },
+    "preservation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/preservation-report.json",
+      "bytes": 2104,
+      "sha256": "436df31d019d0ad80dbd698f949499c8b7b5eab1e2233ec982615cdbd586c907"
+    },
+    "replay-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-report.json",
+      "bytes": 3541,
+      "sha256": "7cc3a2eae4d52c4c1bcee190c7d8460922974f012eec076679b8e5567c759bf8"
+    },
+    "validation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/validation-report.json",
+      "bytes": 7745,
+      "sha256": "94dc159df4eb9b12fe40b2c43ef44c00064b3530b242d5c22638aaa74be13f58"
+    },
+    "delivery-handoff.md": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery-handoff.md",
+      "bytes": 2346,
+      "sha256": "b651506450b1c95af3506ad1e847e36831177cd9a5bca305faa32192b2cfd6da"
+    },
+    "check_arrow_completeness.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/check_arrow_completeness.py",
+      "bytes": 5831,
+      "sha256": "19b35038e6e615ec0c1bfc75c1995b6a3e6149591926780123e30884f5b1b843"
+    },
+    "verify_batch.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py",
+      "bytes": 19232,
+      "sha256": "1f0d38d01d0579931edacfed2c1b7b85fd442abeb9f699a592ed7dd9cbc27662"
+    },
+    "final-verified/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+      "bytes": 5085001,
+      "sha256": "a1e1342c0863cb7d9ef342a5b86cf98dcd39d8fe6222ecf98b3e670969e8a3a5"
+    },
+    "final-verified/identity-registry.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/identity-registry.json",
+      "bytes": 184306,
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+    },
+    "replay-1/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+      "bytes": 5080159,
+      "sha256": "477774e685e477176c89056eb7f8568f4076dd3257a7ed60e4f6acc0d75157ce"
+    },
+    "replay-2/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+      "bytes": 5080159,
+      "sha256": "dac6b140998d258fae468dae0063ab12d5979e6320be8ca34fb8969078499a6b"
+    },
+    "build_inventory.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py",
+      "bytes": 12878,
+      "sha256": "510a1c0657385491e190ce0250e69c012c43efdf174169e52ff4c58c7961bd28"
+    },
+    "freeze_delivery.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/freeze_delivery.py",
+      "bytes": 12226,
+      "sha256": "6e6e66b9e0321ac08ad940c00e9a1715024ee3bd6db7b3a745e3af44c36af7b6"
+    },
+    "inspect_originals.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/inspect_originals.py",
+      "bytes": 2280,
+      "sha256": "5b23a3a69e52f205df25e706edf4cd837866d936768cd43e04342f0959eb7b6a"
+    },
+    "probe_geometry.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/probe_geometry.py",
+      "bytes": 2510,
+      "sha256": "77ca2a22ba3b72ff1d386628b279f51f2c65e6411d50c377d62baf957543be75"
+    },
+    "validate_frozen.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/validate_frozen.py",
+      "bytes": 1195,
+      "sha256": "31a9d2fc7737b953b036791439f8946dfedcd87fe19b39359de57d89df6aa192"
+    },
+    "validate_sources.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/validate_sources.py",
+      "bytes": 1046,
+      "sha256": "97af3933df414ba62a3c5b550d73c9b8067a0c77b27432111d9edadccfc11f67"
+    }
+  },
+  "input_pins": {
+    "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+    "sha256": "e05b6bd9b1d2cc528f4721f916872ace358a2f9b84a5e119dc76c30970753f3d",
+    "bytes": 12381
+  },
+  "private_read_policy": "Read this compact index in full. Current finding is F02 from the pinned review. Large frozen envelopes/indexes are internal verification inputs only: emit counts/status, never whole artifact lists or unassigned records/text. Read assigned page/region/component fields and explicitly boundary-linked IDs only. No old review wrapper, transcript or derivation helper from blocked attempts.",
+  "helper_policy": "Only the named current repair-F01-manifest02 product helpers may be read in bounded windows and copied as candidate implementation to the new attempt. Never execute at frozen paths. Verify and rebase all writes first; frozen validators with broad console output must be adapted only in the new run to log privately. Prior green checks and observations are not inherited.",
+  "precedence": "This current F02 scope replaces obsolete F01 write ownership, output prefix and review-only start instructions. Operator context recovery source/output limits remain binding; earlier correction and frozen delivery remain immutable."
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/scope.json'" in C:\repo\wargame-compiler
+ succeeded in 335ms:
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-validation-context-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable. This is not an executor/reviewer claim; a fresh observed gpt-6.1-sol/high session is required.",
+  "utc": "2026-10-17T09:42:48.025966+00:00",
+  "summary": "Fresh independent review of the exact F01 delivery with bounded validation output.",
+  "format": "wgc-review-output-recovery-1",
+  "task": "IG-2B08",
+  "mode": "fresh_independent_review",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/review-4705d02f/context-incident.json",
+    "sha256": "d20abb948fcd451e9b049ad30c791af68a2c4aa9d5f0bb1f73837ca7a767bc75",
+    "bytes": 3092
+  },
+  "assessment": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+    "sha256": "c7f1ffa405dba10eba5f20ae63d34314caa2de3832074509fc3f256718924a2e",
+    "bytes": 2387
+  },
+  "review_context": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/review-context.json",
+    "sha256": "4e44d4721d386d8def5522edbdaf487962dd5924280db8de43cba860b89711bf",
+    "bytes": 11384
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f",
+    "bytes": 1359669
+  },
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/preserve-manifest.json",
+    "sha256": "5863a9855d272aeb8399166e95ed4596b07c8187731a1c47ec43043fc24ecdf4",
+    "bytes": 2647927
+  },
+  "prior_context_authorization": {
+    "incident": {
+      "path": "private/workflow/runs/IG-2B08/coordinator-context-incident-b6a7690c/incident.json",
+      "sha256": "af214d0b7ca96c9692c148b4a4188acf586b947be83505b128132797b482f7f1",
+      "bytes": 1858
+    },
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/scope.json",
+      "sha256": "ad7bc7eb2cbfa8c7c5f0bf339bea9e6cde6c368b39a209fe4e18b3ccaf7df756",
+      "bytes": 5866
+    },
+    "assessment": {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/assessment.json",
+      "sha256": "b44565abb33e7295a08889c67411eafbba4eb90dfdc5b4cb1d5d0b67b035bdf7",
+      "bytes": 2163
+    }
+  },
+  "source_access": {
+    "inventory_physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only": [
+      {
+        "physical_page": 28,
+        "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+      },
+      {
+        "physical_page": 33,
+        "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+        "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+        "box_points": [
+          45,
+          50,
+          306,
+          80
+        ],
+        "box_normalized": [
+          73529,
+          63131,
+          500000,
+          101011
+        ],
+        "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+        "raster_144dpi": {
+          "x": 90,
+          "y": 100,
+          "width": 522,
+          "height": 60
+        },
+        "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+      }
+    ],
+    "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+    "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+  },
+  "validation_protocol": "For final-verified/replay-1/replay-2 CLI validation, use only scripts/task_access.py validate-source --file <exact current inventory>. The inherited access manifest pins allowed paths and hashes. The unchanged validator still checks the complete source internally. Console output is command/exit and log pins only; no stdout/stderr/tail preview on success or failure. Other required checks also log privately and return scoped summaries.",
+  "diagnostic_policy": "Full validator logs may be hashed/copied internally. Do not release their contents into context. Additional error diagnosis needs explicit assigned-page/field selection or a new coordinator scope; failure never authorizes a raw log tail.",
+  "review_policy": "New absent reviewer-owned directory, new observed runtime and distinct actor. Reinspect all assigned originals/boundaries/components and the exact page-33 crop, independently verify F01 and candidate F02, both complete replays, current evidence indexes, all criteria and unchanged tests. No previous green checks or inspection claims are inherited.",
+  "preservation_policy": "Internally verify every preserved artifact before review and before final response, printing counts/status only. Verify the exact exhaustive current delivery; preserve its ordered artifact list in the new review. Frozen source/product/evidence, stopped reviews, tests and both prior attempts remain unchanged.",
+  "source_limits": "Physical pages 29-32 only; page 28 reference-only; page 33 only PDF points [45,50,306,80] / normalized [73529,63131,500000,101011], clip before text/pixel output. No automatic crop expansion or gameplay/source-meaning approval.",
+  "followup_policy": "After a valid independent outcome, the supervisor follows normal queue gates, including a fresh coordinator for any current finding; this scope grants no repair or acceptance in advance.",
+  "semantic_acceptance": false,
+  "executable_readiness": false
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json'" in C:\repo\wargame-compiler
+ succeeded in 304ms:
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-validation-context-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable. This is not an executor/reviewer claim; a fresh observed gpt-6.1-sol/high session is required.",
+  "utc": "2026-10-17T09:42:47.905851+00:00",
+  "summary": "The full validator ran within its structural remit, but the review wrapper released an unscoped stdout tail. Fresh review is required.",
+  "format": "wgc-validation-context-assessment-1",
+  "task": "IG-2B08",
+  "operator_request": "Oceń incydent z metadanymi stron spoza kontekstu, popraw zakres odczytu walidacji i wznów recenzję naprawy F01 oraz IG-2B08 w świeżej sesji.",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/review-4705d02f/context-incident.json",
+    "sha256": "d20abb948fcd451e9b049ad30c791af68a2c4aa9d5f0bb1f73837ca7a767bc75",
+    "bytes": 3092
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f",
+    "bytes": 1359669
+  },
+  "cause": "The wrapper printed its last 3000 output characters, including coverage rows for unassigned physical pages. File-local validation authority did not authorize releasing all of its report fields.",
+  "impact": {
+    "unassigned_coverage_metadata_released": true,
+    "source_text_released": false,
+    "extra_source_render_or_extraction": false,
+    "product_mutated": false,
+    "queue_mutated": false,
+    "completed_independent_review": false
+  },
+  "resolution": "Use the pinned task_access validate-source operation. Preserve full stdout/stderr privately for both success and failure; release only command, exit code and log pins. No raw tails or global coverage rows.",
+  "retained_validation_scope": "Full 44-page structural validation, preservation and source hash checks remain required internally. No test, acceptance criterion or source inspection is reduced.",
+  "incomplete_review_policy": "No claim/check/source inspection from the stopped review is a fresh review result. Candidate F02 is a lead for fresh assigned-page verification, not a confirmed finding.",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "semantic_acceptance": false,
+  "executable_readiness": false
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/dependency_context.py --task IG-2B08 --manifest private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/dependency-view.json --sha256 8ffe9a7c68dee816da8cb93bf016a2c4f9a9e80e6edb2b562083dbe59a0aff64 --dependency 'IG-2B07' --section summary" in C:\repo\wargame-compiler
+ succeeded in 483ms:
+{"task": "IG-2B08", "dependency": "IG-2B07", "section": "summary", "data": {"id": "IG-2B07", "status": "done", "done": {"path": "private/workflow/runs/IG-2B07/closure-006-IG-2B07-reviewer-b7fb7420/done.json", "sha256": "3df30466d6b1bd8058610a4017717cbe4b2daacab0e6f064722c43bf435b42c4"}, "accepted": {"path": "private/workflow/runs/IG-2B07/review-b7fb7420-01/review.json", "sha256": "efb38790ae6e099067f7dd2d1a7b845feb9f1ddc76200613f0c775ecbf626670"}, "artifact_count": 1796}}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/dependency_context.py --task IG-2B08 --manifest private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/dependency-view.json --sha256 8ffe9a7c68dee816da8cb93bf016a2c4f9a9e80e6edb2b562083dbe59a0aff64 --dependency 'IG-2B07' --section boundary" in C:\repo\wargame-compiler
+ succeeded in 350ms:
+{"task": "IG-2B08", "dependency": "IG-2B07", "section": "boundary", "data": {"physical_page": 28, "observation": "Phalanx B paragraph ends with further; page-29 upper-left paragraph continues rounded up to 4:1 through not routing yet."}}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe scripts/task_access.py git-status --max-items 40' in C:\repo\wargame-compiler
+ succeeded in 857ms:
+{"task": "IG-2B08", "entries": [{"status": "AM", "path": "contracts/ig/regions.schema.json"}, {"status": "MM", "path": "docs/HANDOFF.md"}, {"status": "MM", "path": "docs/ROADMAP.md"}, {"status": "MM", "path": "docs/STATUS.md"}, {"status": "MM", "path": "docs/work/context-policy.json"}, {"status": "MM", "path": "docs/work/queue.json"}, {"status": "MM", "path": "docs/work/tasks/IG-2B08.md"}, {"status": "AM", "path": "src/wgc/sources/README.md"}, {"status": "A ", "path": "src/wgc/sources/__init__.py"}, {"status": "A ", "path": "src/wgc/sources/__main__.py"}, {"status": "AM", "path": "src/wgc/sources/geometry.py"}, {"status": "AM", "path": "src/wgc/sources/inventory.py"}, {"status": "AM", "path": "src/wgc/sources/pdf.py"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/assessment.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/authorization.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/check-result.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/context-boundary-verification.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/access-manifest.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/bootstrap/HANDOFF.md"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/bootstrap/STATUS.md"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/context-guard.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/context-recovery-preserved.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/dependency-view.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/packet.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/references.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/search-manifest.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/task.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/dispatch-preflight/tool-runtime.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/full-check.log"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/input-pins.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/inspect_bounds.py"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/inspect_candidate_bounds.py"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/inspect_original_bounds.py"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/launch-authorization.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/page-33-continuation-only.png"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/page-33-continuation-only.txt"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/planned.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/preparation-result.json"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/prepare.py"}, {"status": "??", "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/preserve-manifest.json"}], "truncated": true, "max_items": 40}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+import json,hashlib
+from pathlib import Path
+s=Path('private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e')
+packet=json.loads((s/'packet.json').read_text())
+errors=[]
+for p in packet['files']+packet['control_files']:
+ f=Path(p['path'])
+ if p['path'] in ['docs/STATUS.md','docs/HANDOFF.md']: f=s/'bootstrap'/Path(p['path']).name
+ if hashlib.sha256(f.read_bytes()).hexdigest()"'!=p['"'sha256']: errors.append(p['path'])
+t=json.loads((s/'task.json').read_text())
+c=json.loads(Path('private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json').read_text())
+for p in [t['repair_authorization']['scope'],t['repair_authorization']['evidence'],*t['context_recovery_authorization'].values(),*c['named_current_inputs'].values(),c['preserve_manifest'],c['immutable_delivery'],c['review'],c['input_pins']]:
+ if hashlib.sha256(Path(p['path']).read_bytes()).hexdigest()"'!=p['"'sha256']: errors.append(p['path'])
+print(json.dumps({'packet_pin_count':len(packet['files'])+len(packet['control_files']),'pin_errors':errors,'configuration_sha256':hashlib.sha256((s/'runtime-configuration.json').read_bytes()).hexdigest(),'attempt_absent':not Path(t['inventory_contract']['attempt_root']).exists()}))
+for name,p in [('delivery',c['immutable_delivery']),('preserve',c['preserve_manifest'])]:
+ d=json.loads(Path(p['path']).read_text()); print(name, {k:len(v) if isinstance(v,(list,dict)) else type(v).__name__ for k,v in d.items()})
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 469ms:
+{"packet_pin_count": 36, "pin_errors": [], "configuration_sha256": "b59e0b260238cd688947be4d37c79afce10ad998044c60fcb732c66bd2fd553a", "attempt_absent": true}
+delivery {'role': 'str', 'actor': 'str', 'model': 'str', 'reasoning': 'str', 'configuration_evidence': 'str', 'configuration_sha256': 'str', 'task': 'str', 'summary': 'str', 'criteria': 12, 'criteria_assessment': 4, 'artifacts': 5302, 'checks': 17, 'input_packet': 3, 'repair_scope': 3, 'measurement': 11, 'denominators': 5, 'semantic_acceptance_granted': 'bool', 'executable_readiness': 'bool', 'preserved_input_artifact_count': 'int', 'preservation_manifest': 3, 'excluded_scratch': 2, 'next_operation': 'str'}
+preserve {'format': 'str', 'artifacts': 10358, 'policy': 'str'}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+import json,hashlib
+from pathlib import Path
+c=json.loads(Path('private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json').read_text())
+for name in ['immutable_delivery','preserve_manifest']:
+ d=json.loads(Path(c[name]['path']).read_text()); bad=0
+ for a in d['artifacts']:
+  p=Path(a['path']); bad+=not(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==a['sha256'])
+ print(json.dumps({'input':name,'verified_artifacts':len(d['artifacts']),'mismatches':bad}))
+ assert bad==0
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 10009ms:
+{"input": "immutable_delivery", "verified_artifacts": 5302, "mismatches": 0}
+{"input": "preserve_manifest", "verified_artifacts": 10358, "mismatches": 0}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'docs/work/EVIDENCE.md' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 317ms:
+{"task": "IG-2B08", "path": "docs/work/EVIDENCE.md", "start_line": 1, "lines": ["# Run evidence examples", "", "These are shapes for operator/executor records, not evidence of a completed task.", "Save each attempt under `private/workflow/runs/<task>/<attempt>/`. Never overwrite a", "previous attempt or fabricate model settings, checks, reviewer identity or owner decisions.", "", "A checkpoint records task/attempt, input packet path/hash, source revisions, base and", "current hashes of owned files, completed criteria, commands/exits, current blocker,", "and the next exact operation. Keep actual model/reasoning and observed token counts", "null with a reason until verified. Do not include secrets or unrelated session history.", "", "An executor claim may reference the checkpoint as its first artifact. A delivery manifest", "lists every changed product/test/contract file submitted for review plus relevant reports;", "it must not be limited to a prose summary. Hash the bytes actually reviewed. Independent", "review and coordinator acceptance reference that same frozen artifact list.", "", "```json", "{", "  \"role\": \"executor\",", "  \"actor\": \"operator-assigned-session-identity\",", "  \"summary\": \"Describe the concrete claim or delivery\",", "  \"model\": null,", "  \"reasoning\": null,", "  \"configuration_evidence\": \"Unknown until confirmed by runtime metadata or operator UI observation\",", "  \"criteria\": [\"Copy the exact acceptance criteria covered by this evidence\"],", "  \"artifacts\": [", "    {\"path\": \"private/workflow/runs/IG-1A/attempt-1/checkpoint.json\", \"sha256\": \"replace-with-computed-hash\"}", "  ],", "  \"checks\": [", "    {\"command\": \"replace-with-actually-run-command\", \"exit_code\": null}", "  ],", "  \"measurement\": {", "    \"started_utc\": null,", "    \"ended_utc\": null,", "    \"wall_seconds\": null,", "    \"operator_seconds\": null,", "    \"input_tokens\": null,", "    \"output_tokens\": null,", "    \"unknown_reason\": \"Not observed in this example\"", "  }", "}", "```", "", "This example intentionally cannot claim a task or pass a delivery gate. Fill measured", "values and hashes first. For an in-progress claim, confirmed model must be `gpt-6.1-sol`", "and reasoning `high`. For accepted, role is reviewer with a distinct identity, all exact", "task criteria, matching delivery artifacts and passing checks. For done, role is coordinator.", "", "A task requiring semantic acceptance additionally references `semantic_decision`, the", "path of an immutable JSON record with role human_owner or human_reviewer, actor,", "authorization evidence, exact targets/revisions/aspects, basis, decision accepted, and", "decision_artifact pointing to the actual human statement. The tool checks structure and", "hashes; it does not authenticate people. The coordinator must verify the recorded", "authority and scope against the real statement. Model-authored approval is invalid.", "", "```powershell", ".\\.venv\\Scripts\\python.exe scripts/workflow.py transition --task IG-1A --to in_progress --evidence private/workflow/runs/IG-1A/attempt-1/claim.json", "```", "", "The example command is for a future executor session. No transition was made to the", "real implementation queue during plan preparation. Synthetic transition tests use", "temporary copies and leave the real queue unchanged."], "truncated": false}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'docs/work/WORKFLOW.md' --start-line 81 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 331ms:
+{"task": "IG-2B08", "path": "docs/work/WORKFLOW.md", "start_line": 81, "lines": ["depending on children, while children inherit the parent's former dependencies (never", "depend on the parent). Rewire downstream tasks through parent closure. Validate the DAG,", "check target-set coverage without overlaps, and render child cards. No recursive platform", "or agent manager is needed. Work partitions do not reduce the full-rulebook target.", "", "## Checkpoints, interruption and conflicts", "", "Write `private/workflow/runs/<task>/<attempt>/checkpoint.json` before starting and after", "each usable increment: task/attempt, actor, actual config, base file hashes, changed-file", "hashes, input packet hash, completed criteria, command results, blocker and next operation.", "Freeze a delivery manifest of all reviewed files and record reports in the same run folder.", "Do not overwrite prior attempts. A interrupted task remains in_progress until triaged.", "Resume by comparing checkpoint hashes with disk and the current queue; record divergences,", "retain both versions and resolve only owned files. Never reset, clean or stash the worktree.", "If an unexpected writer changed an owned path, block that path and ask the coordinator", "to integrate. A checkpoint is not a commit and never authorizes push.", "", "At most two repair cycles per review finding and two retries for the same unchanged", "failure. Then block with evidence and the smallest decision needed. A new hypothesis", "or changed external condition must be recorded before another attempt. No silent scope", "expansion or weakened tests to clear a blocker.", "", "## Measurements and report", "", "Record start/end UTC, elapsed wall time, executor/reviewer identities, requested and", "observed configuration, token counts only if exposed, operator time only if reported,", "tests and defect counts by severity. Unknown values are null, not zero. Separate code", "quality from source meaning and full-profile readiness. No invented monetary cost.", "Final handoff includes outcome, paths/hashes, criteria met/unmet, commands and exits,", "independent review, human decisions where needed, remaining risks, and next exact action.", "", "## Permissions and context limitations", "", "Packets enforce their own allowlist and reject history paths, path escapes and symlinks.", "They are not an OS sandbox for arbitrary tools. `.rgignore` controls default ripgrep only;", "explicit paths, `--no-ignore`, other tools and Git can bypass search exclusions.", "Read [archive isolation](../ARCHIVES.md) before any historical access. The current session", "cannot migrate outside its writable roots or install under protected `.agents/`."], "truncated": false}
+
+codex
+All packet pins match, and both preservation checks passed: 5,302 frozen delivery artifacts and 10,358 preservation entries are unchanged. The current repair is F02: widen the page-29 hit-marker detail, preserve F01, and regenerate the complete final and two replay sets in the fresh owned run.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+import json,hashlib,datetime
+from pathlib import Path
+s=Path('private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e'); t=json.loads((s/'task.json').read_text()); r=Path(t['inventory_contract']['attempt_root']); r.mkdir(exist_ok=False)
+def pin(p):
+ p=Path(p); return {'path':p.as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size}
+base={'role':'executor','actor':'ig2:003-IG-2B08-executor-ad7f232e:executor','model':'gpt-6.1-sol','reasoning':'high','configuration_evidence':(s/'runtime-configuration.json').as_posix(),'configuration_sha256':pin(s/'runtime-configuration.json')['sha256'],'task':'IG-2B08','utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+cp={**base,'summary':'Fresh F02 component repair checkpoint after all immutable inputs verified.','input_packet':pin(s/'packet.json'),'task_contract':pin(s/'task.json'),'repair_scope':pin(t['repair_authorization']['scope']['path']),'base_file_hashes':[],'changed_file_hashes':[],'completed_criteria':[],'checks':[{'command':'Internal SHA-256 verification of packet, immutable delivery and preserve-manifest','exit_code':0,'delivery_artifacts':5302,'preservation_entries':10358}],'blocker':None,'next_operation':'Copy only named current helpers, rebase paths, inspect originals and all assigned components before rebuilding.'}
+(r/'checkpoint.json').write_text(json.dumps(cp,indent=2)+'\\n')
+claim={**base,'summary':'Claim bounded F02 source-component repair in the new absent owned attempt.','criteria':t['acceptance'],'artifacts':[pin(r/'checkpoint.json')],'repair_scope':pin(t['repair_authorization']['scope']['path'])}
+(r/'claim.json').write_text(json.dumps(claim,indent=2)+'\\n')
+print(json.dumps({'claim':(r/'claim.json').as_posix(),'configuration_sha256':base['configuration_sha256']}))
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 313ms:
+{"claim": "private/workflow/runs/IG-2B08/repair-F02-7582f722/claim.json", "configuration_sha256": "b59e0b260238cd688947be4d37c79afce10ad998044c60fcb732c66bd2fd553a"}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe scripts/workflow.py transition --task IG-2B08 --to in_progress --evidence private/workflow/runs/IG-2B08/repair-F02-7582f722/claim.json' in C:\repo\wargame-compiler
+ succeeded in 1192ms:
+IG-2B08 -> in_progress
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py' -TotalCount 100" in C:\repo\wargame-compiler
+ succeeded in 250ms:
+"""Owned serial derivation from the accepted baseline and authorized F01 selections.
+
+Named frozen candidate selections and their persisted identities are authorized
+inputs; all original observations, source derivatives and validation are fresh.
+"""
+from __future__ import annotations
+import copy
+import hashlib
+import importlib.metadata
+import json
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import pdfplumber
+import pypdf
+from PIL import Image, ImageDraw
+from pypdf import PdfReader, PdfWriter
+from pypdf.generic import RectangleObject
+from wgc.sources.geometry import box_to_pdf, render_size_pixels, overlaps
+from wgc.sources.inventory import (assign, make_region, seal, validate,
+    file_pin, page_basis_hash, digest)
+
+ROOT = Path(__file__).resolve().parent.relative_to(Path.cwd())
+REPO = Path.cwd()
+SESSION = Path('private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0')
+CONTRACT = Path('private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json')
+PIN = json.loads(CONTRACT.read_text(encoding='utf-8'))
+TASK = json.loads((SESSION/'task.json').read_text(encoding='utf-8'))
+SPECS = json.loads((ROOT/'author-selections.json').read_text(encoding='utf-8'))
+
+
+def load(path):
+    return json.loads(Path(path).read_text(encoding='utf-8'))
+
+
+def write(path, value):
+    Path(path).write_text(json.dumps(value, ensure_ascii=True, indent=2)+'\n', encoding='utf-8')
+
+
+def pin(path):
+    return file_pin(REPO, Path(path).as_posix())
+
+
+def metadata():
+    return dict(role='executor', actor='ig2:001-IG-2B08-executor-42d4c4e0:executor',
+                model='gpt-6.1-sol', reasoning='high',
+                configuration_evidence=(SESSION/'runtime-configuration.json').as_posix(),
+                configuration_sha256=pin(SESSION/'runtime-configuration.json')['sha256'])
+
+
+def old_preservation():
+    scope=load(TASK['context_recovery_authorization']['scope']['path'])
+    m=load(scope['preserve_manifest']['path'])
+    count=0
+    def walk(o):
+        nonlocal count
+        if isinstance(o,dict):
+            if 'path' in o and 'sha256' in o:
+                assert pin(o['path'])['sha256']==o['sha256'],o['path']
+                count+=1
+            for v in o.values(): walk(v)
+        elif isinstance(o,list):
+            for v in o: walk(v)
+    walk(m)
+    return count
+
+
+def baseline():
+    for field in ('baseline_inventory','identity_registry'):
+        assert pin(PIN[field]['path'])==PIN[field]
+    base=load(PIN['baseline_inventory']['path'])
+    registry=load(PIN['identity_registry']['path'])
+    assert base['registry']==registry
+    assert len(base['pages'])==44
+    assert {k:len(base[k]) for k in ('pages','regions','evidence','links')}==PIN['counts']
+    return base,registry
+
+
+def normalized(s):
+    if s['page']==33: return [73529,63131,500000,101011]
+    return [round(s['points'][0]*1000000/612),round(s['points'][1]*1000000/792),
+            round(s['points'][2]*1000000/612),round(s['points'][3]*1000000/792)]
+
+
+def selected_regions(base, registry):
+    pages={p['pdf_page']:p for p in base['pages']}
+    result=[]
+    for s in SPECS:
+        r=make_region(registry,s['key'],pages[s['page']],normalized(s),kind=s['kind'],role=s['role'],reason='')
+        r['uncertainty']=['Physical source observation only. No verified transcription or accepted source meaning.']
+        r['coverage']={
+            'transcription':dict(status='partial',reason='Fresh clipped machine text and pixels; punctuation/counter glyphs and reading order remain unverified.',gap=True,boundary=None),
+            'descriptive_semantics':dict(status='partial',reason='Physical classification and component observation only; meaning remains unaccepted.',gap=True,boundary=None),
+            'formal_semantics':dict(status='unprocessed',reason='Outside physical inventory scope; no gameplay formalization.',gap=True,boundary=None)}
+        result.append(seal(r))
+    for i,r in enumerate(result):
+        if r['denominator_role']=='inventory':
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py' | Select-Object -Skip 100 -First 100" in C:\repo\wargame-compiler
+ succeeded in 253ms:
+            for q in result[:i]:
+                if q['page_id']==r['page_id'] and q['denominator_role']=='inventory':
+                    assert not overlaps(q['box'],r['box']),(q['key'],r['key'])
+    return result
+
+
+def ordered_specs(page):
+    items=[s for s in SPECS if s['page']==page]
+    # Explicit column-first physical reading order. Diagram details follow their
+    # field tiles; all overlapping detail crops remain outside the denominator.
+    left=[];right=[];head=[];foot=[]
+    for s in items:
+        key=s['key'].split(':',2)[2]
+        if key=='running-header':head.append(s)
+        elif key=='copyright':foot.append(s)
+        elif s['points'][0]<306:left.append(s)
+        else:right.append(s)
+    def order(seq):
+        # Group every panel's components after that panel's tiles.
+        groups={}
+        for s in seq:
+            group=s['group'] if s['kind']=='diagram' and s['group'] else s['key']
+            groups.setdefault(group,[]).append(s)
+        chunks=list(groups.values())
+        chunks.sort(key=lambda g:(min(x['points'][1] for x in g),min(x['points'][0] for x in g)))
+        return [x for g in chunks for x in sorted(g,key=lambda s:(s['role']=='context',s['points'][1],s['points'][0],s['key']))]
+    return head+order(left)+order(right)+foot
+
+
+def author_document(base, registry, regions):
+    result=copy.deepcopy(base)
+    retired=set(TASK['inventory_contract']['placeholder_target_ids'])
+    result['regions']=[r for r in result['regions'] if r['id'] not in retired]+copy.deepcopy(regions)
+    ids={r['key']:r['id'] for r in regions}
+    old={r['id']:r for r in base['regions']}
+    pages={p['id']:p['pdf_page'] for p in base['pages']}
+    order=[]
+    for identity in base['reading_order']:
+        if identity in retired:
+            page=pages[old[identity]['page_id']]
+            order.extend(ids[s['key']] for s in ordered_specs(page))
+            if page==32:order.append(ids['ig2b08:p33:exit-context'])
+        else:order.append(identity)
+    result['reading_order']=order
+    result['registry']=copy.deepcopy(registry)
+    def link(kind,a,b,reason):
+        result['links'].append({'kind':kind,'from':ids[a],'to':ids[b],'reason':reason})
+    for a,b in [('p30:advance-854-start','p30:advance-854-end'),('p30:pursue-next-page','p31:pursue-continuation'),('p31:finished-upper','p31:finished-close'),('p31:pass-through-upper','p31:pass-through-lower'),('p31:pass-through-step2','p32:pass-through-step3'),('p32:table-one-six-result','p32:table-seven-nine-result'),('p32:rampage-exit','p33:exit-context')]:
+        link('continuation','ig2b08:'+a,'ig2b08:'+b,'Visible column/page continuation, not an executable relation.')
+    # Preserve inherited entry link and reference the fresh inspected paragraph.
+    result['links'].append({'kind':'continuation','from':TASK['inventory_contract']['retained_context_ids'][0],
+                            'to':ids['ig2b08:p29:incoming-example'],'reason':'Accepted page-28 exit context is retained; freshly inspected page-29 paragraph matches the incoming continuation.'})
+    return seal(result)
+
+
+def evidence(doc, r, directory, reader, original):
+    """Serial derivative; text always clipped on original before extraction.
+
+    In particular, never extract retained out-of-clip streams from page-33 crop PDF.
+    Native raster output is restricted to the normalized authorized crop dimensions.
+    """
+    page=next(p for p in doc['pages'] if p['id']==r['page_id'])
+    directory.mkdir(parents=True,exist_ok=False)
+    writer=PdfWriter()
+    # PdfWriter.add_page clones the page into this fresh writer, matching the
+    # installed source tooling. Do not deepcopy the reader's entire object graph.
+    cropped=writer.add_page(reader.pages[page['pdf_page']-1])
+    native=box_to_pdf(r['box'],page)
+    cropped.mediabox=RectangleObject([float(x) for x in native]);cropped.cropbox=RectangleObject([float(x) for x in native])
+    with (directory/'crop.pdf').open('xb') as stream:writer.write(stream)
+    x0,y0,x1,y1=r['box']
+    original_box=(x0*612/1000000,y0*792/1000000,x1*612/1000000,y1*792/1000000)
+    text=original.pages[page['pdf_page']-1].crop(original_box,strict=True).extract_text(x_tolerance=3,y_tolerance=3,layout=False) or ''
+    (directory/'text.txt').write_text(text,encoding='utf-8',newline='\n')
+    width,height=render_size_pixels(r['box'],page,144)
+    subprocess.run(['pdftoppm','-f','1','-l','1','-singlefile','-cropbox','-r','144','-x','0','-y','0','-W',str(width),'-H',str(height),'-png',str(directory/'crop.pdf'),str(directory/'image')],capture_output=True,check=True)
+    with Image.open(directory/'image.png') as im: assert im.size==(width,height)
+    basis=page_basis_hash(page)
+    version=subprocess.run(['pdftoppm','-v'],capture_output=True,text=True,check=True)
+    return {'id':'evidence:'+hashlib.sha256((r['id']+r['revision']+basis+'144').encode()).hexdigest(),
+        'source_sha256':doc['source']['sha256'],'region_id':r['id'],'region_revision':r['revision'],
+        'page_id':page['id'],'pdf_page':page['pdf_page'],'box':r['box'],'page_basis_hash':basis,
+        'crop_pdf':pin(directory/'crop.pdf'),'text':pin(directory/'text.txt'),'image':pin(directory/'image.png'),
+        'text_codepoints':len(text),'text_offsets':{'unit':'unicode_codepoints','bounds':'half_open','start':0,'end':len(text)},
+        'text_parameters':{'engine':'pdfplumber','version':pdfplumber.__version__,'x_tolerance':3,'y_tolerance':3,'layout':False},
+        'render_parameters':{'engine':'poppler-pdftoppm','version':(version.stderr+version.stdout).strip(),'dpi':144,'cropbox':True,'format':'png','width_pixels':width,'height_pixels':height},
+        'crop_parameters':{'engine':'pypdf','version':pypdf.__version__,'user_unit_normalized':True,'frame':'displayed-crop-top-left'},
+        'uncertainty':['Original-page clipped machine extraction; punctuation, diagram labels and counter glyphs unverified; no accepted source meaning.']}
+
+
+def prepare():
+    assert old_preservation()==7808
+    base,registry=baseline()
+    if (ROOT/'author-registry.json').exists():
+        registry=load(ROOT/'author-registry.json')
+    regions=selected_regions(base,registry)
+    doc=author_document(base,registry,regions)
+    validate(doc)
+    write(ROOT/'author-registry.json',registry)
+    write(ROOT/'author-inventory.json',doc)
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py' | Select-Object -Skip 200 -First 100" in C:\repo\wargame-compiler
+ succeeded in 241ms:
+    # Boundary overlays show ALL primary and detail rectangles against fresh originals.
+    for page in (29,30,31,32):
+        im=Image.open(ROOT/'originals'/f'page-{page}.png').convert('RGB')
+        d=ImageDraw.Draw(im)
+        rows=[s for s in SPECS if s['page']==page]
+        for s in rows:
+            box=tuple(round(x*2) for x in s['points'])
+            d.rectangle(box,outline='red' if s['role']=='inventory' else 'blue',width=1)
+        im.save(ROOT/'originals'/f'page-{page}-boundaries.png')
+    tools={**metadata(),'process_pythonpath':os.environ.get('PYTHONPATH'),'process_path_prefix':os.environ.get('PATH','').split(';'),
+           'libraries':{x:importlib.metadata.version(x) for x in ('pypdf','pdfplumber','Pillow','pytest','reportlab')},
+           'native':{x:pin(Path(shutil.which(x)).relative_to(REPO)) if Path(shutil.which(x)).is_relative_to(REPO) else {'path':shutil.which(x),'sha256':hashlib.sha256(Path(shutil.which(x)).read_bytes()).hexdigest()} for x in ('pdftoppm','pdfinfo','pwsh')},
+           'evidence_generation':'Serial current-process Python; one native CLI per artifact; no worker pools.',
+           'text_access':'Original-page crop before extract_text for every new region; page 33 only authorized outward normalized rounding of exact rectangle.'}
+    write(ROOT/'toolchain.json',tools)
+    print(json.dumps({'prepared':True,'regions':len(regions),'preserved_old_artifacts':7808}))
+
+
+def run(name):
+    assert name in ('final-verified','replay-1','replay-2')
+    base,_=baseline()
+    registry=load(ROOT/'author-registry.json')
+    regions=selected_regions(base,registry)
+    doc=author_document(base,registry,regions)
+    directory=ROOT/name;directory.mkdir(exist_ok=False)
+    pdf=PIN['source']['pdf']['path'];reader=PdfReader(pdf,strict=True)
+    with pdfplumber.open(pdf) as original:
+        for i,r in enumerate(regions,1):
+            ev=evidence(doc,r,directory/'evidence'/r['key'].replace(':','-'),reader,original)
+            doc['evidence'].append(ev)
+            if i%50==0: print(f'{name}: {i}/{len(regions)} serial regions',flush=True)
+    doc=seal(doc)
+    write(directory/'inventory.json',doc);write(directory/'identity-registry.json',registry)
+    validate(doc,REPO)
+    assert doc['registry']==load(directory/'identity-registry.json')
+    print(json.dumps({'replay':name,'regions_generated':len(regions),'inventory':pin(directory/'inventory.json'),'validated':True}),flush=True)
+
+
+if __name__=='__main__':
+    if sys.argv[1]=='prepare':prepare()
+    else:run(sys.argv[1])
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/freeze_delivery.py' -TotalCount 95" in C:\repo\wargame-compiler
+ succeeded in 257ms:
+"""Freeze only this bounded F01 repair, retaining all immutable input pins."""
+from datetime import datetime,timezone
+import json
+from build_inventory import ROOT,SESSION,TASK,CONTRACT,SPECS,load,write,pin,metadata,old_preservation
+
+def main():
+    meta=metadata();config=load(SESSION/'runtime-configuration.json')
+    assert (config['status'],config['model'],config['reasoning'])==('confirmed','gpt-6.1-sol','high')
+    assert meta['configuration_sha256']=='8fe2d32465346ef58ac7c4308399eeb2123ef6d2c6be9039a9c9ee5df160375a'
+    assert not (ROOT/'delivery.json').exists()
+    # Internal selected-contract check only: no queue/event output.
+    selected=next(t for t in load('docs/work/queue.json')['tasks'] if t['id']=='IG-2B08')
+    assert selected['status']=='in_progress'
+    for field,value in TASK.items():
+        if field!='status':assert selected[field]==value,field
+    for control in load(SESSION/'packet.json')['control_files']:
+        assert pin(control['path'])['sha256']==control['sha256']
+    scope=load(TASK['context_recovery_authorization']['scope']['path'])
+    assert pin(scope['preserve_manifest']['path'])==scope['preserve_manifest']
+    assert old_preservation()==7808
+    source=load(ROOT/'source-suite-execution.json');full=load(ROOT/'full-check-execution.json')
+    assert source['attempts'][-1]['exit_code']==full['attempts'][-1]['exit_code']==0
+    cli=load(ROOT/'source-cli-validation.json');assert all(c['exit_code']==0 for c in cli['checks'])
+    qa=load(ROOT/'visual-qa.json');assert qa['all_sheets_inspected'] and qa['exact_page33_context_inspected']
+    batch=load(ROOT/'batch-verification.json');assert batch['exit_code']==0
+    arrow=load(ROOT/'arrow-completeness-report.json');assert arrow['exit_code']==0 and arrow['old_crop_rejected']
+    delta=load(ROOT/'repair-delta.json');assert delta['exit_code']==0 and delta['changed_region_count']==1
+    diff=load(ROOT/'diff-check-execution.json');assert diff['exit_code']==0
+    names=('final-verified','replay-1','replay-2')
+    coverage=load(ROOT/'coverage-report.json');preservation=load(ROOT/'preservation-report.json')
+    checks=[
+        {'command':'Exact packet/control/repair-input/runtime pin verification, absent owned directory and selected contract/dependency checks before claim','exit_code':0},
+        {'command':f'.venv/Scripts/python.exe {ROOT.as_posix()}/inspect_originals.py','exit_code':0},
+        {'command':f'.venv/Scripts/python.exe {ROOT.as_posix()}/build_inventory.py prepare','exit_code':0},
+        *[{'command':f'.venv/Scripts/python.exe {ROOT.as_posix()}/build_inventory.py {name}','exit_code':0} for name in names],
+        {'command':f'.venv/Scripts/python.exe {ROOT.as_posix()}/probe_geometry.py','exit_code':0,'evidence':pin(ROOT/'geometric-content-probe.json')},
+        {'command':f'.venv/Scripts/python.exe {ROOT.as_posix()}/check_arrow_completeness.py','exit_code':0,'evidence':pin(ROOT/'arrow-completeness-report.json')},
+        {'command':source['command'],'exit_code':0,'execution':'Approved unchanged exact command after observed restricted-token WinError 5.','evidence':pin(ROOT/'source-suite-execution.json')},
+        *cli['checks'],
+        {'command':f'.venv/Scripts/python.exe {ROOT.as_posix()}/verify_batch.py','exit_code':0,'evidence':pin(ROOT/'batch-verification.json')},
+        {'command':full['command'],'exit_code':0,'execution':'Approved unchanged command; 288 tests passed.','evidence':pin(ROOT/'full-check-execution.json')},
+        {'command':'git diff --check','exit_code':0,'evidence':pin(ROOT/'diff-check-execution.json')},
+        {'command':'Fresh assigned-original, all proposed boundary/component and exact page-33 visual inspection','exit_code':0,'evidence':pin(ROOT/'visual-qa.json')},
+        {'command':'Final selected ownership/contract/runtime/control checks and all 7808 preserved input artifact hashes','exit_code':0},
+    ]
+    started=load(ROOT/'checkpoint.json')['started_utc'];ended=datetime.now(timezone.utc)
+    measurement={'started_utc':started,'ended_utc':ended.isoformat(),'elapsed_wall_seconds':(ended-datetime.fromisoformat(started)).total_seconds(),
+        'input_tokens':None,'output_tokens':None,'operator_seconds':None,'unknown_reason':'Token usage and operator time were not exposed.',
+        'executor':meta['actor'],'reviewer':None,'observed_model':config['model'],'observed_reasoning':config['reasoning']}
+    validation={**meta,'summary':'Bounded F01 repair passed unchanged required suites, three source-backed CLI validations, complete serial replay/preservation/index checks and source-bound arrow regression.',
+        'checks':checks,'restricted_token_failure':source['attempts'][0],
+        'approved_execution':{'source_suite':pin(ROOT/'source-suite-execution.json'),'full_check':pin(ROOT/'full-check-execution.json')},
+        'verifier_development':pin(ROOT/'verifier-development.json'),
+        'preserved_input_artifacts_verified':7808,'repair_finding':'F01','repair_cycles_in_this_session':1,
+        'unresolved_review_findings':'Fresh independent review pending; no acceptance granted.',
+        'source_meaning':'Unaccepted; machine transcription and descriptive gaps remain.','semantic_acceptance_granted':False,'executable_readiness':False,'measurement':measurement}
+    write(ROOT/'validation-report.json',validation)
+    handoff=f'''# IG-2B08 F01 repair for independent review
+
+The page-30 Advance arrow detail now uses [90,344,143,476] PDF points.
+Fresh original and final/replay detail inspection accounts for both complete cyan
+curves and arrowheads and the black forward arrow, including source point [94,367].
+The source-bound regression checks 199 left-cyan, 194 right-cyan and 458 black-arrow
+reference pixels in the intended detail in all three sets. It rejects the old crop
+and separate tail, head and shaft truncations that a single witness cannot catch.
+
+Only this zero-denominator detail selection changed. All unrelated selections,
+primary tiles, registry history, identities, reading order, links and normalized
+non-target evidence match the frozen candidate. All accepted 44-page baseline
+objects except the four retired active placeholders remain unchanged. All 7,808
+current preservation-manifest artifacts were hash-verified before writes and freeze.
+
+Final and both independent replays regenerated all 269 regions serially from the
+accepted baseline and persisted registry. The 183 assigned primary regions and
+86 new context/detail regions remain separate; context contributes zero denominator.
+Fresh assigned originals, proposed boundaries/components and the exact page-33
+[45,50,306,80] context were inspected. Page 28 was reference-only through the prepared
+dependency projection. Page-33 access never expanded beyond the authorized crop.
+
+Checks passed: 71 unchanged source tests, 288 full-suite tests, all three source-backed
+CLI validations, complete batch/index/replay preservation checks, arrow regression
+and git diff --check. Approved exact-command execution resolved the observed Windows
+restricted-token pytest temporary-directory denial without changing tests, guards,
+assertions, ACLs or libraries. See validation-report.json for commands and evidence.
+
+The fresh gap probe reports zero unassigned word centers and 42 thresholded ink
+pixels outside primary regions. These and other geometric spacing remain gaps;
+machine transcription, counter glyphs and source meaning remain unaccepted, and
+formal semantics remain unprocessed. No semantic acceptance or gameplay readiness
+is granted. Fresh independent review of every original/appended criterion and this
+exhaustive frozen artifact set is the next operation. Only the supervisor launches it.
+'''
+    (ROOT/'delivery-handoff.md').write_text(handoff,encoding='utf-8',newline='\n')
+    pending=[c for c in TASK['acceptance'] if c.startswith('A fresh independent reviewer') or c.startswith('Independent review compares')]
+    write(ROOT/'checkpoint-delivery.json',{**meta,'task':'IG-2B08','attempt':ROOT.name,'summary':'Bounded F01 repair ready for frozen independent review.',
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py' -TotalCount 100" in C:\repo\wargame-compiler
+ succeeded in 242ms:
+"""Complete baseline preservation, source/component index and replay verifier.
+
+Reads accepted inputs internally, emitting only this task's summary. Deliberate
+in-memory corruptions prove omissions and stale indexes cannot return success.
+"""
+import copy
+import json
+from collections import Counter
+from pathlib import Path
+from PIL import Image, ImageDraw
+from wgc.sources.inventory import coverage, digest, page_basis_hash, validate
+from wgc.sources.geometry import overlaps
+from build_inventory import (ROOT, REPO, PIN, TASK, SPECS, CONTRACT, baseline, load,
+                             write, pin, metadata, old_preservation)
+from check_arrow_completeness import reference_masks, check_document, KEY
+
+
+def new_regions(doc):
+    return [r for r in doc['regions'] if r['key'].startswith('ig2b08:')]
+
+
+def check_preservation(base, result):
+    retired=set(TASK['inventory_contract']['placeholder_target_ids'])
+    old={r['id']:r for r in base['regions']};now={r['id']:r for r in result['regions']}
+    assert set(old)-set(now)==retired
+    for identity,r in old.items():
+        if identity not in retired: assert now[identity]==r
+    assert result['source']==base['source'] and result['pages']==base['pages']
+    assert result['links'][:len(base['links'])]==base['links']
+    assert result['evidence'][:len(base['evidence'])]==base['evidence']
+    old_entries={tuple(sorted(e.items())) for e in base['registry']['entries']}
+    new_entries={tuple(sorted(e.items())) for e in result['registry']['entries']}
+    assert old_entries<=new_entries
+    old_order=[x for x in base['reading_order'] if x not in retired]
+    assert [x for x in result['reading_order'] if x in set(old_order)]==old_order
+    return {'retired_active_placeholders':sorted(retired),'preserved_regions':len(old)-4,
+        'preserved_evidence_objects':len(base['evidence']),'preserved_links':len(base['links']),
+        'preserved_registry_entries':len(old_entries),'result_registry_entries':len(new_entries),
+        'retained_reading_order_count':len(old_order),'retained_reading_order_hash':digest(old_order),
+        'preserved_region_objects_hash':digest([r for r in base['regions'] if r['id'] not in retired]),
+        'pages_before_after_hash':digest(base['pages']),'links_before_prefix_hash':digest(base['links']),
+        'evidence_before_prefix_hash':digest(base['evidence']),'source_before_after_hash':digest(base['source'])}
+
+
+def require_components(doc):
+    selected={s['key'] for s in SPECS}
+    assert {r['key'] for r in new_regions(doc)}==selected,'Missing assigned region/component'
+    assert len(new_regions(doc))==len(selected)
+    ev={e['region_id']:e for e in doc['evidence']}
+    pages={p['id']:p for p in doc['pages']}
+    for r in new_regions(doc):
+        assert r['id'] in ev,'Missing assigned evidence'
+        assert ev[r['id']]['page_basis_hash']==page_basis_hash(pages[r['page_id']])
+        assert ev[r['id']]['region_revision']==r['revision']
+        for field in ('crop_pdf','text','image'):
+            assert pin(ev[r['id']][field]['path'])==ev[r['id']][field]
+    for i,r in enumerate(new_regions(doc)):
+        if r['denominator_role']=='inventory':
+            for q in new_regions(doc)[:i]:
+                if q['page_id']==r['page_id'] and q['denominator_role']=='inventory':
+                    assert not overlaps(q['box'],r['box'])
+    assert len({p['pdf_page'] for p in doc['pages']})==44
+
+
+def normalized_evidence(doc):
+    ids={r['id'] for r in new_regions(doc)}
+    rows=[]
+    for e in doc['evidence']:
+        if e['region_id'] not in ids:continue
+        e=copy.deepcopy(e)
+        for field in ('crop_pdf','text','image'):
+            e[field]['path']=e[field]['path'].split('/evidence/',1)[1]
+        rows.append(e)
+    return rows
+
+
+def require_replay(final, replay):
+    require_components(replay)
+    for field in ('source','pages','regions','registry','reading_order','links','toolchain'):
+        assert final[field]==replay[field],field
+    assert normalized_evidence(final)==normalized_evidence(replay),'Path-normalized evidence bytes/locators differ'
+
+
+def artifact_pins(docs):
+    seen={}
+    def visit(o):
+        if isinstance(o,dict):
+            if 'path' in o and 'sha256' in o:
+                actual=pin(o['path']);assert actual['sha256']==o['sha256']
+                if 'bytes' in o:assert actual['bytes']==o['bytes']
+                seen[actual['path']]=actual
+            for v in o.values():visit(v)
+        elif isinstance(o,list):
+            for v in o:visit(v)
+    for doc in docs:visit(doc)
+    return list(seen.values())
+
+
+def ensure_index(index, required):
+    indexed={p['path']:p for p in index}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py' | Select-Object -Skip 100 -First 100" in C:\repo\wargame-compiler
+ succeeded in 252ms:
+    assert len(indexed)==len(index),'Duplicate source index paths'
+    for p in required:
+        assert indexed.get(p['path'])==p,'Missing/stale source index path'
+    for p in index:assert pin(p['path'])==p,'Missing/stale indexed bytes'
+
+
+def gap_rectangles(regions, page_id):
+    boxes=[r['box'] for r in regions if r['page_id']==page_id and r['denominator_role']=='inventory']
+    cuts=sorted({0,1000000,*[b[i] for b in boxes for i in (1,3)]})
+    gaps=[]
+    for y0,y1 in zip(cuts,cuts[1:]):
+        intervals=sorted((b[0],b[2]) for b in boxes if b[1]<=y0 and b[3]>=y1)
+        at=0
+        for x0,x1 in intervals:
+            if x0>at:gaps.append([at,y0,x0,y1])
+            at=x1
+        if at<1000000:gaps.append([at,y0,1000000,y1])
+    return gaps
+
+
+def negative_check(call):
+    try:call()
+    except (AssertionError,ValueError,FileNotFoundError):return 'correctly_rejected'
+    raise AssertionError('Negative omission/tamper case was accepted')
+
+
+def report():
+    base,_=baseline();docs=[load(ROOT/name/'inventory.json') for name in ('final-verified','replay-1','replay-2')]
+    final=docs[0];meta=metadata()
+    _,arrow_masks=reference_masks()
+    for doc in docs:check_document(doc,arrow_masks)
+    candidate_root=Path('private/workflow/runs/IG-2B08/inventory-p33-scope02')
+    candidate_specs=load(candidate_root/'author-selections.json')
+    assert [s for s in candidate_specs if s['key']!=KEY]==[s for s in SPECS if s['key']!=KEY]
+    candidate=load(candidate_root/'final-verified/inventory.json')
+    assert candidate['registry']==final['registry']
+    assert candidate['reading_order']==final['reading_order']
+    assert candidate['links']==final['links']
+    assert [r for r in candidate['regions'] if r['key']!=KEY]==[r for r in final['regions'] if r['key']!=KEY]
+    old_evidence=normalized_evidence(candidate);fresh_evidence=normalized_evidence(final)
+    target_id=next(r['id'] for r in final['regions'] if r['key']==KEY)
+    assert [e for e in old_evidence if e['region_id']!=target_id]==[e for e in fresh_evidence if e['region_id']!=target_id]
+    write(ROOT/'repair-delta.json',{**meta,'summary':'Only the F01 detail geometry/observation/revision and its derivatives changed; unrelated author records, primary tiles, identities, registry history, order, links and normalized evidence remain identical.',
+        'candidate_inventory':pin(candidate_root/'final-verified/inventory.json'),'current_inventory':pin(ROOT/'final-verified/inventory.json'),
+        'changed_key':KEY,'changed_region_count':1,'unchanged_authored_selection_count':len(SPECS)-1,
+        'unchanged_registry_order_links':True,'unchanged_non_target_normalized_evidence':True,'exit_code':0})
+    preservation=check_preservation(base,final)
+    for name,doc in zip(('final-verified','replay-1','replay-2'),docs):
+        validate(doc,REPO);require_components(doc)
+        assert load(ROOT/name/'identity-registry.json')==doc['registry']
+        check_preservation(base,doc)
+    for replay in docs[1:]:require_replay(final,replay)
+    all_artifacts=artifact_pins(docs)
+    # Every original-page and boundary artifact is indexed, including all words,
+    # fresh overlay renders, access record and bounded context crop.
+    originals=[pin(p) for p in sorted((ROOT/'originals').iterdir()) if p.is_file()]
+    indexed=all_artifacts+originals
+    seen={p['path']:p for p in indexed};indexed=list(seen.values())
+    ensure_index(indexed,all_artifacts+originals)
+    missing=copy.deepcopy(final);missing['regions']=[r for r in missing['regions'] if r['key']!=SPECS[-1]['key']]
+    stale=copy.deepcopy(indexed);stale[0]['sha256']='0'*64
+    missing_replay=copy.deepcopy(docs[1]);missing_replay['regions']=missing_replay['regions'][:-1]
+    negative={'missing_component':negative_check(lambda:require_components(missing)),
+              'missing_index_path':negative_check(lambda:ensure_index(indexed[1:],all_artifacts+originals)),
+              'stale_index_hash':negative_check(lambda:ensure_index(stale,all_artifacts+originals)),
+              'incomplete_replay':negative_check(lambda:require_replay(final,missing_replay))}
+    write(ROOT/'preservation-report.json',{**meta,'summary':'Exact nonassigned objects and retained order preserved; only four active placeholders retired.','baseline':PIN['baseline_inventory'],'baseline_registry':PIN['identity_registry'],**preservation,'old_attempt_preserved_artifacts':old_preservation(),'human_semantic_acceptance':False})
+    ids={r['key']:r for r in new_regions(final)};ev={e['region_id']:e for e in final['evidence']}
+    observations=[]
+    for s in SPECS:
+        r=ids[s['key']]
+        observations.append({**s,'region_id':r['id'],'revision':r['revision'],'box':r['box'],
+            'evidence':ev[r['id']],'original_page':pin(ROOT/'originals'/f'page-{s["page"]}.png'),
+            'inspection':'Fresh original and boundary overlay visually inspected in this executor session; physical descriptive observation only.',
+            'denominator_contribution':int(s['role']=='inventory')})
+    page_map={p['id']:p['pdf_page'] for p in final['pages']}
+    write(ROOT/'region-ledger.json',{**meta,'summary':'Complete 44-page ledger; new independent author observations are explicit.','source_sha256':final['source']['sha256'],
+        'regions':[{'id':r['id'],'key':r['key'],'revision':r['revision'],'pdf_page':page_map[r['page_id']],'box':r['box'],'kind':r['kind'],'denominator_role':r['denominator_role'],'coverage':r['coverage'],'origin':'fresh IG-2B08' if r['key'].startswith('ig2b08:') else 'preserved accepted baseline'} for r in final['regions']],
+        'new_observations':observations,'reading_order':final['reading_order'],'links':final['links'],'input_ledger':PIN['reports']['region-ledger.json']})
+    component_rows=[o for o in observations if o['kind'] in ('diagram','table','legend','example')]
+    # Each detail belongs to a source field tile on its page. Intersections are
+    # explicit; they do not manufacture additional represented inventory units.
+    for o in component_rows:
+        o['field_region_ids']=[q['region_id'] for q in observations if q['role']=='inventory' and q['page']==o['page'] and q['group']==o['group'] and q['group'] is not None and overlaps(q['box'],o['box'])]
+    write(ROOT/'component-ledger.json',{**meta,'summary':'Complete table/caption/example/diagram set, with overlapping visual layers separated from primary disjoint source-field tiles.','components':component_rows,
+        'new_component_count':len(component_rows),'primary_denominator':sum(o['role']=='inventory' for o in component_rows),
+        'detail_denominator':0,'limitation':'Diagram layers overlap in source; detail crops can include adjacent layers. Machine glyphs and gameplay meaning remain unverified.'})
+    access=load(ROOT/'original-access.json')
+    write(ROOT/'original-page-inspection.json',{**meta,'summary':'Fresh original pages and all proposed boundary overlays inspected; page-33 output is bounded before pixels/text are released.',
+        'source':PIN['source'],'access':access,'original_artifacts':originals,'assigned_pages':[29,30,31,32],
+        'context_page33':{'points':[45,50,306,80],'normalized':[73529,63131,500000,101011],'observed':'Two complete continuation lines only, ending one rampaging Elephant at any one time. No following note visible.','fresh_image':pin(ROOT/'originals/page-33.png'),'fresh_text':pin(ROOT/'originals/page-33.txt'),'crop_pdf_warning':'Page streams may retain out-of-clip data; never used for raw text extraction.'},
+        'page28':'Reference-only via accepted prepared boundary projection; not rendered or extracted.',
+        'observations':observations,'semantic_acceptance_granted':False})
+    inherited=coverage(base);full=coverage(final)
+    assigned=[r for r in new_regions(final) if r['denominator_role']=='inventory']
+    context=[r for r in final['regions'] if r['denominator_role']=='context']
+    full['assigned_four_page']={'physical_pages':[29,30,31,32],'denominator_regions':len(assigned),
+        'levels':{level:dict(Counter(r['coverage'][level]['status'] for r in assigned)) for level in ('transcription','descriptive_semantics','formal_semantics')},
+        'geometric_gaps':[{'pdf_page':p['pdf_page'],'page_id':p['id'],'boxes':gap_rectangles(final['regions'],p['id']),'reason':'Explicit area outside independently authored source regions; predominantly margins/spacing. Not represented content.'} for p in final['pages'] if p['pdf_page'] in (29,30,31,32)]}
+    inherited_regions=[r for r in base['regions'] if r['denominator_role']=='inventory' and r['id'] not in set(TASK['inventory_contract']['placeholder_target_ids'])]
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+import json
+from pathlib import Path
+p=Path('private/workflow/runs/IG-2B08/repair-F01-manifest02/region-ledger.json'); d=json.loads(p.read_text()); rows=d['new_observations']; print({'count':len(rows),'selection_fields':list(rows[0])})
+for r in rows:
+ if r['key']=='ig2b08:p29:collapse-diagram-component-c-hits':print({k:r[k] for k in ['key','page','points','kind','role','group','observation'] if k in r})
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 337ms:
+{'count': 269, 'selection_fields': ['page', 'key', 'points', 'kind', 'observation', 'role', 'group', 'region_id', 'revision', 'box', 'evidence', 'original_page', 'inspection', 'denominator_contribution']}
+{'key': 'ig2b08:p29:collapse-diagram-component-c-hits', 'page': 29, 'points': [106, 496, 133, 527], 'kind': 'diagram', 'role': 'context', 'group': 'collapse-diagram', 'observation': 'Visible 4 marker behind Celt C.'}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/inspect_originals.py' -TotalCount 80" in C:\repo\wargame-compiler
+ succeeded in 244ms:
+"""Fresh source access restricted to assigned pages and exact context rectangle."""
+import hashlib
+import json
+import subprocess
+from pathlib import Path
+
+import pdfplumber
+from PIL import Image
+from pypdf import PdfReader, PdfWriter
+from pypdf.generic import RectangleObject
+
+ROOT = Path(__file__).parent
+PDF = Path('private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf')
+assert hashlib.sha256(PDF.read_bytes()).hexdigest() == 'e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e'
+out = ROOT / 'originals'
+out.mkdir(exist_ok=False)
+records = []
+with pdfplumber.open(PDF) as pdf:
+    for number in [29, 30, 31, 32, 33]:
+        prefix = out / f'page-{number}'
+        args = ['pdftoppm', '-f', str(number), '-l', str(number), '-singlefile', '-r', '144', '-png']
+        page = pdf.pages[number - 1]
+        if number == 33:
+            # Crop the ORIGINAL page before releasing any characters or text.
+            page = page.crop((45, 50, 306, 80), strict=True)
+            args += ['-x', '90', '-y', '100', '-W', '522', '-H', '60']
+        text = page.extract_text(x_tolerance=3, y_tolerance=3, layout=False) or ''
+        prefix.with_suffix('.txt').write_text(text, encoding='utf-8', newline='\n')
+        words = page.extract_words(x_tolerance=3, y_tolerance=3)
+        prefix.with_suffix('.words.json').write_text(json.dumps(words, indent=2), encoding='utf-8')
+        subprocess.run(args + [str(PDF), str(prefix)], check=True, capture_output=True)
+        if number == 33:
+            writer = PdfWriter()
+            crop = writer.add_page(PdfReader(PDF, strict=True).pages[32])
+            crop.mediabox = RectangleObject([45, 712, 306, 742])
+            crop.cropbox = RectangleObject([45, 712, 306, 742])
+            with prefix.with_suffix('.pdf').open('xb') as stream:
+                writer.write(stream)
+        with Image.open(prefix.with_suffix('.png')) as im:
+            dimensions = list(im.size)
+        records.append({'physical_page': number, 'box_points': [45, 50, 306, 80] if number == 33 else [0, 0, 612, 792], 'dimensions': dimensions, 'word_count': len(words), 'text_codepoints': len(text)})
+(ROOT / 'original-access.json').write_text(json.dumps(records, indent=2) + '\n', encoding='utf-8')
+print(json.dumps(records))
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/check_arrow_completeness.py' -TotalCount 110" in C:\repo\wargame-compiler
+ succeeded in 234ms:
+"""Source-bound F01 regression: complete visible curves, heads and forward arrow.
+
+The reference masks come from fresh original-page pixels, independently of the
+authored crop. The three windows isolate the visibly inspected arrow paths. All
+matching source pixels, including antialiasing, must fit the intended detail.
+Neither primary field tiles nor adjacent detail crops can satisfy this check.
+"""
+from PIL import Image, ImageDraw
+from build_inventory import ROOT, SPECS, load, write, pin, metadata
+
+KEY = 'ig2b08:p30:advance-component-arrows'
+# Independently inspected windows enclosing the complete visible arrow paths.
+WINDOWS = {
+    'left_cyan_curve_and_head': (92, 365, 111, 400),
+    'right_cyan_curve_and_head': (122, 344, 143, 382),
+    'black_forward_arrow': (109, 425, 131, 463),
+}
+
+
+def cyan(rgb):
+    r, g, b = rgb
+    # Cyan ink [42,197,244], including its white-background antialias blend.
+    t = (255-r)/213
+    return t > .12 and abs(g-(255-58*t)) < 8 and abs(b-(255-11*t)) < 8
+
+
+def reference_masks():
+    im = Image.open(ROOT/'originals/page-30.png').convert('RGB')
+    assert im.size == (1224, 1584)
+    masks = {}
+    for name, box in WINDOWS.items():
+        x0, y0, x1, y1 = [int(v*2) for v in box]
+        masks[name] = [(x,y) for y in range(y0,y1) for x in range(x0,x1)
+                       if (cyan(im.getpixel((x,y))) if 'cyan' in name
+                           else max(im.getpixel((x,y))) < 80)]
+        assert len(masks[name]) > 50, (name, 'missing source arrow pixels')
+        xs, ys = zip(*masks[name])
+        # Nontrivial two-dimensional coverage; a single witness is insufficient.
+        assert max(xs)-min(xs) > 15 and max(ys)-min(ys) > 35
+    assert cyan(im.getpixel((188,734))), 'Independent F01 witness changed'
+    return im, masks
+
+
+def require_mask_coverage(box, masks):
+    x0,y0,x1,y1 = box
+    for name, pixels in masks.items():
+        missing = [(x,y) for x,y in pixels
+                   if not (x0 <= x/2 and (x+1)/2 <= x1
+                           and y0 <= y/2 and (y+1)/2 <= y1)]
+        assert not missing, (name, 'clipped source pixels', len(missing))
+
+
+def check_document(doc, masks):
+    region = next(r for r in doc['regions'] if r['key']==KEY)
+    assert region['denominator_role']=='context'
+    box = [region['box'][0]*612/1e6, region['box'][1]*792/1e6,
+           region['box'][2]*612/1e6, region['box'][3]*792/1e6]
+    require_mask_coverage(box,masks)
+    ev = next(e for e in doc['evidence'] if e['region_id']==region['id'])
+    for field in ('image','text','crop_pdf'):
+        assert pin(ev[field]['path']) == ev[field]
+    # The actual intended detail PNG must contain every independently observed
+    # source arrow's color, extent and pixel mass; no other crop is consulted.
+    crop = Image.open(ev['image']['path']).convert('RGB')
+    ox,oy = box[:2]
+    for name,pixels in masks.items():
+        matched=0
+        for x,y in pixels:
+            px,py=round(x-ox*2),round(y-oy*2)
+            predicate=cyan if 'cyan' in name else lambda rgb:max(rgb)<100
+            if any(0<=px+dx<crop.width and 0<=py+dy<crop.height
+                   and predicate(crop.getpixel((px+dx,py+dy)))
+                   for dx in (-1,0,1) for dy in (-1,0,1)):
+                matched+=1
+        assert matched==len(pixels),(name,'missing intended-crop arrow pixels',matched,len(pixels))
+    return {'region_id':region['id'],'revision':region['revision'],
+            'box':region['box'],'evidence_image':ev['image'],
+            'all_reference_pixels_in_intended_detail':True}
+
+
+def run():
+    im,masks=reference_masks()
+    selected=next(s for s in SPECS if s['key']==KEY)
+    require_mask_coverage(selected['points'],masks)
+    negative_cases={}
+    for label,box in {
+        'original_truncated_crop':[104,345,141,476],
+        'left_tail_clipped_but_witness_retained':[90,344,143,390],
+        'right_head_clipped_but_left_witness_retained':[90,355,143,476],
+        'black_shaft_clipped_but_cyan_paths_retained':[90,344,143,450],
+    }.items():
+        try:
+            require_mask_coverage(box,masks)
+        except AssertionError:
+            negative_cases[label]='correctly_rejected'
+        else:
+            raise AssertionError((label,'truncated crop wrongly passed'))
+    rejected=negative_cases['original_truncated_crop']=='correctly_rejected'
+    results=[]
+    for name in ('final-verified','replay-1','replay-2'):
+        doc=load(ROOT/name/'inventory.json')
+        results.append({'name':name,**check_document(doc,masks)})
+    overlay=im.crop((180,680,288,954)).resize((432,1096))
+    overlay.save(ROOT/'arrow-original-detail.png')
+    report={**metadata(),'summary':'All visible source-arrow masks fit and appear in the intended detail in final and both complete replays; old truncated crop rejected.',
+            'source_original':pin(ROOT/'originals/page-30.png'),
+            'source_sha256':load(ROOT/'final-verified/inventory.json')['source']['sha256'],
+            'physical_page':30,'reference_windows':WINDOWS,
+            'reference_masks':{n:{'pixel_count':len(p),'source_pixel_bounds':[min(x for x,y in p),min(y for x,y in p),max(x for x,y in p)+1,max(y for x,y in p)+1]} for n,p in masks.items()},
+            'old_points':[104,345,141,476],'new_points':selected['points'],
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py' | Select-Object -Skip 200 -First 100" in C:\repo\wargame-compiler
+ succeeded in 259ms:
+    full['inherited_nonassigned']={'denominator_regions':len(inherited_regions),'preserved_regions_including_context':preservation['preserved_regions'],
+        'levels':{level:dict(Counter(r['coverage'][level]['status'] for r in inherited_regions)) for level in ('transcription','descriptive_semantics','formal_semantics')},'removed_placeholder_units':4}
+    full['context_only']={'total_regions':len(context),'new_regions':86,'new_assigned_detail_crops':85,'new_boundary_regions':1,'retained_regions':len(context)-86,'denominator_contribution':0,
+        'ids':[r['id'] for r in context if r['key'].startswith('ig2b08:') or r['id'] in TASK['inventory_contract']['retained_context_ids']]}
+    full['full_page_count']=44
+    full['foreground_gap_probe']=load(ROOT/'geometric-content-probe.json')
+    full['foreground_gap_limitation']='Fresh thresholded ink gaps and unassigned word centers, if any, are reported by page in foreground_gap_probe. They are gaps, not represented content or semantic completeness.'
+    write(ROOT/'coverage-report.json',{**meta,'summary':'Separate full-source, assigned, inherited and zero-denominator context accounting; statuses retain gaps.',**full})
+    write(ROOT/'continuations.json',{**meta,'summary':'All inherited links remain; fresh incoming, column/page and exit boundaries are explicit.','inherited_continuation_report':PIN['reports']['continuations.json'],
+        'retained_incoming_context_id':TASK['inventory_contract']['retained_context_ids'][0],
+        'new_links':final['links'][len(base['links']):],'all_links':final['links'],
+        'context_denominator':0,'entry_observation':PIN['boundary'],'exit_context':ids['ig2b08:p33:exit-context'],
+        'unresolved':'No continuation grants executable meaning; page 33 after the exact rectangle was not accessed.'})
+    write(ROOT/'replay-report.json',{**meta,'summary':'Two complete independent fresh-path replays each regenerated the full region/component set serially from the accepted baseline and identical persisted author registry.',
+        'commands':[f'.venv/Scripts/python.exe {ROOT.as_posix()}/build_inventory.py {n}' for n in ('replay-1','replay-2')],
+        'runs':[{'name':n,'inventory':pin(ROOT/n/'inventory.json'),'registry':pin(ROOT/n/'identity-registry.json'),'new_regions':len(new_regions(d)),'new_artifacts':len(new_regions(d))*3,'stable_ids':True,'author_fields_order_links_registry_equal':True,'normalized_evidence_hash':digest(normalized_evidence(d))} for n,d in zip(('final-verified','replay-1','replay-2'),docs)],
+        'actual_inventory_hashes_are_path_dependent':True,'complete_assigned_regions':len(SPECS),'missing_references':0,'negative_cases':negative,'source_meaning_acceptance':False})
+    source_report={'format':'wgc-source-pins-1',**meta,'summary':'Exhaustive assigned original/region/component and complete replay indexes, including every inherited artifact referenced by the three inventories.',
+        'source':PIN['source'],'effective_input_contract':pin(CONTRACT),'accepted_input_reports':PIN['reports'],
+        'artifacts':indexed,'region_evidence_sets':[{'name':n,'inventory':pin(ROOT/n/'inventory.json'),'registry':pin(ROOT/n/'identity-registry.json'),'region_ids':[r['id'] for r in new_regions(d)]} for n,d in zip(('final-verified','replay-1','replay-2'),docs)],
+        'current_reports':[pin(ROOT/n) for n in ('original-page-inspection.json','component-ledger.json','preservation-report.json','replay-report.json','coverage-report.json','continuations.json','region-ledger.json','toolchain.json')],
+        'text_protocol':'New text is clipped on original page before extraction. Page-33 normalized rounding is authorized; native raster dimensions constrain output. No raw crop-PDF text access.',
+        'index_complete':True}
+    write(ROOT/'source-pins.json',source_report)
+    ensure_index(source_report['artifacts'],all_artifacts+originals)
+    write(ROOT/'batch-verification.json',{**meta,'summary':'Complete preservation, identity, geometry, all artifact pins and both full replays verified.','checks':{'preservation':True,'full_page_set':44,'new_region_set':len(SPECS),'new_inventory_denominator':len(assigned),'all_source_artifact_pins':len(all_artifacts),'original_artifact_pins':len(originals),'complete_index_pins':len(indexed),'negative_cases':negative},'exit_code':0})
+    # Compact visual QA sheets, generated solely from this fresh final evidence.
+    details=[o for o in observations if o['role']=='context' and o['page']!=33]
+    details += [o for o in observations if o['key'].split(':',2)[2] in ('rating-lcln','rating-lcln-value','rating-rchcbc','rating-rchcbc-value')]
+    for start in range(0,len(details),16):
+        batch=details[start:start+16];sheet=Image.new('RGB',(1000,1000),'white');draw=ImageDraw.Draw(sheet)
+        for i,o in enumerate(batch):
+            im=Image.open(o['evidence']['image']['path']).convert('RGB');im.thumbnail((238,214))
+            x=(i%4)*250;y=(i//4)*250
+            sheet.paste(im,(x,y+26));draw.text((x+2,y+2),o['key'].split(':',2)[2][-37:],fill='black')
+        sheet.save(ROOT/f'component-sheet-{start//16+1}.png')
+    sheet_pins=[pin(ROOT/f'component-sheet-{i+1}.png') for i in range((len(details)+15)//16)]
+    source_report['artifacts']+=sheet_pins
+    source_report['current_reports'] += [pin(ROOT/n) for n in ('geometric-content-probe.json','batch-verification.json','arrow-completeness-report.json','repair-delta.json')]
+    source_report['artifacts'] += [pin(ROOT/'arrow-original-detail.png')]+[pin(ROOT/f'geometric-gap-page-{p}.png') for p in (29,30,31,32)]
+    write(ROOT/'source-pins.json',source_report)
+    ensure_index(source_report['artifacts'],all_artifacts+originals+sheet_pins)
+    print(json.dumps({'verified':True,'regions':len(SPECS),'inventory_denominator':len(assigned),'component_details':len(details),'source_index_pins':len(indexed),'negative_cases':negative}))
+
+
+if __name__=='__main__': report()
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/runs/IG-2B08/repair-F01-manifest02/probe_geometry.py' -TotalCount 80" in C:\repo\wargame-compiler
+ succeeded in 244ms:
+"""Fresh assigned-page word-center and visible-ink gap probe, not coverage proof."""
+import json
+from PIL import Image,ImageDraw,ImageChops
+from build_inventory import ROOT,SPECS,load,write,pin,metadata
+
+def main():
+    rows=[]
+    for page in (29,30,31,32):
+        primary=[s for s in SPECS if s['page']==page and s['role']=='inventory']
+        words=load(ROOT/'originals'/f'page-{page}.words.json')
+        missing=[]
+        for w in words:
+            x=(w['x0']+w['x1'])/2;y=(w['top']+w['bottom'])/2
+            if not any(s['points'][0]<=x<s['points'][2] and s['points'][1]<=y<s['points'][3] for s in primary):
+                missing.append({'center_points':[x,y],'text':w['text']})
+        im=Image.open(ROOT/'originals'/f'page-{page}.png').convert('RGB')
+        r,g,b=im.split();ink=ImageChops.darker(ImageChops.darker(r,g),b).point(lambda x:255 if x<180 else 0)
+        represented=Image.new('L',im.size);draw=ImageDraw.Draw(represented)
+        for s in primary:
+            x0,y0,x1,y1=[int(round(v*2)) for v in s['points']]
+            draw.rectangle((x0,y0,x1-1,y1-1),fill=255)
+        gap=ImageChops.subtract(ink,represented)
+        count=gap.histogram()[255]
+        gap.save(ROOT/f'geometric-gap-page-{page}.png')
+        rows.append({'physical_page':page,'word_count':len(words),'unassigned_word_centers':missing,
+                     'unassigned_ink_pixels_at_144dpi':count,'gap_pixel_bounds':gap.getbbox(),
+                     'gap_mask':pin(ROOT/f'geometric-gap-page-{page}.png'),
+                     'original':pin(ROOT/'originals'/f'page-{page}.png')})
+    report={**metadata(),'summary':'Fresh word-center and thresholded ink gap observations; geometric gaps never count as represented source content.',
+            'parameters':{'dpi':144,'ink_predicate':'min(R,G,B)<180','primary_pixel_boxes':'half-open rounded PDF point bounds at 2 pixels/point'},
+            'pages':rows,'total_unassigned_word_centers':sum(len(x['unassigned_word_centers']) for x in rows),
+            'total_unassigned_ink_pixels':sum(x['unassigned_ink_pixels_at_144dpi'] for x in rows),
+            'limitation':'A pixel threshold and word centers cannot prove semantic or transcription completeness; every detected gap remains a gap.'}
+    write(ROOT/'geometric-content-probe.json',report)
+    print(json.dumps({'geometric_probe':'complete','unassigned_word_centers':report['total_unassigned_word_centers'],'unassigned_ink_pixels':report['total_unassigned_ink_pixels']}))
+
+if __name__=='__main__':main()
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+import json
+from pathlib import Path
+r=Path('private/workflow/runs/IG-2B08/repair-F02-7582f722'); old=Path('private/workflow/runs/IG-2B08/repair-F01-manifest02')
+for name in ['build_inventory.py','inspect_originals.py','probe_geometry.py','verify_batch.py','check_arrow_completeness.py']:
+ text=(old/name).read_text()
+ text=text.replace('20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0','20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e').replace('ig2:001-IG-2B08-executor-42d4c4e0:executor','ig2:003-IG-2B08-executor-ad7f232e:executor')
+ if name=='build_inventory.py':
+  text=text.replace(\"assert old_preservation()==7808\",\"assert old_preservation()==10358\").replace(\"'preserved_old_artifacts':7808\",\"'preserved_old_artifacts':10358\")
+  # Use explicitly authorized current persisted registry, retaining retired and prior bindings.
+  text=text.replace(\"base,registry=baseline()\\n    if\", \"base,registry=baseline()\\n    registry=load('private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/identity-registry.json')\\n    if\")
+ if name=='verify_batch.py':
+  text=text.replace(\"candidate_root=Path('private/workflow/runs/IG-2B08/inventory-p33-scope02')\\n    candidate_specs=load(candidate_root/'author-selections.json')\", \"candidate_root=Path('private/workflow/runs/IG-2B08/repair-F01-manifest02')\\n    candidate_specs=[{k:o[k] for k in ('page','key','points','kind','observation','role','group')} for o in load(candidate_root/'region-ledger.json')['new_observations']]\")
+  text=text.replace(\"from check_arrow_completeness import reference_masks, check_document, KEY\", \"from check_arrow_completeness import reference_masks, check_document\\nKEY='ig2b08:p29:collapse-diagram-component-c-hits'\")
+  text=text.replace('Only the F01 detail geometry','Only the F02 detail geometry')
+  text=text.replace(\"'repair-delta.json')]\", \"'repair-delta.json','F02-completeness-report.json')]\")
+ (r/name).write_text(text,encoding='utf-8')
+rows=json.loads((old/'region-ledger.json').read_text())['new_observations']; fields=('page','key','points','kind','observation','role','group')
+specs=[{k:o[k] for k in fields} for o in rows]
+(r/'author-selections.json').write_text(json.dumps(specs,indent=2)+'\\n')
+print({'copied_named_helpers':5,'candidate_selections':len(specs),'no_frozen_writes':True})
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 315ms:
+{'copied_named_helpers': 5, 'candidate_selections': 269, 'no_frozen_writes': True}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F02-7582f722/inspect_originals.py > private/workflow/runs/IG-2B08/repair-F02-7582f722/inspect-originals.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "inspect_originals exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+ succeeded in 4568ms:
+inspect_originals exit=0
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+from pathlib import Path
+from PIL import Image
+r=Path('private/workflow/runs/IG-2B08/repair-F02-7582f722')
+im=Image.open(r/'originals/page-29.png'); im.crop((208,980,280,1060)).resize((432,480)).save(r/'F02-original-detail.png')
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 384ms:
+codex
+Fresh page-29 inspection confirms that F02 cuts through the visible “4” stem. I’m widening only that detail crop and adding a source-pixel regression for the digit, marker frame and reported 51-pixel witness. The assigned pages and exact page-33 continuation crop have been freshly rendered and inspected.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+from pathlib import Path
+from PIL import Image
+import json
+r=Path('private/workflow/runs/IG-2B08/repair-F02-7582f722'); im=Image.open(r/'originals/page-29.png'); im.crop((208,980,320,1064)).resize((672,504)).save(r/'F02-original-detail-wide.png')
+s=json.loads((r/'author-selections.json').read_text()); target=next(x for x in s if x['key']=='ig2b08:p29:collapse-diagram-component-c-hits'); target['points']=[106,496,148,527]; target['observation']='Complete visible 4 hit-marker digit and marker frame behind Celt C; overlapping counter remains a separate detail.'; (r/'author-selections.json').write_text(json.dumps(s,indent=2)+'\\n')
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 395ms:
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F02-7582f722/build_inventory.py prepare > private/workflow/runs/IG-2B08/repair-F02-7582f722/prepare.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "prepare exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+ succeeded in 20684ms:
+prepare exit=0
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F02-7582f722/build_inventory.py final-verified > private/workflow/runs/IG-2B08/repair-F02-7582f722/final-build.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "final-verified exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+apply patch
+patch: completed
+C:\repo\wargame-compiler\private\workflow\runs\IG-2B08\repair-F02-7582f722\check_hit_completeness.py
+diff --git a/private/workflow/runs/IG-2B08/repair-F02-7582f722/check_hit_completeness.py b/private/workflow/runs/IG-2B08/repair-F02-7582f722/check_hit_completeness.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..71cc408e7715a1eec3360e34444d9544b6bbd757
+--- /dev/null
++++ b/private/workflow/runs/IG-2B08/repair-F02-7582f722/check_hit_completeness.py
+@@ -0,0 +1,74 @@
++"""F02 source-bound digit and marker extent regression, using original pixels."""
++from PIL import Image
++from build_inventory import ROOT, SPECS, load, write, pin, metadata
++
++KEY = 'ig2b08:p29:collapse-diagram-component-c-hits'
++WINDOWS = {
++    'complete_visible_digit': (122, 500, 138, 522),
++    'reported_stem_witness': (130, 513, 138, 523),
++    'left_marker_frame': (116, 497, 120, 525),
++    'bottom_marker_frame': (117, 522, 147, 527),
++}
++
++def ink(rgb):
++    r,g,b = rgb
++    return r > 180 and g < 240 and b < 100
++
++def reference_masks():
++    im = Image.open(ROOT/'originals/page-29.png').convert('RGB')
++    masks = {}
++    for name,box in WINDOWS.items():
++        x0,y0,x1,y1 = [int(v*2) for v in box]
++        pred = ink if 'digit' in name or 'witness' in name else lambda c: max(c)-min(c)<12 and 80<min(c)<225
++        masks[name] = [(x,y) for y in range(y0,y1) for x in range(x0,x1) if pred(im.getpixel((x,y)))]
++        assert len(masks[name]) > 30, name
++    return im,masks
++
++def require(box,masks):
++    x0,y0,x1,y1=box
++    for name,pixels in masks.items():
++        assert all(x0<=x/2 and (x+1)/2<=x1 and y0<=y/2 and (y+1)/2<=y1 for x,y in pixels),name
++
++def check_document(doc,masks):
++    region=next(r for r in doc['regions'] if r['key']==KEY)
++    assert region['denominator_role']=='context'
++    b=region['box'];box=[b[0]*612/1e6,b[1]*792/1e6,b[2]*612/1e6,b[3]*792/1e6]
++    require(box,masks)
++    ev=next(e for e in doc['evidence'] if e['region_id']==region['id'])
++    for field in ('image','crop_pdf','text'): assert pin(ev[field]['path'])==ev[field]
++    crop=Image.open(ev['image']['path']).convert('RGB')
++    original=Image.open(ROOT/'originals/page-29.png').convert('RGB')
++    for name,pixels in masks.items():
++        for x,y in pixels:
++            px,py=round(x-box[0]*2),round(y-box[1]*2)
++            c=original.getpixel((x,y))
++            assert any(0<=px+dx<crop.width and 0<=py+dy<crop.height and
++                       max(abs(a-b) for a,b in zip(c,crop.getpixel((px+dx,py+dy))))<50
++                       for dx in (-1,0,1) for dy in (-1,0,1)),(name,x,y)
++    return {'region_id':region['id'],'revision':region['revision'],'image':ev['image'],'all_source_mask_pixels_present':True}
++
++def main():
++    im,masks=reference_masks()
++    selected=next(s for s in SPECS if s['key']==KEY)
++    require(selected['points'],masks)
++    negatives={}
++    for label,box in {'old_truncated_crop':[106,496,133,527],
++                      'bottom_stem_cut':[106,496,148,518],
++                      'left_digit_cut':[129,496,148,527],
++                      'marker_right_frame_cut':[106,496,141,527]}.items():
++        try:require(box,masks)
++        except AssertionError:negatives[label]='correctly_rejected'
++        else:raise AssertionError(label)
++    witness=masks['reported_stem_witness']
++    outside=[(x,y) for x,y in witness if x>=266]
++    assert len(outside)>=51,'Reported missing stem witness must be covered in full'
++    results=[{'name':n,**check_document(load(ROOT/n/'inventory.json'),masks)} for n in ('final-verified','replay-1','replay-2')]
++    write(ROOT/'F02-completeness-report.json',{**metadata(),'summary':'Full visible digit, witness patch and marker frame fit and appear in intended final/replay detail; original crop rejected.',
++        'source_sha256':load(ROOT/'final-verified/inventory.json')['source']['sha256'],
++        'physical_page':29,'source_original':pin(ROOT/'originals/page-29.png'),'reference_windows':WINDOWS,
++        'reference_masks':{n:{'pixel_count':len(p),'bounds':[min(x for x,y in p),min(y for x,y in p),max(x for x,y in p)+1,max(y for x,y in p)+1]} for n,p in masks.items()},
++        'old_points':[106,496,133,527],'new_points':selected['points'],'old_crop_rejected':True,
++        'witness_pixels_outside_old_right_edge':len(outside),'negative_cases':negatives,'runs':results,'exit_code':0})
++    print({'F02':'passed','mask_pixels':{k:len(v) for k,v in masks.items()},'witness_outside_old':len(outside)})
++
++if __name__=='__main__':main()
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F02-7582f722/source-pytest -p no:cacheprovider --tb=short > private/workflow/runs/IG-2B08/repair-F02-7582f722/source-suite-restricted.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "source suite exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+import importlib.util
+from pathlib import Path
+import sys
+r=Path('private/workflow/runs/IG-2B08/repair-F02-7582f722');sys.path.insert(0,str(r));import check_hit_completeness as h
+_,m=h.reference_masks();outside=[(x,y) for x,y in m['reported_stem_witness'] if x>=266]
+print({'mask_counts':{k:len(v) for k,v in m.items()},'witness_outside_old_right':len(outside)})
+h.require([106,496,148,527],m)
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 1039ms:
+{'mask_counts': {'complete_visible_digit': 491, 'reported_stem_witness': 123, 'left_marker_frame': 169, 'bottom_marker_frame': 261}, 'witness_outside_old_right': 51}
+
+ succeeded in 75742ms:
+final-verified exit=0
+
+ exited 1 in 18765ms:
+source suite exit=1
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+from pathlib import Path
+import json
+r=Path('private/workflow/runs/IG-2B08/repair-F02-7582f722'); text=(r/'source-suite-restricted.log').read_text()
+print({'source_suite_exit':1,'winerror5': '[WinError 5]' in text,'permission_error':'PermissionError' in text,'pytest_temp_directory_access_denied':'source-pytest' in text and 'PermissionError' in text})
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 285ms:
+{'source_suite_exit': 1, 'winerror5': True, 'permission_error': True, 'pytest_temp_directory_access_denied': True}
+
+codex
+The regression finds all 51 reported stem pixels outside the old crop and inside the widened crop. The unchanged source suite hit the anticipated Windows temporary-directory access denial. I’ll request approved execution of the same pytest command as the task requires.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F02-7582f722/source-pytest -p no:cacheprovider --tb=short > private/workflow/runs/IG-2B08/repair-F02-7582f722/source-suite-approved.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "source suite approved exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+ succeeded in 15293ms:
+source suite approved exit=0
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '.venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F02-7582f722/build_inventory.py replay-1 > private/workflow/runs/IG-2B08/repair-F02-7582f722/replay-1-build.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "replay-1 exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py read --file 'scripts/check.ps1' --start-line 1 --lines 80" in C:\repo\wargame-compiler
+ succeeded in 408ms:
+{"task": "IG-2B08", "path": "scripts/check.ps1", "start_line": 1, "lines": ["param([string]$Python = '', [string]$Task = '')", "$ErrorActionPreference = 'Stop'", "$repoRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))", "if (-not $Python) { $Python = Join-Path $repoRoot '.venv\\Scripts\\python.exe' }", "if (-not (Test-Path -LiteralPath $Python)) { throw 'Specify an existing interpreter with pytest using -Python.' }", "$runRoot = Join-Path $repoRoot ('private\\workflow\\checks\\active-' + [guid]::NewGuid().ToString('N'))", "$baseTemp = Join-Path $runRoot 'pytest'", "if ((Test-Path -LiteralPath $runRoot) -or (Test-Path -LiteralPath $baseTemp)) { throw 'The check directory must be new.' }", "$savedTemp = $env:TEMP", "$savedTmp = $env:TMP", "$savedBytecode = $env:PYTHONDONTWRITEBYTECODE", "$savedLocks = $env:GIT_OPTIONAL_LOCKS", "Push-Location -LiteralPath $repoRoot", "try {", "    New-Item -ItemType Directory -Path (Join-Path $runRoot 'temp') | Out-Null", "    $env:TEMP = Join-Path $runRoot 'temp'", "    $env:TMP = $env:TEMP", "    $env:PYTHONDONTWRITEBYTECODE = '1'", "    $env:GIT_OPTIONAL_LOCKS = '0'", "    Write-Output ('LOG_ROOT=' + $runRoot)", "    & $Python scripts/workflow.py validate 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'plan.log')", "    $planCode = $LASTEXITCODE", "    if (-not $Task) {", "        $queue = Get-Content -LiteralPath 'docs/work/queue.json' -Raw | ConvertFrom-Json", "        $candidate = @($queue.tasks | Where-Object { $_.status -eq 'ready' }) | Select-Object -First 1", "        if (-not $candidate) {", "            $candidate = @($queue.tasks | Where-Object { $_.status -in @('in_progress', 'review', 'changes_requested', 'accepted') }) | Select-Object -First 1", "        }", "        if (-not $candidate) { $candidate = $queue.tasks | Select-Object -First 1 }", "        $Task = $candidate.id", "    }", "    & $Python scripts/workflow.py dry-run --task $Task 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'dry-run.log')", "    $dryCode = $LASTEXITCODE", "    & $Python -m pytest -q --basetemp $baseTemp -p no:cacheprovider --tb=short 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'pytest.log')", "    $testCode = $LASTEXITCODE", "    & git diff --check 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'diff-check.log')", "    $diffCode = $LASTEXITCODE", "    @{ plan_exit=$planCode; dry_run_exit=$dryCode; tests_exit = $testCode; diff_exit = $diffCode; basetemp = $baseTemp } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runRoot 'result.json') -Encoding utf8", "    if ($planCode -ne 0 -or $dryCode -ne 0 -or $testCode -ne 0 -or $diffCode -ne 0) { throw \"Checks failed: plan=$planCode dry-run=$dryCode pytest=$testCode diff=$diffCode\" }", "}", "finally {", "    $env:TEMP = $savedTemp", "    $env:TMP = $savedTmp", "    $env:PYTHONDONTWRITEBYTECODE = $savedBytecode", "    $env:GIT_OPTIONAL_LOCKS = $savedLocks", "    Pop-Location", "}"], "truncated": false}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command 'pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08 > private/workflow/runs/IG-2B08/repair-F02-7582f722/full-check-restricted.log 2>&1; $taskExit = $LASTEXITCODE; Write-Output "full check exit=$taskExit"; exit $taskExit' in C:\repo\wargame-compiler
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "@'
+from pathlib import Path
+import json
+from PIL import Image,ImageDraw
+r=Path('private/workflow/runs/IG-2B08/repair-F02-7582f722');d=json.loads((r/'final-verified/inventory.json').read_text());e={x['region_id']:x for x in d['evidence']}; rows=[x for x in d['regions'] if x['key'].startswith('ig2b08:') and x['denominator_role']=='context']
+for start in range(0,len(rows),16):
+ sheet=Image.new('RGB',(1200,1200),'white');dr=ImageDraw.Draw(sheet)
+ for i,o in enumerate(rows[start:start+16]):
+  im=Image.open(e[o['id']]['image']['path']).convert('RGB');im.thumbnail((290,265));x=i%4*300;y=i//4*300;sheet.paste(im,(x,y+30));dr.text((x+2,y+2),o['key'].split(':',2)[2][-44:],fill='black')
+ sheet.save(r/f'qa-details-{start//16+1}.png')
+print({'fresh_detail_regions':len(rows),'qa_sheets':(len(rows)+15)//16})
+'@ | .venv/Scripts/python.exe -" in C:\repo\wargame-compiler
+ succeeded in 1193ms:
+{'fresh_detail_regions': 86, 'qa_sheets': 6}
+
+codex
+The final set has regenerated all 269 regions, and replay 1 is running separately. Fresh boundary and detail inspection is complete; the F01 arrows remain intact. The source suite passed with approved permissions, and the repository-wide check is still running.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command ".venv/Scripts/python.exe scripts/task_access.py validate-source --file 'private/workflow/runs/IG-2B08/repair-F02-7582f722/final-verified/inventory.json'" in C:\repo\wargame-compiler

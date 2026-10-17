@@ -1,0 +1,367 @@
+{
+  "cases": [
+    {
+      "name": "fresh_baseline",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/fresh_baseline.json",
+        "sha256": "eb7cb0707ccbdcf70d20ed95ac9a5c163342c8f51b27713522eb0f1d961c5ddf",
+        "bytes": 8468
+      },
+      "expected": "accept",
+      "actual": "accept",
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "exclusion_claims": [],
+        "note": "Region counts and geometric accounting do not establish substantive source completeness.",
+        "source_structure_verification": "verified"
+      },
+      "passed": true
+    },
+    {
+      "name": "migrated_exact_exclusion",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/migrated_exact_exclusion.json",
+        "sha256": "2af53ecc9c7c8e6ce901bd8ca993944de2dfc16aa650bf248cebb71b9ee4ea2e",
+        "bytes": 5321
+      },
+      "expected": "accept",
+      "actual": "accept",
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 1
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "exclusion_claims": [
+          {
+            "region_id": "region:cd987644-47ed-47b2-ae48-54814c65c0ad",
+            "level": "transcription",
+            "author_scope_freshness": "current",
+            "source_ig_review_freshness": "unknown",
+            "human_authority": "unverified"
+          }
+        ],
+        "note": "Region counts and geometric accounting do not establish substantive source completeness.",
+        "source_structure_verification": "verified"
+      },
+      "passed": true
+    },
+    {
+      "name": "stale_page_rotation",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/stale_page_rotation.json",
+        "sha256": "a08dd9658c5ee00bbfc10e7d9586815f6ed9778d886b52f279aa786964977af9",
+        "bytes": 8469
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "stale page geometry/source structure basis",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "stale_page_userunit",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/stale_page_userunit.json",
+        "sha256": "2f238dffa44cad3ed911b9e5bf373b2d79e235a140bc50046a648c3d8e3f5bdd",
+        "bytes": 8468
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "stale page geometry/source structure basis",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "stale_page_crop",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/stale_page_crop.json",
+        "sha256": "fa8dfc5c37783d8d759634a3a8045bd9469e59e1707feee28e7af25b42faf9e1",
+        "bytes": 8482
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "stale page geometry/source structure basis",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "false_render_dpi",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/false_render_dpi.json",
+        "sha256": "95e36cbc50ae5e6f66a33d638ce9c412d054887eb506fbbff598d9d1ff9a6e53",
+        "bytes": 8467
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "render DPI/geometry pixel dimensions mismatch",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "wrong_page_printed_label",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/wrong_page_printed_label.json",
+        "sha256": "3abcdf6943e3b3d5ec4a7ca6dea511c207be6f7262278de2b235f93325dca788",
+        "bytes": 8511
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "printed label evidence belongs to another physical page",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "exclusion_after_region_revision",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/exclusion_after_region_revision.json",
+        "sha256": "8c2836c353f0e1773fd48d3b9feb458194042f7459e9b16bb84b36d4e0e9e2a6",
+        "bytes": 5351
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "exclusion boundary is not exact/current",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "exclusion_after_registry_change",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/exclusion_after_registry_change.json",
+        "sha256": "f9ea30533508f7b648fa851f84ae8012c59f891780fb3b5b34df690b98ba05ff",
+        "bytes": 5269
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "exclusion boundary is not exact/current",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "exclusion_after_page_remap",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/exclusion_after_page_remap.json",
+        "sha256": "726e82e5aa3622b6a7eb8e4ffe55bb842f1a140da893e2398d21fa7d756c80f3",
+        "bytes": 5321
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "physical page identity remapping is forbidden",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "false_consistent_page_count",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/false_consistent_page_count.json",
+        "sha256": "9f1d14c7a8dc941128ba7db61ffdbdc85cfe008b5b04adc6e073ccfb82434400",
+        "bytes": 3203
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "missing PDF page/source structure count mismatch",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "physical_page_remapping",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/physical_page_remapping.json",
+        "sha256": "0cf83e887e13018461ac0638a4640a1f353aa0ae09a7061e662fb41a2a4d9311",
+        "bytes": 4741
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "physical page identity remapping is forbidden",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "reordered_page_array",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/reordered_page_array.json",
+        "sha256": "2e2ca0d03e0f67d67e4312f471b4943464c71b8587d30a6c39d8ecac8df3e7e7",
+        "bytes": 8468
+      },
+      "expected": "accept",
+      "actual": "accept",
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "exclusion_claims": [],
+        "note": "Region counts and geometric accounting do not establish substantive source completeness.",
+        "source_structure_verification": "verified"
+      },
+      "passed": true
+    },
+    {
+      "name": "forged_geometry_and_evidence_basis",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/forged_geometry_and_evidence_basis.json",
+        "sha256": "0567e9c015defcdf93209c7868a9bd0b84cc2a826f281932d5b15362c72b2127",
+        "bytes": 8470
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "stale page geometry/source structure basis",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "exclusion_changed_kind",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/exclusion_changed_kind.json",
+        "sha256": "35e454371aa6f5639d6718141a50725f6636c59e939c44e9c03735758f634c6e",
+        "bytes": 5316
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "exclusion boundary is not exact/current",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "exclusion_changed_uncertainty",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/exclusion_changed_uncertainty.json",
+        "sha256": "acbd0cb2bb710b246088210857c648007876ca5889881d5b19cec9c8a2f7bfbc",
+        "bytes": 5285
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "exclusion boundary is not exact/current",
+      "report": null,
+      "passed": true
+    },
+    {
+      "name": "exclusion_changed_key",
+      "input": {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/probes/exclusion_changed_key.json",
+        "sha256": "ec3b77564e3308c84ed6ca588adae76b483d14a4086a963de77c0ce4e06af642",
+        "bytes": 5257
+      },
+      "expected": "reject",
+      "actual": "reject",
+      "error": "exclusion boundary is not exact/current",
+      "report": null,
+      "passed": true
+    }
+  ],
+  "total": 17,
+  "unmet": 0
+}

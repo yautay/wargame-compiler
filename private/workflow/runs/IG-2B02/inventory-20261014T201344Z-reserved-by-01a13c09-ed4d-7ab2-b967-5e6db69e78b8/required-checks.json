@@ -1,0 +1,210 @@
+[
+  {
+    "command": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "wgc.sources",
+      "validate",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/inventory.json"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T21:01:52.024144+00:00",
+    "ended_utc": "2026-10-14T21:02:03.708892+00:00",
+    "wall_seconds": 11.687000000001717,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-root-validate.stdout",
+      "bytes": 9997,
+      "sha256": "540ce34824e50e283143471b4dbfda722d42393955a504ccc9c848830cc437ea"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-root-validate.stderr",
+      "bytes": 72,
+      "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+    }
+  },
+  {
+    "command": [
+      "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+      "-NoProfile",
+      "-File",
+      "scripts/check.ps1",
+      "-Task",
+      "IG-2B02"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T21:02:03.718758+00:00",
+    "ended_utc": "2026-10-14T21:02:36.667132+00:00",
+    "wall_seconds": 32.93699999999808,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/repository-check.stdout",
+      "bytes": 5715,
+      "sha256": "6e42b8a4a6c80ded485337edb1ef468adbddda07f7ccac03ff3898cee6ec4a3c"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/repository-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T21:02:36.668052+00:00",
+    "ended_utc": "2026-10-14T21:02:37.823539+00:00",
+    "wall_seconds": 1.1559999999990396,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T21:02:37.825847+00:00",
+    "ended_utc": "2026-10-14T21:02:39.113617+00:00",
+    "wall_seconds": 1.2819999999992433,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-diff-check.stderr",
+      "bytes": 5143,
+      "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+    }
+  },
+  {
+    "command": [
+      "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/sources",
+      "--basetemp",
+      "C:/repo/wargame-compiler/private/workflow/checks/b02-src-01a13c20",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T20:53:46.554035+00:00",
+    "ended_utc": "2026-10-14T20:54:11.700822+00:00",
+    "wall_seconds": 25.15599999999904,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-tests.stdout",
+      "bytes": 102,
+      "sha256": "1f54c1e2b674dbc12840a266705826aff8c6224751b13d75c327938798392ea5"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-tests.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": [
+      "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+      "-B",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/author.py",
+      "replay-one",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored/identity-registry.json"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T20:48:17.638739+00:00",
+    "ended_utc": "2026-10-14T20:48:20.463257+00:00",
+    "wall_seconds": 2.812000000001717,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-one.stdout",
+      "bytes": 44,
+      "sha256": "d2cd5402de55c95631bcb7460da0f05b103e08c00499ca117bf92f13677ce526"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-one.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": [
+      "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+      "-B",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/author.py",
+      "replay-two",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored/identity-registry.json"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T20:48:20.610260+00:00",
+    "ended_utc": "2026-10-14T20:48:23.482598+00:00",
+    "wall_seconds": 2.875,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-two.stdout",
+      "bytes": 44,
+      "sha256": "d2cd5402de55c95631bcb7460da0f05b103e08c00499ca117bf92f13677ce526"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-two.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  {
+    "command": [
+      "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+      "-B",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/finalize.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T21:00:09.173292+00:00",
+    "ended_utc": "2026-10-14T21:00:25.644087+00:00",
+    "wall_seconds": 16.468999999997322,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/finalize-run.stdout",
+      "bytes": 69,
+      "sha256": "d125a0dc3ea5cf13432b9d9c33aa8612c01ba526d3a9befe34ac85c00cc1303e"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/finalize-run.stderr",
+      "bytes": 72,
+      "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+    }
+  },
+  {
+    "command": [
+      "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+      "-B",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/audit.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T21:00:27.587707+00:00",
+    "ended_utc": "2026-10-14T21:01:26.087510+00:00",
+    "wall_seconds": 58.5,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/audit-run.stdout",
+      "bytes": 7690,
+      "sha256": "047c7a73ccd6df2b4033105f9d9de471582552c6c312efdf2097f64ae45e53f2"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/audit-run.stderr",
+      "bytes": 72,
+      "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+    }
+  }
+]

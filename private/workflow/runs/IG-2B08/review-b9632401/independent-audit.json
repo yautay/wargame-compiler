@@ -1,0 +1,64 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-b9632401:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/002-IG-2B08-reviewer-b9632401/runtime-configuration.json",
+  "configuration_sha256": "8352778a725af1eb4e8e98e236dd53fef1283888842cc9e22069fb1edbb7f75e",
+  "summary": "Independent entire-delivery hash, 44-page preservation, complete ledger, freshness and source-index checks; both separately frozen full replays compared.",
+  "checks": [
+    {
+      "name": "final-verified",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+        "bytes": 5085000,
+        "sha256": "3293d35ffb2d81004af8f10edab49e4e3ff019b17a79ca48bf8879adee4660b6"
+      },
+      "new_regions": 269,
+      "root_source_validation": true,
+      "preserved_regions": 937,
+      "preserved_links": 229,
+      "preserved_evidence": 925,
+      "retained_registry_entries": 1013
+    },
+    {
+      "name": "replay-1",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/inventory.json",
+        "bytes": 5080158,
+        "sha256": "7dd4497f9ee93b3c584301e61d5d90f66c21de1cf3f260150a7147443a4d0812"
+      },
+      "new_regions": 269,
+      "root_source_validation": true,
+      "preserved_regions": 937,
+      "preserved_links": 229,
+      "preserved_evidence": 925,
+      "retained_registry_entries": 1013
+    },
+    {
+      "name": "replay-2",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/inventory.json",
+        "bytes": 5080158,
+        "sha256": "6e4aa3aef77305dfb34a478678a666781d594590b97d771ac00639efa156c767"
+      },
+      "new_regions": 269,
+      "root_source_validation": true,
+      "preserved_regions": 937,
+      "preserved_links": 229,
+      "preserved_evidence": 925,
+      "retained_registry_entries": 1013
+    }
+  ],
+  "frozen_artifact_count": 7719,
+  "source_index_count": 5229,
+  "ledger_region_count": 1206,
+  "new_region_count": 269,
+  "component_count": 189,
+  "full_denominator": 1028,
+  "assigned_denominator": 183,
+  "inherited_denominator": 845,
+  "context_contribution": 0,
+  "normalized_replays_equal": true,
+  "exit_code": 0
+}

@@ -1,0 +1,33 @@
+{
+  "retained_failed_commands": [
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-01.json",
+      "sha256": "838cca613d91044e8fec41437b4e515cfbcfe4e4bb5a9b63e8aa27e6c0c9c252",
+      "bytes": 840
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-02.json",
+      "sha256": "db48c2a47b0385dcbd4d1b2a4e233bd7c204107d5ba2bcaea4654f3670b7b3cf",
+      "bytes": 840
+    }
+  ],
+  "failures": [
+    {
+      "kind": "Test collection import",
+      "resolution": "Use pytest importlib package name tests.sources.test_inventory",
+      "resolved": true
+    },
+    {
+      "kind": "New positive label test retained reference to old page after reseal",
+      "resolution": "Update current document page, preserving the assertion",
+      "resolved": true
+    }
+  ],
+  "product_regressions_detected_after_repair": 0,
+  "assertions_weakened": false,
+  "preliminary_shell_errors": [
+    "Attempted explicit read of nonexistent src/wgc/sources/identity.py; actual inventory.py owns registry",
+    "Attempted read of project-check.stdout before subprocess completion; subsequently captured completed output"
+  ],
+  "measurement_note": "Preliminary direct reads did not have retained per-command clock records; not reported as passing checks."
+}

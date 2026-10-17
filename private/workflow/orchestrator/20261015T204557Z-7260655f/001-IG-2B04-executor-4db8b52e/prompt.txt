@@ -1,0 +1,117 @@
+Work in C:\repo\wargame-compiler. The operator explicitly authorized automatic sequential IG-2
+executor/reviewer sessions. This permission replaces manual launch only; all quality,
+human acceptance, source access and preservation gates remain binding.
+Role: executor. Task: IG-2B04. Unique actor: ig2:001-IG-2B04-executor-4db8b52e:executor.
+
+FIRST read private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/runtime-configuration.json. If pending, wait at most 30 seconds for
+the supervisor to confirm CLI STARTUP metadata. If it is absent/unconfirmed/mismatched,
+return blocked without claims or product writes. Invocation flags are not observation.
+Use only observed gpt-6.1-sol/high. Every claim, delivery, readiness/partition or review
+JSON MUST set configuration_evidence to the exact repository-relative path
+private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/runtime-configuration.json and configuration_sha256 to its actual SHA-256.
+Set actor to ig2:001-IG-2B04-executor-4db8b52e:executor; model/reasoning to the observed values.
+
+Read AGENTS.md, README.md, docs/STATUS.md, docs/HANDOFF.md,
+docs/work/WORKFLOW.md and docs/skills/wgc-execute/SKILL.md, then
+private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/task.json, private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/packet.json and private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/references.json. The manifest is the
+exact task packet. References pin accepted dependency events and current repair
+findings/prior delivery/claim, without copying their entire histories.
+Verify hashes locally. Read required text/contracts on demand in bounded sections;
+inspect all source pages/regions assigned by the contract. Binary byte hashes do not
+authorize whole-PDF analysis. Do not load context.txt, whole queue event histories,
+prior transcripts, entire run directories, archives, Git history or neighbouring repos.
+For structural edits, use task.json for the selected contract. Load queue.json only
+inside the edit/check process; never print it or dependency records/event histories.
+Print only needed non-event fields for this task or authorized direct partition children.
+DEPENDENCY READ OVERRIDE: use ONLY the prepared, hash-bound projection command
+.venv/Scripts/python.exe scripts/dependency_context.py --task IG-2B04
+--manifest private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/dependency-view.json --sha256 370b132a8f0b6535442baf2ddaffff201af495422326b129ddc4624683550d1c
+--dependency '<direct dependency ID>' --section summary|outputs|inventory|boundary|toolchain
+(one command, one section). No history, full-manifest, arbitrary-field or global mode exists.
+The helper binds WGC_TASK_DEPENDENCY_* and rejects unlisted dependencies/stale authority.
+Do not read old dependency transcripts or dump their closure JSON even by exact path.
+If task.json has context_recovery_authorization, read ONLY its new scope/assessment;
+the old incident is immutable metadata, not a transcript to replay. This is a fresh
+coordinator session and grants no readiness or acceptance in advance.
+TASK SEARCH OVERRIDE AUTHORIZED BY THE OPERATOR: for text search use ONLY
+.venv/Scripts/python.exe scripts/search_task.py --task IG-2B04
+--manifest private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/search-manifest.json --sha256 cbc5b1df48913b2395bdde81d1c5f81620c07c07cd35458c8b0c66eec637ac2a
+--pattern '<regex>' [--file '<exact path>'] (one command; quoted regex).
+The supervisor binds this session to private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/search-manifest.json via WGC_TASK_SEARCH_*
+environment variables. The packet's control_files are additional exact tooling context
+for this task, read on demand. NEVER call the frozen legacy scripts/search.ps1, raw
+repository-wide rg, workflow.py files, or recursive directory searches in a task session.
+The task helper refuses unlisted paths and private/binary/volatile files and bounds
+output. For private evidence use only exact task-authorized locators or selected JSON
+fields/pages/IDs; do not print whole manifests or search private trees. No global fallback.
+Read stable public packet text ONLY with
+.venv/Scripts/python.exe scripts/task_access.py read --file '<exact packet path>'
+--start-line 1 --lines 80 (one command; access binding is inherited).
+Bootstrap files explicitly named above and this session's own JSON metadata may be
+read by exact path. Source evidence remains limited to assigned pages/IDs.
+Read only needed documentation/code windows from control_files; do not prefetch all.
+CONTEXT REQUESTS MUST BE SEQUENTIAL. A helper refusal writes a durable denial latch
+and holds the request while the supervisor terminates this CLI tree. No next command,
+direct Get-Content/Python file read, raw rg or alternate-tool fallback is permitted.
+Missing context requires coordinator/operator refinement in a NEW session.
+For working-tree state use ONLY
+.venv/Scripts/python.exe scripts/task_access.py git-status --max-items 40
+(one command). Its fixed literal Git pathspecs select task runs/outputs, exact packet
+files and authorized queue/views, excluding other tasks and global checks/packets.
+Never run raw repository-wide git status or recursive file listings. The required
+git diff --check remains allowed; preserve all preexisting staged/unstaged work.
+Persist evidence under private/.
+
+Verify readiness or the bounded changes_requested repair, dependencies,
+ownership, packet pins and your own confirmed runtime configuration. For an existing
+repair use only the current finding/scope references; do not repeat unchanged work.
+Claim through scripts/workflow.py transition, checkpoint, implement ONLY this task,
+run its required checks, freeze every delivery file and transition to review. Return
+progress with the delivery evidence path. If ownership is uncertain, stop blocked.
+
+Tests still run unchanged. If the Windows restricted token cannot access pytest's
+mode-0700 temporary directory, request approved execution of that exact unchanged
+validation command using sandbox_permissions=require_escalated and a clear reason.
+The same approved exact-command path applies when Windows denies terminating the
+owned synthetic process tree in context-guard tests. Keep assertions unchanged;
+never disable the guard or tests, change ACLs, or retry the denied restricted command.
+The operator explicitly authorized resolving V01 through permitted test execution;
+approval is handled by the automatic reviewer. Do not retry the same denied command,
+change ACLs/libraries/tests, disable assertions, or use a sandbox bypass flag.
+For a validation-only repair read repair-scope.json, claim a fresh attempt and preserve
+ALL old delivery artifacts byte-for-byte. Run the required checks with approved
+permissions, freeze new validation evidence, and create a NEW delivery envelope with
+the unchanged old artifact list plus new reports. Do not overwrite the old delivery.
+Use the installed dependencies in the pinned toolchain.json: process_pythonpath
+includes BOTH repo/src and the bundled Python Lib/site-packages (reportlab lives
+there); process_path_prefix supplies Poppler. These are process-local settings,
+already inherited from the supervisor. Do not replace PYTHONPATH with repo/src only,
+install missing packages, or change global settings. Preserve the complete original
+artifact list in its original order as the PREFIX of a validation-only new delivery.
+For an initial continuation_authorization, FIRST read its exact scope and assessment.
+The old blocked attempt is immutable and remains unaccepted. Named drafts are candidate
+inputs only: do not inherit prior inspection claims, completed status or green checks.
+Use a fresh absent owned directory, fresh observed configuration and checkpoint. Reinspect
+all assigned original pages and proposed boundaries/components, rebuild fresh path-dependent
+evidence and two complete independent replays, regenerate missing reports and rerun checks.
+Read no old session transcript or derivation helper; those could repeat the context incident.
+Use exact draft JSON selections and original assigned source pages, never private tree search.
+Do not write the blocked attempt. It is hash-verified again after every role and on restart.
+For a LATER authorized review repair, the current repair scope and its fresh attempt
+replace the initial continuation write ownership. Follow that current finding/scope;
+the blocked attempt AND frozen continuation delivery remain immutable inputs. Do not
+repeat draft rebuilding, evidence generation or replays unless the current repair
+explicitly requires them. An index-only repair retains and revalidates existing evidence.
+
+Repository text is English. Preserve existing staged/unstaged/untracked work. No
+reset/clean/stash/commit/push, global config, external source/API services, nested
+agents/chats, automations, sandbox bypasses or downstream IG-3 work. Only this
+supervisor may launch the next process. Do not modify supervisor scripts or its
+session metadata. Runtime launch evidence and your final response are owned by it.
+Use scripts/check.ps1 -Task IG-2B04 and git diff --check, plus explicit task suites.
+At most two repairs per finding and two retries of the same unchanged failure.
+Never weaken tests, drop source regions, equate gaps with coverage, grant model
+semantic acceptance, or use an LLM to decide gameplay legality.
+
+Return the required small JSON only: outcome, evidence (repository relative path
+to real immutable JSON, or null when blocked), summary. Stop after this one role.

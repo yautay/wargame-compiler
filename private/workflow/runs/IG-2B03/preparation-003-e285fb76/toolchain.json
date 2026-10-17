@@ -1,0 +1,63 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "format": "wgc-ig2b03-toolchain-1",
+  "inherited_pin": {
+    "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json",
+    "bytes": 4021,
+    "sha256": "10e4c034b488fe44c6c6865f945278f83f1dec338d5572fac5b8db278ad54b27"
+  },
+  "process_pythonpath": "C:\\repo\\wargame-compiler\\src;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages",
+  "process_path_prefix": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin",
+  "python_executable": {
+    "path": "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+    "bytes": 276944,
+    "sha256": "6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2"
+  },
+  "libraries": {
+    "pypdf": "6.10.0",
+    "pdfplumber": "0.11.9",
+    "Pillow": "12.3.0",
+    "pytest": "9.1.1"
+  },
+  "native": {
+    "pdfinfo": {
+      "executable": {
+        "path": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdfinfo.EXE",
+        "bytes": 81712,
+        "sha256": "ae6c324eca37335d8ec54fd6a0b4007365e369bd6a1fe1a82a74d2a588f0faa0"
+      },
+      "version": "pdfinfo version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+    },
+    "pdftoppm": {
+      "executable": {
+        "path": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdftoppm.EXE",
+        "bytes": 65840,
+        "sha256": "1ad6408dc3b02950d00ad407d79b6d52b1d6c3f3b85c96645455d58d390d8b20"
+      },
+      "version": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+    },
+    "pwsh": {
+      "executable": {
+        "path": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "bytes": 301368,
+        "sha256": "362a356ce7f0940ec74f73a8fc2c990a2cc24a38a11c90bbd8eca947110ad139"
+      },
+      "version": "PowerShell 7.6.5"
+    },
+    "git": {
+      "executable": {
+        "path": "C:/Program Files/Git/cmd/git.EXE",
+        "bytes": 45400,
+        "sha256": "54bda91c773c6bba2b970424423cfcb80552d92dc6967d766f98931fe1251a54"
+      },
+      "version": "git version 2.56.0.windows.2"
+    }
+  },
+  "settings_policy": "Process-local only. PYTHONPATH must include both repo/src and bundled Python Lib/site-packages, including reportlab. No installs or global settings. Verify installed hashes and versions at claim time."
+}

@@ -1,0 +1,27 @@
+{
+  "role": "reviewer",
+  "actor": "reviewer-2",
+  "summary": "review",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Synthetic test observation, not actual execution",
+  "criteria": [
+    "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+    "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+    "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+    "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+    "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+  ],
+  "checks": [
+    {
+      "command": "synthetic check",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "tests/contracts/synthetic.txt",
+      "sha256": "817b598bf8661207fdccdb80a160e0525c9311d4349853df6bb6061544971c38"
+    }
+  ]
+}

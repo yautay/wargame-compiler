@@ -1,0 +1,85 @@
+{
+  "task": "IG-2B08",
+  "role": "executor",
+  "actor": "ig2:002-IG-2B08-executor-1edb0a28:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/002-IG-2B08-executor-1edb0a28/runtime-configuration.json",
+  "configuration_sha256": "c406cdcd45f72e382cfbc948014f8c9db3d10acec7628f181d92974ee04858b6",
+  "attempt": "inventory-8d84cd90-01",
+  "started_utc": "2026-10-17T06:53:40.389040+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261017T064446Z-f1a71866/002-IG-2B08-executor-1edb0a28/packet.json",
+    "sha256": "5ae9c282266a4eea757a630b2dbae3243b64d3d25815314e1d37d64193ec6eb0",
+    "bytes": 7095
+  },
+  "task_contract": {
+    "path": "private/workflow/orchestrator/20261017T064446Z-f1a71866/002-IG-2B08-executor-1edb0a28/task.json",
+    "sha256": "d1f4ebb6e3d749528d6d837ef45f02d691a26d83b3ff4a3b73df1e0db4441cef",
+    "bytes": 13532
+  },
+  "input_pins": {
+    "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/input-pins.json",
+    "sha256": "257fbc9a5014cb1370d2566e26a8913333cb4df5cf953c7e0b3df5b9ad7a3ba5",
+    "bytes": 10973
+  },
+  "base_files": [
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+      "sha256": "24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d",
+      "bytes": 3969071
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json",
+      "sha256": "5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701",
+      "bytes": 143900
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/region-ledger.json",
+      "sha256": "327a4f21c80420c7f3de175ed18a312da0459c1777af25198854d85c0f0e0584",
+      "bytes": 1063388
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/continuations.json",
+      "sha256": "7ef515feb30a356ef2873e9a3f8e7caa24304973649208dc1eb911008f449349",
+      "bytes": 117861
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/coverage-report.json",
+      "sha256": "00725198f84fa5b52bb766b881aac7c58ea82befbb3b9b834b83f07777cab2ae",
+      "bytes": 75191
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/source-pins.json",
+      "sha256": "f78fcc44391ada21ef36d3b617ee0280b57cd90dfbe5160725cf711f25c0048d",
+      "bytes": 823563
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/toolchain.json",
+      "sha256": "d27598051889047746f5fb8c74f495299f8a506309e0217afa6349870a9a5be8",
+      "bytes": 2910
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    }
+  ],
+  "changed_files": [],
+  "completed_criteria": [
+    "Confirmed startup configuration, exact packet/input hashes, done dependency and absent owned attempt."
+  ],
+  "commands": [
+    {
+      "command": "Packet/input SHA-256 and baseline-count preflight",
+      "exit_code": 0
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Inspect original pages 29-32 and strictly bounded page-28/33 context; independently author regions."
+}

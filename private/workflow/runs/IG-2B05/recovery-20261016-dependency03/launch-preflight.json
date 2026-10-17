@@ -1,0 +1,43 @@
+{
+  "operator_request": "wznow prace",
+  "task": "IG-2B05",
+  "coordinator_actual_model": null,
+  "coordinator_actual_reasoning": null,
+  "configuration_evidence": "Not exposed in current coordinating session; next executor must confirm startup metadata.",
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B05",
+      "exit_code": 0,
+      "result": "257 passed in 33.79s",
+      "logs": "private/workflow/checks/active-6d3391170cb442e0a0e84245e62c01b7/"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "preserved_artifacts": 967,
+  "queue_sha256": "938f5ed9af6d49dfcd68940f0681126af4b1756f4af06146a8d8225f1c099947",
+  "artifacts": [
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "d58254dca2c6a7d78cb10d2c7672cb46f41c53ce6608a76646e78e6b39cd9450"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "3941104509a1974714c31a464df0882738064107f630d1df76770bca6f10bf71"
+    },
+    {
+      "path": "private/workflow/checks/active-6d3391170cb442e0a0e84245e62c01b7/result.json",
+      "sha256": "8823731e17c1ea305512be142d45ba6a15eed76277df8f1ad9d480b06e17448a"
+    }
+  ],
+  "codex": {
+    "path": "C:\\Users\\yauta\\AppData\\Local\\OpenAI\\Codex\\bin\\e78bad9887fa50cf\\codex.exe",
+    "sha256": "9ecb9df2ecafcc00542ef0966c6f1737a81397dc9531b0a4b178238e2bf4a46d"
+  },
+  "ripgrep": {
+    "path": "C:\\Users\\yauta\\AppData\\Local\\OpenAI\\Codex\\bin\\d6efb6feb729707e\\rg.exe",
+    "sha256": "0d73ba3dd4f273938f02b2bd577be197af136c7856b00fd8a89434e25633cf8d"
+  }
+}

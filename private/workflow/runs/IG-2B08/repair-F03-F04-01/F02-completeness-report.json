@@ -1,0 +1,148 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "summary": "Full visible digit and marker-frame source masks retained in the intended detail in all three complete sets; truncated crops rejected.",
+  "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "physical_page": 29,
+  "source_original": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/originals/page-29.png",
+    "bytes": 756272,
+    "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e"
+  },
+  "independent_reference_windows": {
+    "visible_digit": [
+      120,
+      499,
+      138,
+      523
+    ],
+    "visible_marker_frame": [
+      116,
+      496,
+      147,
+      527
+    ],
+    "reported_stem_patch": [
+      130,
+      513,
+      138,
+      523
+    ]
+  },
+  "reference_masks": {
+    "visible_digit": {
+      "pixel_count": 522,
+      "bounds_half_open": [
+        250,
+        1001,
+        272,
+        1040
+      ]
+    },
+    "visible_marker_frame": {
+      "pixel_count": 1463,
+      "bounds_half_open": [
+        232,
+        992,
+        294,
+        1054
+      ]
+    },
+    "reported_stem_patch": {
+      "pixel_count": 130,
+      "bounds_half_open": [
+        260,
+        1026,
+        272,
+        1040
+      ]
+    }
+  },
+  "reported_missing_stem_core_pixels": 51,
+  "old_points": [
+    106,
+    496,
+    133,
+    527
+  ],
+  "new_points": [
+    106,
+    495,
+    148,
+    528
+  ],
+  "old_crop_rejected": true,
+  "negative_cases": {
+    "original_crop": "correctly_rejected",
+    "digit_base_clipped": "correctly_rejected",
+    "frame_left_clipped": "correctly_rejected",
+    "frame_bottom_clipped": "correctly_rejected"
+  },
+  "runs": [
+    {
+      "name": "final-verified",
+      "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+      "revision": "188734d4dbf600646903254a9c86b2e589cd95785ec29e9941adbc6ec2f0390b",
+      "intended_detail": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/evidence/ig2b08-p29-collapse-diagram-component-c-hits/image.png",
+        "bytes": 4346,
+        "sha256": "fe81519ade97847d5f0cbafad8fb4c42355a5da24c8e842c74d265117b9ffecd"
+      },
+      "matched_source_pixels": {
+        "visible_digit": 522,
+        "visible_marker_frame": 1463,
+        "reported_stem_patch": 130
+      },
+      "all_masks_in_intended_detail": true
+    },
+    {
+      "name": "replay-1",
+      "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+      "revision": "188734d4dbf600646903254a9c86b2e589cd95785ec29e9941adbc6ec2f0390b",
+      "intended_detail": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/evidence/ig2b08-p29-collapse-diagram-component-c-hits/image.png",
+        "bytes": 4346,
+        "sha256": "fe81519ade97847d5f0cbafad8fb4c42355a5da24c8e842c74d265117b9ffecd"
+      },
+      "matched_source_pixels": {
+        "visible_digit": 522,
+        "visible_marker_frame": 1463,
+        "reported_stem_patch": 130
+      },
+      "all_masks_in_intended_detail": true
+    },
+    {
+      "name": "replay-2",
+      "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+      "revision": "188734d4dbf600646903254a9c86b2e589cd95785ec29e9941adbc6ec2f0390b",
+      "intended_detail": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/evidence/ig2b08-p29-collapse-diagram-component-c-hits/image.png",
+        "bytes": 4346,
+        "sha256": "fe81519ade97847d5f0cbafad8fb4c42355a5da24c8e842c74d265117b9ffecd"
+      },
+      "matched_source_pixels": {
+        "visible_digit": 522,
+        "visible_marker_frame": 1463,
+        "reported_stem_patch": 130
+      },
+      "all_masks_in_intended_detail": true
+    }
+  ],
+  "inspection_image": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/F02-original-detail.png",
+    "bytes": 106716,
+    "sha256": "c9a2693a75cf6bdf3ffb42c4c73cfc404be227c25e167d080ed7f1e9f6c2c396"
+  },
+  "source_mask_image": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/F02-source-mask.png",
+    "bytes": 18525,
+    "sha256": "c36b019a12175d38291a78cf65cbe69a10bf7de9ede563d9af5aadb639a1d4e5"
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false,
+  "exit_code": 0
+}

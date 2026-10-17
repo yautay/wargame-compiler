@@ -1,0 +1,62 @@
+{
+  "independent_review": null,
+  "tooling_product_defects_found": 0,
+  "executor_observations": [
+    {
+      "id": "D01",
+      "severity": "authoring-error",
+      "status": "corrected",
+      "basis": {
+        "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/author-first-failure.json",
+        "sha256": "c1e4c2ff16765e6c381133b124f6ff4844e51ac17e11943bfee72872c11c3ba4",
+        "bytes": 561
+      },
+      "description": "Initial overlapping region rectangles/shared-edge rounding failed existing validation."
+    },
+    {
+      "id": "D02",
+      "severity": "locator-error",
+      "status": "corrected",
+      "basis": {
+        "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/logo-correction.json",
+        "sha256": "4c36c4067750fd97120c0b40ddf98ac395a26fda5621115924cdd537c8136012",
+        "bytes": 7960
+      },
+      "description": "Visual cropped logo inspection found a tight right edge; widened same identity and derived fresh evidence."
+    },
+    {
+      "id": "D03",
+      "severity": "scope-deviation",
+      "status": "disclosed",
+      "basis": {
+        "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/context-overread.json",
+        "sha256": "d47b3a427b4b0430af904ac88a45b7f67a9f060fceca7e194e7ea3b7da3c4bde",
+        "bytes": 758
+      },
+      "description": "Initial minimal-context probe inadvertently exposed neighboring entry material; final context narrowed; initial evidence retained."
+    }
+  ],
+  "remaining_limits": [
+    "Independent full region/source review pending.",
+    "Exact transcription and source-IG whole-record reconciliation/semantic acceptance pending; all represented/excluded counts remain zero.",
+    "Geometric complement remains visible and unapproved.",
+    "Exact session start before attempt-directory creation is not exposed; approximate initial estimate is not an actual measurement."
+  ],
+  "preflight_errors": [
+    {
+      "command": "Get-Content -LiteralPath src/wgc/sources/identity.py -Encoding UTF8 -Raw",
+      "observed_error": "Cannot find path src/wgc/sources/identity.py because it does not exist.",
+      "enclosing_tool_command_exit_code": 0,
+      "resolution": "Read existing inventory.py containing persisted identity functions. No file created or product edited.",
+      "utc": null
+    },
+    {
+      "command": "Get-Item Env:CODEX_THREAD_ID,Env:CODEX_MODEL,Env:CODEX_REASONING_EFFORT -ErrorAction SilentlyContinue",
+      "exit_code": 1,
+      "observed": "CODEX_THREAD_ID exposed; model/reasoning variables absent.",
+      "resolution": "Asked current-session operator and obtained direct actual Sol/high confirmation before claim.",
+      "utc": null
+    }
+  ],
+  "raw_log_limit": "Preliminary read-command outputs are retained in the chat tool transcript; named preparation/authoring/validation/freeze subprocess logs are stored in this attempt. Unknown preliminary UTC values are null."
+}

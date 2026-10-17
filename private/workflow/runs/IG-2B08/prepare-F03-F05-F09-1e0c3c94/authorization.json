@@ -1,0 +1,176 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B08-coordinator-1e0c3c94:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/003-IG-2B08-coordinator-1e0c3c94/runtime-configuration.json",
+  "configuration_sha256": "8e8730d2f487a5f5038004613bf442114855d86914dc93c4149e1acb4ec54b18",
+  "task": "IG-2B08",
+  "utc": "2026-10-17T16:01:27.102575+00:00",
+  "summary": "Authorize only the bounded fresh F03 cycle-two and F05-F09 cycle-one content repair. Coordinator prepares the contract; only the supervisor may launch the next executor.",
+  "review_evidence": "private/workflow/runs/IG-2B08/review-00a548c6/review.json",
+  "review_sha256": "ac91b401eaa9e31ad775e8a55601521a3cb69dc0f22897264de94eab86a1ccfe",
+  "scope": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/repair-scope.json",
+    "sha256": "37296902f0a7717de5f20997a73fa5218219287d47ed51c5ef2bb9a88f6ea044",
+    "bytes": 14178
+  },
+  "attempt": "private/workflow/runs/IG-2B08/repair-F03-F05-F09-1e0c3c94/",
+  "mode": "content_repair",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/repair-scope.json",
+      "sha256": "37296902f0a7717de5f20997a73fa5218219287d47ed51c5ef2bb9a88f6ea044",
+      "bytes": 14178
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/repair-context.json",
+      "sha256": "24492bcd7c03dea322e8027ed62be8b18ed9bf2cd18e55247753c04e663c0449",
+      "bytes": 15432
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/review-00a548c6/review.json",
+      "sha256": "ac91b401eaa9e31ad775e8a55601521a3cb69dc0f22897264de94eab86a1ccfe",
+      "bytes": 1443081
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/preparation-report.json",
+      "sha256": "2f02bd2aa53847c9419df79af92bc01b7ecf0341d6259a1e11342edb99cecc9a",
+      "bytes": 1525
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/validation-report.json",
+      "sha256": "6d713f8b96b290a396bb8d0898a51d83170c4c2f6d7c534cb3bddb230f458174",
+      "bytes": 4051
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/prepare.py",
+      "sha256": "81f61482ed71f111130c1f05091c0f88aa30a8a27ec0836762f38c38b1a9e729",
+      "bytes": 14205
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/finalize.py",
+      "sha256": "5ec624921f199deb83969ec19abb21679820c6acfc45250eae2e3cffd46df016",
+      "bytes": 5824
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/preserve-manifest.json",
+      "sha256": "0383c5d278837bf72dbedc7003c2564984591d83f8f339f045d7265dbb44d9f2",
+      "bytes": 5697796
+    }
+  ],
+  "finding_cycles": {
+    "F03": {
+      "completed_cycles": 1,
+      "authorized_cycle": 2,
+      "maximum_cycles": 2
+    },
+    "F05": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F06": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F07": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F08": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F09": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    }
+  },
+  "status_unchanged": "changes_requested",
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false,
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token counts and operator time were not exposed."
+  },
+  "checks": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/workflow.py",
+        "render"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B08"
+      ],
+      "exit_code": 0,
+      "execution_permissions": "require_escalated",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/full-check-approved.log",
+        "sha256": "1444986612db398a4ed9727ae5e930a1ae919b369ee40a322b92195d18bd2570",
+        "bytes": 5721
+      },
+      "result": {
+        "path": "private/workflow/checks/active-3af39e733e72418592d4317e258aa03a/result.json",
+        "sha256": "4afdadb05027f29880c3ecc397c341186cc53fa327ce9878662b600da9f544be",
+        "bytes": 206
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/diff-check.log",
+        "sha256": "32941c923bb223d0849790d8ef839aff1dd818a869aa426bb9c1cfe5dedc885d",
+        "bytes": 275706
+      }
+    }
+  ],
+  "validation_summary": {
+    "all_required_preparation_checks_passed": true,
+    "preserved_artifacts_reverified": 22211,
+    "acceptance_and_tests_unchanged": true,
+    "attempt_absent": true
+  }
+}

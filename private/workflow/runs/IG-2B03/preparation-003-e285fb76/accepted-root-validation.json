@@ -1,0 +1,37 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "wgc.sources",
+    "validate",
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T15:06:05.117667+00:00",
+  "ended_utc": "2026-10-15T15:06:09.290043+00:00",
+  "wall_seconds": 4.171999999991385,
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/accepted-root-validation.stdout",
+      "bytes": 9997,
+      "sha256": "540ce34824e50e283143471b4dbfda722d42393955a504ccc9c848830cc437ea"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/accepted-root-validation.stderr",
+      "bytes": 72,
+      "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+    }
+  ],
+  "process_environment_pin": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/toolchain.json",
+    "sha256": "79ff143ae0e7ad3df5d4ae6830bcad6ad6fbeaaa37091f39372c2a195ca63a75"
+  }
+}

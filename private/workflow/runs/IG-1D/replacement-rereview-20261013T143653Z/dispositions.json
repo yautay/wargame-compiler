@@ -1,0 +1,79 @@
+{
+  "technical_result": "pass",
+  "actor": "ig1d-replacement-reviewer-20261013T140127Z",
+  "reviewed_repair_iteration": 2,
+  "dispositions": [
+    {
+      "finding_id": "IG1D-R01",
+      "disposition": "closed",
+      "repair_iterations_used": 1,
+      "previous_closure_preserved": true,
+      "prior_basis": "The current rematch phase builds label/endpoint/number and substantive evidence maps against the same available prior IDs before those heuristic assignments. Contradictions create gaps and reserve candidates. The unchanged two-term control, independent local and three-way conflicts, candidate/origin retention, explicit no-allocation resolution, non-term step conflict and unambiguous edits/reorder/insertion/deletion/move/rename controls pass.",
+      "current_independent_verification": "All 15 original assertions and existing risk/receipt/history controls replayed unchanged and pass; full fresh byte/field/binding/hash and independently reconstructed reference/cycle oracle pass.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "history.log",
+        "explicit-native.log",
+        "independent-accounting.json",
+        "supplemental-accounting.json"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R02",
+      "disposition": "closed",
+      "repair_iterations_used": 1,
+      "previous_closure_preserved": true,
+      "prior_basis": "Validation rejects every locator shared by hints and forced lineage before assignments and operates on a deep copy of previous state. Split and merge conflict controls pass with prior registry immutability. Disjoint hints/lineage, many-to-many bindings, keyed children and unchanged replay pass. Compatible overlap is deliberately unsupported, so no duplicated-decision precedence is silently assumed.",
+      "current_independent_verification": "All 15 original assertions and existing risk/receipt/history controls replayed unchanged and pass; full fresh byte/field/binding/hash and independently reconstructed reference/cycle oracle pass.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "history.log",
+        "explicit-native.log",
+        "independent-accounting.json",
+        "supplemental-accounting.json"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R03",
+      "disposition": "closed",
+      "repair_iterations_used": 1,
+      "previous_closure_preserved": true,
+      "prior_basis": "Resolution unions exact active IDs with active aliases and accepts only a singleton. Original exact-ID, independent direct relation endpoints/navigation-cycle, retired/nonexistent-ID and direct-ID/alias collision controls pass. Explicit scope and both-endpoint controls pass. Full raw-input enumeration independently reproduces every diagnostic target/candidate set and cycle component.",
+      "current_independent_verification": "All 15 original assertions and existing risk/receipt/history controls replayed unchanged and pass; full fresh byte/field/binding/hash and independently reconstructed reference/cycle oracle pass.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "history.log",
+        "explicit-native.log",
+        "independent-accounting.json",
+        "supplemental-accounting.json"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R04",
+      "disposition": "closed",
+      "repair_iterations_used": 2,
+      "maximum_repair_iterations": 2,
+      "basis": "The named receipt guard first enumerates all persisted receipt children (including inactive children), then requires compatible logical kind, resolved parent scope and persistent child key. Incompatible reuse raises ValueError on a private registry copy before a replacement allocation can be returned. The original strict changed-kind assertion and new kind/key/scope controls pass. A deliberately new decision identifier permits a different typed output; unchanged replay preserves it. Correction/rename, keyed reorder, locator/file move and exact historical revision/origin preservation pass.",
+      "fresh_independent_boundaries": [
+        "Retired prior receipt child still enforces immutable kind contract",
+        "Changed/removed persistent key rejects full build without mutating registry or bundle",
+        "After rejection, new named typed output preserves old receipt history and repeats canonically",
+        "Keyed merge correction with moved locator and parent order retains ID/origin_key, exact lineage/supersession and canonical replay"
+      ],
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "history.log",
+        "explicit-native.log",
+        "boundaries.log"
+      ]
+    }
+  ],
+  "remaining_findings": [],
+  "new_finding_ids": [],
+  "product_modified_by_reviewer": false,
+  "repair_budget_note": "R04 consumed both repair iterations and is now closed. No further repair is requested."
+}

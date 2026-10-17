@@ -1,0 +1,78 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B04-executor-6dd7a7ee:executor",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/runtime-configuration.json",
+  "configuration_sha256": "c01d034f18cd1515a7f7f95d64626fad327c49d10db2409fa04af689623d8870",
+  "utc": "2026-10-16T14:29:38.298533+00:00",
+  "summary": "All required validation commands pass and protected artifact hashes match; ready to freeze this repair delivery for independent review.",
+  "attempt": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/packet.json",
+    "sha256": "37df7f6a40cee94088ba0e61856f2b3f0ef71e1eb29e3966b8514934d93c21eb",
+    "bytes": 6950
+  },
+  "changed_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/preservation-report.json",
+      "sha256": "a96fa835f11a8ffb2be1aa1182b331c88a02b2892ca718a4c2c77e14c0a18399",
+      "bytes": 1607
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/validation-report.json",
+      "sha256": "82b9db1b2d00b10695180aa3b1c84859f5317cf3db9b936478b6f5a5dc14bdc9",
+      "bytes": 3921
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/delivery-handoff.md",
+      "sha256": "ed3ec4b73e6e1e87509f9b9a6fd4931313f05403cc8357c4dfd4778ff1ff100d",
+      "bytes": 1706
+    }
+  ],
+  "completed_criteria": [
+    "V01 unchanged validation commands exit zero",
+    "Original delivery artifacts and protected blocked-attempt hashes preserved"
+  ],
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/repository-check.json",
+        "sha256": "1a98d8f986677f103688e46ba02e04d94366e34c27339b67a818e9942bb876c9",
+        "bytes": 2692
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/sources-check.json",
+        "sha256": "f0d96a6b5efb78fc76369add4620365360d48195cabc1784a530aef1472d475b",
+        "bytes": 2058
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/diff-check.json",
+        "sha256": "7e278154e9fd9ae86a25338db926856efa9c8c55f31ef16c3e6454564bb89394",
+        "bytes": 803
+      }
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Freeze complete original ordered prefix plus new evidence; verify all delivery hashes and transition to review.",
+  "measurement": {
+    "started_utc": "2026-10-16T14:26:26.455267+00:00",
+    "ended_utc": "2026-10-16T14:29:38.298533+00:00",
+    "wall_seconds": 191.843266,
+    "operator_seconds": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "unknown_reason": "Token counts and operator time not exposed."
+  }
+}

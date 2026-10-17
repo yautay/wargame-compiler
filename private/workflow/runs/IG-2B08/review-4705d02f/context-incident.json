@@ -1,0 +1,63 @@
+{
+  "format": "wgc-review-context-incident-1",
+  "task": "IG-2B08",
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-4705d02f:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/002-IG-2B08-reviewer-4705d02f/runtime-configuration.json",
+  "configuration_sha256": "758f52a92b64524408fa677ee6b3ff4eea11b82b5a151f447e221aa9b492aa87",
+  "utc": "2026-10-17T09:02:22.471046+00:00",
+  "outcome": "blocked",
+  "summary": "Review stopped after its validation wrapper emitted unassigned-page coverage metadata. No acceptance or completed review is claimed.",
+  "incident": {
+    "operation": "Reading final CLI validation completion through run_check.py",
+    "cause": "The wrapper included the last 3000 output characters instead of printing only a scoped exit summary. CLI stdout contained coverage metadata for unassigned pages.",
+    "source_text_emitted": false,
+    "whole_manifest_emitted": false,
+    "frozen_product_mutation": false,
+    "queue_mutation": false,
+    "additional_source_scope_access": false,
+    "violated_constraint": "Print only needed non-event fields for this task; internal full-record validation must not emit unassigned records."
+  },
+  "review_state": {
+    "delivery_sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f",
+    "frozen_delivery_artifacts_hash_verified": 5302,
+    "preserved_input_artifacts_hash_verified": 7808,
+    "assigned_original_pages_freshly_inspected": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_page33_box_points": [
+      45,
+      50,
+      306,
+      80
+    ],
+    "review_complete": false,
+    "remaining_checks": "Both replay CLI validations, independent aggregate verifier, required repository checks and final preservation recheck were not completed."
+  },
+  "candidate_finding_for_fresh_review": {
+    "id": "candidate-F02",
+    "key": "ig2b08:p29:collapse-diagram-component-c-hits",
+    "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+    "points": [
+      106,
+      496,
+      133,
+      527
+    ],
+    "observation": "Fresh original inspection shows the intended visible 4 hit-marker crop cuts through the right stem of the digit. This is a candidate finding requiring fresh scoped verification, not a completed review decision.",
+    "diagnostic": "private/workflow/runs/IG-2B08/review-4705d02f/c-hit-boundary.png"
+  },
+  "validation_state": {
+    "source_suite_restricted": "Failed with WinError 5 on pytest temporary directory; unchanged exact approved command launched, completion not consumed before stop.",
+    "final_cli_validation_exit_code": 0,
+    "approval_denial": false
+  },
+  "required_resolution": "Coordinator assesses this incident and launches a fresh bounded reviewer session. Keep validation stdout in private logs; emit only command/exit and explicitly selected task fields. Preserve this attempt and frozen inputs.",
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false
+}

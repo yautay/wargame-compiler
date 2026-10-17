@@ -1,0 +1,93 @@
+......FF......................FFFFF                                      [100%]
+================================== FAILURES ===================================
+_____ test_malformed_explicit_safe_scalars_are_accounted[!!bool invalid] ______
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:35: in test_malformed_explicit_safe_scalars_are_accounted
+    f = import_bytes(raw, 'kb/terms.yaml')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\wgu_adapter\importer.py:98: in import_bytes
+    doc = parse(raw,path)
+          ^^^^^^^^^^^^^^^
+src\wgc\wgu_adapter\parser.py:109: in parse
+    walk(root, '', set(), 0)
+src\wgc\wgu_adapter\parser.py:103: in walk
+    walk(child, pointer+'/'+pointer_part(key.value), trail, depth+1, key.start_mark)
+src\wgc\wgu_adapter\parser.py:106: in walk
+    walk(child, pointer+'/'+str(i), trail, depth+1)
+src\wgc\wgu_adapter\parser.py:101: in walk
+    loader.construct_mapping(node)
+src\wgc\wgu_adapter\parser.py:45: in construct_mapping
+    return super().construct_mapping(node, deep=deep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:218: in construct_mapping
+    return super().construct_mapping(node, deep=deep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:143: in construct_mapping
+    value = self.construct_object(value_node, deep=deep)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:100: in construct_object
+    data = constructor(self, node)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:235: in construct_yaml_bool
+    return self.bool_values[value.lower()]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'invalid'
+___ test_malformed_explicit_safe_scalars_are_accounted[!!timestamp invalid] ___
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:35: in test_malformed_explicit_safe_scalars_are_accounted
+    f = import_bytes(raw, 'kb/terms.yaml')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\wgu_adapter\importer.py:98: in import_bytes
+    doc = parse(raw,path)
+          ^^^^^^^^^^^^^^^
+src\wgc\wgu_adapter\parser.py:109: in parse
+    walk(root, '', set(), 0)
+src\wgc\wgu_adapter\parser.py:103: in walk
+    walk(child, pointer+'/'+pointer_part(key.value), trail, depth+1, key.start_mark)
+src\wgc\wgu_adapter\parser.py:106: in walk
+    walk(child, pointer+'/'+str(i), trail, depth+1)
+src\wgc\wgu_adapter\parser.py:101: in walk
+    loader.construct_mapping(node)
+src\wgc\wgu_adapter\parser.py:45: in construct_mapping
+    return super().construct_mapping(node, deep=deep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:218: in construct_mapping
+    return super().construct_mapping(node, deep=deep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:143: in construct_mapping
+    value = self.construct_object(value_node, deep=deep)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:100: in construct_object
+    data = constructor(self, node)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\yaml\constructor.py:325: in construct_yaml_timestamp
+    values = match.groupdict()
+             ^^^^^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'groupdict'
+_ test_known_schema_invalid_fields_are_not_processed[terms: [{en: Alpha, definition: 42}]] _
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:156: in test_known_schema_invalid_fields_are_not_processed
+    assert finish([f])['record_counts']['error'] >= 1
+E   assert 0 >= 1
+_ test_known_schema_invalid_fields_are_not_processed[rules: [{id: R-A, title: A, flags: [unsupported]}]] _
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:156: in test_known_schema_invalid_fields_are_not_processed
+    assert finish([f])['record_counts']['error'] >= 1
+E   assert 0 >= 1
+_ test_known_schema_invalid_fields_are_not_processed[tables: [{id: T-A, title: A, tables: {rows: invalid}}]] _
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:156: in test_known_schema_invalid_fields_are_not_processed
+    assert finish([f])['record_counts']['error'] >= 1
+E   assert 0 >= 1
+_ test_known_schema_invalid_fields_are_not_processed[relations: [{from: R-A, to: R-B, type: unsupported, status: verified}]] _
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:156: in test_known_schema_invalid_fields_are_not_processed
+    assert finish([f])['record_counts']['error'] >= 1
+E   assert 0 >= 1
+____ test_schema_valid_confusable_scalar_is_preserved_without_false_error _____
+private\workflow\runs\IG-1C\review-20261013T092949Z\probes.py:164: in test_schema_valid_confusable_scalar_is_preserved_without_false_error
+    assert result['record_counts']['error'] == 0
+E   assert 2 == 0
+=========================== short test summary info ===========================
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_malformed_explicit_safe_scalars_are_accounted[!!bool invalid]
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_malformed_explicit_safe_scalars_are_accounted[!!timestamp invalid]
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_known_schema_invalid_fields_are_not_processed[terms: [{en: Alpha, definition: 42}]]
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_known_schema_invalid_fields_are_not_processed[rules: [{id: R-A, title: A, flags: [unsupported]}]]
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_known_schema_invalid_fields_are_not_processed[tables: [{id: T-A, title: A, tables: {rows: invalid}}]]
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_known_schema_invalid_fields_are_not_processed[relations: [{from: R-A, to: R-B, type: unsupported, status: verified}]]
+FAILED private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py::test_schema_valid_confusable_scalar_is_preserved_without_false_error
+7 failed, 28 passed in 3.06s

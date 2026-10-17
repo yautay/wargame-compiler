@@ -1,0 +1,80 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B08-coordinator-8d84cd90:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/001-IG-2B08-coordinator-8d84cd90/runtime-configuration.json",
+  "configuration_sha256": "6c19c296fa6ae7aeb13455fa4baf8e3c500b018d22bd793b17c53706c776e168",
+  "format": "wgc-inventory-ready-1",
+  "task": "IG-2B08",
+  "summary": "IG-2B08 is refined for fresh execution on physical pages 29-32 from accepted IG-2B07 inputs; preserve the complete 44-page baseline and registry. No product inventory, inspection, semantic acceptance or gameplay readiness is claimed.",
+  "criteria": [
+    "IG-2B07 is done with its exact accepted baseline, registry, current reports, official source and provenance pins verified locally.",
+    "Exact assigned pages/placeholder IDs, bounded context-only access, fresh disjoint outputs, complete preservation, original-page/component inspection, serial evidence and two complete independent replays are pinned.",
+    "Every original acceptance criterion and test is retained verbatim; fresh independent technical review and separate semantic/human gates remain binding.",
+    "Exact available context is allowlisted and below 100 KB; inherited pinned toolchain and unchanged source validation passed; future owned attempt is absent."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/checkpoint-initial.json",
+      "sha256": "21e55e7b1d2673c8be3d4246ef5b883390cb6d3df17a6b0ed8ccaf715045a429",
+      "bytes": 1524
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/input-pins.json",
+      "sha256": "257fbc9a5014cb1370d2566e26a8913333cb4df5cf953c7e0b3df5b9ad7a3ba5",
+      "bytes": 10973
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/refined-contract.json",
+      "sha256": "83fc241f057d2a2e1087030a75f6445c5661dfba5fcc784921dd048705d3433f",
+      "bytes": 13534
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/refine.py",
+      "sha256": "01b3af1fd23ece943c1edc9812bb7e2a54aae23b63d79aa54bed8ae9b8f92afd",
+      "bytes": 18471
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/make-ready.py",
+      "sha256": "ea488b5fe538edf70c4d32902a9cd37519fc8cd36b2a74be3f348f14ad7e13bf",
+      "bytes": 5757
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/refinement-check.json",
+      "sha256": "85c16a7f355a00b0b1a315d25270acb37c527f11e420a5bd74186c167faf604c",
+      "bytes": 5498
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/prechecks.json",
+      "sha256": "ab70d92dac6f8ed70f672d949cd4ba0d0cb9691593d8a0696b68808428a76c23",
+      "bytes": 2089
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/refine-8d84cd90-01/refine.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/refine-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "sandbox_permissions": "require_escalated",
+      "result": "71 passed"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "limitation": "Restricted-token stderr warnings retained in prechecks; full check pending."
+    }
+  ],
+  "readiness_scope": "Executor may claim only the frozen refined contract; no implementation or acceptance is inherited.",
+  "measurement": {
+    "ended_utc": "2026-10-17T06:49:45.010966+00:00",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token counters and operator time were not exposed."
+  },
+  "next_operation": "Run scripts/check.ps1 -Task IG-2B08, preserve all actual validation results, then return the immutable coordinator report. Only the supervisor launches the executor."
+}

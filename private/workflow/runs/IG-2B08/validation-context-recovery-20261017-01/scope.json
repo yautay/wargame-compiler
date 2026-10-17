@@ -1,0 +1,103 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-validation-context-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable. This is not an executor/reviewer claim; a fresh observed gpt-6.1-sol/high session is required.",
+  "utc": "2026-10-17T09:42:48.025966+00:00",
+  "summary": "Fresh independent review of the exact F01 delivery with bounded validation output.",
+  "format": "wgc-review-output-recovery-1",
+  "task": "IG-2B08",
+  "mode": "fresh_independent_review",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/review-4705d02f/context-incident.json",
+    "sha256": "d20abb948fcd451e9b049ad30c791af68a2c4aa9d5f0bb1f73837ca7a767bc75",
+    "bytes": 3092
+  },
+  "assessment": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/assessment.json",
+    "sha256": "c7f1ffa405dba10eba5f20ae63d34314caa2de3832074509fc3f256718924a2e",
+    "bytes": 2387
+  },
+  "review_context": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/review-context.json",
+    "sha256": "4e44d4721d386d8def5522edbdaf487962dd5924280db8de43cba860b89711bf",
+    "bytes": 11384
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f",
+    "bytes": 1359669
+  },
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B08/validation-context-recovery-20261017-01/preserve-manifest.json",
+    "sha256": "5863a9855d272aeb8399166e95ed4596b07c8187731a1c47ec43043fc24ecdf4",
+    "bytes": 2647927
+  },
+  "prior_context_authorization": {
+    "incident": {
+      "path": "private/workflow/runs/IG-2B08/coordinator-context-incident-b6a7690c/incident.json",
+      "sha256": "af214d0b7ca96c9692c148b4a4188acf586b947be83505b128132797b482f7f1",
+      "bytes": 1858
+    },
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/scope.json",
+      "sha256": "ad7bc7eb2cbfa8c7c5f0bf339bea9e6cde6c368b39a209fe4e18b3ccaf7df756",
+      "bytes": 5866
+    },
+    "assessment": {
+      "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/assessment.json",
+      "sha256": "b44565abb33e7295a08889c67411eafbba4eb90dfdc5b4cb1d5d0b67b035bdf7",
+      "bytes": 2163
+    }
+  },
+  "source_access": {
+    "inventory_physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only": [
+      {
+        "physical_page": 28,
+        "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+      },
+      {
+        "physical_page": 33,
+        "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+        "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+        "box_points": [
+          45,
+          50,
+          306,
+          80
+        ],
+        "box_normalized": [
+          73529,
+          63131,
+          500000,
+          101011
+        ],
+        "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+        "raster_144dpi": {
+          "x": 90,
+          "y": 100,
+          "width": 522,
+          "height": 60
+        },
+        "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+      }
+    ],
+    "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+    "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+  },
+  "validation_protocol": "For final-verified/replay-1/replay-2 CLI validation, use only scripts/task_access.py validate-source --file <exact current inventory>. The inherited access manifest pins allowed paths and hashes. The unchanged validator still checks the complete source internally. Console output is command/exit and log pins only; no stdout/stderr/tail preview on success or failure. Other required checks also log privately and return scoped summaries.",
+  "diagnostic_policy": "Full validator logs may be hashed/copied internally. Do not release their contents into context. Additional error diagnosis needs explicit assigned-page/field selection or a new coordinator scope; failure never authorizes a raw log tail.",
+  "review_policy": "New absent reviewer-owned directory, new observed runtime and distinct actor. Reinspect all assigned originals/boundaries/components and the exact page-33 crop, independently verify F01 and candidate F02, both complete replays, current evidence indexes, all criteria and unchanged tests. No previous green checks or inspection claims are inherited.",
+  "preservation_policy": "Internally verify every preserved artifact before review and before final response, printing counts/status only. Verify the exact exhaustive current delivery; preserve its ordered artifact list in the new review. Frozen source/product/evidence, stopped reviews, tests and both prior attempts remain unchanged.",
+  "source_limits": "Physical pages 29-32 only; page 28 reference-only; page 33 only PDF points [45,50,306,80] / normalized [73529,63131,500000,101011], clip before text/pixel output. No automatic crop expansion or gameplay/source-meaning approval.",
+  "followup_policy": "After a valid independent outcome, the supervisor follows normal queue gates, including a fresh coordinator for any current finding; this scope grants no repair or acceptance in advance.",
+  "semantic_acceptance": false,
+  "executable_readiness": false
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "criterion": "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "status": "MET_FOR_IG2A_TECHNICAL_TOOLING_SCOPE",
+    "assessment": "Root validation checks the byte-pinned PDF count/geometry and each physical identity, all pages remain addressable, current evidence pins exact normalized/native/displayed bases. Correct same-page label association passes, cross-page/stale association fails. Official repeatability and 12 exact image comparisons pass (eight synthetic and four official).",
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+        "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+        "bytes": 65717
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/repeatability.json",
+        "sha256": "eae92fcb2828f0a16e296446dc0eb3d33db4b5fc0771185d32a69630a2697665",
+        "bytes": 853
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/real-render-comparison.json",
+        "sha256": "24d1f85bb900f59722d0a04281702309c78cef435507dec3d9ac5078a7b48e6b",
+        "bytes": 2693
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/delivery-inventory-validation.json",
+        "sha256": "e4c592219843506d12c5de5dc63bc7dbad92e5ca38a816e50f16a0623f2c61a0",
+        "bytes": 19199
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/required-checks.json",
+        "sha256": "1b387cd588c40175682c848b7a5648046e7e4b5b6cc3c90b45ed58ba5537f08e",
+        "bytes": 2451
+      }
+    ],
+    "limitations": "No substantive IG-2B inventory, semantic acceptance, source-IG exclusion approval, compilation or executable readiness."
+  },
+  {
+    "criterion": "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "status": "MET_FOR_IG2A_TECHNICAL_TOOLING_SCOPE",
+    "assessment": "Separate UTF-8 text, PNG, uncertainty, Unicode offsets, explicit reading-order IDs and note/continuation links survive. The 71-test source suite includes multicolumn/table-note/cross-page cases and duplicate-context accounting. Independent overlapping-context passes without increasing denominator; inventory overlap, duplicates and missing order fail. Evidence DPI and geometry are cross-checked.",
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+        "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+        "bytes": 65717
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/repeatability.json",
+        "sha256": "eae92fcb2828f0a16e296446dc0eb3d33db4b5fc0771185d32a69630a2697665",
+        "bytes": 853
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/real-render-comparison.json",
+        "sha256": "24d1f85bb900f59722d0a04281702309c78cef435507dec3d9ac5078a7b48e6b",
+        "bytes": 2693
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/delivery-inventory-validation.json",
+        "sha256": "e4c592219843506d12c5de5dc63bc7dbad92e5ca38a816e50f16a0623f2c61a0",
+        "bytes": 19199
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/required-checks.json",
+        "sha256": "1b387cd588c40175682c848b7a5648046e7e4b5b6cc3c90b45ed58ba5537f08e",
+        "bytes": 2451
+      }
+    ],
+    "limitations": "No substantive IG-2B inventory, semantic acceptance, source-IG exclusion approval, compilation or executable readiness."
+  },
+  {
+    "criterion": "Unknown or excluded areas are visible; partial/gap is never represented.",
+    "status": "MET_FOR_IG2A_TECHNICAL_TOOLING_SCOPE",
+    "assessment": "All 44 official placeholders are unprocessed with zero represented regions at every level. Missing actual PDF page cannot be concealed; uncovered area is explicit; partial retains gaps and cannot count as represented. Exclusions remain visible structural claims, stale author scopes reject, and source-IG review freshness/human authority remain unknown/unverified.",
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+        "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+        "bytes": 65717
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/repeatability.json",
+        "sha256": "eae92fcb2828f0a16e296446dc0eb3d33db4b5fc0771185d32a69630a2697665",
+        "bytes": 853
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/real-render-comparison.json",
+        "sha256": "24d1f85bb900f59722d0a04281702309c78cef435507dec3d9ac5078a7b48e6b",
+        "bytes": 2693
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/delivery-inventory-validation.json",
+        "sha256": "e4c592219843506d12c5de5dc63bc7dbad92e5ca38a816e50f16a0623f2c61a0",
+        "bytes": 19199
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/required-checks.json",
+        "sha256": "1b387cd588c40175682c848b7a5648046e7e4b5b6cc3c90b45ed58ba5537f08e",
+        "bytes": 2451
+      }
+    ],
+    "limitations": "No substantive IG-2B inventory, semantic acceptance, source-IG exclusion approval, compilation or executable readiness."
+  }
+]

@@ -1,0 +1,191 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/runtime-configuration.json",
+  "configuration_sha256": "8fe2d32465346ef58ac7c4308399eeb2123ef6d2c6be9039a9c9ee5df160375a",
+  "task": "IG-2B08",
+  "attempt": "repair-F01-manifest02",
+  "summary": "Bounded F01 repair ready for frozen independent review.",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/packet.json",
+    "bytes": 7987,
+    "sha256": "d769a3af70528de12f15420c347e76c79898e50988ee1be06d0c730fc9e01539"
+  },
+  "repair_scope": {
+    "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/repair-scope.json",
+    "sha256": "e82319359dbf1650df204399f661f41eb5346bdb5973a87a00e9019f553bde2b",
+    "bytes": 12859
+  },
+  "changed_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+      "bytes": 5085001,
+      "sha256": "a1e1342c0863cb7d9ef342a5b86cf98dcd39d8fe6222ecf98b3e670969e8a3a5"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+      "bytes": 5080159,
+      "sha256": "477774e685e477176c89056eb7f8568f4076dd3257a7ed60e4f6acc0d75157ce"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+      "bytes": 5080159,
+      "sha256": "dac6b140998d258fae468dae0063ab12d5979e6320be8ca34fb8969078499a6b"
+    }
+  ],
+  "completed_criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports."
+  ],
+  "pending_criteria": [
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "commands": [
+    {
+      "command": "Exact packet/control/repair-input/runtime pin verification, absent owned directory and selected contract/dependency checks before claim",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/inspect_originals.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py prepare",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py final-verified",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py replay-1",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py replay-2",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/probe_geometry.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/geometric-content-probe.json",
+        "bytes": 3802,
+        "sha256": "e5c10cfcf9d285da520b4c093de985faad74fef622fb50c84dded8ad892fff3c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/check_arrow_completeness.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/arrow-completeness-report.json",
+        "bytes": 4405,
+        "sha256": "6040f96e7ebee9c1ac7fe273d15622f8f12bf2e17a5d16dccb27f1e613e8f164"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F01-manifest02/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "Approved unchanged exact command after observed restricted-token WinError 5.",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/source-suite-execution.json",
+        "bytes": 1154,
+        "sha256": "2cb5d02cdd8019333c7ab4587105a2261b740e3526a31d5c7e003548b80b0e14"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/batch-verification.json",
+        "bytes": 986,
+        "sha256": "7e8f84cb13bd685aa188b99b11f07f5966e5630a19afce92e7c70381226b7b17"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "execution": "Approved unchanged command; 288 tests passed.",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/full-check-execution.json",
+        "bytes": 2214,
+        "sha256": "2343b0a8e48bb21e7369983087e99a3499739a547557d009895e0a2313ebf284"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/diff-check-execution.json",
+        "bytes": 694,
+        "sha256": "c4103869d56884d0c2accd1007b9540237b69de9bc4bc3c4ce4871e25a13b4ff"
+      }
+    },
+    {
+      "command": "Fresh assigned-original, all proposed boundary/component and exact page-33 visual inspection",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/visual-qa.json",
+        "bytes": 7247,
+        "sha256": "e079b74a54dacf1b96e3bc3c4e1e48b4ee092d8cbbd1e747fd3a19723c074eda"
+      }
+    },
+    {
+      "command": "Final selected ownership/contract/runtime/control checks and all 7808 preserved input artifact hashes",
+      "exit_code": 0
+    }
+  ],
+  "blocker": null,
+  "measurement": {
+    "started_utc": "2026-10-17T08:40:19.431310+00:00",
+    "ended_utc": "2026-10-17T08:53:49.846803+00:00",
+    "elapsed_wall_seconds": 810.415493,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token usage and operator time were not exposed.",
+    "executor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+    "reviewer": null,
+    "observed_model": "gpt-6.1-sol",
+    "observed_reasoning": "high"
+  },
+  "next_operation": "Transition frozen delivery to review; stop this executor role."
+}

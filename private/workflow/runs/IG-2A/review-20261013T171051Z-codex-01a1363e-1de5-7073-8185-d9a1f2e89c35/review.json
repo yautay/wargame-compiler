@@ -1,0 +1,563 @@
+{
+  "role": "reviewer",
+  "actor": "codex-01a1363e-1de5-7073-8185-d9a1f2e89c35",
+  "executor": "codex-01a135f6-cdab-7723-bd6a-9e0044d12323",
+  "task": "IG-2A",
+  "outcome": "CHANGES_REQUESTED",
+  "summary": "Frozen acquisition/replay and ordinary tests pass; five independent findings prevent technical acceptance. No implementation repairs or queue transition.",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/configuration.json",
+  "criteria": [
+    "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "Unknown or excluded areas are visible; partial/gap is never represented."
+  ],
+  "criteria_assessments": [
+    {
+      "criterion": "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+      "status": "NOT_MET",
+      "evidence": [
+        "source-audit.json",
+        "geometry-oracle.json",
+        "visual-inspection.json",
+        "p2/probe-results.json"
+      ],
+      "findings": [
+        "IG2A-R01",
+        "IG2A-R03",
+        "IG2A-R05"
+      ],
+      "assessment": "Frozen delivery independently has 44 physical pages, distinct labels and correct geometry; genuine conversion/render oracles pass. General source-address and label freshness validation remains bypassable."
+    },
+    {
+      "criterion": "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+      "status": "NOT_MET",
+      "evidence": [
+        "sources-tests.json",
+        "project-check.json",
+        "p2/probe-results.json"
+      ],
+      "findings": [
+        "IG2A-R01",
+        "IG2A-R02"
+      ],
+      "assessment": "Text/image/uncertainty/order fields are separate; notes/continuation/order checks and duplicate/context denominator probes pass. Source/evidence rendering metadata can nevertheless become inconsistent without rejection."
+    },
+    {
+      "criterion": "Unknown or excluded areas are visible; partial/gap is never represented.",
+      "status": "NOT_MET",
+      "evidence": [
+        "source-audit.json",
+        "p2/probe-results.json",
+        "toolchain-and-contract-verification.json"
+      ],
+      "findings": [
+        "IG2A-R04",
+        "IG2A-R05"
+      ],
+      "assessment": "All frozen placeholders remain unprocessed, represented counts are zero at all three levels, partial retains gaps, missing-region area is visible and changed rectangle partitions reject old exclusions. Omitted actual pages and stale author/registry exclusion bases remain accepted."
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "contracts/ig/regions.schema.json",
+      "sha256": "5cdcea1ca13376ba49241fa8c512ab0b27e95cf5c34e6470612d529806d8ad5e"
+    },
+    {
+      "path": "docs/work/context-policy.json",
+      "sha256": "f7c5fa2d5010c0426ee0e01b6151c96bebedd44bd430efdd010fe7c8aa6c1a63"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/direct-original-render/page-01.png",
+      "sha256": "c80746580151ce6e47a6643184d6cb695bc7981f62332a7cc583ad11716adde8"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/direct-original-render/page-02.png",
+      "sha256": "c57e0b8006f36e7ba926416aba43881555ab20e1cd20b9280d63c6f887b93c2c"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/direct-original-render/page-03.png",
+      "sha256": "55076cfae53bddc26fe6d006d537ddec0d8f106f1ca5b65984f144a4b2d834cf"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/direct-original-render/page-04.png",
+      "sha256": "80df32e5fc49d519608e5874daf2b981938a0f1fcf06471c6eee7b5238c53739"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/coverage.json",
+      "sha256": "20b16a59770c23d449045d605c6c2327f4a68612665b63c2a0dbccd9647c2051"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/identity-registry.json",
+      "sha256": "7d4da39b1c5cfd38fa679d944a60f6e27193ef4894ee5aa70c4bdf7b1c98ab08"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/inventory.json",
+      "sha256": "43a06619e2c9643f19a0d8c6dc85cbc3879553ddfff68faaf97b3c2cd6c68663"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-001-region-000/crop.pdf",
+      "sha256": "d3076bbad872f3b1c61272783d36b040e182be8cf4d4946ba24dbcbb2bbc5c18"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-001-region-000/image.png",
+      "sha256": "c80746580151ce6e47a6643184d6cb695bc7981f62332a7cc583ad11716adde8"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-001-region-000/text.txt",
+      "sha256": "bd4b11ae78fdd10acad2fdd5cfe486f609a3e4bd24776396db83243372050527"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-002-region-000/crop.pdf",
+      "sha256": "263023aba2532cdc94ae3854704caccb21b076de0b41f184afc0c827cf174402"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-002-region-000/image.png",
+      "sha256": "c57e0b8006f36e7ba926416aba43881555ab20e1cd20b9280d63c6f887b93c2c"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-002-region-000/text.txt",
+      "sha256": "b860eb5251cddc5d9cb6d1c87e27f7b89f74672742873488db3a63710fa39ecc"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-003-region-000/crop.pdf",
+      "sha256": "26c175f811fbedc02721c195c2b2cf53f5cad5b78f57a774ff379e2204a87bb8"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-003-region-000/image.png",
+      "sha256": "55076cfae53bddc26fe6d006d537ddec0d8f106f1ca5b65984f144a4b2d834cf"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-003-region-000/text.txt",
+      "sha256": "ca0240324741d73137fe95dbf83fc842eef4de277c64cc810c90f24d667d5e5b"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-004-region-000/crop.pdf",
+      "sha256": "4cd88655fbd43f64f5d21b928a58cf81c69b6fe79b9274aeeac34d69ef74a348"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-004-region-000/image.png",
+      "sha256": "80df32e5fc49d519608e5874daf2b981938a0f1fcf06471c6eee7b5238c53739"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence/page-004-region-000/text.txt",
+      "sha256": "0b999b412d80826d540377da9800a0a5b5c0881936b0a9e898333ad1c8e8e83a"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/replay/coverage.json",
+      "sha256": "20b16a59770c23d449045d605c6c2327f4a68612665b63c2a0dbccd9647c2051"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/replay/identity-registry.json",
+      "sha256": "7d4da39b1c5cfd38fa679d944a60f6e27193ef4894ee5aa70c4bdf7b1c98ab08"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/replay/inventory.json",
+      "sha256": "989800385a3cadc79384894f363d0aeb5ca23efa4c35e31f210507836bb28b61"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/coverage.json",
+      "sha256": "20b16a59770c23d449045d605c6c2327f4a68612665b63c2a0dbccd9647c2051"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/identity-registry.json",
+      "sha256": "7d4da39b1c5cfd38fa679d944a60f6e27193ef4894ee5aa70c4bdf7b1c98ab08"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/inventory.json",
+      "sha256": "989800385a3cadc79384894f363d0aeb5ca23efa4c35e31f210507836bb28b61"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/verification.json",
+      "sha256": "8b775ef1b19c51781027137af593aabc29ce1710ed419220824ef7e5a7402c11"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/verified-coverage.json",
+      "sha256": "20b16a59770c23d449045d605c6c2327f4a68612665b63c2a0dbccd9647c2051"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/verified-inventory.json",
+      "sha256": "824373496f1164f7e7d30f73581d83dccdbfbeef5b98c1f3c62d0452b7ae91ff"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/edition-page-001.txt",
+      "sha256": "b00e815c783273527d6b4bbfc2fc1102bc4dc7eacf2512c90ee14718668e29e7"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/pdfinfo.txt",
+      "sha256": "b4f647addbf0b4044f3ed205af675ebda82e3cb7353f7d9df040b2506a0835c9"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/referring-page-http.json",
+      "sha256": "2e20755203b8fb3af189e144c283e0a6efae8f4378ae7b77fc2d1629e11c26bf"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/referring-page.html",
+      "sha256": "e1e877c4abe152ba6b5a3118f3554c844242b60a5ae0e56da4d392f2975d4a46"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook-http.json",
+      "sha256": "8f084884675a9121b11002360f2eb9449176c0bab2187c33aa7d972e1fbd85f7"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+    },
+    {
+      "path": "private/workflow/packets/IG-2A-8108c7c22a77477296f0af21fe898f92/context.txt",
+      "sha256": "a2ecab025325e87251c4b0f055d2db5a47cf0dd109d496a9f441895f55bfabbe"
+    },
+    {
+      "path": "private/workflow/packets/IG-2A-8108c7c22a77477296f0af21fe898f92/manifest.json",
+      "sha256": "7e4634f1043c767cf5e63f21b2413e09119f2a618110b32c83f7612c3100bc20"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/acquisition-scope.json",
+      "sha256": "f7d3fed7780318fb2f7342d01880a7fccfd5d73b0cb901194995741f5a2d942b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/checkpoint-claim.json",
+      "sha256": "98da0f9437d49ef061d4659325c8628d94e48b5c621548853a45d706f99f6abd"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/checkpoint-implementation.json",
+      "sha256": "c67ab70c0ea8895bd40df716fcc151c83e5c59c77d2b6b6ea4bdb3fdfa019cab"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/checkpoint-update-01.json",
+      "sha256": "4cd00c64ca80fae29a603fd9961a74a4b97479bf8e2e640c9af5b3619b7ace54"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/checkpoint-verification.json",
+      "sha256": "05529778ab640ea58b4982adabcfadc6641af983450cff13d4dd878266ceebff"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/claim-transition.json",
+      "sha256": "faff4bd7c96b773a9af88f1dac45a3ed0bd5ca198b147e1911b361aef30966e8"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/claim.json",
+      "sha256": "750915e9c1146c0955e65b062b6d156a9e7f23124dc068fc69704b346ce1ef58"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/configuration.json",
+      "sha256": "22196578010e5d8f40c98b3db308506f6d9eaaa0d7b2f4de12a0d264b3be4343"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/dependency-verification.json",
+      "sha256": "5f0c87a6a534576f8777c03b8f5dd2e819466879cd3b4dc4e8321792648d83fa"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/diff-check-final.json",
+      "sha256": "d71a8e37c5fec96a3e2df470603d80e6993ef693b7bafdafc38b11631aa7df9c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/diff-check.json",
+      "sha256": "8304cb8dd19b3579c05ecb02dac822a667d32e39ec5b5071364dd0bb9bbeb0f3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/direct-render-command.json",
+      "sha256": "93da34559cf5578611212bd0dc430430699aa5ff0b3e4bfbee9de0a55d6aaa66"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/execution-evidence-helper.py",
+      "sha256": "64b664d16394cbc2d7808b306001be0b3341ee1fa4fbfbb6f46590f73e0819cd"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/full-inventory-command.json",
+      "sha256": "671a5190a1d1a1ffa349f7bfe10b9296c74977bf319e608ac93c2113b05e0872"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/full-replay-command.json",
+      "sha256": "810184927f4f341906ded15fbd9dc03dd87c0a4f2b543ea0ba1f8eecad27fbe4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/git-status-before.bin",
+      "sha256": "ae3c71d5a7a7d0ae32877972918cdbaf6af2443e07d529d8cf9d8970ea12593f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/git-status-final.bin",
+      "sha256": "9ea33514d53f2b4fae422e2255b4e57c85dd1f063835f933d44463540660d80e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/line-ending-correction-01.json",
+      "sha256": "42ecf81cb55f85ba518b545a245ad85244bc3cb70bff98a1438bea72d4b47654"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/measurement.json",
+      "sha256": "c077167e61b2015e75731f3efbd442d9151bbf6cb47eeb6c8500be3629740860"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/packet-command.json",
+      "sha256": "5c443f6638d27b5baf9fea0ef1a0f0b0d47eeae7736b44cf38ab1ea5d0fe5263"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/packet-verification.json",
+      "sha256": "362b704fd5724ba2000ae8b23d4136ac09d79e064f64de2ba32a17a47ecd27cf"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/preparation-corrections.json",
+      "sha256": "33e7e12df066654a73a3ab00e14a92d6f7bd5c4531cd715221b0d200bec89afd"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/preservation.json",
+      "sha256": "f0b60c8fbb9739b375d54e704f74222c3fe30789bb817f91a95710deb2c27e0b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/project-check.json",
+      "sha256": "fc751f60bed51ef5d10146c2399f7297a34f650402ed68df52ff03735901b965"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/queue-at-freeze.json",
+      "sha256": "b3d87763a790dcf141a53c08385bd5eff749bbdc18258dc2f4e34187edabfb86"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/queue-before.json",
+      "sha256": "677f19a766b602002d51217750189809c34810c655aa83cbe6aaf32545e393bd"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/ready-transition.json",
+      "sha256": "846bdca90893b6e326a05a50b53d593a7de1e16598977f26c5407d329e2a4065"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/ready.json",
+      "sha256": "e96692ed74389b0cdb33c21db06ebdd887624322c8745291dc71faa9f104c6e0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/real-evidence-command.json",
+      "sha256": "d93161fdd280d606514802a3724c01180b5321ec566033559eeb628ee4b82f82"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json",
+      "sha256": "591adc2931f89e250de4675310210013138d9fd60a034dc418819e4469772b1a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/required-check-components.json",
+      "sha256": "ba2bc082ff440a560ab1fb95ccf925311d6e78c4992f93fb74c282351ca76eba"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/schema-authoring-helper.py",
+      "sha256": "2bc6698c84598b24e5d4a60ec2c1eba34f2d9d51aed56cae8711449c65dc01bb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/sources-tests-01.json",
+      "sha256": "67451d1e75635ef3ecb2f506212f3db8c579ef2fc3568d0be7da7d1ad0c8d3af"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/sources-tests-02.json",
+      "sha256": "3618bae8e234e3cf48f27497f4650067bad4f65662b1c5a7bf666a16f3abdbbc"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/sources-tests-03.json",
+      "sha256": "b2e43b965829707e469fbc329e356fd517a8cccfbe0f43c810b9844858938a70"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/toolchain.json",
+      "sha256": "60517b85cbadd00e03735e023a0f58b06408f881d3330054c41f3b0279a68eb4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/visual-verification.json",
+      "sha256": "2ba7c7ac86635aa5bcd85c873b8d75df174e866f2add028e2fadf740ca8bb5f8"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/workflow-check-final.json",
+      "sha256": "bda1109d7cdd8cb507757c85f11d98118ea937a2fae4881c7f88d26eaf23793d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/workflow-check.json",
+      "sha256": "a19927e2b22705d3dd7fd57b2d82ee5549964d05ccd1e61b6a8f72e5eecfc531"
+    },
+    {
+      "path": "src/wgc/sources/README.md",
+      "sha256": "cfa67a3057329cdb19de745603d7cac969698877a9740f616c1178de14e5402b"
+    },
+    {
+      "path": "src/wgc/sources/__init__.py",
+      "sha256": "06f47ed63c06cf2713b28b1c15aeb27ff78efaa9b39c2583f23ef00bff592917"
+    },
+    {
+      "path": "src/wgc/sources/__main__.py",
+      "sha256": "0037b5ba1fdbe0f46509a677e51fc04dd55c8fa177da035118579ca49ce33df6"
+    },
+    {
+      "path": "src/wgc/sources/geometry.py",
+      "sha256": "e554984c615ad393ae8e0818ff8c175632a0ee3a9b40878a61e5cf84ec4040ea"
+    },
+    {
+      "path": "src/wgc/sources/inventory.py",
+      "sha256": "dae53f8b86ecc02aea34cf19272dd9470e04f274b8442cec86f4398a12190dfe"
+    },
+    {
+      "path": "src/wgc/sources/pdf.py",
+      "sha256": "10f8b44982e71eaf6fd203c447c0b74f8c77f57bd6678a2e4686742390364c3b"
+    },
+    {
+      "path": "tests/sources/test_inventory.py",
+      "sha256": "f80fc36a925232c99cdcc5f431dce6108f7edaab63992d378ab6aa91d137dbb7"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery-manifest.json",
+      "sha256": "d283e0054a515995803a6c17fb8c31606cf23f206ad4454be68291a1459cfa1c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery-handoff.md",
+      "sha256": "d50e607d60ac23a1f5948d0f0edaa811dc344f6ce8bc1a7230fe2d7f80314135"
+    }
+  ],
+  "delivery_pins": [
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery.json",
+      "expected_sha256": "31a175fb77f14a586f03327c3674a05a4b4ae9f7296932ef757669428d454290",
+      "actual_sha256": "31a175fb77f14a586f03327c3674a05a4b4ae9f7296932ef757669428d454290"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery-manifest.json",
+      "expected_sha256": "d283e0054a515995803a6c17fb8c31606cf23f206ad4454be68291a1459cfa1c",
+      "actual_sha256": "d283e0054a515995803a6c17fb8c31606cf23f206ad4454be68291a1459cfa1c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery-handoff.md",
+      "expected_sha256": "d50e607d60ac23a1f5948d0f0edaa811dc344f6ce8bc1a7230fe2d7f80314135",
+      "actual_sha256": "d50e607d60ac23a1f5948d0f0edaa811dc344f6ce8bc1a7230fe2d7f80314135"
+    }
+  ],
+  "checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/sources -q --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\t -p no:cacheprovider --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/sources",
+        "-q",
+        "--basetemp",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\t",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T17:12:33.285252+00:00",
+      "ended_utc": "2026-10-13T17:12:57.014876+00:00",
+      "wall_seconds": 23.719000000040978,
+      "stdout": "sources-tests.stdout",
+      "stderr": "sources-tests.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T17:12:57.016114+00:00",
+      "ended_utc": "2026-10-13T17:13:00.582003+00:00",
+      "wall_seconds": 3.5630000000819564,
+      "stdout": "workflow-validate.stdout",
+      "stderr": "workflow-validate.stderr"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T17:13:00.582003+00:00",
+      "ended_utc": "2026-10-13T17:13:01.833049+00:00",
+      "wall_seconds": 1.25,
+      "stdout": "diff-check.stdout",
+      "stderr": "diff-check.stderr"
+    },
+    {
+      "command": "pwsh -NoProfile -File C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\check_adapter.ps1",
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\check_adapter.ps1"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T17:13:01.834290+00:00",
+      "ended_utc": "2026-10-13T17:14:38.878999+00:00",
+      "wall_seconds": 97.04700000002049,
+      "stdout": "project-check.stdout",
+      "stderr": "project-check.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\probes.py p2",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\probes.py",
+        "p2"
+      ],
+      "exit_code": 1,
+      "started_utc": "2026-10-13T17:17:08.190410+00:00",
+      "ended_utc": "2026-10-13T17:17:16.243702+00:00",
+      "wall_seconds": 8.047000000020489,
+      "stdout": "boundary-probes-repeat.stdout",
+      "stderr": "boundary-probes-repeat.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T17:18:34.808690+00:00",
+      "ended_utc": "2026-10-13T17:18:39.141506+00:00",
+      "wall_seconds": 4.3439999998081475,
+      "stdout": "final-workflow.stdout",
+      "stderr": "final-workflow.stderr"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-13T17:18:39.145918+00:00",
+      "ended_utc": "2026-10-13T17:18:40.526258+00:00",
+      "wall_seconds": 1.375,
+      "stdout": "final-diff.stdout",
+      "stderr": "final-diff.stderr"
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/audit.py",
+      "exit_code": 0,
+      "wall_seconds": null,
+      "measurement_reason": "Executed directly through exec_command; no complete per-command clock captured. Output and independent checks retained in source-audit.json and geometry-oracle.json.",
+      "stdout_summary": "Source audit: 44 pages, 3965827 bytes, fresh replay exact, all four real PNGs match original; four asymmetric crop/rotation/UserUnit pixel oracles passed."
+    }
+  ],
+  "findings": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/findings.json",
+  "measurement": {
+    "started_utc": "2026-10-13T17:10:51.773356+00:00",
+    "ended_utc": "2026-10-13T17:21:17.129954+00:00",
+    "wall_seconds": 625.356598,
+    "measurement_scope": "Observed UTC review interval; preliminary instruction/context reads before the first recorded UTC timestamp are not included. Unmeasured preflight duration is null; no fabricated total.",
+    "preflight_started_utc": null,
+    "preflight_wall_seconds": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost": null,
+    "operator_seconds": null,
+    "unknown_reason": "No exposed measured token/cost totals or operator-time report; direct first probe/audit commands had no complete per-command clocks."
+  },
+  "human_semantic_acceptance_required": false,
+  "human_semantic_acceptance_granted": false,
+  "semantic_decision": null,
+  "executable_readiness": "unverified",
+  "queue_unchanged": true
+}

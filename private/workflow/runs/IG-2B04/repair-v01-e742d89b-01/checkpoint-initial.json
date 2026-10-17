@@ -1,0 +1,45 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B04-executor-6dd7a7ee:executor",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/runtime-configuration.json",
+  "configuration_sha256": "c01d034f18cd1515a7f7f95d64626fad327c49d10db2409fa04af689623d8870",
+  "utc": "2026-10-16T14:26:26.455267+00:00",
+  "summary": "Fresh owned validation-only repair; original source artifacts and blocked attempt are immutable.",
+  "attempt": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/packet.json",
+    "sha256": "37df7f6a40cee94088ba0e61856f2b3f0ef71e1eb29e3966b8514934d93c21eb",
+    "bytes": 6950
+  },
+  "base_files": [
+    {
+      "path": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/task.json",
+      "sha256": "77a308f506799280dc54434d7cc4cddccbb66fd8fab629addca57f0644c3171a",
+      "bytes": 10004
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/001-IG-2B04-executor-6dd7a7ee/runtime-configuration.json",
+      "sha256": "c01d034f18cd1515a7f7f95d64626fad327c49d10db2409fa04af689623d8870",
+      "bytes": 740
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/input-verification.json",
+      "sha256": "6652b9f498e70f848869c16a6494d61696e9adbdc99bdc758c925e541cba9f40",
+      "bytes": 2334
+    }
+  ],
+  "completed_criteria": [],
+  "checks": [],
+  "blocker": null,
+  "next_operation": "Claim changes_requested to in_progress, then run exact unchanged approved validation commands with hash-verified process-local rg/Python/Poppler environment.",
+  "measurement": {
+    "started_utc": "2026-10-16T14:26:26.455267+00:00",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token usage and operator time are not exposed."
+  }
+}

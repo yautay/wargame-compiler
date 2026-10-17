@@ -9,8 +9,80 @@
 /private/archive/poc-2026-10-11/payload/private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/scripts-check.log -diff
 /private/archive/poc-2026-10-11/payload/private/poc/spqr-chapter9/evaluation/M-POC1C-review-007/scripts-check-attempt-02.log -diff
 
+# Frozen IG-1 reviewer failure output is verified by its original byte hash.
+/private/workflow/runs/IG-1C/review-20261013T092949Z/affected.log -diff
+/private/workflow/runs/IG-1D/review-20261013T122807Z/lineage-probes.log -diff
+/private/workflow/runs/IG-1D/review-20261013T122807Z/probes.log -diff
+
 # Preserve captured POC bytes, including original line endings.
 /archive/poc-2026-10-11/project/** -text -eol -filter
 
 # Preserve the pre-edit planning snapshot byte-for-byte on commit and checkout.
 /archive/planning-before-sol-2026-10-11/** -text -eol -filter
+
+# Preserve exact frozen IG-2A bytes; publisher HTML and console spacing are original.
+/contracts/ig/regions.schema.json -text -eol -filter whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/private/ig/sources/spqr-5e-official/revision-20261013T155212Z/referring-page.html -diff
+/private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/boundary-probes-repeat.stdout -diff
+
+# Frozen workflow captures and source extracts retain original whitespace.
+# Their recorded byte hashes remain authoritative.
+/private/workflow/orchestrator/20261015T134030Z-67077de2/001-IG-2B02-reviewer-2cc49348/stderr.log -diff
+/private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/stderr.log -diff
+/private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/stderr.log -diff
+/private/workflow/orchestrator/20261015T164901Z-046553b7/003-IG-2B03-coordinator-f684f3e2/stderr.log -diff
+/private/workflow/orchestrator/20261015T175019Z-9761be5b/002-IG-2B03-reviewer-cabf2418/stderr.log -diff
+/private/workflow/orchestrator/20261015T200250Z-56a048a1/002-IG-2B04-executor-ad82c8e3/stderr.log -diff
+/private/workflow/orchestrator/20261016T110950Z-3a2edd4d/001-IG-2B04-executor-b247e5b0/stderr.log -diff
+/private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/stderr.log -diff
+/private/workflow/orchestrator/20261016T115606Z-694df602/002-IG-2B04-reviewer-ce506337/stderr.log -diff
+/private/workflow/orchestrator/20261016T150146Z-33452c9a/001-IG-2B05-coordinator-6daf4d13/stderr.log -diff
+/private/workflow/orchestrator/20261016T154824Z-fae43db9/001-IG-2B05-executor-008601fd/stderr.log -diff
+/private/workflow/orchestrator/20261016T154824Z-fae43db9/002-IG-2B05-reviewer-d526bcf5/stderr.log -diff
+/private/workflow/orchestrator/20261016T164231Z-37ee310d/002-IG-2B06-executor-cb5bccac/stderr.log -diff
+/private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/stderr.log -diff
+/private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/stderr.log -diff
+/private/workflow/orchestrator/20261017T071640Z-9e122b0d/002-IG-2B08-reviewer-b9632401/stderr.log -diff
+/private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/stderr.log -diff
+/private/workflow/orchestrator/20261017T083744Z-8935d3b4/002-IG-2B08-reviewer-4705d02f/stderr.log -diff
+/private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/stderr.log -diff
+/private/workflow/orchestrator/20261017T125512Z-933976c1/002-IG-2B08-reviewer-18a665c9/stderr.log -diff
+/private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/stderr.log -diff
+/private/workflow/orchestrator/20261017T151724Z-86fb83c5/002-IG-2B08-reviewer-00a548c6/stderr.log -diff
+/private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/original-delivery/private/ig/sources/spqr-5e-official/revision-20261013T155212Z/referring-page.html -diff
+/private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/verify-repair-01.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/diff-src_wgc_sources_README.md.txt -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/diff-src_wgc_sources_geometry.py.txt -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/diff-src_wgc_sources_inventory.py.txt -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/diff-src_wgc_sources_pdf.py.txt -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/final-verification.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/pixel-oracles.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/prepare_report.py -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/real-source-checks.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/retained-reproductions.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/run-checks.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/verify-inputs-02.stdout -diff
+/private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/verify-inputs.stdout -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/check.stdout -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/pages-1-4-pdfminer.txt -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/pdfinfo.stdout -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/root-inventory-validate-corrected.stderr -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/root-inventory-validate-corrected.stdout -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/root-inventory-validate.stderr -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/version-pdfinfo.stderr -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/version-pdftoppm.stderr -diff
+/private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/workflow-validate.stdout -diff
+/private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preflight-run.stdout -diff
+/private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/required-checks-run.stdout -diff
+/private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/commands/18-final-input-scope-audit.stdout -diff
+/private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/commands/19-native-render-audit.stdout -diff
+/private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/audit-final.py -diff
+/private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/audit.py -diff
+/private/workflow/runs/IG-2B04/rg-recovery-20261016-01/run-supervisor.ps1 -diff
+/private/workflow/runs/IG-2B04/v01-recovery-20261016-01/run-supervisor.ps1 -diff
+/private/workflow/runs/IG-2B05/boundary-recovery-20261016-01/run-supervisor.ps1 -diff
+/private/workflow/runs/IG-2B05/inventory-17-20-01/original-pages/page-17.txt -diff
+/private/workflow/runs/IG-2B05/inventory-17-20-01/original-pages/page-18.txt -diff
+/private/workflow/runs/IG-2B05/inventory-17-20-01/original-pages/page-19.txt -diff
+/private/workflow/runs/IG-2B05/inventory-17-20-01/original-pages/page-20.txt -diff
+/private/workflow/runs/IG-2B08/path-list-recovery-20261017-02/full-check.log -diff

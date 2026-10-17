@@ -1,0 +1,150 @@
+{
+  "role": "coordinator",
+  "actor": "operator-authorized-ig2-recovery-20261015-03",
+  "task": "IG-2B04",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder model/reasoning metadata unavailable; no Sol/high claim.",
+  "utc": "2026-10-15T20:43:23.579504+00:00",
+  "summary": "Exact original inventory gates retained; fresh output ownership after interruption.",
+  "format": "wgc-inventory-batch-contract-1",
+  "inputs": {
+    "baseline_inventory": {
+      "path": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+      "sha256": "3d032bcb36eb272d142124f662f734d63a89b7755942e25f39b29de678792eb1",
+      "bytes": 1371675
+    },
+    "identity_registry": {
+      "path": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/identity-registry.json",
+      "sha256": "0f7beccbd18b71e92f69bdb1e33c8c21242b5cd2f13857ca6094f67fc2d95311",
+      "bytes": 50816
+    },
+    "region_ledger": {
+      "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/region-ledger.json",
+      "sha256": "59f0df0946250b8ea2c4ac5c031cea2940646c8771d4d4e236ee202d63197d4d",
+      "bytes": 875406
+    },
+    "continuations": {
+      "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/continuations.json",
+      "sha256": "52a29f9c28f308563dec1b2a0c0476aa6159fa2accaa2a7782cc3faf36540f39",
+      "bytes": 15537
+    },
+    "coverage_report": {
+      "path": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/coverage-report.json",
+      "sha256": "c4d036f036e9c40d5ae4704b0d8154467b2fc2fffccb0bf7b15d0fb72b2a95a5",
+      "bytes": 130036
+    },
+    "source_pins": {
+      "path": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/source-pins.json",
+      "sha256": "e7e085036c3a5597a6f0e9eb8de69ba141dbb199121a0ec98b4feee0f4aebdce",
+      "bytes": 4604
+    },
+    "toolchain": {
+      "path": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/toolchain.json",
+      "sha256": "29dbeff4e46cdfafc6adda7e236170245e15ea0c90cd97bf8c71e372aba7b315",
+      "bytes": 3355
+    },
+    "pdf": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    "provenance": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    }
+  },
+  "accepted_dependency": {
+    "id": "IG-2B03",
+    "status": "done",
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B03/closure-002-IG-2B03-reviewer-cabf2418/done.json",
+      "sha256": "ec152545a09d183c3ee0eed31adea0421cf0b567a2501be15a95c5a418a5c950",
+      "bytes": 621865
+    }
+  },
+  "physical_pages": [
+    13,
+    14,
+    15,
+    16
+  ],
+  "context_only_pages": [],
+  "target_ids": [
+    "region:c4b933de-1548-4c10-a9dc-49604e8d8ab9",
+    "region:f4d01170-4d4d-4fcc-8637-fcaa29690f65",
+    "region:2bc0798d-2071-4509-b19d-6258724652d1",
+    "region:ecfdf931-c7c7-41ce-9557-0abbc9957aa3"
+  ],
+  "context_only_ids": [],
+  "output_attempt": "private/workflow/runs/IG-2B04/inventory-13-16-f870c628-01",
+  "boundary": {
+    "physical_page": 12,
+    "observation": "Ends with a complete visible 5.34 sentence. No page 13 access; chapter continuation beyond the assigned range is unresolved.",
+    "authority": "Accepted dependency boundary projection; metadata only."
+  },
+  "baseline_counts": {
+    "pages": 44,
+    "regions": 439,
+    "evidence": 407,
+    "links": 77
+  },
+  "preservation": "Retain complete accepted 44-page sidecar, every nonassigned page/region/link/evidence and registry entry/binding. Remove only four assigned placeholders from active membership, retain retired registry entries, replace reading-order positions with authored assigned regions. Preserve nonassigned records byte-equivalently under canonical JSON and preserve old artifact files byte-for-byte.",
+  "outputs": [
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/region-ledger.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/continuations.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/coverage-report.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/source-pins.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/toolchain.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/original-inspection.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/preservation-report.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/replay-report.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/reference-audit.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/test-report.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/delivery-manifest.json",
+    "private/workflow/runs/IG-2B04/continuation-13-16-recovery03/delivery-handoff.md"
+  ],
+  "evidence_requirements": [
+    "Render and visually inspect every original physical page 13-16 in a fresh owned original-pages/ directory at 144 DPI before authoring the independent ledger. Pin source PDF/provenance and every generated original PNG, with page, hash and inspection observation. No earlier inspection is inherited.",
+    "Independently author every clause, heading, note, example, diagram, table/legend and editorial area from original pages; use exact normalized boxes, explicit reading order and stable explicit keys. Record uncertainty and unresolved references without interpretation or gameplay legality decisions.",
+    "Generate fresh region PDF/PNG/text evidence and page-basis hashes for every assigned authored region under evidence/. Verify complete components and boundaries against original-page renders; extracted text alone is insufficient.",
+    "Use two complete independently executed regeneration replays under replay-a/ and replay-b/, starting from the same pinned accepted baseline and persisted registry plus the explicit authored region specification; neither replay may copy final/replay output evidence. Rebuild all assigned evidence and validate both full inventories. Compare identities, authored records, evidence bytes/content and page geometry while normalizing only path-dependent locator hashes; record exact differences and independent command exits. Promote a separately validated full inventory to final-verified/.",
+    "Carry all nonassigned ledger/continuation records structurally from the current repaired report pins, without dumping unassigned source content. Add assigned observations and exact path/hash/ID references; audit every local and retained reference against its original pin. Never substitute ancestor report paths.",
+    "Report full 44-page, task 13-16 and context-only denominators separately at transcription/descriptive/formal levels, all gaps, represented/partial/unprocessed/excluded states and geometric coverage. Context contributes zero; gaps and placeholders never count as represented. Retain nonassigned gaps.",
+    "Record continuations within pages 13-16 and unresolved entry/exit boundaries using only assigned pages and the page12 metadata observation. Page17 and other cross-reference targets are inaccessible; preserve unresolved locators and request a fresh scope if inspection is necessary.",
+    "Freeze the complete actual file list with SHA-256 and bytes, including original-page renders, all assigned evidence, both complete replays, final inventory/companion registry and every root report. Fresh independent reviewer must inspect all assigned original pages, every region/component and both boundaries, verify preservation/reference audit/replays and all criteria/tests against frozen hashes before technical acceptance. No source meaning/human acceptance is granted by this contract."
+  ],
+  "required_commands": [
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-recovery03/final-verified/inventory.json",
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-recovery03/replay-a/inventory.json",
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-recovery03/replay-b/inventory.json",
+    ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp <fresh-owned-short-path> -p no:cacheprovider --tb=short",
+    "scripts/check.ps1 -Task IG-2B04",
+    "git diff --check"
+  ],
+  "toolchain_policy": "Inherit both pinned process_pythonpath entries and process_path_prefix unchanged. Record actual interpreter, package and executable versions/hashes, 144 DPI and extraction settings. No install or global configuration.",
+  "original_acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger."
+  ],
+  "original_tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator."
+  ],
+  "semantic_acceptance_required": false,
+  "operator_request": "Inspect why the orchestrator stopped, fix the problem and restart it to continue IG-2.",
+  "recovery_scope": {
+    "path": "private/workflow/runs/IG-2B04/recovery-20261015-03/scope.json",
+    "sha256": "b594659d9d7d170a70448e32c959db104ca60612221df9296ef9ae759d5f4a56",
+    "bytes": 5632
+  },
+  "original_contract": {
+    "path": "private/workflow/runs/IG-2B04/coordinator-f870c628-01/execution-contract.json",
+    "sha256": "820f9fdf7424579aaa207b1b38e30cb8e230f9ff515ff2e678c24de8903e4fe7",
+    "bytes": 9818
+  }
+}

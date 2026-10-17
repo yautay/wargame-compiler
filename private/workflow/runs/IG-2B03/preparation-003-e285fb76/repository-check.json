@@ -1,0 +1,37 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/check.ps1",
+    "-Task",
+    "IG-2B03"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T15:07:22.264750+00:00",
+  "ended_utc": "2026-10-15T15:08:00.749745+00:00",
+  "wall_seconds": 38.48399999999674,
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/repository-check.stdout",
+      "bytes": 5673,
+      "sha256": "dcacf3cbcc453aed7522ef3cdc868a7eb7a4e563c3aadaeecc4b64f523b26609"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/repository-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "process_environment_pin": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/toolchain.json",
+    "sha256": "79ff143ae0e7ad3df5d4ae6830bcad6ad6fbeaaa37091f39372c2a195ca63a75"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "role": "executor",
+  "actor": "ig2:002-IG-2B05-executor-d0013415:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T150146Z-33452c9a/002-IG-2B05-executor-d0013415/runtime-configuration.json",
+  "configuration_sha256": "f7bd5f84f1039fb161ebfee6efcd2ccad939ca1e5da59c71f66068c419de3c72",
+  "format": "wgc-executor-blocker-1",
+  "task": "IG-2B05",
+  "utc": "2026-10-16T15:32:43.539120+00:00",
+  "summary": "Blocked: executor directly read the current pinned dependency-inputs.json instead of obtaining dependency context only through the prepared projection command. Preserve this attempt as unaccepted candidates pending coordinator assessment.",
+  "criteria": [
+    "The operator requires dependency context reads to use only the prepared hash-bound projection command, one dependency and one section. This access-mechanism gate was violated."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/blocked-attempt-preservation.json",
+      "sha256": "0152cae7bf0f3d3ec71edde713401aabc5cba8d5abd812556baa6a9cf3f2ce97",
+      "bytes": 209417
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B05/inventory-17-20-01/tests-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "permissions": "approved exact unchanged command after restricted WinError 5",
+      "log": {
+        "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/tests-sources.log",
+        "sha256": "723f6e87fd430139aecff091854423567c664ac50c1e5667afeb4553835b9106",
+        "bytes": 102
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B05/inventory-17-20-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/validate-final.log",
+        "sha256": "d7627c1d818fbdb797ad9d55e3712bf77a9b2ad6f55c180de2ba546393751283",
+        "bytes": 10530
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B05/inventory-17-20-01/replay-1/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/validate-replay-1.log",
+        "sha256": "d7627c1d818fbdb797ad9d55e3712bf77a9b2ad6f55c180de2ba546393751283",
+        "bytes": 10530
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B05",
+      "exit_code": 0,
+      "permissions": "approved unchanged command following observed restricted pytest directory denial",
+      "log": {
+        "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/check.log",
+        "sha256": "d5a02f39f22244d52bcc5c220ae02a90273922c530856b71b167f84e9e10e6cf",
+        "bytes": 5887
+      },
+      "stage_logs": [
+        {
+          "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/completed-check-logs/plan.log",
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+          "bytes": 60
+        },
+        {
+          "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/completed-check-logs/dry-run.log",
+          "sha256": "1bed91de1afcc5df2b802c1f9d689dee3e5f3ec37c21c26c2e163fe8c1f4f280",
+          "bytes": 185
+        },
+        {
+          "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/completed-check-logs/pytest.log",
+          "sha256": "7c09b5a3ad2741f06d0b3272dcee6c5ebd3fddff034ce1f514e8dbcaf0058230",
+          "bytes": 356
+        },
+        {
+          "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/completed-check-logs/diff-check.log",
+          "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+          "bytes": 5187
+        },
+        {
+          "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/completed-check-logs/result.json",
+          "sha256": "73872cb7bdba41fc362933108e7762f28351d34ac6baaed7e732c70576be4c9a",
+          "bytes": 206
+        }
+      ]
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/diff-check.log",
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3",
+        "bytes": 277613
+      }
+    }
+  ],
+  "incident": {
+    "kind": "dependency_context_access_mechanism_violation",
+    "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/dependency-inputs.json",
+    "operation": "Direct Python JSON read and output of its top-level fields, excluding history/events keys, before claim.",
+    "purpose": "Inspect pinned current dependency inputs and installed toolchain.",
+    "required_access": "scripts/dependency_context.py with the prepared dependency-view.json hash, direct IG-2B04 dependency and one selected section.",
+    "discovery": "Executor recognized the direct read did not follow the operator dependency-read override.",
+    "helper_refusal_observed": false,
+    "mechanism": "No helper refusal or alternate fallback prompted this read; the executor chose the incorrect direct access mechanism."
+  },
+  "impact": "Context-access compliance cannot be claimed for this executor session. No delivery, readiness, independent review, semantic acceptance or gameplay readiness is granted.",
+  "preservation": "All preexisting work is retained. This owned attempt is frozen as candidates; no product files should be overwritten or promoted. All already-running commands finished before this blocker was written.",
+  "uncompleted": [
+    "Complete replay byte/set comparison report",
+    "CLI validation of replay-2",
+    "Final region/component, continuation, coverage, source/reference, toolchain and preservation reports",
+    "Frozen delivery and independent review handoff"
+  ],
+  "next_operation": "Coordinator must assess this bounded context incident in a new session and provide explicit scope before any continuation or fresh attempt. Preserve this blocked attempt byte-for-byte.",
+  "owner": "coordinator/operator",
+  "measurement": {
+    "claim_started_utc": "2026-10-16T15:14:22.523454+00:00",
+    "blocked_utc": "2026-10-16T15:32:43.539120+00:00",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token and operator-time measurements were not exposed."
+  },
+  "human_semantic_acceptance": false,
+  "gameplay_readiness": false
+}

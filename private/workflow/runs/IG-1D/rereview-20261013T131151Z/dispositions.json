@@ -1,0 +1,60 @@
+{
+  "technical_result": "changes_requested",
+  "repair_iteration_reviewed": 1,
+  "maximum_repair_iterations": 2,
+  "dispositions": [
+    {
+      "finding_id": "IG1D-R01",
+      "disposition": "closed",
+      "basis": "Unchanged contradictory-name/body probe passes. Independent local/three-way term conflicts retain all candidates and origins; unaffected identities stay assigned; explicit hints resolve without new allocations. Independent step number/body conflict and executor strict negative controls pass. Ordinary edits/rename/reorder and the original exact assertions remain covered.",
+      "evidence": ["original.log", "risk.log", "tests/wgu_adapter/test_review_repairs.py"],
+      "fixture_assessment": "The original step-renumber fixture now supplies explicit authoring hints under contradictory evidence; exact prior ID and raw-number assertions are preserved, with a separate strict negative gap control. This does not grant source meaning."
+    },
+    {
+      "finding_id": "IG1D-R02",
+      "disposition": "closed",
+      "basis": "Unchanged split overlap probe and independent merge overlap control reject or gap incompatible decisions. Previous registry remains unchanged on rejection. New disjoint hint/lineage controls pass; original many-to-many/keyed-child/replay controls pass. The implementation explicitly rejects all overlap rather than silently dropping a basis.",
+      "evidence": ["original.log", "risk.log"]
+    },
+    {
+      "finding_id": "IG1D-R03",
+      "disposition": "closed",
+      "basis": "Unchanged direct-active-ID probe passes. New direct from/to source export and navigation cycles resolve correctly; retired/nonexistent IDs remain unresolved. Direct-ID/alias collisions remain explicit ambiguous candidate sets. Navigation/informational/no-approval markers and both-endpoint controls remain intact.",
+      "evidence": ["original.log", "risk.log", "history.log"]
+    },
+    {
+      "finding_id": "IG1D-R04",
+      "disposition": "partially_repaired_changes_required",
+      "original_behavior": "Fixed: unique merge child correction/rename preserves the existing allocation, origin history and exact historical parent/child revisions; repeated canonical export is stable.",
+      "remaining_requirement": "Changed/colliding named child-contract rejection is incomplete: a changed logical child kind silently receives a new allocation under the same named one-child receipt.",
+      "evidence": ["original.log", "risk.log", "history.log", "receipt_edge_probes.py::test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated"]
+    }
+  ],
+  "remaining_findings": [
+    {
+      "id": "IG1D-R04",
+      "priority": "P2",
+      "location": {"path": "src/wgc/wgu_adapter/identity.py", "start": 139, "end": 147},
+      "related_location": {"path": "src/wgc/wgu_adapter/identity.py", "start": 230, "end": 239},
+      "title": "Reject or gap a named single-child receipt reused with a different child-kind contract",
+      "consequence": "The named receipt guard compares only decision_id/operation/parents/basis. A persisted term child and a new rule child share that same key; the kind/scope filter removes the old child from candidate matching, then the empty list triggers a new allocation. The same named one-child decision consequently describes two different typed child allocations without explicit contract-change diagnosis. Original content correction/rename is repaired, but the required exact child-contract and changed/colliding-decision boundary remains incomplete.",
+      "reproducer": "Merge North/South terms into one Together term with decision_id merge-child-contract. Replay that ID, operation, parent IDs and basis while changing the child collection/kind to rules with R-Together. Only the origin child locator changes from /terms/0 to /rules/0. The implementation assigns a new rule ID instead of rejecting or preserving an unresolved contract conflict.",
+      "test": "receipt_edge_probes.py::test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated",
+      "observed": "The assertion forbidding a silently assigned replacement child fails; no explicit receipt-contract conflict is returned.",
+      "expected_result_justification": "R04's required change pins the persisted receipt/decision and exact child contract, while its verification requires changed/colliding decision rejection. Logical kind is already an explicit discriminator in the persisted registry. A named one-child receipt must not silently acquire a different typed output contract merely because matching filtered the old output away; a changed contract needs explicit rejection/gap or a separately identified decision.",
+      "required_change": "Compare the persisted named child contract before filtering out existing receipt children and allocating replacements. Preserve the logical-kind/scope/persistent-key contract independent of locators and content. Reject incompatible reuse or retain an explicit contract conflict; use a new decision identifier for a deliberately different output contract. Preserve valid text correction/rename and keyed ambiguity handling.",
+      "required_verification": [
+        "Keep all 15 original probes and all new risk/history assertions unchanged",
+        "Make the changed-child-kind receipt probe reject or return an explicit unresolved conflict",
+        "Cover relevant scope/persistent-key contract changes and a newly named decision for a deliberately different child contract",
+        "Retain unique-child correction/rename, origin history, exact historical parent/child revisions, unchanged replay and multi-child ambiguity",
+        "Rerun full private field/binding accounting, two canonical transforms/publications, affected suites and required project/diff checks"
+      ],
+      "repair_iteration": 1,
+      "maximum_repair_iterations": 2,
+      "unchanged_failure_retries": 0
+    }
+  ],
+  "new_finding_ids": [],
+  "product_modified_by_reviewer": false
+}

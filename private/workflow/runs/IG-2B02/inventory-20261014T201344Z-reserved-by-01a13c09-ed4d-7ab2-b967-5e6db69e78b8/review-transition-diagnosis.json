@@ -1,0 +1,76 @@
+{
+  "current_status": "in_progress",
+  "invalid_artifacts": [
+    {
+      "pin": {
+        "path": ".venv/Scripts/python.exe",
+        "bytes": 276944,
+        "sha256": "6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2"
+      },
+      "reason": "denied artifact path"
+    },
+    {
+      "pin": {
+        "path": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdfinfo.EXE",
+        "bytes": 81712,
+        "sha256": "ae6c324eca37335d8ec54fd6a0b4007365e369bd6a1fe1a82a74d2a588f0faa0"
+      },
+      "reason": "Unsafe relative path: C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdfinfo.EXE"
+    },
+    {
+      "pin": {
+        "path": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdftoppm.EXE",
+        "bytes": 65840,
+        "sha256": "1ad6408dc3b02950d00ad407d79b6d52b1d6c3f3b85c96645455d58d390d8b20"
+      },
+      "reason": "Unsafe relative path: C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin/pdftoppm.EXE"
+    },
+    {
+      "pin": {
+        "path": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "bytes": 301368,
+        "sha256": "362a356ce7f0940ec74f73a8fc2c990a2cc24a38a11c90bbd8eca947110ad139"
+      },
+      "reason": "Unsafe relative path: C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE"
+    },
+    {
+      "pin": {
+        "path": "C:/Program Files/Git/cmd/git.EXE",
+        "bytes": 45400,
+        "sha256": "54bda91c773c6bba2b970424423cfcb80552d92dc6967d766f98931fe1251a54"
+      },
+      "reason": "Unsafe relative path: C:/Program Files/Git/cmd/git.EXE"
+    }
+  ],
+  "failure_check": {
+    "command": [
+      "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+      "-B",
+      "scripts/workflow.py",
+      "transition",
+      "--task",
+      "IG-2B02",
+      "--to",
+      "review",
+      "--evidence",
+      "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery.json"
+    ],
+    "exit_code": 1,
+    "started_utc": "2026-10-14T21:03:20.057265+00:00",
+    "ended_utc": "2026-10-14T21:03:28.118207+00:00",
+    "wall_seconds": 8.062999999998283,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition.stderr",
+      "bytes": 35,
+      "sha256": "e678a4f89d11b61e1f223cc30ea2a25acf5768d54abd7289839efb36310e40bb"
+    }
+  },
+  "no_review_event_persisted": true,
+  "frozen_product_changed": false,
+  "next_operation": "Operator/coordinator escalation before any new transition attempt"
+}

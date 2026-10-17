@@ -1,0 +1,27 @@
+baseline accept OK 
+partial_retains_gap accept OK 
+missing_page reject OK ValueError: missing PDF page accounting
+empty_pages_visible accept OK 
+duplicate_region reject OK ValueError: duplicate region identity/key
+overlapping_contexts accept OK 
+inventory_overlap reject OK ValueError: overlapping inventory denominator
+registry_source_change reject OK ValueError: registry/source revision mismatch; explicit revision mapping required
+registry_duplicate reject OK ValueError: duplicate registry identity/key
+stale_region reject OK ValueError: duplicate/stale evidence locator
+reading_order_missing reject OK ValueError: reading order must name each region exactly once
+dangling_note reject OK ValueError: duplicate/dangling/self region link
+stale_page_rotation accept DEFECT 
+stale_page_userunit accept DEFECT 
+stale_page_crop accept DEFECT 
+false_render_dpi accept DEFECT 
+false_pixel_size reject OK ValueError: render pixel dimensions mismatch
+wrong_page_printed_label accept DEFECT 
+physical_page_remapping accept DEFECT 
+unsafe_path reject OK ValueError: unsafe artifact path
+tampered_pin reject OK ValueError: evidence artifact hash mismatch
+exact_exclusion_claim accept OK 
+exclusion_after_page_remap accept DEFECT 
+exclusion_after_partition_change reject OK ValueError: exclusion boundary is not exact/current
+exclusion_after_region_revision accept DEFECT 
+exclusion_after_registry_change accept DEFECT 
+false_consistent_page_count accept DEFECT 

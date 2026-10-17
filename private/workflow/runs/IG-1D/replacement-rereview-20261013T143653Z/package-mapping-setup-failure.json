@@ -1,0 +1,12 @@
+{
+  "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verify-corrected.py before",
+  "exit_code": 1,
+  "started_utc": null,
+  "ended_utc": null,
+  "wall_seconds": null,
+  "recorded_utc": "2026-10-13T14:40:52.272525+00:00",
+  "failure": "StopIteration at line 63: new delivery lists its own packages/ copy, not the earlier official canonical path.",
+  "scope": "Review setup mapping; all earlier delivery/preservation assertions passed.",
+  "resolution": "Locate the exact package via delivery artifacts and verify all four hashes and exact bytes against the audit target. Keep all original accounting assertions and target unchanged.",
+  "failed_verifier_sha256": "c96cc3139596d60c81bf0961cea08e962684f9bf162a1fadfdb896dd82cf3f92"
+}

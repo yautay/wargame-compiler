@@ -1,0 +1,104 @@
+{
+  "id": "IG-2B02",
+  "title": "Inventory SPQR PDF pages 05-08",
+  "stage": "IG-2",
+  "status": "review",
+  "kind": "content",
+  "depends": [
+    "IG-2B01"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/delivery.json (immutable corrected R01/R02 baseline; referenced unchanged, never overwritten)",
+    "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/claim.json, checkpoint.json and actual configuration/toolchain evidence for this validation-only attempt",
+    "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/validation results/logs for unchanged tests/sources, scripts/check.ps1, workflow validate and git diff --check, with real exits and fresh short basetemp",
+    "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/preservation-report.json and delivery-manifest.json (entire immutable original ordered artifact list as prefix, plus new V01 operational evidence)",
+    "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/delivery.json and delivery-handoff.md for a fresh independent review; no product/source change or semantic acceptance"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/",
+    "private/workflow/packets/",
+    "private/workflow/checks/"
+  ],
+  "inputs": [
+    "Official PDF private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e; 44 physical pages; substantive authoring only 5-8",
+    "Official provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json SHA256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+    "Accepted IG-2B01 baseline private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json SHA256 42adf9a1598bd682917eb087e295fe899212e59dd81aed5c293e2187b9c587bb",
+    "Persisted IG-2B01 registry private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/identity-registry.json SHA256 94ac81cac947342b7de757419d9b858f45cdae2f2eae521ce94404e0e7831657; extend without changing existing key/ID bindings",
+    "Full 44-page sidecar; preserve accepted 1-4 and placeholders 9-44. Retire only placeholder memberships 5-8, preserving registry entries.",
+    "Existing page-5 context region remains exact context/zero denominator; new authored identity plus exact correspondence sidecar.",
+    "Boundary context: only pinned page-4 region; conditional predetermined maximum-two-line page-9 crop after recorded need, otherwise unresolved gap. No other content access.",
+    "Frozen IG-1A constraints: contracts/ig/README.md SHA256 c2d05b9cb20da646de21dc8b3f715799fae2006f06f322c7be800f0cb7e8db57; relevant exact coverage/review excerpt and identity/canonicalization boundaries in packet contract-boundaries.md.",
+    "Reviewed IG-2B02 repair base private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json SHA256 c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19",
+    "Independent changes_recommended review private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review.json SHA256 15b956fa0db53afc77a9ab58b882aacd2dfb2a93226ad7847043d4326c3a714a; only IG-2B02-R01/R02 permitted",
+    "Bounded metadata repair scope private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json SHA256 50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9",
+    "CURRENT validation-only V01 scope private/workflow/runs/IG-2B02/preparation-v01-20261015T143929Z-d8aa5d/scope.json SHA256 fb9170219cc31ff4d5e56f6b2767767f9b291d464d68315673f72985c07935bf; previous R01/R02 scopes are completed immutable background, not current write authorization."
+  ],
+  "context": [
+    "docs/work/EVIDENCE.md",
+    "src/wgc/sources/README.md",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md",
+    "contracts/ig/regions.schema.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-pins.json",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json",
+    "docs/work/repair-context/IG-2B02-V01-20261015T143929Z-d8aa5d.json"
+  ],
+  "acceptance": [
+    "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+    "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+    "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+    "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+    "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact."
+  ],
+  "tests": [
+    "Root inventory.validate/CLI validates byte-pinned PDF, strict pypdf and Poppler 44-page counts, actual all-page geometry, schema/canonical revisions, registry, partitions and reading order.",
+    "Visual inspection of every original assigned page 5-8 and all proposed region boundaries/components; exact current evidence artifact SHA256/bytes, rational crop bounds, Unicode offsets, page_basis_hash and predicted/actual PNG dimensions.",
+    "Compare accepted nested records 1-4, 9-44 placeholders, registry entries, old evidence and old links with baseline; repeat persisted-registry authoring in fresh output directories and compare identical canonical bytes/IDs.",
+    "Check zero context denominator, page-5 context-to-new-author correspondence and recorded bounded continuation access; explicit content/representation/geometric gaps at all levels.",
+    "Run explicit unchanged tests/sources with fresh short basetemp and -p no:cacheprovider; scripts/check.ps1 -Task IG-2B02 while active; workflow validate; git diff --check. Reproduce/escalate tool failures without editing tools/tests/contracts or weakening checks."
+  ],
+  "start_conditions": [
+    "IG-2A and IG-2B01 remain done; current review -> changes_requested is bound to IG-2B02-V01 by repair_authorization.",
+    "Fresh executor observes own gpt-6.1-sol/high configuration and verifies exact packet, current V01 scope, immutable delivery pins and exclusive ownership of the new absent attempt.",
+    "Validation-only repair: every original frozen artifact remains byte-identical and its ordered manifest remains the prefix of the new delivery. Completed R01/R02 corrections are not reopened.",
+    "Reuse the pinned installed Python/native dependency environment; request approved execution of unchanged validation commands when mode0700 temporary directories are inaccessible to the default Windows restricted token."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance.",
+    "No changes to src/wgc/sources, tests, contracts or frozen IG-2A/IG-2B01 artifacts; no source download. Queue structural edits are coordinator-owned; executor status updates only through workflow transitions.",
+    "No analysis of pages outside 5-8 except exact scoped continuation context. No broad adjacent-page probes, represented/excluded promotions by assertion or source-IG whole-record review by inheritance.",
+    "Original IG-2B02 delivery and independent review are immutable read-only inputs. No overwrite, evidence regeneration, ID/revision/geometry/source/coverage changes, new source analysis outside the three exact page-5 counter crops, or downstream task.",
+    "V01 is validation-only: no source/tool/test/contract/library/ACL/global-config edits. Preserve all 4375 original ordered artifact entries and append only new operational evidence; never reuse old repair ownership."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+  ],
+  "semantic_acceptance_required": false,
+  "repair_authorization": {
+    "review_evidence": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+    "review_sha256": "9a0b8d62bc16db1770175c6ff537d262070b4478a83b298af0c5c069f0a956c8",
+    "scope": {
+      "path": "private/workflow/runs/IG-2B02/preparation-v01-20261015T143929Z-d8aa5d/scope.json",
+      "sha256": "fb9170219cc31ff4d5e56f6b2767767f9b291d464d68315673f72985c07935bf"
+    },
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B02/preparation-v01-20261015T143929Z-d8aa5d/authorization.json",
+      "sha256": "6e72c8c7458c3b721d68d65d425132d8c3dbd403e2b2a0c57504de0eeb3d45c4"
+    },
+    "attempt": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/"
+  }
+}

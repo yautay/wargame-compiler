@@ -1,0 +1,133 @@
+{
+  "task": "IG-1D",
+  "actor": "ig1-stage-executor-20261013",
+  "started_utc": "2026-10-13T12:53:16.465119+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Earlier direct current-conversation operator UI observation with same-session continuity: sol 6.1 high; no settings change requested/observed.",
+  "base_files": [
+    {
+      "original": {
+        "path": "src/wgc/wgu_adapter/identity.py",
+        "sha256": "d478fe816a7312e1999a63e0fac341a90cdbd563f8fe1f37f77cd6ea163faa6f"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/src/wgc/wgu_adapter/identity.py",
+        "sha256": "d478fe816a7312e1999a63e0fac341a90cdbd563f8fe1f37f77cd6ea163faa6f"
+      }
+    },
+    {
+      "original": {
+        "path": "src/wgc/wgu_adapter/references.py",
+        "sha256": "5baa40257ab527428bdf86e2ff6e76621b8cf8ec3a52467576ee817fb4974f22"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/src/wgc/wgu_adapter/references.py",
+        "sha256": "5baa40257ab527428bdf86e2ff6e76621b8cf8ec3a52467576ee817fb4974f22"
+      }
+    },
+    {
+      "original": {
+        "path": "src/wgc/export/source.py",
+        "sha256": "bf58eb6ac141ede3a9d3f2fa9ffc858be61c73252a596480d0edc4e62f6b407b"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/src/wgc/export/source.py",
+        "sha256": "bf58eb6ac141ede3a9d3f2fa9ffc858be61c73252a596480d0edc4e62f6b407b"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/wgu_adapter/test_identity.py",
+        "sha256": "aaaf49a059113688abea26c2d56c54f46f3b56f0b05887463aefd00280d9a5c8"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/tests/wgu_adapter/test_identity.py",
+        "sha256": "aaaf49a059113688abea26c2d56c54f46f3b56f0b05887463aefd00280d9a5c8"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/wgu_adapter/test_references.py",
+        "sha256": "a911ab4f76953ecbc317736b96a73e02f3f920dfd4af39e3df0f289a4a768572"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/tests/wgu_adapter/test_references.py",
+        "sha256": "a911ab4f76953ecbc317736b96a73e02f3f920dfd4af39e3df0f289a4a768572"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/export/test_source.py",
+        "sha256": "c6265b078cae847143c09762ca06cf3b35158a7b54508375eea230c8eaaef64e"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline/tests/export/test_source.py",
+        "sha256": "c6265b078cae847143c09762ca06cf3b35158a7b54508375eea230c8eaaef64e"
+      }
+    }
+  ],
+  "parent_review": {
+    "path": "private/workflow/runs/IG-1D/review-20261013T122807Z/review.json",
+    "sha256": "ef9955c57e22a85ecd76a54ea08fda9dcfedbba7419cfc85ff91497abf468b00"
+  },
+  "parent_delivery": {
+    "path": "private/workflow/runs/IG-1D/preflight-20261013/delivery.json",
+    "sha256": "f510ae8830d5a5cbf1311c8383a4a8e0581d3e5421e64283b4d4820cae8f4154"
+  },
+  "repair_iterations": [
+    {
+      "finding_id": "IG1D-R01",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Collect and compare applicable anonymous rematch evidence before committing assignments. If independently justified label/body/endpoint/number evidence contradicts candidate identities, preserve the candidate IDs in a gap until an explicit binding decision resolves the conflict.",
+      "required_verification": [
+        "Keep this strict contradictory-evidence probe unchanged and make it pass with all affected observations unresolved and full candidate/origin retention",
+        "Add conflicting-evidence cases for other anonymous kinds where multiple applicable descriptors disagree",
+        "Retain unambiguous edit, rename, reorder, insert/delete/file-move, repeated-input and endpoint-alias tests",
+        "Use explicit hints to resolve the conflict without changing raw observations or reusing generated identities",
+        "Rerun full private accounting, canonical reproducibility, affected suites and required project/diff checks"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R02",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Validate overlap between forced lineage child locators and hints. Reject incompatible combinations before reconciliation or preserve an explicit conflict gap carrying both decisions; do not silently prioritize one branch. If compatible overlap is supported, define and verify its exact reconciliation rule and receipts.",
+      "required_verification": [
+        "Keep the strict overlap probe unchanged; incompatible inputs reject or return an explicit unresolved assignment",
+        "Cover merge and split overlap, compatible/identical duplicates if supported, decision replay and preserved previous-registry immutability on rejection",
+        "Retain disjoint many-to-many hints, keyed indistinguishable children and ordinary lineage replay",
+        "Rerun affected suites, full private accounting and required checks"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R03",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Add exact active identity resolution with an explicit basis and retain collision/scope rules. Preserve role/navigation and no-approval behavior. Retired IDs must not resolve as active merely because they remain in history.",
+      "required_verification": [
+        "Keep the exact-current-ID probe unchanged and make it return the exact singleton target",
+        "Cover direct IDs in relation from/to and navigation cycle detection",
+        "Cover retired/non-current IDs, external alias collisions, raw strings resembling IDs, and explicit wildcard/subpoint scopes",
+        "Verify both endpoints still must resolve before the source relationship is resolved",
+        "Rerun affected suites and required controls"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R04",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Match an existing uniquely identified lineage child by its persisted receipt/decision and exact child contract independently of corrected content. Preserve gaps for genuine multi-child ambiguity or conflicting decisions; do not allocate a replacement or require unrelated semantic acceptance for a text correction.",
+      "required_verification": [
+        "Keep the strict unique-child correction probe unchanged and make it retain the existing child ID/origin_key",
+        "Cover repeated correction and rename of a single merged child, retained old origins and exact historical parent references",
+        "Retain keyed identical split children, multiple-child ambiguity, changed/colliding decision rejection and unchanged replay tests",
+        "Re-run affected suites, full private canonical reproducibility and required checks"
+      ]
+    }
+  ],
+  "next_operation": "Repair contradictory evidence, overlapping decisions, direct active IDs and unique explicit merge-child replay; strict original probes and full private reproducibility; same independent reviewer re-review.",
+  "tokens": null,
+  "cost": null
+}

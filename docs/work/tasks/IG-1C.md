@@ -2,7 +2,7 @@
 
 <!-- Generated from docs/work/queue.json; edit the queue, then render. -->
 
-- Status: `planned`; kind: `implementation`.
+- Status: `done`; kind: `implementation`.
 - Executor: **GPT-6.1 Sol; reasoning high**. Record actual configuration separately.
 - Dependencies: [IG-1B](IG-1B.md)
 - Human semantic acceptance required: false.
@@ -23,13 +23,19 @@ Implement a safe directory adapter for wgu/kb@1 against the frozen complete inpu
 
 ## Input contracts
 
-- Frozen input manifest from IG-1B
-- WGU schema and store/export/lint code, read-only scoped files in C:/repo/wargame-utils/wgu/
+- Complete frozen input: private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/manifest.json SHA-256 67ac53869ea80ea4d84018e253a9033e48fe89823d0a9a397ab8fe41b91d33d5
+- Selected source registry: private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/manifest.json SHA-256 615b1ae1cbeebf894c7f8dbbb7c3f2bcb0819427a342b3fa05bc690c33b9eed8
+- Read-only support: C:/repo/wargame-utils/wgu/schemas/kb.schema.json SHA-256 0a93858ed3e0d99382ea962350e3b2994fab90b872a8b86584519b5a9e33a551
+- Read-only support: C:/repo/wargame-utils/wgu/kb/store.py SHA-256 b7f3a6fc94c3b2bee27ccdb6bc82db0cecd1e3b3aafcf4aa3cf85726e1ed2bbe
+- Read-only support: C:/repo/wargame-utils/wgu/kb/export.py SHA-256 b0735f52350abb7dfb8bd6e3f94bbe63789a0ffc2e7ae2eac040f00eede24b00
+- Read-only support: C:/repo/wargame-utils/wgu/kb/lint.py SHA-256 78f5b2ade91eb1f69e5ef7f389077a6aba27e4b6f633780099e3abc5911cfabf
+- Operator-authorized dependency exception: project-local pinned PyYAML safe parser only in .venv; obtain official PyPI metadata/wheel if no local wheel exists; record version/source/hash. No foundation edits.
 
 ## Required context
 
 - docs/IG-WGU-ARCHITECTURE.md
 - docs/IG-DATA-MODEL.md
+- src/wgc/inputs/snapshot.py
 
 ## Allowed write scope
 

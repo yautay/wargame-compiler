@@ -1,0 +1,116 @@
+{
+  "task": "IG-2A",
+  "status": "done",
+  "actor": "codex-01a139bc-256f-7da0-b4a7-8940ca16fc81",
+  "manifest": {
+    "path": "private/workflow/runs/IG-2A/closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/manifest.json",
+    "sha256": "6a9901c456e7ad3b7094940b69509ccd099fc7a00b82498d2c2ebc73b30be67e",
+    "bytes": 11695
+  },
+  "handoff": {
+    "path": "private/workflow/runs/IG-2A/closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/closure-handoff.md",
+    "sha256": "3a9cb0f74bd06e54fcf0dc940ffa5629886e64240fa882bf7a7c1adb4f71b503",
+    "bytes": 2981
+  },
+  "accepted": {
+    "path": "private/workflow/runs/IG-2A/closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/accepted.json",
+    "sha256": "f11bfc55dd024aca4664b08ea09b7d043161564f7ee0a3ac5e6cfb67b7c85e59",
+    "bytes": 95045
+  },
+  "done": {
+    "path": "private/workflow/runs/IG-2A/closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/done.json",
+    "sha256": "8bd082aebcbcba6a737e6ad10fd8641e32f4b84b4faf8da05182d78db43ca17d",
+    "bytes": 76422
+  },
+  "operator_authorization": {
+    "path": "private/workflow/runs/IG-2A/closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/operator-authorization.json",
+    "sha256": "7530d18d99d7c5624c282d71cdd63294a0a35379b9c93c39c948c474f2c74265",
+    "bytes": 520
+  },
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "99377743a23025eaf4a5dfa954a802efc88631d663e31baeddce220424afc273",
+    "bytes": 137317
+  },
+  "independent_review_seal": {
+    "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/final-seal-corrected.json",
+    "sha256": "af1af2473a58e47ab69396bdf1d7f9dd39a765881bacab630068b87c2411b295",
+    "bytes": 4385
+  },
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\check-adapter.ps1",
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\closure-20261014T115019Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\check-adapter.ps1"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T11:54:28.810926+00:00",
+      "ended_utc": "2026-10-14T11:55:39.159779+00:00",
+      "wall_seconds": 70.3430000001099,
+      "stdout": "project-check.stdout",
+      "stderr": "project-check.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T11:56:30.386300+00:00",
+      "ended_utc": "2026-10-14T11:56:32.726725+00:00",
+      "wall_seconds": 2.344000000040978,
+      "stdout": "before-done-workflow.stdout",
+      "stderr": "before-done-workflow.stderr"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T11:56:32.726725+00:00",
+      "ended_utc": "2026-10-14T11:56:34.123892+00:00",
+      "wall_seconds": 1.4059999999590218,
+      "stdout": "before-done-diff.stdout",
+      "stderr": "before-done-diff.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T11:58:04.026634+00:00",
+      "ended_utc": "2026-10-14T11:58:06.989840+00:00",
+      "wall_seconds": 2.969000000040978,
+      "stdout": "final-workflow.stdout",
+      "stderr": "final-workflow.stderr"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T11:58:06.990837+00:00",
+      "ended_utc": "2026-10-14T11:58:08.198591+00:00",
+      "wall_seconds": 1.202999999979511,
+      "stdout": "final-diff.stdout",
+      "stderr": "final-diff.stderr"
+    }
+  ],
+  "semantic_acceptance_granted": false,
+  "IG2B_executed": false,
+  "ended_utc": "2026-10-14T11:58:09.037610+00:00"
+}

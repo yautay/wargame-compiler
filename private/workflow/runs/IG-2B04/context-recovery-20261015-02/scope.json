@@ -1,0 +1,133 @@
+{
+  "role": "coordinator",
+  "actor": "operator-b04-context-access-recovery-20261015",
+  "task": "IG-2B04",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder model/reasoning are not exposed; no Sol/high claim.",
+  "operator_request": "Complete B04 documentation, prevent helper-refusal fallback, scope Git status, verify and launch a fresh coordinator.",
+  "format": "wgc-context-recovery-scope-1",
+  "mode": "bounded_dependency_and_task_access",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B04/coordinator-ed46c8b3-context-block/blocked.json",
+    "sha256": "e4d5e40f213e95a281009a95fa765385363c1a17fc62b58653dd5971417e77ba",
+    "bytes": 2083
+  },
+  "assessment": {
+    "path": "private/workflow/runs/IG-2B04/context-recovery-20261015-02/assessment.json",
+    "sha256": "082c57e9079d615d5c3b71d285a8690ec39f982ce49dc195dcb1254c09e96306",
+    "bytes": 4833
+  },
+  "preserved": [
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-ebfb9526-context-block/blocked.json",
+      "sha256": "b6caeb4397dacc52624882b514cec43dbd9ff554368c30ffdfbb20b91584c8f5",
+      "bytes": 2375
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/context-recovery-20261015-01/scope.json",
+      "sha256": "b5a515e80750ab85ebdd4f0202ae43f527d28e1d82907cbfbc701bdd99840aa0",
+      "bytes": 3177
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/context-recovery-20261015-01/assessment.json",
+      "sha256": "aab301b17d986727c96c27d8adb11bb23e79f6a90017d8dffdfbd7b2f53aeba8",
+      "bytes": 3547
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-bounded-dependencies.md",
+      "sha256": "2587de3dd695ab4a8614101dcf3e70cea9459027902d429339faaac3e663cef4",
+      "bytes": 626
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/status.json",
+      "sha256": "3c508a1c8d3fd9f4012a7ecd49ad988680a5b2c332a2a032f249cf9cede3741e",
+      "bytes": 1101
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/task.json",
+      "sha256": "7319df7c4e5ca2733b8f96275587d5791ca62d56680c11215261926ecbdf266f",
+      "bytes": 3573
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/packet.json",
+      "sha256": "d17e7bd439be2b0805f4cd15a5082e0986def42200ad8ae0b5254a4411f57ef4",
+      "bytes": 1854
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/references.json",
+      "sha256": "5453a0195114b57a92814eff1bc93fe57f66353b5ee5ed840d0a10991cd937fc",
+      "bytes": 339
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/runtime-configuration.json",
+      "sha256": "7b78ab94fc276aa5aa21f28ad963b9f691f459e9001dc1c4283ec296311a8fef",
+      "bytes": 1210
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/response.json",
+      "sha256": "11fe5404daaaaf96f4239ca5046ce581df38df3c21fa4d9116f5abcdd5ff8d6b",
+      "bytes": 338
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/process-result.json",
+      "sha256": "8b9b154d3fec1808acba50c76ced4b5dcc99a7887da426c78fc31c9ba20db989",
+      "bytes": 281
+    }
+  ],
+  "dependency_done": {
+    "path": "private/workflow/runs/IG-2B03/closure-002-IG-2B03-reviewer-cabf2418/done.json",
+    "sha256": "ec152545a09d183c3ee0eed31adea0421cf0b567a2501be15a95c5a418a5c950",
+    "bytes": 621865
+  },
+  "physical_pages": [
+    13,
+    14,
+    15,
+    16
+  ],
+  "sections": [
+    "summary",
+    "outputs",
+    "inventory",
+    "boundary",
+    "toolchain"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator."
+  ],
+  "tool_context": [
+    "docs/work/EVIDENCE.md",
+    "contracts/ig/README.md",
+    "contracts/ig/regions.schema.json",
+    "src/wgc/sources/README.md",
+    "src/wgc/sources/__init__.py",
+    "src/wgc/sources/__main__.py",
+    "src/wgc/sources/inventory.py",
+    "src/wgc/sources/geometry.py",
+    "src/wgc/sources/pdf.py",
+    "docs/skills/wgc-execute/SKILL.md",
+    "docs/skills/wgc-review/SKILL.md"
+  ],
+  "allowed_changes": [
+    "Refine only the planned B04 contract, exact context policy and generated views; create new task-owned preparation evidence.",
+    "Read exact pinned public documentation/code through task_access read in bounded windows; retrieve dependency fields only through dependency_context.",
+    "Use only fixed task_access git-status paths; never dump global Git status, recursive listings, old transcripts, queue histories or full manifests.",
+    "Inspect original physical pages13-16 only when necessary. Accepted page12 exit observation is metadata only; do not follow cross-chapter references.",
+    "Preserve the full44-page baseline and registry structurally without printing unassigned content; modify only assigned placeholders in a new exclusively owned attempt.",
+    "Pin fresh original inspection/evidence, two independent replays, exact output layout, toolchain, criteria/tests and independent review before readiness."
+  ],
+  "forbidden": [
+    "Any command, direct read or alternate helper after a helper refusal; stop and require a new packet/session.",
+    "Changing accepted B03, prior incidents/attempts, frozen evidence or original acceptance/tests.",
+    "Weakening checks, gameplay legality by an LLM, inherited readiness or automatic human semantic acceptance."
+  ],
+  "readiness_granted": false,
+  "semantic_acceptance_granted": false
+}

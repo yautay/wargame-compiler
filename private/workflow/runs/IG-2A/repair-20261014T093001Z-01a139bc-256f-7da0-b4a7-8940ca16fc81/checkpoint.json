@@ -1,0 +1,373 @@
+{
+  "task": "IG-2A",
+  "actor": "codex-01a139bc-256f-7da0-b4a7-8940ca16fc81",
+  "configuration": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json",
+    "sha256": "bbc1844ff2744024006272478f41dc52f2b079d5d98a54480147571e2e507d33",
+    "bytes": 614
+  },
+  "input_packet": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/packet-manifest.json",
+    "sha256": "5cc90323ed394f4b03a2ee30861d447f752f5bd245635fcb588b298a2aca11fe",
+    "bytes": 4042
+  },
+  "base_products": [
+    {
+      "path": "src/wgc/sources/geometry.py",
+      "sha256": "e554984c615ad393ae8e0818ff8c175632a0ee3a9b40878a61e5cf84ec4040ea",
+      "bytes": 2910
+    },
+    {
+      "path": "src/wgc/sources/inventory.py",
+      "sha256": "dae53f8b86ecc02aea34cf19272dd9470e04f274b8442cec86f4398a12190dfe",
+      "bytes": 13265
+    },
+    {
+      "path": "src/wgc/sources/pdf.py",
+      "sha256": "10f8b44982e71eaf6fd203c447c0b74f8c77f57bd6678a2e4686742390364c3b",
+      "bytes": 7611
+    },
+    {
+      "path": "src/wgc/sources/README.md",
+      "sha256": "cfa67a3057329cdb19de745603d7cac969698877a9740f616c1178de14e5402b",
+      "bytes": 6632
+    },
+    {
+      "path": "src/wgc/sources/__init__.py",
+      "sha256": "06f47ed63c06cf2713b28b1c15aeb27ff78efaa9b39c2583f23ef00bff592917",
+      "bytes": 78
+    },
+    {
+      "path": "src/wgc/sources/__main__.py",
+      "sha256": "0037b5ba1fdbe0f46509a677e51fc04dd55c8fa177da035118579ca49ce33df6",
+      "bytes": 3392
+    },
+    {
+      "path": "tests/sources/test_inventory.py",
+      "sha256": "f80fc36a925232c99cdcc5f431dce6108f7edaab63992d378ab6aa91d137dbb7",
+      "bytes": 15933
+    },
+    {
+      "path": "contracts/ig/regions.schema.json",
+      "sha256": "5cdcea1ca13376ba49241fa8c512ab0b27e95cf5c34e6470612d529806d8ad5e",
+      "bytes": 24009
+    }
+  ],
+  "changed_products": [
+    {
+      "path": "src/wgc/sources/geometry.py",
+      "sha256": "006c960a245e6f520815caf8e7d759f9a0f78f7eb74566a9db4dbfe88abc1a30",
+      "bytes": 3488
+    },
+    {
+      "path": "src/wgc/sources/inventory.py",
+      "sha256": "ea0fdbded19e6040e9d3d1374d41332b2c67e0f93da3466c021f859ee2aa7120",
+      "bytes": 16146
+    },
+    {
+      "path": "src/wgc/sources/pdf.py",
+      "sha256": "0b1a3696414dcc6c6ad7f9a37b59d3f8d345bb34dd78c0a986804457d9e7d827",
+      "bytes": 8101
+    },
+    {
+      "path": "src/wgc/sources/README.md",
+      "sha256": "8c04988f415dec9fb2124956e8293a0a6c64db63d9f0fecbe8818590ec94cc5f",
+      "bytes": 8899
+    },
+    {
+      "path": "contracts/ig/regions.schema.json",
+      "sha256": "6fa4a7998010ffaa3d38e3a0f5384b445814ee454c6eabbce96020319aebe2ad",
+      "bytes": 24147
+    },
+    {
+      "path": "tests/sources/test_review_repairs.py",
+      "sha256": "4c775edc6cd19baa644a2cde6d4ba69eda89ae1209510ad0a04c3e8f05441dea",
+      "bytes": 7177
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+      "status": "met_for_tooling_scope_pending_independent_review",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+          "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+          "bytes": 12628
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+          "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+          "bytes": 840
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repeatability.json",
+          "sha256": "d180db07a573314cfd12c26396f1c897186951bba91d2ecc1598de5c290c2e0b",
+          "bytes": 746
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/source-audit.json",
+          "sha256": "da6b0b55514c2e1c1174d9c9c979fa050ad986eb71e7429a5696b99cc573ff0b",
+          "bytes": 16491
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+          "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+          "bytes": 12086
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/verified-coverage.json",
+          "sha256": "c74615d42ded4207dce6182792418199151b5e6b589969b5e82703bbea9caded",
+          "bytes": 9197
+        }
+      ],
+      "limitations": "Structural validity and source associations only; no substantive IG-2B inventory, human authentication, semantic acceptance or executable readiness."
+    },
+    {
+      "criterion": "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+      "status": "met_for_tooling_scope_pending_independent_review",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+          "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+          "bytes": 12628
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+          "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+          "bytes": 840
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repeatability.json",
+          "sha256": "d180db07a573314cfd12c26396f1c897186951bba91d2ecc1598de5c290c2e0b",
+          "bytes": 746
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/source-audit.json",
+          "sha256": "da6b0b55514c2e1c1174d9c9c979fa050ad986eb71e7429a5696b99cc573ff0b",
+          "bytes": 16491
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+          "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+          "bytes": 12086
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/verified-coverage.json",
+          "sha256": "c74615d42ded4207dce6182792418199151b5e6b589969b5e82703bbea9caded",
+          "bytes": 9197
+        }
+      ],
+      "limitations": "Structural validity and source associations only; no substantive IG-2B inventory, human authentication, semantic acceptance or executable readiness."
+    },
+    {
+      "criterion": "Unknown or excluded areas are visible; partial/gap is never represented.",
+      "status": "met_for_tooling_scope_pending_independent_review",
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+          "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+          "bytes": 12628
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+          "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+          "bytes": 840
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repeatability.json",
+          "sha256": "d180db07a573314cfd12c26396f1c897186951bba91d2ecc1598de5c290c2e0b",
+          "bytes": 746
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/source-audit.json",
+          "sha256": "da6b0b55514c2e1c1174d9c9c979fa050ad986eb71e7429a5696b99cc573ff0b",
+          "bytes": 16491
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+          "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+          "bytes": 12086
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/verified-coverage.json",
+          "sha256": "c74615d42ded4207dce6182792418199151b5e6b589969b5e82703bbea9caded",
+          "bytes": 9197
+        }
+      ],
+      "limitations": "Structural validity and source associations only; no substantive IG-2B inventory, human authentication, semantic acceptance or executable readiness."
+    }
+  ],
+  "checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/sources -q --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\t3 -p no:cacheprovider --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/sources",
+        "-q",
+        "--basetemp",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\t3",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:39:42.946445+00:00",
+      "ended_utc": "2026-10-14T09:41:19.833368+00:00",
+      "wall_seconds": 96.89000000013039,
+      "stdout": "sources-tests-03.stdout",
+      "stderr": "sources-tests-03.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\verify_repair.py",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\verify_repair.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:39:11.592588+00:00",
+      "ended_utc": "2026-10-14T09:40:13.932975+00:00",
+      "wall_seconds": 62.32799999997951,
+      "stdout": "verify-repair-01.stdout",
+      "stderr": "verify-repair-01.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m wgc.sources inventory --pdf private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf --provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json --source-id source:spqr:5e:core --sha256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e --registry private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/identity-registry.json --output private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "wgc.sources",
+        "inventory",
+        "--pdf",
+        "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+        "--provenance",
+        "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+        "--source-id",
+        "source:spqr:5e:core",
+        "--sha256",
+        "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "--registry",
+        "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/identity-registry.json",
+        "--output",
+        "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:39:22.663637+00:00",
+      "ended_utc": "2026-10-14T09:39:25.749966+00:00",
+      "wall_seconds": 3.0939999998081475,
+      "stdout": "inventory-one.stdout",
+      "stderr": "inventory-one.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m wgc.sources inventory --pdf private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf --provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json --source-id source:spqr:5e:core --sha256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e --registry private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one/identity-registry.json --output private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-two",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "wgc.sources",
+        "inventory",
+        "--pdf",
+        "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+        "--provenance",
+        "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+        "--source-id",
+        "source:spqr:5e:core",
+        "--sha256",
+        "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "--registry",
+        "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one/identity-registry.json",
+        "--output",
+        "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-two"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:39:25.751164+00:00",
+      "ended_utc": "2026-10-14T09:39:28.921022+00:00",
+      "wall_seconds": 3.172000000020489,
+      "stdout": "inventory-two.stdout",
+      "stderr": "inventory-two.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m wgc.sources evidence --inventory private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one/inventory.json --pages 1 2 3 4 --output private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/real-evidence",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "wgc.sources",
+        "evidence",
+        "--inventory",
+        "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/inventory-one/inventory.json",
+        "--pages",
+        "1",
+        "2",
+        "3",
+        "4",
+        "--output",
+        "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/real-evidence"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:39:28.974229+00:00",
+      "ended_utc": "2026-10-14T09:39:49.817515+00:00",
+      "wall_seconds": 20.844000000040978,
+      "stdout": "real-evidence.stdout",
+      "stderr": "real-evidence.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\source_and_pixel_oracle.py",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\source_and_pixel_oracle.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:39:51.667586+00:00",
+      "ended_utc": "2026-10-14T09:40:13.794347+00:00",
+      "wall_seconds": 22.140999999828637,
+      "stdout": "source-and-pixel-oracle.stdout",
+      "stderr": "source-and-pixel-oracle.stderr"
+    },
+    {
+      "command": "pwsh -NoProfile -File C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\check_adapter.ps1",
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81\\check_adapter.ps1"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:40:45.106146+00:00",
+      "ended_utc": "2026-10-14T09:42:41.159277+00:00",
+      "wall_seconds": 116.0460000000894,
+      "stdout": "project-check.stdout",
+      "stderr": "project-check.stderr"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:47:02.372990+00:00",
+      "ended_utc": "2026-10-14T09:47:06.571872+00:00",
+      "wall_seconds": 4.188000000081956,
+      "stdout": "final-workflow-02.stdout",
+      "stderr": "final-workflow-02.stderr"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:47:06.571872+00:00",
+      "ended_utc": "2026-10-14T09:47:08.350953+00:00",
+      "wall_seconds": 1.7809999999590218,
+      "stdout": "final-diff-02.stdout",
+      "stderr": "final-diff-02.stderr"
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Freeze delivery; transition in_progress to review; separate independent review of new hashes."
+}

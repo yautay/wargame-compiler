@@ -1,0 +1,72 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/inspect_originals.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/original-inspection.log",
+        "bytes": 705,
+        "sha256": "4b561aa199ab8eac608725b51ce37fdc04db2f64206ee461dd094eedc211ce7e"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py prepare",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/prepare-corrected.log",
+        "bytes": 70,
+        "sha256": "c2e9918d2a21b77f6c2795bdf0fd1cb69e2ca88eaba8b1f2dc25adafbed4cceb"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/preflight.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/proposal-preflight-corrected.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py final-verified",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-generation.log",
+        "bytes": 618,
+        "sha256": "34d84eb4f504d2bb9abc87cdfc4c57113415a595c0c7399547ac8327ba63f28d"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py replay-1",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1-generation.log",
+        "bytes": 576,
+        "sha256": "3ea83e1af715f3a4650ab2e5307c93dfe8bd5cb4673686138e550d3ee8c8bb27"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py replay-2",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2-generation.log",
+        "bytes": 576,
+        "sha256": "dfe12a4737b7517e1a7d276c0273d23426321fb8b02e3cdb4ba797d4261c39d5"
+      }
+    }
+  ],
+  "serial_complete_replays": true,
+  "region_count_each": 269,
+  "all_attempts_fresh": true,
+  "development_observations": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/development-observations.json",
+    "bytes": 369,
+    "sha256": "0dd66060ecdc95d40b9a97e1e9ebfbdb5e7071e1f92dc821b08435463e2f3702"
+  }
+}

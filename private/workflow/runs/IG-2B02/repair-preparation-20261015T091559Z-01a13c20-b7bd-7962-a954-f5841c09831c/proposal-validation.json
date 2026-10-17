@@ -1,0 +1,27 @@
+{
+  "outcome": "passed_draft_only",
+  "queue_written": false,
+  "status_changed": false,
+  "real_queue_unchanged": true,
+  "repair_attempt_still_absent": true,
+  "selected_patch": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-queue-patch-v2.json",
+    "bytes": 8873,
+    "sha256": "43878efbbf1431ea50f671dcb497ca33049c225b20ff554f081c9dd1814a2913"
+  },
+  "context_index": {
+    "path": "docs/work/repair-context/IG-2B02-R01-R02-20261015T091559Z.json",
+    "bytes": 1464,
+    "sha256": "8519e7867dd11f3c7c1313328e7d1c627ccc554e406a992568a3230545a01ebc"
+  },
+  "proposed_packet_logical_bytes_review_state": 97079,
+  "transition_label_headroom_bytes": 100,
+  "packet_limit": 100000,
+  "context_policy_unchanged": true,
+  "initial_preparation_failure": {
+    "command": "python -B prepare-repair-scope.py",
+    "exit_code": 1,
+    "error": "Forbidden context: private repair-preparation repair-context-index.json",
+    "changed_hypothesis": "Use a workflow-metadata-only index under already permitted docs/work/. No actual policy/tool/validator edit. Initial proposal retained as superseded process evidence."
+  }
+}

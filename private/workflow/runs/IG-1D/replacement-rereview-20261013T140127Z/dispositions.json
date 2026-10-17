@@ -1,0 +1,110 @@
+{
+  "technical_result": "changes_requested",
+  "actor": "ig1d-replacement-reviewer-20261013T140127Z",
+  "repair_iteration_reviewed": 1,
+  "maximum_repair_iterations": 2,
+  "dispositions": [
+    {
+      "finding_id": "IG1D-R01",
+      "disposition": "closed",
+      "repair_iteration_reviewed": 1,
+      "basis": "The current rematch phase builds label/endpoint/number and substantive evidence maps against the same available prior IDs before those heuristic assignments. Contradictions create gaps and reserve candidates. The unchanged two-term control, independent local and three-way conflicts, candidate/origin retention, explicit no-allocation resolution, non-term step conflict and unambiguous edits/reorder/insertion/deletion/move/rename controls pass.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "explicit-native.log"
+      ],
+      "fixture_assessment": "The public step insertion/renumber test now supplies explicit authoring hints for contradictory number/body evidence. Its exact prior-ID assertions remain unchanged; separate strict negative controls require gaps without hints. This fixture adjustment is consistent with R01, and original reviewer assertions remain byte-identical."
+    },
+    {
+      "finding_id": "IG1D-R02",
+      "disposition": "closed",
+      "repair_iteration_reviewed": 1,
+      "basis": "Validation rejects every locator shared by hints and forced lineage before assignments and operates on a deep copy of previous state. Split and merge conflict controls pass with prior registry immutability. Disjoint hints/lineage, many-to-many bindings, keyed children and unchanged replay pass. Compatible overlap is deliberately unsupported, so no duplicated-decision precedence is silently assumed.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "explicit-native.log"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R03",
+      "disposition": "closed",
+      "repair_iteration_reviewed": 1,
+      "basis": "Resolution unions exact active IDs with active aliases and accepts only a singleton. Original exact-ID, independent direct relation endpoints/navigation-cycle, retired/nonexistent-ID and direct-ID/alias collision controls pass. Explicit scope and both-endpoint controls pass. Full raw-input enumeration independently reproduces every diagnostic target/candidate set and cycle component.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "explicit-native.log",
+        "supplemental-accounting.json"
+      ]
+    },
+    {
+      "finding_id": "IG1D-R04",
+      "disposition": "partially_repaired_changes_required",
+      "repair_iteration_reviewed": 1,
+      "basis": "Unique merged-child content correction, rename, further correction, origin history, origin_key, unchanged replay and exact historical parent/child revision closure pass. Those behaviors must remain intact.",
+      "remaining_requirement": "For the bounded second repair, compare the persisted named child contract before filtering prior receipt children and before allocating a replacement. Preserve logical kind, parent scope and persistent child-key contract independently of locators, list positions and corrected content. Reject incompatible same-ID reuse atomically, or return an explicit unresolved receipt-contract gap retaining the prior allocation and new observation. Use a separately named decision for a deliberately different child contract.",
+      "evidence": [
+        "original-native.log",
+        "risk.log",
+        "history.log",
+        "explicit-native.log"
+      ]
+    }
+  ],
+  "remaining_findings": [
+    {
+      "id": "IG1D-R04",
+      "priority": "P2",
+      "repair_iteration_reviewed": 1,
+      "maximum_repair_iterations": 2,
+      "remaining_repair_iterations": 1,
+      "disposition": "partially_repaired_changes_required",
+      "title": "Validate the persisted named child contract before filtering receipt children",
+      "location": {
+        "path": "src/wgc/wgu_adapter/identity.py",
+        "start": 139,
+        "end": 147
+      },
+      "related_location": {
+        "path": "src/wgc/wgu_adapter/identity.py",
+        "start": 230,
+        "end": 239
+      },
+      "consequence": "The named receipt key pins decision_id, operation, sorted parent IDs and basis, but does not pin the typed child contract. The replay branch filters existing children by current kind and scope before deciding whether prior children exist. Reusing a one-child merge receipt for a term-to-rule change filters away the persisted child and silently allocates a replacement under the same named receipt, with no contract conflict. Persisted lineage decision provenance becomes inconsistent.",
+      "reproducer": "Merge North/South terms into one Together term using decision_id merge-child-contract. Reuse its decision ID, operation, parent IDs and basis with the child locator changed from /terms/0 to /rules/0, supplying a rule child R-Together. The current result assigns the new rule child instead of rejecting or leaving an explicit unresolved contract conflict.",
+      "evidence": {
+        "test": "receipt_edge_probes.py::test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated",
+        "log": {
+          "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/risk.log",
+          "sha256": "1aed9f086f1fe8161c8e1236116eb6d004eaa928af6aea3de14065056860b736",
+          "bytes": 1135
+        },
+        "check": {
+          "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/risk-check.json",
+          "sha256": "0de7ec3486f0f93f00928eb32cc81e1cb0028f9c075ee64fd9e7f802f56e638e",
+          "bytes": 1335
+        },
+        "observed": "The unchanged assertion requiring every assignment to have no ids and a gap_id fails; no ValueError rejects changed receipt reuse.",
+        "execution_count_this_review": 1,
+        "assertions_preserved": true
+      },
+      "expected_result_justification": "Original R04 requires reuse of the persisted receipt/decision with the exact child contract, and verification of changed/colliding decision rejection. Logical kind and parent scope already discriminate persisted children. A same-named output cannot acquire an incompatible kind contract merely because a filter hid its previous allocation. This is an identity/provenance boundary independent of publisher meaning.",
+      "repaired_behavior": "Unique merged-child content correction, rename, further correction, origin history, origin_key, unchanged replay and exact historical parent/child revision closure pass. Those behaviors must remain intact.",
+      "required_change": "For the bounded second repair, compare the persisted named child contract before filtering prior receipt children and before allocating a replacement. Preserve logical kind, parent scope and persistent child-key contract independently of locators, list positions and corrected content. Reject incompatible same-ID reuse atomically, or return an explicit unresolved receipt-contract gap retaining the prior allocation and new observation. Use a separately named decision for a deliberately different child contract.",
+      "required_verification": [
+        "Preserve all 15 original probes and every existing risk, receipt-edge and export-history assertion unchanged.",
+        "Make the unchanged changed-child-kind receipt control reject or return an explicit unresolved conflict, with prior registry/bundle immutable.",
+        "Add meaningful controls for relevant logical scope and persistent child-key contract changes, plus a new decision identifier for a deliberately different output contract; do not blanket-reject valid new decisions.",
+        "Retain correction/rename, allocation and origin_key stability, exact parent/child revision history, unchanged replay, keyed indistinguishable split children and multi-child ambiguity.",
+        "Preserve R01-R03 closure and all source/foundation/prior-review bytes; freeze iteration 1 before a separate bounded iteration-2 claim.",
+        "Rerun adapter/export suites, unchanged original/risk/history probes, complete independent raw/field/binding/reference accounting, two full canonical transforms/publications, scripts/check.ps1 -Task IG-1D and git diff --check; obtain independent re-review of the new exact hashes."
+      ],
+      "new_finding": false,
+      "retry_policy": "One reproduction in this replacement review; no unchanged defect retry. Repair cycle 1 of maximum 2 has been consumed."
+    }
+  ],
+  "new_finding_ids": [],
+  "product_modified_by_reviewer": false
+}

@@ -1,0 +1,32 @@
+{
+  "review_transition_command": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/review-transition.json",
+    "sha256": "b27459614e8309ddb1f7c63bc08374f2f3a9c9777c403cd72b89b10f4490d5b9",
+    "bytes": 787
+  },
+  "command_exit_code": 1,
+  "error": "OSError Errno 22 writing docs/ROADMAP.md after queue event was committed",
+  "queue_event_committed": true,
+  "task_status": "review",
+  "delivery": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery.json",
+    "sha256": "c69df3b2867f440c6b330159a2d335dff6bf959192ebb9d3ac5d0ea59977195e",
+    "bytes": 82701
+  },
+  "cause": "Underlying transient Windows filesystem write error; specific locking cause not observed",
+  "recovery": "Do not retry transition or append another event; regenerate projections through unchanged workflow render",
+  "recovery_check": {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py render",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "scripts/workflow.py",
+      "render"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T09:49:28.645759+00:00",
+    "ended_utc": "2026-10-14T09:49:30.613197+00:00",
+    "wall_seconds": 1.9690000000409782,
+    "stdout": "render-recovery.stdout",
+    "stderr": "render-recovery.stderr"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "summary": "Exact nonassigned objects and retained order preserved; only four active placeholders retired.",
+  "baseline": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+    "sha256": "24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d",
+    "bytes": 3969071
+  },
+  "baseline_registry": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json",
+    "sha256": "5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701",
+    "bytes": 143900
+  },
+  "retired_active_placeholders": [
+    "region:1129da76-b660-47f5-ae4d-1135333a447f",
+    "region:b57e73bf-1c15-4d79-a39e-d5e342b5cc6d",
+    "region:d82e8fe6-a402-40f2-9f6a-8778c4e392a2",
+    "region:f8abe014-2cf3-4d93-ad65-411a23fd81bb"
+  ],
+  "preserved_regions": 937,
+  "preserved_evidence_objects": 925,
+  "preserved_links": 229,
+  "preserved_registry_entries": 1013,
+  "result_registry_entries": 1282,
+  "retained_reading_order_count": 937,
+  "retained_reading_order_hash": "8d45c223497cf0b212593bbfacdcbb0887b177e50583d9a040cc5cd0f6377130",
+  "preserved_region_objects_hash": "bfa47f5bc851b1f879057854a02c9833841aa38ba34e1710579ff1b31ee89db4",
+  "pages_before_after_hash": "d0abc194fbfa62a12c15cc6016e48a6abbc07b9ace294cdcaaa33be7c429b797",
+  "links_before_prefix_hash": "8a979e4d16b1b423c477d330d643560504d99f066612927b0919ef26e41b0347",
+  "evidence_before_prefix_hash": "81e300c6f1e16dd7fe83902505590f65067a5dc87b1fc3eae61dd69d97cd0879",
+  "source_before_after_hash": "a0e87cd4689764713d54ff843d5c26b43a84cf6ed4e8c0cce9e8280610a4646d",
+  "old_attempt_preserved_artifacts": 25,
+  "human_semantic_acceptance": false
+}

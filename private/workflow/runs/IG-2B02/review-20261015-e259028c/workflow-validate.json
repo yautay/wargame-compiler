@@ -1,0 +1,30 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B02-reviewer-e259028c:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/runtime-configuration.json",
+  "configuration_sha256": "951b8c432c4a5ec518dc48ee332113ff597a708c469982f3d3ed67e00468f437",
+  "task": "IG-2B02",
+  "name": "workflow-validate",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "scripts/workflow.py",
+    "validate"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T14:53:17.038422+00:00",
+  "ended_utc": "2026-10-15T14:53:18.530618+00:00",
+  "wall_seconds": 1.5,
+  "stdout": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/workflow-validate.stdout",
+    "bytes": 60,
+    "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+  },
+  "stderr": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/workflow-validate.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

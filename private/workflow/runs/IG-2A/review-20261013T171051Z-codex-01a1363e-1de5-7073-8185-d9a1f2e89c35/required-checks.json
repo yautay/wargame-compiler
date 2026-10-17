@@ -1,0 +1,66 @@
+[
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/sources -q --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\t -p no:cacheprovider --tb=short",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/sources",
+      "-q",
+      "--basetemp",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\t",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T17:12:33.285252+00:00",
+    "ended_utc": "2026-10-13T17:12:57.014876+00:00",
+    "wall_seconds": 23.719000000040978,
+    "stdout": "sources-tests.stdout",
+    "stderr": "sources-tests.stderr"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T17:12:57.016114+00:00",
+    "ended_utc": "2026-10-13T17:13:00.582003+00:00",
+    "wall_seconds": 3.5630000000819564,
+    "stdout": "workflow-validate.stdout",
+    "stderr": "workflow-validate.stderr"
+  },
+  {
+    "command": "git diff --check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T17:13:00.582003+00:00",
+    "ended_utc": "2026-10-13T17:13:01.833049+00:00",
+    "wall_seconds": 1.25,
+    "stdout": "diff-check.stdout",
+    "stderr": "diff-check.stderr"
+  },
+  {
+    "command": "pwsh -NoProfile -File C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\check_adapter.ps1",
+    "argv": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35\\check_adapter.ps1"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T17:13:01.834290+00:00",
+    "ended_utc": "2026-10-13T17:14:38.878999+00:00",
+    "wall_seconds": 97.04700000002049,
+    "stdout": "project-check.stdout",
+    "stderr": "project-check.stderr"
+  }
+]

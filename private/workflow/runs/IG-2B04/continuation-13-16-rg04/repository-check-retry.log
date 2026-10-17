@@ -1,0 +1,80 @@
+LOG_ROOT=C:\repo\wargame-compiler\private\workflow\checks\active-ede0396a223744d4bdcc21595826a5f3
+Validated 39 tasks, DAG, scope, context and derived views.
+{
+  "result": "passed",
+  "task": "IG-2B04",
+  "context_files": 11,
+  "context_bytes": 42271,
+  "queue_unchanged": true,
+  "models_launched": 0,
+  "product_files_written": 0
+}
+.....................F.................................................. [ 29%]
+........................................................................ [ 59%]
+........................................................................ [ 89%]
+..........................                                               [100%]
+================================== FAILURES ===================================
+____________________ test_default_ripgrep_excludes_history ____________________
+tests\test_workflow.py:142: in test_default_ripgrep_excludes_history
+    result=subprocess.run(['rg','--files'],cwd=ROOT,capture_output=True,text=True,check=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:548: in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:1026: in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:1538: in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+E   FileNotFoundError: [WinError 2] The system cannot find the file specified
+=========================== short test summary info ===========================
+FAILED tests/test_workflow.py::test_default_ripgrep_excludes_history - FileNo...
+1 failed, 241 passed in 103.71s (0:01:43)
+warning: in the working copy of 'docs/HANDOFF.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/ROADMAP.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/STATUS.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/context-policy.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/queue.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-1A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-1B.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-1C.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-1D.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-1E.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B01.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B02.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B03.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B04.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B05.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B06.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B07.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B08.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B09.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B10.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2B11.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2C.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-2D.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3B.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3C.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3D.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3E.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3F.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3G.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-3H.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4B.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4C.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4D.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4E.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4F.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4G.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4H.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-4I.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-5A.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-5B.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'docs/work/tasks/IG-5C.md', CRLF will be replaced by LF the next time Git touches it
+Exception: C:\repo\wargame-compiler\scripts\check.ps1:39
+Line |
+  39 |  … de -ne 0) { throw "Checks failed: plan=$planCode dry-run=$dryCode pyt …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Checks failed: plan=0 dry-run=0 pytest=1 diff=0

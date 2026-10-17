@@ -1,0 +1,29 @@
+{
+  "role": "executor",
+  "actor": "ig2:004-IG-2B03-executor-537dd410:executor",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/004-IG-2B03-executor-537dd410/runtime-configuration.json",
+  "configuration_sha256": "5d5104f87756a8cfa584fa5b1d949565f7eed77f7efd1359333f892bb4724c70",
+  "format": "wgc-ig2b03-context-access-incident-1",
+  "utc": "2026-10-15T15:33:56.521876+00:00",
+  "incident": {
+    "command": "pwsh -NoProfile -File scripts/search.ps1 -Pattern 'artifact.*scope|write_scope|configuration_sha256|def.*evidence'",
+    "purpose": "Locate workflow artifact-scope validation before freezing the handoff.",
+    "observed_result": "The wrapper searched the complete active allowlist and returned unbounded canonical inventory/reference matches outside the exact IG-2B03 packet, including earlier IG-2A artifacts. Tool output was truncated.",
+    "constraint": "Exact manifest context only; no whole historical manifests/run directories or source content outside assigned contract.",
+    "assessment": "Context-access boundary cannot be certified. This executor must not claim that no out-of-packet access occurred or deliver the result as contract-compliant.",
+    "use": "The assigned partition and final evidence were authored and root-validated before this search; returned out-of-packet material was not used for source meaning or later authoring.",
+    "containment": "Stopped the running derivation helper with Ctrl-C; exit code 1. Preserved every existing output and old artifact. No further product authoring or delivery envelope created.",
+    "resolution_owner": "IG-2 coordinator and supervisor",
+    "smallest_resolution": "Assess this access incident and preserve this attempt. If execution is authorized again, prepare a fresh bounded packet and exclusive output root for a fresh executor; constrain search output to exact allowed files. No acceptance or permission exception is inferred by this executor."
+  },
+  "evidence_set_counts": {
+    "final-verified": 135,
+    "replay-one": 71,
+    "replay-two": 0
+  },
+  "delivery_created": false,
+  "semantic_acceptance_granted": false
+}

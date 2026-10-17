@@ -1,0 +1,160 @@
+{
+  "format": "wgc-F02-recovery-context-1",
+  "task": "IG-2B08",
+  "current_repair_scope": {
+    "path": "private/workflow/runs/IG-2B08/F02-validation-recovery-20261017-01/repair-scope.json",
+    "sha256": "6a635f262d5f9df7de72ed76c9ce9db704b62681f71a20d0c9ed4d78760ce6d2",
+    "bytes": 22027
+  },
+  "frozen_F02_review": {
+    "path": "private/workflow/runs/IG-2B08/review-86a341a9/review.json",
+    "sha256": "4f5e6693ed8159c02d0ef85f2cbf16ad76e83a4a2135e495b47e21f95faeabe7"
+  },
+  "finding": {
+    "id": "F02",
+    "severity": "medium",
+    "title": "Page-29 Celt C hit-marker detail truncates the visible 4 digit",
+    "locations": [
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/component-ledger.json",
+        "pointer": "/components/65/points"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/region-ledger.json",
+        "pointer": "/new_observations/145/points"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/original-page-inspection.json",
+        "pointer": "/observations/145/points"
+      }
+    ],
+    "region_key": "ig2b08:p29:collapse-diagram-component-c-hits",
+    "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+    "region_revision": "beca666ef8bca81a63508f8741814b2abd7a61e33abdd0dd88762e66c43275d7",
+    "physical_page": 29,
+    "points": [
+      106,
+      496,
+      133,
+      527
+    ],
+    "description": "Fresh original inspection shows the intended visible 4 hit-marker crop cuts through the right stem. In the independently selected original-source window [130,513,138,523] points, 51 red/yellow visible stem pixels lie outside the intended component; missing 144-DPI pixel bounds are [266,1026,272,1040]. The same region revision and incomplete intended crop appear in final-verified and both complete replays.",
+    "consequence": "The authored component and exact evidence are incomplete. Whole-page primary tiles retain the marker, and preservation/denominators pass; those do not satisfy the intended detail-component completeness criterion.",
+    "affected_criteria": [
+      "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+      "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+      "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+      "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical."
+    ],
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/boundary-aids/c-hit-original-boundary.png",
+        "bytes": 84284,
+        "sha256": "ecd1b94c8a17609f514cbc1d8ce50584326668ee4b3d657ecde9c39e8abaa873"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/boundary-aids/c-hit-delivered.png",
+        "bytes": 27083,
+        "sha256": "38b1d51b9282bd3c8ad00caae23aa29c5dd1206a92d7eedbdf823a5fefc84534"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/independent-verification.json",
+        "bytes": 7785,
+        "sha256": "3a47402443ecf96c2747a70db97ebafa94e33b99ef18f08b6f4ed88fa42c13cd"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/originals/page-29.png",
+        "bytes": 756272,
+        "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e"
+      }
+    ],
+    "required_repair": "In a new coordinator-authorized repair attempt, correct or split the zero-denominator C hit-marker selection so the full visible 4 and marker are included in intended component evidence. Preserve all disjoint primary tiles, accepted baseline objects, registry history and frozen attempts. Regenerate affected evidence and dependent reports/indexes plus complete final/replay artifact sets at fresh paths.",
+    "repair_validation": [
+      "Freshly compare the complete visible digit and marker against original physical page 29. Add a source-bound regression that rejects [106,496,133,527] and checks the full visible stem/marker extent; a key-set or single-pixel check is insufficient. Verify the 51-pixel witness patch is included in the intended detail, not merely a primary tile or adjacent counter.",
+      "Recheck every assigned component and context boundary; preserve the resolved F01 full-arrow masks and page-33 exact clipping. Keep context denominator zero.",
+      "Generate the complete final and two independent serial replay sets separately, and verify stable identities, registry history, normalized bytes/locators, complete current indexes, baseline preservation and all delivery hashes.",
+      "Rerun unchanged source suite, the three pinned source CLI validators via task_access, owned batch verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check. Use approved exact-command execution for observed Windows access failures. Obtain fresh independent review."
+    ]
+  },
+  "resolved_findings_to_preserve": [
+    {
+      "id": "F01",
+      "result": "resolved",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/review-86a341a9/independent-verification.json",
+        "bytes": 7785,
+        "sha256": "3a47402443ecf96c2747a70db97ebafa94e33b99ef18f08b6f4ed88fa42c13cd"
+      },
+      "basis": "Fresh full-arrow visual comparison and all 199/194 cyan-mask plus 458 black-arrow source pixels verified inside intended final/replay evidence; old truncated crop rejected."
+    }
+  ],
+  "candidate_drafts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-7582f722/author-selections.json",
+      "sha256": "738f1f75bebebe17c2d9d790722f91d1816e7d4daf818bdb4b89e4381146500c",
+      "bytes": 85849
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-7582f722/author-inventory.json",
+      "sha256": "4b2d774d5732fe06943c9e6bb33da6aef39818742ff8cf5ed17ba594c129c6f5",
+      "bytes": 4398415
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-7582f722/author-registry.json",
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a",
+      "bytes": 184306
+    }
+  ],
+  "frozen_helper_context": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-context.json",
+    "sha256": "074ed9553411b09e77d1a12837e4e61b556a70f252cdf6f65b0f933c4744cdd4",
+    "bytes": 7615
+  },
+  "original_accepted_input_contract": {
+    "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+    "sha256": "e05b6bd9b1d2cc528f4721f916872ace358a2f9b84a5e119dc76c30970753f3d",
+    "bytes": 12381
+  },
+  "protocol": "Read the compact CURRENT finding and exact named candidate fields only. The frozen helper context names F01 delivered helper candidates; bounded read/copy/adaptation of ONLY those reviewed helper files remains permitted. Do not read or execute stopped F02 helpers, wrappers or transcripts. Draft JSON is not source proof; fresh original inspection and full evidence/replay rebuilding are required. Hash/copy full records internally without output.",
+  "source_access": {
+    "inventory_physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only": [
+      {
+        "physical_page": 28,
+        "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+      },
+      {
+        "physical_page": 33,
+        "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+        "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+        "box_points": [
+          45,
+          50,
+          306,
+          80
+        ],
+        "box_normalized": [
+          73529,
+          63131,
+          500000,
+          101011
+        ],
+        "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+        "raster_144dpi": {
+          "x": 90,
+          "y": 100,
+          "width": 522,
+          "height": 60
+        },
+        "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+      }
+    ],
+    "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+    "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+  }
+}

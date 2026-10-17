@@ -1,0 +1,231 @@
+{
+  "format": "wgc-current-repair-context-1",
+  "task": "IG-2B08",
+  "review_reference": {
+    "path": "private/workflow/runs/IG-2B08/review-b9632401/review.json",
+    "sha256": "cb5b44681eaa24db0254ad9acac69e03da8377ab2e532647ff6105e4ab2098c7",
+    "bytes": 2073298
+  },
+  "delivery_reference": {
+    "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/delivery.json",
+    "sha256": "a9be913e18789c3ea6e4c6a471f95c1471b6d228ec3bdd093178ecb243996fce",
+    "bytes": 2047472
+  },
+  "review": {
+    "outcome": "changes_requested",
+    "summary": "Changes requested for F01: the page-30 Advance arrow detail clips the left cyan arrowhead in final and both replays. All frozen hashes, 44-page preservation, normalized replay/ledger/index checks and required suites pass. No semantic acceptance or gameplay readiness granted.",
+    "findings": [
+      {
+        "id": "F01",
+        "severity": "medium",
+        "title": "Page-30 Advance component evidence clips the left cyan arrowhead",
+        "locations": [
+          {
+            "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/component-ledger.json",
+            "pointer": "/components/149/points"
+          },
+          {
+            "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/region-ledger.json",
+            "pointer": "/new_observations/229/points"
+          },
+          {
+            "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/original-page-inspection.json",
+            "pointer": "/observations/229/points"
+          }
+        ],
+        "region_key": "ig2b08:p30:advance-component-arrows",
+        "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+        "region_revision": "50be08a1fc9d97a3be7d28ffe938676af499d4450bbb9bb6f1b71755e6c1bcdd",
+        "description": "The Advance panel has two cyan curved arrows. The arrows detail uses [104,345,141,476] points, cutting off the head and upper curve of the left arrow. Fresh original pixel [188,734] at 144 DPI is cyan [42,197,244] (PDF point [94,367]); it lies outside every one of the seven Advance detail-component boxes. A bounded 12x13-point source window contains 77 such cyan pixels. The same incomplete boundary is frozen in final-verified and both replays. Primary field tiles retain these pixels, so this is incomplete component accounting/evidence, not lost whole-page pixels or denominator inflation.",
+        "consequence": "The complete-component/fresh exact evidence and complete-replay claims are stronger than the authored component set. The verifier compares keys to SPECS and cannot catch this truncated source component.",
+        "affected_criteria": [
+          "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+          "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+          "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+          "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical."
+        ],
+        "evidence": [
+          {
+            "path": "private/workflow/runs/IG-2B08/review-b9632401/component-boundary-probe.json",
+            "bytes": 4054,
+            "sha256": "13691bda45bd3a4a7963992d1392117a42d2ffe6564468ec0cd0c8ac3ec5f462"
+          },
+          {
+            "path": "private/workflow/runs/IG-2B08/review-b9632401/page30-advance-arrow-boundary.png",
+            "bytes": 511310,
+            "sha256": "059d900cb70ea5d73699aeb129e071b059c79fdd187e39083379ef1bb52e6746"
+          },
+          {
+            "path": "private/workflow/runs/IG-2B08/review-b9632401/originals/page-30-sheet-5.png",
+            "bytes": 209769,
+            "sha256": "583580fb501941aa6b9a1cc3563e17144f3d4be02961af8ffd77b174cd9343b5"
+          }
+        ],
+        "required_repair": "In a fresh authorized repair attempt, correct or split the zero-denominator Advance arrow detail selections so both cyan curves, their arrowheads and the black forward arrow are fully accounted for with exact component locators. Preserve the disjoint primary field tiles and all accepted baseline objects/registry history. Regenerate affected evidence and reports, complete final/replay sets and exhaustive source/delivery indexes at fresh paths; keep this frozen delivery and blocked attempt immutable.",
+        "repair_validation": [
+          "Compare the complete left cyan arrow against the original page and corrected final/replay detail evidence; the intended arrow component must contain source point [94,367] and its full visible curve/head, not merely a field tile or neighboring counter crop.",
+          "Add a source-bound component-completeness check that rejects the current truncated selection; key-set equality alone is insufficient.",
+          "Recheck all assigned components and both complete separately generated serial replays, stable identities, evidence freshness and exhaustive current indexes; preserve 44-page baseline objects, retained order and zero context contribution.",
+          "Rerun the unchanged source suite, final and both replay CLI validation, owned batch verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check using authorized execution where required."
+        ]
+      }
+    ]
+  },
+  "frozen_delivery": {
+    "summary": "Fresh IG-2B08 four-page inventory delivered with complete evidence, two full independent replays, exact 44-page preservation and passing unchanged checks; independent review requested.",
+    "artifact_count": 7719,
+    "status": "changes_requested; reusable candidate inputs, not accepted output"
+  },
+  "named_inputs": {
+    "author_specs.py": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/author_specs.py",
+      "bytes": 18321,
+      "sha256": "41e901aae13a5e6944183ad9d1af71fd861784dcc4ccbd94a7044cd4445b3f1a"
+    },
+    "build_inventory.py": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py",
+      "bytes": 12707,
+      "sha256": "517f0fb0d2a176a2e0efdfd61eb8e37a4c2581175399291e8383d7eaa4c9e4d8"
+    },
+    "verify_batch.py": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/verify_batch.py",
+      "bytes": 17438,
+      "sha256": "67edb66447c89cd793a6f337a8711600d57a12c7d947b83cd10d6a14281d9e72"
+    },
+    "inspect_originals.py": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/inspect_originals.py",
+      "bytes": 2280,
+      "sha256": "5b23a3a69e52f205df25e706edf4cd837866d936768cd43e04342f0959eb7b6a"
+    },
+    "freeze_delivery.py": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/freeze_delivery.py",
+      "bytes": 12667,
+      "sha256": "5646393d430911f143b25831eaf1063577aafffc1c5461e9d6771b7da4572b82"
+    },
+    "validate_delivery.py": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/validate_delivery.py",
+      "bytes": 1018,
+      "sha256": "4d1589466ea559e12f3ef01d1f7a86c875d8bfde53ab273277ce3ee0c57c9692"
+    },
+    "author-selections.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/author-selections.json",
+      "bytes": 85639,
+      "sha256": "72c0caece08618566308b5015e5fcf09d2dbb8f7dc457ebde7134528a6fffe4a"
+    },
+    "component-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/component-ledger.json",
+      "bytes": 727648,
+      "sha256": "2276c1135d7614a53c0eb0e3656c3bde3cec8dc62e135d8b0df94d3dbca5b149"
+    },
+    "region-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/region-ledger.json",
+      "bytes": 2599710,
+      "sha256": "217aaa856537c77c268e170c6de8d7dec716c19c5044043bfa1b7faae2676a3a"
+    },
+    "original-page-inspection.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/original-page-inspection.json",
+      "bytes": 1026645,
+      "sha256": "fc1a5edf90d9ccd329f3bdfb3fb3ace6881182965285d0b7be09998ef3fcbbd7"
+    },
+    "continuations.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/continuations.json",
+      "bytes": 68064,
+      "sha256": "001cf749199daa183b2a2fd96b79f783e1594653281d4498b1b635eb18031553"
+    },
+    "coverage-report.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/coverage-report.json",
+      "bytes": 79481,
+      "sha256": "35eaf734e44a737ed8b0cd929479b8390d4e7138122eb482e2853e653acf8da7"
+    },
+    "source-pins.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/source-pins.json",
+      "bytes": 1385710,
+      "sha256": "8729e8ab8f54a56f6c80179fe17097abc60747d82901655d13b82a55d4e65b50"
+    },
+    "toolchain.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/toolchain.json",
+      "bytes": 4514,
+      "sha256": "bce9072ff1de64bc6c60bb215ba7b60697c28763e080770ca06c2c324fa88f03"
+    },
+    "preservation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/preservation-report.json",
+      "bytes": 2102,
+      "sha256": "8dde370e207777e827ab0c69f1e04feb41eafdf1e3a9b206480e6ca2d167eada"
+    },
+    "replay-report.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-report.json",
+      "bytes": 3541,
+      "sha256": "575b66403b106f2a24a10bbb5b86220ba7f3220b7ecb30767737b42852578dbd"
+    },
+    "validation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/validation-report.json",
+      "bytes": 8260,
+      "sha256": "616b5c388f58188edde6c79c1259d32f2edef189fc5667fffd6047546778b1c3"
+    },
+    "delivery-handoff.md": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/delivery-handoff.md",
+      "bytes": 2751,
+      "sha256": "5a5d748c13f02295002c04c94e5bb6bca9e9949dfd7aad5f324893720ed5b9b6"
+    },
+    "final-verified/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+      "bytes": 5085000,
+      "sha256": "3293d35ffb2d81004af8f10edab49e4e3ff019b17a79ca48bf8879adee4660b6"
+    },
+    "final-verified/identity-registry.json": {
+      "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/identity-registry.json",
+      "bytes": 184306,
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+    }
+  },
+  "read_protocol": [
+    "This small projection is authorized for full reading; never print the source review/delivery envelopes.",
+    "Read named helper source at these exact paths in bounded line windows (at most 120 lines per command); do not execute any helper at its frozen path.",
+    "Copy only these named helpers to the new owned root, then adapt output/runtime/packet/claim bindings before execution. Never inherit old actor, configuration, completion or validation claims.",
+    "Select authored JSON by assigned pages 29-32 or F01 component keys/IDs; inspect report metadata/selected fields only. Full copying/hashing/validation may run internally without emitting source text or manifest rows.",
+    "source-pins.json and preservation manifests are internal verification/index inputs; print only aggregate counts and statuses. No recursive private listings or private search.",
+    "Review F01 evidence paths named inside the finding are authorized diagnostics. Their content is input evidence, not fresh source inspection or acceptance.",
+    "Old failed inventory-8d84cd90-01 helpers, text, images and transcripts remain forbidden. The later frozen inventory-p33-scope02 named candidate inputs are explicitly permitted by this CURRENT repair contract."
+  ],
+  "allowed_source_access": {
+    "inventory_physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only": [
+      {
+        "physical_page": 28,
+        "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+      },
+      {
+        "physical_page": 33,
+        "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+        "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+        "box_points": [
+          45,
+          50,
+          306,
+          80
+        ],
+        "box_normalized": [
+          73529,
+          63131,
+          500000,
+          101011
+        ],
+        "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+        "raster_144dpi": {
+          "x": 90,
+          "y": 100,
+          "width": 522,
+          "height": 60
+        },
+        "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+      }
+    ],
+    "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+    "forbidden": "No old sessions/transcripts/helpers, archive/history, whole-PDF analysis, private search, accepted closure/delivery envelope dumps or other dependency records."
+  }
+}

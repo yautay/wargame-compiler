@@ -1,0 +1,23 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/runtime-configuration.json",
+  "configuration_sha256": "8fe2d32465346ef58ac7c4308399eeb2123ef6d2c6be9039a9c9ee5df160375a",
+  "summary": "Required unchanged source suite passed through approved exact-command execution after restricted-token temp access denial.",
+  "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F01-manifest02/source-pytest -p no:cacheprovider --tb=short",
+  "attempts": [
+    {
+      "sandbox_permissions": "use_default",
+      "exit_code": 1,
+      "observed_error": "PermissionError: [WinError 5] Access is denied for repair-F01-manifest02/source-pytest at pytest cleanup; setup errors preceded cleanup."
+    },
+    {
+      "sandbox_permissions": "require_escalated",
+      "exit_code": 0,
+      "observed_result": "71 passed in 31.23s"
+    }
+  ],
+  "tests_assertions_libraries_acls_unchanged": true
+}

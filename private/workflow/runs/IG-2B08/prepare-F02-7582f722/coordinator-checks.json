@@ -1,0 +1,91 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:002-IG-2B08-coordinator-7582f722:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T111422Z-80dfde30/002-IG-2B08-coordinator-7582f722/runtime-configuration.json",
+  "configuration_sha256": "4d8925de4427f1fad224a46afb9a4e9c8cb4e248356752bb48603b0fb0d820e8",
+  "task": "IG-2B08",
+  "utc": "2026-10-17T11:34:42.061005+00:00",
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 1,
+      "execution": "restricted-token initial attempt",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/full-check.log",
+        "sha256": "34319b0ce6066bb37d114f1a94a270315cabb877770891f3cb56f0685134fb52",
+        "bytes": 282598
+      },
+      "result": {
+        "path": "private/workflow/checks/active-3ea59fb451fb403daf846aad0c15d819/result.json",
+        "sha256": "7b349d06c741c890c453755919a947a5b0e4e7f640359fb7c2f41aeff7e22ea9",
+        "bytes": 206
+      },
+      "selected_exits": {
+        "plan_exit": 0,
+        "dry_run_exit": 1,
+        "tests_exit": 1,
+        "diff_exit": 0
+      },
+      "reason": "Packet dry-run exceeded 100 KB; compact index refinement resolved it. Pytest restricted-token PermissionError/WinError 5 resolved by approved exact-command execution."
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "execution": "approved exact unchanged command",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/full-check-approved.log",
+        "sha256": "487e95948606007ddca8db39709e26d70417ebeba95ae6d46f95c1f5feedb477",
+        "bytes": 5721
+      },
+      "result": {
+        "path": "private/workflow/checks/active-453ca2c4ff014b8eae408bb1d09e99c2/result.json",
+        "sha256": "1cdd0798cb0b9477cf5047f1850a527d0d830de37a78baa367940bf870859475",
+        "bytes": 206
+      },
+      "selected_exits": {
+        "plan_exit": 0,
+        "dry_run_exit": 0,
+        "tests_exit": 0,
+        "diff_exit": 0
+      },
+      "reason": null
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/diff-check.log",
+        "sha256": "800c86e029a3d6b437e80604486e4218af73a372470e4c5c54afa666afe2034d",
+        "bytes": 277376
+      }
+    },
+    {
+      "command": "Reverify complete immutable delivery and preservation-manifest hashes; verify fresh attempt absent",
+      "exit_code": 0,
+      "delivery_artifacts": 5302,
+      "preserved_artifacts": 10358,
+      "attempt_absent": true
+    }
+  ],
+  "packet_refinement": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/packet-refinement.json",
+    "sha256": "de948bb2734a017e7f41078b54990eefa96bd82b2574d45bad3cd1b8b303be71",
+    "bytes": 427
+  },
+  "coordinator_validation_attempts": [
+    {
+      "command": "Initial coordinator evidence finalizer",
+      "exit_code": 1,
+      "reason": "Coordinator wrapper passed a relative session path to the absolute-path configuration binding API. Corrected wrapper argument before any evidence or queue write; repository tests unchanged.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/finalize.log",
+        "sha256": "f56fc2912148a20ddf5c0e338feaa942a49c1558045a35fb74d0b3e682c45d8b",
+        "bytes": 865
+      }
+    }
+  ],
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false
+}

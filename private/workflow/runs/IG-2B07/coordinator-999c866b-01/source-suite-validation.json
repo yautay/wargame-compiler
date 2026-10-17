@@ -1,0 +1,15 @@
+{
+  "format": "wgc-command-validation-1",
+  "task": "IG-2B07",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B07-coordinator-999c866b:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/001-IG-2B07-coordinator-999c866b/runtime-configuration.json",
+  "configuration_sha256": "aa387d7719b3bad11fbd62542fadada6a417957351ca88be87750d3f0571eb45",
+  "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/coordinator-999c866b-01/pytest-sources -p no:cacheprovider --tb=short",
+  "execution_permissions": "approved require_escalated following observed restricted-token WinError 5",
+  "exit_code": 0,
+  "output": ".......................................................................  [100%]\r\n71 passed in 29.51s\r\n",
+  "summary": "71 source-tool tests passed; assertions unchanged."
+}

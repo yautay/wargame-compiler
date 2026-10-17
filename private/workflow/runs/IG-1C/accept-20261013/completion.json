@@ -1,0 +1,436 @@
+{
+  "task": "IG-1C",
+  "criteria": [
+    "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+    "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+    "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+    "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results."
+  ],
+  "artifacts": [
+    {
+      "path": "src/wgc/wgu_adapter/parser.py",
+      "sha256": "1a696cc1e36e143c7118b122a868de799134c84ae2f7615e9eacf3bcafca108f"
+    },
+    {
+      "path": "src/wgc/wgu_adapter/importer.py",
+      "sha256": "b8c67438690b3f68d66e2b6b85b25cd5e43b81673c7f8aaf969b659b9980f359"
+    },
+    {
+      "path": "tests/wgu_adapter/test_importer.py",
+      "sha256": "1eef689b79c41010effec2ebdb129ec73ea26c3b30757fab322d7c2c5e0b8226"
+    },
+    {
+      "path": "tests/wgu_adapter/test_repair_contract.py",
+      "sha256": "76bc72c5186912c4b8baf5e757f0fb5a5bbca3a6f63af382002cfb2b16021b6f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline/src/wgc/wgu_adapter/importer.py",
+      "sha256": "812a8962f7d3cd413f7126db7d4abfc2d833848e192d9091e75282f20459a840"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline/src/wgc/wgu_adapter/parser.py",
+      "sha256": "999ea8ba3917901520c63722a8919e1c3eeeae82b558024c520905d0d54c7482"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline/tests/wgu_adapter/test_importer.py",
+      "sha256": "e9b8804ea333bea58fb701b05c9c06f7d076d4e7dcd905969c6ba3469d798646"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline-manifest.json",
+      "sha256": "e6142e277dd041556f09ff5040e438bc69f6a6e57ba4ac8d2b18cf123db78295"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/checkpoint.json",
+      "sha256": "b08b6fecdc9106c3b70c3363c183d0179de2dc06063839886cec1b621ee94492"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/checks.json",
+      "sha256": "be573f3cd589d357ae976e7a08c6c800f6769bd617e1d73e0c1111872a502952"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/claim.json",
+      "sha256": "88b007fc53d73e7a0d0d955bf46f51c4d35d4bc75b815fbbe919e574d165fb00"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/configuration.json",
+      "sha256": "8fc041d779a814eb8f9a5aa97028b2e643d000e5be8c0eb8ff79211f71453c8a"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/current-packet.json",
+      "sha256": "38246cb4b3fba50ba4d5d8bbfc9c5f280b3360025fed27642c5230bb7ffcb658"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/diff-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/embed_schema.py",
+      "sha256": "dc832bfee3b0122b32592718c131d36b572b58a64d29c859c9b87252164f2c60"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/final-checks.json",
+      "sha256": "2eeac946f8f36e1b3734c6307a780300bfe37252307a7cd734a01c674f21d8d7"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/fixture-correction.json",
+      "sha256": "2a369ba9583cdb0a1c57ed3f4b856c0cd882b510eb7f1675bf84ab975b5db59b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/freeze.py",
+      "sha256": "d5bf4a59bc6582edc05a5815653fb6464570b030f444d080c3c5433ac72df8e8"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/full_audit.py",
+      "sha256": "06efcbea34cd735ce5ea642c433d0e71f4d50d39a1d9352e728544c2a311b6fc"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/full_audit_final.py",
+      "sha256": "1864ed7f07783f404638bffcd6927a2d1ac1f48f93a79d0516505da0a33a367b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/measurement.json",
+      "sha256": "d4ae153fcab6046afea0438203e7bec4303d59e73b2d375a7ddd7795c08de8b3"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/pinned-wgu-schema.json",
+      "sha256": "0a93858ed3e0d99382ea962350e3b2994fab90b872a8b86584519b5a9e33a551"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/prepare.py",
+      "sha256": "000eb48d434b2c3734baf6e898df7c355305722bd111e71e5ec18672a03eb7e1"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/preservation.json",
+      "sha256": "ca1072949729ff409cc8d36a5c049f50d41bf870905e44478cf5aac2645049a1"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/regressions-final.log",
+      "sha256": "d021a7c81916220fc7ffd5a38a567c512b128673060c970736bdde7df3966f78"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/repair-scope.json",
+      "sha256": "e0ad1bf3d183158310ecfc8ff1a95578922feb833f29755423ae4c2006c30809"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/report.md",
+      "sha256": "5ebe310c07364fc96cea12377f5aecd18487204ba4bed186ca440a0340141270"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/verify_final.py",
+      "sha256": "73d31ed9e5e798279e5abe874444f36706ceac1410b9c583711a10938296905d"
+    },
+    {
+      "path": "private/ig/projects/spqr/runs/import/ig1c-repair01-final-20261013/import.json",
+      "sha256": "2999d63c680b4c52a095e0edb18952c70eefdf4baf7c2e01481840cda18ca61a"
+    },
+    {
+      "path": "private/ig/projects/spqr/runs/import/ig1c-repair01-final-20261013/independent-accounting.json",
+      "sha256": "f891f69fb91b444e2cd2c2693dfe201944180e78b204d4d3f41be95582ae2e76"
+    },
+    {
+      "path": "private/workflow/checks/active-b54e78e615d14ca9ba260b8458848c5c/dry-run.log",
+      "sha256": "9e28e23d139d9da9a822e7d4f38a01e754f18fe7e627ede35686ace586e8d2cb"
+    },
+    {
+      "path": "private/workflow/checks/active-b54e78e615d14ca9ba260b8458848c5c/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-b54e78e615d14ca9ba260b8458848c5c/pytest.log",
+      "sha256": "4168372a46c228412d5e858677934955501acf9ac7adec701173061644a232fe"
+    },
+    {
+      "path": "private/workflow/checks/active-b54e78e615d14ca9ba260b8458848c5c/result.json",
+      "sha256": "bc0be22f4fbf23d442e1f25b43b0aec38660c05ab9fac6d9a37bfbc1fe2db250"
+    }
+  ],
+  "checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r2co --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "private/workflow/runs/IG-1C/review-20261013T092949Z/probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r2co",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:04:08.375057+00:00",
+      "end_utc": "2026-10-13T10:04:10.599806+00:00",
+      "wall_seconds": 2.22465160000138,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\original-probes.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-original-probes"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\risk_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r2cr --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\risk_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r2cr",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:04:14.277154+00:00",
+      "end_utc": "2026-10-13T10:04:15.269117+00:00",
+      "wall_seconds": 0.9947051999624819,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\risk-probes.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-risk-probes"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\metadata_edge_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/r2cm --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\metadata_edge_probes.py",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r2cm",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:08:07.865856+00:00",
+      "end_utc": "2026-10-13T10:08:09.066761+00:00",
+      "wall_seconds": 1.2016496998257935,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\metadata-edges.log"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter -q -p no:cacheprovider --basetemp private/workflow/checks/r2ca --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/wgu_adapter",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r2ca",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:05:01.414180+00:00",
+      "end_utc": "2026-10-13T10:05:03.663994+00:00",
+      "wall_seconds": 2.2497952000703663,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\adapter.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-adapter"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/inputs -q -p no:cacheprovider --basetemp private/workflow/checks/r2ci --tb=short",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/inputs",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "private/workflow/checks/r2ci",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:05:01.951518+00:00",
+      "end_utc": "2026-10-13T10:05:13.544800+00:00",
+      "wall_seconds": 11.593743399949744,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\affected.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-affected"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -B C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\accounting.py",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\accounting.py"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:05:01.985598+00:00",
+      "end_utc": "2026-10-13T10:05:36.181735+00:00",
+      "wall_seconds": 34.195807999931276,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\accounting.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-accounting"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1C",
+      "argv": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-1C"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:04:58.250691+00:00",
+      "end_utc": "2026-10-13T10:06:04.366854+00:00",
+      "wall_seconds": 66.11491510015912,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\project.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-project"
+    },
+    {
+      "command": "git diff --check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T10:07:28.584594+00:00",
+      "end_utc": "2026-10-13T10:07:30.405866+00:00",
+      "wall_seconds": 1.8181267001200467,
+      "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1C\\rereview-20261013T100001Z\\diff.log",
+      "temp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\r2t-diff"
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0,
+      "wall_seconds": 2.5712853
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py packet --task IG-1C",
+      "exit_code": 0,
+      "wall_seconds": 4.344839,
+      "packet": {
+        "path": "private/workflow/packets/IG-1C-e53938d9f57544e8a8bd52c12430be50/manifest.json",
+        "sha256": "a71762dfd0c21551ef817d43961e60d6fa28bb839ed5c13442d71f841636d60e",
+        "files": [
+          {
+            "path": "AGENTS.md",
+            "bytes": 1213,
+            "sha256": "bb0a3c1940261890d03a6fd55ebb4481dd67bd1a5fddca7b63c87f3f1098d8a1",
+            "verified_path": "AGENTS.md",
+            "actual_sha256": "bb0a3c1940261890d03a6fd55ebb4481dd67bd1a5fddca7b63c87f3f1098d8a1"
+          },
+          {
+            "path": "README.md",
+            "bytes": 2001,
+            "sha256": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149",
+            "verified_path": "README.md",
+            "actual_sha256": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149"
+          },
+          {
+            "path": "docs/STATUS.md",
+            "bytes": 1135,
+            "sha256": "93282470f2dd2365164e877c8e38480d213f55cf98ab039814149677827f60cc",
+            "verified_path": "docs/STATUS.md",
+            "actual_sha256": "93282470f2dd2365164e877c8e38480d213f55cf98ab039814149677827f60cc"
+          },
+          {
+            "path": "docs/HANDOFF.md",
+            "bytes": 1533,
+            "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395",
+            "verified_path": "docs/HANDOFF.md",
+            "actual_sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395"
+          },
+          {
+            "path": "docs/work/WORKFLOW.md",
+            "bytes": 8159,
+            "sha256": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d",
+            "verified_path": "docs/work/WORKFLOW.md",
+            "actual_sha256": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d"
+          },
+          {
+            "path": "docs/skills/wgc-execute/SKILL.md",
+            "bytes": 963,
+            "sha256": "002122a97341aad5a3563c13c2d9f13fcdb45bf6aa50b52db8121ac8c0840105",
+            "verified_path": "docs/skills/wgc-execute/SKILL.md",
+            "actual_sha256": "002122a97341aad5a3563c13c2d9f13fcdb45bf6aa50b52db8121ac8c0840105"
+          },
+          {
+            "path": "docs/work/tasks/IG-1C.md",
+            "bytes": 4038,
+            "sha256": "c3b227ac7af26a8c225220a3f4a9fdcc0f535ba9d7b62d333f5beab1f155c16f",
+            "verified_path": "docs/work/tasks/IG-1C.md",
+            "actual_sha256": "c3b227ac7af26a8c225220a3f4a9fdcc0f535ba9d7b62d333f5beab1f155c16f"
+          },
+          {
+            "path": "docs/IG-WGU-ARCHITECTURE.md",
+            "bytes": 9131,
+            "sha256": "9b4f31180f2db450ae772b3e12a5b12e5bbf0339570305f48b2625c9d78ab54d",
+            "verified_path": "docs/IG-WGU-ARCHITECTURE.md",
+            "actual_sha256": "9b4f31180f2db450ae772b3e12a5b12e5bbf0339570305f48b2625c9d78ab54d"
+          },
+          {
+            "path": "docs/IG-DATA-MODEL.md",
+            "bytes": 7786,
+            "sha256": "6a7e0d1335cce12a9e2d906ca655faad53393bf432e89483919b794a5051b69e",
+            "verified_path": "docs/IG-DATA-MODEL.md",
+            "actual_sha256": "6a7e0d1335cce12a9e2d906ca655faad53393bf432e89483919b794a5051b69e"
+          },
+          {
+            "path": "src/wgc/inputs/snapshot.py",
+            "bytes": 23130,
+            "sha256": "6f701f14fb23a377af11ea73eba24e088c90db74acef8587d0838ed4e4eb01ed",
+            "verified_path": "src/wgc/inputs/snapshot.py",
+            "actual_sha256": "6f701f14fb23a377af11ea73eba24e088c90db74acef8587d0838ed4e4eb01ed"
+          }
+        ],
+        "context_sha256": "b229c60bd17a6eb348ad7716352956e1f27f6da45bbc57e88cd8ed012f368856",
+        "full_context_byte_identical_to_previously_read_reviewer_packet": true
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1C/rereview-20261013T100001Z/verify_v2.py before",
+      "exit_code": 0,
+      "wall_seconds": 3.0936176
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1C/rereview-20261013T100001Z/verify_v2.py after",
+      "exit_code": 0,
+      "wall_seconds": 3.7414439
+    },
+    {
+      "command": "Independent old/new full import compatibility comparison",
+      "exit_code": 0,
+      "wall_seconds": 1.4858492,
+      "report": {
+        "path": "private/workflow/runs/IG-1C/rereview-20261013T100001Z/import-compatibility.json",
+        "sha256": "6630b7570a8d15d2e10bca467a6cfd10a1f4a378b77690b12e6e20a3e4795b4b"
+      }
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1C/rereview-20261013T100001Z/configuration.json",
+    "sha256": "fe78cc9f14d9ccd9dadbb8b5d205ca0aabec688ea1250dccc7234abc5897318f",
+    "source": {
+      "source": "Direct current reviewer-chat operator confirmation in response to explicit request to inspect this chat UI",
+      "verbatim_response": "GPT-6.1 Sol / high",
+      "independent_of_executor_configuration": true,
+      "exact_confirmation_timestamp": null
+    },
+    "same_reviewer_session": true
+  },
+  "independent_review": {
+    "path": "private/workflow/runs/IG-1C/rereview-20261013T100001Z/review.json",
+    "sha256": "c1ee79e0cdf23fe31e1fc7831aa23f4042d00ce6e1cbce938aecdb9eb61d0144"
+  },
+  "accepted_exact_delivery": {
+    "path": "private/workflow/runs/IG-1C/repair-01-20261013/delivery.json",
+    "sha256": "5392446d5e9d2112b048d4b74030b6a8790fd1848d2de1df4812590decedd7ad"
+  },
+  "coordinator_gate_audit": {
+    "path": "C:/repo/wargame-compiler/private/workflow/runs/IG-1C/accept-20261013/gate-audit.json",
+    "sha256": "0b5df282295c1aad6980e316ad421c9f05f96d9f2f4e4fdef94caba77611c3c9"
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "source_coverage_granted": false,
+  "role": "coordinator",
+  "actor": "ig1-stage-executor-20261013",
+  "summary": "Complete IG-1C lasting technical delivery after verified independent PASS and first-cycle finding closure; no human semantic acceptance or gameplay readiness conferred; IG-1D readiness is the next separate dependency-gated operation."
+}

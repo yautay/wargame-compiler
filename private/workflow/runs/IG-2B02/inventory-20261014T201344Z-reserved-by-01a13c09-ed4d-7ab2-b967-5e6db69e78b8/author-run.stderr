@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\repo\wargame-compiler\private\workflow\runs\IG-2B02\inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8\author.py", line 30, in <module>
+    doc,reg,regions,retired=build(registry);dest.mkdir(exist_ok=False)
+                            ^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\private\workflow\runs\IG-2B02\inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8\author.py", line 26, in build
+    final=seal(final);validate(final)
+                      ^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\src\wgc\sources\inventory.py", line 184, in validate
+    if overlaps(previous,region['box']): raise ValueError('overlapping inventory denominator')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: overlapping inventory denominator

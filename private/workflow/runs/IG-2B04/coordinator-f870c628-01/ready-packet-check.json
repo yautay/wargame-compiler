@@ -1,0 +1,78 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B04-coordinator-f870c628:coordinator",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T200250Z-56a048a1/001-IG-2B04-coordinator-f870c628/runtime-configuration.json",
+  "configuration_sha256": "b3a8ee701b424bf7acaf754d661c5f02c56509509559794ec3069fd3431ee313",
+  "utc": "2026-10-15T20:09:06.604843+00:00",
+  "summary": "Actual ready packet validated without emitting or saving its context text.",
+  "format": "wgc-ready-packet-check-1",
+  "task_status": "ready",
+  "context_files": 11,
+  "context_bytes": 42690,
+  "packet_files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 1213,
+      "sha256": "bb0a3c1940261890d03a6fd55ebb4481dd67bd1a5fddca7b63c87f3f1098d8a1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2001,
+      "sha256": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "bytes": 1138,
+      "sha256": "a05a4049f43d1f80c11af8bd3958db9687a9906d7f8de84f6138c42f8dedb7fe"
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "bytes": 1551,
+      "sha256": "596018d8e2ba4d108eab96ec5668d0a451ce70b1b5b6711215880bb4cd30ac8a"
+    },
+    {
+      "path": "docs/work/WORKFLOW.md",
+      "bytes": 8159,
+      "sha256": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d"
+    },
+    {
+      "path": "docs/skills/wgc-execute/SKILL.md",
+      "bytes": 963,
+      "sha256": "002122a97341aad5a3563c13c2d9f13fcdb45bf6aa50b52db8121ac8c0840105"
+    },
+    {
+      "path": "docs/work/tasks/IG-2B04.md",
+      "bytes": 7565,
+      "sha256": "5217ff29beed8450f3e1bfcd59cdf1374066348eaf42f12c98af4ff253fbf964"
+    },
+    {
+      "path": "docs/IG-WGU-ARCHITECTURE.md",
+      "bytes": 9131,
+      "sha256": "9b4f31180f2db450ae772b3e12a5b12e5bbf0339570305f48b2625c9d78ab54d"
+    },
+    {
+      "path": "docs/IG-DATA-MODEL.md",
+      "bytes": 7786,
+      "sha256": "6a7e0d1335cce12a9e2d906ca655faad53393bf432e89483919b794a5051b69e"
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-context-access-02.md",
+      "bytes": 773,
+      "sha256": "15a7221bb024bf05a77f0078bd86e83d0c35064d6bbef9da8e472aebf1b18951"
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-inventory-contract.md",
+      "bytes": 2541,
+      "sha256": "bee3974102374b651accac72994f6cf1f872f1fb6238d93538889daafe0ad64a"
+    }
+  ],
+  "checks": [
+    {
+      "command": "workflow.packet(ready_queue, repository_root, IG-2B04, output=False)",
+      "exit_code": 0
+    }
+  ]
+}

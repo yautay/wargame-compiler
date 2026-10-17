@@ -1,0 +1,36 @@
+{
+  "format": "wgc-context-block-1",
+  "task": "IG-2B04",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B04-coordinator-ed46c8b3:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/runtime-configuration.json",
+  "configuration_sha256": "7b78ab94fc276aa5aa21f28ad963b9f691f459e9001dc1c4283ec296311a8fef",
+  "observed_utc": "2026-10-15T18:45:15.7894115Z",
+  "outcome": "blocked",
+  "summary": "Context boundary crossed before refinement. No readiness, acceptance or product delivery is claimed.",
+  "incidents": [
+    {
+      "kind": "unlisted_context_fallback",
+      "path": "src/wgc/sources/README.md",
+      "observation": "Task search helper rejected this exact file as absent from the search manifest. A subsequent direct Get-Content read exposed its text anyway."
+    },
+    {
+      "kind": "overbroad_metadata_output",
+      "observation": "git status --short printed broad existing staged/unstaged/untracked path metadata, including unrelated task paths. No Git history was requested or read."
+    }
+  ],
+  "queue_sha256": "8482415cf6af40ff90bc9f4ab33be78dfa59ac46a72b6a7a1db428a9c419ed7a",
+  "dispatch_queue_sha256": "8482415cf6af40ff90bc9f4ab33be78dfa59ac46a72b6a7a1db428a9c419ed7a",
+  "queue_unchanged": true,
+  "product_files_written": 0,
+  "queue_or_policy_edits": 0,
+  "original_pdf_pages_inspected": [],
+  "readiness_granted": false,
+  "semantic_acceptance_granted": false,
+  "checks": [],
+  "validation_note": "Task checks were not run after the context boundary failure; the selected task remains planned and unrefined.",
+  "smallest_resolution": "Supervisor/operator assesses this new incident and prepares a fresh bounded coordinator session. Either explicitly authorize the sources README in that new context or prohibit its use. Do not inherit inspection, readiness or acceptance from this session.",
+  "next_operation": "Stop this role; only the supervisor may launch a replacement process."
+}

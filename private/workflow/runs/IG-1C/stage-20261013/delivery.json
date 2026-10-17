@@ -1,0 +1,192 @@
+{
+  "role": "executor",
+  "actor": "ig1-stage-executor-20261013",
+  "task": "IG-1C",
+  "summary": "Complete structural WGU import: all 23 available input files and 1692 records independently accounted; 38206 fields preserved; two imports byte-identical; 31 adapter and 102 project tests pass. Independent review pending.",
+  "criteria": [
+    "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+    "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+    "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+    "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results."
+  ],
+  "artifacts": [
+    {
+      "path": "src/wgc/wgu_adapter/parser.py",
+      "sha256": "999ea8ba3917901520c63722a8919e1c3eeeae82b558024c520905d0d54c7482"
+    },
+    {
+      "path": "src/wgc/wgu_adapter/importer.py",
+      "sha256": "812a8962f7d3cd413f7126db7d4abfc2d833848e192d9091e75282f20459a840"
+    },
+    {
+      "path": "tests/wgu_adapter/test_importer.py",
+      "sha256": "e9b8804ea333bea58fb701b05c9c06f7d076d4e7dcd905969c6ba3469d798646"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/checkpoint.json",
+      "sha256": "eefb23853d590e5946ad2dd9a4ac20a8c26fe8b558235e426db012905f1d3996"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/checks.json",
+      "sha256": "c98f4ea46fbe0bc6067368cbb0bd4bc63e37fee5807223d79870749ea801c10f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/claim.json",
+      "sha256": "5a04c8624a012fae10089c67007f3df313298b8aa95c40db5edbfcca1b38aa02"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/claim.py",
+      "sha256": "0bb8a19dac4e8d5d22fd05a1646a4e3373adaf64fea52696b59810582c91471f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/configuration.json",
+      "sha256": "36b37bb17ef9af1f3953075240417dd890c25449c73a26b1135fc6e06bcbcee6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/dependencies/pypi-6.0.3.json",
+      "sha256": "c3f35597bc2f08cc990c2a5fe57bef6687b3a3d7c61d8b0ba4cc067777eb1def"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/dependencies/pyyaml-6.0.3-cp312-cp312-win_amd64.whl",
+      "sha256": "5fcd34e47f6e0b794d17de1b4ff496c00986e1c83f7ab2fb8fcfe9616ff7477b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/dependency.json",
+      "sha256": "415e570d3961908870c1b11ab51ff29168d669e76cf5c669c44ac0d1199f2dbc"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/foundation-audit.json",
+      "sha256": "82e13dea3a1124bac07ff73dcb8c0f11e637899e843e191fe055a84227db7164"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/freeze.py",
+      "sha256": "6f54335fd56f5fffc347da9f28ac266e058f9ca9aca3ea00fb5ac9cdd417c36e"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/full_audit.py",
+      "sha256": "9b6500ec2ff935a183f062152315bc38422e3807f6659a382411abc875fd2e96"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/IG-1A-accepted-audit.json",
+      "sha256": "cea3b8614da530d42d99a72a8e0597af937c2afe0d6a18af4e3c73e3826045f7"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/IG-1B-accepted-audit.json",
+      "sha256": "6a2a7b05f7379eefe19402be00c88e0ae166626bbc1fe46ad18ee845708ea388"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/implementation-corrections.json",
+      "sha256": "a8f65085d2928a4a41f05b4388efb23dcddf036cb3a4744ac8faab84c8a5dc91"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/installed-dependency-audit.json",
+      "sha256": "7edea58651fc40b9c0525c9e31c80cc865a33f1a00ee10e3cd044f888ba695f6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/measurement.json",
+      "sha256": "bac25f69a4fa7c43ff35c0cec223bb60e488dc852d51a4cd02e55d6e9fdf808b"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/normalize_coordination.py",
+      "sha256": "b1ff5fb55edc36f2487836694a8dabf750afae5605c88e3054a46f5b3b18a401"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/preflight-correction-02.json",
+      "sha256": "37cd891a8f5432b329b009026c241f039ac989aa440d565f217e72f34c085e6a"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/preflight-correction.json",
+      "sha256": "a2825694be0025bab069d2bdca72c5dce1f9f84ba5efdb929362d75c4c3274d8"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/preflight.py",
+      "sha256": "d1fbc61a4aff60f6da9deb55351eda2281da1a28171c86feacd087507b1d2060"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/queue-before.json",
+      "sha256": "0e0b35e590dd0de0d58de5635ccea359a4cc6e5813ec4302e09eac3fed079606"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/ready.json",
+      "sha256": "7e86d342abc0ee165a7394ee5665c8131e823d8aada1a8a934270ac05ea9cbab"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/report.md",
+      "sha256": "60a3e8841df6e6cfc272252ddb7011b8a1ee745bed75683bd423cbfd3c4e8822"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/scope-correction.json",
+      "sha256": "a4ed1e44c4463eb5cfdb714726e1fad813701b923aface0c0ac7bbb15be7722a"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/scope-decision.json",
+      "sha256": "aa3392f94993aeded36d55b40796095cc532f3175f3a5c767aec38ff370948c8"
+    },
+    {
+      "path": "private/ig/projects/spqr/runs/import/ig1c-20261013/import.json",
+      "sha256": "aea57d993feff49a778819632cea2034f482184c04f76c183a4bafc50908f1e0"
+    },
+    {
+      "path": "private/ig/projects/spqr/runs/import/ig1c-20261013/independent-accounting.json",
+      "sha256": "f891f69fb91b444e2cd2c2693dfe201944180e78b204d4d3f41be95582ae2e76"
+    },
+    {
+      "path": "private/workflow/checks/active-34524a59441f41569faf8bd8a244281d/dry-run.log",
+      "sha256": "9e28e23d139d9da9a822e7d4f38a01e754f18fe7e627ede35686ace586e8d2cb"
+    },
+    {
+      "path": "private/workflow/checks/active-34524a59441f41569faf8bd8a244281d/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-34524a59441f41569faf8bd8a244281d/pytest.log",
+      "sha256": "8ea41d1dfa02bc5b015e72d48f8498761eddfc4c846280d722ea7160aa9b86b6"
+    },
+    {
+      "path": "private/workflow/checks/active-34524a59441f41569faf8bd8a244281d/result.json",
+      "sha256": "19e13dcd93a49dceacfcf2bbb51d753ccdb352a06908fa5939944390c53d0ce2"
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/wgu_adapter -q -p no:cacheprovider --basetemp private/workflow/checks/c2 --tb=short",
+      "exit_code": 0,
+      "tests_passed": 31,
+      "reported_seconds": 0.68
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1C/stage-20261013/full_audit.py (authorized native handle escalation)",
+      "exit_code": 0,
+      "independent_report": "private/ig/projects/spqr/runs/import/ig1c-20261013/independent-accounting.json"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1C",
+      "exit_code": 0,
+      "tests_passed": 102,
+      "reported_seconds": 75.53,
+      "result": "private/workflow/checks/active-34524a59441f41569faf8bd8a244281d/result.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1C/stage-20261013/configuration.json",
+    "sha256": "36b37bb17ef9af1f3953075240417dd890c25449c73a26b1135fc6e06bcbcee6",
+    "source": "Direct current-session operator UI confirmation"
+  },
+  "input_packet": {
+    "path": "private\\workflow\\packets\\IG-1C-998356d0bdea45f4b63552d4e26b5515\\manifest.json",
+    "sha256": "d4cd455be1e3be9dd3aa8f19d269f11e9c51ed28f9e062e6bd646acbd4696406"
+  },
+  "unmet_lifecycle_gates": [
+    "Independent technical review",
+    "Coordinator acceptance/done"
+  ],
+  "semantic_acceptance_granted": false,
+  "source_coverage_granted": false,
+  "executable_readiness_granted": false
+}

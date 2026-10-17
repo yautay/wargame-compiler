@@ -1,0 +1,43 @@
+{
+  "role": "coordinator",
+  "actor": "operator-recovery:20261015-search-01",
+  "task": "IG-2B03",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Actual builder configuration unavailable; coordinator only, not an executor claim.",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the full 44-page wgc-inventory-1 sidecar. Preserve exact accepted pages/regions/coverage/evidence 1-8, placeholders 13-44, all old links/evidence/context and every persisted registry binding; replace only placeholder memberships 9-12 and retain retired registry entries.",
+    "Independently inventory both columns and every heading, clause/list item, note, exception, example, diagram/counter component, table/legend and editorial region on physical pages 9-12; pin complete reading order, explicit geometric/content gaps and raw cross-chapter references.",
+    "Pin every new region to current exact source/page/box/revision/page_basis_hash and text/PNG/crop-PDF bytes, Unicode offsets, tool versions and predicted/actual pixel dimensions. Preserve uncertainty; no crop or bbox grants represented coverage.",
+    "Keep full/task/context denominators separate. Optional accepted page-8 context contributes zero task denominator and does not change its inherited record. Partial/unprocessed regions remain gaps; editorial classification does not authorize exclusion or semantic acceptance.",
+    "Freeze full inventory, registry, complete region/component ledger, continuation list, visual/coverage/preservation/replay reports and all evidence in the delivery manifest. A fresh independent reviewer compares every original assigned page and all region/component boundaries against the complete ledger, verifies all frozen artifacts and unchanged prior scope."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/scope.json",
+      "bytes": 13567,
+      "sha256": "029354c9c9dc6753c9287503ffd0231ba19906ee4d9e4ad6d9190b1fed905372"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/assessment.json",
+      "bytes": 4437,
+      "sha256": "3090b39adea71d43bdadc2dabfe978d28307aaa66dfc6d08102b3da07cf5f866"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/preserve-manifest.json",
+      "bytes": 171938,
+      "sha256": "026a21f1c3e1de9215c307d9bd6c8a4ddfb67ff0be4f629ff7a607b3a7a9a8e1"
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/test_orchestrator.py tests/test_task_search.py -q -p no:cacheprovider --basetemp private/workflow/checks/search-unit-04 --tb=short",
+      "exit_code": 0,
+      "result": "82 passed"
+    }
+  ],
+  "summary": "Operator-authorized draft revalidation, packet-scoped search and fresh independent review; old blocked attempt stays immutable."
+}

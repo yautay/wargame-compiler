@@ -1,0 +1,12 @@
+{
+  "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verify.py before",
+  "exit_code": 1,
+  "started_utc": null,
+  "ended_utc": null,
+  "wall_seconds": null,
+  "recorded_utc": "2026-10-13T14:39:54.112882+00:00",
+  "failure": "AssertionError at verify.py:59: executor oracle identity normalization missed review_actor -> executor_actor key rename.",
+  "scope": "Review-helper setup only; all earlier byte verification assertions passed. No product assertion changed.",
+  "resolution": "Diff inspection established only operational actor key/value changed. Corrected verifier normalizes both, preserving all byte/target/assertion checks.",
+  "original_verifier_sha256": "c7928c977c88d30c01edce963a451d199f15483fffd23fc02c70c2a640c6888b"
+}

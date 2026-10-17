@@ -1,0 +1,141 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "Complete fresh final evidence, both independent replays, original-page/component inspections, preservation and all required validations complete for independent review.",
+  "attempt": "private/workflow/runs/IG-2B06/continuation-21-24-serial02",
+  "started_utc": "2026-10-16T18:22:58.922287+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/packet.json",
+    "sha256": "56deb7f7edc010974152ca949664cc5606c2dc7212be772b5d32be59fa5c6c88",
+    "bytes": 7992
+  },
+  "task_contract": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/task.json",
+    "sha256": "c65290b9050558293fe39ebaf166c698095a3af1ed7a17df72c6a3fadda19e48",
+    "bytes": 9944
+  },
+  "base_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/inventory.json",
+      "sha256": "704b7beb63a0fef40948596971d561daeed5f637eb29bc670e3878cf9ea22dd2",
+      "bytes": 2719674
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/identity-registry.json",
+      "sha256": "df042168e5728bb2ef641b99cd7dc0329f7dacc643b60ea8f92bd517db675b04",
+      "bytes": 101167
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/region-ledger.json",
+      "sha256": "3c9d7ac854dfd5f917e6c3a94df269b81f1fa22ed566d95f5af273a7f223a3b8",
+      "bytes": 636580
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/continuations.json",
+      "sha256": "1c6d12a86de6ed87d43c4802361d179b4fec9d4782954d73a38fece72c026d4e",
+      "bytes": 161736
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/coverage-report.json",
+      "sha256": "ef6f49176bdb9884a16d63c2f7b86dcb9f9ca88dcd7edd9fb412d878e6db3840",
+      "bytes": 157316
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/source-pins.json",
+      "sha256": "2fdd4f534be78b8c6dafa576e6a803f23c956626cdb43e7f6aba5f7fe9923e8c",
+      "bytes": 126750
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/toolchain.json",
+      "sha256": "11336abd99b5bc99b1392f0679f77af33e8878d1bc477c5a2d620c9db1eb0dfc",
+      "bytes": 125360
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    },
+    {
+      "path": ".venv/Scripts/python.exe",
+      "sha256": "6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2",
+      "bytes": 276944
+    }
+  ],
+  "preserved_blocked_artifact_count": 117,
+  "owned_root_was_absent": true,
+  "completed_criteria": [
+    "All executor inventory, fresh evidence/replay, preservation, component/boundary accounting and validation work complete."
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-a",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a/generation-report.json",
+        "bytes": 8283,
+        "sha256": "29d7d8fb55eba45ffb15550de7849d9aad14988b71bc3fc67580fbcb6a16331c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-b",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-b/generation-report.json",
+        "bytes": 8284,
+        "sha256": "ef512db7e4da9778ba2fe240b8379613d31da36961cf6bbd93955dcf708b99d4"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output final-verified",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/generation-report.json",
+        "bytes": 8302,
+        "sha256": "227ab3fd412d82aa08c00101d70a6c01f512b719ebd2596c2e7c84032b5197b7"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-01 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved exact unchanged validation command"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B06",
+      "exit_code": 0,
+      "execution": "approved exact unchanged validation command"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/reports.py",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Freeze delivery.json, transition only IG-2B06 to review and stop this executor role.",
+  "checkpoint_utc": "2026-10-16T18:39:13.685100+00:00",
+  "validation_evidence": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/command-results.json",
+    "bytes": 4635,
+    "sha256": "9077c861859e7e4848c18665bd7357b903f3a0ecd45f8da5fb4fdb912278d5ed"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "role": "executor",
+  "actor": "ig1-stage-executor-20261013",
+  "summary": "Claim only ready IG-1D after done IG-1C and explicit export-profile contract decision; fresh packet hashes, empty previous registry and protected parent delivery pinned.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1D/preflight-20261013/checkpoint.json",
+      "sha256": "c9d7871eecbd478633842e56fd92c315b8766d4fc16bdfa4083866c8c896809f"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/preflight-20261013/operator-profile-approval.json",
+      "sha256": "201756c3941b21d8d2a73a23fbc77cc8aa8c5555bba793acacc7261319d0e512"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/preflight-20261013/initial-registry.json",
+      "sha256": "37d6ae2aef4a5ba533b390e331ce748c6b84a3f13c857e799533195f1f903934"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Direct earlier operator UI confirmation in this same ongoing executor conversation; no observed/requested configuration change."
+}

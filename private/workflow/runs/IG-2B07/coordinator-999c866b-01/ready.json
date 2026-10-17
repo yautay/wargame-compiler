@@ -1,0 +1,48 @@
+{
+  "task": "IG-2B07",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B07-coordinator-999c866b:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/001-IG-2B07-coordinator-999c866b/runtime-configuration.json",
+  "configuration_sha256": "aa387d7719b3bad11fbd62542fadada6a417957351ca88be87750d3f0571eb45",
+  "summary": "IG-2B07 refined with accepted current baseline/source/report pins, exact pages/IDs, absent disjoint attempt, complete accounting/replays and fresh independent review requirements.",
+  "criteria": [
+    "Direct dependency is done and exact accepted pins verified locally.",
+    "Full baseline and registry retained; exact assigned/context scope pinned.",
+    "Original acceptance and required tests retained verbatim and strengthened.",
+    "Exact context exists and is permitted; product execution and acceptance remain pending."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/refined-contract.json",
+      "sha256": "d35764de7c89d4a0fe13b61efaba2bd0545edd65f3e363b75800c25441b38436",
+      "bytes": 19671
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/coordinator-source-inspection.json",
+      "sha256": "fa0e9d0817515c36a87ea70efac74cf0214dfb1c224e1cb53598c8e84e8767c9",
+      "bytes": 3234
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/input-verification.json",
+      "sha256": "71fdf9228f50d3bb6bd440b5710a9ddcdef0035e1848ba1b2f72eeb534e7145c",
+      "bytes": 2254
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/preserved-task-contract.json",
+      "sha256": "be7f9c2bcdf87866c58dbd953baff4439933ad70615c140ec34437b7bc5c9463",
+      "bytes": 1363
+    }
+  ],
+  "checks": [
+    {
+      "command": "Coordinator local input/hash, contract preservation, context existence and workflow.validate(check_views=False)",
+      "exit_code": 0
+    }
+  ],
+  "ready_scope": "Executor may claim only the new inventory-25-28-01 attempt after fresh configuration and checkpoint. Independent source-accounting review is a future acceptance gate.",
+  "product_complete": false,
+  "semantic_acceptance": "none",
+  "tokens": null
+}

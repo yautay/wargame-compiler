@@ -1,0 +1,119 @@
+{
+  "format": "wgc-context-recovery-validation-1",
+  "observed_utc": "2026-10-15T20:02:37.843350+00:00",
+  "task": "IG-2B04",
+  "actor": "operator-b04-context-access-recovery-20261015",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder configuration is not exposed. Test processes are deterministic; no Sol/high claim.",
+  "checks": [
+    {
+      "command": "scripts/check.ps1 -Task IG-2B04 (pinned process environment; approved normal-user token)",
+      "exit_code": 1,
+      "results": {
+        "dry_run_exit": 1,
+        "plan_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-a56df8c417b34d12a0a59b03e8e93cb2\\pytest",
+        "diff_exit": 0,
+        "tests_exit": 0
+      },
+      "tests_passed": 227,
+      "interpretation": "Queue, tests and diff checks pass. Execution dry-run correctly rejects planned/unrefined B04; no readiness is fabricated."
+    }
+  ],
+  "check_artifacts": [
+    {
+      "path": "private/workflow/checks/active-a56df8c417b34d12a0a59b03e8e93cb2/result.json",
+      "sha256": "a8e9021fc72cdbafb1ecf610e94902ac8de3fdc85cee5cec487eb085def3609b",
+      "bytes": 206
+    },
+    {
+      "path": "private/workflow/checks/active-a56df8c417b34d12a0a59b03e8e93cb2/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/checks/active-a56df8c417b34d12a0a59b03e8e93cb2/dry-run.log",
+      "sha256": "4d33db13ff7461222bd2335d111cb17d786c076c48dabdd7268cd81c2a8fe72a",
+      "bytes": 36
+    },
+    {
+      "path": "private/workflow/checks/active-a56df8c417b34d12a0a59b03e8e93cb2/pytest.log",
+      "sha256": "d7fbc587d2e58104ae5c89af3eff97ffc3bd946aa326aa91723d7af0fa460b78",
+      "bytes": 356
+    },
+    {
+      "path": "private/workflow/checks/active-a56df8c417b34d12a0a59b03e8e93cb2/diff-check.log",
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+      "bytes": 5187
+    }
+  ],
+  "tested_tooling": [
+    {
+      "path": "scripts/context_guard.py",
+      "sha256": "80d177bf7138e1089421b80c26d6646527734d69c8af26b4495f94d707e36898",
+      "bytes": 3727
+    },
+    {
+      "path": "scripts/task_access.py",
+      "sha256": "dced51ed0814563c894073eae050499f5a202e50bbc09e45511b35bb464ea450",
+      "bytes": 4836
+    },
+    {
+      "path": "scripts/search_task.py",
+      "sha256": "aeb38c2acefee2bac1f0675d01f54ecde35bb0c34634b2bb8be54c8cd83fb3e8",
+      "bytes": 5774
+    },
+    {
+      "path": "scripts/dependency_context.py",
+      "sha256": "08422c129fd1c9b016cc08a1031faf10f092c284350797cd4b7e837fba49ace4",
+      "bytes": 9393
+    },
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "f7132fd679a7e45cbaf04ba5cbd07d68b0f1080bd0b0b5424d012372567f767d",
+      "bytes": 66417
+    },
+    {
+      "path": "tests/test_task_access.py",
+      "sha256": "92df27cd4848fff0793ba273b2221e9e8ba0c66dd60c93ac9a69cb84068bee31",
+      "bytes": 7169
+    },
+    {
+      "path": "tests/test_task_search.py",
+      "sha256": "de1b9fc5de258a0eb882b5616bb9fbcf96c535e7e4e1159aa033a52b00b96488",
+      "bytes": 6453
+    },
+    {
+      "path": "tests/test_dependency_context.py",
+      "sha256": "4093b0e8f9c3052a693af96adadadf2f4f43d6c831a1a1790addf0fc0762ece4",
+      "bytes": 8238
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "1a2ff74ae3672114fe8f9dbebd0893df8bc5c6f874780008d8811d4eace206b4",
+      "bytes": 41336
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "225c3f98dd8a857fe0bca8b522b5338e0f31ddffa7d3af0a1d65b39773223f56",
+      "bytes": 629
+    }
+  ],
+  "preflight": {
+    "path": "private/workflow/runs/IG-2B04/context-recovery-20261015-02/preflight-result.json",
+    "sha256": "2dcb29d02a8219e00e9f3866647a8c8d3054d0f53a4d5bfc7ecd007352e87188",
+    "bytes": 614
+  },
+  "independent_review": {
+    "reviewer": "/root/review_orchestrator",
+    "outcome": "no_open_findings",
+    "mode": "Inspection only; no acceptance or claimed source review.",
+    "guard_sha256": "80d177bf7138e1089421b80c26d6646527734d69c8af26b4495f94d707e36898",
+    "tests_sha256": "92df27cd4848fff0793ba273b2221e9e8ba0c66dd60c93ac9a69cb84068bee31"
+  },
+  "source_pages_inspected": [],
+  "readiness_granted": false,
+  "semantic_acceptance_granted": false,
+  "next_operation": "Start one fresh coordinator through the existing sequential IG-2 supervisor; require observed Sol/high startup before claims."
+}

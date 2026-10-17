@@ -1,0 +1,108 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "Actual successfully completed validation commands and immutable log pins; earlier resolved failures remain separate.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-a",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a/generation-report.json",
+        "bytes": 8283,
+        "sha256": "29d7d8fb55eba45ffb15550de7849d9aad14988b71bc3fc67580fbcb6a16331c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-b",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-b/generation-report.json",
+        "bytes": 8284,
+        "sha256": "ef512db7e4da9778ba2fe240b8379613d31da36961cf6bbd93955dcf708b99d4"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output final-verified",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/generation-report.json",
+        "bytes": 8302,
+        "sha256": "227ab3fd412d82aa08c00101d70a6c01f512b719ebd2596c2e7c84032b5197b7"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-01 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved exact unchanged validation command"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B06",
+      "exit_code": 0,
+      "execution": "approved exact unchanged validation command"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/reports.py",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    }
+  ],
+  "logs": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a.log",
+      "bytes": 17606,
+      "sha256": "e9829e808b1aa0efffcf29bd6b43e6691eafd7c1c81ed420a01fe98002a3495a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-b.log",
+      "bytes": 17610,
+      "sha256": "43a074a294a7562c297b0989f6ac26c2db901e165bdba0ecc746a9431412eef3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-generation.log",
+      "bytes": 17683,
+      "sha256": "4301c60e29a5e729e37c2f204ee9a2739faf4019e824ed550bbc0eca614152af"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-approved.log",
+      "bytes": 102,
+      "sha256": "4e5bc3f71f875379117615539a88600520acc2ef1c4f0711550c7f01cf6ea9ce"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/check-approved.log",
+      "bytes": 5887,
+      "sha256": "345c580d7bd35dc2afdafd17522e5a1433aa9b3babe3224896642a6dad59f849"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/reports.log",
+      "bytes": 203,
+      "sha256": "ad6a41871acca03b4d0136b5371ebe76459a2c751e0a712ef6bc69a52cf943de"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/validate.log",
+      "bytes": 10758,
+      "sha256": "18e36138e56c383b482c193de0e797696fd35d958297ee4bbe6bde572a1537c6"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/diff-check.log",
+      "bytes": 277613,
+      "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+    }
+  ],
+  "source_tests_passed": 71,
+  "repository_tests_passed": 267
+}

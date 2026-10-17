@@ -1,0 +1,163 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-00a548c6:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/002-IG-2B08-reviewer-00a548c6/runtime-configuration.json",
+  "configuration_sha256": "e6f2b17bfe10ac273ff5677e896cf230a804ef5d8c1dbe11426c4f208a005971",
+  "task": "IG-2B08",
+  "summary": "Unchanged required reviewer source validation, source suite, full check and diff check passed. Raw logs remain private.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/task_access.py validate-source --file 'private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/inventory.json'",
+      "exit_code": 0,
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/inventory.json",
+        "bytes": 5081773,
+        "sha256": "928de3aba4fee015013173f6e0e9278cd16ae40239992b034cdb7069963bb800"
+      },
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-002-IG-2B08-reviewer-00a548c6/53593051bccf49fbad9f8468a0c37c1a/stdout.log",
+        "bytes": 11148,
+        "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-002-IG-2B08-reviewer-00a548c6/53593051bccf49fbad9f8468a0c37c1a/stderr.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/task_access.py validate-source --file 'private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/inventory.json'",
+      "exit_code": 0,
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/inventory.json",
+        "bytes": 5076931,
+        "sha256": "f5a85768ba667f4a7f5e3ec9b99ca46077673d29a5b355f45f3b5ec56e38308b"
+      },
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-002-IG-2B08-reviewer-00a548c6/f7169730c13d4e7db7af356a06d6418e/stdout.log",
+        "bytes": 11148,
+        "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-002-IG-2B08-reviewer-00a548c6/f7169730c13d4e7db7af356a06d6418e/stderr.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/task_access.py validate-source --file 'private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/inventory.json'",
+      "exit_code": 0,
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/inventory.json",
+        "bytes": 5076931,
+        "sha256": "cc0197bfaa6f7fbc859477019ca6f6f7826e22b02a9cbff4109b38fef8257476"
+      },
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-002-IG-2B08-reviewer-00a548c6/db2440d80728410cbf2b46fad154d2c0/stdout.log",
+        "bytes": 11148,
+        "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B08/review-validation-002-IG-2B08-reviewer-00a548c6/db2440d80728410cbf2b46fad154d2c0/stderr.log",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/review-00a548c6/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/source-suite.log",
+        "bytes": 102,
+        "sha256": "771aad9f4427304ae2b6a69e94f9f2ea67e9d48cdf937cfb54f4ea11b5187498"
+      },
+      "passed_count": 71,
+      "approved_exact_command_execution": true
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/full-check.log",
+        "bytes": 5958,
+        "sha256": "7deb43deac0192bcb18b904a52b3858932fbed5766283e694464ff4327287a2b"
+      },
+      "result": {
+        "path": "C:/repo/wargame-compiler/private/workflow/checks/active-4fdd43d61a5c486fb81b49cee78f7412/result.json",
+        "bytes": 206,
+        "sha256": "2ad4588d2113f9084406bb98eeaad51834e25714e3cff3a207e8021e937504d1"
+      },
+      "selected_result": {
+        "diff_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-4fdd43d61a5c486fb81b49cee78f7412\\pytest",
+        "dry_run_exit": 0,
+        "tests_exit": 0,
+        "plan_exit": 0
+      },
+      "approved_exact_command_execution": true
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/review-00a548c6/review_originals.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/originals-execution.log",
+        "bytes": 89,
+        "sha256": "0d5931df4a016375593d9b99d332b06a1c0040fb5a554cd7321f9cae3d84d8f8"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/review-00a548c6/verify_review.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/independent-verification-final.log",
+        "bytes": 726,
+        "sha256": "e3e9eb561fc0b6aa24119dd5069c82edbad6d282d77e6fa951ec72bba2def900"
+      },
+      "report": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/independent-structural-check.json",
+        "bytes": 1951,
+        "sha256": "610ac7849b39b89a92a08d4e8b045154d9e8a9d525020b90f170ecdd81cfed62"
+      },
+      "component_proof": {
+        "path": "private/workflow/runs/IG-2B08/review-00a548c6/component-proof.json",
+        "bytes": 27335,
+        "sha256": "42a84bcc29ef67bf57198d7b08f39b2bc2ea8827449c0181f55fa3cd125c8b2e"
+      }
+    }
+  ],
+  "restricted_failures": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/review-00a548c6/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "selected_diagnosis": "WinError 5 / PermissionError accessing the unchanged source-pytest temporary directory",
+      "resolution": "Exact unchanged command approved through exec_command sandbox_permissions=require_escalated; passed."
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 1,
+      "selected_diagnosis": "PermissionError in pytest temporary directory; plan/dry-run/diff passed",
+      "result": {
+        "path": "private/workflow/checks/active-956ec8a6f7bf44d1938cfffee938a74b/result.json",
+        "bytes": 206,
+        "sha256": "f991951602205790da1b6b88787613479bde905e388afe5ec1742cf20625ffe8"
+      },
+      "resolution": "Exact unchanged command approved through exec_command sandbox_permissions=require_escalated; passed."
+    }
+  ],
+  "review_helper_corrections": [
+    "Renamed the initial reviewer inspect.py to avoid shadowing Python inspect during pdfplumber import; rerun succeeded.",
+    "Corrected reviewer component-kind membership to the delivered diagram/table/example/legend contract; clauses/headings/notes remain inspected through the complete region ledger.",
+    "Moved the narrow wheel-origin witness to its actual visible left vertex; no delivered artifact or test was modified."
+  ]
+}

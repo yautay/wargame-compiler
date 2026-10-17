@@ -1,0 +1,8 @@
+{
+  "command": [".venv/Scripts/python.exe", "-B", "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preflight.py"],
+  "exit_code": 1,
+  "error": "importlib.metadata.PackageNotFoundError: No package metadata was found for pypdf",
+  "stage": "Library observation before claim",
+  "hypothesis": "The tool launched a fresh PowerShell process without the authorized process-only PYTHONPATH. ops.py prepared ENV for subprocesses but the direct preflight invocation did not use it. Launch the same preflight via ops.py with ENV.",
+  "resolution": "Use the authorized local bundle process environment; install nothing and change no frozen tooling, tests or contracts."
+}

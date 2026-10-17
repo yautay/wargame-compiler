@@ -1,0 +1,51 @@
+[
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter tests/export private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/dr5 --tb=short",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/wgu_adapter",
+      "tests/export",
+      "private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py",
+      "private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "private/workflow/checks/dr5",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T13:12:15.068790+00:00",
+    "ended_utc": "2026-10-13T13:12:23.821185+00:00",
+    "wall_seconds": 8.75,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\explicit.log"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T13:12:23.821185+00:00",
+    "ended_utc": "2026-10-13T13:12:24.268566+00:00",
+    "wall_seconds": 0.4529999999795109,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\queue.log"
+  },
+  {
+    "command": "git diff --check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T13:12:24.268566+00:00",
+    "ended_utc": "2026-10-13T13:12:25.650212+00:00",
+    "wall_seconds": 1.375,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\diff.log"
+  }
+]

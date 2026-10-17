@@ -1,0 +1,75 @@
+{
+  "python_executable": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "libraries": {
+    "pypdf": "6.10.0",
+    "pdfplumber": "0.11.9",
+    "Pillow": "12.3.0",
+    "reportlab": "4.4.9"
+  },
+  "executables": {
+    "pdfinfo": {
+      "path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdfinfo.EXE",
+      "sha256": "ae6c324eca37335d8ec54fd6a0b4007365e369bd6a1fe1a82a74d2a588f0faa0"
+    },
+    "pdftoppm": {
+      "path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.EXE",
+      "sha256": "1ad6408dc3b02950d00ad407d79b6d52b1d6c3f3b85c96645455d58d390d8b20"
+    }
+  },
+  "process_pythonpath": "C:\\repo\\wargame-compiler\\src;C:\\repo\\wargame-compiler\\.venv\\Lib\\site-packages;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages",
+  "process_path_poppler": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin",
+  "installs": 0,
+  "global_config_changes": 0,
+  "prior_toolchain": {
+    "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/toolchain.json",
+    "sha256": "60517b85cbadd00e03735e023a0f58b06408f881d3330054c41f3b0279a68eb4",
+    "bytes": 1325
+  },
+  "previous_bundle_version": "26.1011.11113",
+  "current_runtime_metadata": {
+    "artifactToolVersion": "2.8.94",
+    "bundleFormatVersion": 2,
+    "bundleVersion": "26.1013.11914",
+    "bundledPlugins": [
+      "plugins/openai-primary-runtime"
+    ],
+    "bundledSkills": [],
+    "libreOfficeVersion": null,
+    "nativeDependencies": [
+      "libheif",
+      "jxrlib",
+      "poppler",
+      "powershell",
+      "git"
+    ],
+    "nodeVersion": "v24.19.0",
+    "pnpmVersion": "11.25.0",
+    "pythonVersion": "3.12.14",
+    "skillsToRemove": [
+      "codex-primary-runtime/spreadsheets",
+      "codex-primary-runtime/slides",
+      "doc",
+      "docs",
+      "spreadsheet",
+      "slides"
+    ],
+    "targetArch": "x64",
+    "targetPlatform": "win32"
+  },
+  "binary_differences": [
+    {
+      "name": "pdfinfo",
+      "expected_previous_sha256": "5b8d00a8c99f6160d2ba0961c9055ad5a91f3a07ecef94cb22bd535dfc62e505",
+      "observed_current_sha256": "ae6c324eca37335d8ec54fd6a0b4007365e369bd6a1fe1a82a74d2a588f0faa0"
+    },
+    {
+      "name": "pdftoppm",
+      "expected_previous_sha256": "3e1c47976d2b7ea26ee979cfae7e24b62b920518e1af5dbb44638939ca46875d",
+      "observed_current_sha256": "1ad6408dc3b02950d00ad407d79b6d52b1d6c3f3b85c96645455d58d390d8b20"
+    }
+  ],
+  "starting_executable_hashes": null,
+  "observation_limit": "Executable hashes captured during freeze, not before execution. Current file timestamps precede run start; runtime manifest indicates a newer bundle. This supports a pre-session replacement inference, not authenticated update provenance.",
+  "validation_basis": "Current bundle permitted by operator; current tests, count, canonical replay and independent pixel oracles passed. Prior expected executable hashes are preserved, not overwritten."
+}

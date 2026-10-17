@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-17T06:44:45.498365+00:00",
+  "operator_request_verbatim": "Doko\u0144cz napraw\u0119 obs\u0142ugi process_path_prefix i wzn\u00f3w orkiestrator od IG-2B08.",
+  "task": "IG-2B08",
+  "role": "coordinator",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "configuration_evidence": "Exact coordinating session metadata unavailable. The next CLI session must confirm observed gpt-6.1-sol/high before any claim.",
+  "preflight": {
+    "path": "private/workflow/runs/IG-2B08/path-list-recovery-20261017-03/preflight-result.json",
+    "sha256": "4cb296a5ee6d3d25a5728fb6038dda604e308aadcfdd4f0c0f6aadce311cfa8f"
+  },
+  "full_tests_and_diff": {
+    "exit_code": 1,
+    "checks": {
+      "plan_exit": 0,
+      "diff_exit": 0,
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-009b24a44f624246ad4ed044ac84993f\\pytest",
+      "dry_run_exit": 1,
+      "tests_exit": 0
+    },
+    "logs": "private/workflow/checks/active-009b24a44f624246ad4ed044ac84993f",
+    "dry_run_diagnostic": "ERROR: Task is not ready or active",
+    "state_note": "B08 remains planned. Refusal of executable packet dry-run is expected until coordinator refinement; no delivery or acceptance is authorized."
+  },
+  "state_dependent_dry_run": "The unchanged executable packet dry-run requires ready/active state. B08 remains planned. Its actual coordinator prepare/launch_environment and all required native tools passed separate preflight. This launch authorizes refinement only; product delivery still requires the full unchanged checks after readiness.",
+  "accepted_toolchain_preserved": true,
+  "no_source_semantic_acceptance_granted": true
+}

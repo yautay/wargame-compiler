@@ -1,0 +1,82 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B03-reviewer-cabf2418:reviewer",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T175019Z-9761be5b/002-IG-2B03-reviewer-cabf2418/runtime-configuration.json",
+  "configuration_sha256": "72bc31860295263a903b02314ae959ac3eef0e2cba18d1edcab14a6c4ec866ad",
+  "format": "wgc-independent-r01-validation-1",
+  "outcome": "pass",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-final-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-a-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-replay-a-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-b-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-replay-b-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-components.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-a/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-components-replay-a.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-b/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-components-replay-b.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      }
+    }
+  ],
+  "locator_count": 157,
+  "task_region_count": 135,
+  "task_page_counts": {
+    "9": 27,
+    "10": 25,
+    "11": 42,
+    "12": 41
+  },
+  "accepted_nested_records_preserved": true,
+  "accepted_registry_bindings_and_retired_entries_preserved": true,
+  "prior_evidence_links_and_order_preserved": true,
+  "authored_replays_byte_identical": true,
+  "component_context_count": 22,
+  "source_access": "Six root structural validations open PDF geometry/counts only; no text/image extraction outside assigned pages.",
+  "semantic_acceptance_granted": false
+}

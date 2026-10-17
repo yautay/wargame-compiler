@@ -1,0 +1,61 @@
+{
+  "format": "wgc-orchestrator-build-1",
+  "created_utc": "2026-10-15T13:41:40.666293+00:00",
+  "scope": "Operator-authorized automatic sequential IG-2 supervisor; not IG-2 product acceptance",
+  "actual_builder_model": null,
+  "actual_builder_reasoning": null,
+  "configuration_evidence": "Actual builder model/reasoning not exposed as trusted metadata.",
+  "artifacts": [
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "22e80db0adeca217bb1067a6f164bb2393dddf8114b7887d8aca9a2ab6e78ba6"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "2476750b8da2ea21925da1d360a72629e2b70601069b188ca46261e54ee1bcf7"
+    },
+    {
+      "path": "docs/work/IG2-ORCHESTRATOR.md",
+      "sha256": "34aa11e2f72415196daee34593de57cafaba0e69b37caec00e5c960e2fe39633"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "8b9961164ee0dc5ba2f168d67605edc2b0d4fd448879910808e1058bbdaa5968"
+    }
+  ],
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B02",
+      "exit_code": 0,
+      "tests_passed": 137,
+      "evidence": "private/workflow/checks/active-07be920e190541b6a49238af7ac20438/result.json"
+    },
+    {
+      "command": "python -m pytest tests/test_orchestrator.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "tests_passed": 35
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "independent_review": {
+    "actor": "/root/review_orchestrator",
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning": "high",
+    "actual_model": null,
+    "actual_reasoning": null,
+    "status": "No open findings within final narrow rereview",
+    "reviewed_supervisor_sha256": "22e80db0adeca217bb1067a6f164bb2393dddf8114b7887d8aca9a2ab6e78ba6",
+    "reviewed_tests_sha256": "2476750b8da2ea21925da1d360a72629e2b70601069b188ca46261e54ee1bcf7",
+    "basis": "Independent collaboration review; tests inspected, not rerun by reviewer; no IG-2 acceptance granted."
+  },
+  "restored_frozen_documents": {
+    "README.md": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149",
+    "docs/work/WORKFLOW.md": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d"
+  },
+  "active_run": "private/workflow/orchestrator/20261015T134030Z-67077de2/status.json",
+  "observed_child_configuration": "private/workflow/orchestrator/20261015T134030Z-67077de2/001-IG-2B02-reviewer-2cc49348/runtime-configuration.json",
+  "note": "Local CLI startup was initially denied by inherited sandbox. Operator-authorized escalation succeeded; worker remains workspace-write."
+}

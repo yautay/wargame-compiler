@@ -1,0 +1,58 @@
+{
+  "task": "IG-2B08",
+  "role": "executor",
+  "actor": "ig2:002-IG-2B08-executor-1edb0a28:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/002-IG-2B08-executor-1edb0a28/runtime-configuration.json",
+  "configuration_sha256": "c406cdcd45f72e382cfbc948014f8c9db3d10acec7628f181d92974ee04858b6",
+  "format": "wgc-source-context-incident-1",
+  "recorded_utc": "2026-10-17T06:55:10.254735+00:00",
+  "summary": "Blocked after the fresh page-33 upper-edge crop included part of the following design note beyond the authorized initial continuation block.",
+  "authorized_scope": "Only the initial continuation of the last page-32 block on physical page 33; no subsequent block.",
+  "actual_access": {
+    "physical_page": 33,
+    "top_left_points": [
+      45,
+      50,
+      298,
+      127
+    ],
+    "operation": "Serial local crop PDF, text extraction, PNG rendering and visual inspection.",
+    "overread": "The crop included the continuation and part of the following design note. Additional source content is not reproduced in this incident record."
+  },
+  "cause": "The initial crop lower boundary was estimated before inspection and extended beyond the continuation paragraph.",
+  "impact": "The session has observed source content outside its bounded authorization. Source-access gates remain binding; the session cannot supply a clean inventory delivery.",
+  "owner": "coordinator/operator",
+  "smallest_resolution": "Assess the scoped incident and prepare a fresh executor session with exact page-33 continuation bounds. Preserve this attempt as immutable and unaccepted; authorize any reuse explicitly.",
+  "inventory_replacement_written": false,
+  "semantic_acceptance": false,
+  "executable_readiness": false,
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/inspect_originals.py",
+      "sha256": "e67c4cc80ab55d9ae2564df3604e85d1873d27666cc60aa9446d0047af92771c",
+      "bytes": 3017
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/original-render-pins.json",
+      "sha256": "d4b2c4f265f2af0303f29689cf2c03e98e62371cbef3ec2838cfb13ab4096255",
+      "bytes": 7461
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/original-pages/page-33-upper-edge/original-crop.pdf",
+      "sha256": "2ddcb2ad40646a569269d0d13ec7a6e190e8086faee8c00601d1f4ac61f9e6b5",
+      "bytes": 268562
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/original-pages/page-33-upper-edge/original.png",
+      "sha256": "187a4cb6445392b2f3f47d12bb56812c49fc25593590a07f9c41113e7a129a65",
+      "bytes": 43773
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/original-pages/page-33-upper-edge/text.txt",
+      "sha256": "977c43a3776eb994f4b77212f355666bd1050ed774672ebb0dd733f0b79a89c9",
+      "bytes": 334
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B04-reviewer-ce506337:reviewer",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/002-IG-2B04-reviewer-ce506337/runtime-configuration.json",
+  "configuration_sha256": "dcc9762175a0e5397587892a8d6db5b2ec6bdbdc38faf110a12db8bd5c8a861f",
+  "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/checks/b04-review-ce506337-src -p no:cacheprovider --tb=short",
+  "exit_code": 0,
+  "sandbox_permissions": "require_escalated",
+  "basis": "Approved exact unchanged command after restricted-token basetemp WinError 5. Tool session 39895 completed with exit code zero.",
+  "observed_stdout_chunks": [
+    ".........................................",
+    "..............................  [100%]\r\n71 passed in 21.30s\r\n"
+  ],
+  "tests_passed": 71,
+  "pytest_reported_seconds": 21.3
+}

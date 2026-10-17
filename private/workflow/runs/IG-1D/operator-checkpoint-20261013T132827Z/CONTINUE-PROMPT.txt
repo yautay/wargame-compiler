@@ -1,0 +1,47 @@
+Work locally in C:\repo\wargame-compiler. Speak Polish with the operator and write repository content in English. Continue the existing full remaining IG-1 assignment, sequentially IG-1D then IG-1E, from this checkpoint:
+private/workflow/runs/IG-1D/operator-checkpoint-20261013T132827Z/checkpoint.json
+private/workflow/runs/IG-1D/operator-checkpoint-20261013T132827Z/handoff.md
+
+Read AGENTS.md, README.md, docs/STATUS.md, docs/HANDOFF.md, docs/work/WORKFLOW.md, then the checkpoint and the current selected task packet. docs/work/queue.json is the only queue/status authority. Apply only the relevant docs/skills/wgc-queue, wgc-execute and wgc-review workflows. Use scripts/workflow.py and scripts/search.ps1 for default context and search. Validate the queue and check current hashes before changing anything. The checkpoint records a point in time, not a new queue authority.
+
+Confirm the actual model/reasoning of THIS new executor session as GPT-6.1 Sol / high from UI/session evidence or a direct operator confirmation before claiming implementation. A requested setting or the previous session's confirmation is not evidence for this new session. Record actual configuration, UTC/wall time and measured usage; unavailable tokens/cost/operator time are null.
+
+At checkpoint: IG-1A, IG-1B, IG-1C are done; IG-1D is review after bounded repair cycle 1; IG-1E is planned. Do not reopen completed tasks or regenerate their accepted deliverables. The root executor stopped at the operator's requested saved checkpoint without a commit. There is no new product implementation to do until the independent review result has been assessed.
+
+FIRST inspect the existing authorized independent reviewer chat using wait_threads (fresh status, timeoutMs 0 initially): thread 01a13421-44a0-71a3-9484-bf796c2922fc, host local. Title: Independent technical review IG-1C. At checkpoint it was actively re-reviewing IG-1D repair 1. Latest observed cursor: 57e8f390-5c50-4865-9543-3ce1c2b62dba:92. The reviewer may have finished after the checkpoint. Read its new result and exact artifact manifest; do not mistake the original changes_requested report for the final re-review. Reuse this chat. The operator explicitly authorized this separate GPT-6.1 Sol/high reviewer and bounded correction messages for re-review. Do not create another chat, agent, worktree or automation. Reviewer actual configuration was separately operator-confirmed in its own continuing session.
+
+Current frozen IG-1D repair delivery:
+private/workflow/runs/IG-1D/repair-01-20261013/delivery.json
+SHA256 3ebef08719717c41043cb4df8bb98874d214e38d0e8fdbf21de6e35a9adfaa73 (50 artifacts).
+Original independent review:
+private/workflow/runs/IG-1D/review-20261013T122807Z/review.json
+SHA256 ef9955c57e22a85ecd76a54ea08fda9dcfedbba7419cfc85ff91497abf468b00.
+Read all FOUR findings from review.json; findings.json only contains the first three.
+IG1D-R01: conflicting anonymous label/body evidence silently swapped identities. Repair compares all applicable evidence before committing; contradictions become gaps unless explicitly resolved.
+IG1D-R02: hint plus forced lineage at one locator silently ignored the hint. Repair rejects the overlap atomically while keeping disjoint decisions valid.
+IG1D-R03: direct active allocated IDs were treated as unresolved external aliases. Repair uses the union of active exact IDs and aliases, retaining ambiguity on collisions and excluding retired IDs.
+IG1D-R04: a unique merge child lost its identity after a definition edit. Repair reuses the stable receipt contract independently of corrected content; ambiguous child matches and changed named contracts remain guarded.
+Each original finding has used repair iteration 1 of maximum 2. A second repair, if needed, requires a new bounded claim, changed hypothesis, preservation of the current frozen version, appropriate checks and another independent review. Do not weaken assertions or stop at changes_requested as if accepted.
+
+If the re-review passes, verify exact current delivery hashes, closure of every finding and every gate. Record technical acceptance using the independent review evidence transparently, then coordinator completion; follow workflow transitions and preserve all event evidence. No model review or green test grants human semantic acceptance. If changes are requested, prepare only the bounded remaining repair scope. Never modify frozen evidence in place.
+
+IG-1D implementation is in src/wgc/wgu_adapter/identity.py, references.py and src/wgc/export/, with public tests in tests/wgu_adapter/ and tests/export/. Current repair evidence and accounting are under private/workflow/runs/IG-1D/repair-01-20261013/. 108 strict public/reviewer tests passed (93 public plus 15 unchanged reviewer probes); 102 project tests passed. Full independent accounting/reproducibility passed: 1,692 records, 38,206 YAML field/container locations, 18,303 source graph records, 18,262 identity entries, 2,930 reference diagnostics and 36 missing configured sources. Two canonical transforms/publications matched byte-for-byte. Read full-export-accounting-final.json for the exact current structural-draft package; do not use an earlier pre-repair/pre-manifest package.
+
+The operator approved the separate wgc-source-export-1 profile (src/wgc/export/source-export.schema.json). Its canonical run timestamps are null; actual times/configuration/usage are in operational sidecars. All original source-v1 schema bytes remain frozen. Approval: private/workflow/runs/IG-1D/preflight-20261013/operator-profile-approval.json. Do not reopen this already approved routine choice.
+
+IG-1C accepted delivery:
+private/workflow/runs/IG-1C/repair-01-20261013/delivery.json
+SHA256 5392446d5e9d2112b048d4b74030b6a8790fd1848d2de1df4812590decedd7ad.
+Final independent PASS: private/workflow/runs/IG-1C/rereview-20261013T100001Z/review.json
+SHA256 c1ee79e0cdf23fe31e1fc7831aa23f4042d00ce6e1cbce938aecdb9eb61d0144.
+Accepted import: private/ig/projects/spqr/runs/import/ig1c-repair01-final-20261013/import.json
+SHA256 2999d63c680b4c52a095e0edb18952c70eefdf4baf7c2e01481840cda18ca61a.
+It preserves 1,655 processed and 37 raw records, zero parse errors, all unknown source content, provenance and raw bytes. Foundation artifact preservation is indexed in the current checkpoint and repair preservation.json. PyYAML 6.0.3 is already installed in the repository .venv with verified official wheel evidence; do not reinstall or configure globally.
+
+Only after IG-1D is accepted/done, refine/check readiness and claim IG-1E with a fresh allowlisted packet. Its scope is tests/integration/, private/ig/projects/spqr/runs/import-acceptance/ and private/ig/projects/spqr/snapshots/. Complete independent full-input accounting, public synthetic integration checks, private reproducibility and a sealed STRUCTURAL snapshot retaining gaps/missing sources/mixed-edition uncertainty. Independently count input files, records and unknown fields rather than trusting importer counters. Obtain independent review, bounded repairs/re-review, acceptance and done for IG-1E. Write the final English full-stage handoff under the IG-1E run, with all five task gates, exact deliveries/review hashes, input coverage ledger, snapshot/repeatability, gaps and prerequisites. Import, coverage, human semantic acceptance and executable readiness are separate. Do not start IG-2, invent a parent task, implement gameplay/runtime/compiler, create a POC or decide gameplay legality with an LLM.
+
+Preserve all existing working changes and historical/frozen bytes. No reset, clean, stash, commit, push, global configuration, broad archive/Git history reads, neighboring repository writes or additional external API use. Only explicitly pinned WGU support paths from the current task are allowed context. Keep all game evidence under private/. Do not change queue status to blocked merely because of this session checkpoint or while a legitimate review is running.
+
+Run scripts/check.ps1 -Task CURRENT and git diff --check for actual changes; also run the relevant explicit adapter/export/integration tests because default testpaths do not include all new suites. Use a fresh short basetemp and -p no:cacheprovider. Original lineage_probes.py imports its sibling probes module: use process-local PYTHONPATH with repository src and the original review directory. Native Windows no-follow path probes need narrowly reviewed unsandboxed local checks (sandbox WinError 5); do not weaken checks or replace them with a bypass. Historical symlink creation WinError 1314 was unmeasured; junction probes were measured.
+
+Workflow transitions can write the queue before projection rendering raises Errno 22. Inspect queue state before retrying. The preserved coordinator-only helper private/workflow/runs/IG-1C/resume-20261013/render_atomic.py renders from the CURRENT queue via exclusive temporary files/replace and preserves baseline line endings for unchanged lines. Run it after transitions when necessary, then validate/diff-check. Do not edit this frozen helper or prior deliveries. Record completed work, actual test evidence and remaining gates; keep the operator informed in Polish.

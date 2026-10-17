@@ -1,0 +1,74 @@
+{
+  "checks": [
+    {
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T13:17:18.921189+00:00",
+      "ended_utc": "2026-10-15T13:17:58.099566+00:00",
+      "wall_seconds": 39.171000000002095,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stdout",
+        "bytes": 5715,
+        "sha256": "37f1bcdbe29abc1788d1620bfbe53cf11d8b7f0e4961115e4534cc669e0955a5"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T13:17:58.099566+00:00",
+      "ended_utc": "2026-10-15T13:17:59.417719+00:00",
+      "wall_seconds": 1.312999999994645,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T13:17:59.420053+00:00",
+      "ended_utc": "2026-10-15T13:18:00.585161+00:00",
+      "wall_seconds": 1.1560000000026776,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    }
+  ],
+  "queue_unchanged": true,
+  "repair_attempt_absent": true,
+  "purpose": "Preparation checks only; not repair, content review or acceptance."
+}

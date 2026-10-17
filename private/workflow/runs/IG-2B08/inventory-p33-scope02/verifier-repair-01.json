@@ -1,0 +1,14 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "summary": "Owned verifier reached report assembly after the preservation/replay comparisons, then failed on an omitted constant import. No source artifacts changed.",
+  "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/verify_batch.py",
+  "exit_code": 1,
+  "cause": "CONTRACT used for report pinning was not imported from owned build helper.",
+  "change": "Import the existing exact effective-contract constant; no assertions changed.",
+  "next_operation": "Rerun the full unchanged verifier assertions and report assembly."
+}

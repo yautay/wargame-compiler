@@ -1,0 +1,80 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "summary": "Two complete independent fresh-path replays each regenerated the full region/component set serially from the accepted baseline and identical persisted author registry.",
+  "commands": [
+    ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py replay-1",
+    ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py replay-2"
+  ],
+  "reading_order_preservation": "Reviewed candidate sequence used explicitly, independently in all three baseline reconstructions.",
+  "runs": [
+    {
+      "name": "final-verified",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/inventory.json",
+        "bytes": 5081773,
+        "sha256": "928de3aba4fee015013173f6e0e9278cd16ae40239992b034cdb7069963bb800"
+      },
+      "registry": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/final-verified/identity-registry.json",
+        "bytes": 184306,
+        "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+      },
+      "new_regions": 269,
+      "new_artifacts": 807,
+      "stable_ids": true,
+      "author_fields_order_links_registry_equal": true,
+      "normalized_evidence_hash": "304b8af81c1aadcc541557102f48a30416e64b347230eda5a1943daa7fe77e82"
+    },
+    {
+      "name": "replay-1",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/inventory.json",
+        "bytes": 5076931,
+        "sha256": "f5a85768ba667f4a7f5e3ec9b99ca46077673d29a5b355f45f3b5ec56e38308b"
+      },
+      "registry": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-1/identity-registry.json",
+        "bytes": 184306,
+        "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+      },
+      "new_regions": 269,
+      "new_artifacts": 807,
+      "stable_ids": true,
+      "author_fields_order_links_registry_equal": true,
+      "normalized_evidence_hash": "304b8af81c1aadcc541557102f48a30416e64b347230eda5a1943daa7fe77e82"
+    },
+    {
+      "name": "replay-2",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/inventory.json",
+        "bytes": 5076931,
+        "sha256": "cc0197bfaa6f7fbc859477019ca6f6f7826e22b02a9cbff4109b38fef8257476"
+      },
+      "registry": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/replay-2/identity-registry.json",
+        "bytes": 184306,
+        "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+      },
+      "new_regions": 269,
+      "new_artifacts": 807,
+      "stable_ids": true,
+      "author_fields_order_links_registry_equal": true,
+      "normalized_evidence_hash": "304b8af81c1aadcc541557102f48a30416e64b347230eda5a1943daa7fe77e82"
+    }
+  ],
+  "actual_inventory_hashes_are_path_dependent": true,
+  "complete_assigned_regions": 269,
+  "missing_references": 0,
+  "negative_cases": {
+    "missing_component": "correctly_rejected",
+    "missing_index_path": "correctly_rejected",
+    "stale_index_hash": "correctly_rejected",
+    "incomplete_replay": "correctly_rejected"
+  },
+  "source_meaning_acceptance": false
+}

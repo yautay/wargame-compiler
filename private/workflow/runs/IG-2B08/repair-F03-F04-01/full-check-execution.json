@@ -1,0 +1,98 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "execution": "restricted token; pytest temporary-directory access denied",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/full-check-restricted.log",
+        "bytes": 282946,
+        "sha256": "0c3cc74a36274253f8d796eb18f298907d1d63207f1d9d5ece73d3f0c289e114"
+      },
+      "result": {
+        "diff_exit": 0,
+        "tests_exit": 1,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-f034bc96f8524f3f8f2e0506835fdfee\\pytest",
+        "dry_run_exit": 0,
+        "plan_exit": 0
+      },
+      "check_artifacts": [
+        {
+          "path": "private/workflow/checks/active-f034bc96f8524f3f8f2e0506835fdfee/result.json",
+          "bytes": 206,
+          "sha256": "24bb73de87bce5926da7ee52b129962c03ed8bb69a6cc530d16c6b54997f09e1"
+        },
+        {
+          "path": "private/workflow/checks/active-f034bc96f8524f3f8f2e0506835fdfee/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/checks/active-f034bc96f8524f3f8f2e0506835fdfee/dry-run.log",
+          "bytes": 185,
+          "sha256": "838ccbebf49136b4c1a06342a2f599952f12d8e27b159b1cc517a4b9e5015c61"
+        },
+        {
+          "path": "private/workflow/checks/active-f034bc96f8524f3f8f2e0506835fdfee/pytest.log",
+          "bytes": 4699,
+          "sha256": "e8693b15e6372bbd44f21a495ab535cfcead4db50b3ded6904f603b996f5b2cf"
+        },
+        {
+          "path": "private/workflow/checks/active-f034bc96f8524f3f8f2e0506835fdfee/diff-check.log",
+          "bytes": 277613,
+          "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+        }
+      ]
+    },
+    {
+      "exit_code": 0,
+      "execution": "require_escalated approval granted; unchanged exact check command",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/full-check-approved.log",
+        "bytes": 5958,
+        "sha256": "ae57862479f39e83578909455814be73fe7d68339c1c9464fac4d43ea31d6d9c"
+      },
+      "result": {
+        "dry_run_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-e673abaaa53e47dfb36aa4195dc85adb\\pytest",
+        "diff_exit": 0,
+        "tests_exit": 0,
+        "plan_exit": 0
+      },
+      "check_artifacts": [
+        {
+          "path": "private/workflow/checks/active-e673abaaa53e47dfb36aa4195dc85adb/result.json",
+          "bytes": 206,
+          "sha256": "199bd99849ccfa290db6cccc116c3615400966fbb0335f57bde9f83fe618062b"
+        },
+        {
+          "path": "private/workflow/checks/active-e673abaaa53e47dfb36aa4195dc85adb/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/checks/active-e673abaaa53e47dfb36aa4195dc85adb/dry-run.log",
+          "bytes": 185,
+          "sha256": "838ccbebf49136b4c1a06342a2f599952f12d8e27b159b1cc517a4b9e5015c61"
+        },
+        {
+          "path": "private/workflow/checks/active-e673abaaa53e47dfb36aa4195dc85adb/pytest.log",
+          "bytes": 427,
+          "sha256": "9a91f6e2f728c035eb8ccd5c6d2e88e240552ed6a72bbacf7c837a5a767cfbca"
+        },
+        {
+          "path": "private/workflow/checks/active-e673abaaa53e47dfb36aa4195dc85adb/diff-check.log",
+          "bytes": 5187,
+          "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+        }
+      ]
+    }
+  ],
+  "tests_assertions_unchanged": true
+}

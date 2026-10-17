@@ -1,0 +1,36 @@
+{
+  "role": "coordinator",
+  "actor": "ig1-stage-executor-20261013",
+  "summary": "Verified IG-1A/IG-1B done, exact accepted lists and independent PASS; sealed names/manifests/copy hashes verified; current executor Sol/high confirmed by operator; only IG-1C ownership assigned.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/foundation-audit.json",
+      "sha256": "82e13dea3a1124bac07ff73dcb8c0f11e637899e843e191fe055a84227db7164"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/configuration.json",
+      "sha256": "36b37bb17ef9af1f3953075240417dd890c25449c73a26b1135fc6e06bcbcee6"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/scope-decision.json",
+      "sha256": "aa3392f94993aeded36d55b40796095cc532f3175f3a5c767aec38ff370948c8"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "configuration.json: direct current-session operator UI observation",
+  "checks": [
+    {
+      "command": "workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": "workflow.py next",
+      "exit_code": 0
+    }
+  ]
+}

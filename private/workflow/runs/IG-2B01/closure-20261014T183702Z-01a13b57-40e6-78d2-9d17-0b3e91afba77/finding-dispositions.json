@@ -1,0 +1,129 @@
+{
+  "role": "coordinator",
+  "actor": "codex-01a13b57-40e6-78d2-9d17-0b3e91afba77",
+  "operator_authorization": {
+    "path": "private/workflow/runs/IG-2B01/closure-20261014T183702Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/operator-authorization.json",
+    "bytes": 406,
+    "sha256": "1ed03f5425c9eae5a9b397cffbd54fd7d8842c799028605ae9831b2ba68b0d82"
+  },
+  "review": {
+    "path": "private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/review.json",
+    "bytes": 155239,
+    "sha256": "d6dd7856f8171cae8831b282e820f69c8e65091ec48fe74e5e01a95fa43db3bb"
+  },
+  "utc": "2026-10-14T18:39:13.378515+00:00",
+  "decisions": [
+    {
+      "finding": "IG2B01-R01",
+      "severity": "P2",
+      "decision": "Contained disclosed process deviation acknowledged; nonblocking for technical acceptance of the exact final inventory.",
+      "facts": "The initial page-5 probe y=50..105 exposed neighboring entry material, as preserved in immutable disclosure metadata. This was outside the minimal continuation need. Final context is the exact two-line Triarii tail at [71895,63131,495099,98485], contributes zero denominator, and independent review found no resulting inventory omission/corruption.",
+      "basis": [
+        {
+          "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/context-overread.json",
+          "bytes": 758,
+          "sha256": "d47b3a427b4b0430af904ac88a45b7f67a9f060fceca7e194e7ea3b7da3c4bde"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/context-access-authorization.json",
+          "bytes": 472,
+          "sha256": "31121d958e229365c30f4c20a177e8521bf520533be72421754b1205a53250bd"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/review-report.md",
+          "bytes": 15822,
+          "sha256": "1f910bd68429ad4789bf42c497993dfbb6b874aaed4b2545b265af4ce8344cfb"
+        }
+      ],
+      "verification": "All exact context pins checked; final narrow PNG observed. Initial broad source/probe was not reopened.",
+      "limits": "Prior exposure is not undone, retroactively authorized or declared compliant. No neighboring-entry review is claimed.",
+      "preventive_action": "Future continuation probes should start with narrow predetermined boundaries; expansion needs a recorded concrete continuation necessity. Retain all disclosure bytes.",
+      "artifact_repair_required": false
+    },
+    {
+      "finding": "IG2B01-R02",
+      "severity": "P3",
+      "decision": "Resolved for this inventory closure by explicitly retaining a revision-bound transcription advisory; future exact-transcription work must address it before promoting coverage.",
+      "facts": {
+        "region_id": "region:74a8c133-e1a5-4ec4-8ebc-517987e6b24f",
+        "region_revision": "1977f1df4ebe99f008ef94506700ff610d23e8f078540d73567319270d0bcb0d",
+        "evidence": {
+          "box": [
+            441176,
+            715909,
+            562091,
+            741161
+          ],
+          "crop_parameters": {
+            "engine": "pypdf",
+            "frame": "displayed-crop-top-left",
+            "user_unit_normalized": true,
+            "version": "6.10.0"
+          },
+          "crop_pdf": {
+            "bytes": 430856,
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p01-007/crop.pdf",
+            "sha256": "c8ea64cf387a12469b8363ffe8001f84b82f414036fa831754e295217415a01a"
+          },
+          "id": "evidence:546118564ec67696fcabfa98a906aea02ec963b9563b4326c74ce9f776127356",
+          "image": {
+            "bytes": 2548,
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p01-007/image.png",
+            "sha256": "b310e8659459b3ce793d65723e606cafe068628282e8b3eb02b250d08f7c13be"
+          },
+          "page_basis_hash": "64bf59a2ef04970251fdc9fe3f4ff99b47ddf97db08e8026428267fcfbd1a11c",
+          "page_id": "page:c6b36658-919b-49c3-964a-e1b30c24887c",
+          "pdf_page": 1,
+          "region_id": "region:74a8c133-e1a5-4ec4-8ebc-517987e6b24f",
+          "region_revision": "1977f1df4ebe99f008ef94506700ff610d23e8f078540d73567319270d0bcb0d",
+          "render_parameters": {
+            "cropbox": true,
+            "dpi": 144,
+            "engine": "poppler-pdftoppm",
+            "format": "png",
+            "height_pixels": 40,
+            "version": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC",
+            "width_pixels": 148
+          },
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "text": {
+            "bytes": 13,
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p01-007/text.txt",
+            "sha256": "13bf71451c9ec6ff7c15f423a1f063f6be0f5046353bc0d7dd0e0e8843a8ddb6"
+          },
+          "text_codepoints": 13,
+          "text_offsets": {
+            "bounds": "half_open",
+            "end": 13,
+            "start": 0,
+            "unit": "unicode_codepoints"
+          },
+          "text_parameters": {
+            "engine": "pdfplumber",
+            "layout": false,
+            "version": "0.11.9",
+            "x_tolerance": 3,
+            "y_tolerance": 3
+          },
+          "uncertainty": [
+            "Machine text extraction; no verified transcription, OCR, reading order or source meaning."
+          ]
+        },
+        "literal": "E5th EdBition",
+        "extra_unicode_offsets": [
+          0,
+          7
+        ],
+        "visible_png": "5th Edition",
+        "transcription_status": "partial"
+      },
+      "verification": "Literal UTF-8 text/codepoints and exact PNG checked; reviewer independently reproduced both.",
+      "limits": "Raw evidence and publisher bytes remain unchanged. Visible text is an observation, not an accepted normalized transcription, human semantic decision or represented coverage.",
+      "future_action": "Carry this precise anomaly, offsets and PNG basis into any later exact-transcription/reconciliation work. No downstream task is started or modified.",
+      "artifact_repair_required": false
+    }
+  ],
+  "blocking_findings_remaining": 0,
+  "semantic_acceptance_granted": false,
+  "source_ig_whole_record_review_granted": false
+}

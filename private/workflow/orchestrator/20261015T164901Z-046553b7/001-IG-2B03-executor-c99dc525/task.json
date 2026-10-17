@@ -1,0 +1,127 @@
+{
+  "id": "IG-2B03",
+  "title": "Inventory SPQR PDF pages 09-12",
+  "stage": "IG-2",
+  "status": "ready",
+  "kind": "content",
+  "depends": [
+    "IG-2B02"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/region-ledger.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/continuations.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/coverage-report.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/visual-review.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/preservation-report.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/registry-replay-report.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/source-pins.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/toolchain.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/delivery-manifest.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/delivery.json",
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/delivery-handoff.md"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B03/continuation-search-20261015-01/",
+    "private/workflow/packets/",
+    "private/workflow/checks/"
+  ],
+  "inputs": [
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json SHA256 5e2c85c83e9682d484492a2c765d0f958d37c2ca0d5e63986f05ec40a3e1f96b",
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/identity-registry.json SHA256 cf6d44fd993587a8731af253b2522885d028873ff3e7b4deb2acb2cd5cdfa9e0",
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/continuations.json SHA256 e7ac530b57852bf4291e278d7972ad59b86a17d3ff8a2f2303d98b289dab59da",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md SHA256 72b8d57bac62060e91f4b9510b4c9bd0487c802ecdd786057ad0dc51c14a3998",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json SHA256 10e4c034b488fe44c6c6865f945278f83f1dec338d5572fac5b8db278ad54b27",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json SHA256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+    "The current continuation scope supersedes old output ownership and inspection assertions. Original input-pins.json still binds accepted baseline/source/tool hashes; author only pages 9-12 in the full 44-page sidecar."
+  ],
+  "context": [
+    "docs/work/EVIDENCE.md",
+    "src/wgc/sources/README.md",
+    "contracts/ig/regions.schema.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "private/workflow/runs/IG-2B03/preparation-003-e285fb76/input-pins.json",
+    "private/workflow/runs/IG-2B03/preparation-003-e285fb76/toolchain.json",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md",
+    "docs/work/repair-context/IG-2B03-search-continuation.md"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the full 44-page wgc-inventory-1 sidecar. Preserve exact accepted pages/regions/coverage/evidence 1-8, placeholders 13-44, all old links/evidence/context and every persisted registry binding; replace only placeholder memberships 9-12 and retain retired registry entries.",
+    "Independently inventory both columns and every heading, clause/list item, note, exception, example, diagram/counter component, table/legend and editorial region on physical pages 9-12; pin complete reading order, explicit geometric/content gaps and raw cross-chapter references.",
+    "Pin every new region to current exact source/page/box/revision/page_basis_hash and text/PNG/crop-PDF bytes, Unicode offsets, tool versions and predicted/actual pixel dimensions. Preserve uncertainty; no crop or bbox grants represented coverage.",
+    "Keep full/task/context denominators separate. Optional accepted page-8 context contributes zero task denominator and does not change its inherited record. Partial/unprocessed regions remain gaps; editorial classification does not authorize exclusion or semantic acceptance.",
+    "Freeze full inventory, registry, complete region/component ledger, continuation list, visual/coverage/preservation/replay reports and all evidence in the delivery manifest. A fresh independent reviewer compares every original assigned page and all region/component boundaries against the complete ledger, verifies all frozen artifacts and unchanged prior scope."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Root wgc.sources validate reopens the byte-pinned PDF, checks strict pypdf and Poppler counts of 44, all actual page geometry, schema/canonical revisions, persisted registry, partitions, reading order and current evidence bytes.",
+    "Visually inspect all original physical pages 9-12 at sufficient resolution and every proposed region/counter component. Validate source/page/box/page_basis_hash/Unicode offsets, rational crop bounds and actual PNG header dimensions; compare complete source-region ledger independently.",
+    "Compare exact accepted nested records 1-8 and placeholders 13-44, every prior region/evidence/link/registry binding and old artifact hash against accepted IG-2B02. Rebuild authored partition twice with the persisted registry in fresh directories and compare canonical authored bytes/IDs; independently validate each path-dependent evidence output.",
+    "Verify literal continuations 9-to-10 and 11-to-12, within-page column continuations and zero task denominator for context; record no access outside the exact contract. All remaining geometric/content/representation gaps are explicit, and no gap or editorial region is silently represented/excluded.",
+    "Run unchanged tests/sources with fresh short --basetemp and -p no:cacheprovider; pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03; workflow validate; git diff --check. Preserve full pinned process PYTHONPATH including bundled site-packages and Poppler path. Request approved execution of exact unchanged commands for mode0700 Windows token failures; do not alter tests/tools/contracts/ACLs."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start.",
+    "Accepted IG-2B02 event, all input SHA256 pins and complete available exact context verified; no unresolved refinement. New executor output root must be absent and exclusively claimed by a fresh observed Sol/high executor.",
+    "Read continuation_authorization scope and assessment, then original input-pins.json/toolchain on demand. Verify old preservation manifest. Fresh output root must be absent; old transcripts and derivation helpers are excluded."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance.",
+    "No source/tool/test/contract changes or old evidence regeneration. No new extraction/rendering outside physical pages 9-12. Optional context is restricted to the exact accepted page-8 region/evidence; do not access page 13, other source content or follow cross-chapter references.",
+    "No mutation of old delivery, prior accepted inventory, registry bindings or old artifact bytes. No source-IG semantic acceptance or gameplay legality decisions."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+  ],
+  "semantic_acceptance_required": false,
+  "target_ids": [
+    "page:779d2dd6-e184-44c9-9a82-6f98796d23d0",
+    "page:5695e3e1-b941-43c2-80f7-27fb779e378e",
+    "page:0218ef3b-56bd-4f08-856f-daeb289ea9cf",
+    "page:244eb5d5-9ae2-42cb-9683-08b8df295602"
+  ],
+  "context_only_ids": [
+    "region:4e214fcf-8b87-4041-801c-113abd217ccc"
+  ],
+  "refinement_evidence": {
+    "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/scope.json",
+    "bytes": 13567,
+    "sha256": "029354c9c9dc6753c9287503ffd0231ba19906ee4d9e4ad6d9190b1fed905372"
+  },
+  "continuation_authorization": {
+    "blocked_evidence": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/blocked.json",
+    "blocked_sha256": "768978997ed5f7af46c45277e8b1660cdec8741b4f50448814f1964a268e396a",
+    "scope": {
+      "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/scope.json",
+      "bytes": 13567,
+      "sha256": "029354c9c9dc6753c9287503ffd0231ba19906ee4d9e4ad6d9190b1fed905372"
+    },
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/authorization.json",
+      "bytes": 3176,
+      "sha256": "10c352f26d39063f770d50ba169ca7bfc0dc0f4ddc94356769034318f38ca997"
+    },
+    "attempt": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "mode": "proposal_only_not_applied",
+  "task": "IG-2B02",
+  "expected_queue": {
+    "path": "docs/work/queue.json",
+    "bytes": 155007,
+    "sha256": "99e272c17c3549f49986df241327e21c66ee979c034043c7e2544aa81ebcd2f2"
+  },
+  "expected_task_status": "review",
+  "expected_event": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-15T11:06:53.983726+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/delivery.json",
+    "sha256": "41ae905b02b47fce1c6f5545e617df563963ab041406a8c2f483e8dc233ccf6f"
+  },
+  "task_field_updates": {
+    "write_scope": [
+      "private/workflow/runs/IG-2B02/repair-r03-20261015T130825Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/",
+      "private/workflow/packets/",
+      "private/workflow/checks/"
+    ],
+    "outputs": [
+      "private/workflow/runs/IG-2B02/repair-r03-20261015T130825Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/affected-component-audit.json and finding-dispositions.json (new complete reports; exact six corrected specification pointers; preserved source observations and explicit provenance)",
+      "private/workflow/runs/IG-2B02/repair-r03-20261015T130825Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/report-reference-repair.py, binding-resolution-audit.json (all 24 bindings), negative-controls.json, r03-disposition.json, delta-audit.json, preservation-report.json, report-consistency-audit.json and replay-report.json",
+      "private/workflow/runs/IG-2B02/repair-r03-20261015T130825Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json, toolchain.json, checkpoint.json, criteria.json, required-checks.json, delivery-manifest.json, delivery.json, delivery-handoff.md and final-seal.json",
+      "private/workflow/runs/IG-2B02/repair-r03-20261015T130825Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/independent-rereview-launch.txt and rereview-input-pins.json (actual future hashes after successful review event; operator starts independent reviewer separately)",
+      "Existing immutable R01/R02 canonical/component product files remain unchanged current targets by exact base path/hash; no new inventory or evidence generation."
+    ],
+    "context": [
+      "docs/work/EVIDENCE.md",
+      "src/wgc/sources/README.md",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md",
+      "contracts/ig/regions.schema.json",
+      "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/configuration.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/dependency-verification.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-pins.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/scope.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json",
+      "docs/work/repair-context/IG-2B02-R03-20261015T130825Z.json"
+    ],
+    "inputs": [
+      "Current immutable R01/R02 repair: private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/delivery.json SHA256 41ae905b02b47fce1c6f5545e617df563963ab041406a8c2f483e8dc233ccf6f; complete manifest/seal, current component files and all prior evidence remain unchanged.",
+      "Completed independent changes_recommended review: private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/review.json SHA256 5c28a2d8ce31c978cffb6a697312dfebca393bfa9f3ac6c97715bb087abf8c72; findings.json contains R03 only and confirms original R01/R02 source corrections.",
+      "Bounded R03 report-reference scope: private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json SHA256 7afa943936f7193514996890cae04565b4c344690c6cc704ed07bcf7ee23f1ba; three exact keys, six wrong pointers, 24 bindings; derive specification indices by unique key, never ledger position.",
+      "Complete immutable input catalogue: private/workflow/runs/IG-2B02/repair-r03-preparation-20261015T130825Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-base-pins.json SHA256 b13d75051022f525acf381475a997bb23912df2eccae7798a47ec426cb072ef8; old historical snapshots are not current mutable queue claims.",
+      "All original source, accepted dependency, provenance, geometry, identity, evidence, order, continuation and coverage contracts remain exact; 141 task / 307 full / zero context denominator. No new source-content analysis for report repair."
+    ],
+    "start_conditions": [
+      "IG-2A/IG-2B01 remain done. Authorized coordinator applies only prepared R03 task fields and records review -> changes_requested with exact current R03 review evidence.",
+      "New local executor confirms its own actual gpt-6.1-sol/high and new identity, exact fresh packet/handoff and absent exclusively owned repair directory before claim.",
+      "All existing original/R01-R02 repair/review files are immutable. Existing corrected canonical/component products remain exact current targets at old paths; only report references and necessary dependent operational evidence change."
+    ],
+    "exclusions": [
+      "Archives and Git history; neighbouring repositories; global configuration.",
+      "Downstream tasks, unrelated changes, online services, commits and pushes.",
+      "Publisher content in public fixtures; automatic semantic acceptance.",
+      "No changes to src/wgc/sources, tests, contracts or frozen IG-2A/IG-2B01 artifacts; no source download. Queue structural edits are coordinator-owned; executor status updates only through workflow transitions.",
+      "No analysis of pages outside 5-8 except exact scoped continuation context. No broad adjacent-page probes, represented/excluded promotions by assertion or source-IG whole-record review by inheritance.",
+      "Original IG-2B02 delivery and independent review are immutable read-only inputs. No overwrite, evidence regeneration, ID/revision/geometry/source/coverage changes, new source analysis outside the three exact page-5 counter crops, or downstream task.",
+      "R03 execution is report-reference repair only. No new source-content viewing/render/extraction or component edits, no product copies/regeneration, and no write to any old delivery/review/preparation directory. Full independent rereview retains original criterion-5 source scope later."
+    ]
+  },
+  "preserve_fields": [
+    "id",
+    "title",
+    "stage",
+    "status",
+    "kind",
+    "depends",
+    "executor",
+    "goal",
+    "acceptance",
+    "tests",
+    "blockers",
+    "handoff",
+    "semantic_acceptance_required",
+    "events"
+  ],
+  "context_index": {
+    "path": "docs/work/repair-context/IG-2B02-R03-20261015T130825Z.json",
+    "bytes": 1457,
+    "sha256": "69d9f786f90043afab4550e7e6c7541e428fbb8769626be849e1d54e8d67ae6d"
+  },
+  "status_policy": "Do not directly edit status/events. A separately authorized coordinator applies exact fields, renders/checks, then workflow transition review -> changes_requested with real coordinator evidence.",
+  "authorization": "Current user requested preparation only. No queue edit, repair execution, session creation or acceptance performed."
+}

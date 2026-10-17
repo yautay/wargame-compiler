@@ -1,0 +1,68 @@
+IG-2B02-R03 — COORDINATOR SETUP PLAN (PREPARED ONLY)
+
+Do not execute until the operator separately authorizes queue setup/execution. Preparation
+has not changed queue, created a repair/reviewer session, repaired R03 or granted acceptance.
+Use docs/skills/wgc-queue/SKILL.md, AGENTS/README/STATUS/HANDOFF/WORKFLOW and the current
+IG-2B02 task. Read the exact R03 scope, binding expectations and V findings/review/seal.
+
+Confirm your actual actor/config proof; do not borrow an old actor's evidence. Create a
+NEW coordinator-owned setup directory with real UTC/session ID, outside frozen D/B/V/P
+and outside reserved absent executor A. Record explicit current operator authorization.
+Verify full catalogue, exact prepared pins, real review status/last event/queue hash,
+done dependencies and reserved attempt absence. Stop on unaccounted input/ownership drift.
+
+Apply ONLY P/coordinator-queue-patch.json. Save exact before/after queue bytes and affected
+view snapshots. Check its expected queue/status/event first and validate candidate with
+unchanged workflow.validate(...,check_views=False). Change only the six named fields of
+IG-2B02: write_scope, outputs, context, inputs, start_conditions, exclusions. Context replaces
+the old metadata-only R01/R02 index with the already-permitted metadata-only R03 index;
+do not edit context policy or validators. Preserve all other task/queue fields and tasks,
+including executor, goal, dependencies, acceptance, required tests, events and semantic gate.
+The existing B write scope must not survive as executable R03 write authority.
+
+Use exclusive normal queue lock without stealing an existing lock. Recheck current hash,
+atomically publish only the validated candidate, and workflow.py render derived views.
+No direct status/events edit. Record exact authorized field delta and changed views; retain
+all unrelated working changes. Run workflow validate, dry-run --task IG-2B02, scripts/check.ps1
+-Task IG-2B02 and git diff --check with actual argv/exits/stdout/stderr/UTC/wall time. Keep
+warnings/failures; unknown usage is null/reason. Draft estimate is not an actual packet.
+
+After all checks, write immutable coordinator-decision.json in your NEW setup directory:
+role coordinator, actual actor/model/reasoning/config proof, explicit authorization,
+summary requesting only R03 report-pointer repair (not acceptance/dismissal), exact five
+task criteria, complete relevant immutable artifacts and passing checks. Pin V/findings/
+review/manifest/seal, B/delivery/manifest/seal, prepared scope/patch/binding expectations,
+actual own configuration and immutable queue/checkpoint snapshots. Direct artifacts must
+pass unchanged safe_path/denied/file/digest rules. Native tool pins stay nested metadata;
+mutable live queue/checkpoint/projections must not be frozen direct artifact references.
+
+Only under actual later operator authorization, run ONCE with actual decision path:
+.\.venv\Scripts\python.exe -B scripts/workflow.py transition --task IG-2B02 --to changes_requested --evidence <ACTUAL_NEW_COORDINATOR_RUN>/coordinator-decision.json
+
+Inspect actual status/event/evidence SHA256 after every exit before considering retry.
+Correct persisted event with failed projection -> projection-only recovery; absent event
+-> checkpoint/escalate. Never automatically repeat or overwrite sealed evidence. Do not
+record accepted/done or modify frozen source/product/repair/review bytes.
+
+After successful changes_requested event, generate ACTUAL fresh workflow.py packet --task
+IG-2B02. Rehash allowlisted inputs and reconstruct complete logical UTF-8 LF payload; check
+physical Windows bytes separately and keep logical size <=100000 with no truncation.
+Prepared candidate estimates are in proposal-validation.json (not readiness evidence).
+If actual packet is stale/oversized, refine exact context safely and issue a fresh handoff;
+never change limits or send an executor a review-state preparation packet as claim input.
+
+Write immutable coordinator-handoff.json: actual new event/evidence hash, current queue
+pin plus immutable snapshot, exact authorized field/event delta, scope/patch/index/binding
+expectation pins, actual packet path/manifest/context SHA256/bytes/logical size, exact new
+write scope, reserved A absence/ownership gate, source/tool/5112-base-reference verification
+and passing setup checks. Reverify old frozen inputs after setup and preserve all old events.
+Freeze setup manifest/seal with cycle/self exclusions; return actual seal hash separately.
+
+Stop setup. A later operator-authorized NEW local executor receives repair-launch.txt plus
+this actual handoff; requested Sol/high must be confirmed by that new executor's runtime
+before claim. Do not create/message either executor or reviewer automatically. New executor
+returns only a frozen report correction -> review plus actual fresh independent-rereview
+handoff. All acceptance/done/semantic decisions and downstream work remain prohibited.
+
+This preparation authorizes neither setup nor execution. Future actual paths/hashes are
+null until observed and MUST be filled in the actual handoff before a claim is allowed.

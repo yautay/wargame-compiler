@@ -1,0 +1,37 @@
+{
+  "format": "wgc-coordinator-check-execution-1",
+  "task": "IG-2B08",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B08-coordinator-8d84cd90:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/001-IG-2B08-coordinator-8d84cd90/runtime-configuration.json",
+  "configuration_sha256": "6c19c296fa6ae7aeb13455fa4baf8e3c500b018d22bd793b17c53706c776e168",
+  "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+  "exit_code": 1,
+  "started_utc": "2026-10-17T06:50:08.008214+00:00",
+  "ended_utc": "2026-10-17T06:51:01.915078+00:00",
+  "wall_seconds": 53.875,
+  "log": {
+    "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/full-check-01.log",
+    "sha256": "b3a7dfb2958388715a9358c9bddd8c82fd8c284b71ee49f9c052b31e2f3f2f55",
+    "bytes": 282865
+  },
+  "selected_check_summaries": [
+    "Validated 39 tasks, DAG, scope, context and derived views.",
+    "39 |  \u2026 de -ne 0) { throw \"Checks failed: plan=$planCode dry-run=$dryCode pyt \u2026",
+    "| Checks failed: plan=0 dry-run=0 pytest=1 diff=0"
+  ],
+  "validation_assertions_changed": false,
+  "check_result": {
+    "path": "private/workflow/checks/active-fb0a28ce41a24f7e95d7efdf9e9bca63/result.json",
+    "sha256": "950b0de73ab6987769aa5731de3805be02513d1ff1c6939a9a0a59b0500955a8",
+    "bytes": 206
+  },
+  "check_exits": {
+    "plan_exit": 0,
+    "dry_run_exit": 0,
+    "tests_exit": 1,
+    "diff_exit": 0
+  }
+}

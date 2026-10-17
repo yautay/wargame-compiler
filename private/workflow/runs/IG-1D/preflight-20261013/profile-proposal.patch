@@ -1,0 +1,157 @@
+--- frozen source.schema.json (unchanged)
++++ proposed src/wgc/export/source-export.schema.json
+@@ -1,12 +1,12 @@
+ {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+-  "$id": "urn:wgc:ig:source:1",
+-  "title": "WGC source Instruction Graph contract",
++  "$id": "urn:wgc:ig:source-export:1",
++  "title": "WGC deterministic source export profile 1",
+   "description": "Source descriptions and revision-scoped evidence; no executable language or semantic approval by validation.",
+   "type": "object",
+   "properties": {
+     "schema_version": {
+-      "const": "wgc-source-1"
++      "const": "wgc-source-export-1"
+     },
+     "snapshot_id": {
+       "type": "string",
+@@ -2703,19 +2703,10 @@
+           "minLength": 1
+         },
+         "started_utc": {
+-          "type": "string",
+-          "minLength": 1
++          "type": "null"
+         },
+         "ended_utc": {
+-          "oneOf": [
+-            {
+-              "type": "string",
+-              "minLength": 1
+-            },
+-            {
+-              "type": "null"
+-            }
+-          ]
++          "type": "null"
+         },
+         "measurements": {
+           "type": "object",
+@@ -3206,7 +3197,7 @@
+               "const": "source"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3264,7 +3255,7 @@
+               "const": "region"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3322,7 +3313,7 @@
+               "const": "evidence"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3380,7 +3371,7 @@
+               "const": "node"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3438,7 +3429,7 @@
+               "const": "relation"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3496,7 +3487,7 @@
+               "const": "gap"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3554,7 +3545,7 @@
+               "const": "origin_binding"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3612,7 +3603,7 @@
+               "const": "coverage"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3670,7 +3661,7 @@
+               "const": "profile"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3728,7 +3719,7 @@
+               "const": "run"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3786,7 +3777,7 @@
+               "const": "review"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3844,7 +3835,7 @@
+               "const": "snapshot"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",
+@@ -3902,7 +3893,7 @@
+               "const": "identity_registry"
+             },
+             "schema_version": {
+-              "const": "wgc-source-1"
++              "const": "wgc-source-export-1"
+             },
+             "revision_id": {
+               "type": "string",

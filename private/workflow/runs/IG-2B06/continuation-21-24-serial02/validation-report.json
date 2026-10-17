@@ -1,0 +1,231 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "Actual unchanged required validation results, including approved execution after observed Windows restricted-token denial.",
+  "final_inventory": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+    "bytes": 2367836,
+    "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9"
+  },
+  "final_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/packet.json",
+    "bytes": 7992,
+    "sha256": "56deb7f7edc010974152ca949664cc5606c2dc7212be772b5d32be59fa5c6c88"
+  },
+  "selected_task": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/task.json",
+    "bytes": 9944,
+    "sha256": "c65290b9050558293fe39ebaf166c698095a3af1ed7a17df72c6a3fadda19e48"
+  },
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-a",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a/generation-report.json",
+        "bytes": 8283,
+        "sha256": "29d7d8fb55eba45ffb15550de7849d9aad14988b71bc3fc67580fbcb6a16331c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-b",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-b/generation-report.json",
+        "bytes": 8284,
+        "sha256": "ef512db7e4da9778ba2fe240b8379613d31da36961cf6bbd93955dcf708b99d4"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output final-verified",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/generation-report.json",
+        "bytes": 8302,
+        "sha256": "227ab3fd412d82aa08c00101d70a6c01f512b719ebd2596c2e7c84032b5197b7"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-01 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved exact unchanged validation command"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B06",
+      "exit_code": 0,
+      "execution": "approved exact unchanged validation command"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/reports.py",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "execution": "default sandbox"
+    }
+  ],
+  "logs": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a.log",
+      "bytes": 17606,
+      "sha256": "e9829e808b1aa0efffcf29bd6b43e6691eafd7c1c81ed420a01fe98002a3495a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-b.log",
+      "bytes": 17610,
+      "sha256": "43a074a294a7562c297b0989f6ac26c2db901e165bdba0ecc746a9431412eef3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-generation.log",
+      "bytes": 17683,
+      "sha256": "4301c60e29a5e729e37c2f204ee9a2739faf4019e824ed550bbc0eca614152af"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-approved.log",
+      "bytes": 102,
+      "sha256": "4e5bc3f71f875379117615539a88600520acc2ef1c4f0711550c7f01cf6ea9ce"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/check-approved.log",
+      "bytes": 5887,
+      "sha256": "345c580d7bd35dc2afdafd17522e5a1433aa9b3babe3224896642a6dad59f849"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/reports.log",
+      "bytes": 203,
+      "sha256": "ad6a41871acca03b4d0136b5371ebe76459a2c751e0a712ef6bc69a52cf943de"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/validate.log",
+      "bytes": 10758,
+      "sha256": "18e36138e56c383b482c193de0e797696fd35d958297ee4bbe6bde572a1537c6"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/diff-check.log",
+      "bytes": 277613,
+      "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+    }
+  ],
+  "repository_check_files": [
+    {
+      "path": "private/workflow/checks/active-1af4032826a245eb92fa55ecc788437c/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-1af4032826a245eb92fa55ecc788437c/dry-run.log",
+      "bytes": 185,
+      "sha256": "2af266f902b7005a5bc5890f81b18fd3bca46a09df875c0b0ef9a67aee9ac21d"
+    },
+    {
+      "path": "private/workflow/checks/active-1af4032826a245eb92fa55ecc788437c/pytest.log",
+      "bytes": 356,
+      "sha256": "1a272ca35858b67a169ada0f06b4be50e5516965a6bc876bdda09f0826aa5e1a"
+    },
+    {
+      "path": "private/workflow/checks/active-1af4032826a245eb92fa55ecc788437c/diff-check.log",
+      "bytes": 5187,
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+    },
+    {
+      "path": "private/workflow/checks/active-1af4032826a245eb92fa55ecc788437c/result.json",
+      "bytes": 206,
+      "sha256": "24fcb696f8117891de278d3e07ede63237be0ae52beabf742bc1514af8af060f"
+    }
+  ],
+  "resolved_failures": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-01 -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "cause": "Windows restricted token denied pytest mode-0700 temporary directory access. Exact unchanged validation passed with approved permissions; no ACL/test changes.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/pytest-sources-restricted.log",
+        "bytes": 4381,
+        "sha256": "cf25da5f05899a5714b3e74a4285014919ca1d6e0fae95f39ea194ba9e382e49"
+      }
+    },
+    {
+      "cause": "Initial one-region extraction view retained verified page labels without their out-of-view evidence. Stopped before generation; corrected geometry-only views make no label claim. Full original input/output validations retained.",
+      "report": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/generation-failure-01.json",
+        "bytes": 2057,
+        "sha256": "9f87b9b0b771e79dd8941cc235f4af8ca73079216e1626bf2b81a3d1a2137a6d"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a-failed-01.log",
+        "bytes": 670,
+        "sha256": "1f6e7dc33856f6afb2eb2802181b2da2f2658efcce82f73b934351ae1a6cc237"
+      }
+    }
+  ],
+  "source_tests": "71 passed",
+  "repository_tests": "267 passed",
+  "machine_checks": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/machine-checks.json",
+    "bytes": 4532,
+    "sha256": "c5efa0091d4631d8fc469d89e6b78b8bff1fb52ccbabff3475625fed077c6387"
+  },
+  "reports": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/preservation-report.json",
+      "bytes": 8525,
+      "sha256": "46a497a3af16b5bcca6c4278179ecc09a545587ed7c0981c69ab896da54cc653"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-report.json",
+      "bytes": 239936,
+      "sha256": "5b84e160bf41416aa6a5b57ad3f12e145c309150e6d9c59fde661ff627a83e4e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json",
+      "bytes": 600116,
+      "sha256": "f5494f69952871a1029d388b0748e49408be26601f6383e7ea76d337986756be"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json",
+      "bytes": 214815,
+      "sha256": "4878c991f2d987585d2b5d194f91969a1589d40dbe9afefef7944ebaf8e9bb7b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json",
+      "bytes": 77843,
+      "sha256": "c5bcdbc719e1e94f3e428c60dd4c9dc196b1b87c9afe0a495fa29afee3f7d0fb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json",
+      "bytes": 289556,
+      "sha256": "a384fb16f243ecba70ab7992ad218c4e3d2c453c26f96f4f1b2c1bf36b6b2cce"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+      "bytes": 4989,
+      "sha256": "524d8924e0432137c1a085c699d7aabdd1dd5985edd16ca78cad5696573c1121"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/original-page-inspection.json",
+      "bytes": 84873,
+      "sha256": "555872290c240da5245537acd3e6ad050bf42b666ad3876717901343e5bcecdb"
+    }
+  ],
+  "unresolved_failures": [],
+  "assertions_unchanged": true,
+  "semantic_acceptance": false,
+  "executable_readiness": "unverified"
+}

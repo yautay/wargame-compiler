@@ -1,0 +1,152 @@
+[
+  {
+    "id": "IG2A-R01",
+    "severity": "P1",
+    "disposition": "repair_implemented_pending_independent_review",
+    "evidence": [
+      "stale_page_rotation",
+      "stale_page_userunit",
+      "stale_page_crop"
+    ],
+    "consequence": "Normalized box coordinates depend on page geometry and units. Old text/PNG/derived-PDF files are accepted as current evidence for a different native/displayed crop. Page hashes are checked only against themselves, and evidence has no pinned page-geometry revision.",
+    "closure_condition": "On a clean valid migrated baseline, change CropBox, effective crop, rotation and UserUnit independently, reseal the page/container and retain old evidence. Each must fail with a freshness/source-basis error; fresh evidence for an unchanged actual source basis must pass. Keep all four independent asymmetric pixel/rotation/UserUnit oracles passing.",
+    "repair_cycles": 1,
+    "closure_evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+        "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+        "bytes": 12628
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+        "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+        "bytes": 840
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+        "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+        "bytes": 12086
+      }
+    ],
+    "independent_closure": "Not granted by this executor; new independent review must assess these exact bytes."
+  },
+  {
+    "id": "IG2A-R02",
+    "severity": "P2",
+    "disposition": "repair_implemented_pending_independent_review",
+    "evidence": [
+      "false_render_dpi"
+    ],
+    "consequence": "The documented render settings can describe an impossible render. Width/height are compared only to the PNG header, so the recorded DPI does not substantiate accurate coordinate/pixel evidence.",
+    "closure_condition": "The retained false_render_dpi input must fail for inconsistent rendering metadata, while actual 72/144-DPI evidence for nonzero origins, fractional UserUnit and all rotations passes with independently calculated pixel dimensions.",
+    "repair_cycles": 1,
+    "closure_evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+        "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+        "bytes": 12628
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+        "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+        "bytes": 840
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+        "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+        "bytes": 12086
+      }
+    ],
+    "independent_closure": "Not granted by this executor; new independent review must assess these exact bytes."
+  },
+  {
+    "id": "IG2A-R03",
+    "severity": "P2",
+    "disposition": "repair_implemented_pending_independent_review",
+    "evidence": [
+      "wrong_page_printed_label"
+    ],
+    "consequence": "The printed-label mapping is not technically bound to its physical page. A downstream locator can appear visually verified using an unrelated page image; ID existence alone is insufficient.",
+    "closure_condition": "Cross-page evidence must be rejected even if the evidence itself is valid. Same-page current evidence must pass. Preserve unknown cover labels and embedded_unverified PageLabels without promoting metadata to visual verification.",
+    "repair_cycles": 1,
+    "closure_evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+        "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+        "bytes": 12628
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+        "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+        "bytes": 840
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+        "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+        "bytes": 12086
+      }
+    ],
+    "independent_closure": "Not granted by this executor; new independent review must assess these exact bytes."
+  },
+  {
+    "id": "IG2A-R04",
+    "severity": "P1",
+    "disposition": "repair_implemented_pending_independent_review",
+    "evidence": [
+      "exclusion_after_region_revision",
+      "exclusion_after_registry_change",
+      "exclusion_after_page_remap"
+    ],
+    "consequence": "partition_hash covers only source SHA and inventory region IDs/page IDs/boxes. It cannot invalidate a decision after author/registry scope revisions. The frozen IG-1A exclusion contract requires an exact current whole-region and inventory basis; this sidecar must not transfer a prior scope decision into a changed basis merely because its rectangles are unchanged.",
+    "closure_condition": "Change region key, classification, uncertainty, registry scope, source and physical-page mapping separately after a valid exclusion. Old decision basis must become stale/unknown or fail and must not be reported as a current approved exclusion. Unchanged exact basis and separately authentic human evidence can retain their limited scope. The current partition-change rejection must continue to pass.",
+    "repair_cycles": 1,
+    "closure_evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+        "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+        "bytes": 12628
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+        "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+        "bytes": 840
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+        "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+        "bytes": 12086
+      }
+    ],
+    "independent_closure": "Not granted by this executor; new independent review must assess these exact bytes."
+  },
+  {
+    "id": "IG2A-R05",
+    "severity": "P1",
+    "disposition": "repair_implemented_pending_independent_review",
+    "evidence": [
+      "false_consistent_page_count",
+      "physical_page_remapping"
+    ],
+    "consequence": "The counter claims are compared to each other, not the byte-pinned source, and physical identity keys are not bound to immutable physical addresses. A missing real page becomes invisible and persisted IDs silently move to another page without any explicit mapping decision. The frozen 44-page delivery is correct, but the validator is insufficient for downstream edited inventories.",
+    "closure_condition": "With a two-page byte-pinned PDF, consistent forged one-page counters must fail with actual missing-page/source-basis diagnostics. Swapping physical addresses under the same persisted IDs must fail. Reordering the pages array without changing physical addresses and two fresh registry replays must pass.",
+    "repair_cycles": 1,
+    "closure_evidence": [
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/repair-probes.json",
+        "sha256": "41c0876591ad8c26511e8fdb70c57b8c1146e7add5a28b3774663bf38dff44cf",
+        "bytes": 12628
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/sources-tests-03.json",
+        "sha256": "31c1218ad65c54b081451d2e612fbb92ae57faee42f7bda0c4a1ac8e4ca54c3a",
+        "bytes": 840
+      },
+      {
+        "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/geometry-oracle.json",
+        "sha256": "e2b7d299a7d15eaeca64f9d9eeac9c3287c8c02b2b3df5c1a5f57e12321972d6",
+        "bytes": 12086
+      }
+    ],
+    "independent_closure": "Not granted by this executor; new independent review must assess these exact bytes."
+  }
+]

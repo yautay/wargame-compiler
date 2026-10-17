@@ -1,0 +1,33 @@
+{
+  "task": "IG-1D",
+  "attempt": "repair-02-20261013",
+  "actor": "ig1-continuation-executor-20261013",
+  "observed_utc": "2026-10-13T14:30:59.3876430Z",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/runs/IG-1D/resume-audit-20261013T134548Z/configuration-confirmed.json",
+  "changed_files": [
+    {
+      "sha256": "784ab223591db89b8b09ca5e7c3c835b8f393828f46790f983fab6c4146c28a6",
+      "path": "src/wgc/wgu_adapter/identity.py"
+    },
+    {
+      "sha256": "8ebde92b5355d3ed884147b3aa2ea72550a50b3d70d9c1f391f13f131bf296f5",
+      "path": "tests/wgu_adapter/test_lineage_contract_repairs.py"
+    }
+  ],
+  "explicit_tests_passed": 128,
+  "project_tests_passed": 102,
+  "accounting_status": "Independent file/record/field/binding inventory passed; full transforms/publications in progress",
+  "full_accounting_finalized": false,
+  "checks": [
+    "explicit-check.json",
+    "project-check.json",
+    "diff-check.json"
+  ],
+  "input_tokens": null,
+  "output_tokens": null,
+  "cost": null,
+  "operator_seconds": null,
+  "next_operation": "Await accounting exit 0, run freeze.py, transition to review, then request same independent replacement reviewer to re-review exact delivery."
+}

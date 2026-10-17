@@ -1,0 +1,177 @@
+{
+  "utc": "2026-10-16T19:53:37.538550+00:00",
+  "operator_request_verbatim": "napraw i uruchom",
+  "task": "IG-2B06",
+  "role": "coordinator",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "configuration_evidence": "Coordinating model/reasoning not exposed. Deterministic supervisor recovery reuses the verified observed independent-review configuration without impersonating that reviewer.",
+  "cause": "Windows access/sharing denial while atomically replacing the supervisor heartbeat file caused one synthetic guard test to fail. The independent frozen source review passed.",
+  "change": "At most two retries of the same complete pending file for Windows errors 5/32/33, preserving atomic replacement and persistent-error failure. Initial process metadata now includes its heartbeat, avoiding an immediate redundant rewrite.",
+  "validation_recovery": "Original passing review and source/product bytes remain frozen. Run unchanged supervisor checks in a new directory, then use existing accepted/done gates. No model rerun or source-semantic acceptance is inferred.",
+  "targeted_tests": {
+    "command": ".venv/Scripts/python.exe -m pytest -q tests/test_orchestrator.py -k \"atomic_status or validation_recovery\" --basetemp private/workflow/checks/b06-atomic-status-tests01 -p no:cacheprovider --tb=short",
+    "exit_code": 0,
+    "result": "7 passed, including real Windows sharing-handle recovery"
+  },
+  "preserved_artifacts": [
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/access-manifest.json",
+      "sha256": "658451205e4d37dcbee44186a3dea1c97e7791ddf01dbdd87310eaacd3dc337b",
+      "bytes": 1970
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/bootstrap/HANDOFF.md",
+      "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395",
+      "bytes": 1533
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/bootstrap/STATUS.md",
+      "sha256": "d8275e64b3cd20c8f29ed126d29caf965b4962df25f615decd7fce90f17d5693",
+      "bytes": 1136
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/context-guard.json",
+      "sha256": "395f07075505482a1633b35170d83218e04e5e7a119e203e10104fc6df21398a",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/continuation-preserved.json",
+      "sha256": "349a4d8c22fc2869a85d3245d6bf3fbd59fcabb011f66b2e412252551de75d5c",
+      "bytes": 24040
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/continuation-scope-reference.json",
+      "sha256": "93f61654b53bbbe845e1a1c26b65c6d28268136e88d7dbf1749ca362d939c02a",
+      "bytes": 193
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/delivery-reference.json",
+      "sha256": "9b65bf71b6caff3a9fe646c15abffe2bef818b463fa56497a684ee6e11a5a744",
+      "bytes": 267
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/delivery.json",
+      "sha256": "f220ce2534fce4ab7195839c95b648a26f4feb7969184a3aebb0e8f2d11507b6",
+      "bytes": 256468
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/dependency-view.json",
+      "sha256": "5b1587f7c3553608fdb84a718505cd6460351cb44b669d651243c5aa7fce0e8a",
+      "bytes": 14091
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/diff-check.log",
+      "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1",
+      "bytes": 5143
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/invocation.json",
+      "sha256": "263f9a93dcb7e7fa68d8147d519dd4daa549cc42d4f71e8a26252001109547f9",
+      "bytes": 717
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/packet.json",
+      "sha256": "0abed1e42e5674597e48f9883b923266d885a174af70698fcd93ee6f65aa0c1b",
+      "bytes": 7992
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/process-result.json",
+      "sha256": "8ba925cbb76fd54c7001da4391495ab766b8d29e7f52cefc4cc8cdc5881218e4",
+      "bytes": 270
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/process.json",
+      "sha256": "6a8ace40433f0c9fe6ed69b2a654bbf9f0dd9c176c0aa5abd937d5292f42fe70",
+      "bytes": 910
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/project-check.log",
+      "sha256": "b79c37d2fd5b2ecfb0ace5a0b4beb7b6776b13b129d2673430f9e40ae9a42f3a",
+      "bytes": 7321
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/prompt.txt",
+      "sha256": "02bc4b2e33f5912bf09812f3131015ac12832119967caff742de16173a484658",
+      "bytes": 11081
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/references.json",
+      "sha256": "2ae75255543fdd0f87519e60c72ee65327bb254ef050cadf0a515c709db37147",
+      "bytes": 339
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/response-schema.json",
+      "sha256": "e82ad3e5ee8ed36a5a407714a0e2c0c07907f3e9006402ee2afc3bc0c9da9655",
+      "bytes": 457
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/response.json",
+      "sha256": "edd97b67f48f9e44c029b5800da8f2974ba45f2afc3da5824489e8b4cbaaa2dd",
+      "bytes": 292
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/runtime-configuration.json",
+      "sha256": "6a8baca51ba76ebc4af29ce3e20ddca808a4c315597f4dc0cfc0b854cf7ca6ad",
+      "bytes": 1210
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/search-manifest.json",
+      "sha256": "e6663478dc7652228c0a379f8ac31936c1f6eb2e871e7e04ad2b33fa6460448e",
+      "bytes": 4183
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/stderr.log",
+      "sha256": "4d05aac3909b3e3b5f84a65dfc68e0713d25ec25bf6b4681e1835d35e7eef519",
+      "bytes": 1011613
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/stdout.log",
+      "sha256": "d024a16075ac82f2437595a339b3695c9a383fe5a40f6b1211be14137331eb4a",
+      "bytes": 293
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/supervisor-checks.json",
+      "sha256": "8c175990739ed90a090f3614552d2e34a8a1846270414bf6a735816f6d284fa4",
+      "bytes": 176
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/task.json",
+      "sha256": "f1b5c867a62a11a3e89e791b6af07d2070a8850dc709c4c57535f6b31df6761b",
+      "bytes": 9945
+    },
+    {
+      "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/tool-runtime.json",
+      "sha256": "d741a4a825514d5e4e90d521cc47b2edc67be62a8e365552712505ff299b50d9",
+      "bytes": 293
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/review-089ffca5-01/review.json",
+      "sha256": "16239be96015ea8d327a48ce73720aeec46e4738735d7b4f50dcbf9874764c23",
+      "bytes": 417801
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/delivery.json",
+      "sha256": "f220ce2534fce4ab7195839c95b648a26f4feb7969184a3aebb0e8f2d11507b6",
+      "bytes": 256468
+    }
+  ],
+  "tooling_artifacts": [
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "b81d58b81e30e3df91c92994ea5b2043dfc8c1dc9b32cc571ff4059aeafde60f",
+      "bytes": 73425
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "35400976534f66162ed7be47cb58130a5607ef354f8763233842b4162a9787fd",
+      "bytes": 53951
+    },
+    {
+      "path": "docs/work/IG2-ORCHESTRATOR.md",
+      "sha256": "0056dd6956845829178e332e8d4f75d2f438e829b3f96bc6b444b5b4016a9046",
+      "bytes": 19937
+    }
+  ],
+  "human_semantic_acceptance": false
+}

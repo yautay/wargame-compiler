@@ -1,0 +1,50 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B04-reviewer-4fab98d5:reviewer",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T142331Z-0d4dc364/002-IG-2B04-reviewer-4fab98d5/runtime-configuration.json",
+  "configuration_sha256": "d47049988f0457e2fe61476f04e1d5fe0827b1551d829af6d1d245a36f8d1c37",
+  "utc": "2026-10-16T14:34:52.526306+00:00",
+  "summary": "Independent unchanged validation command; actual exit and full log frozen.",
+  "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp C:/repo/wargame-compiler/private/workflow/runs/IG-2B04/review-4fab98d5-01/pytest-sources -p no:cacheprovider --tb=short",
+  "argv": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/sources",
+    "--basetemp",
+    "C:/repo/wargame-compiler/private/workflow/runs/IG-2B04/review-4fab98d5-01/pytest-sources",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-16T14:34:36.599850+00:00",
+  "ended_utc": "2026-10-16T14:34:52.526306+00:00",
+  "wall_seconds": 15.9220000000023,
+  "log": {
+    "path": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B04/review-4fab98d5-01/sources.log",
+    "sha256": "d2212df93392bb0b947790718ca855cb86546f2ae52314a79d45c247df9a9c81",
+    "bytes": 102
+  },
+  "environment": {
+    "rg_resolved": "C:\\Users\\yauta\\AppData\\Local\\OpenAI\\Codex\\bin\\d6efb6feb729707e\\rg.EXE",
+    "rg_sha256": "0d73ba3dd4f273938f02b2bd577be197af136c7856b00fd8a89434e25633cf8d",
+    "inherited_path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell;C:\\Users\\yauta\\.codex\\tmp\\arg0-windows\\codex-arg0Ztb22C;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin;C:\\Users\\yauta\\AppData\\Local\\OpenAI\\Codex\\bin\\d6efb6feb729707e;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\KeePassXC\\;C:\\Users\\yauta\\AppData\\Local\\Microsoft\\WindowsApps",
+    "complete_inherited_path_preserved_as_suffix": true,
+    "prepended_directories": [
+      "C:\\Users\\yauta\\AppData\\Local\\OpenAI\\Codex\\bin\\d6efb6feb729707e",
+      "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin"
+    ],
+    "process_pythonpath": "C:\\repo\\wargame-compiler\\src;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages",
+    "toolchain": {
+      "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/toolchain.json",
+      "sha256": "2a10f104b342301756b20979e55572d3311777331d011c8540b0061c98d0e5a2",
+      "bytes": 2642
+    }
+  },
+  "sandbox_permissions": "require_escalated"
+}

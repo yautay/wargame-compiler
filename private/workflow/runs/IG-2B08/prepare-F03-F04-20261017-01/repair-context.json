@@ -1,0 +1,443 @@
+{
+  "format": "wgc-current-repair-context-1",
+  "task": "IG-2B08",
+  "repair_scope": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F03-F04-20261017-01/repair-scope.json",
+    "sha256": "a84fc0d8deb9dc10343f575459dce520d9dd667dd78fb0a17e16839a34c4900b",
+    "bytes": 13921
+  },
+  "decision": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F03-F04-20261017-01/decision.json",
+    "sha256": "970bcfe9c45c7dc340eca40c9745d61b5ce031ac98e1e315b4048e6ba849dde2",
+    "bytes": 1873
+  },
+  "review_reference": {
+    "path": "private/workflow/runs/IG-2B08/review-18a665c9/review.json",
+    "sha256": "c053064faa7a66120610e495dbcca6659872d78f682a624df9247a67c2cfdb57",
+    "bytes": 2780735
+  },
+  "review_summary": "F02 full 4-marker repair and F01 arrows verified. Two other page-29 intended detail defects remain: Tribune artwork/0 clipped (F03), and later C 3-marker frame clipped (F04). Frozen hashes, complete replays, preservation, indexes and required validations pass.",
+  "findings": [
+    {
+      "id": "F03",
+      "severity": "medium",
+      "title": "Page-29 V-counter detail truncates the Tribune artwork",
+      "locations": [
+        {
+          "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/component-ledger.json",
+          "pointer": "/components/177/points"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/region-ledger.json",
+          "pointer": "/new_observations/257/points"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/original-page-inspection.json",
+          "pointer": "/observations/257/points"
+        }
+      ],
+      "region_key": "ig2b08:p29:collapse-diagram-component-v-counter",
+      "region_id": "region:8dd89345-6cd9-4905-a148-82a6a1cff689",
+      "region_revision": "f2eb187910b79439ae949955f4bae0528fc4bc5ee89455d9d97213fa25ed7478",
+      "physical_page": 29,
+      "points": [
+        174,
+        339,
+        205,
+        370
+      ],
+      "description": "The intended collapse-diagram V-counter crop [174,339,205,370] cuts through the overlaid Tribune marker: the right part of its caption and the complete yellow 0 field are outside this detail. The independent [205,352,212,366] source window contains 68 yellow pixels at 144-DPI bounds [410,709,421,732], all absent from the intended image. The same region revision and incomplete selection occur in final-verified and both replays. The broader V group and primary field tiles retain content, but do not complete this separately authored V-counter/Tribune detail.",
+      "consequence": "Intended physical component evidence remains incomplete despite correct primary denominator, preserved baseline and matching replay sets.",
+      "affected_criteria": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+        "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+        "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+        "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+        "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/witness-257.png",
+          "sha256": "a0cb136a05f972d0d8fae9bf65639640fd648b47b08d4fce94e074831ceceb43",
+          "bytes": 88143
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/originals/detail-257-delivered.png",
+          "sha256": "8a6af86b9ac2b8e3e3a6bdca813a517e155840ca637ae3baac1f3a51ac872d11",
+          "bytes": 42887
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/component-proof.json",
+          "sha256": "0125d60f56ad8060c8496940b123b73a55e930f4e43ae9cca7026ce2200a4538",
+          "bytes": 20354
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/originals/page-29.png",
+          "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e",
+          "bytes": 756272
+        }
+      ],
+      "runs": [
+        {
+          "name": "final-verified",
+          "intended_evidence": {
+            "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/evidence/ig2b08-p29-collapse-diagram-component-v-counter/image.png",
+            "sha256": "4170c75ac28a575c0a7517dadd3a57b5866120c89d661e614a1ee33a2afe143e",
+            "bytes": 4937
+          },
+          "source_pixels_outside_intended_image": 68,
+          "outside_bounds_half_open": [
+            410,
+            709,
+            421,
+            732
+          ],
+          "source_pixels_with_same_color_support_within_1px": 1,
+          "source_pixels_complete": false
+        },
+        {
+          "name": "replay-1",
+          "intended_evidence": {
+            "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-1/evidence/ig2b08-p29-collapse-diagram-component-v-counter/image.png",
+            "sha256": "4170c75ac28a575c0a7517dadd3a57b5866120c89d661e614a1ee33a2afe143e",
+            "bytes": 4937
+          },
+          "source_pixels_outside_intended_image": 68,
+          "outside_bounds_half_open": [
+            410,
+            709,
+            421,
+            732
+          ],
+          "source_pixels_with_same_color_support_within_1px": 1,
+          "source_pixels_complete": false
+        },
+        {
+          "name": "replay-2",
+          "intended_evidence": {
+            "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-2/evidence/ig2b08-p29-collapse-diagram-component-v-counter/image.png",
+            "sha256": "4170c75ac28a575c0a7517dadd3a57b5866120c89d661e614a1ee33a2afe143e",
+            "bytes": 4937
+          },
+          "source_pixels_outside_intended_image": 68,
+          "outside_bounds_half_open": [
+            410,
+            709,
+            421,
+            732
+          ],
+          "source_pixels_with_same_color_support_within_1px": 1,
+          "source_pixels_complete": false
+        }
+      ],
+      "required_repair": "In a new coordinator-authorized attempt, repair the named intended detail; preserve all primary tiles, baseline objects, registry history and frozen attempts. Regenerate affected final/replay evidence and current dependent reports/indexes, retaining complete replay sets.",
+      "repair_validation": [
+        "Compare the complete visible Tribune label/artwork and rightmost 0 against original page 29; correct or split intended detail coverage, and add a source-bound full-component regression rejecting [174,339,205,370]. Verify the complete marker extent, including its frame, rather than only the 68-pixel witness or a broader primary tile.",
+        "Freshly recheck every assigned component and the exact page-33 context; preserve resolved F01/F02 complete arrows/4-marker regressions and zero context denominator.",
+        "Run two complete independent serial replays; verify stable identities, registry history, normalized evidence/locators, current exhaustive index, baseline preservation and all frozen hashes.",
+        "Rerun unchanged source suite, all three source CLI validators via task_access, owned complete batch/omission/stale-index verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check. Use approved exact-command execution for observed Windows access failures; obtain fresh independent review."
+      ]
+    },
+    {
+      "id": "F04",
+      "severity": "low",
+      "title": "Page-29 later C 3-marker detail truncates the marker frame",
+      "locations": [
+        {
+          "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/component-ledger.json",
+          "pointer": "/components/118/points"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/region-ledger.json",
+          "pointer": "/new_observations/198/points"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/original-page-inspection.json",
+          "pointer": "/observations/198/points"
+        }
+      ],
+      "region_key": "ig2b08:p29:advance-diagram-component-c-hits",
+      "region_id": "region:0a002755-56a3-4ebc-870f-8ab0020807c4",
+      "region_revision": "8f0e7bc28189097845931c5f4cc35762c360098fa47d40ab30e006356c9f5bff",
+      "physical_page": 29,
+      "points": [
+        465,
+        385,
+        495,
+        418
+      ],
+      "description": "The intended advance-diagram C-hits crop [465,385,495,418] retains the 3 digit but cuts the exposed marker frame along its left/lower edges. The independent bottom-frame window [460,420,489,424] contains 238 gray source pixels at 144-DPI bounds [920,840,976,848], all outside the actual intended image in final-verified and both complete replays. Its observed role is the 3 marker behind C; adjacent component/primary crops cannot substitute for complete intended marker evidence.",
+      "consequence": "Intended physical component evidence remains incomplete despite correct primary denominator, preserved baseline and matching replay sets.",
+      "affected_criteria": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+        "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+        "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+        "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+        "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/witness-198.png",
+          "sha256": "ab7be088b4eaff6e882bb2accde419335bfece14b1a7df26fcbd0ef989432aa3",
+          "bytes": 94096
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/originals/detail-198-delivered.png",
+          "sha256": "d063223cdcb47bc9784d6c0a4acba84ced484c57c73ca1eeb497bd6e99a187c9",
+          "bytes": 36282
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/component-proof.json",
+          "sha256": "0125d60f56ad8060c8496940b123b73a55e930f4e43ae9cca7026ce2200a4538",
+          "bytes": 20354
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-18a665c9/originals/page-29.png",
+          "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e",
+          "bytes": 756272
+        }
+      ],
+      "runs": [
+        {
+          "name": "final-verified",
+          "intended_evidence": {
+            "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/evidence/ig2b08-p29-advance-diagram-component-c-hits/image.png",
+            "sha256": "128dbed410d354c09aa671797cc187bd96a2567b9cae030da57d2a8cc94a9acf",
+            "bytes": 4068
+          },
+          "source_pixels_outside_intended_image": 238,
+          "outside_bounds_half_open": [
+            920,
+            840,
+            976,
+            848
+          ],
+          "source_pixels_with_same_color_support_within_1px": 0,
+          "source_pixels_complete": false
+        },
+        {
+          "name": "replay-1",
+          "intended_evidence": {
+            "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-1/evidence/ig2b08-p29-advance-diagram-component-c-hits/image.png",
+            "sha256": "128dbed410d354c09aa671797cc187bd96a2567b9cae030da57d2a8cc94a9acf",
+            "bytes": 4068
+          },
+          "source_pixels_outside_intended_image": 238,
+          "outside_bounds_half_open": [
+            920,
+            840,
+            976,
+            848
+          ],
+          "source_pixels_with_same_color_support_within_1px": 0,
+          "source_pixels_complete": false
+        },
+        {
+          "name": "replay-2",
+          "intended_evidence": {
+            "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-2/evidence/ig2b08-p29-advance-diagram-component-c-hits/image.png",
+            "sha256": "128dbed410d354c09aa671797cc187bd96a2567b9cae030da57d2a8cc94a9acf",
+            "bytes": 4068
+          },
+          "source_pixels_outside_intended_image": 238,
+          "outside_bounds_half_open": [
+            920,
+            840,
+            976,
+            848
+          ],
+          "source_pixels_with_same_color_support_within_1px": 0,
+          "source_pixels_complete": false
+        }
+      ],
+      "required_repair": "In a new coordinator-authorized attempt, repair the named intended detail; preserve all primary tiles, baseline objects, registry history and frozen attempts. Regenerate affected final/replay evidence and current dependent reports/indexes, retaining complete replay sets.",
+      "repair_validation": [
+        "Compare the full visible 3 marker and all exposed frame edges against original page 29; correct or split its intended detail and add a full-frame source-bound regression rejecting [465,385,495,418]. Preserve the digit and check complete left/bottom/top/right extents; a digit-only or single-pixel check is insufficient.",
+        "Freshly recheck every assigned component and the exact page-33 context; preserve resolved F01/F02 complete arrows/4-marker regressions and zero context denominator.",
+        "Run two complete independent serial replays; verify stable identities, registry history, normalized evidence/locators, current exhaustive index, baseline preservation and all frozen hashes.",
+        "Rerun unchanged source suite, all three source CLI validators via task_access, owned complete batch/omission/stale-index verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check. Use approved exact-command execution for observed Windows access failures; obtain fresh independent review."
+      ]
+    }
+  ],
+  "resolved_findings_to_preserve": [
+    "F01",
+    "F02"
+  ],
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/delivery.json",
+    "sha256": "fd6e791cb25d7b28d3c571c4b18dae4d0213e8e252aa22646c8da5cb34931e4f",
+    "bytes": 2747051
+  },
+  "named_current_inputs": {
+    "build_inventory.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/build_inventory.py",
+      "bytes": 13509,
+      "sha256": "8294506e1a82cb56665f208016a136b40091dab21caf79806835e28e8a3338af"
+    },
+    "check_arrow_completeness.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/check_arrow_completeness.py",
+      "bytes": 5950,
+      "sha256": "355b58e5308e31b4dc0de5ab543029b9dd3c3f41223b15002fb15b0e06f01665"
+    },
+    "check_hit_completeness.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/check_hit_completeness.py",
+      "bytes": 5424,
+      "sha256": "71e0887da54ca9ae0a71c0d1a7d971f7c666307f783fb50e7c52c06451d642e4"
+    },
+    "freeze_delivery.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/freeze_delivery.py",
+      "bytes": 14531,
+      "sha256": "2a7c278a031e94399efd9ddba6d468a18a55c7c257d6c8257ee4ecb6e0bad8f9"
+    },
+    "inspect_originals.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/inspect_originals.py",
+      "bytes": 2323,
+      "sha256": "4e7870eddf0af05901d0153373c62d3dbef9d67bab0929696e116d61e9f8522a"
+    },
+    "probe_geometry.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/probe_geometry.py",
+      "bytes": 2510,
+      "sha256": "77ca2a22ba3b72ff1d386628b279f51f2c65e6411d50c377d62baf957543be75"
+    },
+    "reconcile_reading_order.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/reconcile_reading_order.py",
+      "bytes": 2234,
+      "sha256": "4a8f60995a9e3d680847189994e8834c12cab27b5a19e6c4a23e5c62f6de2257"
+    },
+    "verify_batch.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/verify_batch.py",
+      "bytes": 20747,
+      "sha256": "ade889cb1ad6cca8c47f658a425ac9344ae212828961904cab6597375ca8c535"
+    },
+    "author-selections.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/author-selections.json",
+      "bytes": 85849,
+      "sha256": "e51164eaa6d7ad42e794c4e495cfaf62fe06b57fa98c688fde9ef8aa7e102eff"
+    },
+    "author-inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/author-inventory.json",
+      "bytes": 4398415,
+      "sha256": "1c776d666507a3813d03801054f76d722a9e2dc8fcd55955e04bf5bdc46de15c"
+    },
+    "author-registry.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/author-registry.json",
+      "bytes": 184306,
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+    },
+    "region-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/region-ledger.json",
+      "bytes": 2602073,
+      "sha256": "bdccfdd35ec7b4ea5bc36347c674901328630976c0a608c9e1279db3751a2194"
+    },
+    "component-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/component-ledger.json",
+      "bytes": 729371,
+      "sha256": "5319c0170627d2376a392fcd00412e44fa246dd61b502f6c5f414eeef95e6c35"
+    },
+    "original-page-inspection.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/original-page-inspection.json",
+      "bytes": 1028144,
+      "sha256": "23e15a40c11be83bd42bbc1bbfed6399c7f90edcdf861fa4c2d2814717006ec2"
+    },
+    "continuations.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/continuations.json",
+      "bytes": 68064,
+      "sha256": "d90b5a0994b058e4bb493f81c271e2053e6f43abbe271af97a3c9036b80c459e"
+    },
+    "coverage-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/coverage-report.json",
+      "bytes": 80833,
+      "sha256": "a85e450dff6fc6031be4c47a65e2db1aef0cb7149e95379d4f26adea5c24c7c1"
+    },
+    "source-pins.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/source-pins.json",
+      "bytes": 2864142,
+      "sha256": "30cbb9a1d8b2e09228d25de5d9a611a3931085a2cf98b37aa19b6197d2664e80"
+    },
+    "toolchain.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/toolchain.json",
+      "bytes": 4514,
+      "sha256": "a3d828bd73f7873364149ca89a176a05129eac342a6005f5b124547a658d9807"
+    },
+    "preservation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/preservation-report.json",
+      "bytes": 2105,
+      "sha256": "221235032f182eda476e733526ecba20f24e94f798849a2ebe8f9e90e3bd175f"
+    },
+    "replay-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-report.json",
+      "bytes": 4535,
+      "sha256": "c0c02bd18fd6ece85b87db1f79786387dc42b60dce5b5611ce65bd17df5a7f64"
+    },
+    "validation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/validation-report.json",
+      "bytes": 15418,
+      "sha256": "6525bea6bf2a7b63433435b10316effb2956ba324a3134e2b37fd952a7dae0e2"
+    },
+    "delivery-handoff.md": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/delivery-handoff.md",
+      "bytes": 2236,
+      "sha256": "0f135fe3f9a62d24c77000fc7f3f2803a34ec4269a4a4e5322c3965f6d95e52e"
+    },
+    "final-verified/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/inventory.json",
+      "bytes": 5086615,
+      "sha256": "590bd3ff4a60cacd4fae519c0f03a74fb03c272fc0943753435e2275e8866c65"
+    },
+    "final-verified/identity-registry.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/identity-registry.json",
+      "bytes": 184306,
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+    }
+  },
+  "accepted_baseline_contract": {
+    "path": "private/workflow/runs/IG-2B08/manifest-recovery-20261017-F01-01/input-pins.json",
+    "sha256": "e05b6bd9b1d2cc528f4721f916872ace358a2f9b84a5e119dc76c30970753f3d",
+    "bytes": 12381
+  },
+  "private_read_protocol": "This compact current context may be read in full. Read named helper source in bounded windows, copy/rebase to the new root before execution, and treat candidate implementations as untrusted. Select assigned-page/current component fields only; copy/hash/validate whole documents internally without emitting histories, manifest rows or unassigned source text. Source-pins/preservation indexes are internal inputs; counts/status only.",
+  "scope_precedence": "This LATER independent review repair supersedes initial F02 draft-revalidation ownership and draft/helper restrictions only for named reviewed repair-F02-validation02 candidate inputs. The stopped repair-F02-7582f722 helpers/transcripts remain forbidden. Frozen continuation/delivery and all earlier attempts stay immutable.",
+  "source_access": {
+    "inventory_physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only": [
+      {
+        "physical_page": 28,
+        "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+      },
+      {
+        "physical_page": 33,
+        "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+        "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+        "box_points": [
+          45,
+          50,
+          306,
+          80
+        ],
+        "box_normalized": [
+          73529,
+          63131,
+          500000,
+          101011
+        ],
+        "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+        "raster_144dpi": {
+          "x": 90,
+          "y": 100,
+          "width": 522,
+          "height": 60
+        },
+        "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+      }
+    ],
+    "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+    "forbidden": "No transcripts, old failed-attempt helpers, archives/history, whole-PDF analysis, private search, manifest/envelope dumps or other dependency records. Only the named frozen B08 candidate helpers in repair-context.json may be read/copied; never execute them at frozen paths."
+  }
+}

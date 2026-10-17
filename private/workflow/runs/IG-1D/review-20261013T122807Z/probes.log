@@ -1,0 +1,28 @@
+.F.FF.......                                                             [100%]
+================================== FAILURES ===================================
+____ test_conflicting_label_and_body_evidence_is_not_silently_prioritized _____
+private\workflow\runs\IG-1D\review-20261013T122807Z\probes.py:56: in test_conflicting_label_and_body_evidence_is_not_silently_prioritized
+    assert all(a['ids'] == [] and a['gap_id'] for a in two['assignments'])
+E   assert False
+E    +  where False = all(<generator object test_conflicting_label_and_body_evidence_is_not_silently_prioritized.<locals>.<genexpr> at 0x000001CA0FB34D40>)
+_ test_conflicting_hint_and_lineage_on_same_child_requires_explicit_conflict __
+private\workflow\runs\IG-1D\review-20261013T122807Z\probes.py:86: in test_conflicting_hint_and_lineage_on_same_child_requires_explicit_conflict
+    assert child['ids'] == [] and child['gap_id'], 'Contradictory explicit bindings may not be silently ignored'
+E   AssertionError: Contradictory explicit bindings may not be silently ignored
+E   assert (['review:e0000003'] == []
+E     
+E     Left contains one more item: 'review:e0000003'
+E     Use -v to get more diff)
+___________ test_exact_current_allocated_ids_resolve_in_navigation ____________
+private\workflow\runs\IG-1D\review-20261013T122807Z\probes.py:94: in test_exact_current_allocated_ids_resolve_in_navigation
+    assert diagnostic['target_status'] == 'resolved'
+E   AssertionError: assert 'unresolved' == 'resolved'
+E     
+E     - resolved
+E     + unresolved
+E     ? ++
+=========================== short test summary info ===========================
+FAILED private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py::test_conflicting_label_and_body_evidence_is_not_silently_prioritized
+FAILED private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py::test_conflicting_hint_and_lineage_on_same_child_requires_explicit_conflict
+FAILED private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py::test_exact_current_allocated_ids_resolve_in_navigation
+3 failed, 9 passed in 1.95s

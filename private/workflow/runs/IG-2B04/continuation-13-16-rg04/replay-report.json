@@ -1,0 +1,62 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B04-executor-0de1c1e6:executor",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/runtime-configuration.json",
+  "configuration_sha256": "e1a87639410babf3023b3d500107f30b71b8f27bbc379dd5574435097eaf6e10",
+  "summary": "Two separate command executions started from the pinned baseline and authored registry; every assigned crop/text/image regenerated independently.",
+  "common_authored_input_used_by_all_three_builds": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/authored-regions-build-input.json",
+    "bytes": 48675,
+    "sha256": "0a1dcd7305cafe5ccdabe453a1ad53736024a9818f1b1cac6318e0b2a171df5c"
+  },
+  "final_ledger_specification": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/authored-regions.json",
+    "bytes": 48767,
+    "sha256": "709fa9743d5b1da2c74a155f86a41a9507f658a0c8c0a5879d78d15a12dedeb3"
+  },
+  "observation_only_correction": "Page14 example6.22 HI/MI label corrected after builds loaded the common input. Keys, IDs, pages, kinds and boxes are asserted equal; no region or evidence change.",
+  "normalization": "Only inventory enclosing revision is omitted, and task-local artifact path prefixes before /evidence/ are removed. All evidence hashes, bytes, contents, identities, region revisions, page geometry, labels, coverage and registry remain compared exactly.",
+  "final_inventory": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/final-verified/inventory.json",
+    "bytes": 2290353,
+    "sha256": "5ac48725279f2a44d77bdbc6a14ca8bb6c828ee709b5f143b117700bb4c5f656"
+  },
+  "replays": [
+    {
+      "name": "replay-a",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-a/inventory.json",
+        "bytes": 2293404,
+        "sha256": "ead22e136ce99523328d429552271d76a8098ed3d6d031d916ca76c696850195"
+      },
+      "build_report": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-a/build-report.json",
+        "bytes": 14068,
+        "sha256": "78d7206b99f5dc1fdc5f360c681e4238891311d9789204277bd64ab91a956331"
+      },
+      "full_inventory_equal_after_locator_path_normalization": true,
+      "assigned_evidence_bytes_equal": true,
+      "stable_identities_revisions_and_page_geometry_equal": true
+    },
+    {
+      "name": "replay-b",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-b/inventory.json",
+        "bytes": 2293404,
+        "sha256": "3ea8c0a966a686a15f4709da67252054bcecc7f71b1e58ef9614d061bad9bfb1"
+      },
+      "build_report": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-b/build-report.json",
+        "bytes": 14069,
+        "sha256": "62d2866ff6d75f31cc64ee08e7bee5267d025f4c0c45e9c768c2ed03c66c3704"
+      },
+      "full_inventory_equal_after_locator_path_normalization": true,
+      "assigned_evidence_bytes_equal": true,
+      "stable_identities_revisions_and_page_geometry_equal": true
+    }
+  ],
+  "passed": true
+}

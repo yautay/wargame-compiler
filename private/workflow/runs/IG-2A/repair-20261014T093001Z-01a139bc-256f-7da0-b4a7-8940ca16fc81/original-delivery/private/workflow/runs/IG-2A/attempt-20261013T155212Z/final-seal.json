@@ -1,0 +1,37 @@
+{
+  "task": "IG-2A",
+  "status": "review",
+  "delivery": {
+    "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery.json",
+    "sha256": "31a175fb77f14a586f03327c3674a05a4b4ae9f7296932ef757669428d454290"
+  },
+  "manifest": {
+    "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery-manifest.json",
+    "sha256": "d283e0054a515995803a6c17fb8c31606cf23f206ad4454be68291a1459cfa1c"
+  },
+  "handoff": {
+    "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/delivery-handoff.md",
+    "sha256": "d50e607d60ac23a1f5948d0f0edaa811dc344f6ce8bc1a7230fe2d7f80314135"
+  },
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "c7c9e5a0962690e47557b34731171854e155ada0efd69898f2204d3332a25bc9"
+  },
+  "review_transition": {
+    "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/review-transition.json",
+    "sha256": "a76dba3b665814fd1b1eb2d0fdee49b904f36413904229de0fcef0a591777e2c"
+  },
+  "all_delivery_artifacts_verified": 87,
+  "checks": [
+    {
+      "command": "scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "independent_review_started": false,
+  "ended_utc": "2026-10-13T16:17:56.374405+00:00"
+}

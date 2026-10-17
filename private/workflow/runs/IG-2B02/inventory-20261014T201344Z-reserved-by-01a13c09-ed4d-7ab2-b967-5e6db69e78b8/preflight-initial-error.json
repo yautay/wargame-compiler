@@ -1,0 +1,10 @@
+{
+  "command": "PowerShell literal Python stdin preflight via .venv/Scripts/python.exe -B -",
+  "exit_code": 1,
+  "error": "AssertionError: pdfinfo version comparison; CRLF in byte-decoded actual output versus LF in coordinator text-mode output",
+  "stage": "Native version comparison before attempt creation or claim",
+  "all_prior_pin_assertions_passed": true,
+  "hypothesis": "Version data is identical under universal-newline text mode; byte decode retained CRLF. Compare tool version using same text mode as pinned observation. Preserve actual raw subprocess bytes in toolchain logs.",
+  "retry": "One bounded comparison in text=True passed for all native tools; no tool/test/contract edits",
+  "observed_utc": "2026-10-14T20:38:39.147429+00:00"
+}

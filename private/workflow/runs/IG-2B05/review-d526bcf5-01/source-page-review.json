@@ -1,0 +1,2784 @@
+{
+  "task": "IG-2B05",
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B05-reviewer-d526bcf5:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T154824Z-fae43db9/002-IG-2B05-reviewer-d526bcf5/runtime-configuration.json",
+  "configuration_sha256": "216f297ded2768f095b82fba62c0193be713fe0e791ca04d4e3c80837d8e8e87",
+  "format": "wgc-independent-source-page-review-1",
+  "inventory": {
+    "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/inventory.json",
+    "sha256": "704b7beb63a0fef40948596971d561daeed5f637eb29bc670e3878cf9ea22dd2",
+    "bytes": 2719674
+  },
+  "inventory_revision": "0eec7b71faf18c900450db2e2db8cd77618608087a625c6318fc67dcf92bd562",
+  "registry": {
+    "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/identity-registry.json",
+    "sha256": "df042168e5728bb2ef641b99cd7dc0329f7dacc643b60ea8f92bd517db675b04",
+    "bytes": 101167
+  },
+  "source": {
+    "id": "source:spqr:5e:core",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "page_count": 44,
+    "pdf": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    "provenance": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    }
+  },
+  "basis": "Independent fresh rendering of only original PDF physical pages 17-20 at 144 DPI, full-page visual comparison against the complete ledger, then visual inspection of every crop through 19 lossless sheets. Technical audit proves each sheet contains the exact current final crop pixels once.",
+  "render_command": "pdftoppm -f 17 -l 20 -r 144 -png private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf private/workflow/runs/IG-2B05/review-d526bcf5-01/original",
+  "pages": [
+    {
+      "physical_page": 17,
+      "original_render": {
+        "path": "private/workflow/runs/IG-2B05/review-d526bcf5-01/original-17.png",
+        "sha256": "b15c71fb2fd5427149f83b112477a62c8cebc5676c1bc05be211e239b3adf24b",
+        "bytes": 741489
+      },
+      "entire_page_inspected": true,
+      "region_count": 20,
+      "component_count": 28,
+      "observation": "The full page retains both columns, the running header/rule/page glyph and copyright. The left column contains 6.56, its separate exception, the long italic Withdrawal example, gray play note and 6.57. The right contains the 6.6 heading and introduction, blue design note, 6.61, 6.62 and exception, 6.63 with all four bullets, gray note and the start of Example 1. Each component fits its assigned region."
+    },
+    {
+      "physical_page": 18,
+      "original_render": {
+        "path": "private/workflow/runs/IG-2B05/review-d526bcf5-01/original-18.png",
+        "sha256": "f6c058e123523652aebd7b3f17a92b4b681278da7e7098bc4fd1338faaac0eca",
+        "bytes": 777008
+      },
+      "entire_page_inspected": true,
+      "region_count": 28,
+      "component_count": 35,
+      "observation": "The upper-left continuation has separate Velites and Hastati paragraphs, followed by Example 2, the blue design note and 6.64-6.66. The last sentence of 6.66 continues at the upper right, followed by 6.67, 6.68 and all seven bullets, 6.69 and chapter 6.7. The blue note, In Column marker, wrapped 6.71 text and exceptions, 6.72 and unfinished 6.73 are fully retained. The marker arrow, dot pattern and label remain visible."
+    },
+    {
+      "physical_page": 19,
+      "original_render": {
+        "path": "private/workflow/runs/IG-2B05/review-d526bcf5-01/original-19.png",
+        "sha256": "6a66412093dda9db58ee376a2823fa52a611726c4ae61ed8e518e737ccd79243",
+        "bytes": 692103
+      },
+      "entire_page_inspected": true,
+      "region_count": 21,
+      "component_count": 30,
+      "observation": "The left column starts with the remainder of 6.73, then 6.74, the complete two-row hex/counter/arrow diagram and separate caption, and 6.75-6.77. The right retains the 6.8 heading, both marker faces and wrapped introduction, 6.81-6.83, both bullets and both italic play notes. The two columns finish independently; the right-column play note ends before the new chapter on page 20."
+    },
+    {
+      "physical_page": 20,
+      "original_render": {
+        "path": "private/workflow/runs/IG-2B05/review-d526bcf5-01/original-20.png",
+        "sha256": "ef3f9fb0f7aae6a54ba630cd43a92f3e40dedd7ff114f53db9b8981245291590",
+        "bytes": 634640
+      },
+      "entire_page_inspected": true,
+      "region_count": 33,
+      "component_count": 45,
+      "observation": "Both chapter headings, 7.11, the two facing diagrams and every Front/Flank/Rear label are retained. The left continues through 7.12 with four bullets and 7.13-7.15. At upper right are the 7.15 exception and gray note, 7.16 and blue note, 7.2, the complete ZOC diagram and wrapped definition/7.21, 7.22 and 7.23 with three bullets, exception, note and following paragraph. The final 7.24 text ends at an introductory colon. Its subsequent conditions are outside this assignment."
+    }
+  ],
+  "reviewed_sheets": [
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p17-01-06.png",
+      "bytes": 403223,
+      "sha256": "afd48029d37f30b30296d1c2ad7e2eb4e7adae6415b5263d219419d21983ea63"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p17-07-12.png",
+      "bytes": 239247,
+      "sha256": "dd96e7c7c0483d115d6bc5da2d593008358610dfa58fa97e8ecef9b9d3065e7a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p17-13-18.png",
+      "bytes": 141402,
+      "sha256": "9924c6f0f39acf4695532fa777806fd37fedab7f349b513ff546a4770954b4ef"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p17-19-20.png",
+      "bytes": 34286,
+      "sha256": "c59ed125eafe74dec32b68735a9af3cbe57fb5524b16fd5638a778822353b89e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p18-01-06.png",
+      "bytes": 392612,
+      "sha256": "71ebffb42b44c07d8314b662889978f377fc605a192a176010d7603f31d6343f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p18-07-12.png",
+      "bytes": 142635,
+      "sha256": "a6da13f37b71dab21c5e419e6c7d3036a79e8e9b966efa705edd02c9659b0b79"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p18-13-18.png",
+      "bytes": 95110,
+      "sha256": "ad83cd58c108e92e284678c80f136d41e9e813edd2a2aae42d7b310adef97b01"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p18-19-24.png",
+      "bytes": 153185,
+      "sha256": "061668db3df14efce5cfc0de5596e21fecd8b35d5b1aae4d5e4f496e2cb8a193"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p18-25-28.png",
+      "bytes": 71862,
+      "sha256": "37e2a015c0e8f77258a70c1899fbc03bcb55ce39636054fdb7ba2d19f31fdda0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p19-01-06.png",
+      "bytes": 298011,
+      "sha256": "d5a43f15ec7d7a573c64902ac3e934a40aa20c0519d0ae2810e90806a6b93bb1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p19-07-12.png",
+      "bytes": 115118,
+      "sha256": "d01e1c0646f335f81e1102af13bd5342597794cf44f6f27c49fdb0f1b550683d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p19-13-18.png",
+      "bytes": 250814,
+      "sha256": "6e6012cdff018d14062fa0826efb99dfc406236e30f8333e799f8c903b07d061"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p19-19-21.png",
+      "bytes": 81133,
+      "sha256": "567218bc3ea4d4c05d366feb5eca132d32468cd5df037f291f8c11a0b7fa9831"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p20-01-06.png",
+      "bytes": 119128,
+      "sha256": "927e0b4677d395604994240aef86de77c422cd2dfa0c6e671c234b13849b8eb5"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p20-07-12.png",
+      "bytes": 81904,
+      "sha256": "c14d0e8a0375ffc8bd9f7c692ec07ae7ef370b8fe54ad898bf060763d976087d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p20-13-18.png",
+      "bytes": 221324,
+      "sha256": "4fde1f5c33d8e5a55e4a523dc4a45a0b1221eb573c9d8e359f40dd49b10b63fb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p20-19-24.png",
+      "bytes": 106073,
+      "sha256": "5fbcb85cf87f45f917d72b94d3e9a035023b7e82256a29a023aaf024ad725274"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p20-25-30.png",
+      "bytes": 106702,
+      "sha256": "6d028ef6d0ff9b4755963793e897274a787596fdf5f4412ac8ba1a369a8efcc5"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/crop-review-sheets/p20-31-33.png",
+      "bytes": 51418,
+      "sha256": "5a58347b06a387639db2a8d2fc6a9062fd071940c89f260a5646975f7dea77e5"
+    }
+  ],
+  "regions": [
+    {
+      "region_id": "region:2f9eb766-636c-4c62-9186-6751fcf3e2da",
+      "region_revision": "084adfd41bbdcf2a7e19be4ec3d94061298556f27da8d146d7ec42b55d069762",
+      "key": "physical-page:17:ig2b05:running-header",
+      "physical_page": 17,
+      "box": [
+        71895,
+        27778,
+        928105,
+        52399
+      ],
+      "reading_order_index": 520,
+      "evidence_id": "evidence:7cf214fa417a7adec249998f83575e85ba53e1450669bc4c152687d0e26b1390",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-running-header/image.png",
+        "bytes": 8058,
+        "sha256": "67c970e6c2fc24a386358756e5bb9a29cec13f13c30a4523f1d0cd1c86b0de68"
+      },
+      "components": [
+        "component:p17:001:01",
+        "component:p17:001:02",
+        "component:p17:001:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:11898576-bdda-4f49-997a-873232110cd1",
+      "region_revision": "9b1c88fa541137282757a7fe5c259f9b301dec1a77fd507c1d1cf3f5902b8d03",
+      "key": "physical-page:17:ig2b05:6-56",
+      "physical_page": 17,
+      "box": [
+        71895,
+        64394,
+        486928,
+        142677
+      ],
+      "reading_order_index": 521,
+      "evidence_id": "evidence:92842c614f0a808445cf6bb4664962a209c62061654bf9c7d57dcd871a96d29f",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-56/image.png",
+        "bytes": 34802,
+        "sha256": "023db33b3409e22964f0641ada85e451752fd12ef672aa6978b0af29119a1531"
+      },
+      "components": [
+        "component:p17:005:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:98a3223d-7946-410f-a6f1-a244855dbead",
+      "region_revision": "46e7a986c1e9d7c581aa36a81c39e5fbd6451f567396bb8700fc0a1a0176d2f3",
+      "key": "physical-page:17:ig2b05:6-56-exception",
+      "physical_page": 17,
+      "box": [
+        71895,
+        147096,
+        486928,
+        209596
+      ],
+      "reading_order_index": 522,
+      "evidence_id": "evidence:ceae5b1ad3e1e094d0d5c88720c727dcc46378190e039af1ee44a6d64380c9eb",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-56-exception/image.png",
+        "bytes": 27623,
+        "sha256": "826c55d6c40966afe0fedbf2358bc63bf5d085f06f9b1d5306333c87c6c97a51"
+      },
+      "components": [
+        "component:p17:006:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:01c46cd3-17e3-4564-9a5a-16182c42a14c",
+      "region_revision": "e3d76f09768406368d4f9d6d6a4290806bfeeb1db7320f9781e6d20b9e046ee4",
+      "key": "physical-page:17:ig2b05:withdrawal-example",
+      "physical_page": 17,
+      "box": [
+        71895,
+        214646,
+        486928,
+        534722
+      ],
+      "reading_order_index": 523,
+      "evidence_id": "evidence:235b48e12b28ebd8b5a187097a0368de4e849437cbf988d4ac922a49490ee85d",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-withdrawal-example/image.png",
+        "bytes": 173716,
+        "sha256": "a986c0fbc9cc2b1d42a27260a04aad3867f8714c64c79734e78927b0b697a56a"
+      },
+      "components": [
+        "component:p17:007:01",
+        "component:p17:007:02",
+        "component:p17:007:03",
+        "component:p17:007:04",
+        "component:p17:007:05"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:d8016111-c51e-4edb-929e-354f2cc28019",
+      "region_revision": "276192a947c140de0acba21e34b6316af9cb9e88e5c96c41c7ea5036fd8cc4d8",
+      "key": "physical-page:17:ig2b05:withdrawal-play-note",
+      "physical_page": 17,
+      "box": [
+        71895,
+        538510,
+        486928,
+        619949
+      ],
+      "reading_order_index": 524,
+      "evidence_id": "evidence:64ce154fee75f89842929b870b2db25fcd1e312e1f6384c8d5cd50e684a477f7",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-withdrawal-play-note/image.png",
+        "bytes": 39313,
+        "sha256": "f488bd5a5ca458036f40908ed396c290b7a02d434e4364b22d056d9ebf2b4b7d"
+      },
+      "components": [
+        "component:p17:008:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:583719f2-6ab4-4624-b771-d91f2016c0eb",
+      "region_revision": "6281653b8b99d11fa081a92f09d158cc3cbb3f411e3237782412df09204711b1",
+      "key": "physical-page:17:ig2b05:6-57",
+      "physical_page": 17,
+      "box": [
+        71895,
+        625000,
+        486928,
+        779672
+      ],
+      "reading_order_index": 525,
+      "evidence_id": "evidence:6756ef81269892d3993d6a941b0fd86706cf113d8aa9b4751e3a48846ea5cd4a",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-57/image.png",
+        "bytes": 68553,
+        "sha256": "8dd84259c683e08f7b8d5b77cc4421a660c93c9e0dee28da201ed84978091347"
+      },
+      "components": [
+        "component:p17:009:01",
+        "component:p17:009:02",
+        "component:p17:009:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:8e9a8c8f-3a41-4797-8b42-7882bbd4f830",
+      "region_revision": "8dc7109b70263a53d303b1642aac728320a69a508f1c4132bfb241817b3b84db",
+      "key": "physical-page:17:ig2b05:6-6-heading",
+      "physical_page": 17,
+      "box": [
+        513072,
+        65025,
+        928105,
+        83965
+      ],
+      "reading_order_index": 526,
+      "evidence_id": "evidence:46001a4e56d779f34808419608ec7ac4ece392c3a3c9283ff43b878d39737c31",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-6-heading/image.png",
+        "bytes": 3437,
+        "sha256": "0156f50641962f7d0b91111dc87b4e5f8f647b8bd2357e75ab7a02bfba09f08f"
+      },
+      "components": [
+        "component:p17:010:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:182ca5ea-5651-4e6c-9b3f-1554516e1074",
+      "region_revision": "08b7b3162d9426022bebbb17ed5f8e89530fdec40f11a2c4bacacf0c4f0cea73",
+      "key": "physical-page:17:ig2b05:stacking-introduction",
+      "physical_page": 17,
+      "box": [
+        513072,
+        84596,
+        928105,
+        282828
+      ],
+      "reading_order_index": 527,
+      "evidence_id": "evidence:b4303b8b17db3899f0a3892d2685c0517a806a3c695821142dd5673fbda4f7c6",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-stacking-introduction/image.png",
+        "bytes": 90587,
+        "sha256": "137f934d577939187573a5f017c35e682e8c3da9d663395836e1c02335dc3d7f"
+      },
+      "components": [
+        "component:p17:011:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:62e08c04-1c88-4284-8b16-f752dfc42260",
+      "region_revision": "9ab653a03daa7d7ec73510b001e59b496a5a75d305abff900f5767ed21d4492a",
+      "key": "physical-page:17:ig2b05:stacking-design-note",
+      "physical_page": 17,
+      "box": [
+        513072,
+        285985,
+        928105,
+        383207
+      ],
+      "reading_order_index": 528,
+      "evidence_id": "evidence:7d2f790cb96c69e14b30b9b412679f7b953b3b99b8f7b434a0cea0fa85eb209c",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-stacking-design-note/image.png",
+        "bytes": 48619,
+        "sha256": "6cb4c2cc9654241f54939ac4a0dc9538d34b45e5b873da64aea48c63f01f94a3"
+      },
+      "components": [
+        "component:p17:012:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:52e9e5fd-027d-408d-973b-21adfd033f39",
+      "region_revision": "9e57627e8ac1d9f58f7e84de673502daf8114bf1e782712a349c9701ec7f52e5",
+      "key": "physical-page:17:ig2b05:6-61",
+      "physical_page": 17,
+      "box": [
+        513072,
+        388258,
+        928105,
+        511995
+      ],
+      "reading_order_index": 529,
+      "evidence_id": "evidence:e6e59eca5721ee1d54cfe6e54abaf1d52827dd4aec134b66cd89480e7c9295ae",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-61/image.png",
+        "bytes": 57622,
+        "sha256": "aad6405bfb733b954c5199989272aba1c9f7115a314e5882f3bfe464f31dd547"
+      },
+      "components": [
+        "component:p17:013:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:85d175fe-5f70-437d-8d6e-880056d4bd36",
+      "region_revision": "1b54b2e59de5a744c6ba9e86d1c048d13e815640744bba89190d64f5eb79a978",
+      "key": "physical-page:17:ig2b05:6-62",
+      "physical_page": 17,
+      "box": [
+        513072,
+        516414,
+        928105,
+        549242
+      ],
+      "reading_order_index": 530,
+      "evidence_id": "evidence:559efb1dfe8d31fc6f82b91f3101f8a83fc55b84c56617c45b1d407c0a7e52d3",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-62/image.png",
+        "bytes": 10378,
+        "sha256": "74fa550c63c2521067940e204683f87cab8a91bb68f8a4da8af50447e994f895"
+      },
+      "components": [
+        "component:p17:014:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:872b63fe-5a5c-48c2-b1ec-edf04bc6a3ae",
+      "region_revision": "3742a5f126ed8830f9d4311ea6855244f4186e90a0c0895cb0f1f8379a863ec7",
+      "key": "physical-page:17:ig2b05:6-62-exception",
+      "physical_page": 17,
+      "box": [
+        513072,
+        551136,
+        928105,
+        568813
+      ],
+      "reading_order_index": 531,
+      "evidence_id": "evidence:0bdec3279edae7e2291d7f6987e3e543521877fd262a437f11e3d1a833acae83",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-62-exception/image.png",
+        "bytes": 6611,
+        "sha256": "e68857ed751ea961f6f6fc14f04e6c1a6f7fc2ae29e4f9f3d388ba4178f813c2"
+      },
+      "components": [
+        "component:p17:015:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:75b974ea-51c2-47b6-a698-9ebd61934ec3",
+      "region_revision": "92ac95202f75f27c0d44f41921c8201f01c9f0e16fcbe12451383fa44ebbae7c",
+      "key": "physical-page:17:ig2b05:6-63",
+      "physical_page": 17,
+      "box": [
+        513072,
+        573232,
+        928105,
+        650884
+      ],
+      "reading_order_index": 532,
+      "evidence_id": "evidence:f24d99cf1075d1c9363e042a05b6d079f904e914167ba3af0fed68dddd181306",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-63/image.png",
+        "bytes": 31091,
+        "sha256": "b210b1301349325f1137f952a343403deb6d66ae64ad25bc947a9fc0d9fbd94e"
+      },
+      "components": [
+        "component:p17:016:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:db9df730-4a67-4f41-a302-26809774e32e",
+      "region_revision": "1d1bac587481cb41bac8caedd1ee9cd6bdd233c525f96007dc5274c08ad148fb",
+      "key": "physical-page:17:ig2b05:6-63-basic",
+      "physical_page": 17,
+      "box": [
+        513072,
+        651515,
+        928105,
+        684975
+      ],
+      "reading_order_index": 533,
+      "evidence_id": "evidence:65d8f7ba5bd55ba7f701d2ac22f8d6fe8c98af8e91fd9807ac2567f20a16083a",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-63-basic/image.png",
+        "bytes": 9682,
+        "sha256": "18689230cf24b588c088378e988056f647880801147ff7ec93126ebd6b05d26f"
+      },
+      "components": [
+        "component:p17:017:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:bbb43c83-5407-417d-9a13-8a05161dc52c",
+      "region_revision": "5b0b3d05b0446d3af79a2c97e130fc6d4141f85a83b436b578b00a18fc163b49",
+      "key": "physical-page:17:ig2b05:6-63-color",
+      "physical_page": 17,
+      "box": [
+        513072,
+        684975,
+        928105,
+        731692
+      ],
+      "reading_order_index": 534,
+      "evidence_id": "evidence:36e1a2eaa29a6cf6f4d77d8603ff398f748da7c36bc079aed3e3263290052d8d",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-63-color/image.png",
+        "bytes": 22455,
+        "sha256": "4bcc0a0e302c97f4fe8a78a95a069bdec23ee5d8781cd860719ea6a81a67ec6f"
+      },
+      "components": [
+        "component:p17:018:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:42c9fa50-1709-44eb-8a0b-bfadcfe9244e",
+      "region_revision": "f895f203b438b503b27b34f96c9a482f61c8f533f1d7ff277c7dba2ba772bf08",
+      "key": "physical-page:17:ig2b05:6-63-class",
+      "physical_page": 17,
+      "box": [
+        513072,
+        732323,
+        928105,
+        749369
+      ],
+      "reading_order_index": 535,
+      "evidence_id": "evidence:6f4742ac5670d42e9279c79dbca06762f86a12b1ffabf4ffc74fcf2981fd7eee",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-63-class/image.png",
+        "bytes": 5432,
+        "sha256": "c29ade0c42a6968b4e2540cd203bc22b9dd1611c59069639ad30b8b2ffa9ad9a"
+      },
+      "components": [
+        "component:p17:019:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:0916db16-d155-4320-9db8-327d06136ff8",
+      "region_revision": "a3923870a4cd661e1e45cce413966474770f8f2e51184b41af1d18160f790e3a",
+      "key": "physical-page:17:ig2b05:6-63-roman",
+      "physical_page": 17,
+      "box": [
+        513072,
+        750000,
+        928105,
+        811237
+      ],
+      "reading_order_index": 536,
+      "evidence_id": "evidence:bb51563cb6e57f4bd6aa916a2509693bf05b794fb338f228448ebbc67a7c55dc",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-6-63-roman/image.png",
+        "bytes": 25308,
+        "sha256": "26ed5c67bd2babaf442c8ddfe44d4b200f9dbcf7a0a9fe141a4b54babcb5d186"
+      },
+      "components": [
+        "component:p17:020:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:d73956e3-2c2a-4733-af45-53a6e8cfd018",
+      "region_revision": "060d6217fcd40f7e00f473ea226f4d03ff7ba49f3185ef3eee5d983ec9de9e6c",
+      "key": "physical-page:17:ig2b05:stacking-play-note",
+      "physical_page": 17,
+      "box": [
+        513072,
+        814394,
+        928105,
+        881944
+      ],
+      "reading_order_index": 537,
+      "evidence_id": "evidence:adb15c41bfa9fe47955c5f1bad8877caf21c88701430b28089ea9add7f37241e",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-stacking-play-note/image.png",
+        "bytes": 35052,
+        "sha256": "7949bd4a26aa079bc7f5348b5c3eb2e989d2910d9549dee17f7def224540bc02"
+      },
+      "components": [
+        "component:p17:021:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:7f3b48c8-8b70-466f-89d4-960bf4327b4e",
+      "region_revision": "be793d0c3b8dea7f1f7f4c8842611caba117d4124585ffa8b011ea95eae702a2",
+      "key": "physical-page:17:ig2b05:voluntary-example-start",
+      "physical_page": 17,
+      "box": [
+        513072,
+        886995,
+        928105,
+        934343
+      ],
+      "reading_order_index": 538,
+      "evidence_id": "evidence:d6735639e1b03e3dbb656ce87f436e4c28853f53a1188f3a73adefb168217f64",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-voluntary-example-start/image.png",
+        "bytes": 23929,
+        "sha256": "f8bc999c081fee29d0078b238a00a18577b3dfecba9714ea9954e0fabcf369cb"
+      },
+      "components": [
+        "component:p17:022:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:c38160f3-8ff4-479a-a66f-5a414feec457",
+      "region_revision": "93fef75c8dad757297ad9ce146d2f0bc316933de69a82760a305346ff8d7404f",
+      "key": "physical-page:17:ig2b05:copyright-footer",
+      "physical_page": 17,
+      "box": [
+        424837,
+        943182,
+        578431,
+        959596
+      ],
+      "reading_order_index": 539,
+      "evidence_id": "evidence:1e3344eac8b2fefd635d688072273d469a60786ef35ee1b25e9c4f3d46a7ea53",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-17-ig2b05-copyright-footer/image.png",
+        "bytes": 3438,
+        "sha256": "b5fe8f60bf8668008abbabd877acff87caaa455794616dfa26e935a92a72ca33"
+      },
+      "components": [
+        "component:p17:099:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:10e4ed33-0652-4af5-89a3-755b51c5cbdb",
+      "region_revision": "66ceb5677b9da33b3f7ae66a4a0dcd68c57bbebce31d499837facbc57320b803",
+      "key": "physical-page:18:ig2b05:running-header",
+      "physical_page": 18,
+      "box": [
+        71895,
+        27778,
+        928105,
+        52399
+      ],
+      "reading_order_index": 540,
+      "evidence_id": "evidence:385d262ff9d188f6f6f71f9c0becc9e78d0c574df77976322401ca55c59fe371",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-running-header/image.png",
+        "bytes": 8253,
+        "sha256": "ebef0f0095a745be413d064e0a95771602fa7dcd219e4ceda38865d609dc110e"
+      },
+      "components": [
+        "component:p18:002:01",
+        "component:p18:002:02",
+        "component:p18:002:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:bf833789-7760-44f4-9792-d56468bd8e19",
+      "region_revision": "aba7e81088a0000907b579be36c0a32bb5121d8be6b1712a5e55d9db211f710f",
+      "key": "physical-page:18:ig2b05:voluntary-example-velites",
+      "physical_page": 18,
+      "box": [
+        71895,
+        64394,
+        486928,
+        127525
+      ],
+      "reading_order_index": 541,
+      "evidence_id": "evidence:c28422fcc30a1c8cd77609ab8bb66442ec9e63acba778d8eaf1d8ce972e58d1b",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-voluntary-example-velites/image.png",
+        "bytes": 32033,
+        "sha256": "de6f775772ac2f90ea0244654bb67112ca4fc9d211997501c8b92544d4af1ba1"
+      },
+      "components": [
+        "component:p18:023:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:2bc589ec-f46c-406b-bb04-bb5fa95e1867",
+      "region_revision": "a27253c5352026edc305c1cde340966137b2c11a7199b33aea3f18857f22f239",
+      "key": "physical-page:18:ig2b05:voluntary-example-hastati",
+      "physical_page": 18,
+      "box": [
+        71895,
+        131944,
+        486928,
+        255051
+      ],
+      "reading_order_index": 542,
+      "evidence_id": "evidence:a7d96d8862cbd02e2884d9c9d7afc23042e1ed95ad8652d354f0eea0e05ddf91",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-voluntary-example-hastati/image.png",
+        "bytes": 66660,
+        "sha256": "102684cf7a741fa2cc0a23195526cbfcedee4db66035f29d46ee9357f6dd9560"
+      },
+      "components": [
+        "component:p18:024:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:433aeff9-43ad-4952-bf76-8cfe400d47e2",
+      "region_revision": "f1ce3c5cdadd449a1a06b33b25ce7285e7cd35618a7be6adfe3d981f109d1689",
+      "key": "physical-page:18:ig2b05:rout-retreat-example",
+      "physical_page": 18,
+      "box": [
+        71895,
+        259470,
+        486928,
+        458965
+      ],
+      "reading_order_index": 543,
+      "evidence_id": "evidence:73311e71de628e7e690a9153ace0f57a30332ce0ea1c909981a4eeeaece23faa",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-rout-retreat-example/image.png",
+        "bytes": 106922,
+        "sha256": "83bd815983e1bd583df17bcca72029bccbe78af037ea96bb63d58c508fa8516d"
+      },
+      "components": [
+        "component:p18:025:01",
+        "component:p18:025:02",
+        "component:p18:025:03",
+        "component:p18:025:04"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:678128f6-1539-417f-aa90-b63c885c10be",
+      "region_revision": "b11595ba907169c515185fa8eedac09aac48b70e0070d1deb7b9ba2af492438d",
+      "key": "physical-page:18:ig2b05:roman-flexibility-note",
+      "physical_page": 18,
+      "box": [
+        71895,
+        462753,
+        486928,
+        665404
+      ],
+      "reading_order_index": 544,
+      "evidence_id": "evidence:29330c3aea9d67063f6fd2bb9089f956ace82fb76552adbecc0c3fff8c40af0f",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-roman-flexibility-note/image.png",
+        "bytes": 109866,
+        "sha256": "ee583d9bce3342a345d94b0c7fe86dcbda80d2a4f518df99aae6557a753c96d2"
+      },
+      "components": [
+        "component:p18:026:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:afd40ba1-9bbe-4078-ba09-315017144d90",
+      "region_revision": "9529a83be8e00ee26a95b1431c075a3cfad25785707ff1fa4539d89ac8dd37f7",
+      "key": "physical-page:18:ig2b05:6-64",
+      "physical_page": 18,
+      "box": [
+        71895,
+        671086,
+        486928,
+        749369
+      ],
+      "reading_order_index": 545,
+      "evidence_id": "evidence:7a0b29d7b553094e6122ddaed1086125a185f3b8a6e2b821f5aedc57e1d56b63",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-64/image.png",
+        "bytes": 36790,
+        "sha256": "70a6407a67eb4dbabcf9e852cdfce1da3375c4c0d9f1244aa2eb28d24008ca27"
+      },
+      "components": [
+        "component:p18:027:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:e1e575dd-e23b-47d1-baab-efc3a8d17aa3",
+      "region_revision": "076bb6ac08039ba530898cfe6c35db59954e6af160e65eedb4b9019d3095cf04",
+      "key": "physical-page:18:ig2b05:6-65",
+      "physical_page": 18,
+      "box": [
+        71895,
+        753788,
+        486928,
+        816288
+      ],
+      "reading_order_index": 546,
+      "evidence_id": "evidence:b37fbfce2bbd44670bc5c1f94ca4bded4600937b1c6811d331c36ce24b5df61d",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-65/image.png",
+        "bytes": 26211,
+        "sha256": "a5f001afc0e2f0d4fc1cd9399f64fdfb8f227bde9848fa8e68069aa02fa8faec"
+      },
+      "components": [
+        "component:p18:028:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:ffa0b690-d5f5-418d-8ecc-abf44c547315",
+      "region_revision": "1c9fd03200c8d8679a2881a99e75ecfa8ab97ed115e66c681e0008b90bf4f4d5",
+      "key": "physical-page:18:ig2b05:6-66-start",
+      "physical_page": 18,
+      "box": [
+        71895,
+        820707,
+        486928,
+        931187
+      ],
+      "reading_order_index": 547,
+      "evidence_id": "evidence:e7c058ef5191243328eac6c194b505efd27a85ac195b6f14468a26394d57f8e4",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-66-start/image.png",
+        "bytes": 54534,
+        "sha256": "45bab50b47a226b3ddf05aebe92bc73b5032490fe9793707a95117ae2cc4d867"
+      },
+      "components": [
+        "component:p18:029:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:1cd2f373-c3de-4e44-8a48-6efe48decf22",
+      "region_revision": "7d8312321aa7d65c3918a935d799704bf90bc1df2da1aeaa56bc3e22c09345b0",
+      "key": "physical-page:18:ig2b05:6-66-end",
+      "physical_page": 18,
+      "box": [
+        513072,
+        64394,
+        928105,
+        97222
+      ],
+      "reading_order_index": 548,
+      "evidence_id": "evidence:f4358c53521ff97f6110de5875c2c419e663d9838945a2109433804915231bf0",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-66-end/image.png",
+        "bytes": 11392,
+        "sha256": "8f77fa0f8068ae3546c1f6702953d7ce1cf20bf671a353b0b201c0bbda175c73"
+      },
+      "components": [
+        "component:p18:030:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:a9f94d57-2bee-4e60-bcb2-989120cdbdf1",
+      "region_revision": "571a61509aa94a117d3ea08767159bc5781877a6402cfba14fa1e9dacdb912d9",
+      "key": "physical-page:18:ig2b05:6-67",
+      "physical_page": 18,
+      "box": [
+        513072,
+        101010,
+        928105,
+        179293
+      ],
+      "reading_order_index": 549,
+      "evidence_id": "evidence:862cae4efad8ffd5bf02974a7aaef486591ecbdf57b7a4de4877c113e1c3ebdc",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-67/image.png",
+        "bytes": 32190,
+        "sha256": "a935aeef8ec502f4154b988b14ba47678a3c946c218bd5c0e149242e20c13119"
+      },
+      "components": [
+        "component:p18:031:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:a52d30b8-ced8-4c0b-ad1d-7074bdaa1270",
+      "region_revision": "995acf26063da61b078e44c95d77e520a924200422778c2b16bdac2b048f41de",
+      "key": "physical-page:18:ig2b05:6-68",
+      "physical_page": 18,
+      "box": [
+        513072,
+        183712,
+        928105,
+        201389
+      ],
+      "reading_order_index": 550,
+      "evidence_id": "evidence:ff0c1a29061e8c52ba520011376d9879711614104a039b3167089de7a062b263",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68/image.png",
+        "bytes": 5777,
+        "sha256": "3a91f26a565e31823f9067b556be4b87bb6e70d1946a77314b452867063f3023"
+      },
+      "components": [
+        "component:p18:032:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:70b22b4f-0ddf-4cc4-97fe-abffddd3dcd3",
+      "region_revision": "b0516da6bde9ac31aaa2b3b854dfdd7231422c074cc4399c55f8a12e30a06199",
+      "key": "physical-page:18:ig2b05:6-68-size",
+      "physical_page": 18,
+      "box": [
+        513072,
+        202652,
+        928105,
+        235480
+      ],
+      "reading_order_index": 551,
+      "evidence_id": "evidence:6c5918049b586fc11e6fa4f82df31daea0d181b02c01061ce7d381a4235204cf",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-size/image.png",
+        "bytes": 9925,
+        "sha256": "37faaaec51e3967bebe02d07534701ce454792dd1edbd6fde9a94f9ef19e7e40"
+      },
+      "components": [
+        "component:p18:033:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:a0639ba2-1667-4175-a7db-71be1c9a7172",
+      "region_revision": "eedd83d70b28f49c96f225908e09729e21b02175173dc4aa052f65c6ba2b77d2",
+      "key": "physical-page:18:ig2b05:6-68-missile",
+      "physical_page": 18,
+      "box": [
+        513072,
+        235480,
+        928105,
+        252525
+      ],
+      "reading_order_index": 552,
+      "evidence_id": "evidence:570f0801ef79c68e0ebc791eb5ee3fbc1d21b005c8331ccfcde47e3ac5a40346",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-missile/image.png",
+        "bytes": 7090,
+        "sha256": "abea384e05ea3ac49e48ac69e75d982abf424ea6f0b2bdca00fa8a490b66c226"
+      },
+      "components": [
+        "component:p18:034:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:4537f982-648f-4183-9908-951562959974",
+      "region_revision": "e3831e0c9dede274dc9b4286b5d70ca513cd8c83e73613294fa423199f1277a1",
+      "key": "physical-page:18:ig2b05:6-68-enemy-missile",
+      "physical_page": 18,
+      "box": [
+        513072,
+        252525,
+        928105,
+        299874
+      ],
+      "reading_order_index": 553,
+      "evidence_id": "evidence:3ae7f5f9abbee1102d2cec9b8d3bc9563c0c2a1dc61004eb61f8235e20f8c8bb",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-enemy-missile/image.png",
+        "bytes": 16624,
+        "sha256": "5de2bd9e32002ac2956a2045eaa054e6b18c615cc5f68d77be1784a15587b9d1"
+      },
+      "components": [
+        "component:p18:035:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:a8b14e5d-e9af-43dc-b2d9-58ed6acfa9cc",
+      "region_revision": "a7eb648b3da885345710d900e14d76dec21c833a3cbe10fe61b559e9430f6334",
+      "key": "physical-page:18:ig2b05:6-68-tq",
+      "physical_page": 18,
+      "box": [
+        513072,
+        300505,
+        928105,
+        347222
+      ],
+      "reading_order_index": 554,
+      "evidence_id": "evidence:934ff1f8232d3624aa2b74adeb9c79c02f41877cde50e737b963ba90305db502",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-tq/image.png",
+        "bytes": 16419,
+        "sha256": "ee9c5b365543af9564dde094903590a4bbb1c80dbb5c016e81a189476828afa2"
+      },
+      "components": [
+        "component:p18:036:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:8bb1937c-0601-45b3-9fa6-17b3785225af",
+      "region_revision": "3d1a6df0e75b44165654ee54a7eb6accc7b95ea725137c0ffbcff296f825f1d9",
+      "key": "physical-page:18:ig2b05:6-68-drm",
+      "physical_page": 18,
+      "box": [
+        513072,
+        347854,
+        928105,
+        364268
+      ],
+      "reading_order_index": 555,
+      "evidence_id": "evidence:638b7dd7d29cea5ce91fc0a51e36645b2adf106957343dd700b8f46cca73eb51",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-drm/image.png",
+        "bytes": 8358,
+        "sha256": "a307cb927ba4e2b326ae08534a78ae60e6b6610ffc25e20928c77176e02ceea9"
+      },
+      "components": [
+        "component:p18:037:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:b93a4177-ddbe-4f4f-9f27-693e9fd8cf61",
+      "region_revision": "b0df10e643f79b14ef58616aee4a9bce0008bb2fc9257dd6096a0df65cec5d64",
+      "key": "physical-page:18:ig2b05:6-68-cohesion",
+      "physical_page": 18,
+      "box": [
+        513072,
+        364899,
+        928105,
+        426136
+      ],
+      "reading_order_index": 556,
+      "evidence_id": "evidence:f0dc5e244bca48f0ea5b07773e67bdc3fb7742bb817250f2b6f72ce266991b4c",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-cohesion/image.png",
+        "bytes": 26671,
+        "sha256": "92e0a36c646b799b8b1dbd54e406c761d374d914ebf23a6268af00745a188597"
+      },
+      "components": [
+        "component:p18:038:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:3267ad92-3cc6-42bf-a6de-0764610c84f6",
+      "region_revision": "b3eb9224b52365205c20ce505319b70acf62e3f48faef57f8ae25f91924ea3d6",
+      "key": "physical-page:18:ig2b05:6-68-rout",
+      "physical_page": 18,
+      "box": [
+        513072,
+        426136,
+        928105,
+        458333
+      ],
+      "reading_order_index": 557,
+      "evidence_id": "evidence:373f56699ceb4860a39e19d9319eafff082b6c1dd2418c5a907c8875da0a0c72",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-68-rout/image.png",
+        "bytes": 14324,
+        "sha256": "e175e7ebe763db9e3f86ff32b7ea5500473ce8a60d2745f70033ceeef5c55531"
+      },
+      "components": [
+        "component:p18:039:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:8f0a9b6e-a99b-4e81-813e-29ca1846a6af",
+      "region_revision": "10c8f6cbabc89b3931e68c11fef14528cc8d70d589ced9f99795968bab0283b8",
+      "key": "physical-page:18:ig2b05:6-69",
+      "physical_page": 18,
+      "box": [
+        513072,
+        462121,
+        928105,
+        510732
+      ],
+      "reading_order_index": 558,
+      "evidence_id": "evidence:e02c2fce9f86b544e261fb50dbadab54f541a84fd20d24fbf10ede62516e6ad2",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-69/image.png",
+        "bytes": 21324,
+        "sha256": "e1e20a1e8b7de0b6339d40118832925f570b65fbd4b769509016c987cc9e003a"
+      },
+      "components": [
+        "component:p18:040:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:2c84f3c0-a696-4718-8bb4-379a68ade732",
+      "region_revision": "eff11f5056325ebd4a0ef2c7a8ec3c5a3c3c13d18b410bd81de7b6d6b25a41cc",
+      "key": "physical-page:18:ig2b05:6-7-heading",
+      "physical_page": 18,
+      "box": [
+        513072,
+        518308,
+        928105,
+        539141
+      ],
+      "reading_order_index": 559,
+      "evidence_id": "evidence:89c9fb500fd7f4267d8cc567811ca3f95db45ef92ba0a7c923583b71129204c4",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-7-heading/image.png",
+        "bytes": 5300,
+        "sha256": "fbf880ba8ad5c42a7383164e12e8550c40b75107eba529cf4a214a6a47e7af1e"
+      },
+      "components": [
+        "component:p18:041:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:b3dcf550-0a2e-4534-8505-f988dde92e95",
+      "region_revision": "6a6fe675056ba7212c00445f2597c4856b5fc7df0a5c60a3981bf7bef52f60fc",
+      "key": "physical-page:18:ig2b05:column-design-note",
+      "physical_page": 18,
+      "box": [
+        513072,
+        539141,
+        928105,
+        665404
+      ],
+      "reading_order_index": 560,
+      "evidence_id": "evidence:b41801960eaa63d4849eae86fdece9ec4789377cb2e2f8e88b774200a6ab0737",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-column-design-note/image.png",
+        "bytes": 64357,
+        "sha256": "08c3ee72da93dd616a34baf0ee14dbc8389a7898dea116663a2157904798b497"
+      },
+      "components": [
+        "component:p18:042:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:9af9552f-2811-49c8-ba85-8b700379da96",
+      "region_revision": "7561966a249320ef04b0176fb5ee715819339b6d07bfbd0b6e307236fc7cbb75",
+      "key": "physical-page:18:ig2b05:in-column-marker",
+      "physical_page": 18,
+      "box": [
+        513072,
+        671717,
+        577614,
+        723485
+      ],
+      "reading_order_index": 561,
+      "evidence_id": "evidence:7037f96face218597d42815642475b4047abf073c45427e940da92cacb765d21",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-in-column-marker/image.png",
+        "bytes": 4278,
+        "sha256": "91d6caff348e5a43e564a19280948d4c28aaa466eacd6e2b66d89899fcec1270"
+      },
+      "components": [
+        "component:p18:043:01",
+        "component:p18:043:02",
+        "component:p18:043:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:d9683548-85fd-4b43-ada8-8afbd15f1738",
+      "region_revision": "56e53c1b418cd06dc5b1f87db0fcddc4698148bb88fda3c719750628a92d866c",
+      "key": "physical-page:18:ig2b05:6-71-upper",
+      "physical_page": 18,
+      "box": [
+        587418,
+        670455,
+        928105,
+        732955
+      ],
+      "reading_order_index": 562,
+      "evidence_id": "evidence:5155f2f0c325cc6beb2d966384c56ec410ac04b87e95e189c37c51ffd557f371",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-71-upper/image.png",
+        "bytes": 22357,
+        "sha256": "8d7e8b68f5161d270a850be082a69deb97e4887fbe13985ab7c960bd6a327e82"
+      },
+      "components": [
+        "component:p18:044:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:ce2462af-6783-4450-8d0c-ed798eea3267",
+      "region_revision": "5504347ccdff5808fcf7aa8d72712dd98615d1907e54717deb4054ca6f4df066",
+      "key": "physical-page:18:ig2b05:6-71-lower",
+      "physical_page": 18,
+      "box": [
+        513072,
+        732955,
+        928105,
+        779040
+      ],
+      "reading_order_index": 563,
+      "evidence_id": "evidence:6dc88abbfde09b4777219e768ffa6855130b84026ca66f9319c183bc93ab9de6",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-71-lower/image.png",
+        "bytes": 16620,
+        "sha256": "893a177070cc59a467bc5a1c15b94c25a50d4deada77cba2d0f758ab640004c1"
+      },
+      "components": [
+        "component:p18:045:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:09ecc9b3-5618-4c63-8914-ff06b998f909",
+      "region_revision": "8b9bc812ef946500b7dd750b925bec1a777003e77635db13cce4272b485d8dfb",
+      "key": "physical-page:18:ig2b05:6-71-exceptions",
+      "physical_page": 18,
+      "box": [
+        513072,
+        780303,
+        928105,
+        813763
+      ],
+      "reading_order_index": 564,
+      "evidence_id": "evidence:4dbd7ef1f9b42cc0914feb45093f43f96ccdd558ee5e050ebe2536d140ed0373",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-71-exceptions/image.png",
+        "bytes": 13828,
+        "sha256": "d6c7060722d3539e95876cb45f8f099adcfff29b8fa10275a4c82440f149d772"
+      },
+      "components": [
+        "component:p18:046:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:ad44b4dd-0e17-4fc1-b0da-5d2a3609a9bd",
+      "region_revision": "0b38a068c0be5dd26deb5281386a16fbae02ebf97fcf1b3c9e311b697ae4ecab",
+      "key": "physical-page:18:ig2b05:6-72",
+      "physical_page": 18,
+      "box": [
+        513072,
+        816919,
+        928105,
+        895202
+      ],
+      "reading_order_index": 565,
+      "evidence_id": "evidence:dbe0357ab2b49f297dffa5c018b1b98ad99600b92d362baccb2aa8e2ca387395",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-72/image.png",
+        "bytes": 32843,
+        "sha256": "8d4ccf279ff1df56c637ce14dda603572bd627e95e56ea2444e5fa4d28752264"
+      },
+      "components": [
+        "component:p18:047:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:851320d6-e805-4bff-9652-3115271f2bbe",
+      "region_revision": "5e8e31b81623830a52cadf8f08d5e95d540ee9371bea4df27c339b6a534d0fdd",
+      "key": "physical-page:18:ig2b05:6-73-start",
+      "physical_page": 18,
+      "box": [
+        513072,
+        898990,
+        928105,
+        932449
+      ],
+      "reading_order_index": 566,
+      "evidence_id": "evidence:514ad070ff0d0822b08cd22c8c3146707cf8359b0e6f6e08c267fcc4711575a1",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-6-73-start/image.png",
+        "bytes": 14251,
+        "sha256": "e1ff31ef1a49ac8db550243eb175aa37e112ff25decd66d94d0bc6087e663e56"
+      },
+      "components": [
+        "component:p18:048:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:50f38a0d-3ae0-4c82-9b4b-e1375ee03a95",
+      "region_revision": "b3ac672183e06f861c2733b39122c2cba2b4037caee850120257270b0c09b0c7",
+      "key": "physical-page:18:ig2b05:copyright-footer",
+      "physical_page": 18,
+      "box": [
+        424837,
+        943182,
+        578431,
+        959596
+      ],
+      "reading_order_index": 567,
+      "evidence_id": "evidence:c281d9f9306c49dcfcf7f6761a0d0abbfdd608483553b4a5747982141bbd17ff",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-18-ig2b05-copyright-footer/image.png",
+        "bytes": 3422,
+        "sha256": "3db38f7840e1ec63d6ee3073c37ac2970ac7c43f0db79af1295fa5cf745bba0f"
+      },
+      "components": [
+        "component:p18:100:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:05af532e-7b11-458c-accb-8d2bc45c7713",
+      "region_revision": "3bc19772c9226772e8f79b382954a2a69136295bb40514030a961426ed312784",
+      "key": "physical-page:19:ig2b05:running-header",
+      "physical_page": 19,
+      "box": [
+        71895,
+        27778,
+        928105,
+        52399
+      ],
+      "reading_order_index": 568,
+      "evidence_id": "evidence:1843d8458cf2334d5e53c0104eee9c2a781b487b555b50d088edf262365ad286",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-running-header/image.png",
+        "bytes": 8200,
+        "sha256": "6abfd57088ec1a35c8c60790fb8e69e77d01ffac200c2eba97ac9fc614beb9ae"
+      },
+      "components": [
+        "component:p19:003:01",
+        "component:p19:003:02",
+        "component:p19:003:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:3672a6b7-b36a-49ee-b119-d85ed667488a",
+      "region_revision": "64fd470437281b837c15de410ea94f687a28196bf92417c8f38cceb661b5bb8c",
+      "key": "physical-page:19:ig2b05:6-73-end",
+      "physical_page": 19,
+      "box": [
+        71895,
+        64394,
+        486928,
+        248737
+      ],
+      "reading_order_index": 569,
+      "evidence_id": "evidence:d41f7964254f313b1718c3cc1cad0c6f35b21ebadca1c7262e009d7497dfbd75",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-73-end/image.png",
+        "bytes": 86784,
+        "sha256": "3d46c723bf57eafc7efe6cacffdc691a5b1266607242aebe263b4876b86ad8cd"
+      },
+      "components": [
+        "component:p19:049:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:4589bed3-5be1-42f4-878a-13bf7ae91b66",
+      "region_revision": "8ea8ef925246ee40f205d6d5346e72e49635b44e913922a0071d9f49ccd62399",
+      "key": "physical-page:19:ig2b05:6-74",
+      "physical_page": 19,
+      "box": [
+        71895,
+        252525,
+        486928,
+        421717
+      ],
+      "reading_order_index": 570,
+      "evidence_id": "evidence:8c9d54279e3f50a13aa4d58eff477bfe79d9aea57f2f9ea8f0f9dd8b145413fe",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-74/image.png",
+        "bytes": 74238,
+        "sha256": "3177b49f5f02aa8df5556ea0080bdbff302e53035c24044dbf06f55ac4c7167f"
+      },
+      "components": [
+        "component:p19:050:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:791e98ce-450d-4d57-aed0-314eebaeb7df",
+      "region_revision": "8ab7de988e75dffffac704e124bfeebe71ed7f5be00bd77a457c8e6d35037ad8",
+      "key": "physical-page:19:ig2b05:column-diagram",
+      "physical_page": 19,
+      "box": [
+        71895,
+        426136,
+        486928,
+        547980
+      ],
+      "reading_order_index": 571,
+      "evidence_id": "evidence:1254b7f59eec891582ec0907adfacf4e11cb88046d7abdcf474ce863aacf6bdf",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-column-diagram/image.png",
+        "bytes": 42309,
+        "sha256": "f176455559c48b27fc276f86ae0dc38052198b03ea331e8674484f55bb1aae97"
+      },
+      "components": [
+        "component:p19:051:01",
+        "component:p19:051:02",
+        "component:p19:051:03",
+        "component:p19:051:04"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:3b9c3b4f-bcd8-49b1-b78b-8ff3234bdfc4",
+      "region_revision": "0467a7c1fd048d9bc2e9f71790ac2236dc6c3c1d23465d2b40064468060acfb5",
+      "key": "physical-page:19:ig2b05:column-caption",
+      "physical_page": 19,
+      "box": [
+        71895,
+        549242,
+        486928,
+        565657
+      ],
+      "reading_order_index": 572,
+      "evidence_id": "evidence:2a11e1aab27d0b4a59e1290101f094fc63febdf81a39a9c700dba12e368b8484",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-column-caption/image.png",
+        "bytes": 8169,
+        "sha256": "dbfb975bf3d6c8122d4c1dd01aa0bd32b43a434187d99fad7acc64f56743d5ec"
+      },
+      "components": [
+        "component:p19:052:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:c54b52d5-3512-40cf-be12-c92756fc7f06",
+      "region_revision": "b7316f4203051a3cebfa674041d10e301f34881831c51bc696189133d92a1e41",
+      "key": "physical-page:19:ig2b05:6-75",
+      "physical_page": 19,
+      "box": [
+        71895,
+        569444,
+        486928,
+        662879
+      ],
+      "reading_order_index": 573,
+      "evidence_id": "evidence:acbe975001f8c893e356760cd18bdcbfd57fef2d4586be258261dafed906a8ae",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-75/image.png",
+        "bytes": 40571,
+        "sha256": "87828c6d0fc204f69ec7e7f8e4beb43d38325e7ca338527f9ed74625f71e6370"
+      },
+      "components": [
+        "component:p19:053:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:4751e0bd-2153-4da3-ba20-e1feca43d293",
+      "region_revision": "8f78c7fe18cdd7d3cb8155eb2ddcf28dbe0424d77c2e5f81822b75ffa2f91c81",
+      "key": "physical-page:19:ig2b05:6-76",
+      "physical_page": 19,
+      "box": [
+        71895,
+        666667,
+        486928,
+        760732
+      ],
+      "reading_order_index": 574,
+      "evidence_id": "evidence:ed58592e267ad852cc8418acf0e4bc9d001de09a492a019f7d713173bd7a879b",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-76/image.png",
+        "bytes": 40675,
+        "sha256": "fbf881b9d1408283377e3fcbfb54532f873ef5a9348ef5c08c701e12a26a4e04"
+      },
+      "components": [
+        "component:p19:054:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:7c906438-57a3-4489-ae6e-a40a3766ace5",
+      "region_revision": "06ad03f37957177dd221fd2acd9887b95a127de82bafaaf046cba71e9c7409b1",
+      "key": "physical-page:19:ig2b05:6-77",
+      "physical_page": 19,
+      "box": [
+        71895,
+        763889,
+        486928,
+        843434
+      ],
+      "reading_order_index": 575,
+      "evidence_id": "evidence:1ec88d52dbac9001e7e44b7c753010b4baa5c7e352823d645288f30e320f2d59",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-77/image.png",
+        "bytes": 34820,
+        "sha256": "01b02e97319f1a9848ad128fda0b7111f023dd1ea9187f00c473372e4830b73b"
+      },
+      "components": [
+        "component:p19:055:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:2aa2b79c-4442-49b7-a5e5-ce748d013e33",
+      "region_revision": "f989da1deaaf2e72f1f1444d4b625f625a1cd44b686222bb4774f0520c1215a8",
+      "key": "physical-page:19:ig2b05:6-8-heading",
+      "physical_page": 19,
+      "box": [
+        513072,
+        63763,
+        928105,
+        83965
+      ],
+      "reading_order_index": 576,
+      "evidence_id": "evidence:068b06b1416a1103e78ed95ba3124be5d153bd547e9257834d6b9b2f9ab94d59",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-8-heading/image.png",
+        "bytes": 6289,
+        "sha256": "b72e438d92c2d32a2a02deba481d25018b2514ba9729b5b975faaf69d9bf5172"
+      },
+      "components": [
+        "component:p19:056:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:737f4bbe-b2dd-48cd-a5cd-0eea3367be4b",
+      "region_revision": "e09e3b09489dc00459bc2aa3af78ee6825a68f79eb9932eb34bff688ececd559",
+      "key": "physical-page:19:ig2b05:prearranged-marker",
+      "physical_page": 19,
+      "box": [
+        513072,
+        88384,
+        576797,
+        138258
+      ],
+      "reading_order_index": 577,
+      "evidence_id": "evidence:58acd91c45225ff66bf15781c343e9c6d9bf5a9b014a5d92125cd5c518eb0797",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-prearranged-marker/image.png",
+        "bytes": 4820,
+        "sha256": "92528d071cca8ea18f5f6fb19ddd0dc9afa962bae45eabc797e978c7dc24d4a0"
+      },
+      "components": [
+        "component:p19:057:01",
+        "component:p19:057:02",
+        "component:p19:057:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:189d9b8f-2ee9-4345-819d-03bee92f5d03",
+      "region_revision": "7e68800f34253bf8c344e646e8c35df55e185e427ef622f1e69941c98f3b4edd",
+      "key": "physical-page:19:ig2b05:no-pw-marker",
+      "physical_page": 19,
+      "box": [
+        579248,
+        88384,
+        643791,
+        138258
+      ],
+      "reading_order_index": 578,
+      "evidence_id": "evidence:e8be8a78727305fd831a593c5394592c01ecd107ef7480564d0e07f9fb04eeff",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-no-pw-marker/image.png",
+        "bytes": 4248,
+        "sha256": "9aeebb128ead47638978b4f14cdc0c1a017643822bdb15bd2ab9fb3561688e53"
+      },
+      "components": [
+        "component:p19:058:01",
+        "component:p19:058:02",
+        "component:p19:058:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:1c0dd582-be5f-434e-af9d-1e3ab560c3d6",
+      "region_revision": "3d8ad126ac37f8c4afc74af8cb9d86a8f0d618e56035225f129199c996e27539",
+      "key": "physical-page:19:ig2b05:pw-introduction-upper",
+      "physical_page": 19,
+      "box": [
+        653595,
+        84596,
+        928105,
+        146465
+      ],
+      "reading_order_index": 579,
+      "evidence_id": "evidence:37abceb4ff91230866ab7d91ccdafdf679cd7892085ca5ba23cecd9c32fee5a2",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-pw-introduction-upper/image.png",
+        "bytes": 17628,
+        "sha256": "51682d923ee56e8a638a106056e5f01945e6232dc072be246c8411ee71576a91"
+      },
+      "components": [
+        "component:p19:059:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:e88fe164-5b79-4a1f-b153-35b4411d8634",
+      "region_revision": "f4c7e15234048d6a6e0ec816f90c013bf9bb84215a3e7825fc9660ba7ca701ac",
+      "key": "physical-page:19:ig2b05:pw-introduction-lower",
+      "physical_page": 19,
+      "box": [
+        513072,
+        146465,
+        928105,
+        177399
+      ],
+      "reading_order_index": 580,
+      "evidence_id": "evidence:5ad49b72c619c4463a8dd745c2b0d3cfb71589f62ae6212fd93406c3711218d2",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-pw-introduction-lower/image.png",
+        "bytes": 11628,
+        "sha256": "8967361bf7e2077c44f2b3dec53af3115786fb2bc5ad7c55ba5c7b153bf277a9"
+      },
+      "components": [
+        "component:p19:060:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:99de09b0-9bcd-4d8b-a1ad-3391ced39b54",
+      "region_revision": "c93207d6da37e856f3cfbbd40c74f3502e773527ad7e1748bafb8296e79a44a7",
+      "key": "physical-page:19:ig2b05:6-81",
+      "physical_page": 19,
+      "box": [
+        513072,
+        181187,
+        928105,
+        320076
+      ],
+      "reading_order_index": 581,
+      "evidence_id": "evidence:9e04a5f3333babd7f44e3c58a7c3c8d70bed84413ba345ce7e12a5578a42f04d",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-81/image.png",
+        "bytes": 59762,
+        "sha256": "9084653b2ac539c5396972b79b8364dc77d8dc142f908a254dd2634c745a11d7"
+      },
+      "components": [
+        "component:p19:061:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:8a3f6ab1-9b3e-40fa-b59c-9686cc2b6668",
+      "region_revision": "995367a12807ae1119264e978e500ac005317bdfa5987e784da3ad196a547462",
+      "key": "physical-page:19:ig2b05:6-82",
+      "physical_page": 19,
+      "box": [
+        513072,
+        323864,
+        928105,
+        462753
+      ],
+      "reading_order_index": 582,
+      "evidence_id": "evidence:6d4a32626a792401201d7d7c8fc374534364c964d3e00f68f4c3c0bb831bb1d6",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-82/image.png",
+        "bytes": 65327,
+        "sha256": "6e4beee6a4458f598916362d5393f771562d59b1bf903541eea8240828d00a8a"
+      },
+      "components": [
+        "component:p19:062:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:4811298b-d5a1-4d96-b801-54f54085d383",
+      "region_revision": "2af06744eef579b8513f4959cde5f7e411fe075e64c71a5aa4c066b487835606",
+      "key": "physical-page:19:ig2b05:6-83",
+      "physical_page": 19,
+      "box": [
+        513072,
+        466540,
+        928105,
+        530303
+      ],
+      "reading_order_index": 583,
+      "evidence_id": "evidence:56d68b7a53474f5b9a4438239588df146ca8a9139495053dad1cde670f4736e2",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-83/image.png",
+        "bytes": 23743,
+        "sha256": "fefc7bb00c4a32b6f1e6258877829bddd82f30e040a06c0d4a32cf3681adee53"
+      },
+      "components": [
+        "component:p19:063:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:5eb55a6a-f04e-41d2-a0c9-c9880a47903c",
+      "region_revision": "480ae6561a57471b2443788a723fc7eb19a038381b5f7004abaf3eadc717d9d9",
+      "key": "physical-page:19:ig2b05:6-83-withdrawal",
+      "physical_page": 19,
+      "box": [
+        513072,
+        530934,
+        928105,
+        657197
+      ],
+      "reading_order_index": 584,
+      "evidence_id": "evidence:e448aa4a6f8ceedbaad17c7959594c5f33e0582a8133a7f0313c47d878aa2e58",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-83-withdrawal/image.png",
+        "bytes": 57774,
+        "sha256": "26f7eea5f7d68d679e4cc8258bc614406971a95d74cb5677dca6a88c0b5b4f6f"
+      },
+      "components": [
+        "component:p19:064:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:0a657068-3ce9-4320-97b3-8abb3916d4f5",
+      "region_revision": "edee5df532681e8288795423acfc51d762876e2f7b337983531bd4fa518c7513",
+      "key": "physical-page:19:ig2b05:6-83-leader",
+      "physical_page": 19,
+      "box": [
+        513072,
+        657828,
+        928105,
+        718434
+      ],
+      "reading_order_index": 585,
+      "evidence_id": "evidence:af363eadad82311e388243dace66b1a76179a7ae4a4479ccfe35eeafc844ea3e",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-6-83-leader/image.png",
+        "bytes": 22330,
+        "sha256": "94789cb4a2af12be6ff7d20813d8fd1530745bbb02fad052126f41cbc193ad05"
+      },
+      "components": [
+        "component:p19:065:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:47fa02c5-e19d-4b94-9b6e-6f4a7f12771f",
+      "region_revision": "5850ae2ac5987137f68932b6409ac803108d8730894f53943a878f978caf17b9",
+      "key": "physical-page:19:ig2b05:pw-play-note-1",
+      "physical_page": 19,
+      "box": [
+        513072,
+        721591,
+        928105,
+        769571
+      ],
+      "reading_order_index": 586,
+      "evidence_id": "evidence:84ca400d79d1057efff52a85ffbd432a162207bda6af16bf894cabd3e999a66c",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-pw-play-note-1/image.png",
+        "bytes": 23545,
+        "sha256": "f010ee7bd7e3a7504b276aec1fdcdd632b8c9aa3b481c22a8f8619e69549ee24"
+      },
+      "components": [
+        "component:p19:066:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:74c3dd52-6a26-4ec2-bdf6-e16fa41c3469",
+      "region_revision": "d2da22e1d3a3507a55133f355189e940a4c4e004c37f329b81a59cbe654cba32",
+      "key": "physical-page:19:ig2b05:pw-play-note-2",
+      "physical_page": 19,
+      "box": [
+        513072,
+        773990,
+        928105,
+        867424
+      ],
+      "reading_order_index": 587,
+      "evidence_id": "evidence:799c35f113a2ef5c4bc7a6c111d6b0beadaf280e18a3e9d060d5a56e9856ceda",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-pw-play-note-2/image.png",
+        "bytes": 52987,
+        "sha256": "79314a28cf57835b1807c1d2533c9af38d5a9d3f68761a0cb9baefd792c4cb2a"
+      },
+      "components": [
+        "component:p19:067:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:90cd1404-ccd2-46b7-8e4e-b448e4c8d562",
+      "region_revision": "77cb3bfeadb5fd6b387290a1dd052bc63c465aba352806b0bf39758ec2e5621b",
+      "key": "physical-page:19:ig2b05:copyright-footer",
+      "physical_page": 19,
+      "box": [
+        424837,
+        943182,
+        578431,
+        959596
+      ],
+      "reading_order_index": 588,
+      "evidence_id": "evidence:08c7ffcc12607d6fd427ccb7d0f9158157fd430b9227ddfcda2ffde3a4373e0e",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-19-ig2b05-copyright-footer/image.png",
+        "bytes": 3438,
+        "sha256": "b5fe8f60bf8668008abbabd877acff87caaa455794616dfa26e935a92a72ca33"
+      },
+      "components": [
+        "component:p19:101:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:c6a0fd63-b146-4c79-9134-20e3c88b502c",
+      "region_revision": "f2c6d4ffca0a8d034ded1fb0cba904ef65266e60f65046d13d551816a81f712c",
+      "key": "physical-page:20:ig2b05:running-header",
+      "physical_page": 20,
+      "box": [
+        71895,
+        27778,
+        928105,
+        52399
+      ],
+      "reading_order_index": 589,
+      "evidence_id": "evidence:fd240927dfbd49f8acaef18470868fe22393969839bbb8116670a6e2125f9363",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-running-header/image.png",
+        "bytes": 8386,
+        "sha256": "59bd395f7930ca0b399c024c8d06b85b090e0eb6a8904560dccd3bac45e616e3"
+      },
+      "components": [
+        "component:p20:004:01",
+        "component:p20:004:02",
+        "component:p20:004:03"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:f56fdc42-cdee-4dea-88fa-7d0043fa4290",
+      "region_revision": "a143380bb8dc94c0cf2ae976d8f1c3403fc26dc5b6effcd2d7f44fb16abda20d",
+      "key": "physical-page:20:ig2b05:7-0-heading",
+      "physical_page": 20,
+      "box": [
+        71895,
+        64394,
+        486928,
+        93434
+      ],
+      "reading_order_index": 590,
+      "evidence_id": "evidence:025eba47aaddb6b708f764a90d728a50b308224371d942aceef82a106f249473",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-0-heading/image.png",
+        "bytes": 7209,
+        "sha256": "cbd766676c91d1bc388c95e0ed50e596ef71cfcd40e7b2223a435f5a57c8e6e9"
+      },
+      "components": [
+        "component:p20:068:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:9fdac68f-5f25-4177-aceb-3dccbdb4f148",
+      "region_revision": "dd6cf1f59a8300b1bb49629c58ada1654110c90f50228ef6af58b9244bc8a785",
+      "key": "physical-page:20:ig2b05:7-1-heading",
+      "physical_page": 20,
+      "box": [
+        71895,
+        94697,
+        486928,
+        114899
+      ],
+      "reading_order_index": 591,
+      "evidence_id": "evidence:dd732390328bfba8b5ad037b5adad0439f8629f6f606d3c9ff481c7f2d21019f",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-1-heading/image.png",
+        "bytes": 2758,
+        "sha256": "c78f06448c95162ec97724326459f60484a2f2e174ad1879343b202ccb218da1"
+      },
+      "components": [
+        "component:p20:069:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:fec4d453-bce1-4e66-a6c1-b8f0a5ad2a70",
+      "region_revision": "5dc2510f5413a9d9877ed48c82e9275e830da854991fb8e14514b8f4bf087c19",
+      "key": "physical-page:20:ig2b05:7-11",
+      "physical_page": 20,
+      "box": [
+        71895,
+        114899,
+        486928,
+        222854
+      ],
+      "reading_order_index": 592,
+      "evidence_id": "evidence:438cf3540407b4abc1ef7d64ecf265b3bcc7329f5ccf190c6432a24c1a6c44b4",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-11/image.png",
+        "bytes": 48011,
+        "sha256": "a969752f9693e84b59cee801fce89a71ef8223fd60b00a76e03b4ccd4f685a45"
+      },
+      "components": [
+        "component:p20:070:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:7a537e81-2949-441c-9112-7a51f88a6bb6",
+      "region_revision": "1da2bfc62f2b18d60db1e6c872b05caa9b33e41d18f0ee47766ea33eaa3d3224",
+      "key": "physical-page:20:ig2b05:single-hex-facing",
+      "physical_page": 20,
+      "box": [
+        194444,
+        235480,
+        361928,
+        316919
+      ],
+      "reading_order_index": 593,
+      "evidence_id": "evidence:273be8ba59b84ae285f028e399760070dbabb60b2f5f76d32b225447cf15e028",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-single-hex-facing/image.png",
+        "bytes": 12926,
+        "sha256": "2fb1bd3c39ea3b4638d825b727ca16ef56f617e411cf385f10545aaabe8e7d80"
+      },
+      "components": [
+        "component:p20:071:01",
+        "component:p20:071:02",
+        "component:p20:071:03",
+        "component:p20:071:04",
+        "component:p20:071:05"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:67d8bc04-5053-442c-ab8f-9a19c16b0fd8",
+      "region_revision": "ee7943dc3c1054471afa735f89d308d40506e95885f88f02a0129dc15d07eec7",
+      "key": "physical-page:20:ig2b05:phalanx-facing",
+      "physical_page": 20,
+      "box": [
+        155229,
+        331439,
+        401961,
+        413510
+      ],
+      "reading_order_index": 594,
+      "evidence_id": "evidence:d34c801dd20cef75f6f75e58e58f1cdb8a0ae166f18739bb6260e6e10f947579",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-phalanx-facing/image.png",
+        "bytes": 19566,
+        "sha256": "9759ed211fee8f163bce89f426bf2b7bd29f0ebff6748d9f569bfd9660231a48"
+      },
+      "components": [
+        "component:p20:072:01",
+        "component:p20:072:02",
+        "component:p20:072:03",
+        "component:p20:072:04"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:5a6c95f6-2b9b-46d4-8aea-dcfbc2ea2fa0",
+      "region_revision": "8c15655159751c81c78987efab271ec1ed8d0593992a96274546ce6c1eff128f",
+      "key": "physical-page:20:ig2b05:7-12",
+      "physical_page": 20,
+      "box": [
+        71895,
+        424242,
+        486928,
+        457702
+      ],
+      "reading_order_index": 595,
+      "evidence_id": "evidence:251a785ff3b7f3cda9a27aa4a909633c1f4d605917bd4c9a4216f7ef92088254",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-12/image.png",
+        "bytes": 15137,
+        "sha256": "41934675a9c8d9be148d0b01476467cf1dfb7df33d79bd48090a2ccdd277c845"
+      },
+      "components": [
+        "component:p20:073:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:741a789f-5013-40cf-aa7c-d25e6494dc26",
+      "region_revision": "594293e63b0e975dc6ce28ed4bb484b24f65ee1066f366410eb87f64928c135e",
+      "key": "physical-page:20:ig2b05:7-12-roman",
+      "physical_page": 20,
+      "box": [
+        71895,
+        458333,
+        486928,
+        506313
+      ],
+      "reading_order_index": 596,
+      "evidence_id": "evidence:e494894b41d3aa14336fd5c17ebbf70a4a7dba41f55793883bc9a070a68ac9d9",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-12-roman/image.png",
+        "bytes": 16068,
+        "sha256": "f36719d404fdad6aae71b91a4236eb2271a1374c127937ae64036d4c0b02bc1a"
+      },
+      "components": [
+        "component:p20:074:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:ee4dc8e6-82d5-4984-8be9-5941322ada71",
+      "region_revision": "cd55c5a1375e48344075b6acf22fd616f7ff3b0d4befe65b26f20c9c509a3389",
+      "key": "physical-page:20:ig2b05:7-12-elephant",
+      "physical_page": 20,
+      "box": [
+        71895,
+        506313,
+        486928,
+        538510
+      ],
+      "reading_order_index": 597,
+      "evidence_id": "evidence:a9d582e7c533efa89888ff7c1209aa8c5764e0faeb4f74d17133b367f09a53de",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-12-elephant/image.png",
+        "bytes": 13175,
+        "sha256": "6a1aea13e31aa5be0eb24ec3ecce6489b6b144c273b005727f543876eebe052a"
+      },
+      "components": [
+        "component:p20:075:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:34dab62a-a6dc-4a12-940b-28995aae1d83",
+      "region_revision": "c4ff4afe61994a4806ba53e21ecb99d6816115581b03cc986235f872d62b7740",
+      "key": "physical-page:20:ig2b05:7-12-skirmisher",
+      "physical_page": 20,
+      "box": [
+        71895,
+        538510,
+        486928,
+        555556
+      ],
+      "reading_order_index": 598,
+      "evidence_id": "evidence:ad6177eaf5e767579909c4b3cd8433c23dc566907bf12a314893f810a4f47548",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-12-skirmisher/image.png",
+        "bytes": 7479,
+        "sha256": "9e69c48fe9eb592f759e08c3b2ede277e166d74a730a204181aec06360201349"
+      },
+      "components": [
+        "component:p20:076:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:ce2d10cd-c776-4c24-81fd-4801c6e079eb",
+      "region_revision": "f7f3a494bae185eb7d7abb6db0a6f24d9afe651f5ebbb9ce67403b1fd42045b2",
+      "key": "physical-page:20:ig2b05:7-12-column",
+      "physical_page": 20,
+      "box": [
+        71895,
+        555556,
+        486928,
+        572601
+      ],
+      "reading_order_index": 599,
+      "evidence_id": "evidence:d3a59f6db5a487e50e88d47b1e4f69e207b18ea2187e9a67990ec9a8a6bf7b19",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-12-column/image.png",
+        "bytes": 4224,
+        "sha256": "4d55dc8ed34b9b8e2f929673b579d9494ee5b6c0c6529d37944000ba06b40341"
+      },
+      "components": [
+        "component:p20:077:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:21c8d5f2-e023-4bfb-9e25-f39db6148b29",
+      "region_revision": "150e0da76fc29b07dedba560643520637bc53c1790bbf7b9391e9640f9ed6d0f",
+      "key": "physical-page:20:ig2b05:7-13",
+      "physical_page": 20,
+      "box": [
+        71895,
+        575758,
+        486928,
+        624369
+      ],
+      "reading_order_index": 600,
+      "evidence_id": "evidence:0597cb71688b90aa24e204c7ef88cf5ae7adb53bb2028616eb0ad262cdbc15e9",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-13/image.png",
+        "bytes": 21943,
+        "sha256": "03609686b69077f16d7c42ef4c1a3b2bfb2332636ef14993bad3045a813b29f4"
+      },
+      "components": [
+        "component:p20:078:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:b110043c-c98a-49d0-94bc-ad1fe1bed366",
+      "region_revision": "96cf34e4f0295940946bad2f5bfc4160b4cdb5bce8b7ea1a7caeab83fd006c67",
+      "key": "physical-page:20:ig2b05:7-14",
+      "physical_page": 20,
+      "box": [
+        71895,
+        627525,
+        486928,
+        722222
+      ],
+      "reading_order_index": 601,
+      "evidence_id": "evidence:32bc78f474a006e07bbaa5526a11a8b3dce4d10fcf66ef73cb2f713207fc48b3",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-14/image.png",
+        "bytes": 39443,
+        "sha256": "a309b925a52282ef22e923571a3bf9414feb89cead304c9ed6ee1ced7408c4ea"
+      },
+      "components": [
+        "component:p20:079:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:0ed0224f-507f-4514-a7e5-94e3e465900f",
+      "region_revision": "d3d15e92dc9ba7f891a780be6170530abcb73e7b4942a7b7b3a39f7a380a13d2",
+      "key": "physical-page:20:ig2b05:7-15",
+      "physical_page": 20,
+      "box": [
+        71895,
+        726010,
+        486928,
+        911616
+      ],
+      "reading_order_index": 602,
+      "evidence_id": "evidence:6703b0c6f9f99a444f40a98b610d3b32c01f18ae5dd6da0a5e4536f92e564b8f",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-15/image.png",
+        "bytes": 85886,
+        "sha256": "1d8f26cfd236595ad04d2c80bdfb2fd79f786f715b2ad85d4374e0445b29a30a"
+      },
+      "components": [
+        "component:p20:080:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:b44f3aaa-6edb-4e0b-af40-5447203b01a9",
+      "region_revision": "32f9984aafcebb4ac19210ecb1eb61f0a1257cedc1e266efae4142bdd15707f9",
+      "key": "physical-page:20:ig2b05:7-15-exception",
+      "physical_page": 20,
+      "box": [
+        513072,
+        63763,
+        928105,
+        112374
+      ],
+      "reading_order_index": 603,
+      "evidence_id": "evidence:e28a9d8c40f2903499df84fff6bffc6499e9ceec54336ac6b028b12b6182e112",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-15-exception/image.png",
+        "bytes": 21251,
+        "sha256": "3b04c1e67f4ccedd3a92bcb89ed904bec54b21072071e10250e96f5396a1caaa"
+      },
+      "components": [
+        "component:p20:081:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:94617705-1fa2-4d3e-8fd6-d5e0db79b525",
+      "region_revision": "89363cb72c4247390320cd52bf2f99a0a7838f1b011253ff888754421b46374c",
+      "key": "physical-page:20:ig2b05:7-15-play-note",
+      "physical_page": 20,
+      "box": [
+        513072,
+        115530,
+        928105,
+        152146
+      ],
+      "reading_order_index": 604,
+      "evidence_id": "evidence:8482d24338107222dc6e2cd443ac1207a71a68649f834eaf7bdefb7af755e5aa",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-15-play-note/image.png",
+        "bytes": 13211,
+        "sha256": "88b978501e0b7ec6851e99e7e740556ac4dc5cc9ee430493cb48d93018a35218"
+      },
+      "components": [
+        "component:p20:082:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:772b3a18-a02a-4850-873f-ea1e0acc6dd6",
+      "region_revision": "6387d16e5b0f33c68475997a68423030abc9ab5f9537dbe51a03b9c065308750",
+      "key": "physical-page:20:ig2b05:7-16",
+      "physical_page": 20,
+      "box": [
+        513072,
+        156566,
+        928105,
+        220328
+      ],
+      "reading_order_index": 605,
+      "evidence_id": "evidence:f3500002f5c9ca6631b3e9a669b9096783c8702bb6a6f023db66db4c0b6d8b6b",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-16/image.png",
+        "bytes": 28355,
+        "sha256": "fc2384a476234516efadc6172e2c04ff727bacfcdc0bed6770a899b617659c4c"
+      },
+      "components": [
+        "component:p20:083:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:a2bef513-6e48-4bc5-8d25-7dc5cf953764",
+      "region_revision": "1c7ced09dea1848d227f73026bea4046d8a2ca69b1f6a48de193bf519912caba",
+      "key": "physical-page:20:ig2b05:reverse-face-note",
+      "physical_page": 20,
+      "box": [
+        513072,
+        223485,
+        928105,
+        276515
+      ],
+      "reading_order_index": 606,
+      "evidence_id": "evidence:424a58d01b16c279246f10cf1a02eeefd8532fb3eac000c32d69bd3b0a174c55",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-reverse-face-note/image.png",
+        "bytes": 22293,
+        "sha256": "390ff4491e683faeca77a633798e51d8fccfbfb06db3ca88fb9fa1e5d322a57e"
+      },
+      "components": [
+        "component:p20:084:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:6c07eaea-feea-47de-9f28-bef39ff40894",
+      "region_revision": "0248b85c77dc0aa722901b9955e8e9c3b7893ba1f64fd15a0e0081e036ebd325",
+      "key": "physical-page:20:ig2b05:7-2-heading",
+      "physical_page": 20,
+      "box": [
+        513072,
+        284091,
+        928105,
+        304924
+      ],
+      "reading_order_index": 607,
+      "evidence_id": "evidence:6a28110f89f25dcb275572e4144d0e3116da954f9bd95fdd3d2c06fa2a9b2dea",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-2-heading/image.png",
+        "bytes": 6253,
+        "sha256": "689bfdbd3d4f369af5b4108a05168539eeef5fb40a9e4e2efbf58872fdb9ae7c"
+      },
+      "components": [
+        "component:p20:085:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:827d6567-a664-4fff-b061-205981a0d368",
+      "region_revision": "b87d73bff89907ca02b5558a61ab000f414dc6983675df9d3392292f094e974d",
+      "key": "physical-page:20:ig2b05:zoc-introduction",
+      "physical_page": 20,
+      "box": [
+        513072,
+        304924,
+        741830,
+        368687
+      ],
+      "reading_order_index": 608,
+      "evidence_id": "evidence:61e6ef3257f56eca461128e07c70271feb36526cad71087742cddbd410dab0ce",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-zoc-introduction/image.png",
+        "bytes": 13121,
+        "sha256": "e0928c1d3a5c6921da1b222762ce81420105795c7dea720cb24755cca658e9a4"
+      },
+      "components": [
+        "component:p20:086:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:72c4dbc6-022d-4648-b29b-2ff601c3d521",
+      "region_revision": "c2319ddfd1f029889a448a991e39057a20adbf8fd8c51583199bdf761cf711a8",
+      "key": "physical-page:20:ig2b05:zoc-diagram",
+      "physical_page": 20,
+      "box": [
+        744281,
+        305556,
+        928105,
+        441919
+      ],
+      "reading_order_index": 609,
+      "evidence_id": "evidence:d7e172a98d500e12d4ed54f488c07dc5ceb789e739c4e558595693c17e5bca8c",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-zoc-diagram/image.png",
+        "bytes": 11171,
+        "sha256": "022788d681a0aa84ee6fc0957131ff8facfd151862bce993cc839af15ac1466f"
+      },
+      "components": [
+        "component:p20:087:01",
+        "component:p20:087:02",
+        "component:p20:087:03",
+        "component:p20:087:04"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:7cfccb19-6972-43f5-b6fc-863b87e357e5",
+      "region_revision": "0df35354a7f44f6618093f8a4cd8d84519b10c27ee9830da21cd6d4f6321c4e9",
+      "key": "physical-page:20:ig2b05:7-21-upper",
+      "physical_page": 20,
+      "box": [
+        513072,
+        371843,
+        741830,
+        450758
+      ],
+      "reading_order_index": 610,
+      "evidence_id": "evidence:b606c80bbe7b2fee8ffe0889d29f9ea77126187455b49093286d5d2b05133f21",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-21-upper/image.png",
+        "bytes": 17210,
+        "sha256": "1ebf2a01e833b31dbcd332a4ba68cb256a5c29878eae26e2070425e59ef49fee"
+      },
+      "components": [
+        "component:p20:088:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:3c0ef37a-641d-4247-87c4-0ddbd54347a7",
+      "region_revision": "070388d6b8ddec4350815ea4153220b744cf07475a75b6ea5e745edcc1233e40",
+      "key": "physical-page:20:ig2b05:7-21-lower",
+      "physical_page": 20,
+      "box": [
+        513072,
+        450758,
+        928105,
+        511995
+      ],
+      "reading_order_index": 611,
+      "evidence_id": "evidence:a251bb303f0865c79a10a31df5274ef674957bfb8d28ca4c0a78af9837ab404b",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-21-lower/image.png",
+        "bytes": 26376,
+        "sha256": "26dd86632bd8f413967e0beab272d54a596a5a6564126e58264511970758565d"
+      },
+      "components": [
+        "component:p20:089:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:793d3657-50bc-4d22-8149-f1452d19ea81",
+      "region_revision": "632a7e3ad1beb03330cdf17aa2cc39b60260d1129204920f9a0e1ee919264627",
+      "key": "physical-page:20:ig2b05:7-22",
+      "physical_page": 20,
+      "box": [
+        513072,
+        515152,
+        928105,
+        548611
+      ],
+      "reading_order_index": 612,
+      "evidence_id": "evidence:9592cf0e27a2fa777e0ca90dc679c0da5cbf5527e595dc39b68333631defa797",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-22/image.png",
+        "bytes": 9513,
+        "sha256": "cde549538299e079be6ecdb7e2ddc777e09032b7ef0e72ab43b64701511df843"
+      },
+      "components": [
+        "component:p20:090:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:13e9f704-05c4-48c0-8138-d219e21a2d42",
+      "region_revision": "889fc3522a77c8457801974c74919d71a69bb6811f135ddcecad3b4d76b0b6b6",
+      "key": "physical-page:20:ig2b05:7-23",
+      "physical_page": 20,
+      "box": [
+        513072,
+        553030,
+        928105,
+        601010
+      ],
+      "reading_order_index": 613,
+      "evidence_id": "evidence:b44feef599ec9420edfc138418a5de3f4689d437b237451ea2ef2b180bfde382",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23/image.png",
+        "bytes": 22237,
+        "sha256": "5f33ec990ff91767ad5c590c5352b2bcd6ed4f0e4dc930298b203154490e1705"
+      },
+      "components": [
+        "component:p20:091:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:e75fc1a0-8f8f-41c9-be81-855988465e28",
+      "region_revision": "512ae2cd75573f267352643a3ce051bac3aa797db865d5042688b7f501cff436",
+      "key": "physical-page:20:ig2b05:7-23-combat-unit",
+      "physical_page": 20,
+      "box": [
+        513072,
+        601641,
+        928105,
+        680556
+      ],
+      "reading_order_index": 614,
+      "evidence_id": "evidence:f4f703e7bcafd385931bc0edd79ed5248d59c2fa3a01a18ade68899ac42afeb7",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23-combat-unit/image.png",
+        "bytes": 32761,
+        "sha256": "262fe6a8a3e0e2fd492403f6fbb4b68aba4f23fcfe501438822302888ba8dd2c"
+      },
+      "components": [
+        "component:p20:092:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:f8bfbb00-4864-4388-a929-5ad9fb244b12",
+      "region_revision": "f1fc163781997c735317ca108c62fb0f00ca6919a347bf77628447aadb9e54b7",
+      "key": "physical-page:20:ig2b05:7-23-oc",
+      "physical_page": 20,
+      "box": [
+        513072,
+        680556,
+        928105,
+        697601
+      ],
+      "reading_order_index": 615,
+      "evidence_id": "evidence:ac7092dca01afcb733e2fa3dd76fb7832c801f402ab9fdcba625ef7b136eba2d",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23-oc/image.png",
+        "bytes": 7766,
+        "sha256": "ec5c28089f4e620e74698e55de65e26e43412592c5d6625da4012479b04aff04"
+      },
+      "components": [
+        "component:p20:093:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:2cf722f4-3fb7-43d8-a968-01acf5df0838",
+      "region_revision": "0021d7638d8cee4b6b5354c965a6359c6934c3fbee17df9f3b0dfdc15541e4d1",
+      "key": "physical-page:20:ig2b05:7-23-leader",
+      "physical_page": 20,
+      "box": [
+        513072,
+        697601,
+        928105,
+        730429
+      ],
+      "reading_order_index": 616,
+      "evidence_id": "evidence:f1793a2acc64d8600b9c1ee45f0a30d048b9697bd5f6aa3c62cfd48ffabf7d6e",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23-leader/image.png",
+        "bytes": 8825,
+        "sha256": "5f854bfdf5763791a11087d334ade804bb677e17362822d694af9e8eb0f77f86"
+      },
+      "components": [
+        "component:p20:094:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:b6e9ad3f-437a-458e-9985-2dd162c1e9ca",
+      "region_revision": "0bffcf27b3c5312e788d31898cc67394409a36b0859ea0a9ae07de292e98654c",
+      "key": "physical-page:20:ig2b05:7-23-exception",
+      "physical_page": 20,
+      "box": [
+        513072,
+        732955,
+        928105,
+        766414
+      ],
+      "reading_order_index": 617,
+      "evidence_id": "evidence:4166627ea309288b6ef4117f53255a9f9ebaf2dc83237c7c8ad3156c92785b8d",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23-exception/image.png",
+        "bytes": 15002,
+        "sha256": "3ed83918ccaa3f5e0e541a3a97d5756747408c69e52b61474ebd968820592fe7"
+      },
+      "components": [
+        "component:p20:095:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:9ef9e26a-35a0-4b43-8a28-67ff99acaaab",
+      "region_revision": "6b1d9039c81306d324cf4e88cab7532234048dd4023251651606cf55675f40d6",
+      "key": "physical-page:20:ig2b05:7-23-play-note",
+      "physical_page": 20,
+      "box": [
+        513072,
+        769571,
+        928105,
+        806818
+      ],
+      "reading_order_index": 618,
+      "evidence_id": "evidence:92b427d9148f240e12aa00001ef96a11a0d87120cd9b73a26bd0ad5b028e5a1f",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23-play-note/image.png",
+        "bytes": 14177,
+        "sha256": "a47069f63277bedb8344a9bc33d895dbc472327addeebdd82b25e35b69cb514d"
+      },
+      "components": [
+        "component:p20:096:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:65eb5f7a-45b2-4e19-9bd4-5df9a3f14038",
+      "region_revision": "77801a2b34ccade04f6bd4b0a821238cbeaebaf297f5330c2dc2b6d41beee250",
+      "key": "physical-page:20:ig2b05:7-23-following",
+      "physical_page": 20,
+      "box": [
+        513072,
+        810606,
+        928105,
+        859217
+      ],
+      "reading_order_index": 619,
+      "evidence_id": "evidence:ec8fe9113532843801156553a9aeb9845e0b60f2c062c53ec506a3a66bed3db7",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-23-following/image.png",
+        "bytes": 17358,
+        "sha256": "d9527a94f356331238a7bf96338ff3c6122718481e0b6f8fa8960f2d3191e6da"
+      },
+      "components": [
+        "component:p20:097:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:8f7f8bf8-934c-4d86-a566-2107aca8f4f6",
+      "region_revision": "5de7169470afa69b34c128d66fdc7625ced7409405c93b8426bd590b8204385e",
+      "key": "physical-page:20:ig2b05:7-24-start",
+      "physical_page": 20,
+      "box": [
+        513072,
+        863005,
+        928105,
+        926768
+      ],
+      "reading_order_index": 620,
+      "evidence_id": "evidence:d32bc2b5c56bd0aac39c1b6fb8f3288b3268e3a98ae14035d9c5df60d31474ed",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-7-24-start/image.png",
+        "bytes": 28293,
+        "sha256": "0615a1c37756769ac5789b704eaf30c97400c0e15c7643104a66e6304e935817"
+      },
+      "components": [
+        "component:p20:098:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    },
+    {
+      "region_id": "region:f6295fc0-585b-47d2-b500-341d13071a58",
+      "region_revision": "3ce9464f5cd03e695b8ba81978c3347f5d14172f8644e179985766afe0bb23ad",
+      "key": "physical-page:20:ig2b05:copyright-footer",
+      "physical_page": 20,
+      "box": [
+        424837,
+        943182,
+        578431,
+        959596
+      ],
+      "reading_order_index": 621,
+      "evidence_id": "evidence:e195b3317353192d240287777519c7a53249115933dadafb647cbb317bd3acab",
+      "image": {
+        "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/evidence/physical-page-20-ig2b05-copyright-footer/image.png",
+        "bytes": 3422,
+        "sha256": "3db38f7840e1ec63d6ee3073c37ac2970ac7c43f0db79af1295fa5cf745bba0f"
+      },
+      "components": [
+        "component:p20:102:01"
+      ],
+      "original_compared": true,
+      "crop_visually_inspected": true,
+      "boundary_result": "All visible components assigned to this region are retained; no clipping or omitted component found."
+    }
+  ],
+  "findings": [],
+  "adjacent_pages_inspected": [],
+  "context_only_assigned_denominator": 0,
+  "uncertainty": [
+    "Review establishes structural source accounting and crop boundaries, not verified transcription or rule meaning.",
+    "Printed page glyphs were seen; this does not upgrade page-label verification.",
+    "The page-20 outgoing continuation and uninspected numeric targets remain unresolved.",
+    "Blank geometric gaps and all semantic coverage gaps remain explicit."
+  ],
+  "human_semantic_acceptance": false,
+  "gameplay_readiness": false
+}

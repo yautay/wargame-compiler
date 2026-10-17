@@ -1,0 +1,229 @@
+{
+  "format": "wgc-stage-handoff-1",
+  "stage": "IG-1",
+  "completed_tasks": [
+    {
+      "task": "IG-1A",
+      "title": "Establish the source IG contract",
+      "status": "done",
+      "criteria": [
+        "Schema represents sources/regions, clauses with stable aspects and semantic groups, relations, gaps, origin bindings, coverage, profiles, runs, reviews and snapshots.",
+        "ID and revision hash rules are explicit and deterministic; anonymous identities do not depend on array position.",
+        "Source representation distinguishes review, coverage and executable readiness; source-level opaque is accepted without granting execution.",
+        "State, causal history, parameters, persistent choices, reactions, continuations, costs, geometry, tables, chance and visibility have addressable source representations; no generic payload-only claim.",
+        "No importer, formal interpreter, compiler or game logic is implemented; record open formal-language decisions for IG-3A."
+      ],
+      "delivery": {
+        "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/delivery.json",
+        "sha256": "e60f74eca3b94771539eb438c4d239a4deeec3ae20cc5950a4f415ae5d863958"
+      },
+      "independent_review": {
+        "path": "private/workflow/runs/IG-1A/review-repair02-20261012T174537Z-6b6e02fa/review.json",
+        "sha256": "e7a6c12237c642c021595416d49ffc030690388ef1d9f8184da8b73cd89dffdb"
+      },
+      "acceptance": {
+        "path": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/acceptance.json",
+        "sha256": "e74645c2789fd97a13045d4b1d11550d0b89a5d113159e75e5416ee31d11d857"
+      },
+      "coordinator_done": {
+        "path": "private/workflow/runs/IG-1A/acceptance-20261012T181945Z/completion.json",
+        "sha256": "afaf02a1dadde0912361556b728ddf99d09608bf3a1261809137b0df8f273563"
+      },
+      "reviewer_actor": "review-handoff-20261012T180728Z",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "human_semantic_acceptance_required": false,
+      "human_semantic_acceptance_granted": false
+    },
+    {
+      "task": "IG-1B",
+      "title": "Freeze input and source manifests",
+      "status": "done",
+      "criteria": [
+        "Every input file has path, bytes, hash, role and availability; detect change during copy.",
+        "Missing 36 historically configured source paths are rechecked and reported, not silently substituted.",
+        "Pin the promoted PDF as a new selected source with identity_to_wgu_original unknown.",
+        "Reject path escapes, linked paths and unintended source reads; no neighbour writes."
+      ],
+      "delivery": {
+        "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/delivery.json",
+        "sha256": "cf1c928b34aa70ae5b7cf59928baa273c45b02fc26331f8f534f6d1d8056c236"
+      },
+      "independent_review": {
+        "path": "private/workflow/runs/IG-1B/review-rereview01-20261012T194946Z/review.json",
+        "sha256": "a437521ea9feec705ac01039b28e133a0deceaa47b1cd49bead955af34989f10"
+      },
+      "acceptance": {
+        "path": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/acceptance.json",
+        "sha256": "46962679f5b678eea87bd04cc45ac4dee4401b875f8dfcd09fa2004be8b56558"
+      },
+      "coordinator_done": {
+        "path": "private/workflow/runs/IG-1B/coordinator-repair01-20261012T193641Z/completion.json",
+        "sha256": "cc03acb8e3611f442fd7670ec5d0b1a84a6cf5b21c812d510460873b1c6d14de"
+      },
+      "reviewer_actor": "reviewer-ig-1b-rereview01-20261012T194946Z",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "human_semantic_acceptance_required": false,
+      "human_semantic_acceptance_granted": false
+    },
+    {
+      "task": "IG-1C",
+      "title": "Import all WGU collections losslessly",
+      "status": "done",
+      "criteria": [
+        "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+        "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+        "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+        "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results."
+      ],
+      "delivery": {
+        "path": "private/workflow/runs/IG-1C/repair-01-20261013/delivery.json",
+        "sha256": "5392446d5e9d2112b048d4b74030b6a8790fd1848d2de1df4812590decedd7ad"
+      },
+      "independent_review": {
+        "path": "private/workflow/runs/IG-1C/rereview-20261013T100001Z/review.json",
+        "sha256": "c1ee79e0cdf23fe31e1fc7831aa23f4042d00ce6e1cbce938aecdb9eb61d0144"
+      },
+      "acceptance": {
+        "path": "private/workflow/runs/IG-1C/accept-20261013/acceptance.json",
+        "sha256": "a018c78b7f2b6c6ed9d09cd0223c1b62d17c7f4c95cbea094936d1f6f68898ef"
+      },
+      "coordinator_done": {
+        "path": "private/workflow/runs/IG-1C/accept-20261013/completion.json",
+        "sha256": "231d08f3ad8f29cbc8f81c604df4ce00d3463ed91a00963865e120e2496cf8b5"
+      },
+      "reviewer_actor": "ig1c-reviewer-20261013T071955Z",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "human_semantic_acceptance_required": false,
+      "human_semantic_acceptance_granted": false
+    },
+    {
+      "task": "IG-1D",
+      "title": "Persist identities and deterministic exports",
+      "status": "done",
+      "criteria": [
+        "Repeated identical bytes yield identical identities and export content; timestamps are outside canonical hashes.",
+        "Reordering anonymous terms/relations preserves identities when unambiguous; collisions become review gaps.",
+        "Many-to-many origin bindings preserve file/field locations; wildcard and subpoint references have exact targets or explicit unresolved scope.",
+        "Export validates revision/hash closure and never inherits semantic approval."
+      ],
+      "delivery": {
+        "path": "private/workflow/runs/IG-1D/repair-02-20261013/delivery.json",
+        "sha256": "ea2d2cacf42939e516dfc8b65f6c0cffc2d2267478819233fb1f573fddd4275c"
+      },
+      "independent_review": {
+        "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/review.json",
+        "sha256": "0cf77240f11260ce513484a07d79ef3919f48d63dd61433ed9f274effbdb424c",
+        "bytes": 51888
+      },
+      "acceptance": {
+        "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/acceptance-evidence.json",
+        "sha256": "34488bbf3187ff7e34626c092d7fb33d1a712eca48a7f1b8e68f223dfcb20b00"
+      },
+      "coordinator_done": {
+        "path": "private/workflow/runs/IG-1D/completion-20261013/done.json",
+        "sha256": "eaccbaed32ef3c75b316d4addfc97b878ea6af8fc45098b60da53047f20a741c"
+      },
+      "reviewer_actor": "ig1d-replacement-reviewer-20261013T140127Z",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "human_semantic_acceptance_required": false,
+      "human_semantic_acceptance_granted": false
+    },
+    {
+      "task": "IG-1E",
+      "title": "Accept full KB input accounting",
+      "status": "done",
+      "criteria": [
+        "No file/record/unknown field silently disappears; report processed/raw/error counts separately.",
+        "Structural snapshot can be sealed with gaps; no claim of source coverage or semantic correctness.",
+        "Document missing sources and required subsequent reconciliation; preserve mixed editions."
+      ],
+      "delivery": {
+        "path": "private/workflow/runs/IG-1E/stage-20261013/delivery.json",
+        "sha256": "5a2d7595085ef19877f921da96ea79647493ed73a813b5ce29b36d80b4f60e54"
+      },
+      "independent_review": {
+        "path": "private/workflow/runs/IG-1E/review-20261013T150750Z/review.json",
+        "sha256": "46d0afa7c9b0c302934e535d4ab2c59c6a879b9ed0114baf30b26e6f22c069f4",
+        "bytes": 45276
+      },
+      "acceptance": {
+        "path": "private/workflow/runs/IG-1E/review-20261013T150750Z/acceptance-evidence.json",
+        "sha256": "57a82596add83677621e377d54e292d1c047c6b3dfc3427f59c752c87d5d0bca"
+      },
+      "coordinator_done": {
+        "path": "private/workflow/runs/IG-1E/completion-20261013/done.json",
+        "sha256": "2be17bcfaf68af0a84ca2a3642a4600bc98f192dfb66de9a105ee129bb024d22"
+      },
+      "reviewer_actor": "ig1e-independent-reviewer-20261013T150750Z",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "human_semantic_acceptance_required": false,
+      "human_semantic_acceptance_granted": false
+    }
+  ],
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "dd40f3f50842828800ee0cd71c4fb2649bbb99f3f98420ba4a01e9fe8acd0e5d"
+  },
+  "snapshot": {
+    "path": "private/ig/projects/spqr/snapshots/sha256-4571340270f16519ee8207f0e474e6e71620ae11d74a1c787f273bb617a34fa7/manifest.json",
+    "sha256": "8c3da679b4cc3f5b08bf0f9ad4db633bf7ff037bceb96bb41be4f310577ba6b4"
+  },
+  "input_coverage_ledger": {
+    "path": "private/ig/projects/spqr/snapshots/sha256-4571340270f16519ee8207f0e474e6e71620ae11d74a1c787f273bb617a34fa7/input-coverage-ledger.json",
+    "sha256": "06775548803068d0265394b1d71d9ac3c92d80f942c3a366b7f527cabc8d56bc"
+  },
+  "accounting": {
+    "files": 59,
+    "available_files": 23,
+    "missing_sources": 36,
+    "independent_record_counts": {
+      "processed": 1655,
+      "raw": 37,
+      "error": 0
+    },
+    "field_locations": 38206,
+    "unknown_roots": 705,
+    "unknown_field_locations": 1521,
+    "gap_counts": {
+      "missing_source": 36,
+      "unprocessed": 1
+    }
+  },
+  "repeatability": {
+    "imports": true,
+    "transforms_and_publications": true,
+    "seals": true
+  },
+  "readiness": {
+    "structural_import": "complete_and_technically_accepted",
+    "structural_snapshot": "sealed",
+    "publisher_source_coverage": "not_verified",
+    "human_semantic_acceptance": "not_granted",
+    "executable_readiness": "blocked"
+  },
+  "prerequisites": [
+    "Independent inventory of the full selected 5E rulebook and required source materials",
+    "Recover/identify missing configured sources without guessing original identity",
+    "Compare every KB claim, source locator, table/procedure and mixed-edition claim with exact source evidence",
+    "Resolve navigation/subpoint/wildcard references and source discrepancies using explicit evidence",
+    "Human review/acceptance of exact semantic revisions before formal semantics or executable compilation"
+  ],
+  "recorded_utc": "2026-10-13T15:23:02.130499+00:00",
+  "executor_model": "gpt-6.1-sol",
+  "executor_reasoning": "high",
+  "executor_configuration_evidence": {
+    "path": "private/workflow/runs/IG-1D/resume-audit-20261013T134548Z/configuration-confirmed.json",
+    "sha256": "3dfebc8c0fae403be0caa491af60d66031a9ea443a31e0858ee770f4e46a4e69"
+  },
+  "input_tokens": null,
+  "output_tokens": null,
+  "cost": null,
+  "operator_time_seconds": null,
+  "no_commit_or_push": true,
+  "IG_2_started": false
+}

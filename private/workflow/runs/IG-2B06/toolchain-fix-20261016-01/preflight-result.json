@@ -1,0 +1,55 @@
+{
+  "format": "wgc-toolchain-parser-recovery-1",
+  "utc": "2026-10-16T16:39:46.167437+00:00",
+  "operator_request": "Fix toolchain.json reading and resume the orchestrator from IG-2B06.",
+  "task": "IG-2B06",
+  "role": "coordinator",
+  "queue_unchanged": true,
+  "queue_sha256": "ebd7a29f28835f87d86fd95139ad1eed159bbde45651e8d2ea924d541965ccaf",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "configuration_evidence": "Current coordinating session exact model/reasoning is not exposed; child startup observation remains mandatory.",
+  "cause": "Accepted native tool versions were strings; the projection assumed each entry was an object.",
+  "change": "Normalize string versions to version objects, retain bounded structured executable pins, reject malformed supported records with ValueError.",
+  "assigned_physical_pages": [
+    21,
+    22,
+    23,
+    24
+  ],
+  "native_tools": [
+    "git",
+    "pwsh",
+    "pdfinfo",
+    "pdftoppm"
+  ],
+  "runtime_directories_verified": true,
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/test_dependency_context.py --basetemp private/workflow/checks/b06-toolchain-fix-targeted01 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "result": "34 passed in 2.83s"
+    },
+    {
+      "command": "orchestrate_ig2.prepare and launch_environment for current IG-2B06 coordinator",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "scripts/dependency_context.py",
+      "sha256": "0564a0d2cadc276516a7e61d9f7a99f7a287dd68e74b7a338c0111ba8b111300"
+    },
+    {
+      "path": "tests/test_dependency_context.py",
+      "sha256": "c62063e252bc98cfb17e85bf507effa80c36bbe05f526a1e1ed3f56e249f4bf9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/toolchain.json",
+      "sha256": "11336abd99b5bc99b1392f0679f77af33e8878d1bc477c5a2d620c9db1eb0dfc"
+    }
+  ],
+  "source_or_semantic_acceptance_granted": false,
+  "old_run_preserved": "private/workflow/orchestrator/20261016T154824Z-fae43db9",
+  "next_operation": "Run unchanged full checks, confirm old process absent, then start a fresh bounded background supervisor from the authoritative queue."
+}

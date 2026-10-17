@@ -1,0 +1,113 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B04-coordinator-e742d89b:coordinator",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/003-IG-2B04-coordinator-e742d89b/runtime-configuration.json",
+  "configuration_sha256": "b854f1213ea47feb42692a6d0a554537dd36efe3e4773d982cebb16c87b9d73f",
+  "utc": "2026-10-16T12:46:01.638702+00:00",
+  "review_evidence": "private/workflow/runs/IG-2B04/review-ce506337-01/review.json",
+  "review_sha256": "f6946697d279730c5fada8bd8dc3fabd7e1dc1c4a594ed875ab8a2680e1e6c2e",
+  "finding_ids": [
+    "V01"
+  ],
+  "attempt": "private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/",
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Preserve the complete pinned 44-page inventory, every nonassigned record/link/evidence and all persisted registry bindings; replace only assigned placeholders and retain retired registry entries.",
+    "Freeze fresh original-page inspection and every assigned region evidence artifact, two complete independent replays, full/task/context denominators, preservation and reference audits, and independent review of the frozen complete delivery.",
+    "Use the exact execution-contract input pins and output layout, including the current repaired ledger/continuations and final-verified inventory plus companion registry; retain unresolved boundaries outside the authorized pages."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Validate final-verified and both independently regenerated replay inventories against the actual PDF, full persisted registry and fresh assigned evidence bytes; compare stable identities, revisions and normalized path-dependent evidence results.",
+    "Assert full 44-page retention, nonassigned canonical record equality, unchanged original input/artifact hashes and registry-entry retention; assert only four assigned placeholder memberships retire.",
+    "Audit every ledger/continuation/evidence locator, page basis, source hash and current report pin; independently compare every original assigned page/component and entry/exit boundary.",
+    "Run the explicit unchanged tests/sources suite with a fresh basetemp and -p no:cacheprovider, scripts/check.ps1 -Task IG-2B04 and git diff --check; retain commands, logs and exits."
+  ],
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/delivery-manifest.json",
+    "sha256": "ba026675123a5e9f3b397ebc41b8840dcdc349d04391037a4d74ec5abd6463fc"
+  },
+  "mode": "validation_only",
+  "repair_cycle": 1,
+  "finding": {
+    "id": "V01",
+    "severity": "medium",
+    "category": "validation_environment",
+    "location": "Required scripts/check.ps1 -Task IG-2B04 validation; tests/test_workflow.py:142 as reported in the frozen pytest log",
+    "affected_criteria": [
+      "Freeze fresh original-page inspection and every assigned region evidence artifact, two complete independent replays, full/task/context denominators, preservation and reference audits, and independent review of the frozen complete delivery.",
+      "Use the exact execution-contract input pins and output layout, including the current repaired ledger/continuations and final-verified inventory plus companion registry; retain unresolved boundaries outside the authorized pages."
+    ],
+    "observation": "Approved unchanged repository check exits 1. tests/test_workflow.py::test_default_ripgrep_excludes_history raises FileNotFoundError [WinError 2] while launching rg --files; 241 tests pass and one fails. Planning, task dry-run and diff subchecks exit zero. This prevents a technical pass despite clean source/inventory review.",
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved.json",
+        "sha256": "3fa6e46253e6e0f649dddd107abc5e736d0fdfc72beb81b985ff160c9e2d7e10",
+        "bytes": 2162
+      },
+      {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-pytest.log",
+        "sha256": "5cec2dae7cf70ad8d8cfb54f440ad9cc578ed8b3ed7514b330a97eb7e3f6cbd2",
+        "bytes": 1586
+      },
+      {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-result.log",
+        "sha256": "11cdc49447feb1a4c92f6c97b43377bce012e3669a730c42d0a4d69bcb2bc28a",
+        "bytes": 206
+      }
+    ],
+    "required_repair": "Validation-only repair: coordinator/supervisor must make the already installed hash-pinned rg executable available to the unchanged validation subprocess, preserving the full inherited PATH and both PYTHONPATH entries. Do not modify tests, assertions, guards, source evidence, supervisor code or old attempts. Freeze new approved validation reports and a new delivery envelope retaining the entire current ordered artifact list as its unchanged prefix.",
+    "repair_validation": [
+      "Run the exact unchanged pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04 through the permitted approved execution path and obtain all subchecks at exit zero.",
+      "Retain explicit unchanged tests/sources validation with a fresh basetemp and -p no:cacheprovider; freeze actual commands, logs, exits and observed configuration.",
+      "Verify every original delivery artifact and all blocked-attempt preservation pins remain unchanged; run git diff --check.",
+      "Re-review new validation evidence and current hashes; preserve this complete source/ledger inspection and regeneration coverage. No source rebuilding or new source access is required for this environment-only finding."
+    ]
+  },
+  "allowed_changes": [
+    "New validation reports, logs, checkpoint, claim, handoff and delivery envelope only in the new owned attempt.",
+    "Process-local prepend of the hash-verified installed rg directory to the complete inherited PATH; retain all inherited PATH entries and both pinned PYTHONPATH entries.",
+    "New delivery artifacts must begin with the complete original ordered artifact list, unchanged; append only fresh repair evidence."
+  ],
+  "prohibited_changes": [
+    "No source, tool, test, assertion, guard, contract, supervisor script/session metadata, global setting, installation, ACL or prior-attempt edits.",
+    "No original-page rebuilding, region evidence regeneration, replay rebuilding, new source inspection, downstream work or semantic acceptance."
+  ],
+  "required_checks": [
+    "Run the exact unchanged pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04 through the permitted approved execution path and obtain all subchecks at exit zero.",
+    "Retain explicit unchanged tests/sources validation with a fresh basetemp and -p no:cacheprovider; freeze actual commands, logs, exits and observed configuration.",
+    "Verify every original delivery artifact and all blocked-attempt preservation pins remain unchanged; run git diff --check.",
+    "Re-review new validation evidence and current hashes; preserve this complete source/ledger inspection and regeneration coverage. No source rebuilding or new source access is required for this environment-only finding."
+  ],
+  "commands": [
+    "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+    ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B04/repair-v01-e742d89b-01/pytest-sources -p no:cacheprovider --tb=short",
+    "git diff --check"
+  ],
+  "execution_permissions": "Use require_escalated for unchanged validations where the restricted Windows token denied mode-0700 temp access or owned synthetic process termination. Do not retry a denied restricted command, change ACLs or assertions, or use bypass flags. Automatic reviewer handles approval.",
+  "toolchain": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/toolchain.json",
+    "sha256": "2a10f104b342301756b20979e55572d3311777331d011c8540b0061c98d0e5a2",
+    "bytes": 2642
+  },
+  "rg": {
+    "path": "C:/Users/yauta/AppData/Local/OpenAI/Codex/bin/d6efb6feb729707e/rg.exe",
+    "sha256": "0d73ba3dd4f273938f02b2bd577be197af136c7856b00fd8a89434e25633cf8d"
+  },
+  "process_pythonpath": "C:\\repo\\wargame-compiler\\src;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages",
+  "process_path_prefix": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin",
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B04/rg-recovery-20261016-01/preserve.json",
+    "sha256": "ffd957d8e26ed8c4b0b782d46e3c1db2170094ea55286481c7fe9d1237dffe13",
+    "bytes": 204341
+  },
+  "delivery_artifact_prefix_count": 2325,
+  "preservation_requirement": "Reverify every original delivery artifact and blocked-attempt pin after each role and on restart; old manifests remain byte-for-byte immutable. Retain current independent source review as evidence, without granting acceptance.",
+  "retry_limit": "At most two repairs per finding and two retries of an unchanged failure; record any changed external condition."
+}

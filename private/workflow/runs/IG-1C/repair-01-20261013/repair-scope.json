@@ -1,0 +1,58 @@
+{
+  "review": {
+    "path": "private/workflow/runs/IG-1C/review-20261013T092949Z/review.json",
+    "sha256": "333ca0ae84342bffc103045c5ad1ea1ee2dbc8f104764d2ce4db2255a8c0f48e"
+  },
+  "parent_delivery": {
+    "path": "private/workflow/runs/IG-1C/resume-20261013/delivery.json",
+    "sha256": "aefeac57292fcb742e8f7263d2ed30af56af01fd1da8282bc7e4baa3c78742b8"
+  },
+  "finding_iterations": [
+    {
+      "finding_id": "IG1C-R01",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Normalize malformed supported scalar-constructor failures to a located ParseError without masking unrelated programming defects; retain raw bytes and explicit file/record errors.",
+      "required_verification": [
+        "Both strict existing reviewer probes pass with raw_base64 unchanged and exactly one error record",
+        "Add production regressions including exact file/field/line/column diagnostics",
+        "Verify a multi-file import continues accounting valid files alongside malformed-tag files",
+        "Rerun affected adapter controls, full private accounting and required project/diff checks"
+      ]
+    },
+    {
+      "finding_id": "IG1C-R02",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Validate or explicitly diagnose known optional field types, enumerations and nested collection shapes against the pinned contract; preserve raw/unknown fields. Document explicit supported extensions such as integer step numbering instead of silently treating all arbitrary known-field shapes as processed.",
+      "required_verification": [
+        "All four strict reviewer counterexamples produce located structural errors and retain raw bytes",
+        "Cover malformed optional nested objects/collections, enums and scalar types across known WGU collections",
+        "Keep valid anonymous terms, integer/string nested numbering, terminology and unknown extensions working",
+        "Re-inventory the complete corpus and report any genuine input diagnostics without weakening assertions",
+        "Rerun adapter and required project/diff checks"
+      ]
+    },
+    {
+      "finding_id": "IG1C-R03",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Apply entity-specific shape rules to confusables; preserve schema-valid scalar/sequence/null entries as supported records or explicit raw/unprocessed records without fabricated structural errors.",
+      "required_verification": [
+        "The existing strict string-array reviewer probe passes with all three records and exact values preserved",
+        "Add coverage for heterogeneous contract-valid confusables entries and extensions",
+        "Retain genuine malformed required entity-record diagnostics and duplicate-ID controls",
+        "Rerun adapter, full private accounting and project/diff checks"
+      ]
+    }
+  ],
+  "product_write_scope": [
+    "src/wgc/wgu_adapter/parser.py",
+    "src/wgc/wgu_adapter/importer.py",
+    "tests/wgu_adapter/",
+    "private/ig/projects/spqr/runs/import/"
+  ],
+  "scope_changes": false,
+  "hypothesis": "Normalize only malformed built-in scalar-constructor exceptions with node locations; validate pinned known WGU schema types/enums/nested shapes while retaining unknown extensions and explicit integer step numbering extension; support unconstrained confusables item values.",
+  "old_output_preservation": "Do not overwrite prior private import output; repaired corpus output uses a new import run directory."
+}

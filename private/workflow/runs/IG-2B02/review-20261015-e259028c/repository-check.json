@@ -1,0 +1,32 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B02-reviewer-e259028c:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/runtime-configuration.json",
+  "configuration_sha256": "951b8c432c4a5ec518dc48ee332113ff597a708c469982f3d3ed67e00468f437",
+  "task": "IG-2B02",
+  "name": "repository-check",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/check.ps1",
+    "-Task",
+    "IG-2B02"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T14:53:00.100262+00:00",
+  "ended_utc": "2026-10-15T14:53:44.864818+00:00",
+  "wall_seconds": 44.76499999999942,
+  "stdout": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/repository-check.stdout",
+    "bytes": 5796,
+    "sha256": "e046f5382f4c910720ecd2871255ecf9d0d62106e0f09c131f600b084e628e6c"
+  },
+  "stderr": {
+    "path": "private/workflow/runs/IG-2B02/review-20261015-e259028c/repository-check.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "configuration_evidence": "Builder actual model/reasoning unavailable.",
+  "role": "coordinator",
+  "model": null,
+  "actor": "operator-authorized-v01-recovery-20261016-01",
+  "reasoning": null,
+  "reviewed_artifacts_preserved": 2325,
+  "artifacts": [
+    {
+      "sha256": "2acab8fe9b004681a545e6bd4ff8a78cd1dd77b89b6547ddb6b3fb9a71271c70",
+      "path": "scripts/task_access.py"
+    },
+    {
+      "sha256": "89018c63faa088e4f2258756cc254738977d63f67d4e063424442e14682b79f7",
+      "path": "scripts/orchestrate_ig2.py"
+    },
+    {
+      "sha256": "24232f3cfc12ffd09e2789943bb89a0cb83bc3e474596720b51b6b12ccb5a0a2",
+      "path": "tests/test_task_access.py"
+    },
+    {
+      "sha256": "1ada54cd70e49245d8e3297af2d03bc70d446aaa2d339ff0721764a511502509",
+      "path": "tests/test_orchestrator.py"
+    },
+    {
+      "sha256": "c3b35c6d9f34c68a63b1ccf05cdf4202aedaa5fd089196ae10e75294d4ed74fe",
+      "path": "docs/work/IG2-ORCHESTRATOR.md"
+    }
+  ],
+  "checks": [
+    {
+      "result": "7 passed",
+      "exit_code": 0,
+      "command": "Bootstrap/PATH targeted regressions"
+    },
+    {
+      "result": "247 passed; plan=0 dry-run=0 tests=0 diff=0",
+      "exit_code": 0,
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04 (approved ordinary-user execution)",
+      "evidence": "private/workflow/checks/active-91abb0912dcc4051ab8da888f6a92dde/result.json"
+    },
+    {
+      "result": "39 tasks valid; selected B04 executor",
+      "exit_code": 0,
+      "command": "workflow.py validate and orchestrate_ig2.py plan after context-only refinement"
+    }
+  ]
+}

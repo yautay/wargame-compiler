@@ -1,0 +1,51 @@
+{
+  "technical_result": "changes_requested",
+  "findings": [
+    {
+      "id": "IG1D-R01",
+      "priority": "P2",
+      "title": "Keep conflicting anonymous identity evidence unresolved",
+      "location": {"path": "src/wgc/wgu_adapter/identity.py", "start": 253, "end": 270},
+      "consequence": "The sequential matching passes assign a unique substantive-body match before considering a contradictory unique declared label. When two anonymous terms keep their names but exchange definitions, the implementation silently swaps their persisted IDs with no gap. The same bytes also support the history in which both terms retain their identities and only definitions were edited. There is no external ID or explicit decision selecting one of those histories; origin history can therefore be attached to the wrong logical entity.",
+      "reproducer": {"previous": {"terms": [{"en": "Copper", "definition": "Copper distinct body"}, {"en": "Silver", "definition": "Silver distinct body"}]}, "current": {"terms": [{"en": "Copper", "definition": "Silver distinct body"}, {"en": "Silver", "definition": "Copper distinct body"}]}, "namespace": "review"},
+      "evidence": {"test": "probes.py::test_conflicting_label_and_body_evidence_is_not_silently_prioritized", "log": "probes.log", "observed": "Both observations receive assigned IDs rather than gap IDs; IDs follow the swapped body instead of exposing contradictory label evidence."},
+      "expected_result_justification": "The task requires unambiguous rematches and explicit gaps for ambiguous rematches. Labels and body descriptors are match evidence, not an operator-authorized precedence rule. Two distinct identity histories are compatible with these exact source bytes; an ordered heuristic cannot establish which history occurred.",
+      "required_change": "Collect and compare applicable anonymous rematch evidence before committing assignments. If independently justified label/body/endpoint/number evidence contradicts candidate identities, preserve the candidate IDs in a gap until an explicit binding decision resolves the conflict.",
+      "required_verification": ["Keep this strict contradictory-evidence probe unchanged and make it pass with all affected observations unresolved and full candidate/origin retention", "Add conflicting-evidence cases for other anonymous kinds where multiple applicable descriptors disagree", "Retain unambiguous edit, rename, reorder, insert/delete/file-move, repeated-input and endpoint-alias tests", "Use explicit hints to resolve the conflict without changing raw observations or reusing generated identities", "Rerun full private accounting, canonical reproducibility, affected suites and required project/diff checks"],
+      "repair_iteration": 0,
+      "maximum_repair_iterations": 2
+    },
+    {
+      "id": "IG1D-R02",
+      "priority": "P2",
+      "title": "Reject or gap overlapping contradictory hint and lineage decisions",
+      "location": {"path": "src/wgc/wgu_adapter/identity.py", "start": 146, "end": 151},
+      "related_location": "src/wgc/wgu_adapter/identity.py:215-228 processes forced lineage before hints and continues",
+      "consequence": "A child locator may have both an explicit split/merge allocation decision and an incompatible explicit hint to an existing unrelated ID. Both inputs pass validation. The forced-lineage branch allocates a new child and silently ignores the recorded hint/basis. This discards an explicit caller decision rather than surfacing the conflict, undermining many-to-many bindings and persisted decision provenance.",
+      "reproducer": "Create term identities Whole and Other. Supply a split from Whole into child locators /terms/0 and /terms/1, then hints[/terms/0] = {ids: [Other ID], basis: 'Explicitly preserve Other identity instead'}. Reconcile returns a newly allocated split child for /terms/0 without rejection or a gap.",
+      "evidence": {"test": "probes.py::test_conflicting_hint_and_lineage_on_same_child_requires_explicit_conflict", "log": "probes.log", "observed_assignment": "review:e0000003; contradictory hint not represented as a conflict"},
+      "expected_result_justification": "Recorded explicit binding and lineage bases are independent inputs. An observation cannot simultaneously inherit a named existing unrelated identity and receive a newly allocated split identity. The task requires explicit many-to-many/lineage decisions and no guessed resolution; neither input's presence authorizes dropping the other.",
+      "required_change": "Validate overlap between forced lineage child locators and hints. Reject incompatible combinations before reconciliation or preserve an explicit conflict gap carrying both decisions; do not silently prioritize one branch. If compatible overlap is supported, define and verify its exact reconciliation rule and receipts.",
+      "required_verification": ["Keep the strict overlap probe unchanged; incompatible inputs reject or return an explicit unresolved assignment", "Cover merge and split overlap, compatible/identical duplicates if supported, decision replay and preserved previous-registry immutability on rejection", "Retain disjoint many-to-many hints, keyed indistinguishable children and ordinary lineage replay", "Rerun affected suites, full private accounting and required checks"],
+      "repair_iteration": 0,
+      "maximum_repair_iterations": 2
+    },
+    {
+      "id": "IG1D-R03",
+      "priority": "P2",
+      "title": "Resolve exact active allocated IDs directly",
+      "location": {"path": "src/wgc/wgu_adapter/references.py", "start": 61, "end": 70},
+      "consequence": "endpoint checks explicit scopes and external aliases but never checks raw against the active identity map. A refs entry equal to an existing active allocated ID is incorrectly marked unresolved. This produces false reference gaps and omits graph edges/cycle diagnostics for exact internal references even though the target is present and unambiguous.",
+      "reproducer": "Reconcile declared rules R-A and R-B; read the active allocated ID for R-B. Reconcile the next input retaining both rules and adding R-A.refs=[R-B allocated ID]. diagnose marks that exact ID unresolved with an empty target list.",
+      "evidence": {"test": "probes.py::test_exact_current_allocated_ids_resolve_in_navigation", "log": "probes.log", "observed": "target_status unresolved rather than resolved"},
+      "expected_result_justification": "The delivered contract and operator review scope explicitly require exact current IDs and unique persisted aliases to resolve. No wildcard/subpoint expansion or source meaning is needed to resolve a raw string equal to a selected active identity.",
+      "required_change": "Add exact active identity resolution with an explicit basis and retain collision/scope rules. Preserve role/navigation and no-approval behavior. Retired IDs must not resolve as active merely because they remain in history.",
+      "required_verification": ["Keep the exact-current-ID probe unchanged and make it return the exact singleton target", "Cover direct IDs in relation from/to and navigation cycle detection", "Cover retired/non-current IDs, external alias collisions, raw strings resembling IDs, and explicit wildcard/subpoint scopes", "Verify both endpoints still must resolve before the source relationship is resolved", "Rerun affected suites and required controls"],
+      "repair_iteration": 0,
+      "maximum_repair_iterations": 2
+    }
+  ],
+  "product_modified_by_reviewer": false,
+  "repair_cycles_consumed": 0,
+  "unchanged_failure_retries": 0
+}

@@ -1,0 +1,91 @@
+{
+  "role": "coordinator",
+  "actor": "operator-authorized-rg-recovery-20261016-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder actual configuration unavailable; executor metadata independently observed below.",
+  "verified_utc": "2026-10-16T12:00:33.957942+00:00",
+  "summary": "B04 progressed beyond claim/checkpoint: four original PNGs exist, fresh executor recorded page13 inspection, and reported a concrete page14 crop-boundary finding.",
+  "task": "IG-2B04",
+  "status": "in_progress",
+  "claim": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/claim.json",
+    "sha256": "e5b35f997c56b64269a2c933c3a38f8695e0425171f7661ada64e023b01c6fd2",
+    "bytes": 1824
+  },
+  "inspection_progress_checkpoint": {
+    "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/checkpoint-inspection-start.json",
+    "sha256": "c5b4f0564abf81bef22f2705eb4badc6c45e6afdfc4ea16c283c10f1bfb8be59",
+    "bytes": 4657
+  },
+  "original_page_images": [
+    {
+      "pdf_page": 13,
+      "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/original-pages/page-13.png",
+      "sha256": "49b1fe8f6a6f40fcc28b2d182db3989fa14a386740983ad965049816ed49712c",
+      "bytes": 790651,
+      "width": 1224,
+      "height": 1584
+    },
+    {
+      "pdf_page": 14,
+      "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/original-pages/page-14.png",
+      "sha256": "7eaebe60605dafe0686a130143a80e6e7e4d5b4b9243bf3c49f994b66ae079a7",
+      "bytes": 683708,
+      "width": 1224,
+      "height": 1584
+    },
+    {
+      "pdf_page": 15,
+      "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/original-pages/page-15.png",
+      "sha256": "e6e4697736e89455b3a9a4f2bad994ea9c4f84bf4ac7d01e4262f68b66621fe8",
+      "bytes": 754970,
+      "width": 1224,
+      "height": 1584
+    },
+    {
+      "pdf_page": 16,
+      "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/original-pages/page-16.png",
+      "sha256": "6597ee0a699766854ed3503e40c8c8cb0cf050579d31acb6555d70d7c5d0f2be",
+      "bytes": 666527,
+      "width": 1224,
+      "height": 1584
+    }
+  ],
+  "inspection_evidence_basis": "Current executor checkpoint plus concrete current-session source observation; rendering alone is not visual/source acceptance.",
+  "executor_source_progress_statements": [
+    "Fresh renders are complete, and visual inspection has begun. Pages 13–14 include an example that continues across the page boundary; I’ll record that link and keep the outer boundaries unresolved where the scope requires it.",
+    "I’ve inspected all four original pages and compared the proposed components with them. One candidate crop cuts across the top of the “Moved” marker on page 14; I’ll move that boundary above the marker before generating evidence."
+  ],
+  "executor_configuration": {
+    "path": "private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/runtime-configuration.json",
+    "sha256": "e1a87639410babf3023b3d500107f30b71b8f27bbc379dd5574435097eaf6e10",
+    "bytes": 740
+  },
+  "tool_runtime": {
+    "path": "private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/tool-runtime.json",
+    "sha256": "b6ecac1ccf4bdaa875428d51f0b668f750b4f6da2620cedd2b14c34b85cae6fa",
+    "bytes": 293
+  },
+  "ripgrep": {
+    "path": "C:\\Users\\yauta\\AppData\\Local\\OpenAI\\Codex\\bin\\d6efb6feb729707e\\rg.exe",
+    "sha256": "0d73ba3dd4f273938f02b2bd577be197af136c7856b00fd8a89434e25633cf8d",
+    "version": "ripgrep 15.2.0"
+  },
+  "independent_host_preflight": {
+    "path": "private/workflow/launches/20261016T115559Z-e4dff3af/preflight-result.json",
+    "sha256": "858420841e3b0ff72b41e13d3e8af8fe5b93d2d1acd7fbfa0ba93ecc756ae842",
+    "bytes": 656
+  },
+  "preflight_search_matches_with_empty_PATH": 37,
+  "supervisor_pid": 21348,
+  "executor_pid": 9996,
+  "heartbeat_utc": "2026-10-16T12:00:33.241162+00:00",
+  "no_context_denial": true,
+  "run": "private/workflow/orchestrator/20261016T115606Z-694df602/",
+  "launch": "private/workflow/launches/20261016T115559Z-e4dff3af/",
+  "repository_tests": "242 passed; plan, dry-run and diff checks passed.",
+  "task_completed": false,
+  "source_completeness_certified": false,
+  "semantic_acceptance_granted": false
+}

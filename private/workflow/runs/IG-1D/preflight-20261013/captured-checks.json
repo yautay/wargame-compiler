@@ -1,0 +1,49 @@
+[
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter tests/export -q -p no:cacheprovider --basetemp private/workflow/checks/dc --tb=short",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/wgu_adapter",
+      "tests/export",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "private/workflow/checks/dc",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T12:08:31.569350+00:00",
+    "ended_utc": "2026-10-13T12:08:35.279714+00:00",
+    "wall_seconds": 3.702999999979511,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\preflight-20261013\\explicit-final.log"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T12:08:35.279714+00:00",
+    "ended_utc": "2026-10-13T12:08:35.765304+00:00",
+    "wall_seconds": 0.4850000001024455,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\preflight-20261013\\queue-final.log"
+  },
+  {
+    "command": "git diff --check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T12:08:35.765304+00:00",
+    "ended_utc": "2026-10-13T12:08:37.069744+00:00",
+    "wall_seconds": 1.3119999999180436,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\preflight-20261013\\diff-final.log"
+  }
+]

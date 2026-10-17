@@ -1,0 +1,11 @@
+8.14 A missile unit can only fire at an enemy target unit to which it
+has an unobstructed Line of Sight (LOS). A LOS is calculated by
+tracing a path of hexes between the center of the hex the missile
+unit is in and the same for the target unit, through the firing unit’s
+front or flank hexsides. LOS is blocked by woods, towns, and
+combat units (but not leader elephants alone), unless they are in
+hexes at a lower elevation than both the firing unit and the target.
+LOS is also blocked if any part of a hex of higher elevation is
+between the two units. If the LOS goes down a hexside between
+blocking/non-blocking hexes, consider it blocked. Missile units,
+however, can always fire into adjacent hexes.

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+    "-B",
+    "-c",
+    "import sys;sys.path.insert(0,'private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8');from ops import *;from wgc.sources.inventory import seal,validate;from wgc.contracts.source import canonical_bytes;p=A/'authored/inventory.json';d=load(AR+'/authored/inventory.json');write('authored-pre-link-correction.json',d);d['links'][-1]['reason']='Accepted pinned page-4 Triarii crop ends spear-armed; independently observed page-5 paragraph begins heavy infantry. Old context continuation remains unchanged.';d=seal(d);validate(d);p.write_bytes(canonical_bytes(d)+b'\\n');checkpoint('link-corrected',['All four original pages and overlays inspected','Triarii source crop read within exact authorized boundary'],'Derive exact new-ID evidence')"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-14T20:47:27.888489+00:00",
+  "ended_utc": "2026-10-14T20:47:30.232420+00:00",
+  "wall_seconds": 2.3440000000009604,
+  "stdout": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored-link-correction.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored-link-correction.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

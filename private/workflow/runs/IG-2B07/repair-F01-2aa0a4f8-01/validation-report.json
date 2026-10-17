@@ -1,0 +1,218 @@
+{
+  "role": "executor",
+  "actor": "ig2:005-IG-2B07-executor-32eedee6:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/runtime-configuration.json",
+  "configuration_sha256": "510c7584378a512c42f72d5523ae6f9c3697ade1c0aa2da3d0d2059e7e795444",
+  "format": "wgc-f01-repair-validation-1",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/source-validation.log",
+        "bytes": 10987,
+        "sha256": "5d5e944618b8cb0999e47d32688d8efede1eef5c7caaeb02c20f648b6825904b"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved require_escalated exact unchanged command",
+      "tests_passed": 71,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources-restricted.log",
+        "bytes": 102,
+        "sha256": "58ce993d96e2cba7f42b4972469a2b32156b4d35ff1247f6a1dbcff0c720b76e"
+      },
+      "shell_command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short *> private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources-restricted.log"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "exit_code": 0,
+      "execution": "approved require_escalated exact unchanged command",
+      "tests_passed": 274,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/repository-check.log",
+        "bytes": 5877,
+        "sha256": "b61b553b03e74d9748c418a3357407586f3964376df6b20439f7e5002fbf54b3"
+      },
+      "shell_command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07 *> private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/repository-check.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/run_inventory.py --output private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/derivation-report.json",
+        "bytes": 137971,
+        "sha256": "0a5b3cb053550379e007a545603eff0c1e9423640fee890fdab8bcb9135b8c39"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-generation.log",
+        "bytes": 848,
+        "sha256": "e1b0ed30b98f96a0d01f4b438bd2ec1a864ecd9f63a3dd00326cc339b8eeb78e"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/run_inventory.py --output private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-1",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-1/derivation-report.json",
+        "bytes": 135692,
+        "sha256": "64c3aa225fc4af52b39faae11a4260f62d6ba898b9c094fef88cd7a490f02fd2"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-1.log",
+        "bytes": 787,
+        "sha256": "36e534599feeae9fed0d55e54ccc426f068abeac2182fcca090703b030d5d354"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/run_inventory.py --output private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-2",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-2/derivation-report.json",
+        "bytes": 135697,
+        "sha256": "aed130247df2480be084c4b96cc8d7a7c90f2fd6498af7008962e063993f4d96"
+      },
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-2.log",
+        "bytes": 787,
+        "sha256": "1ee6464c1e800c6aa3a0a04dd497d72c05420230eddb490bc775a01e2ccdb343"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/report_inventory.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-report.json",
+        "bytes": 488235,
+        "sha256": "b4a49a03f2bbb20f0c98d174023e492a53d6c36544cc497f00a9bf91e8c746e9"
+      }
+    }
+  ],
+  "environment_failures_and_approved_execution": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation-command-observations.json",
+    "bytes": 6701,
+    "sha256": "4fcb6403f9fb850e848ddb43d3324699c8b00bc621079b2eb2586ef78970eb2d"
+  },
+  "input_pins_reverified": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+      "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9",
+      "bytes": 2367836
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+      "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218",
+      "bytes": 85021
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json",
+      "sha256": "f5494f69952871a1029d388b0748e49408be26601f6383e7ea76d337986756be",
+      "bytes": 600116
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json",
+      "sha256": "4878c991f2d987585d2b5d194f91969a1589d40dbe9afefef7944ebaf8e9bb7b",
+      "bytes": 214815
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json",
+      "sha256": "c5bcdbc719e1e94f3e428c60dd4c9dc196b1b87c9afe0a495fa29afee3f7d0fb",
+      "bytes": 77843
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json",
+      "sha256": "a384fb16f243ecba70ab7992ad218c4e3d2c453c26f96f4f1b2c1bf36b6b2cce",
+      "bytes": 289556
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+      "sha256": "524d8924e0432137c1a085c699d7aabdd1dd5985edd16ca78cad5696573c1121",
+      "bytes": 4989
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/coordinator-999c866b-01/refined-contract-v2.json",
+      "sha256": "5d972c42425b36f8d3ec4a59d6a372289dff6535fe6eb4b8766356e35e331351",
+      "bytes": 20483
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+      "sha256": "de0f651557362f57f96a5a225dc5c796f89387d5e3ba689ab19361e9bd93ea5a",
+      "bytes": 17242
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/coordinator-authorization.json",
+      "sha256": "1e22af511284fdbdfade01efcc4a2c763dea932e2e817500011eb500adc21124",
+      "bytes": 4655
+    }
+  ],
+  "immutable_prior_delivery": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/delivery.json",
+    "bytes": 738246,
+    "sha256": "cee94ecd856edb0da9439881a0e002f7515f45f334a1b4e02fcd16b3f20cab27"
+  },
+  "prior_artifacts_verified_before_and_after": 2956,
+  "packet": {
+    "path": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/packet.json",
+    "bytes": 7909,
+    "sha256": "1b2eda0e73d2f460a1fcfbde6bf0fa5e2359953afa34221b0d7c480b0cf321f9"
+  },
+  "full_inventory_count": 849,
+  "task_inventory_count": 100,
+  "full_context_count": 92,
+  "total_region_records": 941,
+  "new_nested_components": 87,
+  "new_total_targets": 189,
+  "context_denominator_contribution": 0,
+  "preservation": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/preservation-report.json",
+    "bytes": 12529,
+    "sha256": "8a63da734729f9d85d1c41388bf5b1d2907a0055b4699b1391f0386ff36d9ecf"
+  },
+  "repair_preservation": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/repair-preservation-report.json",
+    "bytes": 1719,
+    "sha256": "09b88da11c91129043edc40ca3479d81c69b929417b4fbb5b0a511dcfa6a4ecf"
+  },
+  "complete_replays": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-report.json",
+    "bytes": 488235,
+    "sha256": "b4a49a03f2bbb20f0c98d174023e492a53d6c36544cc497f00a9bf91e8c746e9"
+  },
+  "source_inspection": {
+    "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/original-page-inspection.json",
+    "bytes": 42261,
+    "sha256": "59e4fc10e28002a50aeb211da72661fcc0a66f35c62075fb1d39ffa1c05eb47b"
+  },
+  "unresolved_limits": [
+    "Fresh independent technical/source-accounting rereview is pending.",
+    "Prior complete four-page and boundary inspection retains its original actor attribution. Only the affected original second diagram and all its components were freshly visually inspected by this repair role.",
+    "Full transcription and tiny raster glyph readings remain unverified.",
+    "Descriptive/formal semantics and executable readiness remain unprocessed.",
+    "Unassigned pages 29-44 retain their inherited placeholders."
+  ],
+  "semantic_acceptance_granted": false,
+  "executable_readiness": "unverified"
+}

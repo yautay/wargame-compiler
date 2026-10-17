@@ -1,0 +1,4 @@
+{
+  "cause": "The first diagnostic helper unnecessarily probed pdftotext, which is not installed or used by the source module.",
+  "resolution": "src/wgc/sources/pdf.py and its README require pdfinfo/pdftoppm; text extraction uses Python libraries. A fresh preparation checks those source tools plus the repository pwsh/git tools. No existing source/test requirement changes."
+}

@@ -1,0 +1,94 @@
+{
+  "task": "IG-1C",
+  "actor": "ig1-stage-executor-20261013",
+  "started_utc": "2026-10-13T09:48:36.660249+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Direct earlier operator UI confirmation in this same ongoing executor conversation: sol 6.1 high; no settings change requested/observed.",
+  "base_files": [
+    {
+      "original": {
+        "path": "src/wgc/wgu_adapter/parser.py",
+        "sha256": "999ea8ba3917901520c63722a8919e1c3eeeae82b558024c520905d0d54c7482"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline/src/wgc/wgu_adapter/parser.py",
+        "sha256": "999ea8ba3917901520c63722a8919e1c3eeeae82b558024c520905d0d54c7482"
+      }
+    },
+    {
+      "original": {
+        "path": "src/wgc/wgu_adapter/importer.py",
+        "sha256": "812a8962f7d3cd413f7126db7d4abfc2d833848e192d9091e75282f20459a840"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline/src/wgc/wgu_adapter/importer.py",
+        "sha256": "812a8962f7d3cd413f7126db7d4abfc2d833848e192d9091e75282f20459a840"
+      }
+    },
+    {
+      "original": {
+        "path": "tests/wgu_adapter/test_importer.py",
+        "sha256": "e9b8804ea333bea58fb701b05c9c06f7d076d4e7dcd905969c6ba3469d798646"
+      },
+      "preserved_copy": {
+        "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline/tests/wgu_adapter/test_importer.py",
+        "sha256": "e9b8804ea333bea58fb701b05c9c06f7d076d4e7dcd905969c6ba3469d798646"
+      }
+    }
+  ],
+  "parent_review": {
+    "path": "private/workflow/runs/IG-1C/review-20261013T092949Z/review.json",
+    "sha256": "333ca0ae84342bffc103045c5ad1ea1ee2dbc8f104764d2ce4db2255a8c0f48e"
+  },
+  "parent_delivery": {
+    "path": "private/workflow/runs/IG-1C/resume-20261013/delivery.json",
+    "sha256": "aefeac57292fcb742e8f7263d2ed30af56af01fd1da8282bc7e4baa3c78742b8"
+  },
+  "input_packet": {
+    "path": "private/workflow/packets/IG-1C-0c41b27562724c50bf1335abdc493fe7/manifest.json",
+    "sha256": "29e93b23a7c45a3c8c6ddae93f4920bc4da1d0d3c855a5871d07a81bfaaff8d9"
+  },
+  "repair_iterations": [
+    {
+      "finding_id": "IG1C-R01",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Normalize malformed supported scalar-constructor failures to a located ParseError without masking unrelated programming defects; retain raw bytes and explicit file/record errors.",
+      "required_verification": [
+        "Both strict existing reviewer probes pass with raw_base64 unchanged and exactly one error record",
+        "Add production regressions including exact file/field/line/column diagnostics",
+        "Verify a multi-file import continues accounting valid files alongside malformed-tag files",
+        "Rerun affected adapter controls, full private accounting and required project/diff checks"
+      ]
+    },
+    {
+      "finding_id": "IG1C-R02",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Validate or explicitly diagnose known optional field types, enumerations and nested collection shapes against the pinned contract; preserve raw/unknown fields. Document explicit supported extensions such as integer step numbering instead of silently treating all arbitrary known-field shapes as processed.",
+      "required_verification": [
+        "All four strict reviewer counterexamples produce located structural errors and retain raw bytes",
+        "Cover malformed optional nested objects/collections, enums and scalar types across known WGU collections",
+        "Keep valid anonymous terms, integer/string nested numbering, terminology and unknown extensions working",
+        "Re-inventory the complete corpus and report any genuine input diagnostics without weakening assertions",
+        "Rerun adapter and required project/diff checks"
+      ]
+    },
+    {
+      "finding_id": "IG1C-R03",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "required_change": "Apply entity-specific shape rules to confusables; preserve schema-valid scalar/sequence/null entries as supported records or explicit raw/unprocessed records without fabricated structural errors.",
+      "required_verification": [
+        "The existing strict string-array reviewer probe passes with all three records and exact values preserved",
+        "Add coverage for heterogeneous contract-valid confusables entries and extensions",
+        "Retain genuine malformed required entity-record diagnostics and duplicate-ID controls",
+        "Rerun adapter, full private accounting and project/diff checks"
+      ]
+    }
+  ],
+  "next_operation": "Implement bounded repairs; run strict original reviewer probes, new regressions, independent full accounting and current project checks; freeze new hashes and obtain same independent reviewer re-review.",
+  "tokens": null,
+  "cost": null
+}

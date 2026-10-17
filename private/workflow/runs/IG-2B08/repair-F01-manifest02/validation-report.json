@@ -1,0 +1,173 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/runtime-configuration.json",
+  "configuration_sha256": "8fe2d32465346ef58ac7c4308399eeb2123ef6d2c6be9039a9c9ee5df160375a",
+  "summary": "Bounded F01 repair passed unchanged required suites, three source-backed CLI validations, complete serial replay/preservation/index checks and source-bound arrow regression.",
+  "checks": [
+    {
+      "command": "Exact packet/control/repair-input/runtime pin verification, absent owned directory and selected contract/dependency checks before claim",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/inspect_originals.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py prepare",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py final-verified",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py replay-1",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/build_inventory.py replay-2",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/probe_geometry.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/geometric-content-probe.json",
+        "bytes": 3802,
+        "sha256": "e5c10cfcf9d285da520b4c093de985faad74fef622fb50c84dded8ad892fff3c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/check_arrow_completeness.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/arrow-completeness-report.json",
+        "bytes": 4405,
+        "sha256": "6040f96e7ebee9c1ac7fe273d15622f8f12bf2e17a5d16dccb27f1e613e8f164"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F01-manifest02/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "Approved unchanged exact command after observed restricted-token WinError 5.",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/source-suite-execution.json",
+        "bytes": 1154,
+        "sha256": "2cb5d02cdd8019333c7ab4587105a2261b740e3526a31d5c7e003548b80b0e14"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/batch-verification.json",
+        "bytes": 986,
+        "sha256": "7e8f84cb13bd685aa188b99b11f07f5966e5630a19afce92e7c70381226b7b17"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "execution": "Approved unchanged command; 288 tests passed.",
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/full-check-execution.json",
+        "bytes": 2214,
+        "sha256": "2343b0a8e48bb21e7369983087e99a3499739a547557d009895e0a2313ebf284"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/diff-check-execution.json",
+        "bytes": 694,
+        "sha256": "c4103869d56884d0c2accd1007b9540237b69de9bc4bc3c4ce4871e25a13b4ff"
+      }
+    },
+    {
+      "command": "Fresh assigned-original, all proposed boundary/component and exact page-33 visual inspection",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/visual-qa.json",
+        "bytes": 7247,
+        "sha256": "e079b74a54dacf1b96e3bc3c4e1e48b4ee092d8cbbd1e747fd3a19723c074eda"
+      }
+    },
+    {
+      "command": "Final selected ownership/contract/runtime/control checks and all 7808 preserved input artifact hashes",
+      "exit_code": 0
+    }
+  ],
+  "restricted_token_failure": {
+    "sandbox_permissions": "use_default",
+    "exit_code": 1,
+    "observed_error": "PermissionError: [WinError 5] Access is denied for repair-F01-manifest02/source-pytest at pytest cleanup; setup errors preceded cleanup."
+  },
+  "approved_execution": {
+    "source_suite": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/source-suite-execution.json",
+      "bytes": 1154,
+      "sha256": "2cb5d02cdd8019333c7ab4587105a2261b740e3526a31d5c7e003548b80b0e14"
+    },
+    "full_check": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/full-check-execution.json",
+      "bytes": 2214,
+      "sha256": "2343b0a8e48bb21e7369983087e99a3499739a547557d009895e0a2313ebf284"
+    }
+  },
+  "verifier_development": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/verifier-development.json",
+    "bytes": 1025,
+    "sha256": "b3b09cdb54b1976cfaa6ec548c2fbabf0eab1bcfc230bd884a805b0c5ef64c1c"
+  },
+  "preserved_input_artifacts_verified": 7808,
+  "repair_finding": "F01",
+  "repair_cycles_in_this_session": 1,
+  "unresolved_review_findings": "Fresh independent review pending; no acceptance granted.",
+  "source_meaning": "Unaccepted; machine transcription and descriptive gaps remain.",
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false,
+  "measurement": {
+    "started_utc": "2026-10-17T08:40:19.431310+00:00",
+    "ended_utc": "2026-10-17T08:53:49.846803+00:00",
+    "elapsed_wall_seconds": 810.415493,
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Token usage and operator time were not exposed.",
+    "executor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+    "reviewer": null,
+    "observed_model": "gpt-6.1-sol",
+    "observed_reasoning": "high"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "prior_logs": "private/workflow/checks/active-07498357f4374f3582c160bdfcc76a72",
+  "observation": "One unrelated synthetic context-guard case failed replacing process.json with Windows access denied in the already approved process. 265 tests passed; all parser cases passed.",
+  "inspection": "The synthetic open fault applies only inside the child and only to marker .pending opens; the failing parent heartbeat replacement is separate.",
+  "hypothesis": "Transient Windows file sharing on the supervisor heartbeat artifact, not native toolchain parsing. One unchanged full-check rerun in a fresh generated temp tree will distinguish persistence.",
+  "retry_limit": 1,
+  "unchanged_assertions": true,
+  "dry_run_note": "There is no ready/active task; the dry-run refusal is expected until IG-2B06 coordinator refinement. Its real prepare/launch_environment preflight already passed."
+}

@@ -1,0 +1,42 @@
+{
+  "configuration_evidence": "Builder actual configuration unavailable.",
+  "actor": "operator-authorized-rg-recovery-20261016-01",
+  "reasoning": null,
+  "artifacts": [
+    {
+      "sha256": "1d4120311459a120d9b00fe48b2e4fdd2d37ef7888bc7d8a80bdb22faec6bd60",
+      "path": "scripts/search_task.py"
+    },
+    {
+      "sha256": "b1b4fdea3312e80b07c9907656e57b80c8e74e2f236bab7f63f91afb873a1f1d",
+      "path": "scripts/orchestrate_ig2.py"
+    },
+    {
+      "sha256": "a96e765d3a8c190f69dc10504f3f4572116c56d7748d1531069f74df4ae66265",
+      "path": "tests/test_task_search.py"
+    },
+    {
+      "sha256": "87b7e39657c903701f68e963ffde4148c08c6c0f31c1728b7041975ad258e9da",
+      "path": "tests/test_orchestrator.py"
+    },
+    {
+      "sha256": "83ca6a10fe9951f7ca60f8fd67c3ba330ffdd94785a3a94cfd0f1a9863f2a877",
+      "path": "docs/work/IG2-ORCHESTRATOR.md"
+    }
+  ],
+  "role": "coordinator",
+  "checks": [
+    {
+      "command": "Focused missing-PATH, pinned executable and prelaunch regressions",
+      "exit_code": 0,
+      "result": "10 passed"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04 (approved ordinary-user execution)",
+      "evidence": "private/workflow/checks/active-dcbce2411583412f96b46924d0505108/result.json",
+      "exit_code": 0,
+      "result": "242 passed; plan=0 dry-run=0 tests=0 diff=0"
+    }
+  ],
+  "model": null
+}

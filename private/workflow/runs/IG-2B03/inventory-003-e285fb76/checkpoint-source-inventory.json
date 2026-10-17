@@ -1,0 +1,78 @@
+{
+  "role": "executor",
+  "actor": "ig2:004-IG-2B03-executor-537dd410:executor",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/004-IG-2B03-executor-537dd410/runtime-configuration.json",
+  "configuration_sha256": "5d5104f87756a8cfa584fa5b1d949565f7eed77f7efd1359333f892bb4724c70",
+  "format": "wgc-ig2b03-source-checkpoint-1",
+  "utc": "2026-10-15T15:24:03.228386+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/004-IG-2B03-executor-537dd410/packet.json",
+    "bytes": 4947,
+    "sha256": "c0c14777dca12c58a2f842e3eb3a1622a0be527981a6d73f8b91909767886f82"
+  },
+  "stable_changed_files": [
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/authored/inventory.json",
+      "bytes": 1122277,
+      "sha256": "45a751971096ee393dcd94d78ddc009f595ee9dc6a5d601b6c5614a97e1c6eb2"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/authored/identity-registry.json",
+      "bytes": 50816,
+      "sha256": "0f7beccbd18b71e92f69bdb1e33c8c21242b5cd2f13857ca6094f67fc2d95311"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/authored/partition-plan.json",
+      "bytes": 39552,
+      "sha256": "9be17c7de5314b1cfa5d50e60a69f31e00164aa63a26e05619e1919d1094a98b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/text-geometry-audit.json",
+      "bytes": 1539,
+      "sha256": "5784785b098a4db9be57dac01c69fc983d2ffab350379dfe809ffba3dd2bfdbf"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/elephant-component-specifications.json",
+      "bytes": 2487,
+      "sha256": "e1614cc3ce2aa480fde4f7a71760dc8097753ee9b66ba1ef8102e16d16ee75a3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/sources-tests.log",
+      "bytes": 102,
+      "sha256": "2ea6b5f1c5f7b7226bd78231dc3c4fe64ff7f473582ffdebca04f42779a7154b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/project-check.log",
+      "bytes": 5673,
+      "sha256": "f494163253478b6eac8af89a1e0d29da4cd274e5e26719b50724f95cb9c286dc"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/prior-artifact-verification-start.json",
+      "bytes": 846,
+      "sha256": "a3abd7f72004c4b863325a06ae85211a9dec18c5e1a67b7e73df2e1a0a891d5b"
+    }
+  ],
+  "completed_criteria": [
+    "135 authored disjoint regions and preserved full sidecar pass internal validation.",
+    "All original assigned pages, every proposed boundary and both 600-dpi counter crops visually inspected.",
+    "No clipped or unassigned non-space characters in original-page text geometry audit.",
+    "All 4409 accepted dependency artifacts byte-verified unchanged.",
+    "Unchanged source suite 71 passed; repository suite 151 passed with approved permissions after restricted-token temporary-directory access failures."
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-004a -p no:cacheprovider --tb=short",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 0
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Complete final evidence and both independent root-validated path-dependent replays; verify all locators and freeze delivery.",
+  "semantic_acceptance_granted": false
+}

@@ -1,0 +1,44 @@
+{
+  "role": "coordinator",
+  "actor": "operator-authorized-ig2-recovery-20261015-03",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder model/reasoning not exposed; fresh executor configuration must be observed by supervisor.",
+  "checks": [
+    {
+      "exit_code": 0,
+      "evidence": "private/workflow/checks/active-658f0a89cc824d97b23dc617cf9ee08a/result.json",
+      "result": "230 passed; plan=0 dry-run=0 tests=0 diff=0",
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04 (approved ordinary-user execution)"
+    },
+    {
+      "exit_code": 0,
+      "result": "IG-2B04 executor, no models launched",
+      "command": "orchestrate_ig2.py plan"
+    },
+    {
+      "exit_code": 0,
+      "result": "passed",
+      "command": "detached supervisor survives launcher exit regression"
+    },
+    {
+      "exit_code": 0,
+      "result": "unchanged",
+      "command": "compare all other queue tasks with recovery snapshot"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "f500940d10d6b783fe9ded6002d73fa2ed6fa3bfc99d7ab566fdc444687cdb00"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "8d50a46248440b251ad9e6d4575c8d2916d1959de5d1b652ce4e5ce2e4bdf750"
+    },
+    {
+      "path": "docs/work/IG2-ORCHESTRATOR.md",
+      "sha256": "585ffbc01a5712490a15dbd4db2776446ecc60a98e448e0d8675af3e77ebc053"
+    }
+  ]
+}

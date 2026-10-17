@@ -1,0 +1,492 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B06-reviewer-089ffca5:reviewer",
+  "task": "IG-2B06",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/002-IG-2B06-reviewer-089ffca5/runtime-configuration.json",
+  "configuration_sha256": "6a8baca51ba76ebc4af29ce3e20ddca808a4c315597f4dc0cfc0b854cf7ca6ad",
+  "summary": "Complete independent serial reviewer replay from frozen pre-evidence authored input.",
+  "input_inventory": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/inventory.json",
+    "bytes": 2159004,
+    "sha256": "698f05b0a4305d8e9aa5c2fb18c013cb5fc68c4dfd8df8f424e3ca2393cea82d"
+  },
+  "input_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "output_inventory": {
+    "path": "private/workflow/runs/IG-2B06/review-089ffca5-01/replay-b/inventory.json",
+    "bytes": 2362706,
+    "sha256": "24ecc20072796ae8fad129029f742dcc6af939b94c5ee3890316bc9c5255148d"
+  },
+  "output_registry": {
+    "path": "private/workflow/runs/IG-2B06/review-089ffca5-01/replay-b/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "assigned_regions": 112,
+  "context_regions": 2,
+  "complete_region_ids": [
+    "region:828d6360-3976-4c7d-a30d-99464d4c6b13",
+    "region:3f3fb861-115a-4dca-83d0-7d9f3d6143a7",
+    "region:7f891e6e-c943-44b8-96d8-26edfd1d67e3",
+    "region:bf421c8b-05ab-4d8a-af49-fd75608d7b46",
+    "region:aa10374c-7428-446b-8ee2-a65926b50463",
+    "region:495166c2-35b0-4cc9-b82b-6d1522cb3c0e",
+    "region:2a2fcac1-0f28-4878-9694-55adeb74d613",
+    "region:962b6764-66a9-48d4-b13c-cd5f837cc0a4",
+    "region:80bded4a-37d1-4bf8-9126-b537a0e59672",
+    "region:c40b6db3-de17-46bc-86f5-96fda1df3795",
+    "region:9d088ff7-4809-4660-9c70-18b172d1d7dd",
+    "region:677d026e-0e71-48cd-a57b-b6b8c74314e4",
+    "region:8345d6cc-f133-46af-ae0d-707b1eb08f39",
+    "region:9dae09e6-5532-4431-9438-4cbfad61e040",
+    "region:2c88473d-1ca7-43e8-8255-35d10d8b38b3",
+    "region:755cb04e-79cf-42cf-aac3-04ab5c398f65",
+    "region:9e3fe806-5464-4539-b90e-71cea5d2797b",
+    "region:fc58cd5b-7101-4336-8b20-4ff70c34cc43",
+    "region:045896d4-1ee4-43f4-a63e-70db26012d8c",
+    "region:e6c63b18-5bf6-4a31-a416-c6f1646e1395",
+    "region:79cd15db-cc67-4a6c-bc85-b965cbc422bf",
+    "region:cc9a8aef-19df-4e03-81ab-3964a3332fdf",
+    "region:e0e98f54-923d-4292-a8c4-564f19e65628",
+    "region:61d6bab1-0998-443f-a08c-5dc8193efaf2",
+    "region:5adc9595-2cab-4bfe-8162-a7c193543ced",
+    "region:37327845-3d48-477b-8fc7-79cffabf8ef4",
+    "region:b124c260-7fcf-4ec6-9921-0a3b523fd3a3",
+    "region:c16351ad-e7cd-49e2-add1-ea33e6a020f6",
+    "region:435e3b58-7051-499a-9a7c-b66ce60b1447",
+    "region:1ac7a524-adf7-474d-9781-d683b373ea40",
+    "region:ffa27d2f-89df-4ec6-8834-ee31e05337e3",
+    "region:e7137ef7-7369-47c7-bf52-f4fa37a424a1",
+    "region:601f96d8-1b94-4d61-b000-fee138b5bf0b",
+    "region:bf6b39f7-9902-4708-9192-cc4fe0b79431",
+    "region:7d086d10-d2b1-4bdc-901d-2619d9f0c7c4",
+    "region:6ba10751-48b1-4733-bb9b-b9bc25e1f075",
+    "region:c928a6d4-355d-43a3-90c9-c8d9fdf2e866",
+    "region:c7678a60-0fa6-472f-8b3a-1c4c8f0a7d22",
+    "region:69264a1c-85c0-44b1-a839-1812c91c9533",
+    "region:09b4053a-f498-4cdc-8db3-4f56ce0624c1",
+    "region:d5269e8e-1253-47a2-8783-7972681a641e",
+    "region:f855c15e-0b92-4c18-95f8-94f83f66bbbd",
+    "region:849d9386-5647-4920-b094-e20d63112deb",
+    "region:276b4539-bdc4-4ea2-9f7f-088caeff6c4a",
+    "region:d3fb68b9-54bd-44ae-a76f-d5bb4e0daf0b",
+    "region:e409ba76-2f3b-43c2-9cbe-688ef8232982",
+    "region:43c54031-24b1-45af-acfa-b74c03d017a2",
+    "region:84b65935-179f-4a5e-82db-b2f4460452a3",
+    "region:8b2c9135-bc89-4e57-bc18-2ffcad091bd3",
+    "region:1fc24840-4c41-4595-9056-a86a64b810c6",
+    "region:c0d4fd68-d809-4044-95e0-fcf2f6fa78cb",
+    "region:3975775e-b4fa-4af6-8118-975636960df2",
+    "region:1b3d4ab0-1b30-43d6-8535-3c910c35ac0a",
+    "region:91394504-c559-4f4d-a567-86785f96bbb2",
+    "region:97351f88-855b-42ca-8f83-5bd4293b7286",
+    "region:ded74aef-fbbd-4e7d-94a9-6b6f48fc0b70",
+    "region:dbd92398-4bb2-42c0-9b3b-e14ca36ee00b",
+    "region:88da4ee4-f47b-47ca-8eb5-89620143616a",
+    "region:96cf0b6e-330c-4ddb-803a-2bd6cb21a9e2",
+    "region:6ffdd58c-100d-4439-bb2c-bf4b9e9573a1",
+    "region:abcc843f-3ae6-4f6a-bbcb-72f24cefef42",
+    "region:0fef4acf-64e6-4e74-883c-426fe31b43af",
+    "region:13830ecf-6e40-4153-a7c9-003b29c90986",
+    "region:3e8c4838-055c-4158-a1c0-bfdc2dbed17e",
+    "region:9f157648-9782-4974-9075-330cfec69f64",
+    "region:18ff3329-0941-4938-a0d7-a5d343284344",
+    "region:7891253c-8ab6-42b6-b0a4-47f9e19a82de",
+    "region:f6524d0d-83d9-4c94-a2e2-a977dc59d462",
+    "region:3fc29695-6d87-4361-acbe-2d6b988cf137",
+    "region:25895cfd-a95e-41c1-8027-818baae5d53e",
+    "region:fd9e70b4-ec69-4068-b962-7215b2a346fe",
+    "region:f3122d3d-27a7-414f-9d25-a77a79f5f634",
+    "region:8c7fd815-be29-4d8c-9752-1836685b3ef5",
+    "region:fa876e43-cdc9-41dc-a26a-c0eed986e00f",
+    "region:1df2ee15-7e97-434c-a310-006f0232eb9a",
+    "region:b1b63512-62ed-42ec-b67f-46c07c7c40f0",
+    "region:1eb395a3-c646-458d-9f37-53b952a6b2ff",
+    "region:ca5cf061-0191-4551-9ff0-d5da9f80445f",
+    "region:7b5760a3-980c-41da-ba27-6fbbbab33e8e",
+    "region:92ec3b62-4278-4bc3-a18c-c128216bdfe8",
+    "region:25cf41ca-0473-407e-9dad-f649d743aa4d",
+    "region:23e3d542-4ffd-49d2-942f-b54d023b80a8",
+    "region:1d3d294c-c139-425c-ab9e-9168dea56d74",
+    "region:36ac5144-4a67-47ce-a080-cb297dd668b6",
+    "region:e148fc4a-8379-4b17-891c-e8ba0af2d29f",
+    "region:6b7754e2-8817-4c28-abe2-cd9b1302711c",
+    "region:f475230e-4f08-4539-b000-7c04cac905dc",
+    "region:f993537d-b635-42c6-956a-f915acfb91c5",
+    "region:6eea1a69-1e57-4e4c-9128-fa11a600ab21",
+    "region:6235413f-99c6-42f2-9d86-04b68edeb118",
+    "region:5d6ff606-365b-4876-896b-b1f2b300c4da",
+    "region:266ed91d-b806-4700-af7d-fd0f0bb35aa5",
+    "region:56a93f95-012f-4f6b-8412-d3006117bc3c",
+    "region:910e30e9-e6a1-445b-9e6f-d94894c7c469",
+    "region:4b3ccf37-a74d-440d-af5b-de40604b1554",
+    "region:da51a394-39a7-4869-abc8-f08cc0f2447d",
+    "region:7f0102ee-418f-49b3-b3d1-92b996ee7056",
+    "region:65151cad-4d4f-494e-a42f-570913e42405",
+    "region:d8707569-7252-449b-b0fd-a271654eb9b2",
+    "region:3345b02d-2d3f-4b1b-be22-1dd56bdbdf6a",
+    "region:eb5657bc-5e4e-4ab5-9f0c-da1dfd767344",
+    "region:8d4756b2-7f83-483a-a688-fd5685d724ab",
+    "region:36f3f731-e1bf-4723-8efc-f2a55e1ab655",
+    "region:b47986a3-f016-4475-81be-b0c20c930f64",
+    "region:debfee61-e9aa-457a-b271-dc393a8aa9f3",
+    "region:4f900bd9-1ceb-4c89-a448-e312a5ef6279",
+    "region:a2e2d764-55d6-40b4-be5e-a39f058f8ebb",
+    "region:897df87c-d9ba-4197-8d50-6bde7d9a8ab2",
+    "region:32e5ae68-0c49-41ae-ae69-54ce8e184798",
+    "region:9c9ec2fd-afb1-4b6b-a39d-a3a2ab28eed7",
+    "region:aeb4b490-4686-44bb-85ab-95750b7d7769",
+    "region:c839d7af-5e8c-4ee8-bd8b-97fff82b9a45",
+    "region:b1f7c15b-3b12-4d41-a1a2-e715abf21609",
+    "region:c7a33827-8b76-4b2e-918d-e1de4d24239d"
+  ],
+  "all_generated_stable_evidence_equal_frozen_final": true,
+  "full_input_and_output_validation": true,
+  "serial_current_python_process": true,
+  "generated_from_other_replay": false,
+  "coverage": {
+    "denominator_regions": 753,
+    "context_regions": 3,
+    "levels": {
+      "transcription": {
+        "represented": 0,
+        "partial": 496,
+        "unprocessed": 257,
+        "excluded": 0
+      },
+      "descriptive_semantics": {
+        "represented": 0,
+        "partial": 0,
+        "unprocessed": 753,
+        "excluded": 0
+      },
+      "formal_semantics": {
+        "represented": 0,
+        "partial": 0,
+        "unprocessed": 753,
+        "excluded": 0
+      }
+    },
+    "pages": [
+      {
+        "page_id": "page:c6b36658-919b-49c3-964a-e1b30c24887c",
+        "pdf_page": 1,
+        "inventory_regions": 26,
+        "unaccounted_area_trillionths": 540608359683,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:bddcf1ce-b874-4a95-8a73-7d8a7f3455d1",
+        "pdf_page": 2,
+        "inventory_regions": 31,
+        "unaccounted_area_trillionths": 295556916526,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:1bb637f2-319a-4419-bdee-4ad8e4b76104",
+        "pdf_page": 3,
+        "inventory_regions": 38,
+        "unaccounted_area_trillionths": 408882759548,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:5a3f84bf-6136-4438-8765-632458e63a1a",
+        "pdf_page": 4,
+        "inventory_regions": 35,
+        "unaccounted_area_trillionths": 312879453869,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:9df6cbac-0930-49e6-9b41-a936a9b55f73",
+        "pdf_page": 5,
+        "inventory_regions": 39,
+        "unaccounted_area_trillionths": 335358066096,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:f8252426-0bda-4382-85d5-4748ea135f63",
+        "pdf_page": 6,
+        "inventory_regions": 33,
+        "unaccounted_area_trillionths": 352038569680,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:1db4a08c-1496-43d2-a36a-70b6d7cc2dda",
+        "pdf_page": 7,
+        "inventory_regions": 39,
+        "unaccounted_area_trillionths": 386920940181,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:1d609a1d-56eb-4785-97a1-8141ed938a9f",
+        "pdf_page": 8,
+        "inventory_regions": 30,
+        "unaccounted_area_trillionths": 324525513879,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:779d2dd6-e184-44c9-9a82-6f98796d23d0",
+        "pdf_page": 9,
+        "inventory_regions": 27,
+        "unaccounted_area_trillionths": 383820326583,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:5695e3e1-b941-43c2-80f7-27fb779e378e",
+        "pdf_page": 10,
+        "inventory_regions": 25,
+        "unaccounted_area_trillionths": 350857383396,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:0218ef3b-56bd-4f08-856f-daeb289ea9cf",
+        "pdf_page": 11,
+        "inventory_regions": 42,
+        "unaccounted_area_trillionths": 372009853943,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:244eb5d5-9ae2-42cb-9683-08b8df295602",
+        "pdf_page": 12,
+        "inventory_regions": 41,
+        "unaccounted_area_trillionths": 355659334931,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:a9a9c934-8d94-4edc-85b8-9791af60142f",
+        "pdf_page": 13,
+        "inventory_regions": 29,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:0b2bfc37-fb69-4ab9-967a-ca59966c4c80",
+        "pdf_page": 14,
+        "inventory_regions": 32,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:bf7947d4-fefe-4908-b706-6e6eeea584f5",
+        "pdf_page": 15,
+        "inventory_regions": 25,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:0b1c7a66-b7bb-44ae-836f-e5f4d340f957",
+        "pdf_page": 16,
+        "inventory_regions": 27,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:878d7b69-cded-4ca9-bff1-1ad1bc71d094",
+        "pdf_page": 17,
+        "inventory_regions": 20,
+        "unaccounted_area_trillionths": 338651813346,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:1cd2109f-9575-49b8-a32e-85deb10a6351",
+        "pdf_page": 18,
+        "inventory_regions": 28,
+        "unaccounted_area_trillionths": 283886269790,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:884690cc-fc82-47a3-94cc-4bd917dfcc45",
+        "pdf_page": 19,
+        "inventory_regions": 21,
+        "unaccounted_area_trillionths": 338851845885,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:28700dfb-a70b-4f3d-aafc-58ad82004422",
+        "pdf_page": 20,
+        "inventory_regions": 33,
+        "unaccounted_area_trillionths": 340597568435,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:6b535b9d-77f2-42ef-94a2-daedbe625bb3",
+        "pdf_page": 21,
+        "inventory_regions": 37,
+        "unaccounted_area_trillionths": 359250996439,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:dc7fbb88-43f6-488f-be54-e4e14789cc12",
+        "pdf_page": 22,
+        "inventory_regions": 26,
+        "unaccounted_area_trillionths": 355713794112,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:ffccb7e8-5673-48d6-b201-e8a920e7d8a1",
+        "pdf_page": 23,
+        "inventory_regions": 26,
+        "unaccounted_area_trillionths": 350899783052,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:0a9c2ee0-2425-4cfb-b314-4f78c97927ce",
+        "pdf_page": 24,
+        "inventory_regions": 23,
+        "unaccounted_area_trillionths": 325062251558,
+        "gap_reason": "No inventory region accounts for this page area"
+      },
+      {
+        "page_id": "page:20868f6f-32e3-4afb-b1fa-7efe01e3acd8",
+        "pdf_page": 25,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:8c7f2649-351d-4c77-b3ba-adcbc65afb06",
+        "pdf_page": 26,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:30d0cdb9-7468-4edf-ab3a-3dd92c3b9806",
+        "pdf_page": 27,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:a9673627-a82b-43c3-830a-b0035fd147d2",
+        "pdf_page": 28,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:8ec728ed-7ab8-4716-b084-6812398a147f",
+        "pdf_page": 29,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:b8a3cad1-914e-4e82-aaeb-d4b8bb031d10",
+        "pdf_page": 30,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:d0ca58fd-2987-4007-964d-1d3e33a072cc",
+        "pdf_page": 31,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:195b78be-66ca-4045-9a65-b72f3dacc061",
+        "pdf_page": 32,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:3364b522-10e9-47c6-90be-879c43f94c9a",
+        "pdf_page": 33,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:8b057130-390d-48a1-add9-f47cb9b662a2",
+        "pdf_page": 34,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:b1ce4ed4-45fa-4f95-9c82-c5733304f4e7",
+        "pdf_page": 35,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:0154b965-907e-4ed9-b12a-90a8120c8ba8",
+        "pdf_page": 36,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:2e95aaff-c48e-4b5b-bf61-fdb1c5a6ba88",
+        "pdf_page": 37,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:07897562-e1c8-4fee-8fbe-50bffdb3be30",
+        "pdf_page": 38,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:b38baf13-2d97-49f4-bdee-4bc031917340",
+        "pdf_page": 39,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:3c3368dc-8ffa-49f9-ab84-0f143f4e555b",
+        "pdf_page": 40,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:f230dde1-39f9-41a1-988a-93ecf83e9f1b",
+        "pdf_page": 41,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:d114d238-de92-4317-8678-2bf57c9b345c",
+        "pdf_page": 42,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:3c75bb45-5286-4f7e-9b30-d63fee7ca55c",
+        "pdf_page": 43,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      },
+      {
+        "page_id": "page:71643463-36b8-40ea-9647-f0f5412078f4",
+        "pdf_page": 44,
+        "inventory_regions": 1,
+        "unaccounted_area_trillionths": 0,
+        "gap_reason": null
+      }
+    ],
+    "semantic_acceptance_granted": false,
+    "executable_readiness": "unverified",
+    "exclusion_claims": [],
+    "note": "Region counts and geometric accounting do not establish substantive source completeness.",
+    "source_structure_verification": "verified"
+  },
+  "exit_code": 0
+}

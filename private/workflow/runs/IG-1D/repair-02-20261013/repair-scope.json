@@ -1,0 +1,37 @@
+{
+  "task": "IG-1D",
+  "finding": "IG1D-R04",
+  "iteration": 2,
+  "maximum": 2,
+  "parent_delivery": {
+    "path": "private/workflow/runs/IG-1D/repair-01-20261013/delivery.json",
+    "sha256": "3ebef08719717c41043cb4df8bb98874d214e38d0e8fdbf21de6e35a9adfaa73"
+  },
+  "independent_review": {
+    "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/review.json",
+    "sha256": "bd053c6d858dfbb2656a5e10b9ea395d14aee6f2e04f56f4f1d0176746accfba"
+  },
+  "independent_review_manifest": {
+    "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T140127Z/review-manifest.json",
+    "sha256": "1004a11d1faaab6ed4bce69a64bbbb33031d9eb1240608e659a1e059dc181448"
+  },
+  "closed_findings_not_reopened": [
+    "IG1D-R01",
+    "IG1D-R02",
+    "IG1D-R03"
+  ],
+  "hypothesis": "Filtering prior receipt children by kind/scope before testing receipt existence hides an incompatible typed output and treats replay as initial allocation. Validate named output kind/scope/persistent child-key against all persisted receipt children before replacement allocation.",
+  "owned_product_paths": [
+    "src/wgc/wgu_adapter/identity.py",
+    "tests/wgu_adapter/test_lineage_contract_repairs.py"
+  ],
+  "controls": [
+    "Preserve all 15 original probes and every existing risk, receipt-edge and export-history assertion unchanged.",
+    "Make the unchanged changed-child-kind receipt control reject or return an explicit unresolved conflict, with prior registry/bundle immutable.",
+    "Add meaningful controls for relevant logical scope and persistent child-key contract changes, plus a new decision identifier for a deliberately different output contract; do not blanket-reject valid new decisions.",
+    "Retain correction/rename, allocation and origin_key stability, exact parent/child revision history, unchanged replay, keyed indistinguishable split children and multi-child ambiguity.",
+    "Preserve R01-R03 closure and all source/foundation/prior-review bytes; freeze iteration 1 before a separate bounded iteration-2 claim.",
+    "Rerun adapter/export suites, unchanged original/risk/history probes, complete independent raw/field/binding/reference accounting, two full canonical transforms/publications, scripts/check.ps1 -Task IG-1D and git diff --check; obtain independent re-review of the new exact hashes."
+  ],
+  "no_semantic_or_executable_acceptance": true
+}

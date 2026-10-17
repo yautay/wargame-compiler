@@ -1,0 +1,277 @@
+{
+  "task": "IG-2B02",
+  "role": "coordinator",
+  "actor": "codex-01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+  "authoring_pages": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "full_structural_page_count": 44,
+  "preparation_run": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+  "reserved_executor_attempt": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+  "attempt_policy": "Executor creates this absent directory only after new-session configuration evidence; never reuse a prior run. If it exists or another writer appears, checkpoint and escalate before claim.",
+  "baseline": {
+    "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json",
+    "bytes": 483648,
+    "sha256": "42adf9a1598bd682917eb087e295fe899212e59dd81aed5c293e2187b9c587bb"
+  },
+  "registry": {
+    "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/identity-registry.json",
+    "bytes": 22596,
+    "sha256": "94ac81cac947342b7de757419d9b858f45cdae2f2eae521ce94404e0e7831657"
+  },
+  "preservation": {
+    "pages_1_4": "Preserve all accepted page/region/evidence records and their revisions, registry bindings, links, and relative reading order; references remain at old immutable paths. Do not regenerate or copy/promote old evidence.",
+    "pages_9_44": "Preserve all page records and original 36 inventory placeholders exactly, including unprocessed coverage, uncertainty, membership and relative reading order.",
+    "pages_5_8": "Retire only four placeholder memberships, retain their registry entries. Independently author regions with explicit ig2b02 keys and newly assigned UUIDs; preserve page IDs, keys, physical addresses and geometry. Any label update needs exact same-page current evidence.",
+    "registry": "Extend accepted IG-2B01 persisted registry; retain every existing kind/key/ID entry. Never reuse the earlier IG-2A registry instead or reseed UUIDs.",
+    "revisions": "Recompute changed author-region/page/top inventory revisions using unchanged WGC-C14N-1 and wgc-inventory-1. Keep unchanged nested records and evidence byte pins. New author scope changes partition_hash; no inherited exclusion authorization."
+  },
+  "existing_context": {
+    "record": {
+      "box": [
+        71895,
+        63131,
+        495099,
+        98485
+      ],
+      "coverage": {
+        "descriptive_semantics": {
+          "boundary": null,
+          "gap": true,
+          "reason": "Boundary continuation context only; transcription not verified.",
+          "status": "unprocessed"
+        },
+        "formal_semantics": {
+          "boundary": null,
+          "gap": true,
+          "reason": "Boundary continuation context only; transcription not verified.",
+          "status": "unprocessed"
+        },
+        "transcription": {
+          "boundary": null,
+          "gap": true,
+          "reason": "Boundary continuation context only; transcription not verified.",
+          "status": "unprocessed"
+        }
+      },
+      "denominator_role": "context",
+      "id": "region:e8d77349-41ce-47d0-b678-eab1d0c8e8ed",
+      "key": "ig2b01:context:triarii-tail",
+      "kind": "clause",
+      "page_id": "page:9df6cbac-0930-49e6-9b41-a936a9b55f73",
+      "revision": "af2a41ef3c500858f945d9a813c185f8ca3bc6fbc142e61348e6da5964d011c1",
+      "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "uncertainty": [
+        "Only the two-line Triarii completion at page 5 top left; no neighboring entry included."
+      ]
+    },
+    "evidence": [
+      {
+        "box": [
+          71895,
+          63131,
+          495099,
+          98485
+        ],
+        "crop_parameters": {
+          "engine": "pypdf",
+          "frame": "displayed-crop-top-left",
+          "user_unit_normalized": true,
+          "version": "6.10.0"
+        },
+        "crop_pdf": {
+          "bytes": 380221,
+          "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p05-000/crop.pdf",
+          "sha256": "22bbde6f9f5b24f49f142e59062977c4079016e4dd03597851dc69936d71f176"
+        },
+        "id": "evidence:b24eef90b57243c0d9cd50876d2584c6b2b2233628b7aaaf65e7dba8c3fd745e",
+        "image": {
+          "bytes": 13868,
+          "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p05-000/image.png",
+          "sha256": "9756fd304bee250f3fe4a60a9f0d2b1973e8ccd42230f3312dfc28f06683db0b"
+        },
+        "page_basis_hash": "9d220e73cc763adf73e3841c4370621a93df6ce7d793f70fa511b203b3bd1f48",
+        "page_id": "page:9df6cbac-0930-49e6-9b41-a936a9b55f73",
+        "pdf_page": 5,
+        "region_id": "region:e8d77349-41ce-47d0-b678-eab1d0c8e8ed",
+        "region_revision": "af2a41ef3c500858f945d9a813c185f8ca3bc6fbc142e61348e6da5964d011c1",
+        "render_parameters": {
+          "cropbox": true,
+          "dpi": 144,
+          "engine": "poppler-pdftoppm",
+          "format": "png",
+          "height_pixels": 57,
+          "version": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC",
+          "width_pixels": 519
+        },
+        "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "text": {
+          "bytes": 123,
+          "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p05-000/text.txt",
+          "sha256": "35feabef5d31e23119a26223a15c9bc6d02d71adceb4d2d93990563d4a9c2cd9"
+        },
+        "text_codepoints": 123,
+        "text_offsets": {
+          "bounds": "half_open",
+          "end": 123,
+          "start": 0,
+          "unit": "unicode_codepoints"
+        },
+        "text_parameters": {
+          "engine": "pdfplumber",
+          "layout": false,
+          "version": "0.11.9",
+          "x_tolerance": 3,
+          "y_tolerance": 3
+        },
+        "uncertainty": [
+          "Machine text extraction; no verified transcription, OCR, reading order or source meaning."
+        ]
+      }
+    ],
+    "policy": "Preserve exact context key/ID/revision/box/coverage/evidence, membership, prior link and reading-order occurrence. It stays context with zero denominator; never promote it to inventory. Allocate a distinct authored region for the page-5 material with a new explicit ig2b02 key/ID. Persist context-authored-correspondence.json with both exact IDs/revisions/boxes, source pin and source-observed correspondence; do not remap IDs or transfer review/acceptance. Retain old continuation; a separately evidenced new continuation to the authored region may be added without editing old regions/links. Splits/merges need explicit lineage decision and escalation, not inferred identity."
+  },
+  "continuation_context": {
+    "page_4": {
+      "region": {
+        "box": [
+          586601,
+          878787,
+          929738,
+          928030
+        ],
+        "coverage": {
+          "descriptive_semantics": {
+            "boundary": null,
+            "gap": true,
+            "reason": "Authored source inventory; raw extraction/PNG retained. Exact transcription and source-IG reconciliation remain pending.",
+            "status": "unprocessed"
+          },
+          "formal_semantics": {
+            "boundary": null,
+            "gap": true,
+            "reason": "Authored source inventory; raw extraction/PNG retained. Exact transcription and source-IG reconciliation remain pending.",
+            "status": "unprocessed"
+          },
+          "transcription": {
+            "boundary": null,
+            "gap": true,
+            "reason": "Literal extracted text and image are retained separately; no independently verified full transcription or source-IG binding.",
+            "status": "partial"
+          }
+        },
+        "denominator_role": "inventory",
+        "id": "region:ba4a5094-22f5-4a67-8a19-6cc598a17b1b",
+        "key": "ig2b01:p4:triarii-text-a",
+        "kind": "clause",
+        "page_id": "page:5a3f84bf-6136-4438-8765-632458e63a1a",
+        "revision": "49cc860a420db660e06df00c2d903b80ce40b66e2ee3296732f93df7a68927a0",
+        "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+        "uncertainty": []
+      },
+      "evidence": [
+        {
+          "box": [
+            586601,
+            878787,
+            929738,
+            928030
+          ],
+          "crop_parameters": {
+            "engine": "pypdf",
+            "frame": "displayed-crop-top-left",
+            "user_unit_normalized": true,
+            "version": "6.10.0"
+          },
+          "crop_pdf": {
+            "bytes": 282998,
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p04-033/crop.pdf",
+            "sha256": "4c72f63d5a56ed1afe752e061f33f0837bfbae44eba4dcffff8de67657765328"
+          },
+          "id": "evidence:b25f127e7c346634abab89e7e66ab928ae12b45562a5a1b6b5dc59b2459c2e77",
+          "image": {
+            "bytes": 14583,
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p04-033/image.png",
+            "sha256": "f645fc3a3bd5f6b158d3a1898735b2eaa11de7ee98f177e67495dac655bf7d74"
+          },
+          "page_basis_hash": "ee08165b6b26794ad69d278dad93e8cd241287360b24d74c17e97d108f8a1dbf",
+          "page_id": "page:5a3f84bf-6136-4438-8765-632458e63a1a",
+          "pdf_page": 4,
+          "region_id": "region:ba4a5094-22f5-4a67-8a19-6cc598a17b1b",
+          "region_revision": "49cc860a420db660e06df00c2d903b80ce40b66e2ee3296732f93df7a68927a0",
+          "render_parameters": {
+            "cropbox": true,
+            "dpi": 144,
+            "engine": "poppler-pdftoppm",
+            "format": "png",
+            "height_pixels": 79,
+            "version": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC",
+            "width_pixels": 420
+          },
+          "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+          "text": {
+            "bytes": 155,
+            "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/evidence/p04-033/text.txt",
+            "sha256": "3873f851f07835dd78999cb8dc436c2cee7ab7f1c6dcbf1445b1845389d17d8d"
+          },
+          "text_codepoints": 155,
+          "text_offsets": {
+            "bounds": "half_open",
+            "end": 155,
+            "start": 0,
+            "unit": "unicode_codepoints"
+          },
+          "text_parameters": {
+            "engine": "pdfplumber",
+            "layout": false,
+            "version": "0.11.9",
+            "x_tolerance": 3,
+            "y_tolerance": 3
+          },
+          "uncertainty": [
+            "Machine text extraction; no verified transcription, OCR, reading order or source meaning."
+          ]
+        }
+      ],
+      "access": "Only this accepted exact final region and its existing crop/text/PNG for the 4-to-5 continuation; no whole page-4 rendering or other page-1-4 content analysis."
+    },
+    "page_9": {
+      "access": "Conditional only if an observed unfinished page-8 fragment needs completion. Before any content access, record exact need, originating page-8 region, proposed physical-page-9 normalized box and maximum two-line top-of-corresponding-column probe in checkpoint/context-access.json. Open only that predetermined crop; never dump/render the entire page or neighboring entry. If the narrow crop cannot resolve the continuation, record unresolved boundary/gap and request bounded coordinator refinement before expanding.",
+      "denominator": "Any new context ID has role context and zero task/full inventory denominator."
+    },
+    "pages_10_44": "No text/image content access; structural source count/geometry validation only."
+  },
+  "outputs": [
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored/inventory.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored/identity-registry.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/coverage.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/region-ledger-final.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/scope-report-final.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/context-authored-correspondence.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/continuations.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/uncertainty.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/gaps.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/geometric-gaps.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/visual-inspection.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/locator-audit.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-report.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preservation-report.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/criteria.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/checkpoint.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/configuration.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-manifest.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery.json",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-handoff.md",
+    "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-seal.json"
+  ],
+  "evidence_output": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/ (new author/context triples only; 144 DPI Poppler PNG, exact crop PDF and raw UTF-8 pdfplumber text, page_basis_hash and region revisions)",
+  "denominator": "Task: only new independently authored inventory regions on pages 5-8. Full sidecar: 130 preserved authored + 36 unchanged placeholders + new page-5-8 inventory regions; all context counts zero. Geometric completeness, region count and semantic coverage are separate.",
+  "coverage": "BBox, PNG, extraction or editorial classification never means represented or approved exclusion. Keep partial/unprocessed with explicit gaps until actual source-justified representation exists. No gameplay legality via LLM. Human semantic acceptance and IG-1A whole-record review remain separate future gates.",
+  "stop": "Delivery -> review only; new delivery requires a fresh independent reviewer of exact frozen hashes. Do not self-accept, close, execute a downstream task or create a session."
+}

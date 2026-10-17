@@ -1,0 +1,12 @@
+{
+  "initial_workflow_validate_exit": 0,
+  "initial_next_exit": 0,
+  "initial_next_result": "No ready task.",
+  "search_invocation_error": {
+    "command": "pwsh -NoProfile -File scripts/search.ps1 -Pattern \"def |allow|manifest\" -Paths scripts/workflow.py",
+    "exit_code": 1,
+    "error": "A parameter cannot be found that matches parameter name Paths.",
+    "resolution": "Read actual parameter definition; reran with supported Pattern-only invocation, exit 0."
+  },
+  "preparation_only": true
+}

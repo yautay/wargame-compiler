@@ -1,0 +1,14 @@
+{
+  "format": "wgc-validation-launch-observation-1",
+  "task": "IG-2B07",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B07-coordinator-999c866b:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/001-IG-2B07-coordinator-999c866b/runtime-configuration.json",
+  "configuration_sha256": "aa387d7719b3bad11fbd62542fadada6a417957351ca88be87750d3f0571eb45",
+  "command": "powershell -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+  "exit_code": 1,
+  "output": "File C:\\repo\\wargame-compiler\\scripts\\check.ps1 cannot be loaded because running scripts is disabled on this system. Fo\r\nr more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.\r\n    + CategoryInfo          : SecurityError: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : UnauthorizedAccess\r\n",
+  "resolution": "Use installed pinned bundled pwsh with the same script and arguments; no execution-policy or global settings changed."
+}

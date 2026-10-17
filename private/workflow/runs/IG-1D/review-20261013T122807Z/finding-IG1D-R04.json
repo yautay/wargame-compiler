@@ -1,0 +1,14 @@
+{
+  "id": "IG1D-R04",
+  "priority": "P2",
+  "title": "Preserve the unique merge child's allocation when its content is corrected",
+  "location": {"path": "src/wgc/wgu_adapter/identity.py", "start": 219, "end": 225},
+  "consequence": "When replaying the same explicit merge decision with exactly one persisted child, matching without child_keys still requires unchanged child value. A correction to that single child's definition produces a gap and retires its active identity, although the stable decision receipt, parent set, operation, scope and child kind identify that one child unambiguously. This prevents ordinary revision/correction while retaining the persisted explicit lineage decision.",
+  "reproducer": "Reconcile North/South anonymous terms, explicitly merge their IDs into one Together term with decision_id merge-1, then replay exactly that decision while changing only Together.definition. The unchanged replay preserves review:e0000003; the corrected replay yields no assigned term ID and an active gap.",
+  "evidence": {"test": "lineage_probes.py::test_unique_merge_child_correction_retains_persisted_receipt_identity", "log": "lineage-probes.log", "observed": "ids(corrected) is {}, expected Together -> the existing merge child ID", "positive_controls": ["lineage_probes.py::test_merge_receipt_unchanged_replay_is_exact", "lineage_probes.py::test_export_merge_keeps_exact_prior_revisions_and_does_not_transfer_approval"]},
+  "expected_result_justification": "The same explicit merge receipt has exactly one child in a known kind/scope. Its unique persisted allocation supplies identity evidence independently of text content; the task requires unambiguous correction and persisted lineage/replay. Stable child keys remain necessary for indistinguishable multiple children, but a one-child decision is already unambiguous.",
+  "required_change": "Match an existing uniquely identified lineage child by its persisted receipt/decision and exact child contract independently of corrected content. Preserve gaps for genuine multi-child ambiguity or conflicting decisions; do not allocate a replacement or require unrelated semantic acceptance for a text correction.",
+  "required_verification": ["Keep the strict unique-child correction probe unchanged and make it retain the existing child ID/origin_key", "Cover repeated correction and rename of a single merged child, retained old origins and exact historical parent references", "Retain keyed identical split children, multiple-child ambiguity, changed/colliding decision rejection and unchanged replay tests", "Re-run affected suites, full private canonical reproducibility and required checks"],
+  "repair_iteration": 0,
+  "maximum_repair_iterations": 2
+}

@@ -1,0 +1,51 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B04-reviewer-ce506337:reviewer",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/002-IG-2B04-reviewer-ce506337/runtime-configuration.json",
+  "configuration_sha256": "dcc9762175a0e5397587892a8d6db5b2ec6bdbdc38faf110a12db8bd5c8a861f",
+  "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+  "exit_code": 1,
+  "sandbox_permissions": "require_escalated",
+  "tool_session": 99464,
+  "result": {
+    "diff_exit": 0,
+    "plan_exit": 0,
+    "tests_exit": 1,
+    "dry_run_exit": 0,
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-4cde304a794f43c0beee22569209bf4f\\pytest"
+  },
+  "tests_passed": 241,
+  "tests_failed": 1,
+  "failed_test": "tests/test_workflow.py::test_default_ripgrep_excludes_history",
+  "failure": "FileNotFoundError [WinError 2] launching unchanged subprocess command rg --files at tests/test_workflow.py:142",
+  "logs": [
+    {
+      "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-dry-run.log",
+      "sha256": "ddca830e92b2b0ad23e24b2c8888fa8ce3debd01063fb3cdd456e6313d1c2ea4",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-pytest.log",
+      "sha256": "5cec2dae7cf70ad8d8cfb54f440ad9cc578ed8b3ed7514b330a97eb7e3f6cbd2",
+      "bytes": 1586
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-diff-check.log",
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+      "bytes": 5187
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/review-ce506337-01/repository-approved-result.log",
+      "sha256": "11cdc49447feb1a4c92f6c97b43377bce012e3669a730c42d0a4d69bcb2bc28a",
+      "bytes": 206
+    }
+  ]
+}

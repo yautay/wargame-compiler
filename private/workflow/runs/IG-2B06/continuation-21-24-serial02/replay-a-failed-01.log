@@ -1,0 +1,10 @@
+Xref table not zero-indexed. ID numbers for objects will be corrected.
+Traceback (most recent call last):
+  File "C:\repo\wargame-compiler\private\workflow\runs\IG-2B06\continuation-21-24-serial02\generate.py", line 42, in <module>
+    view = assemble(doc['source'], doc['pages'], [region], registry,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repo\wargame-compiler\src\wgc\sources\inventory.py", line 78, in assemble
+    validate(result)
+  File "C:\repo\wargame-compiler\src\wgc\sources\inventory.py", line 238, in validate
+    raise ValueError('printed label evidence missing')
+ValueError: printed label evidence missing

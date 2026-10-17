@@ -1,0 +1,79 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "summary": "Two complete independent fresh-path replays each regenerated the full region/component set serially from the accepted baseline and identical persisted author registry.",
+  "commands": [
+    ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py replay-1",
+    ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py replay-2"
+  ],
+  "runs": [
+    {
+      "name": "final-verified",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+        "bytes": 5085000,
+        "sha256": "3293d35ffb2d81004af8f10edab49e4e3ff019b17a79ca48bf8879adee4660b6"
+      },
+      "registry": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/identity-registry.json",
+        "bytes": 184306,
+        "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+      },
+      "new_regions": 269,
+      "new_artifacts": 807,
+      "stable_ids": true,
+      "author_fields_order_links_registry_equal": true,
+      "normalized_evidence_hash": "9740e675c5cafd14d08c05a7be63cd681be1ea77d63eca2ebabd77c0aec121b2"
+    },
+    {
+      "name": "replay-1",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/inventory.json",
+        "bytes": 5080158,
+        "sha256": "7dd4497f9ee93b3c584301e61d5d90f66c21de1cf3f260150a7147443a4d0812"
+      },
+      "registry": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/identity-registry.json",
+        "bytes": 184306,
+        "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+      },
+      "new_regions": 269,
+      "new_artifacts": 807,
+      "stable_ids": true,
+      "author_fields_order_links_registry_equal": true,
+      "normalized_evidence_hash": "9740e675c5cafd14d08c05a7be63cd681be1ea77d63eca2ebabd77c0aec121b2"
+    },
+    {
+      "name": "replay-2",
+      "inventory": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/inventory.json",
+        "bytes": 5080158,
+        "sha256": "6e4aa3aef77305dfb34a478678a666781d594590b97d771ac00639efa156c767"
+      },
+      "registry": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/identity-registry.json",
+        "bytes": 184306,
+        "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+      },
+      "new_regions": 269,
+      "new_artifacts": 807,
+      "stable_ids": true,
+      "author_fields_order_links_registry_equal": true,
+      "normalized_evidence_hash": "9740e675c5cafd14d08c05a7be63cd681be1ea77d63eca2ebabd77c0aec121b2"
+    }
+  ],
+  "actual_inventory_hashes_are_path_dependent": true,
+  "complete_assigned_regions": 269,
+  "missing_references": 0,
+  "negative_cases": {
+    "missing_component": "correctly_rejected",
+    "missing_index_path": "correctly_rejected",
+    "stale_index_hash": "correctly_rejected",
+    "incomplete_replay": "correctly_rejected"
+  },
+  "source_meaning_acceptance": false
+}

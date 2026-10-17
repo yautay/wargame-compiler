@@ -1,0 +1,225 @@
+{
+  "id": "IG-2B08",
+  "title": "Inventory SPQR PDF pages 29Ã¢â‚¬â€œ32",
+  "stage": "IG-2",
+  "status": "review",
+  "kind": "content",
+  "depends": [
+    "IG-2B07"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/region-ledger.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/continuations.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/coverage-report.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/source-pins.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/toolchain.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/original-page-inspection.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/component-ledger.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/preservation-report.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-report.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/validation-report.json",
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/delivery-handoff.md"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B08/inventory-p33-scope02/"
+  ],
+  "inputs": [
+    "Accepted IG-2B07 complete 44-page inventory: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json (SHA-256 24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d).",
+    "Persisted companion identity registry: private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json (SHA-256 5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701).",
+    "Official source: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf (SHA-256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e); physical pages 29-32 only, with bounded page-28/33 continuation context as pinned in private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/input-pins.json.",
+    "Official provenance: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json (SHA-256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b).",
+    "Exact current region ledger, continuations, coverage, source-pins and installed toolchain reports are pinned in private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/input-pins.json; no ancestor inventory or obsolete source placeholder is authoritative.",
+    "IG-2A locator contract as implemented by the current hash-pinned contracts/ig/regions.schema.json and src/wgc/sources/ tooling; all 44 pages remain present."
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/input-pins.json",
+    "src/wgc/sources/README.md",
+    "docs/work/EVIDENCE.md",
+    "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/scope.json",
+    "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/assessment.json"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Retain the complete accepted 44-page inventory and persisted companion registry. Replace only the four page-29/30/31/32 unprocessed placeholders; remove their active membership but keep every retired registry entry. Preserve every nonassigned record, prior context region, link, evidence object, registry binding and retained reading-order subsequence unchanged; document exact before/after preservation counts and hashes.",
+    "Freshly inspect every assigned ORIGINAL physical page 29-32, every proposed region boundary, and every table/diagram/example component. Pin original-page renders and observations to source SHA-256, page IDs and fresh paths in original-page-inspection.json and component-ledger.json; inherited observations never substitute for inspection.",
+    "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+    "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+    "Preserve page-28/29 continuation references from the accepted baseline and inspect the page-32/33 exit using only the bounded context scope. Report context-only IDs separately; their denominator contribution is zero. Cross-boundary references and inherited context regions remain present, without assigning uninspected source content to inventory.",
+    "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical.",
+    "Report full 44-page, assigned four-page, inherited/nonassigned and context-only denominators separately in coverage-report.json, with gaps/unprocessed and transcription/descriptive/formal statuses. Never equate geometric area or inventory completion with source meaning, semantic acceptance or executable readiness.",
+    "Freeze final-verified/inventory.json and its companion identity-registry.json plus all root reports, derivations, helpers, required evidence files and two complete replay artifact sets in an exhaustive ordered path/SHA-256 delivery. Every declared output must be present and current; repair source-reference indexes only for named current reports.",
+    "A fresh independent reviewer inspects every assigned original page, proposed boundary/component, context-only boundary and complete region ledger against the final frozen hashes; independently checks evidence freshness/index completeness, both complete replays, 44-page preservation and all original/appended criteria. Technical review does not grant human semantic acceptance."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Run .venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short with the inherited pinned toolchain. Keep tests/assertions unchanged; if restricted-token temp access fails, request approved execution of that exact unchanged command.",
+    "Run .venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-8d84cd90-01/final-verified/inventory.json and validate both replay inventories with actual root/source access. Validate final companion registry equality and canonical hashes; pin commands/exits in validation-report.json.",
+    "Add and run an owned batch verifier over the complete accepted baseline and result: source/44-page set equality, preserved nonassigned record/link/evidence objects and registry entries, retained reading-order subsequence, exactly four placeholders retired, assigned/context target set separation, disjoint positive geometry, complete new evidence/component index and all artifact hashes. It must fail for missing regions/components, stale/missing index paths or a replay that omits any assigned component.",
+    "Run complete replay-1 and replay-2 separately; require equal full assigned region/component sets and stable identities, complete registry bindings, normalized evidence bytes/locators and zero missing artifact references. Check fresh original-page renders plus visual inspection on every assigned page and each authorized context boundary.",
+    "Run scripts/check.ps1 -Task IG-2B08 and git diff --check; preserve reports, actual exits and any approved exact-command execution evidence. If context-guard process termination is denied by the restricted token, request approved execution of the exact unchanged validation command without changing tests, ACLs or assertions.",
+    "Operational recovery binding: original commands above remain required with only the prior attempt prefix inventory-8d84cd90-01 replaced by inventory-p33-scope02. Do not run test basetemp or write any artifact into the frozen attempt. Preserve every original suite/assertion and verify the new context boundary before access.",
+    "Verify all old-attempt artifact hashes using the pinned preservation manifest before product writes and at delivery; verify page-33 context pixels/text exclude the following note and use exact source/page/box pins."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start.",
+    "Claim a fresh absent owned directory private/workflow/runs/IG-2B08/inventory-p33-scope02; record a new observed gpt-6.1-sol/high runtime, actor, packet hash, exact input pins and checkpoint before product writes. No inherited completion, source inspection, semantic acceptance or green checks.",
+    "Hash-verify every pinned input and current accepted report, confirm the complete 44-page baseline and companion registry, and use only the task-bound dependency/search/access helpers. Available exact context and bounded page/ID authorization are mandatory; helper refusal ends the session, with no fallback.",
+    "Only the supervisor launches the next sequential role. No product code/schema changes, online services, global configuration, nested agents, unrelated tasks or downstream IG-3 work are authorized.",
+    "FIRST read the new context recovery scope and assessment, then the effective input contract. The old attempt is immutable and grants no inherited inspection, tests, delivery or acceptance.",
+    "Fresh source access is exactly pages 29-32 plus the pinned page-33 continuation rectangle. Page 28 is reference-only through the direct accepted dependency projection; no original-page access there in this session. No full-page page-33 output or automatic crop expansion."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation.",
+    "Provide complete source-pins, preservation and replay reports; exact full/task/context denominator counts, source uncertainties and entry/exit continuation IDs; the independent reviewer must validate the exhaustive frozen artifact set and all original/appended criteria.",
+    "Actual runtime configuration_evidence/configuration_sha256 and actor/model/reasoning belong on every claim/delivery/review. Record UTC/wall time, tokens only when exposed (otherwise null), failures/retries and unresolved decisions without inventing semantic approval."
+  ],
+  "semantic_acceptance_required": false,
+  "tool_context": [
+    "README.md",
+    "docs/work/WORKFLOW.md",
+    "scripts/workflow.py",
+    "scripts/check.ps1",
+    "scripts/search_task.py",
+    "scripts/dependency_context.py",
+    "scripts/context_guard.py",
+    "scripts/task_access.py",
+    "scripts/orchestrate_ig2.py",
+    "docs/skills/wgc-queue/SKILL.md",
+    "docs/work/EVIDENCE.md",
+    "contracts/ig/README.md",
+    "contracts/ig/regions.schema.json",
+    "src/wgc/sources/README.md",
+    "src/wgc/sources/__init__.py",
+    "src/wgc/sources/__main__.py",
+    "src/wgc/sources/inventory.py",
+    "src/wgc/sources/geometry.py",
+    "src/wgc/sources/pdf.py",
+    "docs/skills/wgc-execute/SKILL.md",
+    "docs/skills/wgc-review/SKILL.md"
+  ],
+  "dependency_scope": {
+    "physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  "inventory_contract": {
+    "format": "wgc-inventory-batch-contract-1",
+    "input_pins": {
+      "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/input-pins.json",
+      "sha256": "1532cbd612dd4171d7f01ea0e53856727412229cf830f873d6a68b74bcb74b84",
+      "bytes": 12066
+    },
+    "attempt_root": "private/workflow/runs/IG-2B08/inventory-p33-scope02",
+    "physical_pages": [
+      29,
+      30,
+      31,
+      32
+    ],
+    "context_only_physical_pages": [
+      28,
+      33
+    ],
+    "placeholder_target_ids": [
+      "region:d82e8fe6-a402-40f2-9f6a-8778c4e392a2",
+      "region:1129da76-b660-47f5-ae4d-1135333a447f",
+      "region:f8abe014-2cf3-4d93-ad65-411a23fd81bb",
+      "region:b57e73bf-1c15-4d79-a39e-d5e342b5cc6d"
+    ],
+    "retained_context_ids": [
+      "region:720a5d03-c721-469b-8a5e-2b91cb653a02"
+    ],
+    "full_source_page_count": 44,
+    "independent_replay_count": 2,
+    "evidence_generation": "Serial in the current Python process; no multiprocessing, ProcessPoolExecutor or worker process pools.",
+    "scope": "Physical source inventory and transcription/descriptive observations only; no source-meaning approval or executable gameplay claims.",
+    "fresh_context_only_physical_pages": [
+      33
+    ],
+    "source_access": {
+      "inventory_physical_pages": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "context_only": [
+        {
+          "physical_page": 28,
+          "scope": "Reference-only: use the accepted direct dependency exit observation through the prepared dependency projection and preserve baseline continuation records. Do not render/extract page 28 again in this session; assigned page 29 is freshly inspected. If additional original-page context is indispensable, stop for a new bounded contract."
+        },
+        {
+          "physical_page": 33,
+          "scope": "Only the initial two continuation lines from page 32, before the following note. No subsequent note, heading, rule or right column.",
+          "frame": "unrotated effective crop top-left, PDF points; source page 612 x 792, rotation 0, UserUnit 1",
+          "box_points": [
+            45,
+            50,
+            306,
+            80
+          ],
+          "box_normalized": [
+            73529,
+            63131,
+            500000,
+            101011
+          ],
+          "rounding": "The normalized box is explicitly authorized as the outward million-unit rounding of the point box; its sub-millipoint margin contains no additional content.",
+          "raster_144dpi": {
+            "x": 90,
+            "y": 100,
+            "width": 522,
+            "height": 60
+          },
+          "access_protocol": "Set crop bounds before text extraction or releasing pixels. Use original-page clipping before extract_text, and native raster crop parameters before rendering output. Never inspect a full page-33 render or extract raw text from a crop PDF whose page streams may retain out-of-box content. No automatic box expansion."
+        }
+      ],
+      "json_access": "Selected assigned-page/region fields and boundary-linked IDs only. Code may internally copy and validate all records and their byte pins without emitting unassigned records, source text or complete manifests.",
+      "forbidden": "No old sessions/transcripts/helpers, archive/history, whole-PDF analysis, private search, accepted closure/delivery envelope dumps or other dependency records."
+    }
+  },
+  "context_recovery_authorization": {
+    "incident": {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/source-context-incident.json",
+      "sha256": "03165b8451856403b8599a111119a81e5af23a779669627635200f98e941e190",
+      "bytes": 3014
+    },
+    "scope": {
+      "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/scope.json",
+      "sha256": "3af10d28343cc7ab8bc84287756a537516a72ddba7852ecaeb198a0d052a8d42",
+      "bytes": 4711
+    },
+    "assessment": {
+      "path": "private/workflow/runs/IG-2B08/context-recovery-20261017-p33-01/assessment.json",
+      "sha256": "4c9c91c5cf50833ad5262bbfdb4a017e2aac733d6974df5481186b576aed3cb8",
+      "bytes": 2733
+    }
+  }
+}

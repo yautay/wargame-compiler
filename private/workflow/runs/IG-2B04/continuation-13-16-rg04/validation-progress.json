@@ -1,0 +1,152 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B04-executor-0de1c1e6:executor",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/runtime-configuration.json",
+  "configuration_sha256": "e1a87639410babf3023b3d500107f30b71b8f27bbc379dd5574435097eaf6e10",
+  "sources_suite": {
+    "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/checks/b04-rg04-src -p no:cacheprovider --tb=short",
+    "exit_code": 0,
+    "passed": 71,
+    "elapsed_seconds": 30.69,
+    "log": {
+      "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/sources-test.log",
+      "sha256": "39431b90e88213be16325fa82f28c96044f9be29d7269dd9edcde6788c135f1f",
+      "bytes": 100
+    },
+    "approved_execution": true
+  },
+  "repository_check": {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+    "exit_code": 0,
+    "passed": 242,
+    "elapsed_seconds": 122.63,
+    "approved_execution": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "exit_code": 1,
+        "result": {
+          "plan_exit": 0,
+          "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-f0f0b41604be44f6aa547a569c9f79d5\\pytest",
+          "dry_run_exit": 0,
+          "tests_exit": 1,
+          "diff_exit": 0
+        },
+        "artifacts": [
+          {
+            "path": "private/workflow/checks/active-f0f0b41604be44f6aa547a569c9f79d5/result.json",
+            "sha256": "7bc2c1b009a5279676d6789af205a46df000d2359a45c7064a20be2a421cdcf8",
+            "bytes": 206
+          },
+          {
+            "path": "private/workflow/checks/active-f0f0b41604be44f6aa547a569c9f79d5/plan.log",
+            "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+            "bytes": 60
+          },
+          {
+            "path": "private/workflow/checks/active-f0f0b41604be44f6aa547a569c9f79d5/dry-run.log",
+            "sha256": "45d4195710fbbaeb3eebd63c2277710c346166491e1df0e00535283099d6b039",
+            "bytes": 185
+          },
+          {
+            "path": "private/workflow/checks/active-f0f0b41604be44f6aa547a569c9f79d5/pytest.log",
+            "sha256": "593571ac77a445c27b039a1f96c0656f230dd5e01c0b6c3fbefbb4834810679d",
+            "bytes": 1596
+          },
+          {
+            "path": "private/workflow/checks/active-f0f0b41604be44f6aa547a569c9f79d5/diff-check.log",
+            "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+            "bytes": 5187
+          }
+        ]
+      },
+      {
+        "attempt": 2,
+        "exit_code": 1,
+        "result": {
+          "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-ede0396a223744d4bdcc21595826a5f3\\pytest",
+          "plan_exit": 0,
+          "diff_exit": 0,
+          "tests_exit": 1,
+          "dry_run_exit": 0
+        },
+        "artifacts": [
+          {
+            "path": "private/workflow/checks/active-ede0396a223744d4bdcc21595826a5f3/result.json",
+            "sha256": "87afaba5d63d64255a7c1d0fe606c432228a60238cdbfa42e8436f661a8c3878",
+            "bytes": 206
+          },
+          {
+            "path": "private/workflow/checks/active-ede0396a223744d4bdcc21595826a5f3/plan.log",
+            "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+            "bytes": 60
+          },
+          {
+            "path": "private/workflow/checks/active-ede0396a223744d4bdcc21595826a5f3/dry-run.log",
+            "sha256": "45d4195710fbbaeb3eebd63c2277710c346166491e1df0e00535283099d6b039",
+            "bytes": 185
+          },
+          {
+            "path": "private/workflow/checks/active-ede0396a223744d4bdcc21595826a5f3/pytest.log",
+            "sha256": "662fd065b6721c9a30af051e5e905e2e24ea377fdb7b2885009f305608e9fd9b",
+            "bytes": 1597
+          },
+          {
+            "path": "private/workflow/checks/active-ede0396a223744d4bdcc21595826a5f3/diff-check.log",
+            "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+            "bytes": 5187
+          }
+        ]
+      },
+      {
+        "attempt": 3,
+        "exit_code": 0,
+        "result": {
+          "tests_exit": 0,
+          "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-7c7b888a87534de3aa0b76dafc194658\\pytest",
+          "dry_run_exit": 0,
+          "diff_exit": 0,
+          "plan_exit": 0
+        },
+        "artifacts": [
+          {
+            "path": "private/workflow/checks/active-7c7b888a87534de3aa0b76dafc194658/result.json",
+            "sha256": "74f6273adce37f1655664ad24ea3ec2caa69db683918747c784f0f529711d6f7",
+            "bytes": 206
+          },
+          {
+            "path": "private/workflow/checks/active-7c7b888a87534de3aa0b76dafc194658/plan.log",
+            "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+            "bytes": 60
+          },
+          {
+            "path": "private/workflow/checks/active-7c7b888a87534de3aa0b76dafc194658/dry-run.log",
+            "sha256": "45d4195710fbbaeb3eebd63c2277710c346166491e1df0e00535283099d6b039",
+            "bytes": 185
+          },
+          {
+            "path": "private/workflow/checks/active-7c7b888a87534de3aa0b76dafc194658/pytest.log",
+            "sha256": "f2d3b21eb8ce8e2acf6b4fb8c57a4524b8c54ca4bdd04547886a26692fb6bbd0",
+            "bytes": 357
+          },
+          {
+            "path": "private/workflow/checks/active-7c7b888a87534de3aa0b76dafc194658/diff-check.log",
+            "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+            "bytes": 5187
+          }
+        ]
+      }
+    ],
+    "environment_resolution": "Final retry preserved every inherited PATH/PYTHONPATH entry, appended only hash-verified supervisor-bound ripgrep directory for legacy test lookup, and checked Get-Command rg equals that absolute pin. No global setting/test/guard changed."
+  },
+  "unchanged_failure_retries": 2,
+  "tests_or_assertions_changed": false,
+  "pending": [
+    "Three inventory validation CLI commands",
+    "Preservation/replay/reference audits",
+    "Final git diff --check"
+  ]
+}

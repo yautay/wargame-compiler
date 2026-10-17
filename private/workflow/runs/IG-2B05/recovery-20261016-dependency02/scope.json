@@ -1,0 +1,87 @@
+{
+  "format": "wgc-continuation-scope-1",
+  "mode": "draft_revalidation",
+  "task": "IG-2B05",
+  "blocked_attempt": "private/workflow/runs/IG-2B05/inventory-17-20-01/",
+  "blocked_evidence": "private/workflow/runs/IG-2B05/inventory-17-20-01/blocked.json",
+  "blocked_sha256": "107becbe6f7626aeec8624ec2357dd562c6685c9cc5e2b507b9ad3ada1d7e6a6",
+  "attempt": "private/workflow/runs/IG-2B05/continuation-17-20-dependency02/",
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Use the exact accepted IG-2B04 baseline and companion registry in the pinned dependency-inputs.json; retain the complete 44-page sidecar. Copy every nonassigned page, region, evidence record and link unchanged. Replace only the four assigned unprocessed placeholder memberships on physical pages 17-20, retaining all old registry entries and identity bindings.",
+    "Freshly inspect the pinned original PDF physical pages 17, 18, 19 and 20 in full, including every visible component, column, heading, clause, exception, note, example, diagram, marker, bullet, caption, header/footer and editorial area. Document uncertainty and proposed boundaries; extraction or inherited coordinator observations cannot substitute for original-page inspection.",
+    "Provide explicit disjoint regions and reading order, component/region reconciliation, precise evidence locators and source references. Keep structural inventory, transcription, descriptive semantics, formal semantics, exclusions and executable readiness separate. Never treat an unprocessed placeholder, geometric gap, unknown meaning or excluded region as represented.",
+    "Create fresh path-dependent cropped PDF, PNG and UTF-8 text evidence for every new assigned region at 144 DPI, with exact hashes, bytes, geometry and page_basis_hash. Revalidate all retained evidence without rewriting its bytes. Keep label verification separate from merely finding a printed glyph.",
+    "Write final-verified/inventory.json and final-verified/identity-registry.json under the new owned attempt, with region-ledger.json, continuations.json, coverage-report.json, source-pins.json and toolchain.json at its root. All reports must pin the final inventory revision/hash and registry, source, assigned IDs and evidence; source-reference indexes must resolve against these exact current reports.",
+    "Provide two complete independent fresh derivation replays from the same authored partition and persisted registry in disjoint replay-1/ and replay-2/ outputs. Compare the complete logical sidecar, registry identities, all assigned crop PDF/PNG/text bytes and locators, with explicit normalization only for actual path-dependent fields; record complete set equality, counts and hashes, not sampled comparisons.",
+    "Report full 44-page inventory counts/denominators, assigned-page task counts/denominators and context-only counts/denominators separately. Preserve unresolved nonassigned placeholders explicitly; context-only observations contribute zero assigned inventory denominator.",
+    "Trace incoming, internal and outgoing continuation boundaries, including pages 17-18, 18-19 and page 20 exit. Accepted page-16 exit is context only. Adjacent physical page 16 or 21 may be inspected only for a named continuation boundary; record exact inspected boxes/IDs and purpose before access, keep evidence in context-only outputs and do not inventory or claim coverage of unassigned content. Other referenced source targets remain unresolved.",
+    "Freeze every delivered product, helper, evidence artifact, report and check log with SHA-256. Obtain fresh independent technical/source-page review by a different actor against every assigned original page, proposed boundaries/components, the complete region ledger, preservation report and both complete replays. Green tooling and model review grant no human semantic acceptance or gameplay readiness."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B05/inventory-17-20-01/tests-sources -p no:cacheprovider --tb=short",
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B05/inventory-17-20-01/final-verified/inventory.json",
+    "Run fresh .venv/Scripts/python.exe -m wgc.sources validate on both complete replay inventories with the inherited pinned process_pythonpath and process_path_prefix; never replace PYTHONPATH with repo/src alone.",
+    "Run an explicit preservation check: all 44 source pages remain; nonassigned records, links, evidence, registry bindings and original registry entries equal the accepted baseline; exactly the four pinned placeholder memberships are retired; no nonassigned record is reauthored or silently dropped.",
+    "Run complete set/replay checks: all newly assigned region IDs have fresh current evidence and a ledger entry, all visible components have dispositions, independent replay region/evidence sets equal final assigned sets, and all current report/source-reference paths and hashes resolve.",
+    "Review all assigned original pages and every region crop visually; audit reading order, column transitions, notes/examples/diagram components and uncertainty; inspect named adjacent continuation boxes only, and verify context-only records never inflate task/full represented counts.",
+    "Run scripts/check.ps1 -Task IG-2B05 and git diff --check unchanged. For the specific Windows restricted-token pytest temporary-directory or owned context-guard termination denial, request approved execution of the exact unchanged command; do not alter assertions, ACLs or libraries.",
+    "Continuation execution binding: every literal inventory-17-20-01 path in the original commands above is a frozen prior-attempt operand. Execute the identical commands with only that attempt prefix replaced by continuation-17-20-dependency02. Never write a test basetemp or any artifact into the blocked attempt. All original assertions and suites remain required."
+  ],
+  "drafts": [
+    {
+      "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/authored-partition.json",
+      "sha256": "d957f0e2fe506d06bdc061efc8dc15cdd0300a4abbcbcecbc9315814130e4b6a",
+      "bytes": 34195
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/persisted-registry.json",
+      "sha256": "964bbcdd75d44f26e96d7f7a3183e46e410b832cd8a2c54bd0fd764d1a90db34",
+      "bytes": 97610
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/final-verified/inventory.json",
+      "sha256": "b2d136a1a6ad296eaab95cea0a069cb4a694d4c2f30a41ead223a27af22afb53",
+      "bytes": 2636025
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/final-verified/identity-registry.json",
+      "sha256": "964bbcdd75d44f26e96d7f7a3183e46e410b832cd8a2c54bd0fd764d1a90db34",
+      "bytes": 97610
+    }
+  ],
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B05/recovery-20261016-dependency02/preserve-manifest.json",
+    "sha256": "af7e8a74ca492c796eb94aa92452eee1da4982470234e4ae2506cc7b50ad75f1",
+    "bytes": 209385
+  },
+  "assessment": {
+    "path": "private/workflow/runs/IG-2B05/recovery-20261016-dependency02/assessment.json",
+    "sha256": "9e689e0ce7f4906db55a5fee707b7abd6c37cae53708e20859b4f580d55241ce",
+    "bytes": 1701
+  },
+  "allowed_changes": [
+    "Write only the fresh owned attempt; use candidate drafts only after fresh source inspection and revalidation."
+  ],
+  "required_work": [
+    "Verify every source and accepted baseline/registry pin using the prepared dependency projections.",
+    "Inspect all four assigned original pages and every proposed component/region; record fresh observations and uncertainty.",
+    "Derive new final path-dependent PDF/PNG/text evidence and two complete independent fresh replays without old derivation scripts.",
+    "Complete replay equality, region/component, continuation, coverage, source/reference, installed toolchain, validation and preservation reports.",
+    "Run unchanged suites and checks using the fresh attempt path mapping, then freeze delivery for fresh independent review."
+  ],
+  "prohibited_reads": [
+    "Old transcripts, derivation helpers, dependency-inputs.json content and old inspection/check conclusions."
+  ],
+  "execution_path_mapping": {
+    "from": "private/workflow/runs/IG-2B05/inventory-17-20-01/",
+    "to": "private/workflow/runs/IG-2B05/continuation-17-20-dependency02/",
+    "purpose": "Fresh output/test paths only; no test assertions or suites change."
+  },
+  "human_semantic_acceptance": false,
+  "gameplay_readiness": false
+}

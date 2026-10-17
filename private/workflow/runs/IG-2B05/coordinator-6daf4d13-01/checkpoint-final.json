@@ -1,0 +1,106 @@
+{
+  "task": "IG-2B05",
+  "attempt": "coordinator-6daf4d13-01",
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B05-coordinator-6daf4d13:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T150146Z-33452c9a/001-IG-2B05-coordinator-6daf4d13/runtime-configuration.json",
+  "configuration_sha256": "6e17d82295f8e774f65eec4a6860750834056f7d5eeb663ea396329be68846a5",
+  "utc": "2026-10-16T15:11:31.172664+00:00",
+  "base": {
+    "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/preflight.json",
+    "sha256": "5604f99b557c409ff12d5b737d1d1ceb33a605857851389cca15031b696a6d1e",
+    "bytes": 7904
+  },
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T150146Z-33452c9a/001-IG-2B05-coordinator-6daf4d13/packet.json",
+    "sha256": "08af859ab01f9c09595ec11d64d4ede1350cf72bee5854aeffc95332677b9b35",
+    "bytes": 4126
+  },
+  "refined_contract": {
+    "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/refined-contract.json",
+    "sha256": "0edb76cf667200681df1b9661179f3dd8f22be6afe07bcae052db4b274850878",
+    "bytes": 18160
+  },
+  "changed_planning_hashes": [
+    {
+      "path": "docs/work/queue.json",
+      "sha256": "1d4a849045835a30f2467581d95c5236bd9beb5f5019ca10a01ec612182fcadc",
+      "bytes": 199369
+    },
+    {
+      "path": "docs/work/context-policy.json",
+      "sha256": "1dd50da342c2f8ce6851d7c102db3e53bac346524dc90143408e66e00bf30968",
+      "bytes": 8261
+    },
+    {
+      "path": "docs/work/tasks/IG-2B05.md",
+      "sha256": "bd3b611e01585b4e3e6967868f263f522c3c9e13a01ff8845ebf1837e47e4a12",
+      "bytes": 10776
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "7d88da50d562180a41564798efe571949928e71b03a7d16c4aabd6731afe501b",
+      "bytes": 1139
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "sha256": "9e0e22ff5f882c16013b9326a9d89fbf6ad7186d0403324b03ff5ffc6c0e40c6",
+      "bytes": 1551
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "e9f10805f56d71ddf58f12e69407a2f34ea3b1dba45b5c3fa6026cfc13fdbe02",
+      "bytes": 4462
+    }
+  ],
+  "completed": [
+    "Selected contract refinement",
+    "Exact accepted input pins and context available",
+    "Original assigned-page coordinator navigation",
+    "Readiness transition",
+    "Unchanged approved validation"
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved exact unchanged command",
+      "result": "71 passed in 15.17s"
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/ready.py",
+      "exit_code": 0,
+      "scope": "accepted baseline structural validation, byte pins, assigned IDs, exact context and fresh output absence"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B05",
+      "exit_code": 0,
+      "execution": "approved exact unchanged command",
+      "result": "256 passed in 32.95s; plan, packet dry-run and diff checks passed",
+      "report": {
+        "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/result.json",
+        "sha256": "1453473fcbbbb1fa0040e132b946a4389c82897d6be1cb73653d8c2e17cfbf3a",
+        "bytes": 206
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "execution": "also run by unchanged approved scripts/check.ps1",
+      "report": {
+        "path": "private/workflow/runs/IG-2B05/coordinator-6daf4d13-01/checks-approved/diff-check.log",
+        "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0",
+        "bytes": 5187
+      }
+    }
+  ],
+  "blocker": null,
+  "product_delivery": false,
+  "next_operation": "Supervisor dispatches the ready IG-2B05 executor with fresh observed runtime metadata."
+}

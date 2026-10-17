@@ -1,0 +1,42 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/sources",
+    "--basetemp",
+    "private/workflow/checks/b03-e285fb76-s1",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short"
+  ],
+  "exit_code": 1,
+  "started_utc": "2026-10-15T15:05:37.030458+00:00",
+  "ended_utc": "2026-10-15T15:05:59.785226+00:00",
+  "wall_seconds": 22.75,
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/sources-tests.stdout",
+      "bytes": 79,
+      "sha256": "a90b5a6f3c45bc8804dc5831dd556971c7111a69daafc874587bdd36e03172f6"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/sources-tests.stderr",
+      "bytes": 4262,
+      "sha256": "b34851b3e616bfe68cf8e812c43a8e9b4fce3ec167399274c24fc8c78e22f385"
+    }
+  ],
+  "process_environment_pin": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/toolchain.json",
+    "sha256": "79ff143ae0e7ad3df5d4ae6830bcad6ad6fbeaaa37091f39372c2a195ca63a75"
+  }
+}

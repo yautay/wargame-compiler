@@ -1,0 +1,103 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "Observed installed interpreter, libraries and native executables with inherited process-local settings; no installation or global changes.",
+  "final_inventory": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+    "bytes": 2367836,
+    "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9"
+  },
+  "final_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/packet.json",
+    "bytes": 7992,
+    "sha256": "56deb7f7edc010974152ca949664cc5606c2dc7212be772b5d32be59fa5c6c88"
+  },
+  "selected_task": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/task.json",
+    "bytes": 9944,
+    "sha256": "c65290b9050558293fe39ebaf166c698095a3af1ed7a17df72c6a3fadda19e48"
+  },
+  "refinement_contract": {
+    "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json",
+    "bytes": 18176,
+    "sha256": "7a2371a47de970cc8959be74a4386fea66970d4fd6087e5f88eaddc870ce11f3"
+  },
+  "authored_input": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/inventory.json",
+    "bytes": 2159004,
+    "sha256": "698f05b0a4305d8e9aa5c2fb18c013cb5fc68c4dfd8df8f424e3ca2393cea82d"
+  },
+  "authored_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "interpreter": {
+    "path": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+    "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "pin": {
+      "path": ".venv/Scripts/python.exe",
+      "bytes": 276944,
+      "sha256": "6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2"
+    }
+  },
+  "libraries": {
+    "pypdf": "6.10.0",
+    "pdfplumber": "0.11.9",
+    "Pillow": "12.3.0",
+    "pytest": "9.1.1",
+    "reportlab": "4.4.9"
+  },
+  "native_executables": [
+    {
+      "name": "pdfinfo",
+      "path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdfinfo.exe",
+      "sha256": "ae6c324eca37335d8ec54fd6a0b4007365e369bd6a1fe1a82a74d2a588f0faa0",
+      "bytes": 81712,
+      "version": "pdfinfo version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+    },
+    {
+      "name": "pdftoppm",
+      "path": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.exe",
+      "sha256": "1ad6408dc3b02950d00ad407d79b6d52b1d6c3f3b85c96645455d58d390d8b20",
+      "bytes": 65840,
+      "version": "pdftoppm version 26.07.0\nCopyright 2005-2026 The Poppler Developers - http://poppler.freedesktop.org\nCopyright 1996-2011, 2022 Glyph & Cog, LLC"
+    }
+  ],
+  "process_pythonpath": "C:\\repo\\wargame-compiler\\src;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages",
+  "process_path_prefix": "C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell",
+  "pinned_process_settings": "C:\\repo\\wargame-compiler\\src;C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\site-packages",
+  "render_settings": {
+    "dpi": 144,
+    "cropbox": true,
+    "format": "png",
+    "mode": "serial"
+  },
+  "generation_reports": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-a/generation-report.json",
+      "bytes": 8283,
+      "sha256": "29d7d8fb55eba45ffb15550de7849d9aad14988b71bc3fc67580fbcb6a16331c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-b/generation-report.json",
+      "bytes": 8284,
+      "sha256": "ef512db7e4da9778ba2fe240b8379613d31da36961cf6bbd93955dcf708b99d4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/generation-report.json",
+      "bytes": 8302,
+      "sha256": "227ab3fd412d82aa08c00101d70a6c01f512b719ebd2596c2e7c84032b5197b7"
+    }
+  ]
+}

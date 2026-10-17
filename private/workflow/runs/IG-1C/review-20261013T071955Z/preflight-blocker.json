@@ -1,0 +1,45 @@
+{
+  "task": "IG-1C",
+  "role": "independent_technical_reviewer",
+  "actor": "ig1c-reviewer-20261013T071955Z",
+  "status": "awaiting_coordinator_queue_recovery",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence_path": "private/workflow/runs/IG-1C/review-20261013T071955Z/configuration-confirmed.json",
+  "frozen_delivery_path": "private/workflow/runs/IG-1C/stage-20261013/delivery.json",
+  "frozen_delivery_sha256": "8e3fc23cf3d64783b10c2f48287196b807272c2f5b356bcaabf35e695dbd9017",
+  "frozen_artifact_count": 34,
+  "frozen_artifact_verification_path": "private/workflow/runs/IG-1C/review-20261013T071955Z/delivery-verification-20261013T073748616022Z.json",
+  "all_frozen_artifacts_match": true,
+  "checks": [
+    {"command": ".venv/Scripts/python.exe scripts/workflow.py validate", "exit_code": 0},
+    {"command": ".venv/Scripts/python.exe scripts/workflow.py packet --task IG-1C", "exit_code": 1, "output": "ERROR: Task is not ready or active", "attempt_count": 1},
+    {"command": ".venv/Scripts/python.exe private/workflow/runs/IG-1C/review-20261013T071955Z/verify_delivery.py", "exit_code": 0},
+    {"command": "git diff --check", "exit_code": 0}
+  ],
+  "queue_observation": {
+    "authority": "docs/work/queue.json",
+    "IG-1C": "blocked",
+    "IG-1D": "planned",
+    "IG-1E": "planned",
+    "blocker_evidence": "private/workflow/runs/IG-1C/stage-20261013/blocked.json",
+    "blocker_id": "IG-1C-REVIEWER-CONFIGURATION",
+    "blocking_fact_resolved": true,
+    "transition_still_required": true
+  },
+  "acceptance_criteria": [
+    {"criterion": "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.", "assessment": "not_assessed"},
+    {"criterion": "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.", "assessment": "not_assessed"},
+    {"criterion": "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.", "assessment": "not_assessed"},
+    {"criterion": "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results.", "assessment": "not_assessed"}
+  ],
+  "required_checks_remaining": ["Fresh IG-1C packet generation and hash verification", "Independent adversarial probes", "Full private file/record/unknown-field accounting", "tests/wgu_adapter and affected tests", "scripts/check.ps1 -Task IG-1C", "Post-review frozen hash verification"],
+  "technical_result": null,
+  "independent_pass": false,
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false,
+  "tokens": null,
+  "cost": null,
+  "operator_time_seconds": null,
+  "next_operation": "Coordinator records the confirmed reviewer configuration and recovers blocked -> planned -> ready -> in_progress -> review under workflow gates, preserving frozen product bytes. Reviewer then retries packet under the changed queue condition and completes independent review. Reviewer has no queue transition or messaging authorization."
+}

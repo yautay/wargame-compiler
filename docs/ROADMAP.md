@@ -6,21 +6,21 @@
 |---|---|---|---|
 | [IG-1A: Establish the source IG contract](work/tasks/IG-1A.md) | done | implementation | — |
 | [IG-1B: Freeze input and source manifests](work/tasks/IG-1B.md) | done | implementation | IG-1A |
-| [IG-1C: Import all WGU collections losslessly](work/tasks/IG-1C.md) | planned | implementation | IG-1B |
-| [IG-1D: Persist identities and deterministic exports](work/tasks/IG-1D.md) | planned | implementation | IG-1C |
-| [IG-1E: Accept full KB input accounting](work/tasks/IG-1E.md) | planned | implementation | IG-1D |
-| [IG-2A: Build independent source inventory tooling](work/tasks/IG-2A.md) | planned | refine | IG-1E |
-| [IG-2B01: Inventory SPQR PDF pages 01–04](work/tasks/IG-2B01.md) | planned | content | IG-2A |
-| [IG-2B02: Inventory SPQR PDF pages 05–08](work/tasks/IG-2B02.md) | planned | content | IG-2B01 |
-| [IG-2B03: Inventory SPQR PDF pages 09–12](work/tasks/IG-2B03.md) | planned | content | IG-2B02 |
-| [IG-2B04: Inventory SPQR PDF pages 13–16](work/tasks/IG-2B04.md) | planned | content | IG-2B03 |
-| [IG-2B05: Inventory SPQR PDF pages 17–20](work/tasks/IG-2B05.md) | planned | content | IG-2B04 |
-| [IG-2B06: Inventory SPQR PDF pages 21–24](work/tasks/IG-2B06.md) | planned | content | IG-2B05 |
-| [IG-2B07: Inventory SPQR PDF pages 25–28](work/tasks/IG-2B07.md) | planned | content | IG-2B06 |
-| [IG-2B08: Inventory SPQR PDF pages 29–32](work/tasks/IG-2B08.md) | planned | content | IG-2B07 |
-| [IG-2B09: Inventory SPQR PDF pages 33–36](work/tasks/IG-2B09.md) | planned | content | IG-2B08 |
-| [IG-2B10: Inventory SPQR PDF pages 37–40](work/tasks/IG-2B10.md) | planned | content | IG-2B09 |
-| [IG-2B11: Inventory SPQR PDF pages 41–44](work/tasks/IG-2B11.md) | planned | content | IG-2B10 |
+| [IG-1C: Import all WGU collections losslessly](work/tasks/IG-1C.md) | done | implementation | IG-1B |
+| [IG-1D: Persist identities and deterministic exports](work/tasks/IG-1D.md) | done | implementation | IG-1C |
+| [IG-1E: Accept full KB input accounting](work/tasks/IG-1E.md) | done | implementation | IG-1D |
+| [IG-2A: Build independent source inventory tooling](work/tasks/IG-2A.md) | done | implementation | IG-1E |
+| [IG-2B01: Inventory SPQR PDF pages 01-04](work/tasks/IG-2B01.md) | done | content | IG-2A |
+| [IG-2B02: Inventory SPQR PDF pages 05-08](work/tasks/IG-2B02.md) | done | content | IG-2B01 |
+| [IG-2B03: Inventory SPQR PDF pages 09-12](work/tasks/IG-2B03.md) | done | content | IG-2B02 |
+| [IG-2B04: Inventory SPQR PDF physical pages 13-16](work/tasks/IG-2B04.md) | done | content | IG-2B03 |
+| [IG-2B05: Inventory SPQR PDF pages 17Ã¢â‚¬â€œ20](work/tasks/IG-2B05.md) | done | content | IG-2B04 |
+| [IG-2B06: Inventory SPQR PDF pages 21-24](work/tasks/IG-2B06.md) | done | content | IG-2B05 |
+| [IG-2B07: Inventory SPQR PDF pages 25Ã¢â‚¬â€œ28](work/tasks/IG-2B07.md) | done | content | IG-2B06 |
+| [IG-2B08: Inventory SPQR PDF pages 29Ã¢â‚¬â€œ32](work/tasks/IG-2B08.md) | changes_requested | content | IG-2B07 |
+| [IG-2B09: Inventory SPQR PDF pages 33Ã¢â‚¬â€œ36](work/tasks/IG-2B09.md) | planned | content | IG-2B08 |
+| [IG-2B10: Inventory SPQR PDF pages 37Ã¢â‚¬â€œ40](work/tasks/IG-2B10.md) | planned | content | IG-2B09 |
+| [IG-2B11: Inventory SPQR PDF pages 41Ã¢â‚¬â€œ44](work/tasks/IG-2B11.md) | planned | content | IG-2B10 |
 | [IG-2C: Implement reconciliation and source lookup](work/tasks/IG-2C.md) | planned | refine | IG-2B11 |
 | [IG-2D: Partition and close full-corpus reconciliation](work/tasks/IG-2D.md) | planned | refine | IG-2C |
 | [IG-3A: Define typed semantic IR and validation](work/tasks/IG-3A.md) | planned | refine | IG-2D |

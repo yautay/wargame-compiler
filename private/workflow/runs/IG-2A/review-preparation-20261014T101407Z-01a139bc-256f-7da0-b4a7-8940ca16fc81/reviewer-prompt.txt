@@ -1,0 +1,35 @@
+Work locally in C:\repo\wargame-compiler. Communicate with the operator in Polish; write repository content and reports in English.
+
+Perform only the separate independent technical review of the repaired IG-2A delivery. Do not execute IG-2B, repair product files, edit queue/status/allowlists, grant semantic acceptance, or transition acceptance/done.
+
+Use GPT-6.1 Sol / high. Confirm this new review session's actual model/reasoning from metadata or direct operator confirmation before substantive review; the executor's configuration confirmation is not yours. Record your own current session identity, distinct from executor codex-01a139bc-256f-7da0-b4a7-8940ca16fc81 and prior reviewer codex-01a1363e-1de5-7073-8185-d9a1f2e89c35.
+
+Read AGENTS.md, README.md, docs/STATUS.md, docs/HANDOFF.md, docs/work/WORKFLOW.md, docs/work/EVIDENCE.md, docs/skills/wgc-review/SKILL.md, docs/work/tasks/IG-2A.md and the current IG-2A queue record. Read the fresh allowlisted packet in private/workflow/runs/IG-2A/review-preparation-20261014T101407Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/packet-manifest.json and packet-context.txt; verify its pins, and regenerate through workflow.packet(output=False) into your new review directory if current queue/context differs. The coordinator owns the queue; report unexplained changes before proceeding.
+
+Frozen repair directory: private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/
+Expected SHA256:
+- delivery.json: c69df3b2867f440c6b330159a2d335dff6bf959192ebb9d3ac5d0ea59977195e
+- delivery-manifest.json: 3652874c7a029100efe81b93914934e469ba5b519bf1b66b0ff2b209645a7d49
+- delivery-handoff.md: 0ad1c51043eaef5859f6e99484889ae9e2aa0eda4c837dd9f75c754165b0e758
+- final-seal.json: 64f96bc690396ceeb3ed37722c0c29546fa4a76448710ad8b8731043f0ce312d
+
+Verify the final seal, all 273 delivery artifacts, all sealed post-freeze/governance artifacts, and original-delivery preservation records. Do not change expected hashes to conceal discrepancies. Read delivery-handoff.md, dispositions-before.json, dispositions.json, scope.json, criteria.json, checks.json, changed-products.json, preservation-final.json, toolchain.json, toolchain-change-observations.json, checkpoint-sealed.json and transition-recovery.json.
+
+Read the prior frozen review at private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/, including final-seal.json, review-manifest.json, findings.json, report.md and needed p2/ reproductions. The prior final-seal SHA256 is d45b128f0e3be2cb0f3a97c4e7b91c955fe2760474ca78e6dbeca379089d864a; review-manifest SHA256 is 5bef17ff2526b5f423704625d8eb31c5e49229b3f4c010140be9833f48d02c73. Verify them rather than treating the old report as infallible. Read the pinned original refinement at private/workflow/runs/IG-2A/attempt-20261013T155212Z/refinement.json. Compare current product only to the verified product-before copies in the repair run, without Git-history access.
+
+Independently assess closure of IG2A-R01 through R05:
+- R01: evidence freshness under page CropBox/effective crop/rotation/UserUnit/address changes; reseal candidate hashes correctly, and distinguish stale evidence from schema-only rejection. Forging a new evidence basis must not bypass actual source geometry checks.
+- R02: DPI, normalized crop physical dimensions, UserUnit, rotation, PNG dimensions and explicit Poppler rounding. Use independent fractional/nonzero-origin oracles at 72/144 DPI and all rotations; do not copy implementation assumptions as expected results.
+- R03: verified printed-label evidence must bind to the same current physical page/source/region basis. Correct same-page evidence passes; unknown/embedded_unverified labels never imply visual confirmation.
+- R04: old exclusions must become stale/unknown or fail after author region classification/uncertainty/key, registry scope, source, page address or partition changes. The sidecar author basis must not claim a current approved IG-1A whole-record exclusion or authenticate human authority. Preserve the frozen IG-1A contract and assess the limitations of the coverage-independent scope basis.
+- R05: actual missing PDF pages and silent physical identity remapping must fail; array reordering and persisted registry replay must pass. Preserve changed-PDF registry reuse refusal and identity/revision separation.
+
+Read-only official PDF: private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf; SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e. Do not download or rewrite it. All-page structural count/geometry is authorized; real text/image inspection is restricted to physical pages 1-4. All 44 pages remain substantive unprocessed placeholders; no IG-2B inventory or game legality decisions.
+
+Create a new nonexisting private/workflow/runs/IG-2A/review-<UTC>-<your-session-id>/ directory. Write only new review evidence there. Preserve all prior runs, frozen repair files, source, inventory, workflow tools, existing changes and neighbouring repositories. Use existing local/bundled dependencies and process-only settings. Record actual dependency versions and executable hashes; the executor documented a bundle change from 26.1011.11113 to 26.1013.11914 with changed Poppler EXE hashes despite equal version strings. Do not inherit binary identity claims.
+
+Use scripts/workflow.py and scripts/search.ps1 for default context/search. Run tests/sources with a new short basetemp and -p no:cacheprovider, meaningful independent boundary probes, two fresh structural inventories with the persisted registry and canonical byte/identity comparison, independent pypdf/Poppler counts, original/derived render comparisons and inspection of real pages 1-4, unchanged scripts/check.ps1 -Task IG-2A while active, workflow validate, and git diff --check. If an output-only check adapter is needed to keep operational scratch in your review directory, record it and preserve the original check script and every validation. Preserve real commands/exits/errors/times, including failed probes.
+
+Record disposition and closure evidence for each finding, every exact acceptance criterion, new actionable findings with location/consequence/reproduction/required validation, actual reviewer identity/configuration, UTC start/end and elapsed wall time. Unavailable tokens/cost/operator time remain null. Freeze review evidence, report, full manifest, coordinator handoff and final seal. Outcome may be PASS or CHANGES_REQUESTED only when justified. Do not repair findings, review your own previous changes, invent human acceptance or alter the queue. Stop with the independent review handoff for the coordinator.
+
+No reset, clean, stash, commit, push, archive or Git-history access, adjacent repository writes, new chats, agents, automations or external APIs.

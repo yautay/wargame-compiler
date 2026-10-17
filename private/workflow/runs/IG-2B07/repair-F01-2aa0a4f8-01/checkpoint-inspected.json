@@ -1,0 +1,44 @@
+{
+  "role": "executor",
+  "actor": "ig2:005-IG-2B07-executor-32eedee6:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/runtime-configuration.json",
+  "configuration_sha256": "510c7584378a512c42f72d5523ae6f9c3697ade1c0aa2da3d0d2059e7e795444",
+  "task": "IG-2B07",
+  "checkpoint_utc": "2026-10-16T20:52:24.069540+00:00",
+  "completed_operations": [
+    "Fresh affected original diagram inspected",
+    "All 43 affected nested components inspected, including new complete arrow",
+    "189-target complete final generation finished; 87 nested components; 100 assigned inventory units"
+  ],
+  "changed_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/author-input.json",
+      "bytes": 83589,
+      "sha256": "b954f08bf3c7f0f06d18935f82e15d95cb9ac11de23552c53f7e24b7ebf40e64"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/author-registry.json",
+      "bytes": 143900,
+      "sha256": "5ebe4795143bf1ac02e5775fc5e984b75dc606954b5b8758861c972b6d741701"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/run_inventory.py",
+      "bytes": 12352,
+      "sha256": "229250a01242bc68637b79cc17aa60c02e7d8c5bd84fd5d9c21cd11a2921cbc4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/visual-observations.json",
+      "bytes": 31385,
+      "sha256": "6d302407156bef13b0d6535286c6f9877121d250ea335022d323cf20a8cff25c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+      "bytes": 3969071,
+      "sha256": "24d895f0e42c56e8d8fdb49afe2605da393bf3c9f5b153b2629fc50f5ef1415d"
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Finish both complete independent replays, compare all previous IDs/payload bytes and exact revised target sets, and run unchanged required checks."
+}

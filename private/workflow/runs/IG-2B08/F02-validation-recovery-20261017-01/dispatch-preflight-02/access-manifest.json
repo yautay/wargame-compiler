@@ -1,0 +1,70 @@
+{
+  "format": "wgc-task-access-1",
+  "task": "IG-2B08",
+  "search_manifest": {
+    "path": "private/workflow/runs/IG-2B08/F02-validation-recovery-20261017-01/dispatch-preflight-02/search-manifest.json",
+    "sha256": "5b7e162498203396a8e0679dc606d63e617134987370a8ba018455c7609214ac"
+  },
+  "git_paths": [
+    "private/workflow/runs/IG-2B08/",
+    "docs/work/queue.json",
+    "docs/work/context-policy.json",
+    "docs/work/tasks/IG-2B08.md",
+    "docs/STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/ROADMAP.md",
+    "private/workflow/runs/IG-2B08/repair-F02-validation02/",
+    "AGENTS.md",
+    "README.md",
+    "docs/work/WORKFLOW.md",
+    "docs/skills/wgc-execute/SKILL.md",
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "src/wgc/sources/README.md",
+    "docs/work/EVIDENCE.md",
+    "scripts/workflow.py",
+    "scripts/check.ps1",
+    "scripts/search_task.py",
+    "scripts/dependency_context.py",
+    "scripts/context_guard.py",
+    "scripts/task_access.py",
+    "scripts/orchestrate_ig2.py",
+    "docs/skills/wgc-queue/SKILL.md",
+    "contracts/ig/README.md",
+    "contracts/ig/regions.schema.json",
+    "src/wgc/sources/__init__.py",
+    "src/wgc/sources/__main__.py",
+    "src/wgc/sources/inventory.py",
+    "src/wgc/sources/geometry.py",
+    "src/wgc/sources/pdf.py",
+    "docs/skills/wgc-review/SKILL.md"
+  ],
+  "bootstrap_reads": {
+    "docs/STATUS.md": {
+      "path": "private/workflow/runs/IG-2B08/F02-validation-recovery-20261017-01/dispatch-preflight-02/bootstrap/STATUS.md",
+      "sha256": "ba06d3378aa015c3e3fa079f8a6a1a76fb5720fe8d1d071ac66afbb5ed2fec77",
+      "bytes": 1139
+    },
+    "docs/HANDOFF.md": {
+      "path": "private/workflow/runs/IG-2B08/F02-validation-recovery-20261017-01/dispatch-preflight-02/bootstrap/HANDOFF.md",
+      "sha256": "3ed31c5843eaf6d694682c37906d70479e3aa635ab64890909d04e1e5c1880b3",
+      "bytes": 1551
+    }
+  },
+  "source_validation": {
+    "mode": "owned_attempt",
+    "attempt": "private/workflow/runs/IG-2B08/repair-F02-validation02/",
+    "inputs": [
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/inventory.json"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-1/inventory.json"
+      },
+      {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-2/inventory.json"
+      }
+    ],
+    "log_root": "private/workflow/runs/IG-2B08/review-validation-dispatch-preflight-02/"
+  }
+}

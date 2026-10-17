@@ -1,0 +1,33 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "Initial extraction-view assembly failed before evidence generation because verified page labels referenced evidence outside the bounded view. Corrected geometry-only views retain exact page bases and make no label claims. Full input/output records remain unchanged.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start.",
+    "Fresh absent executor root and checkpoint; verified latest accepted baseline/registry/source/report pins and observed gpt-6.1-sol/high; comply with the hash-pinned refinement contract and exact source context scope.",
+    "Read the new continuation scope/assessment first. The prior interrupted attempt is frozen and unaccepted; original source inspection and checks must be fresh.",
+    "Generate source evidence serially without multiprocessing or process pools; both complete independent replays and original assertions remain required."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/checkpoint.json",
+      "sha256": "ec747d88a74ff93d9396352fc7f8062e519d83e8cb563541d1a97fa2e8e70540",
+      "bytes": 3701
+    }
+  ],
+  "checks": [
+    {
+      "command": "Exact local packet/input/runtime/preservation SHA-256 preflight",
+      "exit_code": 0
+    }
+  ],
+  "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B06/continuation-21-24-serial02/generate.py --output replay-a",
+  "exit_code": 1,
+  "log_sha256": "1f6e7dc33856f6afb2eb2802181b2da2f2658efcce82f73b934351ae1a6cc237"
+}

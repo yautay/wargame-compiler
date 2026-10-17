@@ -1,0 +1,7 @@
+{
+  "command": "Inline preflight runner using runpy.run_path(relative script path)",
+  "exit_code": 1,
+  "error": "ValueError: relative __file__ parent is not in the subpath of absolute cwd",
+  "impact": "No checks or status transition ran in failed launch.",
+  "resolution": "Supply resolved absolute path to runpy; no repository tool was changed."
+}

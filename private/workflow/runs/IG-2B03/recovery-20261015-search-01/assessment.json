@@ -1,0 +1,100 @@
+{
+  "format": "wgc-draft-assessment-1",
+  "task": "IG-2B03",
+  "role": "coordinator",
+  "actor": "operator-recovery:20261015-search-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Actual builder model/reasoning are not exposed; no Sol/high execution claim.",
+  "operator_request": "Repair packet-only search, assess preserved IG-2B03 drafts, prepare safe continuation and restart IG-2.",
+  "assessed_utc": "2026-10-15T16:47:03.336313+00:00",
+  "blocked_event": {
+    "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/blocked.json",
+    "sha256": "768978997ed5f7af46c45277e8b1660cdec8741b4f50448814f1964a268e396a"
+  },
+  "accepted_dependency": {
+    "path": "private/workflow/runs/IG-2B02/closure-002-IG-2B02-reviewer-e259028c/done.json",
+    "sha256": "38ca83fa34cce3a7eca2faa0107b05838c8b3433e79ef6507935c5d1fee04c7f"
+  },
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B03/recovery-20261015-search-01/preserve-manifest.json",
+    "bytes": 171938,
+    "sha256": "026a21f1c3e1de9215c307d9bd6c8a4ddfb67ff0be4f629ff7a607b3a7a9a8e1"
+  },
+  "drafts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/authored/inventory.json",
+      "bytes": 1122277,
+      "sha256": "45a751971096ee393dcd94d78ddc009f595ee9dc6a5d601b6c5614a97e1c6eb2"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/authored/identity-registry.json",
+      "bytes": 50816,
+      "sha256": "0f7beccbd18b71e92f69bdb1e33c8c21242b5cd2f13857ca6094f67fc2d95311"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/authored/partition-plan.json",
+      "bytes": 39552,
+      "sha256": "9be17c7de5314b1cfa5d50e60a69f31e00164aa63a26e05619e1919d1094a98b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/final-verified/inventory.json",
+      "bytes": 1382194,
+      "sha256": "192d615b315e07a81f4b7929786e2b37c78505d7d4bbdec6db5fb4e19ae81321"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/final-verified/identity-registry.json",
+      "bytes": 50816,
+      "sha256": "0f7beccbd18b71e92f69bdb1e33c8c21242b5cd2f13857ca6094f67fc2d95311"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/final-verified/coverage.json",
+      "bytes": 7874,
+      "sha256": "54c6cec9a7d48fa6ff158133b0cf5aec37caa504087aaebed86d06e6312a281b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/text-geometry-audit.json",
+      "bytes": 1539,
+      "sha256": "5784785b098a4db9be57dac01c69fc983d2ffab350379dfe809ffba3dd2bfdbf"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/elephant-component-specifications.json",
+      "bytes": 2487,
+      "sha256": "e1614cc3ce2aa480fde4f7a71760dc8097753ee9b66ba1ef8102e16d16ee75a3"
+    }
+  ],
+  "results": {
+    "original_manifest_hashes_verified": 663,
+    "blocked_metadata_hashes_verified": 4,
+    "accepted_dependency_artifacts_verified": 4409,
+    "final_evidence_artifact_hashes_verified": 1221,
+    "full_pages": 44,
+    "full_regions": 439,
+    "assigned_regions": 135,
+    "unchanged_unassigned_pages": 40,
+    "unchanged_unassigned_regions": 304,
+    "preserved_prior_evidence": 272,
+    "preserved_prior_registry_bindings": 360
+  },
+  "missing_delivery_outputs": [
+    "region-ledger.json",
+    "continuations.json",
+    "coverage-report.json",
+    "visual-review.json",
+    "preservation-report.json",
+    "registry-replay-report.json",
+    "source-pins.json",
+    "toolchain.json",
+    "delivery-manifest.json",
+    "delivery.json",
+    "delivery-handoff.md"
+  ],
+  "limitations": [
+    "No delivery, independent review or technical acceptance exists for this attempt.",
+    "First replay is partial and second replay is absent; neither is reusable completion evidence.",
+    "Old green checks do not validate recovery. Raw session transcript and derivation helpers are excluded.",
+    "Structural/hash preservation does not establish semantic accuracy, boundary completeness or source coverage.",
+    "No newly generated publisher content was read outside assigned pages; no semantic acceptance granted."
+  ],
+  "decision": "Reuse only exact pinned data as unaccepted candidate drafts; reinspect source and regenerate complete evidence in a fresh attempt."
+}

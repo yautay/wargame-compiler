@@ -1,0 +1,111 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B04-executor-0de1c1e6:executor",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/runtime-configuration.json",
+  "configuration_sha256": "e1a87639410babf3023b3d500107f30b71b8f27bbc379dd5574435097eaf6e10",
+  "utc": "2026-10-16T12:28:24.677943+00:00",
+  "attempt": "private/workflow/runs/IG-2B04/continuation-13-16-rg04",
+  "summary": "Executor work complete; frozen delivery prepared for independent review.",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T115606Z-694df602/001-IG-2B04-executor-0de1c1e6/packet.json",
+    "sha256": "0026033592593f314f0df0918385a4c01cc454730f7ab177455a9bd19cf1c328",
+    "bytes": 6944
+  },
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-rg04/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/validate-final.log",
+        "bytes": 10302,
+        "sha256": "84ed4b62edf97f86dd8b42616698ebf6c66b5e19b4eeedebe6a2c2515215c2ed"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-a/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/validate-replay-a.log",
+        "bytes": 10302,
+        "sha256": "84ed4b62edf97f86dd8b42616698ebf6c66b5e19b4eeedebe6a2c2515215c2ed"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-b/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/validate-replay-b.log",
+        "bytes": 10302,
+        "sha256": "84ed4b62edf97f86dd8b42616698ebf6c66b5e19b4eeedebe6a2c2515215c2ed"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/checks/b04-rg04-src -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/sources-test.log",
+        "sha256": "39431b90e88213be16325fa82f28c96044f9be29d7269dd9edcde6788c135f1f",
+        "bytes": 100
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/repository-check-final.log",
+        "bytes": 5888,
+        "sha256": "01361531bf50a0b5586e3022eca61a07f3ecb205eb8e2642aa9d177820628d9d"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B04/continuation-13-16-rg04/audit_delivery.py",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/audit-delivery-final.log",
+        "sha256": "f6ea18f0723358c8ca0b297718f4b4d720d2408cc818b5ae09771686372a8715",
+        "bytes": 335
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/continuation-13-16-rg04/diff-check-final.log",
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3",
+        "bytes": 277613
+      }
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-16T11:56:11.870455+00:00",
+    "execution_claimed_utc": "2026-10-16T11:57:40.862452+00:00",
+    "ended_utc": "2026-10-16T12:28:24.677943+00:00",
+    "wall_seconds": 1932.807488,
+    "wall_time_basis": "Observed CLI startup metadata to delivery freeze.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Model token usage is not exposed; operator time was not reported."
+  },
+  "completed_operations": [
+    "Fresh original and all component inspection",
+    "All assigned evidence regenerated in three trees",
+    "Two independent complete replays validated and compared",
+    "Full baseline/registry/artifact preservation verified",
+    "Source/reference/denominator audits and required checks passed"
+  ],
+  "blocker": null,
+  "next_operation": "Independent reviewer inspects the frozen delivery and original pages13-16; executor stops after review transition."
+}

@@ -1,0 +1,131 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B08-coordinator-1e0c3c94:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/003-IG-2B08-coordinator-1e0c3c94/runtime-configuration.json",
+  "configuration_sha256": "8e8730d2f487a5f5038004613bf442114855d86914dc93c4149e1acb4ec54b18",
+  "task": "IG-2B08",
+  "utc": "2026-10-17T16:05:10.355045+00:00",
+  "summary": "Current bounded repair contract rendered and validated; unchanged full repository checks passed with approved execution after restricted-token temporary-directory failure.",
+  "checks": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/workflow.py",
+        "render"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B08"
+      ],
+      "exit_code": 0,
+      "execution_permissions": "require_escalated",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/full-check-approved.log",
+        "sha256": "1444986612db398a4ed9727ae5e930a1ae919b369ee40a322b92195d18bd2570",
+        "bytes": 5721
+      },
+      "result": {
+        "path": "private/workflow/checks/active-3af39e733e72418592d4317e258aa03a/result.json",
+        "sha256": "4afdadb05027f29880c3ecc397c341186cc53fa327ce9878662b600da9f544be",
+        "bytes": 206
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/diff-check.log",
+        "sha256": "32941c923bb223d0849790d8ef839aff1dd818a869aa426bb9c1cfe5dedc885d",
+        "bytes": 275706
+      }
+    }
+  ],
+  "check_exit_fields": {
+    "plan_exit": 0,
+    "dry_run_exit": 0,
+    "tests_exit": 0,
+    "diff_exit": 0
+  },
+  "execution_attempts": [
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B08"
+      ],
+      "exit_code": 1,
+      "reason": "Windows PowerShell refused script loading under its execution policy; tests did not start.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/full-check.log",
+        "sha256": "592508d97ab4602820683aa8a02e28a0a532be2565792e5d8230ba26d5e203e8",
+        "bytes": 360
+      }
+    },
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B08"
+      ],
+      "exit_code": 1,
+      "reason": "Restricted-token pytest temporary-directory access failure; planning, dry-run and diff checks passed.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/full-check-pwsh.log",
+        "sha256": "912cc6fe0879d9c0d668de42740cb0225d0c29c5c80fb81c62bc40e7f669cf65",
+        "bytes": 282709
+      }
+    },
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B08"
+      ],
+      "exit_code": 0,
+      "execution_permissions": "require_escalated",
+      "authorization_basis": "Current operator explicitly authorized approved exact-command execution for restricted-token test access failures.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/full-check-approved.log",
+        "sha256": "1444986612db398a4ed9727ae5e930a1ae919b369ee40a322b92195d18bd2570",
+        "bytes": 5721
+      }
+    }
+  ],
+  "preservation_status": "verified",
+  "preserved_artifact_count": 22211,
+  "acceptance_and_tests_unchanged": true,
+  "status_unchanged": "changes_requested",
+  "attempt_absent": true,
+  "semantic_acceptance_granted": false,
+  "executable_readiness": false
+}

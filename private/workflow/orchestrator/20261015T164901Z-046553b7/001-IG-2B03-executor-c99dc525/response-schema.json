@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "progress",
+        "pass",
+        "changes_requested",
+        "blocked"
+      ]
+    },
+    "evidence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "outcome",
+    "evidence",
+    "summary"
+  ]
+}

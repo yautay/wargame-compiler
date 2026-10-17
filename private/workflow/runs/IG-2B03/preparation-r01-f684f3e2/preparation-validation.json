@@ -1,0 +1,113 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-f684f3e2:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T164901Z-046553b7/003-IG-2B03-coordinator-f684f3e2/runtime-configuration.json",
+  "configuration_sha256": "aa792db9e1026a9dde9e689282e0bf4e9001f5c0d7279c84e05dd13675c46b59",
+  "format": "wgc-coordinator-preparation-validation-1",
+  "completed_utc": "2026-10-15T17:40:42.396462+00:00",
+  "summary": "Current R01 scope/authorization and rendered queue contract verified; no executor started or task status/event changed.",
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-r01-f684f3e2/repair-scope.json",
+      "bytes": 15863,
+      "sha256": "ae2d23453084f0a82eb3ee80ce22a18e142a72d1ffd24747451d563f5022031c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-r01-f684f3e2/authorization.json",
+      "bytes": 3796,
+      "sha256": "2e10e30a4fe1f990a9c853f7650d626609d0a667c3fba628fbafbc1e832423a3"
+    },
+    {
+      "path": "private/workflow/checks/active-ff20ffb6d7484a2e948228a35d9f5bc0/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-ff20ffb6d7484a2e948228a35d9f5bc0/dry-run.log",
+      "bytes": 185,
+      "sha256": "857b1295906c7e84fc491af7f86880e9d4eb6447b55f90def225336aab38fb40"
+    },
+    {
+      "path": "private/workflow/checks/active-ff20ffb6d7484a2e948228a35d9f5bc0/pytest.log",
+      "bytes": 265,
+      "sha256": "06fcd6225e782e948a9efc61716290f3b61e181bfb0f3a03faa86f1855d4c368"
+    },
+    {
+      "path": "private/workflow/checks/active-ff20ffb6d7484a2e948228a35d9f5bc0/diff-check.log",
+      "bytes": 5064,
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    },
+    {
+      "path": "private/workflow/checks/active-ff20ffb6d7484a2e948228a35d9f5bc0/result.json",
+      "bytes": 206,
+      "sha256": "472ce5f83651136c69bd9daeaa1a8b6a00c0794cc19f7a6fd004ff46276b5e0f"
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B scripts/workflow.py render",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B scripts/workflow.py validate",
+      "exit_code": 0,
+      "result": "39 tasks, DAG, scope, context and views valid"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 0,
+      "result": "184 passed in 50.15s; plan/dry-run/tests/diff all zero",
+      "permissions": "require_escalated; approved exact unchanged retry after restricted-token WinError 5",
+      "restricted_attempt": {
+        "exit_code": 1,
+        "report": {
+          "path": "private/workflow/checks/active-468f6cfa60674934a1becd915c2f0ffa/result.json",
+          "bytes": 206,
+          "sha256": "c66a65df7e7c428f3095f142c443f9d9f3a2a855aacba9028d75400a31d75baa"
+        }
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-coord-f684f3e2 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "result": "71 passed in 28.85s",
+      "permissions": "require_escalated; approved exact unchanged retry after restricted-token WinError 5",
+      "restricted_attempt": {
+        "exit_code": 1,
+        "failure": "PermissionError: WinError 5 accessing pytest basetemp"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "No diff errors or access failures; existing CRLF normalization warnings only",
+      "permissions": "require_escalated after restricted-token access warnings"
+    },
+    {
+      "command": "scripts.orchestrate_ig2.verify_repair_authorization(Path.cwd(), selected_task)",
+      "exit_code": 0,
+      "result": "Current R01 and current immutable delivery bound; new owned attempt absent"
+    },
+    {
+      "command": "Local exact frozen-artifact SHA-256 and contract preservation assertions",
+      "exit_code": 0,
+      "result": {
+        "delivery_artifacts_unchanged": 2334,
+        "blocked_artifacts_unchanged": 666,
+        "review_artifacts_unchanged": 35,
+        "acceptance_tests_events_status_unchanged": true,
+        "new_attempt_absent": true
+      }
+    }
+  ],
+  "context_access_deviations": [
+    "A task JSON field selection inadvertently printed the complete selected task event list; no other queue events were printed.",
+    "Direct current-review and artifact-path output was insufficiently bounded and truncated. Subsequent reads used exact selected findings/checks and locators. No source inspection or semantic conclusion is claimed."
+  ],
+  "semantic_acceptance_granted": false,
+  "technical_acceptance_granted": false,
+  "next_action": "Supervisor may launch one fresh observed gpt-6.1-sol/high executor for the exact current R01 repair authorization."
+}

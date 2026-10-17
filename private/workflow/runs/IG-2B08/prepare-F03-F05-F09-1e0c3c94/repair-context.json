@@ -1,0 +1,399 @@
+{
+  "format": "wgc-current-repair-context-1",
+  "task": "IG-2B08",
+  "scope": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/repair-scope.json",
+    "sha256": "37296902f0a7717de5f20997a73fa5218219287d47ed51c5ef2bb9a88f6ea044",
+    "bytes": 14178
+  },
+  "current_review": {
+    "path": "private/workflow/runs/IG-2B08/review-00a548c6/review.json",
+    "sha256": "ac91b401eaa9e31ad775e8a55601521a3cb69dc0f22897264de94eab86a1ccfe",
+    "bytes": 1443081
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/delivery.json",
+    "sha256": "00328bb99d2bb49708078181a007ba3dff40bba5af6e200325d2aba77d6be52f",
+    "bytes": 1362913
+  },
+  "preserve_manifest": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F03-F05-F09-1e0c3c94/preserve-manifest.json",
+    "sha256": "0383c5d278837bf72dbedc7003c2564984591d83f8f339f045d7265dbb44d9f2",
+    "bytes": 5697796
+  },
+  "finding_cycles": {
+    "F03": {
+      "completed_cycles": 1,
+      "authorized_cycle": 2,
+      "maximum_cycles": 2
+    },
+    "F05": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F06": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F07": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F08": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    },
+    "F09": {
+      "completed_cycles": 0,
+      "authorized_cycle": 1,
+      "maximum_cycles": 2
+    }
+  },
+  "findings": [
+    {
+      "id": "F03",
+      "status": "reopened",
+      "title": "Tribune top frame is still clipped in the separate V-group detail",
+      "description": "The repaired named v-counter detail 257 is complete. However the same physical Tribune remains clipped in separately authored collapse-diagram-component-v [173,337,241,383]: its top frame lies above the crop. The original F03 full-component repair requirement includes the frame; retain F03 rather than allocating a fresh budget to the same Tribune completeness defect.",
+      "required_repair": "Repair the listed intended details in a fresh authorized attempt and regenerate their dependent evidence, ledgers, indexes and complete replay sets. Preserve current immutable inputs.",
+      "components": [
+        {
+          "observation_index": 150,
+          "key": "ig2b08:p29:collapse-diagram-component-v",
+          "region_id": "region:52a0d59e-4441-449c-8941-6c23cc89f912",
+          "page": 29,
+          "points": [
+            173,
+            337,
+            241,
+            383
+          ],
+          "witness_points": [
+            183,
+            333,
+            213,
+            336
+          ],
+          "label": "Tribune top frame"
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "status": "new",
+      "title": "Three intended 2-marker details omit their exposed right frames",
+      "description": "The A and B 2-marker details in the first page-29 diagram, and B-hits-label detail in the second diagram, clip the visible lower-right frame behind the blue counters. Their digits remain visible, but complete intended marker frames do not.",
+      "required_repair": "Repair the listed intended details in a fresh authorized attempt and regenerate their dependent evidence, ledgers, indexes and complete replay sets. Preserve current immutable inputs.",
+      "components": [
+        {
+          "observation_index": 139,
+          "key": "ig2b08:p29:collapse-diagram-component-a-hits",
+          "region_id": "region:518aaf40-f693-40c1-81de-2930fbd4b70f",
+          "page": 29,
+          "points": [
+            120,
+            317,
+            145,
+            350
+          ],
+          "witness_points": [
+            146.5,
+            342,
+            149.5,
+            349
+          ],
+          "label": "A 2-marker exposed right frame"
+        },
+        {
+          "observation_index": 142,
+          "key": "ig2b08:p29:collapse-diagram-component-b-hits",
+          "region_id": "region:0f4d97ee-6e76-4fb3-b9bc-37dcefa1c5a9",
+          "page": 29,
+          "points": [
+            119,
+            403,
+            146,
+            434
+          ],
+          "witness_points": [
+            147.5,
+            424,
+            150,
+            431
+          ],
+          "label": "B 2-marker exposed right frame"
+        },
+        {
+          "observation_index": 190,
+          "key": "ig2b08:p29:advance-diagram-component-b-hits-label",
+          "region_id": "region:49022517-6679-4128-8af0-d110da399c2f",
+          "page": 29,
+          "points": [
+            396,
+            262,
+            451,
+            329
+          ],
+          "witness_points": [
+            452.5,
+            318,
+            456,
+            325
+          ],
+          "label": "Advanced B 2-marker exposed right frame"
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "status": "new",
+      "title": "Advanced Celt C detail clips the rotated counter vertex",
+      "description": "The page-29 advance-diagram-component-c-destination [435,370,476,410] cuts the rotated green counter at its right vertex and lower extent. The separately repaired 3-marker detail does not supply this intended counter crop.",
+      "required_repair": "Repair the listed intended details in a fresh authorized attempt and regenerate their dependent evidence, ledgers, indexes and complete replay sets. Preserve current immutable inputs.",
+      "components": [
+        {
+          "observation_index": 196,
+          "key": "ig2b08:p29:advance-diagram-component-c-destination",
+          "region_id": "region:ea5875a6-b814-4ac4-9e90-33a3eede5793",
+          "page": 29,
+          "points": [
+            435,
+            370,
+            476,
+            410
+          ],
+          "witness_points": [
+            476.5,
+            381,
+            479,
+            391
+          ],
+          "label": "Celt C right counter vertex"
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "status": "new",
+      "title": "Opaque Phalanx details remain clipped in two page-30 panels",
+      "description": "Advance component-phalanx [90,382,155,447] cuts the opaque red counter right vertex. Advance-with-Wheel component-destination [220,378,252,434] cuts its lower red edge/frame. Both intended destination details must contain their full visible counters.",
+      "required_repair": "Repair the listed intended details in a fresh authorized attempt and regenerate their dependent evidence, ledgers, indexes and complete replay sets. Preserve current immutable inputs.",
+      "components": [
+        {
+          "observation_index": 228,
+          "key": "ig2b08:p30:advance-component-phalanx",
+          "region_id": "region:41601c23-5d9e-4e4d-b84c-2ea8fc229546",
+          "page": 30,
+          "points": [
+            90,
+            382,
+            155,
+            447
+          ],
+          "witness_points": [
+            155.5,
+            408,
+            158,
+            416
+          ],
+          "label": "Advance opaque Phalanx right vertex"
+        },
+        {
+          "observation_index": 239,
+          "key": "ig2b08:p30:advance-wheel-component-destination",
+          "region_id": "region:547a05cb-e2de-442e-9530-5970d2b87796",
+          "page": 30,
+          "points": [
+            220,
+            378,
+            252,
+            434
+          ],
+          "witness_points": [
+            221,
+            434.5,
+            248,
+            436.5
+          ],
+          "label": "Wheeled opaque Phalanx lower border"
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "status": "new",
+      "title": "Translucent Phalanx origin details omit visible counter corners",
+      "description": "Pivot Advance component-origin [233,201,282,258] clips the translucent red origin lower corner. Advance-with-Wheel component-origins [224,383,283,474] clips the lower translucent origin left corner and lower extent. The complete visible origin counter outlines must be retained.",
+      "required_repair": "Repair the listed intended details in a fresh authorized attempt and regenerate their dependent evidence, ledgers, indexes and complete replay sets. Preserve current immutable inputs.",
+      "components": [
+        {
+          "observation_index": 216,
+          "key": "ig2b08:p30:pivot-advance-component-origin",
+          "region_id": "region:96c1eaad-7414-4d3c-94f0-98a208341339",
+          "page": 30,
+          "points": [
+            233,
+            201,
+            282,
+            258
+          ],
+          "witness_points": [
+            232,
+            259,
+            237,
+            261
+          ],
+          "label": "Pivot origin lower counter vertex"
+        },
+        {
+          "observation_index": 240,
+          "key": "ig2b08:p30:advance-wheel-component-origins",
+          "region_id": "region:e46b2430-2ba5-42c3-87e2-e1ca9446d8ab",
+          "page": 30,
+          "points": [
+            224,
+            383,
+            283,
+            474
+          ],
+          "witness_points": [
+            220,
+            452,
+            223.5,
+            458
+          ],
+          "label": "Wheel origin left counter vertex"
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "status": "new",
+      "title": "Advance-with-Wheel arrow detail truncates the forward arrow tail",
+      "description": "The page-30 advance-wheel-component-arrows [202,343,268,440] captures the cyan curves and turning arrow but ends before the black forward arrow tail. This differs from resolved F01, which concerned the separate Advance panel; broad primary tiles and the origin detail cannot complete the separately authored wheel-arrow evidence.",
+      "required_repair": "Repair the listed intended details in a fresh authorized attempt and regenerate their dependent evidence, ledgers, indexes and complete replay sets. Preserve current immutable inputs.",
+      "components": [
+        {
+          "observation_index": 241,
+          "key": "ig2b08:p30:advance-wheel-component-arrows",
+          "region_id": "region:8d4409aa-2ee9-4e5a-802d-b9f4ac5f1dd8",
+          "page": 30,
+          "points": [
+            202,
+            343,
+            268,
+            440
+          ],
+          "witness_points": [
+            247,
+            441,
+            257,
+            449
+          ],
+          "label": "Wheel forward black arrow tail"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/author-selections.json",
+      "bytes": 85961,
+      "sha256": "d09725cb5fafe88683cdad001d1c1c9711463481be7b88ad057b11a5b542162a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/author-inventory.json",
+      "bytes": 4398415,
+      "sha256": "fd02e5cc86207c47819756d28c2623741cb1c117b1a9e497acb3a1b614e270ad"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/author-registry.json",
+      "bytes": 184306,
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/build_inventory.py",
+      "bytes": 13505,
+      "sha256": "66ce38d5a7aa4e5f72676c6b556947fbece62884b483bddd4b25ccbf581a8d42"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/inspect_originals.py",
+      "bytes": 2323,
+      "sha256": "4e7870eddf0af05901d0153373c62d3dbef9d67bab0929696e116d61e9f8522a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/verify_batch.py",
+      "bytes": 20407,
+      "sha256": "867b12cf821929618fd4661cbbbc2fe8d66c900870a664d9b5896939cbfe360b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/check_arrow_completeness.py",
+      "bytes": 5950,
+      "sha256": "355b58e5308e31b4dc0de5ab543029b9dd3c3f41223b15002fb15b0e06f01665"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/check_hit_completeness.py",
+      "bytes": 5424,
+      "sha256": "71e0887da54ca9ae0a71c0d1a7d971f7c666307f783fb50e7c52c06451d642e4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/check_component_completeness.py",
+      "bytes": 5503,
+      "sha256": "17723e4111449ee8aae8849700409c1629960aef27f2227800884e5572f69fd4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/freeze_delivery.py",
+      "bytes": 12631,
+      "sha256": "eb79746b905ae3f447624ff33a44b0a1ded4d8bd0017570bc2ed9830ea99f829"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/toolchain.json",
+      "bytes": 4514,
+      "sha256": "d8704a72798759fe7d98856b5be8efff2229fc47eb3a63cfe21d8f28acdc49f0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/region-ledger.json",
+      "bytes": 2595729,
+      "sha256": "3cbe19fd5269b890195c2fd899133921dcfbff16e5023ba18b8957749274a5a4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/component-ledger.json",
+      "bytes": 725003,
+      "sha256": "f1fe86e2262941e5348202d266bb6a63b1102b9efa9d122d62697d41f7916765"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/source-pins.json",
+      "bytes": 1382006,
+      "sha256": "7acac3c98112154a2c06b69cf62436cba4b1e4e9b0798d80fbb63b1892d06d28"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/F03-F04-completeness-report.json",
+      "bytes": 7440,
+      "sha256": "8f1a7be7fca75821203b4afeb6772b16304dcf9f30ba0d09855f6b8f54e25236"
+    }
+  ],
+  "path_mapping": {
+    "to": "private/workflow/runs/IG-2B08/repair-F03-F05-F09-1e0c3c94/",
+    "from": [
+      "private/workflow/runs/IG-2B08/repair-F03-F04-01/",
+      "private/workflow/runs/IG-2B08/repair-F02-validation02/",
+      "private/workflow/runs/IG-2B08/repair-F02-7582f722/",
+      "private/workflow/runs/IG-2B08/repair-F01-manifest02/",
+      "private/workflow/runs/IG-2B08/inventory-p33-scope02/",
+      "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/"
+    ]
+  },
+  "operational_rules": [
+    "This CURRENT scope replaces all initial continuation and earlier repair write ownership and operational mappings. Acceptance/tests remain verbatim; map command/output operands into the fresh attempt only.",
+    "F03 has one remaining cycle. Do not renumber/reset findings; if unresolved after this cycle, block with the smallest operator decision. New F05-F09 each begin cycle one of two.",
+    "Fresh actor, observed gpt-6.1-sol/high, current claim and checkpoint precede executor product writes. Prior green checks and inspection claims are not inherited.",
+    "Use only the exact three task_access validate-source commands after claim. Keep validation logs private. Preserve complete inherited process_pythonpath and Poppler process_path_prefix from pinned toolchain; install nothing.",
+    "Serial evidence generation in the current Python process; two complete independent replay runs remain required. No multiprocessing or worker pools.",
+    "Unchanged suites/assertions remain binding. For an observed Windows restricted-token failure request approved execution of the exact unchanged command; no restricted retry, ACL/library/test changes or bypass flag.",
+    "Only the supervisor launches roles. Independent review is required; model/code review grants no human semantic acceptance or executable readiness."
+  ]
+}

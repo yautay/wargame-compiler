@@ -1,0 +1,25 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-F02-validation-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable. Fresh executor/reviewer must confirm observed gpt-6.1-sol/high startup; no inherited identity or acceptance.",
+  "utc": "2026-10-17T12:47:54.009932+00:00",
+  "summary": "Executor validation was refused because only reviewer dispatch populated validation operands.",
+  "format": "wgc-executor-validation-scope-incident-1",
+  "task": "IG-2B08",
+  "original_denial": {
+    "path": "private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/context-denied.json",
+    "sha256": "63b6f10876092dcb30357565254e01a7dabd930e0d629f577c2a3cb757a93e96",
+    "bytes": 169
+  },
+  "denial": {
+    "format": "wgc-context-denial-1",
+    "task": "IG-2B08",
+    "helper": "task_access.validate_source",
+    "reason": "Inventory is not in the pinned validation scope",
+    "pid": 11992
+  },
+  "source_context_expanded": false,
+  "guard_stopped_before_fallback": true
+}

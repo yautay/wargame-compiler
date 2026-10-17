@@ -1,0 +1,247 @@
+{
+  "role": "instruction_preparation_seal",
+  "task": "IG-2B02",
+  "sealed_utc": "2026-10-14T22:21:30.167800+00:00",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "instruction": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/independent-review-launch.txt",
+    "bytes": 41728,
+    "sha256": "f59deea525e0d9844dea04db8087f3d2452f2aae6e6e7a8afc55799ff09b733d"
+  },
+  "catalogue": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-pins.json",
+    "bytes": 1623594,
+    "sha256": "d85b53b858304c2c5a7a052caa682c493abe79575b60d1d29c01e6468082ca97"
+  },
+  "byte_status_helper": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/verify-frozen-review-inputs.py",
+    "bytes": 4868,
+    "sha256": "1d864d7017ea2548c60346798276ef822945a5bce9a2e9cb0f0816d62894a102"
+  },
+  "preparer_configuration": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/preparer-configuration.json",
+    "bytes": 601,
+    "sha256": "284f0892c47c7f1260a2b513c7bddb41ba3102466d09bc2942fa12d4f3b85802"
+  },
+  "checks": [
+    {
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T22:19:50.931479+00:00",
+      "ended_utc": "2026-10-14T22:20:24.495623+00:00",
+      "wall_seconds": 33.5779999999977,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stdout",
+        "bytes": 5715,
+        "sha256": "26f206c970e26b6505e9359d5c279fe1385de6d3461586a12af7286697390d8b"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T22:20:24.512305+00:00",
+      "ended_utc": "2026-10-14T22:20:25.700320+00:00",
+      "wall_seconds": 1.1870000000017171,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T22:20:25.702846+00:00",
+      "ended_utc": "2026-10-14T22:20:26.784951+00:00",
+      "wall_seconds": 1.0779999999977008,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/verify-frozen-review-inputs.py",
+        "--report",
+        "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-preparation-frozen-verification.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T22:21:27.265214+00:00",
+      "ended_utc": "2026-10-14T22:21:30.139497+00:00",
+      "wall_seconds": 2.875,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-verification.stdout",
+        "bytes": 1167,
+        "sha256": "b11a19b9a1df86dfef72babdc26e7f8bfe4286f4f5b9be1233b9fbd56e62b32f"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-verification.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "owned_files": [
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/build-review-launch.py",
+      "bytes": 36924,
+      "sha256": "9dbb84cd846e8d782d60c730edeaf76967cc24c7bb5175ba7c00d58d2e174b29"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/checks.json",
+      "bytes": 2868,
+      "sha256": "fd55ff1804a43ddecd7d50ab4825286efe567ccc1b1f021d4d9ae73c543cc6fa"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.command.json",
+      "bytes": 741,
+      "sha256": "a3f13e0f2a591d46a2677477f615a1317b13370d8b2e2a71d5b6b0d761958af7"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stderr",
+      "bytes": 5143,
+      "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-delivery-verification.json",
+      "bytes": 1156,
+      "sha256": "a82ec80406a850c32cda0674f7be6938a90e173621ca2d0959823c690eb3db80"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-pins.json",
+      "bytes": 1623594,
+      "sha256": "d85b53b858304c2c5a7a052caa682c493abe79575b60d1d29c01e6468082ca97"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/independent-review-launch.txt",
+      "bytes": 41728,
+      "sha256": "f59deea525e0d9844dea04db8087f3d2452f2aae6e6e7a8afc55799ff09b733d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/launch-delivery.json",
+      "bytes": 2814,
+      "sha256": "38b1ad479358c04d9137540ac8d7497eb1f42de3eaeff9d0e9e00978eff628c1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-preparation-frozen-verification.json",
+      "bytes": 1142,
+      "sha256": "8e24ad46f2d20402f69d6699f5559fb7024f6f4b9242855806f9c812ca4db505"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-verification.command.json",
+      "bytes": 1099,
+      "sha256": "e8affceca9c4148c404867fe28ce4d1f91f65e6b7ebaeabbd6daf3dd24fa378e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-verification.stdout",
+      "bytes": 1167,
+      "sha256": "b11a19b9a1df86dfef72babdc26e7f8bfe4286f4f5b9be1233b9fbd56e62b32f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/preparation.json",
+      "bytes": 1238,
+      "sha256": "c06c404c514a10b09ba4fa38b5817ba64fea8dcecbe8ac9821d51980e190aba6"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/preparer-configuration.json",
+      "bytes": 601,
+      "sha256": "284f0892c47c7f1260a2b513c7bddb41ba3102466d09bc2942fa12d4f3b85802"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.command.json",
+      "bytes": 903,
+      "sha256": "b6f1788d784af06a9a2997d5f4dc022a40dd1ee758cd60908e2b70e7532b51d8"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stdout",
+      "bytes": 5715,
+      "sha256": "26f206c970e26b6505e9359d5c279fe1385de6d3461586a12af7286697390d8b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/run-preparation-checks.py",
+      "bytes": 2280,
+      "sha256": "6e319dbfe522d25e777d3754da116ec84bb6c8d9663aa2a00373d2c34c204308"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/verify-frozen-review-inputs.py",
+      "bytes": 4868,
+      "sha256": "1d864d7017ea2548c60346798276ef822945a5bce9a2e9cb0f0816d62894a102"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.command.json",
+      "bytes": 825,
+      "sha256": "b9d52174b46b7e24908fba0eec931c98bf158504f2e76f4225c907a870cbc1a4"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    }
+  ],
+  "queue_unchanged": true,
+  "queue": {
+    "path": "docs/work/queue.json",
+    "bytes": 152236,
+    "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+  },
+  "status": "review",
+  "frozen_executor_artifacts_unchanged": true,
+  "independent_review_performed": false,
+  "new_session_created": false,
+  "acceptance_granted": false,
+  "self_exclusion": "This preparation seal excludes itself; this is not a review or acceptance seal."
+}

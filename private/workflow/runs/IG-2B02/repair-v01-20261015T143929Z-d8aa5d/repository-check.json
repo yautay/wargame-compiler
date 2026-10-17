@@ -1,0 +1,24 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "name": "repository-check",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/check.ps1",
+    "-Task",
+    "IG-2B02"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T14:47:00.372934+00:00",
+  "ended_utc": "2026-10-15T14:47:39.311244+00:00",
+  "wall_seconds": 38.937999999994645,
+  "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/repository-check.stdout",
+  "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/repository-check.stderr"
+}

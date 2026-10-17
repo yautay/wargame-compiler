@@ -1,0 +1,95 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "format": "wgc-ig2b03-refinement-1",
+  "prepared_utc": "2026-10-15T15:04:28.676539+00:00",
+  "dependency": "IG-2B02",
+  "kind": "content",
+  "assigned_physical_pages": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "target_ids": [
+    "page:779d2dd6-e184-44c9-9a82-6f98796d23d0",
+    "page:5695e3e1-b941-43c2-80f7-27fb779e378e",
+    "page:0218ef3b-56bd-4f08-856f-daeb289ea9cf",
+    "page:244eb5d5-9ae2-42cb-9683-08b8df295602"
+  ],
+  "context_only_ids": [
+    "region:4e214fcf-8b87-4041-801c-113abd217ccc"
+  ],
+  "inputs": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/input-pins.json",
+    "bytes": 6925,
+    "sha256": "ad9146959cf2d99411d7154261c3d487cdd9f878cdc2de865df38f9144590514"
+  },
+  "output_root": "private/workflow/runs/IG-2B03/inventory-003-e285fb76",
+  "content_access": {
+    "pdf_pages": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "adjacent_context": "Optional read of only the accepted page-8 subordinate-momentum region and exact evidence pinned in input-pins.json. No fresh extraction/rendering of page 8. Accepted boundary report says no unfinished fragment. No access to page 13 or other source pages; retain raw cross-chapter citations and unresolved gaps without following them.",
+    "structural_access": "Hash entire pinned files, count PDF pages and verify geometry of all 44 physical pages without text/image extraction. Baseline metadata may be compared for preservation; accepted unrelated text/evidence may only be byte-compared, never analyzed."
+  },
+  "preservation": {
+    "baseline_inventory": {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json",
+      "bytes": 942151,
+      "sha256": "5e2c85c83e9682d484492a2c765d0f958d37c2ca0d5e63986f05ec40a3e1f96b"
+    },
+    "registry": {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/identity-registry.json",
+      "bytes": 37379,
+      "sha256": "cf6d44fd993587a8731af253b2522885d028873ff3e7b4deb2acb2cd5cdfa9e0"
+    },
+    "immutable_pages": "Exact accepted pages/regions/coverage/evidence 1-8 and placeholders 13-44, all old evidence, links, registry entries and existing context regions remain unchanged. Only page-label evidence for assigned pages may be added with current exact locators. Retire only placeholder membership for 9-12; retain retired registry bindings. Extend explicit keys without remapping.",
+    "context": "Do not convert the optional page-8 record to context in the inherited full inventory or change its accepted denominator role. Count it only as context in this task report; no new duplicate inventory membership or denominator units."
+  },
+  "original_acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger."
+  ],
+  "original_tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator."
+  ],
+  "required_outputs": [
+    "final-verified/inventory.json",
+    "final-verified/identity-registry.json",
+    "region-ledger.json",
+    "continuations.json",
+    "coverage-report.json",
+    "visual-review.json",
+    "preservation-report.json",
+    "registry-replay-report.json",
+    "source-pins.json",
+    "toolchain.json",
+    "delivery-manifest.json",
+    "delivery.json",
+    "delivery-handoff.md"
+  ],
+  "evidence_policy": "Derive exact current UTF-8 text, PNG and crop PDF evidence for every new assigned region. New absent directories only. Pin source/page_basis_hash/box/revision/engines/DPI/actual dimensions/Unicode offsets and artifact bytes/SHA256. Ledger includes all region IDs and reading order; counters/diagrams have component observations. No automatic represented/excluded promotions. Blank geometry and all partial/unprocessed content stay explicit gaps.",
+  "replay": "Replay authored partition with persisted registry in two new directories. Compare identical canonical authored inventory/registry bytes and IDs; evidence outputs use separate paths and must each independently validate, without claiming path-dependent final evidence bytes equal.",
+  "review": "Independent fresh reviewer inspects original physical pages 9-12 and all authored region boundaries and components, not merely crops or ledger. Compare complete source coverage, exact preservation, old hashes, current locators and every submitted artifact. Technical review grants no semantic acceptance.",
+  "required_commands": [
+    ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/inventory-003-e285fb76/final-verified/inventory.json",
+    ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-<unique-attempt> -p no:cacheprovider --tb=short",
+    "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+    ".venv/Scripts/python.exe -B scripts/workflow.py validate",
+    "git diff --check"
+  ],
+  "operational": "Fresh executor claims with its own observed Sol/high runtime evidence and ownership before authoring. Queue structural edits remain coordinator-owned. At most two repairs per finding/two unchanged retries. If restricted Windows token cannot access mode0700 pytest dirs, request approved exact unchanged command; never alter ACLs/tests/libraries/assertions. Stop after this task.",
+  "semantic_acceptance_granted": false,
+  "executable_readiness": "unverified"
+}

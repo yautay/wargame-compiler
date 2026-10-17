@@ -1,0 +1,98 @@
+{
+  "successful_scripts": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare-refined.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preflight-narrowed.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare-delivery-verified.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "failed_scripts": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare.py"
+      ],
+      "exit_code": 1,
+      "reason": "Historical mutable context-policy snapshot initially classified as immutable; failed before queue mutation."
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preflight.py"
+      ],
+      "exit_code": 1,
+      "reason": "Windows backslashes in private source CLI invocation: contained CLI exit 2; render/validate passed."
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preflight-completed.py"
+      ],
+      "exit_code": 1,
+      "reason": "Preflight packet context over 100KB; no ready transition or packet attempted."
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare-delivery.py"
+      ],
+      "exit_code": 1,
+      "reason": "Audit initially compared LF logical payload with CRLF physical packet bytes."
+    }
+  ],
+  "other_failures": [
+    {
+      "command": "Inline preflight runner using runpy.run_path(relative script path)",
+      "exit_code": 1,
+      "error": "ValueError: relative __file__ parent is not in the subpath of absolute cwd",
+      "impact": "No checks or status transition ran in failed launch.",
+      "resolution": "Supply resolved absolute path to runpy; no repository tool was changed."
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare-delivery.py"
+      ],
+      "exit_code": 1,
+      "error": "Raw reconstructed LF payload differs from Windows CRLF text file.",
+      "cause": "Existing workflow Path.write_text default Windows newline translation. Manifest context SHA256 correctly hashes on-disk CRLF bytes; text_bytes counts LF payload.",
+      "resolution": "Reconstruct actual writer bytes and independently verify manifest logical byte count plus actual raw SHA256. Preserve original failed audit script; no tool/schema/limit change."
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "private\\workflow\\runs\\IG-2B02\\preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8\\prepare.py"
+      ],
+      "exit_code": 1,
+      "error": "Coordinator audit compared a historical mutable context-policy.json pin as immutable: expected 5254bbc48499f34ce2a25717f576ee8e179b573fa63116792a30a33d1d9724ba, actual 005967eadb7b3ab12fa2e76a7c7a9594332831f3472633faac27fd524de39a3d.",
+      "impact": "Failed before any queue/policy edits. Frozen source/tool/product pins are still required to match.",
+      "resolution": "Treat the coordinator-owned current allowlist as a historical mutable snapshot like queue/generated views; record old and actual pins. Preserve first script; use a distinct revised coordinator script. This is not a source-tool failure."
+    }
+  ],
+  "resolution": "All invocation/audit errors retained and resolved with distinct coordinator scripts; no existing tool/test/contract changed and no failed transition occurred. No validation weakened."
+}

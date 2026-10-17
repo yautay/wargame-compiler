@@ -1,0 +1,39 @@
+{
+  "role": "executor",
+  "actor": "ig2:003-IG-2B08-executor-ad7f232e:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/runtime-configuration.json",
+  "configuration_sha256": "b59e0b260238cd688947be4d37c79afce10ad998044c60fcb732c66bd2fd553a",
+  "task": "IG-2B08",
+  "utc": "2026-10-17T11:37:11.778556+00:00",
+  "summary": "Fresh F02 component repair checkpoint after all immutable inputs verified.",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/packet.json",
+    "sha256": "bec3febd848ceedfa05a303248eb6620a9408e310892fa73c1173e7e31ed5154",
+    "bytes": 8053
+  },
+  "task_contract": {
+    "path": "private/workflow/orchestrator/20261017T111422Z-80dfde30/003-IG-2B08-executor-ad7f232e/task.json",
+    "sha256": "7e853bcf6cabd9dcf5d1c15506ac7720eaa09b5d512ebe2b586af4b79792991f",
+    "bytes": 20997
+  },
+  "repair_scope": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/repair-scope.json",
+    "sha256": "bae2982cb7c203611152224e9cc757e7f2c5f370a21165767d11525de5db473b",
+    "bytes": 21623
+  },
+  "base_file_hashes": [],
+  "changed_file_hashes": [],
+  "completed_criteria": [],
+  "checks": [
+    {
+      "command": "Internal SHA-256 verification of packet, immutable delivery and preserve-manifest",
+      "exit_code": 0,
+      "delivery_artifacts": 5302,
+      "preservation_entries": 10358
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Copy only named current helpers, rebase paths, inspect originals and all assigned components before rebuilding."
+}

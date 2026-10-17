@@ -1,0 +1,58 @@
+{
+  "role": "coordinator",
+  "actor": "ig1-stage-executor-20261013",
+  "task": "IG-1C",
+  "summary": "Independent reviewer actual model/reasoning unavailable; direct observation of that reviewer session UI is required by current operator request. Frozen product complete under executor controls; no independent PASS or acceptance. Stop at genuine external configuration blocker; D/E remain planned.",
+  "criteria": [
+    "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+    "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+    "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+    "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/delivery.json",
+      "sha256": "8e3fc23cf3d64783b10c2f48287196b807272c2f5b356bcaabf35e695dbd9017"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/reviewer-configuration-observation.json",
+      "sha256": "8632c49af12066700e563ce26c336d5f2f1a066035a2f7b1acc703a76fead2b0"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/pending-handoff.md",
+      "sha256": "033214b9c694d7369c0f82695e2b0c83efca27cce45c3d53c6fc898936581822"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/stage-20261013/reviewer-dispatch.json",
+      "sha256": "62e830b6d413f30ec40ea5c4fc2f22f25b8aae4930125ec07b35074f5d733158"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-1C/stage-20261013/configuration.json",
+    "sha256": "36b37bb17ef9af1f3953075240417dd890c25449c73a26b1135fc6e06bcbcee6",
+    "source": "Direct current executor-session operator UI confirmation"
+  },
+  "blocker": {
+    "id": "IG-1C-REVIEWER-CONFIGURATION",
+    "owner": "operator",
+    "actual_reviewer_model": null,
+    "actual_reviewer_reasoning": null,
+    "required_action": "Direct operator observation/confirmation of THIS independent reviewer chat UI, then coordinator replan/readiness/claim/review without changing frozen product bytes."
+  },
+  "checks": [
+    {
+      "command": "scripts/workflow.py validate (before blocker transition)",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check (before blocker transition)",
+      "exit_code": 0
+    }
+  ],
+  "recorded_utc": "2026-10-13T07:25:13.301060+00:00",
+  "independent_pass": false,
+  "semantic_acceptance_granted": false,
+  "executable_readiness_granted": false
+}

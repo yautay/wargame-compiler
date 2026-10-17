@@ -1,0 +1,24 @@
+{
+  "format": "wgc-relaunch-verification-1",
+  "observed_utc": "2026-10-15T16:50:15.883256+00:00",
+  "run": "private/workflow/orchestrator/20261015T164901Z-046553b7",
+  "supervisor_pid": 22100,
+  "process_liveness": "Confirmed by approved read-only Get-Process after launch.",
+  "task": "IG-2B03",
+  "role": "executor",
+  "state_at_observation": "running",
+  "runtime": {
+    "path": "private/workflow/orchestrator/20261015T164901Z-046553b7/001-IG-2B03-executor-c99dc525/runtime-configuration.json",
+    "sha256": "facee979a449b5effc6b8c3dcc305cce8697e626daafc8685b074be3fa6646ef"
+  },
+  "search_manifest": {
+    "path": "private/workflow/orchestrator/20261015T164901Z-046553b7/001-IG-2B03-executor-c99dc525/search-manifest.json",
+    "sha256": "f2bd36c88a82fe29c475b7e438048faa57fbc971b8c9c96aa6eebeb9f737a39a"
+  },
+  "search_smoke_check": {
+    "command": "scripts/search_task.py with current session manifest/SHA, exact scripts/workflow.py and ^def transition",
+    "exit_code": 0,
+    "matches": 1
+  },
+  "acceptance": "IG-2B03 remains unaccepted; executor must freshly inspect, rebuild, test and obtain independent review."
+}

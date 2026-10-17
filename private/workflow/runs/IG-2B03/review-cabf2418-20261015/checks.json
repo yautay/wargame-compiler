@@ -1,0 +1,112 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B03-reviewer-cabf2418:reviewer",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T175019Z-9761be5b/002-IG-2B03-reviewer-cabf2418/runtime-configuration.json",
+  "configuration_sha256": "72bc31860295263a903b02314ae959ac3eef0e2cba18d1edcab14a6c4ec866ad",
+  "format": "wgc-independent-review-checks-1",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-cabf2418 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "result": "71 passed in 26.63s",
+      "permissions": "Approved require_escalated exact unchanged command after restricted-token mode0700 WinError 5"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 0,
+      "result": "192 passed in 44.66s; plan/dry-run/tests/diff all zero",
+      "permissions": "Approved require_escalated exact unchanged command after restricted-token mode0700 WinError 5",
+      "report": {
+        "path": "private/workflow/checks/active-d6d08123c8ff44f286fe7b9d694afbd0/result.json",
+        "bytes": 206,
+        "sha256": "7fd3ea9433fed3957c880ef5b5b65017674f66f9bd0b12f61e86221171d72c3c"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B scripts/workflow.py validate",
+      "exit_code": 0,
+      "result": "Validated 39 tasks, DAG, scope, context and derived views."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "Approved read-only execution passed; existing CRLF normalization warnings only.",
+      "permissions": "Approved require_escalated exact unchanged command after initial restricted-token access warnings"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-2B03/review-cabf2418-20261015/verify.py",
+      "exit_code": 0,
+      "result": "Every frozen artifact and exact control/dependency/source/configuration pin verified; full report structure comparison passed."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-2B03/review-cabf2418-20261015/validate.py",
+      "exit_code": 0,
+      "result": "157 locators verified; accepted nested scope/registry/evidence/links/order preserved; two authored replays byte-identical; six path-dependent inventories validated."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-final-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      },
+      "source_structure_verification": "verified"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-a-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-replay-a-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      },
+      "source_structure_verification": "verified"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-b-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-replay-b-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      },
+      "source_structure_verification": "verified"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-components.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      },
+      "source_structure_verification": "verified"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-a/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-components-replay-a.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      },
+      "source_structure_verification": "verified"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-b/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/review-cabf2418-20261015/root-components-replay-b.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      },
+      "source_structure_verification": "verified"
+    }
+  ],
+  "initial_failures": "Source suite and repository check failed under the restricted Windows token with mode0700 WinError 5. Each exact unchanged command received one approved retry and passed. Initial diff output included access warnings despite exit zero; its approved exact retry had no access failures.",
+  "semantic_acceptance_granted": false
+}

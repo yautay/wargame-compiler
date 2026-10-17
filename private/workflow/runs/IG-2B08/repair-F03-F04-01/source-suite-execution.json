@@ -1,0 +1,32 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/repair-F03-F04-01/source-pytest -p no:cacheprovider --tb=short",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "execution": "restricted",
+      "observed_failure": "Windows pytest temporary-directory access denial",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/source-suite-restricted.log",
+        "bytes": 4367,
+        "sha256": "498932f3a7bbe13a6b61ca85034c9bed04781573d9d22085614460bd6461b293"
+      }
+    },
+    {
+      "exit_code": 0,
+      "execution": "require_escalated approval granted",
+      "tests_assertions_unchanged": true,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F03-F04-01/source-suite-approved.log",
+        "bytes": 102,
+        "sha256": "8ff65e9716cbdff01dbaa7a5e6c0a18dc13efb97b32720fc194acacc3f76e253"
+      }
+    }
+  ],
+  "environment": "Inherited complete pinned PYTHONPATH and Poppler PATH retained."
+}

@@ -1,0 +1,31 @@
+{
+  "operator_request": "Investigate the stopped orchestrator, fix the problem and resume IG-2B06.",
+  "confirmed": [
+    "The recorded supervisor/CLI and exact attempt-owned process scope have no live OS process.",
+    "Last heartbeat was 2026-10-16T17:08:01Z; no final process/result or supervisor exception was recorded.",
+    "Corrected replay failed creating a multiprocessing named pipe with WinError 5 under the restricted token.",
+    "A synthetic regression reproduced different Windows venv-launcher and actual-supervisor PIDs. Direct base-interpreter launch now passes the same PID test."
+  ],
+  "not_established": "The external cause terminating both old supervisor and CLI is unknown. No matching System/Application crash, sleep or restart event was returned in the bounded 19:05-19:11 local inspection. Do not claim the pipe failure caused supervisor termination.",
+  "changes": [
+    "Serial source evidence generation in child instructions; two complete independent replays remain required.",
+    "Launch the installed base interpreter directly on Windows so launch PID equals actual supervisor PID.",
+    "Record a blocked status and preserve traceback for unexpected Python exceptions."
+  ],
+  "checkpoint_reconciliation": "All authored-checkpoint pins and all later corrected-geometry output pins match disk. Later corrected geometry is a candidate only; no inspection/check or acceptance claims are inherited.",
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B06/inventory-21-24-01/blocked-state-manifest.json",
+      "sha256": "914e8924909162ab27e48341efa0967cc14dbf16bf3aebacec186789a3eeb938",
+      "bytes": 24008
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/process-triage.json",
+      "sha256": "de4872d7ecb423a5fe0a8c7fe1fd4b92400c0d02fc4f9d519f773899c6770c4d",
+      "bytes": 376
+    }
+  ],
+  "actual_model": null,
+  "actual_reasoning": null,
+  "configuration_evidence": "Exact model/reasoning metadata unavailable for this coordinating session; no executor configuration claim is made. Fresh observed Sol/high remains mandatory."
+}

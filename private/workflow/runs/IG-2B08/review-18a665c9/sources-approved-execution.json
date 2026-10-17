@@ -1,0 +1,32 @@
+{
+  "task": "IG-2B08",
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-18a665c9:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/002-IG-2B08-reviewer-18a665c9/runtime-configuration.json",
+  "configuration_sha256": "e8b64f19063ce2ad9a5eecf98b6116995e09b6ec3948ef466baeadfc5119cfc5",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-m",
+    "pytest",
+    "tests/sources",
+    "-q",
+    "--basetemp",
+    "C:/repo/wargame-compiler/private/workflow/runs/IG-2B08/review-18a665c9/source-pytest",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short"
+  ],
+  "exit_code": 0,
+  "execution": "Approved exact unchanged command after observed restricted-token WinError 5.",
+  "log": {
+    "path": "private/workflow/runs/IG-2B08/review-18a665c9/sources-approved.log",
+    "sha256": "62091f30a208fe67d2d6198e287afa59f15004f7ddfb4f8bbd88092cb3336687",
+    "bytes": 102
+  },
+  "selected_counts": [
+    "71"
+  ],
+  "utc": "2026-10-17T13:51:38.830275+00:00"
+}

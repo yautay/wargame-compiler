@@ -1,0 +1,354 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B06-coordinator-1bcd2b72:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T164231Z-37ee310d/001-IG-2B06-coordinator-1bcd2b72/runtime-configuration.json",
+  "configuration_sha256": "fef9c66d2848492c774d7fac6b8765c3809087ab8278a205e03518dda3b776ba",
+  "format": "wgc-inventory-batch-refinement-1",
+  "task": "IG-2B06",
+  "summary": "Replace only the physical-page 21-24 placeholders in the latest accepted full 44-page inventory; preserve the remaining corpus and registry.",
+  "dependency": {
+    "id": "IG-2B05",
+    "status": "done",
+    "done": {
+      "from": "accepted",
+      "to": "done",
+      "utc": "2026-10-16T16:30:55.989507+00:00",
+      "evidence": "private/workflow/runs/IG-2B05/closure-002-IG-2B05-reviewer-d526bcf5/done.json",
+      "sha256": "c940105469c21af19c18e4c66377834e444724798b8bbdd839b9e1ebeed647f2"
+    }
+  },
+  "input_pins": [
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/inventory.json",
+      "sha256": "704b7beb63a0fef40948596971d561daeed5f637eb29bc670e3878cf9ea22dd2",
+      "bytes": 2719674
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/identity-registry.json",
+      "sha256": "df042168e5728bb2ef641b99cd7dc0329f7dacc643b60ea8f92bd517db675b04",
+      "bytes": 101167
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/region-ledger.json",
+      "sha256": "3c9d7ac854dfd5f917e6c3a94df269b81f1fa22ed566d95f5af273a7f223a3b8",
+      "bytes": 636580
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/continuations.json",
+      "sha256": "1c6d12a86de6ed87d43c4802361d179b4fec9d4782954d73a38fece72c026d4e",
+      "bytes": 161736
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/coverage-report.json",
+      "sha256": "ef6f49176bdb9884a16d63c2f7b86dcb9f9ca88dcd7edd9fb412d878e6db3840",
+      "bytes": 157316
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/source-pins.json",
+      "sha256": "2fdd4f534be78b8c6dafa576e6a803f23c956626cdb43e7f6aba5f7fe9923e8c",
+      "bytes": 126750
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/toolchain.json",
+      "sha256": "11336abd99b5bc99b1392f0679f77af33e8878d1bc477c5a2d620c9db1eb0dfc",
+      "bytes": 125360
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    },
+    {
+      "path": ".venv/Scripts/python.exe",
+      "sha256": "6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2",
+      "bytes": 276944
+    }
+  ],
+  "assigned_physical_pages": [
+    21,
+    22,
+    23,
+    24
+  ],
+  "assigned_page_metadata": [
+    {
+      "id": "page:6b535b9d-77f2-42ef-94a2-daedbe625bb3",
+      "key": "physical-page:21",
+      "revision": "c1404a222058a01801438c99ada340ef8c4d905f28eac1c4597d3146f308c887",
+      "pdf_page": 21,
+      "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "media_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "effective_crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "rotation": 0,
+      "user_unit": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "id": "page:dc7fbb88-43f6-488f-be54-e4e14789cc12",
+      "key": "physical-page:22",
+      "revision": "d8f08f6010577b9b6001daa9e5e87ca803a9546e8b76b5c6c192df78ce550a3c",
+      "pdf_page": 22,
+      "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "media_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "effective_crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "rotation": 0,
+      "user_unit": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "id": "page:ffccb7e8-5673-48d6-b201-e8a920e7d8a1",
+      "key": "physical-page:23",
+      "revision": "74e2f714ec2cfdfe8665079cd72110bb51b862fbf6a4e7baf1b64fc81b3bf205",
+      "pdf_page": 23,
+      "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "media_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "effective_crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "rotation": 0,
+      "user_unit": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    },
+    {
+      "id": "page:0a9c2ee0-2425-4cfb-b314-4f78c97927ce",
+      "key": "physical-page:24",
+      "revision": "f8a078e3d183b3837f592bacdaf5e52bbea69f346c2a1b3f5886739d6cdeff5c",
+      "pdf_page": 24,
+      "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "media_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "effective_crop_box": [
+        0,
+        0,
+        612000000,
+        792000000
+      ],
+      "rotation": 0,
+      "user_unit": {
+        "denominator": 1,
+        "numerator": 1
+      }
+    }
+  ],
+  "placeholder_targets": [
+    {
+      "id": "region:7e53aff3-0c89-48dd-a0a0-ca99b678efd2",
+      "key": "physical-page:21:unprocessed-placeholder",
+      "revision": "d0c242487fe9798a55bea4459afdd4bff082539584eedbd3b734830952738e99",
+      "page_id": "page:6b535b9d-77f2-42ef-94a2-daedbe625bb3",
+      "box": [
+        0,
+        0,
+        1000000,
+        1000000
+      ],
+      "denominator_role": "inventory"
+    },
+    {
+      "id": "region:e5820069-9600-4811-8871-5f4c1752846d",
+      "key": "physical-page:22:unprocessed-placeholder",
+      "revision": "8dd626a313034464316ce577637aeb33a750dbf7f2a4f7e5479aef43bbdd0f29",
+      "page_id": "page:dc7fbb88-43f6-488f-be54-e4e14789cc12",
+      "box": [
+        0,
+        0,
+        1000000,
+        1000000
+      ],
+      "denominator_role": "inventory"
+    },
+    {
+      "id": "region:a8abb86a-4575-4444-8d7e-55cdb6202400",
+      "key": "physical-page:23:unprocessed-placeholder",
+      "revision": "08b404703ac466496ac9bc1a91958b4f76e37ea30edfa93ac6ce567208aa710e",
+      "page_id": "page:ffccb7e8-5673-48d6-b201-e8a920e7d8a1",
+      "box": [
+        0,
+        0,
+        1000000,
+        1000000
+      ],
+      "denominator_role": "inventory"
+    },
+    {
+      "id": "region:200878de-e5c2-45d8-92ef-b988825fb482",
+      "key": "physical-page:24:unprocessed-placeholder",
+      "revision": "39dab05ec1ec3d0020b3029cde502f6bd40a85b2ff5949440273166040101b67",
+      "page_id": "page:0a9c2ee0-2425-4cfb-b314-4f78c97927ce",
+      "box": [
+        0,
+        0,
+        1000000,
+        1000000
+      ],
+      "denominator_role": "inventory"
+    }
+  ],
+  "context_only_source_regions": [
+    {
+      "pdf_page": 20,
+      "box": [
+        500000,
+        730000,
+        940000,
+        930000
+      ],
+      "purpose": "Incoming 7.24 lead-in at the lower right; preserve accepted baseline records."
+    },
+    {
+      "pdf_page": 25,
+      "box": [
+        60000,
+        60000,
+        940000,
+        410000
+      ],
+      "purpose": "Outgoing 8.4 procedure/sequence continuation at the upper page; do not inventory page 25."
+    }
+  ],
+  "accepted_counts": {
+    "pages": 44,
+    "regions": 646,
+    "evidence": 622,
+    "links": 126
+  },
+  "owned_executor_root": "private/workflow/runs/IG-2B06/inventory-21-24-01",
+  "required_deliverables": [
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/region-ledger.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/continuations.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/coverage-report.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/source-pins.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/toolchain.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/original-page-inspection.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/preservation-report.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/replay-report.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/validation-report.json",
+    "private/workflow/runs/IG-2B06/inventory-21-24-01/delivery-handoff.md"
+  ],
+  "preservation": [
+    "Load the full accepted inventory and its exact companion identity-registry, checking embedded registry binding before editing; do not rebuild from an ancestor or a structural importer.",
+    "Keep all 44 original page identities/geometry/source revisions. Nonassigned records, links, evidence and reading-order relative order remain structurally equal; copy them internally without dumping their contents.",
+    "Remove only the four assigned placeholder memberships and their reading-order positions. Never delete or remap their old registry entries; assign explicit new region keys and retain all registry bindings.",
+    "Preserve every pre-existing evidence artifact byte-for-byte and every baseline report as an immutable input. Update only assigned records and necessary full-inventory revision/registry/coverage bindings through existing tooling.",
+    "For links crossing the assigned boundary, preserve existing accepted references; record new links to exact current region IDs and reasons without replacing unassigned records. New context regions have denominator_role=context and do not replace the page-25 placeholder.",
+    "Use the latest accepted source-reference reports pinned above. No old placeholder source path, ancestor baseline, blocked attempt, transcript or derivation helper is an input."
+  ],
+  "inspection_and_inventory": [
+    "Freshly render and visually inspect all four original assigned pages. List every authored region and all components in original-page-inspection.json with exact source/page/box and fresh render pins; coordinator observations are navigation only.",
+    "Inspect every clause, bullet, heading, note, example, counter image, diagram, arrow, label, table/legend if present, header/footer and editorial area. Subdivide compound diagrams/counter groups into identified components or explicitly justify a complete compound region. Do not omit any component.",
+    "Use integer normalized half-open boxes and the installed locator contract. Distinguish inventory from context. Explicitly account for whitespace and all geometric gaps without claiming gaps or placeholders are represented source content.",
+    "Independently author the denominator from source regions; never use KB headings or a smaller selection. Keep transcription, descriptive semantics, formal semantics, technical review and human acceptance separate.",
+    "Inspect only the narrow adjacent context regions above to resolve incoming and outgoing continuations. Assigned pages are full-page inspection scope. If other context is indispensable, checkpoint and request a fresh bounded contract rather than expand access.",
+    "Record incoming 20-to-21, internal across-column and across-page continuations, and outgoing 24-to-25 references with region/page IDs, exact boxes and evidence pins. A known sequence/reference boundary need not falsely claim unfinished text.",
+    "Mark uncertain readings explicitly. Without a real scoped human decision, keep non-game/editorial material inventoried with appropriate explicit coverage gaps; do not fabricate excluded/accepted semantics."
+  ],
+  "fresh_evidence_and_replays": [
+    "Generate fresh source-bound text/PNG/cropped-PDF evidence for every assigned authored region at 144 DPI, using installed wgc.sources tools. Fresh evidence must bind source SHA, page basis, exact region revision/box, file paths/bytes/hashes and engine versions.",
+    "Use two separate new replay output directories replay-a and replay-b. Independently re-run complete assigned-page evidence generation from the same pre-evidence authored full inventory plus persisted registry, including all proposed boundaries/components; neither replay may reuse the other replay output as its input.",
+    "Compare canonical assigned author projections, stable IDs and registry, full nonassigned preservation, source/page/region bases, extracted text bytes, crop-PDF bytes, PNG bytes and dimensions across both replays. Report and explain path-dependent inventory/evidence IDs instead of asserting complete inventory byte equality across disjoint paths.",
+    "Create final-verified/inventory.json with its identity-registry.json in a fresh final output directory and fresh path-correct evidence locators. Validate the complete final inventory against actual source bytes and all artifact hashes; do not merely copy evidence claims from replays.",
+    "Each required report is task-local and pins exact current final inventory/registry and all relevant current input/output reports. Do not inherit old report input indexes or copy an entire old artifact manifest into context."
+  ],
+  "reports": {
+    "region-ledger.json": "Exact complete assigned region IDs/revisions, page/box, kind, component list, reading order, evidence IDs and explicit uncertainty/gaps; account for every original-page area.",
+    "continuations.json": "Exact incoming/internal/outgoing links and reasons plus distinct context-only IDs/boxes; retain cross-batch references and explicitly unresolved boundaries.",
+    "coverage-report.json": "Separate full 44-page, assigned 4-page and context-only denominators/counts/areas; account for remaining placeholders and gaps, no inference of semantic acceptance or executable readiness.",
+    "source-pins.json": "Actual official PDF/provenance, accepted baseline/registry and named reports, assigned pages/targets and all current final report/evidence pins; no obsolete placeholder path.",
+    "toolchain.json": "Installed interpreter/native/library versions and exact executable hashes, process_pythonpath including both repo/src and bundled site-packages, process_path_prefix, render settings; no installs or global changes.",
+    "preservation-report.json": "Machine-checked nonassigned-record/link/evidence equality, unchanged old registry mappings and retained retired entries, complete page identities, baseline input hashes rechecked after execution.",
+    "original-page-inspection.json": "Fresh original-page and narrow context visual observations mapped to every ledger region/component; do not inherit coordinator inspection claims.",
+    "replay-report.json": "Two independent complete replay command/exit records, input/output hashes and explicit stable/path-dependent comparison results.",
+    "validation-report.json": "Actual checks, exit codes and immutable log pins; no predicted passes.",
+    "delivery-handoff.md": "Full frozen artifact manifest reference, criteria met/unmet, independent technical/source inventory review request, unknown measurements, remaining issues and exact next action."
+  },
+  "executor_validation": [
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B06/inventory-21-24-01/final-verified/inventory.json",
+    ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B06/inventory-21-24-01/pytest-sources-01 -p no:cacheprovider --tb=short",
+    "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B06",
+    "git diff --check",
+    "Machine assertions: all nonassigned records/links/evidence preserved; registry binding/mappings retained; precisely four placeholders retired; full/task/context counts and no overlap; every assigned region has fresh evidence; both replays agree on stable content and locators validate."
+  ],
+  "independent_review": [
+    "A fresh distinct reviewer must inspect every assigned original page and every proposed region/component and boundary against the complete ledger and frozen final evidence, revalidate all pins/preservation/replay comparisons and run required checks.",
+    "Technical/source inventory review does not accept source meaning. Keep any existing human gate binding; no model may fabricate human authority or decide gameplay legality.",
+    "Review and acceptance apply only to exact frozen output hashes and complete task acceptance/tests. Readiness of this contract grants no product acceptance or completed status."
+  ],
+  "context_policy": "Only exact public control windows, selected own metadata and prepared dependency projections; assigned source pages/IDs/boxes above. No historical transcripts, archives, whole manifests/queue events, private search or unassigned source analysis.",
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed to this coordinator."
+  }
+}

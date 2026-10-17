@@ -1,0 +1,66 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "summary": "Two report-assembly path-normalization errors were corrected within this owned attempt; no source/test assertions changed.",
+  "events": [
+    {
+      "operation": "Index preserved first-pass files",
+      "exit_code": 1,
+      "reason": "Attempted relative_to(repo) on a relative helper-result path after successfully preserving the first-pass sets.",
+      "resolution": "Resolved paths before making repository-relative pins; reconstructed and verified all 2436 exact preserved artifact pins.",
+      "resolved": true
+    },
+    {
+      "operation": "Assemble full-check evidence",
+      "exit_code": 1,
+      "reason": "Passed an absolute check-log path to file_pin, which requires a safe repository-relative artifact path.",
+      "resolution": "Converted the emitted check root to a repository-relative path; preserved logs and actual exits for both executions.",
+      "resolved": true
+    }
+  ],
+  "auxiliary_toolchain_probes": {
+    "exit_codes": [
+      1,
+      1
+    ],
+    "reason": "Overstrict exploratory equality assertions compared historical executable observations and the entire historical PATH capture.",
+    "resolution": "Read the effective toolchain_policy; retain inherited settings, record actual differences, and enforce unchanged required artifact/render/replay comparisons. No required test or assertion was modified."
+  },
+  "regression_failures": [
+    {
+      "exit_code": 1,
+      "strict_mask_failure": "Six frame pixels at normalized top edge.",
+      "response": "F02 top 496 to 495; regenerate complete sets.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/superseded-first-pass/F02-regression.log",
+        "bytes": 658,
+        "sha256": "8481d381ff633dcb8a74ae70a550c8c217ca1e3f5193086f5ac703622fe7081a"
+      }
+    },
+    {
+      "exit_code": 1,
+      "strict_mask_failure": "Two frame pixels at normalized bottom edge.",
+      "response": "F02 bottom 527 to 528; strict exact-crop preflight passed every reference pixel before complete regeneration.",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/superseded-second-pass/F02-regression-current.log",
+        "bytes": 658,
+        "sha256": "bdf69506cd7a1445dba98831e30b1ee8308a0f74a4453a17c6076b1b9ed3294a"
+      }
+    }
+  ],
+  "reading_order_comparison_failure": {
+    "exit_code": 1,
+    "log": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/batch-verification.log",
+      "bytes": 510,
+      "sha256": "10a77f9090a5226d8bcd27fc8adde3025770c4defbbd290f1355bc585e29ad4c"
+    },
+    "reason": "Expanding the F02 top margin changed geometry-sort position relative to a neighboring detail.",
+    "response": "Preserve the frozen reviewed physical reading sequence explicitly. Reconstruct author/final/replays independently from baseline plus identical selections/registry and each complete generated evidence set. Assert every other field is unchanged.",
+    "required_assertion_unchanged": true
+  }
+}

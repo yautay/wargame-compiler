@@ -1,0 +1,9 @@
+{
+  "failure": "First serial derivation stopped at first region: file_pin rejected absolute output path.",
+  "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/build_inventory.py final-verified",
+  "exit_code": 1,
+  "cause": "Owned helper ROOT was absolute while inventory pins require repository-relative paths.",
+  "change": "Resolve owned ROOT relative to cwd; no product tooling/tests changed.",
+  "preservation": "First partial three-file derivative retained under failed-path-pin-01.",
+  "retry_hypothesis": "Repository-relative paths satisfy safe_artifact; final destination is freshly absent."
+}

@@ -1,0 +1,35 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-manifest-F01-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable; this is not an executor claim. New execution/review requires observed gpt-6.1-sol/high startup metadata.",
+  "utc": "2026-10-17T08:34:47.037744+00:00",
+  "summary": "The coordinator printed the exhaustive current review manifest instead of selected fields. The session correctly stopped; prepare a fresh bounded F01 repair.",
+  "format": "wgc-manifest-context-assessment-1",
+  "task": "IG-2B08",
+  "operator_request": "Oceń incydent z odczytem manifestu, popraw zakres kontekstu, przygotuj naprawę F01 i wznów orkiestrator od IG-2B08 w świeżej sesji.",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/coordinator-context-incident-b6a7690c/incident.json",
+    "sha256": "af214d0b7ca96c9692c148b4a4188acf586b947be83505b128132797b482f7f1",
+    "bytes": 1858
+  },
+  "review": {
+    "path": "private/workflow/runs/IG-2B08/review-b9632401/review.json",
+    "sha256": "cb5b44681eaa24db0254ad9acac69e03da8377ab2e532647ff6105e4ab2098c7",
+    "bytes": 2073298
+  },
+  "cause": "Exact file location was mistaken for permission to release all JSON fields; the 7719-entry artifact list was irrelevant to repair reasoning.",
+  "impact": {
+    "excess_manifest_metadata_in_context": true,
+    "extra_source_render_or_extraction": false,
+    "frozen_product_mutation": false,
+    "queue_mutation_by_incident_session": false,
+    "repair_authorization_by_incident_session": false
+  },
+  "disposition": "Retain all evidence; reject the stopped session as a repair authorization. Current independent F01 remains valid; no acceptance is inferred.",
+  "correction": "Supply a compact explicit projection of current findings and named input pins. Full review/delivery/preservation manifests are internal hash/copy inputs only, never console/model output.",
+  "model_session_policy": "Fresh ephemeral executor, then independent reviewer; do not resume/copy coordinator transcript.",
+  "semantic_acceptance": false,
+  "executable_readiness": false
+}

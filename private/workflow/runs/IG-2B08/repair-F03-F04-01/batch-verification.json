@@ -1,0 +1,25 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-4f6fdb30:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T151724Z-86fb83c5/001-IG-2B08-executor-4f6fdb30/runtime-configuration.json",
+  "configuration_sha256": "d9cbb4397afc231cf8250c371e25a36412abc3570e8cd3a4103a310aa0c3e67d",
+  "summary": "Complete preservation, identity, geometry, all artifact pins and both full replays verified.",
+  "checks": {
+    "preservation": true,
+    "full_page_set": 44,
+    "new_region_set": 269,
+    "new_inventory_denominator": 183,
+    "all_source_artifact_pins": 5198,
+    "original_artifact_pins": 22,
+    "complete_index_pins": 5226,
+    "negative_cases": {
+      "missing_component": "correctly_rejected",
+      "missing_index_path": "correctly_rejected",
+      "stale_index_hash": "correctly_rejected",
+      "incomplete_replay": "correctly_rejected"
+    }
+  },
+  "exit_code": 0
+}

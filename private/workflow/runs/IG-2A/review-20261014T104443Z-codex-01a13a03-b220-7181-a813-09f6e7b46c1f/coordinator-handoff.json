@@ -1,0 +1,48 @@
+{
+  "role": "reviewer",
+  "actor": "codex-01a13a03-b220-7181-a813-09f6e7b46c1f",
+  "task": "IG-2A",
+  "outcome": "PASS",
+  "review": {
+    "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/review.json",
+    "sha256": "0bc7749a1e7ed4a230bdbf54c47176597033f9a2ff2ee7b4cc78b881f3f17da9",
+    "bytes": 94178
+  },
+  "report": {
+    "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/report.md",
+    "sha256": "a8a659d53ec87579486011b9a8d114269061d75f48091d113cbd8cb2056a5cc8",
+    "bytes": 11890
+  },
+  "delivery": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery.json",
+    "sha256": "c69df3b2867f440c6b330159a2d335dff6bf959192ebb9d3ac5d0ea59977195e",
+    "bytes": 82701
+  },
+  "delivery_manifest": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/delivery-manifest.json",
+    "sha256": "3652874c7a029100efe81b93914934e469ba5b519bf1b66b0ff2b209645a7d49",
+    "bytes": 88935
+  },
+  "delivery_final_seal": {
+    "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/final-seal.json",
+    "sha256": "64f96bc690396ceeb3ed37722c0c29546fa4a76448710ad8b8731043f0ce312d",
+    "bytes": 10682
+  },
+  "closed_findings": [
+    "IG2A-R01",
+    "IG2A-R02",
+    "IG2A-R03",
+    "IG2A-R04",
+    "IG2A-R05"
+  ],
+  "new_actionable_findings": 0,
+  "criteria": [
+    "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "Unknown or excluded areas are visible; partial/gap is never represented."
+  ],
+  "queue_unchanged": true,
+  "queue_status": "review",
+  "semantic_acceptance_granted": false,
+  "next_action": "Coordinator verifies this independent review seal/manifest and exact delivery before any coordinator-owned technical acceptance transition. No IG-2B from this review; no human semantic decision supplied."
+}

@@ -1,0 +1,166 @@
+{
+  "task": "IG-2B02",
+  "actor": "codex-01a13f2d-eb41-7760-9e94-99f0508d544a",
+  "recorded_utc": "2026-10-15T10:59:45.885794+00:00",
+  "outcome": "passed",
+  "checks": [
+    {
+      "command": [
+        "./.venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:55:40.717411+00:00",
+      "ended_utc": "2026-10-15T10:55:50.144929+00:00",
+      "wall_seconds": 9.438000000009197,
+      "process_environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "C:\\repo\\wargame-compiler\\src;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages"
+      },
+      "path_prefix": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/root-inventory-validate.stdout",
+        "bytes": 9997,
+        "sha256": "540ce34824e50e283143471b4dbfda722d42393955a504ccc9c848830cc437ea"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/root-inventory-validate.stderr",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": [
+        "./.venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/sources",
+        "--basetemp",
+        "C:/repo/wargame-compiler/private/workflow/checks/fix-b02-497cc3cb07e9",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:56:11.777445+00:00",
+      "ended_utc": "2026-10-15T10:56:32.196665+00:00",
+      "wall_seconds": 20.421999999991385,
+      "process_environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "C:\\repo\\wargame-compiler\\src;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages"
+      },
+      "path_prefix": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/source-tests.stdout",
+        "bytes": 102,
+        "sha256": "7d2714553d93c6f968639dc2809e779375e175a6d9b8d62a1fb4799601c0d9ca"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/source-tests.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:58:21.425258+00:00",
+      "ended_utc": "2026-10-15T10:59:04.537928+00:00",
+      "wall_seconds": 43.10899999999674,
+      "process_environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "C:\\repo\\wargame-compiler\\src;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages"
+      },
+      "path_prefix": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stdout",
+        "bytes": 5715,
+        "sha256": "9226d2c7599960517060c66057214b7ad1600c6efaec3d9f45dd0205a2f5c703"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/repository-check.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "./.venv/Scripts/python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:59:37.718091+00:00",
+      "ended_utc": "2026-10-15T10:59:39.115246+00:00",
+      "wall_seconds": 1.3910000000032596,
+      "process_environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "C:\\repo\\wargame-compiler\\src;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages"
+      },
+      "path_prefix": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/post-repair-workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/post-repair-workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:59:40.315423+00:00",
+      "ended_utc": "2026-10-15T10:59:41.415198+00:00",
+      "wall_seconds": 1.0930000000080327,
+      "process_environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "C:\\repo\\wargame-compiler\\src;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages"
+      },
+      "path_prefix": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/post-repair-diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/post-repair-diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    }
+  ],
+  "historical_failures": [
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/observe-toolchain.command.json",
+      "bytes": 1247,
+      "sha256": "0df6d9e5d957406be6a5bcfd1556db7fd8b6ab227f4fd32c6658bdcd364e2ec7"
+    }
+  ],
+  "changed_hypothesis": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/toolchain-comparison-hypothesis.json",
+    "bytes": 489,
+    "sha256": "a0103ccdf7ed7783361b9cf1a89d8116026fd37101ae5161157c7ff7a125276f"
+  },
+  "warning_policy": "Unmodified native stderr retains Xref warning; no suppression or contract/test edits."
+}

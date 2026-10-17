@@ -1,0 +1,60 @@
+{
+  "role": "executor",
+  "actor": "ig2:004-IG-2B03-executor-537dd410:executor",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/004-IG-2B03-executor-537dd410/runtime-configuration.json",
+  "configuration_sha256": "5d5104f87756a8cfa584fa5b1d949565f7eed77f7efd1359333f892bb4724c70",
+  "outcome": "blocked",
+  "summary": "Stopped IG-2B03 after repository search wrapper returned out-of-packet inventory/reference content; exact context-access boundary cannot be certified. Retained complete final inventory and partial replay; no delivery or acceptance claimed.",
+  "criteria": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "Read preparation-003-e285fb76/scope.json and input-pins.json on demand; do not read context.txt, whole historical manifests, prior transcripts, run directories or source content outside assigned scope."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/context-access-incident.json",
+      "bytes": 2213,
+      "sha256": "b5f38fff5c5d88be991b29826140760a5be2721da80490e43b035d0a2136130a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/blocked-state-manifest.json",
+      "bytes": 168540,
+      "sha256": "941909bfcace1e9b8a83c7283963d5d60e4fe9e3fa9c14ad0dd2bc1e0d9ffcb2"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/checkpoint-blocked.json",
+      "bytes": 3288,
+      "sha256": "59018fdc70df67a6e6f451637712bee431357d7c6d0de87d01c4ee91e0f6a897"
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/inventory-003-e285fb76/final-verified/inventory.json",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-004a -p no:cacheprovider --tb=short",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 0
+    }
+  ],
+  "blocker": {
+    "command": "pwsh -NoProfile -File scripts/search.ps1 -Pattern 'artifact.*scope|write_scope|configuration_sha256|def.*evidence'",
+    "purpose": "Locate workflow artifact-scope validation before freezing the handoff.",
+    "observed_result": "The wrapper searched the complete active allowlist and returned unbounded canonical inventory/reference matches outside the exact IG-2B03 packet, including earlier IG-2A artifacts. Tool output was truncated.",
+    "constraint": "Exact manifest context only; no whole historical manifests/run directories or source content outside assigned contract.",
+    "assessment": "Context-access boundary cannot be certified. This executor must not claim that no out-of-packet access occurred or deliver the result as contract-compliant.",
+    "use": "The assigned partition and final evidence were authored and root-validated before this search; returned out-of-packet material was not used for source meaning or later authoring.",
+    "containment": "Stopped the running derivation helper with Ctrl-C; exit code 1. Preserved every existing output and old artifact. No further product authoring or delivery envelope created.",
+    "resolution_owner": "IG-2 coordinator and supervisor",
+    "smallest_resolution": "Assess this access incident and preserve this attempt. If execution is authorized again, prepare a fresh bounded packet and exclusive output root for a fresh executor; constrain search output to exact allowed files. No acceptance or permission exception is inferred by this executor."
+  },
+  "semantic_acceptance_granted": false,
+  "executable_readiness": "unverified",
+  "next_operation": "Coordinator/supervisor assessment only; do not launch another role from this executor."
+}

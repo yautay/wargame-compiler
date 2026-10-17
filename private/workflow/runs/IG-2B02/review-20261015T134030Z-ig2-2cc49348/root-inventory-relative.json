@@ -1,0 +1,22 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:001-IG-2B02-reviewer-2cc49348:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T134030Z-67077de2/001-IG-2B02-reviewer-2cc49348/runtime-configuration.json",
+  "configuration_sha256": "08a6707d96b7bb082262bf18bbb307077f8475c8f8fb0e9bbb59c91a6e50a4c5",
+  "name": "root-inventory-relative",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "wgc.sources",
+    "validate",
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 3.187999999994645,
+  "correction": "Initial absolute path rejected by CLI private-path gate; use required repository-relative path.",
+  "stdout": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/root-inventory-relative.stdout",
+  "stderr": "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/root-inventory-relative.stderr"
+}

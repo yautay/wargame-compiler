@@ -1,0 +1,9 @@
+Xref table not zero-indexed. ID numbers for objects will be corrected.
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "C:\repo\wargame-compiler\private\workflow\runs\IG-2B08\repair-F03-F04-01\check_component_completeness.py", line 59, in check_evidence
+    require(box,masks)
+  File "C:\repo\wargame-compiler\private\workflow\runs\IG-2B08\repair-F03-F04-01\check_component_completeness.py", line 52, in require
+    assert not missing, (name,'incomplete source component',len(missing))
+           ^^^^^^^^^^^
+AssertionError: ('Tribune_full_artwork_label_zero_frame', 'incomplete source component', 5)

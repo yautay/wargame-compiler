@@ -1,0 +1,22 @@
+--- verified-product-before/src/wgc/sources/geometry.py
++++ src/wgc/sources/geometry.py
+@@ -72,6 +72,19 @@
+     return (height, width) if page['rotation'] in (90, 270) else (width, height)
+ 
+ 
++def render_size_pixels(box, page, dpi):
++    """Poppler: ceil of displayed physical crop points * DPI / 72 per axis.
++
++    Evaluate at double precision, as Poppler does; never round to nearest or
++    allow an arbitrary one-pixel tolerance. UserUnit scales both crop axes.
++    """
++    x0,y0,x1,y1 = box_to_pdf(box,page)
++    unit = Fraction(page['user_unit']['numerator'],page['user_unit']['denominator'])
++    width,height = (x1-x0)*unit,(y1-y0)*unit
++    if page['rotation'] in (90,270): width,height = height,width
++    return ceil(float(width)*dpi/72),ceil(float(height)*dpi/72)
++
++
+ def overlaps(a, b):
+     return max(a[0], b[0]) < min(a[2], b[2]) and max(a[1], b[1]) < min(a[3], b[3])
+ 

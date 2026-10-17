@@ -1,0 +1,36 @@
+{
+  "task": "IG-1D",
+  "finding": "IG1D-R04",
+  "proposed_iteration": 2,
+  "maximum_iterations": 2,
+  "claimed": false,
+  "implementation_started": false,
+  "basis": "private/workflow/runs/IG-1D/rereview-20261013T131151Z/dispositions.json",
+  "changed_hypothesis": "The repair-1 filter hides persisted receipt children of another logical kind or scope, then wrongly treats the empty filtered set as an initial allocation. Check the named persisted output contract before replacement allocation.",
+  "proposed_product_paths": [
+    "src/wgc/wgu_adapter/identity.py",
+    "tests/wgu_adapter/test_lineage_contract_repairs.py"
+  ],
+  "required_boundary": "Reject incompatible reuse of a named receipt for a changed logical kind, resolved scope or persistent child key; preserve caller registry immutability. A deliberately different output contract requires a new decision identifier.",
+  "preserve": [
+    "Unique merge-child text correction and rename",
+    "Original 15 independent assertions",
+    "All repair-1 risk and history assertions",
+    "Historical parent and child revisions",
+    "Multi-child ambiguity and persistent keyed children",
+    "All frozen prior artifacts"
+  ],
+  "verification_after_claim": [
+    "Strict changed-child-kind probe unchanged",
+    "Scope and persistent-child-key incompatibility; new named decision positive control",
+    "Full adapter/export and original/risk/history suites with fresh short basetemp and no cacheprovider",
+    "Independent complete private file/record/field/binding accounting and two canonical transforms/publications",
+    "scripts/check.ps1 -Task IG-1D and git diff --check",
+    "Independent re-review in the existing authorized reviewer chat"
+  ],
+  "prerequisites": [
+    "Fresh actual executor Sol/high configuration evidence",
+    "Final frozen repair-1 independent review and artifact manifest",
+    "Workflow changes_requested transition, new bounded claim and preserved current product versions"
+  ]
+}

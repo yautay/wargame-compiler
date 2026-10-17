@@ -1,0 +1,28 @@
+{
+  "role": "executor",
+  "actor": "ig1-stage-executor-20261013",
+  "summary": "Claim first bounded repair for independent IG1D-R01/R02/R03/R04; preserve all prior hashes/versions and original strict probes; no task scope expansion or source/semantic acceptance.",
+  "criteria": [
+    "Repeated identical bytes yield identical identities and export content; timestamps are outside canonical hashes.",
+    "Reordering anonymous terms/relations preserves identities when unambiguous; collisions become review gaps.",
+    "Many-to-many origin bindings preserve file/field locations; wildcard and subpoint references have exact targets or explicit unresolved scope.",
+    "Export validates revision/hash closure and never inherits semantic approval."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/checkpoint.json",
+      "sha256": "cbc2d06fdecfd07eef769f78a9f41a14687b047aebacbdc2fa4bcfcdce7130ae"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/repair-scope.json",
+      "sha256": "0adcda3f656ca80b6a70e536437bcf0d5928eed051b1d6d3c2a6fc229ee82a75"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/baseline-manifest.json",
+      "sha256": "2cf8160e578aca5e94f540d942c6254c604fa27980634ced39b9759252bede13"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Same ongoing executor conversation direct earlier operator UI confirmation; unchanged settings."
+}

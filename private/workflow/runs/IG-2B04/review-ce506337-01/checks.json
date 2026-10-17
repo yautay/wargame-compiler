@@ -1,0 +1,55 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B04-reviewer-ce506337:reviewer",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T115606Z-694df602/002-IG-2B04-reviewer-ce506337/runtime-configuration.json",
+  "configuration_sha256": "dcc9762175a0e5397587892a8d6db5b2ec6bdbdc38faf110a12db8bd5c8a861f",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-rg04/final-verified/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-16T12:36:28.768087+00:00",
+      "ended_utc": "2026-10-16T12:36:36.768577+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/validate-final.log",
+        "bytes": 10302,
+        "sha256": "08e01aa1c25bb036bd176a16fb6d3d625d529ba2d6915086acd835ce3bb5ec8b"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-a/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-16T12:36:36.769581+00:00",
+      "ended_utc": "2026-10-16T12:36:44.362793+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/validate-replay-a.log",
+        "bytes": 10302,
+        "sha256": "08e01aa1c25bb036bd176a16fb6d3d625d529ba2d6915086acd835ce3bb5ec8b"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B04/continuation-13-16-rg04/replay-b/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-16T12:36:44.362793+00:00",
+      "ended_utc": "2026-10-16T12:36:53.326002+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/validate-replay-b.log",
+        "bytes": 10302,
+        "sha256": "08e01aa1c25bb036bd176a16fb6d3d625d529ba2d6915086acd835ce3bb5ec8b"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/checks/b04-review-ce506337-src -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "started_utc": "2026-10-16T12:36:53.326002+00:00",
+      "ended_utc": "2026-10-16T12:37:16.878956+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B04/review-ce506337-01/sources.log",
+        "bytes": 4349,
+        "sha256": "d6b328de935998e488cd681cf01d5b697b6ae830e968e07e705bb6afe39de1f5"
+      }
+    }
+  ]
+}

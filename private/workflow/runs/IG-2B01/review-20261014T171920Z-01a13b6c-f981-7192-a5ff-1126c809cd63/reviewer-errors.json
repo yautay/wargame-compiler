@@ -1,0 +1,48 @@
+{
+  "errors": [
+    {
+      "id": "RE01",
+      "command": "Get-Content docs/work/cards/IG-2B01.md",
+      "exit_code": 0,
+      "error": "Incorrect card path; PowerShell nonterminating missing-path error within an enclosing read batch.",
+      "correction": "Used scripts/search.ps1 and read docs/work/tasks/IG-2B01.md. No file was created."
+    },
+    {
+      "id": "RE02",
+      "command": "Inline Python strict pin verification of input/final packet current-file references",
+      "exit_code": 1,
+      "error": "Asserted live STATUS projection must equal earlier packet snapshot.",
+      "correction": "Kept frozen packet pins intact, separately recorded four live projection differences and their exact diffs."
+    },
+    {
+      "id": "RE03",
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/independent_review.py reproduce (initial attempt)",
+      "exit_code": 1,
+      "error": "Existing bundle has no pdftotext.exe at the assumed path; WinError 2 before content extraction.",
+      "correction": "No install. Used existing pdfminer for independent whole-page text extraction on pages 1-4, alongside pdfplumber and Poppler rendering."
+    },
+    {
+      "id": "RE04",
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77\\final-verified\\inventory.json"
+      ],
+      "exit_code": 2,
+      "error": "CLI requires private-relative POSIX path; absolute path rejected before validation.",
+      "correction": "Corrected invocation in root-inventory-validate-corrected.json passed with exit 0."
+    },
+    {
+      "id": "RE05",
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/assess_and_freeze.py (initial attempt)",
+      "exit_code": 1,
+      "error": "Deep dependency-reference assertion incorrectly required the historical closure queue pin to equal the live queue.",
+      "correction": "Named immutable dependency artifacts verified separately; old queue/context-policy comparisons explicitly recorded and scoped to mutable operational snapshots."
+    }
+  ],
+  "failed_required_final_checks": 0,
+  "retry_policy": "Each error received one changed-hypothesis correction; no product/validator weakening or unchanged retries."
+}

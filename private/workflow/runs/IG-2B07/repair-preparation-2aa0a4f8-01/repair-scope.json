@@ -1,0 +1,192 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:004-IG-2B07-coordinator-2aa0a4f8:coordinator",
+  "task": "IG-2B07",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/004-IG-2B07-coordinator-2aa0a4f8/runtime-configuration.json",
+  "configuration_sha256": "382676e3501a08f4994e313e0a5a26714ad1800075abe9fc2e4a0498c7e67298",
+  "format": "wgc-bounded-repair-scope-1",
+  "review_evidence": "private/workflow/runs/IG-2B07/review-3f57d66e-01/review.json",
+  "review_sha256": "98d7acd1306af8945840711d5f7f3cf7809cff9d0a696a087577b110f4f5735e",
+  "finding_ids": [
+    "F01"
+  ],
+  "attempt": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/",
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Use the hash-pinned accepted IG-2B06 full 44-page inventory and companion identity registry; preserve all nonassigned records, inherited evidence/links and registry bindings. Retire only the four pages-25-28 placeholder memberships without deleting registry entries.",
+    "Freshly inspect every original assigned page, column, note, example, diagram and component; pin exact source/page/box evidence for all new regions and components, uncertainty and explicit gaps. Boundary context is limited to the authorized page-24 bottom and page-29 top strips and contributes zero denominator.",
+    "Freeze final-verified/inventory.json and identity-registry.json plus all root reports named in the refined contract under the new owned inventory-25-28-01 attempt. Keep complete full/task/context denominators separate and retain the persisted registry binding.",
+    "Generate evidence serially and complete two separate independent full replays, preserving every new region/component and checking complete target-set equality, stable IDs, evidence freshness, reading order, links and path-normalized output comparisons.",
+    "Obtain fresh independent technical/source-accounting review against original assigned pages, the complete region/component ledgers and the entire frozen delivery. Preserve all human semantic gates; this inventory grants no gameplay legality or executable readiness."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Verify every pinned input SHA-256 before/after execution; validate the final complete inventory against actual source bytes, all 44 physical page geometries, exact evidence and the companion registry.",
+    "Compare baseline/result internally: unchanged nonassigned records/evidence/links and all existing registry entries; exactly four placeholder memberships removed; additions restricted to assigned/context scope; no stale source-reference index pins.",
+    "Verify complete region/component and continuation endpoint sets, two independent replay target-set equalities, complete full/task/context denominators and zero context contribution; explicitly retain remaining unprocessed pages and all uncertainty.",
+    "Run both complete serial evidence replays in separate fresh directories and freeze actual invocation commands, output hashes and comparison reports; review every original assigned page and every fresh region/component crop independently.",
+    ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/inventory.json",
+    ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/inventory-25-28-01/pytest-sources -p no:cacheprovider --tb=short",
+    "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+    "git diff --check"
+  ],
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/delivery.json",
+    "sha256": "cee94ecd856edb0da9439881a0e002f7515f45f334a1b4e02fcd16b3f20cab27"
+  },
+  "mode": "source_component_accounting",
+  "finding": {
+    "id": "F01",
+    "severity": "medium",
+    "title": "Second page-28 diagram omits the upper black arrow beside Phalanx B from component accounting",
+    "location": {
+      "artifact": "private/workflow/runs/IG-2B07/inventory-25-28-01/component-ledger.json",
+      "parent_region_id": "region:93a4c97f-54e6-4b11-95c2-f0a704491226",
+      "parent_key": "ig2b07:p28-diagram-after",
+      "physical_page": 28,
+      "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "inspection_box": [
+        695000,
+        272000,
+        738000,
+        301000
+      ],
+      "coordinate_basis": "Unrotated effective CropBox, top-left integer page millionths"
+    },
+    "observation": "The original second diagram visibly retains a black arrow pointing down/right from the upper right edge of B toward the now-empty hex to its right. The frozen component ledger lists after-aa, after-au, after-av, after-bx, after-cy and after-cz, but no distinct upper-B-arrow component. It is visible in the full parent/grid image and partly in the B-counter crop; neither substitutes for the required separate component locator. The separate yellow rout arrow is already present and is a different visible component. This is a visual accounting observation, with no gameplay legality determination.",
+    "consequence": "The claim that every external arrow has a separate crop is false, and all 86-component/188-target set-equality checks reproduce an incomplete authored set.",
+    "affected_criteria": [
+      "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+      "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+      "Freshly inspect every original assigned page, column, note, example, diagram and component; pin exact source/page/box evidence for all new regions and components, uncertainty and explicit gaps. Boundary context is limited to the authorized page-24 bottom and page-29 top strips and contributes zero denominator.",
+      "Freeze final-verified/inventory.json and identity-registry.json plus all root reports named in the refined contract under the new owned inventory-25-28-01 attempt. Keep complete full/task/context denominators separate and retain the persisted registry binding.",
+      "Generate evidence serially and complete two separate independent full replays, preserving every new region/component and checking complete target-set equality, stable IDs, evidence freshness, reading order, links and path-normalized output comparisons."
+    ],
+    "evidence": [
+      {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/originals/p28-after-b-upper-arrow.png",
+        "sha256": "10cafa295ad8e9a5c450c70630a70419a940cbd2b403dc1f28f999af7db7258b",
+        "bytes": 3917
+      },
+      {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/originals/page-28.png",
+        "sha256": "1dcf9a5c2562da49bbdd3ca89f3f6df5c120797976d9742b88bf505ac33edd7a",
+        "bytes": 825760
+      },
+      {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/component-ledger.json",
+        "sha256": "5f1bbeee99127575e66f91a79de5afd5b3128e417f00b906be55d7ba31d781b6",
+        "bytes": 394900
+      },
+      {
+        "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/evidence/ig2b07-p28-diagram-after/image.png",
+        "bytes": 154565,
+        "sha256": "36a980ecf2d7beee5a0dee4fa24fb44d30d7b072e8d0da34e04df24d7d9614ef"
+      }
+    ],
+    "requested_repair": "In a fresh authorized attempt, preserve this frozen delivery and all inherited records/registry identities. Add one new stable nested context component for the entire visible upper black arrow beside B, with its exact parent, box and fresh source-derived crop/text/image evidence. Record visual position without inventing a legal target or semantics. Update the complete region/component ledgers, inventory/registry, source pins, inspection sheets, coverage/continuation endpoint indices, reports and delivery manifest consistently. Do not alter inventory parent boxes or increase the task/full inventory denominator.",
+    "repair_validation": [
+      "Independently inspect the new crop against original physical page 28 and verify the whole visible arrow is retained. Recheck every component in the affected second diagram and retain prior complete page/ledger review coverage.",
+      "For a single-component addition, expect 87 new nested components, 189 new total targets, 92 full context regions and 941 total region records; assigned inventory remains 100 and full inventory remains 849. Retain all previous IDs and evidence byte pins.",
+      "Run two separate complete serial replays for the revised complete target/component sets, not only the new crop. Recheck stable identities, exact inherited preservation, normalized output equality and zero component/context denominator contribution.",
+      "Rerun source inventory validation, unchanged tests/sources, scripts/check.ps1 -Task IG-2B07 and git diff --check with the permitted exact-command approval path where required. Freeze a new delivery for independent rereview."
+    ]
+  },
+  "allowed_changes": [
+    "Only new files inside the fresh owned attempt. Preserve the entire previous delivery, its envelope, every frozen artifact and all inherited IDs/registry entries byte-for-byte.",
+    "Add one stable nested context component for the complete upper black arrow beside B in the second physical-page-28 diagram, linked to parent region:93a4c97f-54e6-4b11-95c2-f0a704491226. Independently verify the original source box before authoring; the review box is an inspection locator, not a substitute for inspection.",
+    "Prepare revised copies of author input, inventory/registry, complete region/component ledgers, source pins, inspection sheets, coverage and continuation endpoint indices, preservation/replay/validation reports, handoff and a new delivery envelope consistently inside the new attempt.",
+    "Regenerate path-dependent evidence for the complete revised target/component sets serially in the current Python process. Run two separate complete independent serial replays in fresh replay-1 and replay-2 directories; do not sample or copy replay evidence.",
+    "Retain all previous logical IDs, source observations, evidence byte pins and inherited records. Path normalization must be explicit and limited to output-path-dependent fields. New paths do not authorize changes to prior frozen bytes."
+  ],
+  "prohibited_changes": [
+    "No writes to the old inventory-25-28-01 attempt, current review attempt, accepted dependency, source PDF/provenance, public source/tool/test code, prior preparation runs or supervisor metadata.",
+    "No altered parent boxes, task/full inventory denominators, gameplay legality decisions, human semantic acceptance, status transitions, downstream work, worker pools, installs, global settings or external APIs."
+  ],
+  "required_checks": {
+    "finding_validation": [
+      "Independently inspect the new crop against original physical page 28 and verify the whole visible arrow is retained. Recheck every component in the affected second diagram and retain prior complete page/ledger review coverage.",
+      "For a single-component addition, expect 87 new nested components, 189 new total targets, 92 full context regions and 941 total region records; assigned inventory remains 100 and full inventory remains 849. Retain all previous IDs and evidence byte pins.",
+      "Run two separate complete serial replays for the revised complete target/component sets, not only the new crop. Recheck stable identities, exact inherited preservation, normalized output equality and zero component/context denominator contribution.",
+      "Rerun source inventory validation, unchanged tests/sources, scripts/check.ps1 -Task IG-2B07 and git diff --check with the permitted exact-command approval path where required. Freeze a new delivery for independent rereview."
+    ],
+    "commands": [
+      ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+      ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short",
+      "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "git diff --check"
+    ],
+    "unchanged_original_tests": "The acceptance and tests arrays above are copied verbatim. The executable command paths above redirect only output/input ownership into the fresh repair attempt; never reuse the frozen pytest basetemp or overwrite old outputs.",
+    "source_inspection": "Freshly inspect the affected original physical-page-28 second diagram and every nested component, including the entire new arrow. Retain and revalidate the prior complete four-page and permitted-boundary inspection records, without inheriting a fresh inspection claim. No wider source scope is authorized.",
+    "target_counts": {
+      "new_nested_components": 87,
+      "new_total_targets": 189,
+      "full_context_regions": 92,
+      "total_region_records": 941,
+      "assigned_inventory": 100,
+      "full_inventory": 849
+    },
+    "preservation": "Hash-verify the entire previous delivery and all pinned inputs before and after repair. Check exact logical inherited preservation against the accepted dependency using only prepared projections and authorized pinned artifacts. Context/component additions contribute zero inventory denominator.",
+    "replays": "Two separate complete serial regenerations of all revised regions/components with exact invocations, output pins, stable IDs, freshness, geometry, reading order, links, complete target/component set equality and path-normalized comparison reports.",
+    "approval_path": "Keep tests/assertions unchanged. If the restricted Windows token denies pytest temporary-directory access or termination of the owned synthetic context-guard process tree, request approved execution of that exact unchanged command with require_escalated; do not retry the same restricted denial, change ACLs or use bypass flags.",
+    "rereview": "Freeze a new complete delivery and request a fresh independent original-source/component-accounting review. This preparation grants no acceptance or executable readiness."
+  },
+  "outputs": [
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/region-ledger.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/continuations.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/coverage-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/source-pins.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/toolchain.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/original-page-inspection.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/component-ledger.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/preservation-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/replay-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation-report.json",
+    "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/delivery-handoff.md"
+  ],
+  "source_scope": {
+    "physical_page": 28,
+    "parent_region_id": "region:93a4c97f-54e6-4b11-95c2-f0a704491226",
+    "inspection_box": [
+      695000,
+      272000,
+      738000,
+      301000
+    ],
+    "source_sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "unchanged_assigned_scope": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "boundary_context": {
+      "24": [
+        0,
+        666666,
+        1000000,
+        1000000
+      ],
+      "29": [
+        0,
+        0,
+        1000000,
+        333334
+      ]
+    }
+  },
+  "toolchain": "Preserve inherited process_pythonpath containing BOTH repo/src and bundled site-packages and process_path_prefix supplying installed Poppler. No environment replacement or dependency installation.",
+  "precedence": "This current F01 scope replaces obsolete initial write ownership, attempt/output instructions and start conditions. Verbatim acceptance/tests retain their historical paths as frozen contract text; new executable paths and outputs are explicitly listed here. The prior refined contract remains immutable technical context.",
+  "repair_limits": {
+    "cycle_for_current_finding": 1,
+    "maximum_cycles_per_finding": 2,
+    "maximum_retries_same_unchanged_failure": 2
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "summary": "Only V01 validation repaired; prior source work unchanged and independent rereview required.",
+  "criteria_results": [
+    {
+      "criterion": "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+      "status": "preserved_unchanged_prior_review_basis",
+      "basis": [
+        "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/preservation-report.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/validation-results.json"
+      ]
+    },
+    {
+      "criterion": "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+      "status": "preserved_unchanged_prior_review_basis",
+      "basis": [
+        "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/preservation-report.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/validation-results.json"
+      ]
+    },
+    {
+      "criterion": "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+      "status": "preserved_unchanged_prior_review_basis",
+      "basis": [
+        "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/preservation-report.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/validation-results.json"
+      ]
+    },
+    {
+      "criterion": "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+      "status": "preserved_unchanged_prior_review_basis",
+      "basis": [
+        "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/preservation-report.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/validation-results.json"
+      ]
+    },
+    {
+      "criterion": "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact.",
+      "status": "passing_required_validation_pending_independent_review",
+      "basis": [
+        "private/workflow/runs/IG-2B02/review-20261015T134030Z-ig2-2cc49348/review.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/preservation-report.json",
+        "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/validation-results.json"
+      ]
+    }
+  ],
+  "finding": "IG-2B02-V01",
+  "resolution": "Required unchanged commands now pass; pending independent review.",
+  "acceptance_granted": false,
+  "semantic_acceptance_granted": false,
+  "executable_readiness": "unverified",
+  "remaining_action": "Independent reviewer verifies the fresh validation evidence and complete frozen artifact list."
+}

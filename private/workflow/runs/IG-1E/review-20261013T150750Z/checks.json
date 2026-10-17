@@ -1,0 +1,110 @@
+[
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -B C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1E\\review-20261013T150750Z\\accounting.py",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1E\\review-20261013T150750Z\\accounting.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T15:10:27.540698+00:00",
+    "ended_utc": "2026-10-13T15:16:13.590428+00:00",
+    "wall_seconds": 346.037991899997,
+    "log": "private/workflow/runs/IG-1E/review-20261013T150750Z/accounting.log",
+    "process_local_import_path": [
+      "C:\\repo\\wargame-compiler\\src"
+    ]
+  },
+  {
+    "command": "git diff --check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T15:17:00.461599+00:00",
+    "ended_utc": "2026-10-13T15:17:01.972445+00:00",
+    "wall_seconds": 1.5140968000050634,
+    "log": "private/workflow/runs/IG-1E/review-20261013T150750Z/diff.log",
+    "process_local_import_path": [
+      "C:\\repo\\wargame-compiler\\src"
+    ]
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/integration tests/wgu_adapter tests/export -q -p no:cacheprovider --basetemp private/workflow/checks/e2-public --tb=short",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/integration",
+      "tests/wgu_adapter",
+      "tests/export",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "private/workflow/checks/e2-public",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T15:10:42.398235+00:00",
+    "ended_utc": "2026-10-13T15:10:54.566223+00:00",
+    "wall_seconds": 12.168218800099567,
+    "log": "private/workflow/runs/IG-1E/review-20261013T150750Z/explicit.log",
+    "process_local_import_path": [
+      "C:\\repo\\wargame-compiler\\src"
+    ]
+  },
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1E",
+    "argv": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "scripts/check.ps1",
+      "-Task",
+      "IG-1E"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T15:10:51.113096+00:00",
+    "ended_utc": "2026-10-13T15:11:46.746855+00:00",
+    "wall_seconds": 55.63427529996261,
+    "log": "private/workflow/runs/IG-1E/review-20261013T150750Z/project.log",
+    "process_local_import_path": [
+      "C:\\repo\\wargame-compiler\\src"
+    ]
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -B C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1E\\review-20261013T150750Z\\independent_seal.py",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1E\\review-20261013T150750Z\\independent_seal.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T15:16:49.840877+00:00",
+    "ended_utc": "2026-10-13T15:19:10.543293+00:00",
+    "wall_seconds": 140.69384129997343,
+    "log": "private/workflow/runs/IG-1E/review-20261013T150750Z/seal.log",
+    "process_local_import_path": [
+      "C:\\repo\\wargame-compiler\\src"
+    ]
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -B C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1E\\review-20261013T150750Z\\supplemental_audit.py",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-B",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1E\\review-20261013T150750Z\\supplemental_audit.py"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T15:10:51.130499+00:00",
+    "ended_utc": "2026-10-13T15:11:05.326825+00:00",
+    "wall_seconds": 14.196022800169885,
+    "log": "private/workflow/runs/IG-1E/review-20261013T150750Z/supplemental.log",
+    "process_local_import_path": [
+      "C:\\repo\\wargame-compiler\\src"
+    ]
+  }
+]

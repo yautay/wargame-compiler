@@ -1,0 +1,145 @@
+{
+  "task": "IG-2B02",
+  "actor": "codex-01a13f8d-fa1f-7991-92c2-0c64bfe3a157",
+  "recorded_utc": "2026-10-15T12:47:13.727170+00:00",
+  "unchanged_criteria": true,
+  "criteria": [
+    {
+      "number": 1,
+      "criterion": "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+      "status": "met_for_technical_inventory",
+      "met_for_clean_delivery": true,
+      "review_execution_complete": true,
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/region-review-ledger.json",
+          "bytes": 1047968,
+          "sha256": "755b170724387cdd1d9a2e8c8645cd2e060be59f8c0b84be7a168ad2173f3b1d"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/r01-r02-rechecks.json",
+          "bytes": 9339,
+          "sha256": "857bf0451cc7e6e35ce7286e05b9e844ca614e021e62cca225c1f0cd339993f8"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/component-delta-audit.json",
+          "bytes": 90654,
+          "sha256": "a75ad70825a2f4661581b4ca458feed0e62467b3e0ce64c89655aa1186f36f5f"
+        }
+      ],
+      "assessment": "Fresh viewing of all four original pages, all 141 paired region rows, all 17 enlarged grouped diagrams and three exact affected counter pairs. No omitted or incorrect grouped component observed in current authority; R01/R02 corrected. All original literal uncertainty and gaps retained."
+    },
+    {
+      "number": 2,
+      "criterion": "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+      "status": "met_for_preservation",
+      "met_for_clean_delivery": true,
+      "review_execution_complete": true,
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/preservation-audit.json",
+          "bytes": 4480,
+          "sha256": "db7063ce2a98aa48e7ba03ebf6a530209995e16265c6f0f5cc2f5c1492453d30"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/launch-byte-audit.json",
+          "bytes": 2807305,
+          "sha256": "3004e4e34f8ecffa29bc622581e2aad33f2401f7dc6101dfd3895444fd0d0ad1"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/replay-audit.json",
+          "bytes": 14012,
+          "sha256": "2b528d885bd0c288932dfa45953fd2efc0554d8445b99ed69c33d17d16d59e67"
+        }
+      ],
+      "assessment": "Full 44-page accounting; all five canonical snapshots byte-identical to reviewed base. All 130 accepted authored regions, accepted pages 1-4, 36 page-9-44 placeholders, registry bindings, old evidence, links and relative order preserved exactly."
+    },
+    {
+      "number": 3,
+      "criterion": "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+      "status": "met_for_structural_locators",
+      "met_for_clean_delivery": true,
+      "review_execution_complete": true,
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/locator-audit.json",
+          "bytes": 606751,
+          "sha256": "7552b0de578e544c74a3d2ca5ff124740fd89d8a536552b25c75274ca2538868"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/root-inventory-validate.json",
+          "bytes": 1223,
+          "sha256": "61b7c797b2722aa1aaac58b5647bb1f1fe2792759097d872f87adefc310c0b90"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/continuation-context-audit.json",
+          "bytes": 18336,
+          "sha256": "1114f1e20c97795a449b0d1e35976891314f14092880c272481db9148f135bab"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/primary-byte-audit.json",
+          "bytes": 287460,
+          "sha256": "815ddf3704bdf548a677afd95d1cf3dc2b52ab0ceeb468cffd3cf5babde76240"
+        }
+      ],
+      "assessment": "Fresh root CLI reopens pinned PDF and confirms actual strict-pypdf/Poppler 44-page counts and geometry/schema/revisions/registry/order/partition. Every 141 target locator and 423 primary artifacts rechecked; rational crop boxes, source/page basis, text offsets and PNG dimensions exact. Context identity remains exact and distinct from authored tail; continuation bounds respected."
+    },
+    {
+      "number": 4,
+      "criterion": "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+      "status": "met_for_accounting",
+      "met_for_clean_delivery": true,
+      "review_execution_complete": true,
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/root-inventory-validate.stdout",
+          "bytes": 9997,
+          "sha256": "540ce34824e50e283143471b4dbfda722d42393955a504ccc9c848830cc437ea"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/preservation-audit.json",
+          "bytes": 4480,
+          "sha256": "db7063ce2a98aa48e7ba03ebf6a530209995e16265c6f0f5cc2f5c1492453d30"
+        }
+      ],
+      "assessment": "Task/full/context denominators remain 141/307/0. Task regions remain transcription partial and descriptive/formal semantics unprocessed, with explicit gaps. Full transcription counts are 271 partial / 36 unprocessed; no represented or excluded entries. Geometry and editorial labels grant no semantic status."
+    },
+    {
+      "number": 5,
+      "criterion": "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact.",
+      "status": "review_completed_with_blocking_report_finding",
+      "met_for_clean_delivery": false,
+      "review_execution_complete": true,
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/configuration.json",
+          "bytes": 1454,
+          "sha256": "f84f91aca2c509db1faa648f127796607363f096e38e5caadf6a77691457a91b"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/region-review-ledger.json",
+          "bytes": 1047968,
+          "sha256": "755b170724387cdd1d9a2e8c8645cd2e060be59f8c0b84be7a168ad2173f3b1d"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/report-consistency-audit.json",
+          "bytes": 67595,
+          "sha256": "96c413d64bac53fe60c93ada328ce16c51414d4c6d9acb0cf784b5d0fb0ff642"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/findings.json",
+          "bytes": 7146,
+          "sha256": "e8cdbb4fe140f21c01877da389f1bb5b541aefac85d840c90c0b9ce657f3e039"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/rereview-20261015T123502Z-01a13f8d-fa1f-7991-92c2-0c64bfe3a157/required-checks.json",
+          "bytes": 5875,
+          "sha256": "d82eed36b56090a2f69871612ca74d27bc0c67749298a6390a316deb3b955cd3"
+        }
+      ],
+      "assessment": "This separate gpt-6.1-sol/high session completed the full rereview and every artifact-byte verification. Criterion 5 is not clean for acceptance because R03 identifies six wrong current report-to-specification bindings. This review was actually performed; neither old review nor executor self-inspection is substituted."
+    }
+  ],
+  "technical_result": "changes_recommended",
+  "acceptance_granted": false
+}

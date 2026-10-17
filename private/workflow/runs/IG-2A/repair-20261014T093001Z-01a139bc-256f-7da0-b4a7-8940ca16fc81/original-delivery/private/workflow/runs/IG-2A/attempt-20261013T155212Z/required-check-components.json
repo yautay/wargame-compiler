@@ -1,0 +1,86 @@
+{
+  "check_directory": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-7d085a376903456492add222d2651d5a",
+  "result": {
+    "tests_exit": 0,
+    "diff_exit": 0,
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-7d085a376903456492add222d2651d5a\\pytest",
+    "plan_exit": 0,
+    "dry_run_exit": 0
+  },
+  "result_sha256": "4e7059400e882a0ccf362ac31640e2253874ca1a87d945a384cb6a55e5d917aa",
+  "project_tests": "102 passed",
+  "source_tests": "39 passed",
+  "final_required_checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/sources -q --basetemp C:\\Users\\yauta\\AppData\\Local\\Temp\\wg2a-0cdf5b22 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/sources-tests-03.json",
+        "sha256": "b2e43b965829707e469fbc329e356fd517a8cccfbe0f43c810b9844858938a70"
+      }
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m wgc.sources inventory --pdf private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf --provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json --source-id source:spqr:5e:core --sha256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e --output private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/full-inventory-command.json",
+        "sha256": "671a5190a1d1a1ffa349f7bfe10b9296c74977bf319e608ac93c2113b05e0872"
+      }
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m wgc.sources inventory --pdf private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf --provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json --source-id source:spqr:5e:core --sha256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e --registry private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/identity-registry.json --output private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/replay",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/full-replay-command.json",
+        "sha256": "810184927f4f341906ded15fbd9dc03dd87c0a4f2b543ea0ba1f8eecad27fbe4"
+      }
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m wgc.sources evidence --inventory private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/seed/inventory.json --pages 1 2 3 4 --output private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/evidence",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/real-evidence-command.json",
+        "sha256": "d93161fdd280d606514802a3724c01180b5321ec566033559eeb628ee4b82f82"
+      }
+    },
+    {
+      "command": "pdftoppm -f 1 -l 4 -cropbox -r 144 -png private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/direct-original-render/page",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/direct-render-command.json",
+        "sha256": "93da34559cf5578611212bd0dc430430699aa5ff0b3e4bfbee9de0a55d6aaa66"
+      }
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2A",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/project-check.json",
+        "sha256": "fc751f60bed51ef5d10146c2399f7297a34f650402ed68df52ff03735901b965"
+      }
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/workflow-check-final.json",
+        "sha256": "bda1109d7cdd8cb507757c85f11d98118ea937a2fae4881c7f88d26eaf23793d"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "evidence": {
+        "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/diff-check-final.json",
+        "sha256": "d71a8e37c5fec96a3e2df470603d80e6993ef693b7bafdafc38b11631aa7df9c"
+      }
+    }
+  ],
+  "failed_preparation_or_development_runs_preserved": [
+    "sources-tests-01.json",
+    "sources-tests-02.json",
+    "diff-check.json",
+    "preparation-corrections.json"
+  ],
+  "no_assertions_weakened": true
+}

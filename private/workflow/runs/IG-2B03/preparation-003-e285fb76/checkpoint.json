@@ -1,0 +1,45 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "format": "wgc-coordinator-checkpoint-1",
+  "started_utc": "2026-10-15T15:04:28.676539+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/packet.json",
+    "bytes": 646,
+    "sha256": "6c4fe63358ac11042b2a012e7cd53e2dae3595326a85ee7a73253e231689d606"
+  },
+  "references": {
+    "path": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/references.json",
+    "bytes": 339,
+    "sha256": "08f7778cc3a9ef225b8ee702e7897d0bf0c26aec33b2c455c589f25222e2678a"
+  },
+  "base_queue": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/queue-before.json",
+    "bytes": 156817,
+    "sha256": "412de1bd05d34619bb804ea5207bd66ce118e6f77c3f6b49a97590078a8a25c7"
+  },
+  "base_policy": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/context-policy-before.json",
+    "bytes": 4410,
+    "sha256": "01efd010aba0bca9f3f15de998ddab523db1174d4e681246e4b774cf77d439fc"
+  },
+  "owned_paths": [
+    "docs/work/queue.json",
+    "docs/work/context-policy.json",
+    "private/workflow/runs/IG-2B03/preparation-003-e285fb76/",
+    "derived queue views"
+  ],
+  "completed": [
+    "Runtime confirmed",
+    "Exact dependency event and all frozen delivery artifact hashes verified",
+    "Assigned source pages visually inspected",
+    "Bounded source/input/output contract prepared"
+  ],
+  "blocker": null,
+  "next_operation": "Refine selected queue task, render derived views, validate, then record readiness. No executor claim or product authoring."
+}

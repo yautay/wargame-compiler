@@ -1,0 +1,250 @@
+{
+  "role": "coordinator",
+  "actor": "codex-01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+  "task": "IG-2B02",
+  "status": "ready",
+  "IG2B01_verification": "verified technical closure",
+  "packet": {
+    "task": "IG-2B02",
+    "status": "ready",
+    "queue": {
+      "path": "docs/work/queue.json",
+      "bytes": 151475,
+      "sha256": "85fe904c7c5348a2f188cf3ec132a9393a28b0df49e971fc7843ac30687b8db7"
+    },
+    "manifest": {
+      "path": "private/workflow/packets/IG-2B02-46811ecf99cf4834b010368daddf5f08/manifest.json",
+      "bytes": 5563,
+      "sha256": "0b117e04bde8f79c6a13a154b74abeec2f2fc8fc5091e398d8bc728736ca7be9"
+    },
+    "context": {
+      "path": "private/workflow/packets/IG-2B02-46811ecf99cf4834b010368daddf5f08/context.txt",
+      "bytes": 96228,
+      "sha256": "5a627465fe1de210d6c28ea9725d5a2584ee99c38f13cce926c97447e8e2138e"
+    },
+    "all_exact_context_hashes_verified": true,
+    "allowlisted_paths": [
+      "AGENTS.md",
+      "README.md",
+      "docs/STATUS.md",
+      "docs/HANDOFF.md",
+      "docs/work/WORKFLOW.md",
+      "docs/skills/wgc-execute/SKILL.md",
+      "docs/work/tasks/IG-2B02.md",
+      "docs/work/EVIDENCE.md",
+      "src/wgc/sources/README.md",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md",
+      "contracts/ig/regions.schema.json",
+      "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/configuration.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/dependency-verification.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-pins.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/scope.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json"
+    ],
+    "payload_reconstructed_byte_identically": true,
+    "platform_newline_policy": "Windows Path.write_text newline=None expands LF to CRLF; manifest text_bytes measures the logical LF payload, context SHA256 pins actual disk bytes. Both recomputed separately.",
+    "physical_context_bytes": 96228,
+    "text_bytes": 93993,
+    "no_models_launched": true,
+    "no_claim_or_authoring": true
+  },
+  "executor_prompt": {
+    "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/executor-command-final.md",
+    "bytes": 18399,
+    "sha256": "d193f1312acfd81c3980db38c1c75ce476afcc3ae3efa71281c1914cbff2e63a"
+  },
+  "checks": [
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:21:01.627681+00:00",
+      "ended_utc": "2026-10-14T20:21:45.575191+00:00",
+      "wall_seconds": 43.94751,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/project-check.stdout",
+        "bytes": 5715,
+        "sha256": "52a2a8c6f9ad1b2f37dbf17465f671f6eabcac4002767c50ec0ae01a2f93e1b3"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/project-check.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:23:55.939909+00:00",
+      "ended_utc": "2026-10-14T20:23:57.049650+00:00",
+      "wall_seconds": 1.109741,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-workflow.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-workflow.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:23:58.173472+00:00",
+      "ended_utc": "2026-10-14T20:23:59.589136+00:00",
+      "wall_seconds": 1.415664,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-diff.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-diff.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "next"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:23:57.053882+00:00",
+      "ended_utc": "2026-10-14T20:23:58.154059+00:00",
+      "wall_seconds": 1.100177,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-next.stdout",
+        "bytes": 9,
+        "sha256": "ef196ac9ce85b6d4e411f82a3461ed2bf58ce797ba6e9bf0883c837bc451ba3e"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-next.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "transition",
+        "--task",
+        "IG-2B02",
+        "--to",
+        "ready",
+        "--evidence",
+        "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/ready.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:20:13.427337+00:00",
+      "ended_utc": "2026-10-14T20:20:16.008515+00:00",
+      "wall_seconds": 2.581178,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/ready-transition.stdout",
+        "bytes": 18,
+        "sha256": "aacfc53c1deb9b1cbe7d0da51cdd101e99810645010b30654634daa253c010f4"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/ready-transition.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:18:32.316770+00:00",
+      "ended_utc": "2026-10-14T20:18:40.698030+00:00",
+      "wall_seconds": 8.38126,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/baseline-root-validate-corrected.stdout",
+        "bytes": 9769,
+        "sha256": "11fe5adb66b2ecb79918cff3addda3a120c8595542a223d5b93b776d5723ea3e"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/baseline-root-validate-corrected.stderr",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "packet",
+        "--task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:20:20.199246+00:00",
+      "ended_utc": "2026-10-14T20:20:24.030681+00:00",
+      "wall_seconds": 3.831435,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/fresh-packet.stdout",
+        "bytes": 67,
+        "sha256": "42c772ecd6eb7b81b3d5a8e07c330e80ab71fd3a8739c960108a537c3f9e7270"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/fresh-packet.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "preservation": {
+    "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/preservation-final.json",
+    "bytes": 818,
+    "sha256": "38c242a4662ccd266a864d19e5c52a1f2d8adf39a553830630cbf6c0696dee62"
+  },
+  "measurement": {
+    "started_utc": "2026-10-14T20:10:59+00:00",
+    "ended_utc": "2026-10-14T20:25:31.158866+00:00",
+    "wall_seconds": 872.158866,
+    "scope": "First observed UTC after initial required reads through final verification/report preparation; earlier reads/session-start and final seal hashing/response are unmeasured.",
+    "session_id": "01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+    "actor": "codex-01a13c09-ed4d-7ab2-b967-5e6db69e78b8",
+    "model": null,
+    "reasoning": null,
+    "configuration_unknown_reason": "Exact model ID and reasoning are not exposed in current-session tool/runtime metadata; no operator observation of this session provided. Requested future executor settings and previous-session evidence are not actual configuration evidence.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost": null,
+    "operator_seconds": null,
+    "usage_unknown_reason": "No session token/cost counters exposed; operator time not reported."
+  },
+  "blockers": [],
+  "future_executor_preclaim_gate": "New-session actual gpt-6.1-sol/high confirmation required; no claim permitted by this preparation.",
+  "semantic_acceptance_granted": false,
+  "execution_started": false
+}

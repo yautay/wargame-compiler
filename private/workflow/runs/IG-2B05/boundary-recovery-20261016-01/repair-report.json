@@ -1,0 +1,67 @@
+{
+  "model": null,
+  "reasoning": null,
+  "utc": "2026-10-16T15:00:05.478204+00:00",
+  "problem": "The accepted B04 continuation report uses pdf_page for its explicit exit, while the dependency adapter required physical_page.",
+  "repair": "Normalize either explicit ordinal to physical_page; require integer equality with the preceding assigned boundary and reject conflicting aliases. Never infer from retained dependency reports.",
+  "code": [
+    {
+      "path": "scripts/dependency_context.py",
+      "sha256": "d896787f3c6b0c35e858d55a8e80e2f2bd275a0b18c5a14a357b4846deaa3f9e"
+    },
+    {
+      "path": "tests/test_dependency_context.py",
+      "sha256": "efebb15ec584d7d3a1f1656fd406446f678aade063f7e32650ea30e4271cd97c"
+    },
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "7c4db50d864988664efbb7f2ca974f2065f29e9dbe66cfea45e7b5a972608c56"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "9eeb57fe8b70c22d9e214caa197bd173c67421881bc7653fafe4b606166ce796"
+    }
+  ],
+  "validation": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/test_dependency_context.py -p no:cacheprovider --basetemp private/workflow/checks/b05-boundary-focused-01",
+      "exit": 0,
+      "passed": 25
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q -p no:cacheprovider --basetemp private/workflow/checks/b05-boundary-full-02",
+      "exit": 0,
+      "passed": 256,
+      "mode": "approved Windows process-control tests"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q -p no:cacheprovider --basetemp private/workflow/checks/b05-boundary-full-03",
+      "exit": 0,
+      "passed": 256,
+      "mode": "approved Windows process-control tests"
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B05",
+      "exit": 0,
+      "passed": 256,
+      "result_pin": {
+        "path": "private/workflow/checks/active-57814c07301e4f7aa1fead4ab8198a76/result.json",
+        "sha256": "1453473fcbbbb1fa0040e132b946a4389c82897d6be1cb73653d8c2e17cfbf3a"
+      },
+      "run_by": "Observed gpt-6.1-sol/high B05 coordinator; approved Windows validation"
+    }
+  ],
+  "initial_check": "scripts/check.ps1 -Task IG-2B04: plan=0, dry-run=1 because B04 is already done; restricted process-control tests failed. Full approved pytest rerun passed. Repeat check after B05 becomes active.",
+  "b04_queue_record_sha256": "167663b02b42cbdb46baeee2352f9951e8efe64c583468b70f7f01cb022f94ce",
+  "preflight": {
+    "path": "private/workflow/launches/20261016T150141Z-3c1e178b/preflight-result.json",
+    "sha256": "224f7507f43a9d3a36fba654ae3a7f48c381fcc175956f5d7dd33b174545979e"
+  },
+  "orchestrator_run": "private/workflow/orchestrator/20261016T150146Z-33452c9a",
+  "additional_dispatch_issue": "The planned coordinator required README.md and docs/work/WORKFLOW.md, but neither was guaranteed in its public text manifest. Add exactly these stable control pins for every role; test planned-card omission and pin hashes.",
+  "stopped_dispatch": "private/workflow/orchestrator/20261016T145927Z-8c9bfe6d/001-IG-2B05-coordinator-4448d7c0/context-denied.json"
+}

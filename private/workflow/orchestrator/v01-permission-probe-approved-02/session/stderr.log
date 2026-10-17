@@ -1,0 +1,711 @@
+2026-10-15T14:26:39.407621Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-15T14:26:39.407691Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-15T14:26:39.451212Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-15T14:26:39.716623Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-15T14:26:39.716684Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.162.0-alpha.17.2
+--------
+workdir: C:\repo\wargame-compiler
+model: gpt-6.1-sol
+provider: openai
+approval: on-request
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a13ff5-3e1a-73a1-8085-6eb0da47c529
+--------
+user
+This is an operator-authorized V01 permissions validation probe only. Do not change queue, source, tests, dependencies, ACLs or existing attempts. No nested agents, external services or history reads.
+First read the runtime-configuration.json in your session directory and require supervisor-confirmed gpt-6.1-sol/high.
+Run the UNCHANGED tests/sources suite once with fresh basetemp under private/workflow/checks/v01-approved-probe-<unique>, -p no:cacheprovider and --tb=short. Use the existing .venv/Scripts/python.exe, PYTHONPATH=C:/repo/wargame-compiler/src and prepend C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin to process PATH. Save command, exit code, stdout/stderr under this probe session. The Windows restricted token cannot access pytest mode0700 directories: request sandbox_permissions=require_escalated for this exact unchanged test command with the user's authorized V01 reason. Automatic approval is enabled. Do not first repeat the known failing restricted-token invocation. Verify no source/test files changed. Return progress with evidence path if the permitted command exits zero; otherwise blocked with exact reason. Do not grant IG-2 acceptance.
+Your session directory is private/workflow/orchestrator/v01-permission-probe-approved-02/session
+2026-10-15T14:27:00.719590Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="browser" marketplace="openai-bundled"
+2026-10-15T14:27:00.719627Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="code-review" marketplace="openai-bundled"
+2026-10-15T14:27:00.719640Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="codex-app-tools" marketplace="openai-bundled"
+2026-10-15T14:27:00.719650Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="computer-use" marketplace="openai-bundled"
+2026-10-15T14:27:00.719661Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="documents" marketplace="openai-primary-runtime"
+codex
+I’ll check the session’s runtime evidence, then run the unchanged source suite with the authorized escalation and save the command and results under a fresh probe directory.
+2026-10-15T14:27:01.496992Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="pdf" marketplace="openai-primary-runtime"
+2026-10-15T14:27:01.497028Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="presentations" marketplace="openai-primary-runtime"
+2026-10-15T14:27:01.497045Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="spreadsheets" marketplace="openai-primary-runtime"
+2026-10-15T14:27:01.497060Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="template-creator" marketplace="openai-primary-runtime"
+2026-10-15T14:27:01.497074Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="unified-computer-use" marketplace="openai-bundled"
+2026-10-15T14:27:01.497089Z  WARN codex_core_plugins::loader: configured non-curated plugin no longer exists in discovered marketplaces during cache refresh plugin="visualize" marketplace="openai-bundled"
+2026-10-15T14:27:01.731999Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-15T14:27:01.739193Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command "Get-Content -LiteralPath 'private/workflow/orchestrator/v01-permission-probe-approved-02/session/runtime-configuration.json' -Raw" in C:\repo\wargame-compiler
+ succeeded in 518ms:
+{
+  "status": "confirmed",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning": "high",
+  "basis": "Observed CLI startup metadata, not requested flags.",
+  "session_id": "01a13ff5-3e1a-73a1-8085-6eb0da47c529",
+  "observed_utc": "2026-10-15T14:26:39.787778+00:00",
+  "startup_header": [
+    "2026-10-15T14:26:39.407621Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+    "2026-10-15T14:26:39.407691Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+    "2026-10-15T14:26:39.451212Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell",
+    "2026-10-15T14:26:39.716623Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/",
+    "2026-10-15T14:26:39.716684Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/",
+    "OpenAI Codex v0.162.0-alpha.17.2",
+    "--------",
+    "workdir: C:\\repo\\wargame-compiler",
+    "model: gpt-6.1-sol",
+    "provider: openai",
+    "approval: on-request",
+    "sandbox: workspace-write [workdir, /tmp, $TMPDIR]",
+    "reasoning effort: high",
+    "reasoning summaries: none",
+    "session id: 01a13ff5-3e1a-73a1-8085-6eb0da47c529",
+    "--------"
+  ]
+}
+
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command 'Get-Content -LiteralPath README.md,docs/STATUS.md,docs/HANDOFF.md' in C:\repo\wargame-compiler
+ succeeded in 574ms:
+# Wargame Compiler
+
+WGC turns a WGU knowledge base and complete source materials into an evidence-backed
+Instruction Graph, formal rule semantics, a compiled rules package, and deterministic
+legal actions and state transitions. A future AI opponent spends its context on
+strategy and chooses through a compact player interface. Gameplay legality never
+requires an LLM call.
+
+The product target includes the **entire SPQR 5E core rulebook from the start**.
+Incremental tasks build lasting parts of that product. No further POC is planned.
+There is currently no new importer, compiler, game runtime, or AI opponent.
+
+Start with [status](docs/STATUS.md), [handoff](docs/HANDOFF.md), and the
+[workflow](docs/work/WORKFLOW.md). The only task/status source of truth is
+[queue.json](docs/work/queue.json); [roadmap](docs/ROADMAP.md) and task cards are generated.
+
+- [Architecture](docs/IG-WGU-ARCHITECTURE.md), [data contracts](docs/IG-DATA-MODEL.md),
+  [mechanics and profiles](docs/IG-MECHANICS-PROFILES.md), [legal action contract](docs/IG-LEGAL-ACTIONS.md).
+- [Implementation plan](docs/IG-PLAN.md), [operator prompts](docs/work/PROMPTS.md),
+  [local skills](docs/work/SKILLS.md), [environment evidence](docs/work/ENVIRONMENT.md).
+- [Archive locations and explicit access](docs/ARCHIVES.md).
+
+Repository prose and tooling use English. Publisher text, imported KB data, and
+immutable historical records retain their original language and bytes. Game content,
+source documents, positions, and source-derived examples belong in `private/`.
+
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet --task IG-1A
+```
+
+The packet command prepares local context; it does not start a model or change task
+state. Checks validate planning and workflow, not the unimplemented game's correctness.
+Archive integrity is an explicit separate command, never part of routine checks.
+# WGC status
+
+<!-- Generated from docs/work/queue.json. -->
+
+Queue updated: 2026-10-14. Next ready task: **none**.
+Done tasks: 7/39.
+The planning tools do not certify game behavior. Source import, source coverage,
+human semantic acceptance, compilation and gameplay readiness are separate gates.
+
+Requested planning configuration: GPT-6 Astra/high. Recorded actual model/reasoning:
+unknown/unknown.
+Future executor target: GPT-6.1 Sol/high; verify its actual configuration at claim time.
+
+## Infrastructure blockers
+
+- ARCHIVE-WRITE: blocked. Destination outside writable roots; approval_policy=never. No originals removed. Operator runs the prepared verified migration in a session with write permission to C:/repo/wargame-compiler-archive.
+- SKILL-INSTALL: blocked. .agents is read-only in this session; skills are staged in docs/skills. Use explicit skill paths in prompts now; install and verify discovery in a permitted session.
+
+See [handoff](HANDOFF.md), [workflow](work/WORKFLOW.md), [archive register](ARCHIVES.md)
+and [environment evidence](work/ENVIRONMENT.md). No inherited commit/push approval exists.
+# WGC handoff
+
+<!-- Generated from docs/work/queue.json. -->
+
+Next ready task: **none**. Choose one task; do not execute a whole stage.
+Read [workflow](work/WORKFLOW.md), then use [operator prompts](work/PROMPTS.md).
+
+```powershell
+pwsh -NoProfile -File scripts/check.ps1
+.\.venv\Scripts\python.exe scripts/workflow.py next
+.\.venv\Scripts\python.exe scripts/workflow.py packet
+```
+
+The packet lists exact context and hashes. It does not launch a model or claim the task.
+Use the staged [execution skill](skills/wgc-execute/SKILL.md) explicitly; automatic
+installation is pending. Operator selects GPT-6.1 Sol/high, records actual settings,
+and follows claim → implementation → independent review → repair → acceptance → done.
+Checkpoints and evidence live in private/workflow/runs; preserve prior attempts.
+
+The active SPQR PDF is in private/ig/sources/spqr-5e with verified provenance.
+The WGU inspection is input evidence, not a semantic acceptance or an exact current count.
+Neighbouring KB/WGU repositories are read-only. Required scenarios/options, missing
+materials, authorized semantic reviewer and performance hardware/thresholds must be
+pinned in the tasks that need them; they do not prevent the first source-contract task.
+
+External history relocation remains governed by [the archive register](ARCHIVES.md)
+and the queue infrastructure blockers. No archive content is needed for this packet.
+Do not use old prompts, archived operational approvals or Git history as default context.
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command 'Get-Content -LiteralPath docs/work/WORKFLOW.md,docs/skills/wgc-execute/SKILL.md' in C:\repo\wargame-compiler
+ succeeded in 473ms:
+# Local task workflow
+
+The only authoritative queue, dependencies, task content and status are in
+[queue.json](queue.json). Cards, [roadmap](../ROADMAP.md) and the generated portions
+of status/handoff are projections checked by `scripts/workflow.py validate`.
+Edit queue.json, run `scripts/workflow.py render`, then `scripts/check.ps1`.
+This tool is a local planner; it launches no model, chat, agent, scheduler or API.
+
+## Roles and ownership
+
+The coordinator selects ready work, refines future contracts, owns the queue, checks
+handoffs and records acceptance evidence. The executor owns only the task's listed
+write paths. The independent reviewer reads the frozen result and writes review findings;
+they do not silently repair the executor's code. Source-meaning review is separately
+identified. The owner (or explicitly authorized human) accepts exact semantic revisions.
+Model review and green tests never substitute for that decision.
+
+Default execution is sequential: one claimed task and one writer. A separate review
+session may use the same requested Sol/high configuration but a fresh reviewer identity
+and task context. No sessions are created automatically. Parallel work needs explicit
+operator authorization, satisfied dependencies, disjoint writes, and a coordinator-owned
+integration task. Two tasks writing queue.json are never parallel writers.
+
+## State machine
+
+| From | Allowed next states | Gate |
+|---|---|---|
+| planned | ready, blocked | Dependencies done; context available; refinement resolved |
+| ready | in_progress, blocked | Executor identity, actual config evidence, exact scope and checkpoint |
+| in_progress | review, blocked | Frozen delivery manifest, meaningful checks and handoff |
+| review | changes_requested, accepted, blocked | Separate technical review; meaning review and human decision when required |
+| changes_requested | in_progress, blocked | Bounded repair scope and new attempt |
+| accepted | done, changes_requested | Coordinator verifies every criterion, evidence and required owner decisions |
+| blocked | planned | New evidence resolves recorded blocker; reevaluate readiness, never jump to done |
+| done | planned | Explicit reopening reason; prior acceptance preserved in event history |
+
+`ready` is explicit and checked, not inferred from file existence. `next` prints the first
+ready task in queue order. At most one task is in_progress/review/changes_requested/accepted.
+`done` means its lasting deliverables, tests, independent review and applicable human
+acceptance are complete. `blocked` records missing fact, failed assumption or unavailable
+input, impact, smallest resolution action, and owner. Source gaps can be valid importer
+outputs while still blocking later gameplay; do not mark import blocked for every missing PDF.
+
+Use `transition --task ID --to STATE --evidence PATH`. Evidence is JSON with `role`,
+`actor`, `summary`, `criteria`, `artifacts`, `model`, `reasoning`, `configuration_evidence`,
+and optional `semantic_decision`. Unknown measured configuration is null with a reason.
+For delivery/review/acceptance also supply `checks`, a nonempty list of command and
+exit_code records. All required checks must have exit code zero. In-progress claims
+require confirmed `model: gpt-6.1-sol` and `reasoning: high`; unknown configuration
+is recorded as a blocker until the operator confirms the actual session settings.
+The command checks structural gates and file hashes, not the truth or authority of a
+human statement. Evidence is append-only by hash in queue events; changes invalidate checks.
+See [evidence shapes](EVIDENCE.md) for a checkpoint/delivery example. Executor status
+updates go through the transition command; the coordinator owns structural queue edits.
+For a semantic task, accepted requires a human decision artifact from the owner or a
+documented authorized reviewer. Do not fabricate one. Routine technical acceptance can
+be recorded by the coordinator after independent review without another owner confirmation.
+
+## One task cycle
+
+1. Coordinator validates queue and chooses `next`. Resolve `refine` before readiness.
+2. Generate a packet with exact allowed context. Binary source references are hashed,
+   not dumped into text; read only pages/IDs named by the task. External WGU context is
+   explicitly scoped in the card, never scanned through historical manifests.
+3. Operator starts the selected executor manually using [the launch prompt](PROMPTS.md).
+   Confirm Sol/high from UI/session metadata; requested settings are not evidence.
+4. Record claim and checkpoint; implement only this increment; record changed files,
+   checks, measured usage and unresolved assumptions. Preserve unrelated working changes.
+5. Freeze delivery hashes and enter review. Operator supplies the review prompt to a
+   separate reviewer. Evaluate source meaning separately from code mechanics.
+6. Repair scoped findings, rerun affected checks and obtain a new review of changed hashes.
+7. Coordinator records acceptance then done, renders views, makes the next eligible task
+   ready, and prepares a new handoff. Do not start the next task just to finish this one.
+
+## Refinement and corpus partitioning
+
+`refine` tasks are not executable until exact prerequisites/paths/cases are pinned. Edit
+the record to `implementation` or `content` after refinement; keep the decision in events.
+For a corpus task, create bounded child records with explicit target IDs, context-only
+IDs, source hashes/pages and disjoint output paths. The parent becomes a closure task
+depending on children, while children inherit the parent's former dependencies (never
+depend on the parent). Rewire downstream tasks through parent closure. Validate the DAG,
+check target-set coverage without overlaps, and render child cards. No recursive platform
+or agent manager is needed. Work partitions do not reduce the full-rulebook target.
+
+## Checkpoints, interruption and conflicts
+
+Write `private/workflow/runs/<task>/<attempt>/checkpoint.json` before starting and after
+each usable increment: task/attempt, actor, actual config, base file hashes, changed-file
+hashes, input packet hash, completed criteria, command results, blocker and next operation.
+Freeze a delivery manifest of all reviewed files and record reports in the same run folder.
+Do not overwrite prior attempts. A interrupted task remains in_progress until triaged.
+Resume by comparing checkpoint hashes with disk and the current queue; record divergences,
+retain both versions and resolve only owned files. Never reset, clean or stash the worktree.
+If an unexpected writer changed an owned path, block that path and ask the coordinator
+to integrate. A checkpoint is not a commit and never authorizes push.
+
+At most two repair cycles per review finding and two retries for the same unchanged
+failure. Then block with evidence and the smallest decision needed. A new hypothesis
+or changed external condition must be recorded before another attempt. No silent scope
+expansion or weakened tests to clear a blocker.
+
+## Measurements and report
+
+Record start/end UTC, elapsed wall time, executor/reviewer identities, requested and
+observed configuration, token counts only if exposed, operator time only if reported,
+tests and defect counts by severity. Unknown values are null, not zero. Separate code
+quality from source meaning and full-profile readiness. No invented monetary cost.
+Final handoff includes outcome, paths/hashes, criteria met/unmet, commands and exits,
+independent review, human decisions where needed, remaining risks, and next exact action.
+
+## Permissions and context limitations
+
+Packets enforce their own allowlist and reject history paths, path escapes and symlinks.
+They are not an OS sandbox for arbitrary tools. `.rgignore` controls default ripgrep only;
+explicit paths, `--no-ignore`, other tools and Git can bypass search exclusions.
+Read [archive isolation](../ARCHIVES.md) before any historical access. The current session
+cannot migrate outside its writable roots or install under protected `.agents/`.
+---
+name: wgc-execute
+description: Implement one ready WGC task within its declared file scope and produce a tested, frozen delivery for independent review.
+---
+
+# wgc-execute
+
+Read the supplied packet and only its named context, plus docs/work/WORKFLOW.md.
+Confirm task readiness, input hashes, write ownership and actual model/reasoning evidence.
+Claim the task with a checkpoint under private/workflow/runs/<task>/<attempt>/.
+Build only the listed deliverables; task exclusions and dependency gates remain binding.
+Use synthetic public tests and private source-derived fixtures. Meaningful tests need
+source-justified expectations, not merely mirrored implementation assumptions.
+Run relevant tests and scripts/check.ps1, freeze file hashes and report unmet criteria.
+Hand off for a separate review; never grant yourself semantic acceptance or start the
+next task. Resume via checkpoint/hash comparison. Do not load historical gold by default.
+
+codex
+The runtime record confirms `gpt-6.1-sol` with `high` reasoning from observed startup metadata. I’ve read the repository workflow and local execution skill; this remains a permissions probe, with no task claim or acceptance. I’ll hash source and test files before and after the single escalated run.
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command 'Get-Content -LiteralPath scripts/check.ps1' in C:\repo\wargame-compiler
+ succeeded in 265ms:
+param([string]$Python = '', [string]$Task = '')
+$ErrorActionPreference = 'Stop'
+$repoRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+if (-not $Python) { $Python = Join-Path $repoRoot '.venv\Scripts\python.exe' }
+if (-not (Test-Path -LiteralPath $Python)) { throw 'Specify an existing interpreter with pytest using -Python.' }
+$runRoot = Join-Path $repoRoot ('private\workflow\checks\active-' + [guid]::NewGuid().ToString('N'))
+$baseTemp = Join-Path $runRoot 'pytest'
+if ((Test-Path -LiteralPath $runRoot) -or (Test-Path -LiteralPath $baseTemp)) { throw 'The check directory must be new.' }
+$savedTemp = $env:TEMP
+$savedTmp = $env:TMP
+$savedBytecode = $env:PYTHONDONTWRITEBYTECODE
+$savedLocks = $env:GIT_OPTIONAL_LOCKS
+Push-Location -LiteralPath $repoRoot
+try {
+    New-Item -ItemType Directory -Path (Join-Path $runRoot 'temp') | Out-Null
+    $env:TEMP = Join-Path $runRoot 'temp'
+    $env:TMP = $env:TEMP
+    $env:PYTHONDONTWRITEBYTECODE = '1'
+    $env:GIT_OPTIONAL_LOCKS = '0'
+    Write-Output ('LOG_ROOT=' + $runRoot)
+    & $Python scripts/workflow.py validate 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'plan.log')
+    $planCode = $LASTEXITCODE
+    if (-not $Task) {
+        $queue = Get-Content -LiteralPath 'docs/work/queue.json' -Raw | ConvertFrom-Json
+        $candidate = @($queue.tasks | Where-Object { $_.status -eq 'ready' }) | Select-Object -First 1
+        if (-not $candidate) {
+            $candidate = @($queue.tasks | Where-Object { $_.status -in @('in_progress', 'review', 'changes_requested', 'accepted') }) | Select-Object -First 1
+        }
+        if (-not $candidate) { $candidate = $queue.tasks | Select-Object -First 1 }
+        $Task = $candidate.id
+    }
+    & $Python scripts/workflow.py dry-run --task $Task 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'dry-run.log')
+    $dryCode = $LASTEXITCODE
+    & $Python -m pytest -q --basetemp $baseTemp -p no:cacheprovider --tb=short 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'pytest.log')
+    $testCode = $LASTEXITCODE
+    & git diff --check 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'diff-check.log')
+    $diffCode = $LASTEXITCODE
+    @{ plan_exit=$planCode; dry_run_exit=$dryCode; tests_exit = $testCode; diff_exit = $diffCode; basetemp = $baseTemp } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runRoot 'result.json') -Encoding utf8
+    if ($planCode -ne 0 -or $dryCode -ne 0 -or $testCode -ne 0 -or $diffCode -ne 0) { throw "Checks failed: plan=$planCode dry-run=$dryCode pytest=$testCode diff=$diffCode" }
+}
+finally {
+    $env:TEMP = $savedTemp
+    $env:TMP = $savedTmp
+    $env:PYTHONDONTWRITEBYTECODE = $savedBytecode
+    $env:GIT_OPTIONAL_LOCKS = $savedLocks
+    Pop-Location
+}
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$runtimeEvidence = Get-Content -LiteralPath '"'private/workflow/orchestrator/v01-permission-probe-approved-02/session/runtime-configuration.json' -Raw | ConvertFrom-Json
+if ("'$runtimeEvidence.status -ne '"'confirmed' -or "'$runtimeEvidence.model -ne '"'gpt-6.1-sol' -or "'$runtimeEvidence.reasoning -ne '"'high') { throw 'Required supervisor-confirmed gpt-6.1-sol/high runtime evidence is absent.' }
+if ((Test-Path -LiteralPath 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221') -or (Test-Path -LiteralPath 'C:/repo/wargame-compiler/private/workflow/checks/v01-approved-probe-20261015142754534-c7101221')) { throw 'Probe paths must be fresh.' }
+New-Item -ItemType Directory -Path 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221','C:/repo/wargame-compiler/private/workflow/checks/v01-approved-probe-20261015142754534-c7101221' | Out-Null
+@'
+"'$ErrorActionPreference = '"'Continue'
+"'$env:PYTHONPATH = '"'C:/repo/wargame-compiler/src'
+"'$env:PATH = '"'C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin;' + "'$env:PATH
+$env:PYTHONDONTWRITEBYTECODE = '"'1'
+"'$probeStarted = [DateTime]::UtcNow.ToString('"'o')
+& 'C:/repo/wargame-compiler/.venv/Scripts/python.exe' -m pytest tests/sources --basetemp 'C:/repo/wargame-compiler/private/workflow/checks/v01-approved-probe-20261015142754534-c7101221/pytest' -p no:cacheprovider --tb=short 1> 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/stdout.log' 2> 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/stderr.log'
+"'$probeExit = $LASTEXITCODE
+$probeExit | Set-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/exit-code.txt' -Encoding utf8
+[ordered]@{command_file='C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/command.ps1'; exit_code="'$probeExit; started_utc=$probeStarted; ended_utc=[DateTime]::UtcNow.ToString('"'o'); basetemp='C:/repo/wargame-compiler/private/workflow/checks/v01-approved-probe-20261015142754534-c7101221/pytest'; runtime_configuration='private/workflow/orchestrator/v01-permission-probe-approved-02/session/runtime-configuration.json'; model='gpt-6.1-sol'; reasoning='high'; semantic_acceptance="'$false} | ConvertTo-Json | Set-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/result.json' -Encoding utf8
+Write-Output ('PROBE_EXIT=' + "'$probeExit)
+Write-Output '"'EVIDENCE=C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221'
+exit "'$probeExit
+'"'@ | Set-Content -LiteralPath 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/command.ps1' -Encoding utf8
+"'$probeFiles = @(Get-ChildItem -LiteralPath src,tests -Recurse -File | Sort-Object FullName | ForEach-Object { [ordered]@{path=$_.FullName.Substring((Get-Location).Path.Length + 1).Replace('"'\\','/'); sha256=(Get-FileHash -LiteralPath "'$_.FullName -Algorithm SHA256).Hash} })
+ConvertTo-Json -InputObject $probeFiles -Depth 4 | Set-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/source-test-before.json' -Encoding utf8
+(Get-FileHash -LiteralPath 'docs/work/queue.json' -Algorithm SHA256).Hash | Set-Content -LiteralPath 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/queue-before.sha256' -Encoding utf8
+Write-Output ('BASELINE_FILES=' + "'$probeFiles.Count)
+Write-Output '"'EVIDENCE=C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221'" in C:\repo\wargame-compiler
+ succeeded in 1802ms:
+BASELINE_FILES=119
+EVIDENCE=C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '$ErrorActionPreference = '"'Continue'
+"'$env:PYTHONPATH = '"'C:/repo/wargame-compiler/src'
+"'$env:PATH = '"'C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin;' + "'$env:PATH
+$env:PYTHONDONTWRITEBYTECODE = '"'1'
+"'$probeStarted = [DateTime]::UtcNow.ToString('"'o')
+& 'C:/repo/wargame-compiler/.venv/Scripts/python.exe' -m pytest tests/sources --basetemp 'C:/repo/wargame-compiler/private/workflow/checks/v01-approved-probe-20261015142754534-c7101221/pytest' -p no:cacheprovider --tb=short 1> 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/stdout.log' 2> 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/stderr.log'
+"'$probeExit = $LASTEXITCODE
+$probeExit | Set-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/exit-code.txt' -Encoding utf8
+[ordered]@{command_file='C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/command.ps1'; exit_code="'$probeExit; started_utc=$probeStarted; ended_utc=[DateTime]::UtcNow.ToString('"'o'); basetemp='C:/repo/wargame-compiler/private/workflow/checks/v01-approved-probe-20261015142754534-c7101221/pytest'; runtime_configuration='private/workflow/orchestrator/v01-permission-probe-approved-02/session/runtime-configuration.json'; model='gpt-6.1-sol'; reasoning='high'; semantic_acceptance="'$false} | ConvertTo-Json | Set-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/result.json' -Encoding utf8
+Write-Output ('PROBE_EXIT=' + "'$probeExit)
+Write-Output '"'EVIDENCE=C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221'
+exit "'$probeExit' in C:\repo\wargame-compiler
+ exited 1 in 1995ms:
+PROBE_EXIT=1
+EVIDENCE=C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221
+
+exec
+"C:\\Users\\yauta\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe" -Command '$ErrorActionPreference = '"'Stop'
+"'$probeFiles = @(Get-ChildItem -LiteralPath src,tests -Recurse -File | Sort-Object FullName | ForEach-Object { [ordered]@{path=$_.FullName.Substring((Get-Location).Path.Length + 1).Replace('"'\\','/'); sha256=(Get-FileHash -LiteralPath "'$_.FullName -Algorithm SHA256).Hash} })
+ConvertTo-Json -InputObject $probeFiles -Depth 4 | Set-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/source-test-after.json' -Encoding utf8
+"'$probeUnchanged = (Get-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/source-test-before.json' -Raw) -ceq (Get-Content -LiteralPath 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/source-test-after.json' -Raw)
+"'$probeQueueHash = (Get-FileHash -LiteralPath '"'docs/work/queue.json' -Algorithm SHA256).Hash
+"'$probeQueueUnchanged = $probeQueueHash -eq (Get-Content -LiteralPath '"'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/queue-before.sha256').Trim()
+& git diff --check 1> 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/diff-check-stdout.log' 2> 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/diff-check-stderr.log'
+"'$probeDiffExit = $LASTEXITCODE
+[ordered]@{source_test_files_unchanged=$probeUnchanged; source_test_file_count=$probeFiles.Count; queue_unchanged=$probeQueueUnchanged; git_diff_check_exit_code=$probeDiffExit; full_check_script_run=$false; full_check_script_omission_reason='"'Operator scope requires exactly one unchanged tests/sources invocation; scripts/check.ps1 would invoke pytest again.'} | ConvertTo-Json | Set-Content -LiteralPath 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/verification.json' -Encoding utf8
+Get-Content -LiteralPath 'C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/stdout.log','C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/stderr.log','C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221/verification.json'
+if (-not "'$probeUnchanged -or -not $probeQueueUnchanged) { throw '"'Protected file verification failed.' }" in C:\repo\wargame-compiler
+ succeeded in 1376ms:
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\repo\wargame-compiler
+configfile: pyproject.toml
+collected 71 items
+
+tests\sources\test_inventory.py EEEEEEEE..............EEEEEEEEEEEEEEEE.  [ 54%]
+tests\sources\test_review_repairs.py EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE    [100%]
+
+=================================== ERRORS ====================================
+__________ ERROR at setup of test_independent_page_count_and_replay ___________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_multicolumn_table_note_cross_page_and_edit ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__________________ ERROR at setup of test_missing_page_fails __________________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_missing_regions_visible_as_page_area_gap _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______________ ERROR at setup of test_duplicate_region_rejected _______________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_overlapping_inventory_rejected_context_not_counted __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_____ ERROR at setup of test_partial_never_represented_and_gaps_rejected ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_exclusion_needs_exact_partition_boundary_and_human_claim _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+________ ERROR at setup of test_registry_does_not_remap_changed_source ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+___________ ERROR at setup of test_revision_and_registry_tampering ____________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____ ERROR at setup of test_evidence_exact_text_render_pins_and_tampering _____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__________ ERROR at setup of test_region_crop_excludes_other_column ___________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+___ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[0-expected0] ___
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[90-expected1] ___
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[180-expected2] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[270-expected3] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______________ ERROR at setup of test_stale_evidence_rejected ________________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______________ ERROR at setup of test_order_and_link_fail_closed ______________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____________ ERROR at setup of test_independent_count_disagreement ____________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__________ ERROR at setup of test_source_mutation_during_inspection ___________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_schema_rejects_floats_and_unknown_fields _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_cli_two_page_evidence_and_immutable_output ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_____ ERROR at setup of test_embedded_label_does_not_verify_printed_label _____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_duplicate_context_geometry_never_inflates_denominator _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-crop_box] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-effective_crop_box] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-rotation] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-user_unit] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-crop_box] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-effective_crop_box] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-rotation] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-user_unit] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_resealing_geometry_and_evidence_basis_cannot_forge_source _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_________ ERROR at setup of test_dpi_must_match_actual_physical_crop __________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_printed_label_requires_same_current_physical_page ___
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+________ ERROR at setup of test_exclusion_pins_whole_author_scope[key] ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[kind] ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____ ERROR at setup of test_exclusion_pins_whole_author_scope[uncertainty] ____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_____ ERROR at setup of test_exclusion_pins_whole_author_scope[registry] ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_exclusion_pins_whole_author_scope[source] _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[page] ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_exclusion_pins_whole_author_scope[context] ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[order] _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[links] _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_all_coverage_fields_are_outside_scope_hash_to_avoid_cycles _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_consistent_false_page_count_fails_against_actual_pdf _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_physical_addresses_cannot_move_under_persisted_identities _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____ ERROR at setup of test_reordering_array_keeps_addresses_and_identity _____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-0] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-90] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-180] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-270] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-0] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-90] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-180] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-270] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+=========================== short test summary info ===========================
+ERROR tests/sources/test_inventory.py::test_independent_page_count_and_replay
+ERROR tests/sources/test_inventory.py::test_multicolumn_table_note_cross_page_and_edit
+ERROR tests/sources/test_inventory.py::test_missing_page_fails - ModuleNotFou...
+ERROR tests/sources/test_inventory.py::test_missing_regions_visible_as_page_area_gap
+ERROR tests/sources/test_inventory.py::test_duplicate_region_rejected - Modul...
+ERROR tests/sources/test_inventory.py::test_overlapping_inventory_rejected_context_not_counted
+ERROR tests/sources/test_inventory.py::test_partial_never_represented_and_gaps_rejected
+ERROR tests/sources/test_inventory.py::test_exclusion_needs_exact_partition_boundary_and_human_claim
+ERROR tests/sources/test_inventory.py::test_registry_does_not_remap_changed_source
+ERROR tests/sources/test_inventory.py::test_revision_and_registry_tampering
+ERROR tests/sources/test_inventory.py::test_evidence_exact_text_render_pins_and_tampering
+ERROR tests/sources/test_inventory.py::test_region_crop_excludes_other_column
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[0-expected0]
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[90-expected1]
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[180-expected2]
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[270-expected3]
+ERROR tests/sources/test_inventory.py::test_stale_evidence_rejected - ModuleN...
+ERROR tests/sources/test_inventory.py::test_order_and_link_fail_closed - Modu...
+ERROR tests/sources/test_inventory.py::test_independent_count_disagreement - ...
+ERROR tests/sources/test_inventory.py::test_source_mutation_during_inspection
+ERROR tests/sources/test_inventory.py::test_schema_rejects_floats_and_unknown_fields
+ERROR tests/sources/test_inventory.py::test_cli_two_page_evidence_and_immutable_output
+ERROR tests/sources/test_inventory.py::test_embedded_label_does_not_verify_printed_label
+ERROR tests/sources/test_inventory.py::test_duplicate_context_geometry_never_inflates_denominator
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-effective_crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-rotation]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-user_unit]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-effective_crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-rotation]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-user_unit]
+ERROR tests/sources/test_review_repairs.py::test_resealing_geometry_and_evidence_basis_cannot_forge_source
+ERROR tests/sources/test_review_repairs.py::test_dpi_must_match_actual_physical_crop
+ERROR tests/sources/test_review_repairs.py::test_printed_label_requires_same_current_physical_page
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[key]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[kind]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[uncertainty]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[registry]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[source]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[page]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[context]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[order]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[links]
+ERROR tests/sources/test_review_repairs.py::test_all_coverage_fields_are_outside_scope_hash_to_avoid_cycles
+ERROR tests/sources/test_review_repairs.py::test_consistent_false_page_count_fails_against_actual_pdf
+ERROR tests/sources/test_review_repairs.py::test_physical_addresses_cannot_move_under_persisted_identities
+ERROR tests/sources/test_review_repairs.py::test_reordering_array_keeps_addresses_and_identity
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-0]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-90]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-180]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-270]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-0]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-90]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-180]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-270]
+======================== 15 passed, 56 errors in 1.10s ========================
+{
+  "source_test_files_unchanged": true,
+  "source_test_file_count": 119,
+  "queue_unchanged": true,
+  "git_diff_check_exit_code": 0,
+  "full_check_script_run": false,
+  "full_check_script_omission_reason": "Operator scope requires exactly one unchanged tests/sources invocation; scripts/check.ps1 would invoke pytest again."
+}
+
+codex
+{"outcome":"blocked","evidence":"C:/repo/wargame-compiler/private/workflow/orchestrator/v01-permission-probe-approved-02/session/probe-20261015142754534-c7101221","summary":"Confirmed gpt-6.1-sol/high. The single escalated run exited 1: 15 passed, 56 setup errors caused by ModuleNotFoundError: No module named 'reportlab'. Command, exit code, stdout/stderr and verification saved. All 119 source/test files and queue remained unchanged; git diff --check passed. No IG-2 acceptance granted."}
+tokens used
+34,897

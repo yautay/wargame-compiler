@@ -1,0 +1,40 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "result": {
+    "task": "IG-2B08",
+    "inventory": {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/inventory.json",
+      "sha256": "ce6fc9aaee6bd3990e0fc85ba673cb75ec3fbdcad1b88c923561a1c2c275dbf4",
+      "bytes": 5086615
+    },
+    "command": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "wgc.sources",
+      "validate",
+      "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/inventory.json"
+    ],
+    "exit_code": 0,
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-a8aafb0b/32681203fee140b6aa8dcd9060f6ad9b/stdout.log",
+      "sha256": "be260ba07860747a949950127377a8940db66d3f50fc8dafaa161fd8667fdbe1",
+      "bytes": 11148
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-a8aafb0b/32681203fee140b6aa8dcd9060f6ad9b/stderr.log",
+      "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc",
+      "bytes": 72
+    },
+    "output_policy": "Private logs only; no raw output or tail is released."
+  },
+  "result_pin": {
+    "path": "private/workflow/runs/IG-2B08/review-validation-001-IG-2B08-executor-a8aafb0b/32681203fee140b6aa8dcd9060f6ad9b/result.json",
+    "bytes": 983,
+    "sha256": "182cf8e9f11e11fff3d51169b6b478c8af159a2dd8e15fd362aa747b04e8089b"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "task": "IG-2B08",
+  "role": "executor",
+  "actor": "ig2:002-IG-2B08-executor-1edb0a28:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/002-IG-2B08-executor-1edb0a28/runtime-configuration.json",
+  "configuration_sha256": "c406cdcd45f72e382cfbc948014f8c9db3d10acec7628f181d92974ee04858b6",
+  "summary": "Claim fresh IG-2B08 inventory attempt for physical pages 29-32; preserve accepted complete baseline.",
+  "criteria": [
+    "Verified dependency done, all pinned input bytes, complete 44-page baseline/registry and fresh owned directory."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/inventory-8d84cd90-01/checkpoint-initial.json",
+      "sha256": "f691c29a4c6ecf1cc6c51c2972914674e3d515691403cd327d729a7c3dd96637",
+      "bytes": 3601
+    }
+  ],
+  "checks": [
+    {
+      "command": "Packet/input SHA-256 and baseline-count preflight",
+      "exit_code": 0
+    }
+  ]
+}

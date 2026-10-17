@@ -1,0 +1,13 @@
+.F.                                                                      [100%]
+================================== FAILURES ===================================
+____ test_unique_merge_child_correction_retains_persisted_receipt_identity ____
+private\workflow\runs\IG-1D\review-20261013T122807Z\lineage_probes.py:31: in test_unique_merge_child_correction_retains_persisted_receipt_identity
+    assert ids(corrected) == {'Together': ids(merged)['Together']}
+E   AssertionError: assert {} == {'Together': ...iew:e0000003'}
+E     
+E     Right contains 1 more item:
+E     {'Together': 'review:e0000003'}
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py::test_unique_merge_child_correction_retains_persisted_receipt_identity
+1 failed, 2 passed in 1.60s

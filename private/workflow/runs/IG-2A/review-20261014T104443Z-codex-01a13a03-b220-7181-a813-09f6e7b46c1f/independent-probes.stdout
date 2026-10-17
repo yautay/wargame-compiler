@@ -1,0 +1,54 @@
+structural_baseline accept  True
+fresh_evidence_baseline accept  True
+stale_crop_internal reject ValueError: stale evidence page geometry/physical address basis True
+stale_crop_source reject ValueError: stale page geometry/source structure basis True
+forged_basis_crop reject ValueError: stale page geometry/source structure basis True
+stale_effective_crop_internal reject ValueError: stale evidence page geometry/physical address basis True
+stale_effective_crop_source reject ValueError: stale page geometry/source structure basis True
+forged_basis_effective_crop reject ValueError: stale page geometry/source structure basis True
+stale_rotation_internal reject ValueError: stale evidence page geometry/physical address basis True
+stale_rotation_source reject ValueError: stale page geometry/source structure basis True
+forged_basis_rotation reject ValueError: stale page geometry/source structure basis True
+stale_user_unit_internal reject ValueError: stale evidence page geometry/physical address basis True
+stale_user_unit_source reject ValueError: stale page geometry/source structure basis True
+forged_basis_user_unit reject ValueError: stale page geometry/source structure basis True
+stale_media_internal reject ValueError: stale evidence page geometry/physical address basis True
+stale_media_source reject ValueError: stale page geometry/source structure basis True
+forged_basis_media reject ValueError: stale page geometry/source structure basis True
+stale_address_internal reject ValueError: physical page identity remapping is forbidden True
+stale_address_source reject ValueError: physical page identity remapping is forbidden True
+false_dpi reject ValueError: render DPI/geometry pixel dimensions mismatch True
+false_pixel_rounding reject ValueError: render DPI/geometry pixel dimensions mismatch True
+cross_page_label reject ValueError: printed label evidence belongs to another physical page True
+same_page_label accept  True
+embedded_label_not_visual_confirmation accept  True
+unchanged_exclusion_basis accept  True
+stale_exclusion_kind reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_uncertainty reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_key reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_registry reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_source_id reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_source_revision reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_address reject ValueError: physical page identity remapping is forbidden True
+stale_exclusion_partition reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_denominator reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_order reject ValueError: exclusion boundary is not exact/current True
+stale_exclusion_link reject ValueError: exclusion boundary is not exact/current True
+coverage_only_change_not_ig1a_approval accept  True
+reordered_pages accept  True
+concealed_missing_actual_page reject ValueError: missing PDF page/source structure count mismatch True
+overlapping_context_denominator accept  True
+overlapping_inventory reject ValueError: overlapping inventory denominator True
+duplicate_region reject ValueError: duplicate region identity/key True
+uncovered_page_area_visible accept  True
+partial_not_represented accept  True
+partial_requires_gap reject ValueError: partial/unprocessed must retain a gap True
+reading_order_missing reject ValueError: reading order must name each region exactly once True
+fractional_crop_r0_dpi72 accept  True
+fractional_crop_r0_dpi144 accept  True
+fractional_crop_r90_dpi72 accept  True
+fractional_crop_r90_dpi144 accept  True
+fractional_crop_r180_dpi72 accept  True
+fractional_crop_r180_dpi144 accept  True
+fractional_crop_r270_dpi72 accept  True
+fractional_crop_r270_dpi144 accept  True

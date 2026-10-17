@@ -1,0 +1,59 @@
+{
+  "role": "coordinator",
+  "actor": "operator-authorized-unicode-recovery-20261016-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder actual configuration unavailable; not represented as Sol/high.",
+  "checks": [
+    {
+      "result": "6 passed",
+      "exit_code": 0,
+      "command": "Focused Unicode regressions"
+    },
+    {
+      "result": "9 matches; arrow preserved; no denial; queue unchanged",
+      "exit_code": 0,
+      "command": "Exact previously failing scoped search with cp1252:strict and active guard"
+    },
+    {
+      "result": "236 passed; plan=0 dry-run=0 tests=0 diff=0",
+      "exit_code": 0,
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B04 (approved ordinary-user execution)",
+      "evidence": "private/workflow/checks/active-3d4bdab4bb394804bb495e1a72c2b7d6/result.json"
+    }
+  ],
+  "artifacts": [
+    {
+      "sha256": "82fdd42a94a3dbe3b6511c24233dd14f107c66c74bd9fe96cac76f3d9048b911",
+      "path": "scripts/context_guard.py"
+    },
+    {
+      "sha256": "de3f37ff25774cd0cf7a81cc18191ae0faa270502fe97361cff4486f061ac87c",
+      "path": "scripts/search_task.py"
+    },
+    {
+      "sha256": "fd893e7077015d8a05aa24a843fb7db3581a01248132a54454e5ab6c6610953c",
+      "path": "scripts/task_access.py"
+    },
+    {
+      "sha256": "b0d016c4c1135ec9e9c7ba10ac32305c54799cb26673cb7c07d8b7d60d896ab1",
+      "path": "scripts/dependency_context.py"
+    },
+    {
+      "sha256": "a9b71cbc7decbf02c3a56db327420cd198a69720204e5483c1c7888bed20135d",
+      "path": "tests/test_task_search.py"
+    },
+    {
+      "sha256": "8505375b43d3b12da0eff126a5153050f937357196e3b90a48460b1dd9bd46ca",
+      "path": "tests/test_task_access.py"
+    },
+    {
+      "sha256": "c3cc62f448d924459cf5688285e792c8c4629798756a0be779897f8681c28e47",
+      "path": "tests/test_dependency_context.py"
+    },
+    {
+      "sha256": "8eab02da6c3cf0f7c57b2d1a759e01d953b40f209d3a6fcf4de0830cac575404",
+      "path": "docs/work/IG2-ORCHESTRATOR.md"
+    }
+  ]
+}

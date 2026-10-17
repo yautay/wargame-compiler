@@ -1,0 +1,136 @@
+{
+  "task": "IG-2B02",
+  "attempt": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "actor": "codex-01a13f2d-eb41-7760-9e94-99f0508d544a",
+  "session_id": "01a13f2d-eb41-7760-9e94-99f0508d544a",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json",
+    "bytes": 1353,
+    "sha256": "2aabecba69bda9bf8464169d85c76bdaa9e7d7d6c077cace419da4a8a4f564ed"
+  },
+  "stage": "preclaim_ready",
+  "started_utc": "2026-10-15T10:48:56.623Z",
+  "updated_utc": "2026-10-15T10:51:27.811777+00:00",
+  "packet": {
+    "directory": "private/workflow/packets/IG-2B02-ba70cbf270d142868c66b50ef1e029cf",
+    "manifest": {
+      "path": "private/workflow/packets/IG-2B02-ba70cbf270d142868c66b50ef1e029cf/manifest.json",
+      "bytes": 6500,
+      "sha256": "d0be144df7ba951c1eb8f1f6918d73ec1cedf07755cdc59e4edf6ee251123cd4"
+    },
+    "context": {
+      "path": "private/workflow/packets/IG-2B02-ba70cbf270d142868c66b50ef1e029cf/context.txt",
+      "bytes": 99360,
+      "sha256": "fd075cc90e5896c80e86e5912eb31198590f442a81dd58c04676682d18bb4f6c"
+    },
+    "logical_utf8_bytes": 97090,
+    "physical_context_bytes": 99360,
+    "limit": 100000,
+    "complete_exact_reconstruction": true
+  },
+  "coordinator_handoff": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-handoff.json",
+    "bytes": 10212,
+    "sha256": "25981b997260db9081fec33f61083c2fcf52e0a7c26928e22c55300f776dcb09"
+  },
+  "authorization": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/authorization.json",
+    "bytes": 621,
+    "sha256": "2f3758a3ecb315af0f22d46ed1f7ac7fe3d6fe06676cc51294ca555770dc1a82"
+  },
+  "coordinator_event": {
+    "from": "review",
+    "to": "changes_requested",
+    "utc": "2026-10-15T10:48:05.824663+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-decision.json",
+    "sha256": "a35100af625331cfd0bdb04863df81dfc18b0cafd7244088c1652423ddccb702"
+  },
+  "queue_snapshot": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/queue-preclaim.json",
+    "bytes": 154256,
+    "sha256": "1e585881ef4019a9b8e3605038ad22510b36e9667b2480464f1ef16ba2b1eb5a"
+  },
+  "source_and_contract_tool_baseline": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-base-pins.json",
+    "bytes": 1164819,
+    "sha256": "328b2fed4fcd34b125c29ac3f5dd5f3036bf2c20f5f6faa1497118a22af1f692"
+  },
+  "scope": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json",
+    "bytes": 24506,
+    "sha256": "50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9"
+  },
+  "completed": [
+    "Actual own configuration confirmed",
+    "Coordinator exact authorized field/event changes verified",
+    "Fresh claim packet pins verified",
+    "4246 frozen input pins and workflow validation passed"
+  ],
+  "unmet": [
+    "Repair and new checks",
+    "Fresh independent rereview"
+  ],
+  "owned_base_hashes": [],
+  "owned_current_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json",
+      "bytes": 1353,
+      "sha256": "2aabecba69bda9bf8464169d85c76bdaa9e7d7d6c077cace419da4a8a4f564ed"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/preclaim-gates.json",
+      "bytes": 18775,
+      "sha256": "c0b73d8e298da0f5d2f390ad9fabdd7c9e0add8d3363ca35d53a4e3cb6aaf2fa"
+    }
+  ],
+  "commands": [
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/preclaim-frozen-bases.command.json",
+      "bytes": 1410,
+      "sha256": "b125c2f4dc724e2c928159747a8db8440dc86898f69921b5a19d24bbdaa0d6c2"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/preclaim-workflow-validate.command.json",
+      "bytes": 1155,
+      "sha256": "3cfba5159ee279f0485488a210bc0f1abbb9b63545e3f460e6b4fb87b3d39691"
+    }
+  ],
+  "blocker": null,
+  "next_operation": "Single authorized changes_requested -> in_progress transition",
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "monetary_cost": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed/reported to executor."
+  },
+  "last_command": {
+    "command": [
+      "./.venv/Scripts/python.exe",
+      "-B",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-15T10:51:26.684490+00:00",
+    "ended_utc": "2026-10-15T10:51:27.800662+00:00",
+    "wall_seconds": 1.125,
+    "process_environment_overrides": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "C:\\repo\\wargame-compiler\\src;C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/Lib/site-packages"
+    },
+    "path_prefix": "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+    "stdout": {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/preclaim-workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    "stderr": {
+      "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/preclaim-workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

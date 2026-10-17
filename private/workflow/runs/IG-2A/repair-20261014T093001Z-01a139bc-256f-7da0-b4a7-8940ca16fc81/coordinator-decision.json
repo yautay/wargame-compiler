@@ -1,0 +1,62 @@
+{
+  "role": "coordinator",
+  "actor": "codex-01a139bc-256f-7da0-b4a7-8940ca16fc81",
+  "summary": "Confirmed five independently reproduced findings; bounded IG-2A repair requested by current operator.",
+  "criteria": [
+    "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "Unknown or excluded areas are visible; partial/gap is never represented."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json",
+      "sha256": "bbc1844ff2744024006272478f41dc52f2b079d5d98a54480147571e2e507d33",
+      "bytes": 614
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/integrity.json",
+      "sha256": "4cbdaaa019278e2c812cc1a486f4574df34e915c70ddcbde9fb164efa0f961b3",
+      "bytes": 122738
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/scope.json",
+      "sha256": "980ba9dd4e1157d3c13385b6dcdeb2f3c044bebd17999a5de900882b32e41b92",
+      "bytes": 1085
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/dispositions-before.json",
+      "sha256": "56cc303126d8482c6fdfd5dafd9f401b65fd01bf4098e2715f15dc7056051fe6",
+      "bytes": 4153
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/coordinator-reproductions.json",
+      "sha256": "4c97d5d50fe36101eb0e93c16a575d013e0b483585011f6b3f21a15153f087e8",
+      "bytes": 19053
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/configuration.json",
+  "checks": [
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "argv": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T09:31:41.401213+00:00",
+      "ended_utc": "2026-10-14T09:31:43.751637+00:00",
+      "wall_seconds": 2.3589999999385327,
+      "stdout": "coordinator-workflow.stdout",
+      "stderr": "coordinator-workflow.stderr"
+    }
+  ],
+  "review_seal": {
+    "path": "private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/final-seal.json",
+    "sha256": "d45b128f0e3be2cb0f3a97c4e7b91c955fe2760474ca78e6dbeca379089d864a",
+    "bytes": 1270
+  },
+  "semantic_acceptance_granted": false
+}

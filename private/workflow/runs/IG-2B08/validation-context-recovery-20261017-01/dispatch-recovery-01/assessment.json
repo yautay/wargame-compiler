@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-17T11:14:22.253683+00:00",
+  "task": "IG-2B08",
+  "summary": "Supervisor vanished during preparation before a model process was launched. External interruption cause is unknown; no traceback or final status exists.",
+  "old_supervisor_pid": 7376,
+  "observed_matching_processes": 0,
+  "old_lock_sha256": "e5421ebdedfeabbea231255dbe298e58699e152ea51f38dd5393677af4d030cd",
+  "interrupted_dispatch_files": [
+    {
+      "path": "private/workflow/orchestrator/20261017T094517Z-0153b027/001-IG-2B08-reviewer-7257a513/bootstrap/HANDOFF.md",
+      "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395",
+      "bytes": 1533
+    },
+    {
+      "path": "private/workflow/orchestrator/20261017T094517Z-0153b027/001-IG-2B08-reviewer-7257a513/bootstrap/STATUS.md",
+      "sha256": "f532c6a7f4c0206695e5e6785a4c5a270dc86a41f593b1849cb52ee4ec126f0d",
+      "bytes": 1136
+    },
+    {
+      "path": "private/workflow/orchestrator/20261017T094517Z-0153b027/001-IG-2B08-reviewer-7257a513/context-recovery-preserved.json",
+      "sha256": "c6ad80c9dc8cdaa7858bf61e1682eb5c9793712c5102a1553e24b2c9b3b79158",
+      "bytes": 627
+    },
+    {
+      "path": "private/workflow/orchestrator/20261017T094517Z-0153b027/001-IG-2B08-reviewer-7257a513/packet.json",
+      "sha256": "0b106b23943adec8039ce926c5507aa83540e2167568844b1d84bcea2e18e3a7",
+      "bytes": 8005
+    },
+    {
+      "path": "private/workflow/orchestrator/20261017T094517Z-0153b027/001-IG-2B08-reviewer-7257a513/search-manifest.json",
+      "sha256": "080a0ce0fc7ecb51516581d04803762deb0f0c04c3884445ae18c64b66e85736",
+      "bytes": 4352
+    },
+    {
+      "path": "private/workflow/orchestrator/20261017T094517Z-0153b027/001-IG-2B08-reviewer-7257a513/task.json",
+      "sha256": "5dce5d64a15d40be676df3767f5bd377ba23531a295d51a83a9933909fe5e470",
+      "bytes": 20336
+    }
+  ],
+  "preserved_artifacts_verified": 10358,
+  "queue_unchanged": true,
+  "full_checks_reused": {
+    "exit_code": 0,
+    "checks": {
+      "dry_run_exit": 0,
+      "plan_exit": 0,
+      "diff_exit": 0,
+      "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-c506058cdd894c07ad776794a1771452\\pytest",
+      "tests_exit": 0
+    },
+    "logs": "private/workflow/checks/active-c506058cdd894c07ad776794a1771452",
+    "real_validation_helper_exit": 0
+  },
+  "changed_condition": "Explicit recovery of proven dead pre-model dispatch; fresh source/context controls and prior passing checks remain byte-valid.",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "configuration_evidence": "Coordinating configuration unavailable; new reviewer startup must be observed.",
+  "semantic_acceptance": false
+}

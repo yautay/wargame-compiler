@@ -1,0 +1,101 @@
+{
+  "role": "coordinator",
+  "actor": "operator-b04-context-access-recovery-20261015",
+  "task": "IG-2B04",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Builder model/reasoning are not exposed; no Sol/high claim.",
+  "operator_request": "Complete B04 documentation, prevent helper-refusal fallback, scope Git status, verify and launch a fresh coordinator.",
+  "format": "wgc-context-assessment-1",
+  "observed_utc": "2026-10-15T20:00:22.301907+00:00",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B04/coordinator-ed46c8b3-context-block/blocked.json",
+    "sha256": "e4d5e40f213e95a281009a95fa765385363c1a17fc62b58653dd5971417e77ba",
+    "bytes": 2083
+  },
+  "preserved": [
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-ebfb9526-context-block/blocked.json",
+      "sha256": "b6caeb4397dacc52624882b514cec43dbd9ff554368c30ffdfbb20b91584c8f5",
+      "bytes": 2375
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/context-recovery-20261015-01/scope.json",
+      "sha256": "b5a515e80750ab85ebdd4f0202ae43f527d28e1d82907cbfbc701bdd99840aa0",
+      "bytes": 3177
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/context-recovery-20261015-01/assessment.json",
+      "sha256": "aab301b17d986727c96c27d8adb11bb23e79f6a90017d8dffdfbd7b2f53aeba8",
+      "bytes": 3547
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-bounded-dependencies.md",
+      "sha256": "2587de3dd695ab4a8614101dcf3e70cea9459027902d429339faaac3e663cef4",
+      "bytes": 626
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/status.json",
+      "sha256": "3c508a1c8d3fd9f4012a7ecd49ad988680a5b2c332a2a032f249cf9cede3741e",
+      "bytes": 1101
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/task.json",
+      "sha256": "7319df7c4e5ca2733b8f96275587d5791ca62d56680c11215261926ecbdf266f",
+      "bytes": 3573
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/packet.json",
+      "sha256": "d17e7bd439be2b0805f4cd15a5082e0986def42200ad8ae0b5254a4411f57ef4",
+      "bytes": 1854
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/references.json",
+      "sha256": "5453a0195114b57a92814eff1bc93fe57f66353b5ee5ed840d0a10991cd937fc",
+      "bytes": 339
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/runtime-configuration.json",
+      "sha256": "7b78ab94fc276aa5aa21f28ad963b9f691f459e9001dc1c4283ec296311a8fef",
+      "bytes": 1210
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/response.json",
+      "sha256": "11fe5404daaaaf96f4239ca5046ce581df38df3c21fa4d9116f5abcdd5ff8d6b",
+      "bytes": 338
+    },
+    {
+      "path": "private/workflow/orchestrator/20261015T184406Z-2af64d3b/001-IG-2B04-coordinator-ed46c8b3/process-result.json",
+      "sha256": "8b9b154d3fec1808acba50c76ced4b5dcc99a7887da426c78fc31c9ba20db989",
+      "bytes": 281
+    }
+  ],
+  "dependency_done": {
+    "path": "private/workflow/runs/IG-2B03/closure-002-IG-2B03-reviewer-cabf2418/done.json",
+    "sha256": "ec152545a09d183c3ee0eed31adea0421cf0b567a2501be15a95c5a418a5c950",
+    "bytes": 621865
+  },
+  "summary": "The stopped coordinator bypassed a missing-document refusal and printed broad Git metadata. No source-page inspection, product work or queue change is inherited.",
+  "facts": {
+    "prior_supervisor_stopped": true,
+    "prior_task_status": "planned",
+    "prior_events": 0,
+    "B03_status": "done",
+    "B03_review": "pass",
+    "fresh_session_required": true
+  },
+  "fixes": [
+    "Exact lazy documentation/tool pins, including the sources README and evidence/schema interfaces.",
+    "Guard-bound helper refusals hold the request; marker/stream notification stops the owned session, including configuration/publication failures.",
+    "Fixed literal task Git paths, validated bounded output, no raw/global status or alternate read after refusal."
+  ],
+  "limits": [
+    "Helpers enforce the supported serial protocol; the OS sandbox remains the permission boundary for arbitrary commands.",
+    "No prior source inspection, readiness, review or semantic acceptance is inherited.",
+    "Full task execution dry-run remains gated on genuine coordinator refinement and readiness."
+  ],
+  "verification": {
+    "targeted_tests_before_final_type_regression": "124 passed; unchanged assertions and approved normal-user process-tree termination.",
+    "required_final_checks": "Recorded separately in validation.json before launch."
+  }
+}

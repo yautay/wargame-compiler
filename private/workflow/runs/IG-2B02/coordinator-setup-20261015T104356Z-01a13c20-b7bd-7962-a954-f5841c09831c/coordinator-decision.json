@@ -1,0 +1,734 @@
+{
+  "role": "coordinator",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "summary": "Request bounded metadata repair for independent P2 findings IG-2B02-R01 and IG-2B02-R02 in three exact page-5 counters. Adopt the independent review for changes_requested only; no acceptance, dismissal or semantic decision. Apply only prepared v2 task scope fields; original delivery and review stay immutable.",
+  "task": "IG-2B02",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json",
+  "criteria": [
+    "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+    "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+    "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+    "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+    "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/authorization.json",
+      "bytes": 621,
+      "sha256": "2f3758a3ecb315af0f22d46ed1f7ac7fe3d6fe06676cc51294ca555770dc1a82"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json",
+      "bytes": 977,
+      "sha256": "49cebb21bb18d42f23fe608c3ef35d85b2aba0ebdbb030cea3d69b1fa23412f1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/draft-validation.json",
+      "bytes": 560,
+      "sha256": "ad8bade920b3b1302d846b14bda74e50437963f25879cfd29dfae74ac3cec664"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/finish-handoff.py",
+      "bytes": 16577,
+      "sha256": "0a4012e687edfc60ff2a6e4df2ce526d32f709e715d076aafd5c74a58be1ba0a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-next.command.json",
+      "bytes": 799,
+      "sha256": "5d82422fe562f4479bbbd113d7108d4bf7dc78e842d6c7219064abba35768d67"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-next.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-next.stdout",
+      "bytes": 16,
+      "sha256": "dc9c804313e366ed4b38cb9aa275a9af3ff03d507cc9fe4fd31a9902a307cc80"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-workflow-validate.command.json",
+      "bytes": 830,
+      "sha256": "6642cc4922a97fddd665982c7cf511c70c5ba6d62b53c60c85a5748d6b387469"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.command.json",
+      "bytes": 1134,
+      "sha256": "7f606a510084e51e6c84dd6e0e431157ec15688c1f728046743ac1c2e148794e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.json",
+      "bytes": 849,
+      "sha256": "01db946cb898f7ac29c66cb0ffbf652564a13fed1be3e9590e0dffef36cb1dce"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.stdout",
+      "bytes": 865,
+      "sha256": "17ae6d395d5a1c1b008c7369030e349195556e1b08f9b2161aaaf4c64ac96d68"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-transition-checkpoint.json",
+      "bytes": 1309,
+      "sha256": "4167f0f4762ad9de698a23171fd03da1ca9140a27156787acbd4d9684facb152"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-transition-frozen-bases.command.json",
+      "bytes": 1149,
+      "sha256": "c9c187acac3501476622b94fbcdf8ab8413ee9175fced229a3e589adf39d023f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-transition-frozen-bases.json",
+      "bytes": 849,
+      "sha256": "d9c0da3894fb86103a448673c8dc2979858cf0cb8c2772acc6f32c30b44afbda"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-transition-frozen-bases.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-transition-frozen-bases.stdout",
+      "bytes": 865,
+      "sha256": "c4e51d14a08bd7b440be092d43bcfe33ad8e4b0613518d6386efc4c8535e4021"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/queue-before.json",
+      "bytes": 152236,
+      "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/queue-scoped-review.json",
+      "bytes": 153859,
+      "sha256": "1cb5e2c4fdb2876d4618728eaccd03db858dd74c9f34dd9d9f3fb1669ebd4c65"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/required-check-log-pins.json",
+      "bytes": 1470,
+      "sha256": "2bcb286d39c82ebb5f6ae8fb3a3967d4b81cf37a36435b8ed8d4ab66ee37efc8"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-application.json",
+      "bytes": 785,
+      "sha256": "f944381604d35b88cfc7178224ac4d1723c9f0fe2f491be6a60877fb2cf40464"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-checks.json",
+      "bytes": 7835,
+      "sha256": "b26c30d63b499ee98b359a715741aa0323e5517486ac16f369046782d4493818"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-diff-check.command.json",
+      "bytes": 737,
+      "sha256": "adf12ece93aa3880d7db20a2037225e8d1353f6dbc0ededd4dadf1362ba666f9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-diff-check.stderr",
+      "bytes": 5143,
+      "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-dry-run.command.json",
+      "bytes": 835,
+      "sha256": "af28e8e83e7ec837bdbbfe2afaa68f3baf48c812df87748369e284a734b7b24b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-dry-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-dry-run.stdout",
+      "bytes": 185,
+      "sha256": "0ad7fc5b00324f0cf9223de420a0f883ceadb700b7f7655e994e7d56986ea49b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-render.command.json",
+      "bytes": 802,
+      "sha256": "7131a84296f3f03aa2309679c890bcd49d39640ec21e6ae0361f03ad05d298db"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-render.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-render.stdout",
+      "bytes": 29,
+      "sha256": "39790f4d674901a126ddb9430db7cac66da1db0fbc1d8de10fc18b4794327cae"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-repository-check.command.json",
+      "bytes": 900,
+      "sha256": "1de17869f706daf9a787e5f4977689e621f1a3130642db9916b75e54ff7796cb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-repository-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-repository-check.stdout",
+      "bytes": 5715,
+      "sha256": "53d1579025a9b4fece1d4bdab27721cff34a380c6339deb389e866493342772b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-workflow-validate.command.json",
+      "bytes": 826,
+      "sha256": "152a8792005cd271b7668dbf42bf2ef643e0c8e562c87a87133ff266be937289"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/setup-queue.py",
+      "bytes": 8499,
+      "sha256": "f5cfc8fcafa07fdd8a0803e77f03163d8045ab813a754ef98e455d844f7d9ac2"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/tool-source-pin-verification.json",
+      "bytes": 7375,
+      "sha256": "60afbfcea584ffbe53486332310630df23a3a33366f81e710ea6ab40aaa93a29"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before-pins.json",
+      "bytes": 7425,
+      "sha256": "a6fc4bcb984a4574509e2a60effe35475adb7a73d1406d40f5b6c855faac8a02"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/HANDOFF.md",
+      "bytes": 1533,
+      "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/ROADMAP.md",
+      "bytes": 4497,
+      "sha256": "d26e1b6389ff44539e6aa7384faef5df8c51d3e051ebaff460a6972729d849b6"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/STATUS.md",
+      "bytes": 1135,
+      "sha256": "399f3c4c0a0cebddbbfc3ce3b26c305189ca6d605c100dc703f3c4c77c715f02"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-1A.md",
+      "bytes": 3300,
+      "sha256": "560a90b547b9a7426c55746c6fa9e56cc05cf6bb0343aab12e1ea50fdf91a82d"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-1B.md",
+      "bytes": 3185,
+      "sha256": "1693a420739c0e594ff3edb6ea5ec4c69471e5aa0eee54db5fa76274e5289e20"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-1C.md",
+      "bytes": 4113,
+      "sha256": "000f51598d7caecbfc80c31807d2c117b0adb79732ca825bf5c5ceacf784c245"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-1D.md",
+      "bytes": 4838,
+      "sha256": "9e61995b5b06068e72b6d7699ccef131d7bf7f551a7878c947d89638e411879c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-1E.md",
+      "bytes": 6370,
+      "sha256": "7125b165e143a24bfc7453c616715090753f1383b7150df2fa8564d694504ee1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2A.md",
+      "bytes": 4614,
+      "sha256": "6e390e00dcc2906d1bf7a2f780002397422ed41f3667ceea29b889faddaaea81"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B01.md",
+      "bytes": 5446,
+      "sha256": "690e2bb0dfbd86cc8f1da6e40c8803a8a1a3d054cd0c23876790c067ebd63c08"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B02.md",
+      "bytes": 8931,
+      "sha256": "22c15ad0e556ad6c670fed806158d9442b9e7f6f6eece638157b7d99c1c0f36e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B03.md",
+      "bytes": 2816,
+      "sha256": "5847c0ff2480b942799d0e303882c0f7c7182b60f3d05797af5532e3492091fe"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B04.md",
+      "bytes": 2817,
+      "sha256": "ba4982be672c3cee4ef10f2230792b5aa20d2861d9f42542902ddc0cb202d2a9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B05.md",
+      "bytes": 2817,
+      "sha256": "1176e192ced7ccc12e1dfa42e17e48e06c17cc48f36c90dbacbfe94871560836"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B06.md",
+      "bytes": 2817,
+      "sha256": "a7f4724642a207b1996dac1e77c9a4a28524263c3c821ec51c245b398ee03584"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B07.md",
+      "bytes": 2817,
+      "sha256": "7da3637da787214559a92037b937e3801fdd78f6ca802594fe3af2b896d87adc"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B08.md",
+      "bytes": 2817,
+      "sha256": "4ee25c7cffcc3220b6e6a6575f3b9dcf4f5292369987506e4541df2f4aebb816"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B09.md",
+      "bytes": 2817,
+      "sha256": "de28d19fd9cc1461dcb3dc3f93330daf42badcc52ef9884293bd5ea39f80aa73"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B10.md",
+      "bytes": 2817,
+      "sha256": "e6812a40f54e7bf361896958974137f054f874ac6f367b374c8aa8956072400c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2B11.md",
+      "bytes": 2817,
+      "sha256": "322dfb513f7eeba55aa1e0bcabe99abf373fdc8b75d77ab5e796167c3e6e45b5"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2C.md",
+      "bytes": 2505,
+      "sha256": "607a0c3ae83912980726ad762c771085580c881881a634be5a4cf35474003805"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-2D.md",
+      "bytes": 2712,
+      "sha256": "16b853ac5423a0de719478a3e488067da13c86a4996fca414d23e72869efaa35"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3A.md",
+      "bytes": 2654,
+      "sha256": "f202b531f28e4aa805ecda42cec1b31d9d71c97d27af7855d5f9ae9deacbae2b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3B.md",
+      "bytes": 2519,
+      "sha256": "3c69f3914981f076b5e3bb44764f396a6cb580a3e31119852e7980f904d4f4be"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3C.md",
+      "bytes": 2626,
+      "sha256": "5d54235882ed42f4e0035f0237302b8e1bdc5da9c3e23246471efc15e4ceae18"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3D.md",
+      "bytes": 2716,
+      "sha256": "67c69e08c231b1a9302fe4cb9908fced77c9032ff5da98ca352dd2e4a5600239"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3E.md",
+      "bytes": 2603,
+      "sha256": "71381f78c9a66a7b1b77c30a9885dbba86f258c6862ce5e4c3c61148e8ab0bad"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3F.md",
+      "bytes": 2606,
+      "sha256": "be03ace0c2f4a1352da65077e856e6fa1065718c6a9977b90620bcea0218ff1e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3G.md",
+      "bytes": 2702,
+      "sha256": "6ed87449ae097d58bff255fcff5e5265bf4eb5745142bd270edda8db032a8842"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-3H.md",
+      "bytes": 2689,
+      "sha256": "62393592bdb1ac7aa116f38845ea78b02efbfebe143d7c7e31c89fc00ecb9605"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4A.md",
+      "bytes": 2350,
+      "sha256": "7162d5d4098da1ca5b76ac4dd70b075496bde9a451deaed0b5d79afee65f9a70"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4B.md",
+      "bytes": 2475,
+      "sha256": "9f0f4d744219d9ddb6dcff4dd41bccf2d5ba91fba95b929349b63d8694ee7e0e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4C.md",
+      "bytes": 2445,
+      "sha256": "28f22f28d17ed12ef688e749e70e2bdb075f0ad2d9a6b7c270b97528f5f8f632"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4D.md",
+      "bytes": 2502,
+      "sha256": "b458122579a094a061525adc4542b3fb92112495e942c7ac4174d24173a5f07f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4E.md",
+      "bytes": 2564,
+      "sha256": "3b885e47fb996d8e3f843862b7414d218cafa2e3f838e1073e64461050ec143b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4F.md",
+      "bytes": 2511,
+      "sha256": "a609b5a1e266d4fc45b88fdec201bd8025693b2a9f2dbd7e6b51e8cf24640619"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4G.md",
+      "bytes": 2597,
+      "sha256": "ba4269f57f5f18d0f706a0756983a9a4d857819250d40aa06b6c11fce1e9850b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4H.md",
+      "bytes": 2524,
+      "sha256": "e7f59673ac87ef97cc91bc56c70525dc32e28d26ff8626fd15273d995c5de7f1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-4I.md",
+      "bytes": 2496,
+      "sha256": "db2ddb6826916fbb5484d5ea207dd14259c035febb55b9e4c48b23247a9afc1f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-5A.md",
+      "bytes": 2499,
+      "sha256": "e32fed54710fc7383620b3c465a4f54895e7b0fbb616cf0eb2956e401a6237f0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-5B.md",
+      "bytes": 2542,
+      "sha256": "bde93f0838db9ddce325b135eed21bffb8113ed414c92c79f1c02c82b0997487"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/views-before/docs/work/tasks/IG-5C.md",
+      "bytes": 2763,
+      "sha256": "44e94aff2cac3a8bc49438164ec65d33e09a533f3764ef1c52c93d930961226c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-setup.txt",
+      "bytes": 19933,
+      "sha256": "ce3fb5e072946ee798650603d79625828e948d40889aaf37e7d44b5f15617a8a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-launch.txt",
+      "bytes": 35478,
+      "sha256": "8903ed388eb549d23c988a2d5270c2758077bb4c5917b608ffa1daef49408f40"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json",
+      "bytes": 24506,
+      "sha256": "50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-queue-patch-v2.json",
+      "bytes": 8873,
+      "sha256": "43878efbbf1431ea50f671dcb497ca33049c225b20ff554f081c9dd1814a2913"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/preparation-seal.json",
+      "bytes": 12899,
+      "sha256": "3240750023211874afd1e74ec6204b56be967c4e569c23696e8cd7c104a69412"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-base-pins.json",
+      "bytes": 1164819,
+      "sha256": "328b2fed4fcd34b125c29ac3f5dd5f3036bf2c20f5f6faa1497118a22af1f692"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+      "bytes": 811893,
+      "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-manifest.json",
+      "bytes": 801187,
+      "sha256": "593fbe0c8af8166b241382df47513e20e05851ae65ab30c03f9c46834732796b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-seal.json",
+      "bytes": 27796,
+      "sha256": "4fad3c1c4284105d93763dca713313a008c80ea0a72a30e7ffb23cd386bdc878"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review.json",
+      "bytes": 1092972,
+      "sha256": "15b956fa0db53afc77a9ab58b882aacd2dfb2a93226ad7847043d4326c3a714a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review-manifest.json",
+      "bytes": 1156383,
+      "sha256": "89b71e3a09d9dd54cbd8a52f01096bfcd24134cd1d5bd32036187c8bef59fe59"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review-seal.json",
+      "bytes": 285018,
+      "sha256": "5321bd541b8417a84ab4d6d7a73667c803407caa5c2d0b49d3900fb695142e65"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/findings.json",
+      "bytes": 10934,
+      "sha256": "5b8ed6cbbea4855a57531b6b298c39017c84626151e2844177c07cbb5e96653a"
+    },
+    {
+      "path": "private/workflow/checks/active-b0e519cd59ee449cae4bfe151e06ce0f/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-b0e519cd59ee449cae4bfe151e06ce0f/dry-run.log",
+      "bytes": 185,
+      "sha256": "0ad7fc5b00324f0cf9223de420a0f883ceadb700b7f7655e994e7d56986ea49b"
+    },
+    {
+      "path": "private/workflow/checks/active-b0e519cd59ee449cae4bfe151e06ce0f/pytest.log",
+      "bytes": 184,
+      "sha256": "5303ba1baec21c1f2decb230971b3bf65772419a5c6b60366808118b84f7b67b"
+    },
+    {
+      "path": "private/workflow/checks/active-b0e519cd59ee449cae4bfe151e06ce0f/diff-check.log",
+      "bytes": 5187,
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+    },
+    {
+      "path": "private/workflow/checks/active-b0e519cd59ee449cae4bfe151e06ce0f/result.json",
+      "bytes": 206,
+      "sha256": "89e7db01ee929e344d5516edadad251157f3d24586624bfcda5499d67a02a6b2"
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B02-R01-R02-20261015T091559Z.json",
+      "bytes": 1464,
+      "sha256": "8519e7867dd11f3c7c1313328e7d1c627ccc554e406a992568a3230545a01ebc"
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:02.079610+00:00",
+      "ended_utc": "2026-10-15T10:45:04.287937+00:00",
+      "wall_seconds": 2.2030000000086147,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "next"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:04.290565+00:00",
+      "ended_utc": "2026-10-15T10:45:05.515659+00:00",
+      "wall_seconds": 1.235000000000582,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-next.stdout",
+        "bytes": 16,
+        "sha256": "dc9c804313e366ed4b38cb9aa275a9af3ff03d507cc9fe4fd31a9902a307cc80"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/initial-next.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B02\\repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c\\verify-frozen-bases.py",
+        "--report",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B02\\coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c\\pre-setup-frozen-bases.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:05.531028+00:00",
+      "ended_utc": "2026-10-15T10:45:34.333152+00:00",
+      "wall_seconds": 28.796999999991385,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.stdout",
+        "bytes": 865,
+        "sha256": "17ae6d395d5a1c1b008c7369030e349195556e1b08f9b2161aaaf4c64ac96d68"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "render"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:35.669700+00:00",
+      "ended_utc": "2026-10-15T10:45:36.873710+00:00",
+      "wall_seconds": 1.2039999999979045,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-render.stdout",
+        "bytes": 29,
+        "sha256": "39790f4d674901a126ddb9430db7cac66da1db0fbc1d8de10fc18b4794327cae"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-render.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:37.044367+00:00",
+      "ended_utc": "2026-10-15T10:45:38.213795+00:00",
+      "wall_seconds": 1.1719999999913853,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "dry-run",
+        "--task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:38.214966+00:00",
+      "ended_utc": "2026-10-15T10:45:40.428077+00:00",
+      "wall_seconds": 2.2190000000118744,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-dry-run.stdout",
+        "bytes": 185,
+        "sha256": "0ad7fc5b00324f0cf9223de420a0f883ceadb700b7f7655e994e7d56986ea49b"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-dry-run.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:45:40.436170+00:00",
+      "ended_utc": "2026-10-15T10:46:17.891541+00:00",
+      "wall_seconds": 37.46899999999732,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-repository-check.stdout",
+        "bytes": 5715,
+        "sha256": "53d1579025a9b4fece1d4bdab27721cff34a380c6339deb389e866493342772b"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-repository-check.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:46:17.898845+00:00",
+      "ended_utc": "2026-10-15T10:46:18.986128+00:00",
+      "wall_seconds": 1.0939999999973224,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    }
+  ],
+  "recorded_utc": "2026-10-15T10:48:04.347410+00:00",
+  "authorization": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/authorization.json",
+  "finding_ids": [
+    "IG-2B02-R01",
+    "IG-2B02-R02"
+  ],
+  "affected_regions": 3,
+  "repair_directory": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "acceptance_granted": false,
+  "measurement": {
+    "started_utc": "2026-10-15T10:45:01.627711+00:00",
+    "ended_utc": "2026-10-15T10:48:04.347410+00:00",
+    "wall_seconds": null,
+    "unknown_reason": "Per-command wall times recorded; aggregate operator, token and monetary measures unavailable.",
+    "operator_seconds": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost": null
+  }
+}

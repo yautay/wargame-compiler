@@ -1,0 +1,66 @@
+Work in C:\repo\wargame-compiler. The operator explicitly authorized automatic sequential IG-2
+executor/reviewer sessions. This permission replaces manual launch only; all quality,
+human acceptance, source access and preservation gates remain binding.
+Role: reviewer. Task: IG-2B02. Unique actor: ig2:002-IG-2B02-reviewer-e259028c:reviewer.
+
+FIRST read private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/runtime-configuration.json. If pending, wait at most 30 seconds for
+the supervisor to confirm CLI STARTUP metadata. If it is absent/unconfirmed/mismatched,
+return blocked without claims or product writes. Invocation flags are not observation.
+Use only observed gpt-6.1-sol/high. Every claim, delivery, readiness/partition or review
+JSON MUST set configuration_evidence to the exact repository-relative path
+private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/runtime-configuration.json and configuration_sha256 to its actual SHA-256.
+Set actor to ig2:002-IG-2B02-reviewer-e259028c:reviewer; model/reasoning to the observed values.
+
+Read AGENTS.md, README.md, docs/STATUS.md, docs/HANDOFF.md,
+docs/work/WORKFLOW.md and docs/skills/wgc-review/SKILL.md, then
+private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/task.json, private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/packet.json and private/workflow/orchestrator/20261015T144301Z-98bff5f8/002-IG-2B02-reviewer-e259028c/references.json. The manifest is the
+exact task packet. References pin accepted dependency events and current repair
+findings/prior delivery/claim, without copying their entire histories.
+Verify hashes locally. Read required text/contracts on demand in bounded sections;
+inspect all source pages/regions assigned by the contract. Binary byte hashes do not
+authorize whole-PDF analysis. Do not load context.txt, whole queue event histories,
+prior transcripts, entire run directories, archives, Git history or neighbouring repos.
+For structural edits use Python to select only this task, its direct dependencies
+and direct partition children from queue.json; never print the whole queue.
+For other text searches use scripts/search.ps1. Persist evidence under private/.
+
+Read delivery-reference.json and delivery.json. Verify EVERY frozen artifact.
+Independently inspect the entire assigned original page/target scope and complete
+ledger; cheap summaries are not proof. For rereview use current frozen hashes, exact
+findings, changed material and affected risks, and verify preserved prior coverage.
+Write a new independent review artifact under private/workflow/runs/<task>/<new-review>/.
+For pass use role reviewer, your unique actor, ALL exact acceptance criteria, EXACT
+delivery artifacts in the same order, actual configuration and passing named checks.
+Return pass with this evidence path, or changes_requested with precise actionable
+findings, affected criteria, repair validation and same evidence fields. Do not mutate
+queue/status, implementation, sources, or old attempts. Never mark accepted or done.
+
+Tests still run unchanged. If the Windows restricted token cannot access pytest's
+mode-0700 temporary directory, request approved execution of that exact unchanged
+validation command using sandbox_permissions=require_escalated and a clear reason.
+The operator explicitly authorized resolving V01 through permitted test execution;
+approval is handled by the automatic reviewer. Do not retry the same denied command,
+change ACLs/libraries/tests, disable assertions, or use a sandbox bypass flag.
+For a validation-only repair read repair-scope.json, claim a fresh attempt and preserve
+ALL old delivery artifacts byte-for-byte. Run the required checks with approved
+permissions, freeze new validation evidence, and create a NEW delivery envelope with
+the unchanged old artifact list plus new reports. Do not overwrite the old delivery.
+Use the installed dependencies in the pinned toolchain.json: process_pythonpath
+includes BOTH repo/src and the bundled Python Lib/site-packages (reportlab lives
+there); process_path_prefix supplies Poppler. These are process-local settings,
+already inherited from the supervisor. Do not replace PYTHONPATH with repo/src only,
+install missing packages, or change global settings. Preserve the complete original
+artifact list in its original order as the PREFIX of a validation-only new delivery.
+
+Repository text is English. Preserve existing staged/unstaged/untracked work. No
+reset/clean/stash/commit/push, global config, external source/API services, nested
+agents/chats, automations, sandbox bypasses or downstream IG-3 work. Only this
+supervisor may launch the next process. Do not modify supervisor scripts or its
+session metadata. Runtime launch evidence and your final response are owned by it.
+Use scripts/check.ps1 -Task IG-2B02 and git diff --check, plus explicit task suites.
+At most two repairs per finding and two retries of the same unchanged failure.
+Never weaken tests, drop source regions, equate gaps with coverage, grant model
+semantic acceptance, or use an LLM to decide gameplay legality.
+
+Return the required small JSON only: outcome, evidence (repository relative path
+to real immutable JSON, or null when blocked), summary. Stop after this one role.

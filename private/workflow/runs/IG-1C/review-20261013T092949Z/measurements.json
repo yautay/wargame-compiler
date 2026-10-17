@@ -1,0 +1,39 @@
+{
+  "start_utc": "2026-10-13T09:29:49+00:00",
+  "end_utc": "2026-10-13T09:44:28.801382+00:00",
+  "wall_seconds": 879.801382,
+  "interval": "Resumed independent review start to report preparation; includes tool waits and local narrow escalation, excludes earlier configuration/queue waiting.",
+  "earlier_preflight_evidence": "private/workflow/runs/IG-1C/review-20261013T071955Z/preflight-blocker.json",
+  "input_tokens": null,
+  "output_tokens": null,
+  "cost": null,
+  "operator_time_seconds": null,
+  "native_file_symlink": null,
+  "native_directory_symlink": null,
+  "native_windows_junctions": "Real Windows junction rejection and redirected-handle tests passed in tests/inputs; these are not symlink measurements.",
+  "defect_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 3,
+    "P3": 0
+  },
+  "repair_cycles": 0,
+  "probes": {
+    "passed": 28,
+    "failed": 7
+  },
+  "executor_adapter_tests": {
+    "passed": 31
+  },
+  "affected_tests_native": {
+    "passed": 51
+  },
+  "project_tests": {
+    "passed": 102
+  },
+  "sandbox_affected_tests": {
+    "passed": 15,
+    "failed": 36,
+    "condition": "Native handle/path/filesystem sandbox restrictions; resolved by changed environment with reviewed local escalation."
+  }
+}

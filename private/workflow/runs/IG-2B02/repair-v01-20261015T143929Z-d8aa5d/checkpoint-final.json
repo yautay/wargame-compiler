@@ -1,0 +1,161 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "attempt": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d",
+  "created_utc": "2026-10-15T14:49:25.160778+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/packet.json",
+    "bytes": 5938,
+    "sha256": "80ba66fb449e93cf1bc94e238fea31b09ba94dd9552e59dc452dec2e0f2fd06f"
+  },
+  "base_files": {
+    "path": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/base-files.json",
+    "bytes": 18878,
+    "sha256": "1cff63253199fbfca8833c896cbffe0f46d15ef6e56aa9034db4701733189f31"
+  },
+  "changed_product_files": [],
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/delivery.json",
+    "sha256": "41ae905b02b47fce1c6f5545e617df563963ab041406a8c2f483e8dc233ccf6f"
+  },
+  "completed_criteria": [
+    "V01 unchanged source suite and full repository check pass.",
+    "All original delivery artifacts and source/test/tool/contract base pins preserved."
+  ],
+  "commands": [
+    {
+      "role": "executor",
+      "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+      "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+      "task": "IG-2B02",
+      "name": "sources-tests",
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/sources",
+        "--basetemp",
+        "private/workflow/checks/v01-91db01b5-s1",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T14:46:22.693450+00:00",
+      "ended_utc": "2026-10-15T14:46:42.405637+00:00",
+      "wall_seconds": 19.71799999999348,
+      "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/sources-tests.stdout",
+      "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/sources-tests.stderr"
+    },
+    {
+      "role": "executor",
+      "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+      "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+      "task": "IG-2B02",
+      "name": "repository-check",
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T14:47:00.372934+00:00",
+      "ended_utc": "2026-10-15T14:47:39.311244+00:00",
+      "wall_seconds": 38.937999999994645,
+      "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/repository-check.stdout",
+      "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/repository-check.stderr"
+    },
+    {
+      "role": "executor",
+      "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+      "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+      "task": "IG-2B02",
+      "name": "root-inventory",
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T14:47:36.657213+00:00",
+      "ended_utc": "2026-10-15T14:47:43.831089+00:00",
+      "wall_seconds": 7.172000000005937,
+      "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/root-inventory.stdout",
+      "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/root-inventory.stderr"
+    },
+    {
+      "role": "executor",
+      "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+      "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+      "task": "IG-2B02",
+      "name": "workflow-validate",
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T14:47:44.425394+00:00",
+      "ended_utc": "2026-10-15T14:47:44.966549+00:00",
+      "wall_seconds": 0.5470000000059372,
+      "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/workflow-validate.stdout",
+      "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/workflow-validate.stderr"
+    },
+    {
+      "role": "executor",
+      "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+      "model": "gpt-6.1-sol",
+      "reasoning": "high",
+      "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+      "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+      "task": "IG-2B02",
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T14:47:46.046467+00:00",
+      "ended_utc": "2026-10-15T14:47:46.721609+00:00",
+      "wall_seconds": 0.6720000000059372,
+      "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/diff-check.stdout",
+      "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/diff-check.stderr"
+    }
+  ],
+  "ownership_event": {
+    "from": "changes_requested",
+    "to": "in_progress",
+    "utc": "2026-10-15T14:45:00.499662+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/claim.json",
+    "sha256": "1e81eb57ffadafb4cc18f042460e8a572b3fd40ff767dd9c45b6702a863da0a1"
+  },
+  "blocker": null,
+  "next_operation": "Freeze new envelope retaining the full original ordered artifact list; transition to review and stop."
+}

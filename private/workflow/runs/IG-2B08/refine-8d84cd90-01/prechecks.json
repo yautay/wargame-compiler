@@ -1,0 +1,43 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B08-coordinator-8d84cd90:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T064446Z-f1a71866/001-IG-2B08-coordinator-8d84cd90/runtime-configuration.json",
+  "configuration_sha256": "6c19c296fa6ae7aeb13455fa4baf8e3c500b018d22bd793b17c53706c776e168",
+  "format": "wgc-coordinator-prechecks-1",
+  "task": "IG-2B08",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/refine-8d84cd90-01/refine.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B08/refine-8d84cd90-01/refinement-check.json",
+        "sha256": "85c16a7f355a00b0b1a315d25270acb37c527f11e420a5bd74186c167faf604c",
+        "bytes": 5498
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/refine-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "sandbox_permissions": "use_default",
+      "failure": "Windows restricted token: PermissionError WinError 5 accessing pytest basetemp during setup/cleanup; no assertions changed."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest tests/sources -q --basetemp private/workflow/runs/IG-2B08/refine-8d84cd90-01/source-pytest -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "sandbox_permissions": "require_escalated",
+      "automatic_review": "approved execution occurred",
+      "result": "71 passed in 22.52s"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "sandbox_permissions": "use_default",
+      "observation": "No whitespace errors returned; stderr contained restricted-token permission warnings for preexisting private test artifacts and line-ending notices. The full required check remains to run."
+    }
+  ],
+  "source_test_assertions_unchanged": true,
+  "source_test_retry_count": 1,
+  "product_completion_or_source_inspection_claimed": false
+}

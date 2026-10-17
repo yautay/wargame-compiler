@@ -1,0 +1,32 @@
+{
+  "role": "executor",
+  "actor": "ig1-stage-executor-20261013",
+  "summary": "Claim first bounded product repair cycle for independent findings IG1C-R01/R02/R03; preserve baseline/current deliveries and original strict reviewer probes; no task scope or dependency expansion.",
+  "criteria": [
+    "Import rules, terms, nested procedures, tables, relations, ambiguities, changes, questions, terminology and auxiliary files.",
+    "Unsafe YAML tags and duplicate keys fail with locations; errors do not become empty collections.",
+    "Every unknown field/file is preserved or explicitly diagnosed; WGU verified/complete/resolved remains imported metadata.",
+    "Refs/see remain navigation; questions are evaluation candidates, not battle scenarios or accepted expected results."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/checkpoint.json",
+      "sha256": "b08b6fecdc9106c3b70c3363c183d0179de2dc06063839886cec1b621ee94492"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/repair-scope.json",
+      "sha256": "e0ad1bf3d183158310ecfc8ff1a95578922feb833f29755423ae4c2006c30809"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/baseline-manifest.json",
+      "sha256": "e6142e277dd041556f09ff5040e438bc69f6a6e57ba4ac8d2b18cf123db78295"
+    },
+    {
+      "path": "private/workflow/runs/IG-1C/repair-01-20261013/pinned-wgu-schema.json",
+      "sha256": "0a93858ed3e0d99382ea962350e3b2994fab90b872a8b86584519b5a9e33a551"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Direct earlier current-conversation operator UI confirmation with same-session continuity; no configuration change observed/requested."
+}

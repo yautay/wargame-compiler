@@ -1,0 +1,898 @@
+{
+  "probes": [
+    {
+      "name": "baseline",
+      "expected": "accept",
+      "actual": "accept",
+      "expectation_met": true,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "placeholders_are_not_represented",
+      "expectation_met": true,
+      "independent_expected": {
+        "unprocessed": 2,
+        "represented": 0,
+        "area_per_page": 1000000000000
+      },
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "partial_retains_gap",
+      "expected": "accept",
+      "actual": "accept",
+      "expectation_met": true,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 1,
+            "unprocessed": 1,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "missing_page",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: missing PDF page accounting",
+      "report": null
+    },
+    {
+      "name": "empty_pages_visible",
+      "expected": "accept",
+      "actual": "accept",
+      "expectation_met": true,
+      "error": null,
+      "report": {
+        "denominator_regions": 0,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 0,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 0,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 0,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 0,
+            "unaccounted_area_trillionths": 1000000000000,
+            "gap_reason": "No inventory region accounts for this page area"
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 0,
+            "unaccounted_area_trillionths": 1000000000000,
+            "gap_reason": "No inventory region accounts for this page area"
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "duplicate_region",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: duplicate region identity/key",
+      "report": null
+    },
+    {
+      "name": "overlapping_contexts",
+      "expected": "accept",
+      "actual": "accept",
+      "expectation_met": true,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 2,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "inventory_overlap",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: overlapping inventory denominator",
+      "report": null
+    },
+    {
+      "name": "registry_source_change",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: registry/source revision mismatch; explicit revision mapping required",
+      "report": null
+    },
+    {
+      "name": "registry_duplicate",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: duplicate registry identity/key",
+      "report": null
+    },
+    {
+      "name": "stale_region",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: duplicate/stale evidence locator",
+      "report": null
+    },
+    {
+      "name": "reading_order_missing",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: reading order must name each region exactly once",
+      "report": null
+    },
+    {
+      "name": "dangling_note",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: duplicate/dangling/self region link",
+      "report": null
+    },
+    {
+      "name": "stale_page_rotation",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "stale_page_userunit",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "stale_page_crop",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "false_render_dpi",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "false_pixel_size",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: render pixel dimensions mismatch",
+      "report": null
+    },
+    {
+      "name": "wrong_page_printed_label",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "physical_page_remapping",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "unsafe_path",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: unsafe artifact path",
+      "report": null
+    },
+    {
+      "name": "tampered_pin",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: evidence artifact hash mismatch",
+      "report": null
+    },
+    {
+      "name": "exact_exclusion_claim",
+      "expected": "accept",
+      "actual": "accept",
+      "expectation_met": true,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 1
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "exclusion_after_page_remap",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 1
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "exclusion_after_partition_change",
+      "expected": "reject",
+      "actual": "reject",
+      "expectation_met": true,
+      "error": "ValueError: exclusion boundary is not exact/current",
+      "report": null
+    },
+    {
+      "name": "exclusion_after_region_revision",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 1
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "exclusion_after_registry_change",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 2,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 1
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 2,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          },
+          {
+            "page_id": "page:5925d36b-932e-4037-b634-42e5e6a75b21",
+            "pdf_page": 2,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    },
+    {
+      "name": "false_consistent_page_count",
+      "expected": "reject",
+      "actual": "accept",
+      "expectation_met": false,
+      "error": null,
+      "report": {
+        "denominator_regions": 1,
+        "context_regions": 0,
+        "levels": {
+          "transcription": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 0
+          },
+          "descriptive_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 0
+          },
+          "formal_semantics": {
+            "represented": 0,
+            "partial": 0,
+            "unprocessed": 1,
+            "excluded": 0
+          }
+        },
+        "pages": [
+          {
+            "page_id": "page:8c6062eb-621e-4b59-9584-b2bce4b0721a",
+            "pdf_page": 1,
+            "inventory_regions": 1,
+            "unaccounted_area_trillionths": 0,
+            "gap_reason": null
+          }
+        ],
+        "semantic_acceptance_granted": false,
+        "executable_readiness": "unverified",
+        "note": "Region counts and geometric accounting do not establish substantive source completeness."
+      }
+    }
+  ],
+  "total": 28,
+  "unmet": 10,
+  "semantic_acceptance": false
+}

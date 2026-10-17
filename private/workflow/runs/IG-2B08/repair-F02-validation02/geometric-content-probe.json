@@ -1,0 +1,107 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "summary": "Fresh word-center and thresholded ink gap observations; geometric gaps never count as represented source content.",
+  "parameters": {
+    "dpi": 144,
+    "ink_predicate": "min(R,G,B)<180",
+    "primary_pixel_boxes": "half-open rounded PDF point bounds at 2 pixels/point"
+  },
+  "pages": [
+    {
+      "physical_page": 29,
+      "word_count": 600,
+      "unassigned_word_centers": [],
+      "unassigned_ink_pixels_at_144dpi": 4,
+      "gap_pixel_bounds": [
+        89,
+        147,
+        595,
+        1295
+      ],
+      "gap_mask": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/geometric-gap-page-29.png",
+        "bytes": 1980,
+        "sha256": "c084971eb255ceb0a073c3c7767bd5960bef71ea20e7b4f3af998bd503553e26"
+      },
+      "original": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/originals/page-29.png",
+        "bytes": 756272,
+        "sha256": "13eadf5cd82fc38d8123de9927eaed3997919a5d782d2c55c54f060a2579970e"
+      }
+    },
+    {
+      "physical_page": 30,
+      "word_count": 703,
+      "unassigned_word_centers": [],
+      "unassigned_ink_pixels_at_144dpi": 19,
+      "gap_pixel_bounds": [
+        594,
+        249,
+        1136,
+        1503
+      ],
+      "gap_mask": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/geometric-gap-page-30.png",
+        "bytes": 2025,
+        "sha256": "55b795a82744d3f39a3bb97bba071f3061e1be318fa51763423b5cbbe601b58d"
+      },
+      "original": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/originals/page-30.png",
+        "bytes": 786627,
+        "sha256": "e6b7fb226f7d644ad280bdf73973a0910328d8fa0190a77eba86254d7108b547"
+      }
+    },
+    {
+      "physical_page": 31,
+      "word_count": 945,
+      "unassigned_word_centers": [],
+      "unassigned_ink_pixels_at_144dpi": 4,
+      "gap_pixel_bounds": [
+        1134,
+        269,
+        1136,
+        272
+      ],
+      "gap_mask": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/geometric-gap-page-31.png",
+        "bytes": 1977,
+        "sha256": "9cb2b4cc5bda288190d0a6cefaaf3733dfe0ba34e36129d5e25031620b1af47e"
+      },
+      "original": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/originals/page-31.png",
+        "bytes": 726786,
+        "sha256": "ab9d86595a7c4901fb58ae6deba7c872a0e47b5ab4dcf46a66206f00974f43a3"
+      }
+    },
+    {
+      "physical_page": 32,
+      "word_count": 852,
+      "unassigned_word_centers": [],
+      "unassigned_ink_pixels_at_144dpi": 15,
+      "gap_pixel_bounds": [
+        88,
+        547,
+        1135,
+        1503
+      ],
+      "gap_mask": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/geometric-gap-page-32.png",
+        "bytes": 2015,
+        "sha256": "7d3525698bfe6c142fb26395caed2be68ddfbce8396e46c1dd1eba8e47366ba8"
+      },
+      "original": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/originals/page-32.png",
+        "bytes": 664912,
+        "sha256": "594c91074efa58999de704ac3bebeb488403c31e4ea57e86539b4192ae5ea1cb"
+      }
+    }
+  ],
+  "total_unassigned_word_centers": 0,
+  "total_unassigned_ink_pixels": 42,
+  "limitation": "A pixel threshold and word centers cannot prove semantic or transcription completeness; every detected gap remains a gap."
+}

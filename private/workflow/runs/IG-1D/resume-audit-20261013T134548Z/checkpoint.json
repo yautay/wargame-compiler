@@ -1,0 +1,99 @@
+{
+  "format": "wgc-continuation-preflight-1",
+  "task": "IG-1D",
+  "actor": "ig1-continuation-executor-20261013",
+  "model": null,
+  "reasoning": null,
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning": "high",
+  "configuration_evidence": "Actual model/reasoning is not exposed by available session tools; fresh direct operator confirmation was requested and has not been received at capture time. Prior-session confirmation is not reused.",
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "07cb9707259e91d1f779360ba4eb8606a3d2ae51502aaba53c4961a7e264e1e3",
+    "statuses": {
+      "IG-1A": "done",
+      "IG-1B": "done",
+      "IG-1C": "done",
+      "IG-1D": "review",
+      "IG-1E": "planned"
+    }
+  },
+  "preservation": {
+    "entries_verified": 119,
+    "delivery_artifacts_verified": 50,
+    "mismatches": [],
+    "verified_version_mapping_used": true
+  },
+  "reviewer": {
+    "thread_id": "01a13421-44a0-71a3-9484-bf796c2922fc",
+    "host_id": "local",
+    "title": "Independent technical review IG-1C",
+    "live_status": null,
+    "final_review_exists": false,
+    "tool_failures": [
+      "wait_threads: durable host unavailable",
+      "read_thread: durable host unavailable",
+      "wait_threads without host: durable host unavailable",
+      "send_message_to_thread: no rollout found"
+    ],
+    "message_delivered": false,
+    "local_assessment": "R01-R03 closed; R04 remaining changed-child-contract boundary after iteration 1. dispositions.json is not substituted for a final frozen review.json."
+  },
+  "checks": [
+    {
+      "command": "scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1D",
+      "exit_code": 0,
+      "result": "private/workflow/checks/active-fc51ad8a1aca40028cf6ef33c5bd83a5/result.json",
+      "project_tests_passed": 102
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/delivery.json",
+      "sha256": "3ebef08719717c41043cb4df8bb98874d214e38d0e8fdbf21de6e35a9adfaa73"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/rereview-20261013T131151Z/dispositions.json",
+      "sha256": "0741368107d61f95d9658431322920ff15968c0c3dab2c6e54e225594c80bf60"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/rereview-20261013T131151Z/risk-check.json",
+      "sha256": "766478cbd8cfbb258168ea46a71803c0cfc215728858d5ef7ab5cfccbe6eff1e"
+    },
+    {
+      "path": "private/workflow/runs/IG-1D/rereview-20261013T131151Z/accounting-check.json",
+      "sha256": "d689e53cf871c1325efb27480d5eee6426e997463db3e0dc7123aeb2e5df308d"
+    },
+    {
+      "path": "private/workflow/checks/active-fc51ad8a1aca40028cf6ef33c5bd83a5/result.json",
+      "sha256": "1cfa4ea2711f6ea2f3cce29778a0c84a0f1b7be5242276a9c721d35549178309"
+    }
+  ],
+  "measurements": {
+    "started_utc": "2026-10-13T13:46:49.117751+00:00",
+    "ended_utc": "2026-10-13T13:46:51.383843+00:00",
+    "capture_wall_seconds": 2.2667397998739034,
+    "session_start_utc": null,
+    "session_wall_seconds": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost": null,
+    "operator_time_seconds": null,
+    "unknown_reason": "Capture interval measured only; full session timing and usage not exposed."
+  },
+  "product_changed": false,
+  "queue_changed": false,
+  "new_repair_claimed": false,
+  "IG_1E_started": false,
+  "technical_acceptance_granted": false,
+  "semantic_acceptance_granted": false,
+  "next_operation": "Obtain fresh actual executor configuration and restore/finalize the existing reviewer result, then claim the bounded second repair of R04. IG-1E depends on IG-1D acceptance/done."
+}

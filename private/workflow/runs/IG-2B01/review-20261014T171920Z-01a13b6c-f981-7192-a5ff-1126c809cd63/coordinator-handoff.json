@@ -1,0 +1,197 @@
+{
+  "task": "IG-2B01",
+  "role": "reviewer",
+  "actor": "codex-01a13b6c-f981-7192-a5ff-1126c809cd63",
+  "outcome": "PASS",
+  "review": {
+    "path": "private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/review.json",
+    "bytes": 155239,
+    "sha256": "d6dd7856f8171cae8831b282e820f69c8e65091ec48fe74e5e01a95fa43db3bb"
+  },
+  "report": {
+    "path": "private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/review-report.md",
+    "bytes": 15822,
+    "sha256": "1f910bd68429ad4789bf42c497993dfbb6b874aaed4b2545b265af4ce8344cfb"
+  },
+  "original_delivery_pins": [
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-seal.json",
+      "bytes": 4334,
+      "sha256": "92d0497dcdd19876127217917bb30240ff17e8893d7cc2b195d342fb53d69e13"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/delivery.json",
+      "bytes": 146747,
+      "sha256": "9fd4b11bdfd04e75edafca96daa29add39151612291b2fefbd7a68e534325ef7"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/delivery-manifest.json",
+      "bytes": 149378,
+      "sha256": "1d8ad7eaa494f14a95c762de3197ae7b9c4be057a1e4470e11987d56761fd5fc"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/delivery-handoff.md",
+      "bytes": 5178,
+      "sha256": "cc1db56c976a7b3742944b1f6b4cc5891aaff1961344b3d4864cabf756235f3b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json",
+      "bytes": 483648,
+      "sha256": "42adf9a1598bd682917eb087e295fe899212e59dd81aed5c293e2187b9c587bb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/region-ledger-final.json",
+      "bytes": 604783,
+      "sha256": "a1d3378704b19172dadd24c86f15b4193534da7799d49da3339bdd39d31caf07"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/identity-registry.json",
+      "bytes": 22596,
+      "sha256": "94ac81cac947342b7de757419d9b858f45cdae2f2eae521ce94404e0e7831657"
+    }
+  ],
+  "configuration": {
+    "path": "private/workflow/runs/IG-2B01/review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63/configuration.json",
+    "bytes": 945,
+    "sha256": "baacc40488c43dc00a829a5c06b1436f366b1c15c68c707471296ce5b91da601"
+  },
+  "criteria": [
+    {
+      "criterion": "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+      "outcome": "PASS",
+      "basis": [
+        "independent-expectations.json",
+        "content-observations.json",
+        "character-word-audit.json",
+        "secondary-independent.json"
+      ],
+      "limit": "No approved editorial exclusion or semantic acceptance."
+    },
+    {
+      "criterion": "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+      "outcome": "PASS",
+      "basis": [
+        "crop-reproduction.json",
+        "secondary-independent.json",
+        "content-observations.json"
+      ],
+      "limit": "Literal extraction remains partial; explicit R02 advisory is not normalized into source bytes."
+    },
+    {
+      "criterion": "Independent review compares the assigned pages against the complete region ledger.",
+      "outcome": "PASS",
+      "basis": [
+        "configuration.json",
+        "content-observations.json",
+        "review-report.md"
+      ],
+      "limit": "Distinct current session inspected originals and complete final ledger; not executor self-review."
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B01"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T17:23:27.228364+00:00",
+      "ended_utc": "2026-10-14T17:24:27.357371+00:00",
+      "wall_seconds": 60.125
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T17:24:27.358368+00:00",
+      "ended_utc": "2026-10-14T17:24:29.843998+00:00",
+      "wall_seconds": 2.485000000000582
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T17:24:29.844995+00:00",
+      "ended_utc": "2026-10-14T17:24:31.683557+00:00",
+      "wall_seconds": 1.8439999999991414
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T17:25:29.079946+00:00",
+      "ended_utc": "2026-10-14T17:25:41.408361+00:00",
+      "wall_seconds": 12.34400000000096
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\independent_review.py",
+        "reproduce"
+      ],
+      "exit_code": 0,
+      "log_basis": "Own tool-command-audit.json and crop-reproduction.json",
+      "expectation": "Source pixels/text/bounds and offsets reproduce at all 131 regions; source-observed completeness separately assessed."
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2B01\\review-20261014T171920Z-01a13b6c-f981-7192-a5ff-1126c809cd63\\independent_review.py",
+        "secondary"
+      ],
+      "exit_code": 0,
+      "log_basis": "Own tool-command-audit.json and secondary-independent.json",
+      "expectation": "Exact canonical revisions, registry replay, all rational bounds, geometry partitions and final uncertainty/gap bindings."
+    }
+  ],
+  "check_scratch_logs": [
+    {
+      "path": "private/workflow/checks/active-32b27ae08f50409da2b6cab6b9600d7c/result.json",
+      "bytes": 206,
+      "sha256": "9667d8b4ce87144acac7470e2e1cbf74604c9b5cbe22c78d5682ef2634ba4e9d"
+    },
+    {
+      "path": "private/workflow/checks/active-32b27ae08f50409da2b6cab6b9600d7c/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-32b27ae08f50409da2b6cab6b9600d7c/dry-run.log",
+      "bytes": 185,
+      "sha256": "aca7ce51c637756fb6d1b7c873a5fb813285a95ee2e226ad225626413793c24a"
+    },
+    {
+      "path": "private/workflow/checks/active-32b27ae08f50409da2b6cab6b9600d7c/pytest.log",
+      "bytes": 184,
+      "sha256": "878806208cea42e7537d70be645c3c45f73d4a433f91dc3900b4b74c1c6d62ac"
+    },
+    {
+      "path": "private/workflow/checks/active-32b27ae08f50409da2b6cab6b9600d7c/diff-check.log",
+      "bytes": 5064,
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c"
+    }
+  ],
+  "finding_disposition": "Zero blocking artifact findings. R01 bounded process deviation needs explicit coordinator acknowledgement/disposition; R02 is future transcription refinement. Neither licenses silent repair or semantic promotion.",
+  "queue_status": "review",
+  "queue_transition_performed": false,
+  "semantic_acceptance_granted": false,
+  "next_action": "Coordinator verifies review seal/exact original delivery pins and records R01 disposition before preparing technical acceptance of IG-2B01. Reviewer leaves queue at review; no repairs or IG-2B02."
+}

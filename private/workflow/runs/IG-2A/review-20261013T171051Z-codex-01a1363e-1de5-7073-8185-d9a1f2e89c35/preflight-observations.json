@@ -1,0 +1,21 @@
+{
+  "root_toolchain_lookup": {
+    "command": "Get-Content -LiteralPath toolchain.json -Raw",
+    "error": "Cannot find path toolchain.json because it does not exist.",
+    "exit_code": null,
+    "reason": "Combined initial read output captured; this subcommand exit was not separately recorded. Correct frozen attempt/toolchain.json was then read."
+  },
+  "initial_probe_run": {
+    "command": ".\\.venv\\Scripts\\python.exe private/workflow/runs/IG-2A/review-20261013T171051Z-codex-01a1363e-1de5-7073-8185-d9a1f2e89c35/probes.py",
+    "exit_code": 1,
+    "results": "probe-results.json",
+    "timing": null,
+    "reason": "First direct run was untimed; repeat with one new registry-boundary probe has exact subprocess times/logs in boundary-probes-repeat.json."
+  },
+  "measured_review_start": "2026-10-13T17:10:51.7733569Z",
+  "preflight_started_utc": null,
+  "preflight_wall_seconds": null,
+  "correction": "checkpoint.json earlier literal 17:06:40Z was not measured and must not be used. configuration.json and measurement.json contain the observed start of the measured review interval.",
+  "old_packet": "Executor context read and context hash verified; its earlier queue hash is intentionally not asserted equal to the current queue.",
+  "workflow_outputs": "Unmodified workflow.packet(output=False) verified the allowlist/current queue; caller serialized fresh packet inside reviewer directory. check_adapter.ps1 redirects only the unmodified check.ps1 operational runRoot using a process-local Join-Path wrapper. All original checks and source bytes retained."
+}

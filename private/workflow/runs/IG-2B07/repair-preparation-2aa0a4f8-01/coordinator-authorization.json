@@ -1,0 +1,67 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:004-IG-2B07-coordinator-2aa0a4f8:coordinator",
+  "task": "IG-2B07",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/004-IG-2B07-coordinator-2aa0a4f8/runtime-configuration.json",
+  "configuration_sha256": "382676e3501a08f4994e313e0a5a26714ad1800075abe9fc2e4a0498c7e67298",
+  "format": "wgc-coordinator-repair-authorization-1",
+  "outcome": "progress",
+  "summary": "Authorize only fresh bounded F01 component-accounting repair; task remains changes_requested and all prior events/artifacts remain immutable.",
+  "review_evidence": "private/workflow/runs/IG-2B07/review-3f57d66e-01/review.json",
+  "review_sha256": "98d7acd1306af8945840711d5f7f3cf7809cff9d0a696a087577b110f4f5735e",
+  "finding_ids": [
+    "F01"
+  ],
+  "attempt": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/",
+  "mode": "source_component_accounting",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Use the hash-pinned accepted IG-2B06 full 44-page inventory and companion identity registry; preserve all nonassigned records, inherited evidence/links and registry bindings. Retire only the four pages-25-28 placeholder memberships without deleting registry entries.",
+    "Freshly inspect every original assigned page, column, note, example, diagram and component; pin exact source/page/box evidence for all new regions and components, uncertainty and explicit gaps. Boundary context is limited to the authorized page-24 bottom and page-29 top strips and contributes zero denominator.",
+    "Freeze final-verified/inventory.json and identity-registry.json plus all root reports named in the refined contract under the new owned inventory-25-28-01 attempt. Keep complete full/task/context denominators separate and retain the persisted registry binding.",
+    "Generate evidence serially and complete two separate independent full replays, preserving every new region/component and checking complete target-set equality, stable IDs, evidence freshness, reading order, links and path-normalized output comparisons.",
+    "Obtain fresh independent technical/source-accounting review against original assigned pages, the complete region/component ledgers and the entire frozen delivery. Preserve all human semantic gates; this inventory grants no gameplay legality or executable readiness."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/repair-scope.json",
+      "sha256": "de0f651557362f57f96a5a225dc5c796f89387d5e3ba689ab19361e9bd93ea5a",
+      "bytes": 17242
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/review.json",
+      "sha256": "98d7acd1306af8945840711d5f7f3cf7809cff9d0a696a087577b110f4f5735e",
+      "bytes": 1047917
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/delivery.json",
+      "sha256": "cee94ecd856edb0da9439881a0e002f7515f45f334a1b4e02fcd16b3f20cab27",
+      "bytes": 738246
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/input-verification.json",
+      "sha256": "1c7b0036fbd390405e11b7360857ebfa2d00256b6ee883f79babdbb23c775729",
+      "bytes": 1668
+    }
+  ],
+  "checks": [
+    {
+      "command": "Local SHA-256 verification of current review, latest frozen delivery, all 2956 artifact pins, four finding evidence pins and source/refinement pins",
+      "exit_code": 0
+    }
+  ],
+  "context_access_error": "Coordinator mistakenly requested the entire current review JSON with Get-Content; tool output was truncated. Subsequent review/delivery reads used selected JSON fields. No prior transcript or dependency closure was requested. Supervisor must retain this observation when evaluating the session.",
+  "measurement": {
+    "prepared_utc": "2026-10-16T20:44:15.488778+00:00",
+    "tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed to this coordinator."
+  },
+  "semantic_acceptance_granted": false,
+  "validation_report": "private/workflow/runs/IG-2B07/repair-preparation-2aa0a4f8-01/validation-report.json",
+  "next_operation": "Run coordinator checks, preserving this authorization and the new attempt absence; supervisor alone selects and launches any subsequent role."
+}

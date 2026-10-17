@@ -1,0 +1,33 @@
+{
+  "format": "wgc-coordinator-context-incident-1",
+  "task": "IG-2B08",
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B08-coordinator-b6a7690c:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/003-IG-2B08-coordinator-b6a7690c/runtime-configuration.json",
+  "configuration_sha256": "b383577efb65ac68c9508e2dfefa859b33b828e6bad2383a8117044feee599f9",
+  "utc": "2026-10-17T08:01:33.460286+00:00",
+  "outcome": "blocked",
+  "summary": "Coordinator context-access incident: an unfiltered current review manifest was printed instead of selected fields. No repair authorization was prepared.",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/review-b9632401/review.json",
+    "sha256": "cb5b44681eaa24db0254ad9acac69e03da8377ab2e532647ff6105e4ab2098c7",
+    "operation": "Parsed and printed the whole review JSON, including its exhaustive artifact list; tool output was truncated. A subsequent read selected only outcome/findings.",
+    "violated_boundary": "Private evidence must be read through exact authorized locators or selected JSON fields; whole manifests must not be printed.",
+    "source_render_or_extraction_performed": false,
+    "history_or_transcript_read_performed": false
+  },
+  "preservation": {
+    "queue_mutated": false,
+    "task_status_transitioned": false,
+    "product_or_frozen_artifact_mutated": false,
+    "repair_authorization_created": false,
+    "executor_launched": false
+  },
+  "missing_decision": {
+    "owner": "supervisor/operator",
+    "required_action": "Assess the context-access incident and dispatch a fresh bounded coordinator session for current F01. Supply selected review findings and selected delivery fields, without manifest dumps.",
+    "prior_session_grants_no_authorization_or_acceptance": true
+  }
+}

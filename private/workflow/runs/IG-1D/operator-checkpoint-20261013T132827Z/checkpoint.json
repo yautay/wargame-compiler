@@ -1,0 +1,136 @@
+{
+  "format": "wgc-operator-checkpoint-1",
+  "task": "IG-1D",
+  "actor": "ig1-stage-executor-20261013",
+  "reason": "Operator requested saved checkpoint and continuation prompt.",
+  "started_utc": "2026-10-13T13:32:24.564519+00:00",
+  "ended_utc": "2026-10-13T13:32:36.199060+00:00",
+  "capture_wall_seconds": 11.635,
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "source": "Direct operator confirmation in this ongoing session",
+    "verbatim": "sol 6.1 high",
+    "scope": "Previous executor session only; new session needs fresh evidence."
+  },
+  "tokens": null,
+  "cost": null,
+  "operator_time": null,
+  "queue": {
+    "path": "docs/work/queue.json",
+    "sha256": "07cb9707259e91d1f779360ba4eb8606a3d2ae51502aaba53c4961a7e264e1e3",
+    "statuses": {
+      "IG-1A": "done",
+      "IG-1B": "done",
+      "IG-1C": "done",
+      "IG-1D": "review",
+      "IG-1E": "planned"
+    }
+  },
+  "delivery": {
+    "path": "private/workflow/runs/IG-1D/repair-01-20261013/delivery.json",
+    "sha256": "3ebef08719717c41043cb4df8bb98874d214e38d0e8fdbf21de6e35a9adfaa73",
+    "artifact_count": 50
+  },
+  "verified_manifest": {
+    "path": "verified-artifact-manifest.json",
+    "sha256": "dbdc3e8fce0d8e2315ef43babec957379ab7d38f46379fdddaa4884a8f022801",
+    "entries": 119
+  },
+  "checks": [
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "log": "queue-validation.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "diff-check.log"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exit_code": 0,
+      "log": "worktree-status.log"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--stat"
+      ],
+      "exit_code": 0,
+      "log": "worktree-stat.log"
+    },
+    {
+      "command": "scripts/check.ps1 -Task IG-1D",
+      "exit_code": 0,
+      "result": "private/workflow/checks/active-02f4922eacab4dfea3acf1c850564f5b/result.json",
+      "details": {
+        "plan_exit": 0,
+        "diff_exit": 0,
+        "tests_exit": 0,
+        "dry_run_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-02f4922eacab4dfea3acf1c850564f5b\\pytest"
+      }
+    }
+  ],
+  "reviewer": {
+    "thread_id": "01a13421-44a0-71a3-9484-bf796c2922fc",
+    "host_id": "local",
+    "title": "Independent technical review IG-1C",
+    "observed_utc": "2026-10-13T13:28:27Z",
+    "observed_status": "active",
+    "turn_status": "inProgress",
+    "cursor": "57e8f390-5c50-4865-9543-3ce1c2b62dba:92",
+    "note": "May finish after this checkpoint. Fetch fresh status before dependent work."
+  },
+  "repair_budget": {
+    "IG1D-R01": {
+      "used": 1,
+      "maximum": 2
+    },
+    "IG1D-R02": {
+      "used": 1,
+      "maximum": 2
+    },
+    "IG1D-R03": {
+      "used": 1,
+      "maximum": 2
+    },
+    "IG1D-R04": {
+      "used": 1,
+      "maximum": 2
+    }
+  },
+  "completed": [
+    "IG-1A/IG-1B/IG-1C done",
+    "IG-1D repair 1 frozen",
+    "108 public/reviewer controls passed",
+    "102 project tests passed",
+    "Full independent accounting and canonical repeatability passed"
+  ],
+  "pending": [
+    "IG-1D independent re-review and technical acceptance/completion",
+    "Entire IG-1E task and final stage handoff"
+  ],
+  "next_operation": "Confirm new executor actual configuration; inspect existing reviewer fresh result and current queue/hashes before edits.",
+  "queue_changed_by_checkpoint": false,
+  "commit_created": false,
+  "product_changed_by_checkpoint": false,
+  "new_task_started": false,
+  "continuation_prompt": "CONTINUE-PROMPT.txt",
+  "handoff": "handoff.md"
+}

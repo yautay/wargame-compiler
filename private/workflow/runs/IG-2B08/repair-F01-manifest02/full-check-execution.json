@@ -1,0 +1,52 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/runtime-configuration.json",
+  "configuration_sha256": "8fe2d32465346ef58ac7c4308399eeb2123ef6d2c6be9039a9c9ee5df160375a",
+  "summary": "Required unchanged full check passed using approved execution because this session already observed restricted-token pytest temp access denial. No restricted full-check failure is claimed.",
+  "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+  "attempts": [
+    {
+      "sandbox_permissions": "require_escalated",
+      "exit_code": 0,
+      "observed_result": "288 passed in 88.34s (0:01:28)"
+    }
+  ],
+  "check_result": {
+    "diff_exit": 0,
+    "dry_run_exit": 0,
+    "plan_exit": 0,
+    "tests_exit": 0,
+    "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-770169e2d367434b9ab4b496d99e6db7\\pytest"
+  },
+  "artifacts": [
+    {
+      "path": "private/workflow/checks/active-770169e2d367434b9ab4b496d99e6db7/result.json",
+      "bytes": 206,
+      "sha256": "658e009ed530e601cb7e4e3cc707b0d1313b0f752c9fb3d22bff7dcfde851bec"
+    },
+    {
+      "path": "private/workflow/checks/active-770169e2d367434b9ab4b496d99e6db7/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/checks/active-770169e2d367434b9ab4b496d99e6db7/dry-run.log",
+      "bytes": 185,
+      "sha256": "c06cf63ea0309317625438595cb2d26fffb97136eadbe31849de0a16474add8f"
+    },
+    {
+      "path": "private/workflow/checks/active-770169e2d367434b9ab4b496d99e6db7/pytest.log",
+      "bytes": 356,
+      "sha256": "2d99df09df2b0e26692560d8edcdc52e4d6ff27f793c78f1cd1d039aeb4fb3e0"
+    },
+    {
+      "path": "private/workflow/checks/active-770169e2d367434b9ab4b496d99e6db7/diff-check.log",
+      "bytes": 5187,
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+    }
+  ],
+  "tests_guards_assertions_libraries_acls_unchanged": true
+}

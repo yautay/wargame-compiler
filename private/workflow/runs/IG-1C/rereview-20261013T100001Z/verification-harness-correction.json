@@ -1,0 +1,12 @@
+{
+  "attempt": 1,
+  "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1C/rereview-20261013T100001Z/verify.py before",
+  "exit_code": 1,
+  "failure": "Independent schema extraction assumed a Python literal dictionary; the embed is json.loads of a literal JSON string (AST Call).",
+  "changed_hypothesis": "Verify the exact json.loads(literal string) AST shape, then independently decode its literal JSON without executing product code; require full equality to external/private schema pins.",
+  "correction": "verify_v2.py preserves the original harness and changes only schema encoding extraction.",
+  "product_assertions_weakened": false,
+  "product_modified": false,
+  "finding_repair_cycles_consumed": 0,
+  "unchanged_failure_retries": 0
+}

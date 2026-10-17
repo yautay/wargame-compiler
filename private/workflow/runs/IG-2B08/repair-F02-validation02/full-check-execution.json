@@ -1,0 +1,105 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "permissions": "restricted",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/full-check-restricted.log",
+        "bytes": 282946,
+        "sha256": "63f531afdb5f0ae1ad575d0770ef235418f934aa121d4f4373db64b576264cee"
+      },
+      "check_result": {
+        "path": "private/workflow/checks/active-97845ac3abe841d08693b37dac820b5d/result.json",
+        "bytes": 206,
+        "sha256": "91ecacaa171ea8747d1f9d597cb01bc2e5cd7f18f7415d3257ad1fc04b970374"
+      },
+      "result": {
+        "dry_run_exit": 0,
+        "plan_exit": 0,
+        "diff_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-97845ac3abe841d08693b37dac820b5d\\pytest",
+        "tests_exit": 1
+      },
+      "test_counts": [],
+      "windows_access_denied": true,
+      "internal_logs": [
+        {
+          "path": "private/workflow/checks/active-97845ac3abe841d08693b37dac820b5d/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/checks/active-97845ac3abe841d08693b37dac820b5d/dry-run.log",
+          "bytes": 185,
+          "sha256": "3f11b84b712117507a188a0f50650300e7fe8b8b1de2dbf8495cd91f69ed8cfb"
+        },
+        {
+          "path": "private/workflow/checks/active-97845ac3abe841d08693b37dac820b5d/pytest.log",
+          "bytes": 4699,
+          "sha256": "c7bdc08417eddd486cd1931e421dcd227a3e08b856f685f3eb91fb1bf08f10f7"
+        },
+        {
+          "path": "private/workflow/checks/active-97845ac3abe841d08693b37dac820b5d/diff-check.log",
+          "bytes": 277613,
+          "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+        }
+      ]
+    },
+    {
+      "exit_code": 0,
+      "permissions": "require_escalated",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/full-check-approved.log",
+        "bytes": 5958,
+        "sha256": "6523c42c61588136fca57ca6b05c28850454d290a0c15b16580b171f009530d2"
+      },
+      "check_result": {
+        "path": "private/workflow/checks/active-5a6780cef36e49fc9852f75d995c1a69/result.json",
+        "bytes": 206,
+        "sha256": "23a82b57bc9c8868b229d0357fe5d73dc408c9b561a800c02cd00b58450a27a8"
+      },
+      "result": {
+        "tests_exit": 0,
+        "diff_exit": 0,
+        "dry_run_exit": 0,
+        "plan_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-5a6780cef36e49fc9852f75d995c1a69\\pytest"
+      },
+      "test_counts": [
+        "310 passed"
+      ],
+      "windows_access_denied": false,
+      "internal_logs": [
+        {
+          "path": "private/workflow/checks/active-5a6780cef36e49fc9852f75d995c1a69/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/checks/active-5a6780cef36e49fc9852f75d995c1a69/dry-run.log",
+          "bytes": 185,
+          "sha256": "3f11b84b712117507a188a0f50650300e7fe8b8b1de2dbf8495cd91f69ed8cfb"
+        },
+        {
+          "path": "private/workflow/checks/active-5a6780cef36e49fc9852f75d995c1a69/pytest.log",
+          "bytes": 427,
+          "sha256": "f7c98993e2c9c707f25ccea4ff6b7910ae42c317dc2a54079f323f8606fdc2fb"
+        },
+        {
+          "path": "private/workflow/checks/active-5a6780cef36e49fc9852f75d995c1a69/diff-check.log",
+          "bytes": 5187,
+          "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+        }
+      ]
+    }
+  ],
+  "tests_assertions_guards_unchanged": true,
+  "approved_exact_validation_command": true
+}

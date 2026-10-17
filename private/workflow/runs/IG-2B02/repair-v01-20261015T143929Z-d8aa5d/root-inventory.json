@@ -1,0 +1,24 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "name": "root-inventory",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "-m",
+    "wgc.sources",
+    "validate",
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T14:47:36.657213+00:00",
+  "ended_utc": "2026-10-15T14:47:43.831089+00:00",
+  "wall_seconds": 7.172000000005937,
+  "stdout": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/root-inventory.stdout",
+  "stderr": "C:/repo/wargame-compiler/private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/root-inventory.stderr"
+}

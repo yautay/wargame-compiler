@@ -1,0 +1,57 @@
+{
+  "role": "instruction_preparer",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "task": "IG-2B02",
+  "created_utc": "2026-10-14T22:18:31.833640+00:00",
+  "actual_preparer_configuration": {
+    "session_id": "01a13c20-b7bd-7962-a954-f5841c09831c",
+    "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "reason": null,
+    "evidence": {
+      "kind": "Own current session turn_context",
+      "timestamp": "2026-10-14T22:08:23.313Z",
+      "sha256": "1e739d0f06271fc6e52516abadafa76c455c9a5cfaa2836d099b7011194950bf",
+      "metadata_path": "C:/Users/yauta/.codex/sessions/2026/10/14/rollout-2026-10-14T22-35-39-01a13c20-b7bd-7962-a954-f5841c09831c.jsonl"
+    },
+    "role": "Review launch preparer, not independent reviewer; same actor as executor"
+  },
+  "instruction": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/independent-review-launch.txt",
+    "bytes": 41728,
+    "sha256": "f59deea525e0d9844dea04db8087f3d2452f2aae6e6e7a8afc55799ff09b733d"
+  },
+  "catalogue": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-pins.json",
+    "bytes": 1623594,
+    "sha256": "d85b53b858304c2c5a7a052caa682c493abe79575b60d1d29c01e6468082ca97"
+  },
+  "helper": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/verify-frozen-review-inputs.py",
+    "bytes": 4868,
+    "sha256": "1d864d7017ea2548c60346798276ef822945a5bce9a2e9cb0f0816d62894a102"
+  },
+  "verification": {
+    "path": "private/workflow/runs/IG-2B02/review-launch-preparation-20261014T221144Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-delivery-verification.json",
+    "bytes": 1156,
+    "sha256": "a82ec80406a850c32cda0674f7be6938a90e173621ca2d0959823c690eb3db80"
+  },
+  "queue_pin": {
+    "path": "docs/work/queue.json",
+    "bytes": 152236,
+    "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+  },
+  "review_event": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-14T21:57:09.490446+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "new_independent_session_created": false,
+  "independent_review_performed": false,
+  "task_status_changed": false,
+  "acceptance_granted": false,
+  "next_operation": "Operator manually opens a NEW local GPT-6.1 Sol/high session and pastes the complete instruction; that reviewer verifies actual configuration and saves a bounded independent review only."
+}

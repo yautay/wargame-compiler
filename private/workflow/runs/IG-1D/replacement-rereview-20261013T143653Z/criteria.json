@@ -1,0 +1,22 @@
+[
+  {
+    "criterion": "Repeated identical bytes yield identical identities and export content; timestamps are outside canonical hashes.",
+    "result": "pass",
+    "evidence": "Repeated synthetic replay and two actual complete canonical transforms/publications are byte-identical, including new repair-2 publication; operational clocks are separate and canonical timestamps remain null."
+  },
+  {
+    "criterion": "Reordering anonymous terms/relations preserves identities when unambiguous; collisions become review gaps.",
+    "result": "pass",
+    "evidence": "Unchanged original and public reorder/insert/delete/rename/file-move controls pass. Contradictory/indistinguishable rematches retain explicit gaps; key/scope/receipt changes reject atomically."
+  },
+  {
+    "criterion": "Many-to-many origin bindings preserve file/field locations; wildcard and subpoint references have exact targets or explicit unresolved scope.",
+    "result": "pass",
+    "evidence": "Unchanged many-to-many and scope assertions pass. Complete raw-file/field/binding coordinates and subtrees independently verified. All 2930 diagnostics and cycle components independently reconstructed; wildcard/subpoint scopes remain exact or explicitly unresolved."
+  },
+  {
+    "criterion": "Export validates revision/hash closure and never inherits semantic approval.",
+    "result": "pass",
+    "evidence": "Every graph/aspect hash and selected/historical typed reference resolves. Historical parent/child exact revisions retained under correction. No inherited semantic approval, coverage or executable acceptance."
+  }
+]

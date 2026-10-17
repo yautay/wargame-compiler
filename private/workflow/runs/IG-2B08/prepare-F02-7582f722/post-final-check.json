@@ -1,0 +1,34 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:002-IG-2B08-coordinator-7582f722:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T111422Z-80dfde30/002-IG-2B08-coordinator-7582f722/runtime-configuration.json",
+  "configuration_sha256": "4d8925de4427f1fad224a46afb9a4e9c8cb4e248356752bb48603b0fb0d820e8",
+  "task": "IG-2B08",
+  "authorization": {
+    "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/authorization-verified.json",
+    "sha256": "1e578c8790ce88257c1dd01d1d324ce3d96ef36550e29c4124f0bd5d445fb759",
+    "bytes": 8046
+  },
+  "status": "changes_requested",
+  "attempt_absent": true,
+  "acceptance_unchanged": true,
+  "tests_unchanged": true,
+  "packet_inputs_unchanged": true,
+  "checks": [
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/prepare-F02-7582f722/final-diff-check.log",
+        "sha256": "800c86e029a3d6b437e80604486e4218af73a372470e4c5c54afa666afe2034d",
+        "bytes": 277376
+      }
+    },
+    {
+      "command": "Final authorization/configuration/contract and packet input hash verification",
+      "exit_code": 0
+    }
+  ]
+}

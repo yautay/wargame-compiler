@@ -1,0 +1,27 @@
+{
+  "role": "executor",
+  "actor": "ig2:002-IG-2B07-executor-78a83e6c:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/002-IG-2B07-executor-78a83e6c/runtime-configuration.json",
+  "configuration_sha256": "86b268a63be952b272f095821fee7bb6cd40a3e2a8cb3cba60a11ecfb5c0a95a",
+  "summary": "Claim fresh ready IG-2B07 inventory for original pages 25-28, preserving the accepted full inventory and all gates.",
+  "criteria": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start.",
+    "Verify exact accepted dependency pins and refined contract; the executor attempt must be absent before claim. Record a fresh checkpoint and observed gpt-6.1-sol/high configuration.",
+    "Read only prepared dependency sections and the assigned source/page/ID scope. Preserve inherited process-local PYTHONPATH with both repo/src and bundled site-packages and installed Poppler paths."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B07/inventory-25-28-01/checkpoint-initial.json",
+      "sha256": "0af49dba77bf911dc57bd3160791fc159c3ebb9b8471d21eaeebaa089b94ecd5"
+    }
+  ],
+  "checks": [
+    {
+      "command": "Verify 36 packet/control/source/dependency pins and fresh absent ownership; compare current task contract and dependency done status internally",
+      "exit_code": 0
+    }
+  ]
+}

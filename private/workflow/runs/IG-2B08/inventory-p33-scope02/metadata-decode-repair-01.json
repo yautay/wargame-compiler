@@ -1,0 +1,17 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "summary": "Final freeze check rejected the task title because the owned helper decoded UTF-8 metadata using the Windows default locale. No queue or source-contract difference existed.",
+  "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B08/inventory-p33-scope02/freeze_delivery.py",
+  "exit_code": 1,
+  "affected_fields": [
+    "title"
+  ],
+  "change": "Explicit UTF-8 decoding for owned helper task/input/selection metadata. No input bytes changed.",
+  "impact": "Only the decoded title differed; all fields used for derivation, criteria, scope, source access and preservation were identical. Source evidence and completed replay/CLI/verifier assertions remain unchanged.",
+  "confirmation": "A separate internal queue check decoded both packet and selected authoritative task as UTF-8: zero different non-status fields; status in_progress; exact write_scope and inventory_contract match."
+}

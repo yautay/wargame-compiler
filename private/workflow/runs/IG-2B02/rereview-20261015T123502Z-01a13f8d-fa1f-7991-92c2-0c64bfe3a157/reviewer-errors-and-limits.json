@@ -1,0 +1,31 @@
+{
+  "resolved_setup_issues": [
+    {
+      "issue": "Initial reviewer pin scanner rejected four explicitly pinned external native executable paths under its root-only policy.",
+      "resolution": "Scanner adjusted for explicitly pinned executable/runtime metadata; all four executable hashes freshly match. No source pin drift."
+    },
+    {
+      "issue": "Initial import probe without bundled process PYTHONPATH raised ModuleNotFoundError: pypdf.",
+      "resolution": "Used existing bundled site-packages in process-only PYTHONPATH; versions and all checks passed. No installation."
+    },
+    {
+      "issue": "One visual-tool request for original-component-010.png failed because that filename does not exist.",
+      "resolution": "Scoped directory listing confirmed component-010.png is the existing enlargement. It and every other diagram enlargement were subsequently viewed. No output file or evidence changed."
+    }
+  ],
+  "unchanged_failure_retries": 0,
+  "limit": 2,
+  "usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "monetary_cost": null,
+    "reason": "Reliable review-only totals/cost/operator time not exposed."
+  },
+  "limitations": [
+    "Source authenticity/provenance assessment is separate from region accounting",
+    "No human semantic acceptance or whole-record source-IG approval",
+    "No executable readiness established",
+    "Old locator/render replay used only for the explicitly byte-identical evidence baseline after own equality checks; current visual components and reports reviewed afresh"
+  ]
+}

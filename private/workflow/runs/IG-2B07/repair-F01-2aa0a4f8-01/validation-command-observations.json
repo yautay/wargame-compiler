@@ -1,0 +1,139 @@
+{
+  "role": "executor",
+  "actor": "ig2:005-IG-2B07-executor-32eedee6:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/005-IG-2B07-executor-32eedee6/runtime-configuration.json",
+  "configuration_sha256": "510c7584378a512c42f72d5523ae6f9c3697ade1c0aa2da3d0d2059e7e795444",
+  "recorded_utc": "2026-10-16T20:56:46.250689+00:00",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/source-validation.log",
+        "bytes": 10987,
+        "sha256": "5d5e944618b8cb0999e47d32688d8efede1eef5c7caaeb02c20f648b6825904b"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "approved require_escalated exact unchanged command",
+      "tests_passed": 71,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources-restricted.log",
+        "bytes": 102,
+        "sha256": "58ce993d96e2cba7f42b4972469a2b32156b4d35ff1247f6a1dbcff0c720b76e"
+      },
+      "shell_command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short *> private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources-restricted.log"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "exit_code": 0,
+      "execution": "approved require_escalated exact unchanged command",
+      "tests_passed": 274,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/repository-check.log",
+        "bytes": 5877,
+        "sha256": "b61b553b03e74d9748c418a3357407586f3964376df6b20439f7e5002fbf54b3"
+      },
+      "shell_command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07 *> private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/repository-check.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/diff-check.log",
+        "bytes": 277613,
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+      }
+    }
+  ],
+  "environment_failures": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "cause": "WinError 5 reading mode-0700 pytest basetemp under restricted Windows token",
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/pytest-sources-restricted-failure.log",
+        "bytes": 4373,
+        "sha256": "1e16cdb353064b08cfe74caa74fba1cf9e4fe368e00cd62bca2eaadbabac7cee"
+      },
+      "resolution": "Exact unchanged command approved with require_escalated; 71 passed."
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "exit_code": 1,
+      "cause": "WinError 5 reading repository-check pytest basetemp under restricted Windows token",
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/repository-check-restricted-failure.log",
+        "bytes": 282865,
+        "sha256": "88ed56fca33ce2aa3584c1e32ea2ea71d684267fc68ed7646e6a71ade49c1f7d"
+      },
+      "resolution": "Exact unchanged command approved with require_escalated; 274 passed."
+    }
+  ],
+  "repository_result": {
+    "plan_exit": 0,
+    "dry_run_exit": 0,
+    "tests_exit": 0,
+    "diff_exit": 0
+  },
+  "repository_check_reports": [
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-restricted/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-restricted/dry-run.log",
+      "bytes": 185,
+      "sha256": "3911a676fbe35fd338367e5074f59adcedb9066a6d7f98a2ec0869638b42c1a9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-restricted/pytest.log",
+      "bytes": 4618,
+      "sha256": "79576c71e948da952caf271f8d64ef28f3589985df2dafaa249d7096aecbb659"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-restricted/diff-check.log",
+      "bytes": 277613,
+      "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-restricted/result.json",
+      "bytes": 206,
+      "sha256": "2d0fe1c035959c7929e47fc335e3e98af1aff35be1be1ee07cce12a0935def9a"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-approved/plan.log",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-approved/dry-run.log",
+      "bytes": 185,
+      "sha256": "3911a676fbe35fd338367e5074f59adcedb9066a6d7f98a2ec0869638b42c1a9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-approved/pytest.log",
+      "bytes": 346,
+      "sha256": "4eb580e5f88219568df6a840d166e4349a80063444b0ac8ca9439c0c87e00426"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-approved/diff-check.log",
+      "bytes": 5187,
+      "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B07/repair-F01-2aa0a4f8-01/validation/repository-approved/result.json",
+      "bytes": 206,
+      "sha256": "9667d77f1338b5c0980e3232c74957e9b51badc0c3f5095235adf5ee96992e29"
+    }
+  ],
+  "repository_approved_root": "C:/repo/wargame-compiler/private/workflow/checks/active-acd56e875fc54ec8b05d46362bf9346b",
+  "tests_assertions_guards_unchanged": true,
+  "acls_libraries_and_global_settings_unchanged": true,
+  "retries": "One approved unchanged retry for each observed restricted-token denial; no restricted retry."
+}

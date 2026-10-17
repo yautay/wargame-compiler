@@ -1,0 +1,29 @@
+{
+  "format": "wgc-context-incident-assessment-1",
+  "task": "IG-2B05",
+  "utc": "2026-10-16T15:46:25.851151+00:00",
+  "operator_request": "wznow prace",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B05/inventory-17-20-01/blocked.json",
+    "sha256": "107becbe6f7626aeec8624ec2357dd562c6685c9cc5e2b507b9ad3ada1d7e6a6",
+    "bytes": 6528
+  },
+  "cause": "The prior executor directly read dependency-inputs.json instead of using the pinned dependency projection.",
+  "effect": "The previous session cannot claim context compliance; all results remain unaccepted candidates.",
+  "recovery": "Fresh executor context and absent owned directory, exact draft JSON pins, fresh original-page inspection, regenerated path-dependent evidence, two complete fresh replays, fresh checks and independent review.",
+  "process_evidence": {
+    "previous_supervisor_pid": 18572,
+    "previous_executor_pid": 18612,
+    "inspection": "Approved Win32_Process query returned neither recorded PID; both supervisor and queue lock are absent.",
+    "previous_run_state": "blocked",
+    "previous_executor_state": "exited"
+  },
+  "tooling_issue": "The frozen original manifest is named blocked-attempt-preservation.json. The supervisor now accepts that exact blocked-event pin as well as blocked-state-manifest.json and still rejects missing or ambiguous manifests.",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "configuration_evidence": "Current coordinating session does not expose trusted exact model/reasoning metadata; no executor configuration claim is made.",
+  "source_inspection_inherited": false,
+  "checks_inherited": false,
+  "human_semantic_acceptance": false,
+  "gameplay_readiness": false
+}

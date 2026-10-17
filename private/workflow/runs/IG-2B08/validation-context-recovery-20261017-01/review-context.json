@@ -1,0 +1,175 @@
+{
+  "format": "wgc-current-review-context-1",
+  "task": "IG-2B08",
+  "delivery_reference": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f",
+    "bytes": 1359669
+  },
+  "delivery_summary": "F01 arrow-component evidence repaired at fresh paths; complete final and two serial replays, baseline preservation, source-bound regression and unchanged required checks passed. Independent review requested.",
+  "delivery_actor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+  "delivery_artifact_count": 5302,
+  "F01": [
+    {
+      "id": "F01",
+      "severity": "medium",
+      "title": "Page-30 Advance component evidence clips the left cyan arrowhead",
+      "locations": [
+        {
+          "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/component-ledger.json",
+          "pointer": "/components/149/points"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/region-ledger.json",
+          "pointer": "/new_observations/229/points"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/original-page-inspection.json",
+          "pointer": "/observations/229/points"
+        }
+      ],
+      "region_key": "ig2b08:p30:advance-component-arrows",
+      "region_id": "region:798e9f78-b8b9-45d5-a546-fb914abe4f9c",
+      "region_revision": "50be08a1fc9d97a3be7d28ffe938676af499d4450bbb9bb6f1b71755e6c1bcdd",
+      "description": "The Advance panel has two cyan curved arrows. The arrows detail uses [104,345,141,476] points, cutting off the head and upper curve of the left arrow. Fresh original pixel [188,734] at 144 DPI is cyan [42,197,244] (PDF point [94,367]); it lies outside every one of the seven Advance detail-component boxes. A bounded 12x13-point source window contains 77 such cyan pixels. The same incomplete boundary is frozen in final-verified and both replays. Primary field tiles retain these pixels, so this is incomplete component accounting/evidence, not lost whole-page pixels or denominator inflation.",
+      "consequence": "The complete-component/fresh exact evidence and complete-replay claims are stronger than the authored component set. The verifier compares keys to SPECS and cannot catch this truncated source component.",
+      "affected_criteria": [
+        "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+        "Author disjoint regions independently of KB headings, including headings, clauses, notes, examples, tables/cells/legends, diagrams/components and editorial material. Do not use broad mixed regions to hide components; record uncertainty and any uncovered geometric area explicitly. Gaps and placeholders never count as represented source content.",
+        "Fresh source-region evidence includes exact crop PDF, PNG, text, page_basis_hash, region revision, offsets, engines, DPI, dimensions, safe paths and SHA-256. The root source-pins.json exhaustively indexes every assigned original-page and new region/component artifact and both replays; each referenced artifact exists at its pinned path and is included in the frozen delivery.",
+        "Run two COMPLETE independent replays separately from the pinned baseline and same persisted registry/author selections into fresh replay-1 and replay-2 directories. Generate evidence serially for the entire region/component set in each. Compare stable IDs, author fields, reading order, links, registry and path-normalized artifact bytes/locators; report actual path-dependent inventory hashes without claiming they must be identical."
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B08/review-b9632401/component-boundary-probe.json",
+          "bytes": 4054,
+          "sha256": "13691bda45bd3a4a7963992d1392117a42d2ffe6564468ec0cd0c8ac3ec5f462"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-b9632401/page30-advance-arrow-boundary.png",
+          "bytes": 511310,
+          "sha256": "059d900cb70ea5d73699aeb129e071b059c79fdd187e39083379ef1bb52e6746"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B08/review-b9632401/originals/page-30-sheet-5.png",
+          "bytes": 209769,
+          "sha256": "583580fb501941aa6b9a1cc3563e17144f3d4be02961af8ffd77b174cd9343b5"
+        }
+      ],
+      "required_repair": "In a fresh authorized repair attempt, correct or split the zero-denominator Advance arrow detail selections so both cyan curves, their arrowheads and the black forward arrow are fully accounted for with exact component locators. Preserve the disjoint primary field tiles and all accepted baseline objects/registry history. Regenerate affected evidence and reports, complete final/replay sets and exhaustive source/delivery indexes at fresh paths; keep this frozen delivery and blocked attempt immutable.",
+      "repair_validation": [
+        "Compare the complete left cyan arrow against the original page and corrected final/replay detail evidence; the intended arrow component must contain source point [94,367] and its full visible curve/head, not merely a field tile or neighboring counter crop.",
+        "Add a source-bound component-completeness check that rejects the current truncated selection; key-set equality alone is insufficient.",
+        "Recheck all assigned components and both complete separately generated serial replays, stable identities, evidence freshness and exhaustive current indexes; preserve 44-page baseline objects, retained order and zero context contribution.",
+        "Rerun the unchanged source suite, final and both replay CLI validation, owned batch verifier, scripts/check.ps1 -Task IG-2B08 and git diff --check using authorized execution where required."
+      ]
+    }
+  ],
+  "candidate_for_fresh_verification": {
+    "id": "candidate-F02",
+    "key": "ig2b08:p29:collapse-diagram-component-c-hits",
+    "region_id": "region:7ffde485-e820-4183-ae18-3e860a169b47",
+    "points": [
+      106,
+      496,
+      133,
+      527
+    ],
+    "observation": "Fresh original inspection shows the intended visible 4 hit-marker crop cuts through the right stem of the digit. This is a candidate finding requiring fresh scoped verification, not a completed review decision.",
+    "diagnostic": "private/workflow/runs/IG-2B08/review-4705d02f/c-hit-boundary.png"
+  },
+  "candidate_diagnostic": {
+    "path": "private/workflow/runs/IG-2B08/review-4705d02f/c-hit-boundary.png",
+    "sha256": "a2785b953b0f93e79cc7177ee3f54e04c8c4f2c2cf8611f19e7718ac7eb5228d",
+    "bytes": 102835
+  },
+  "named_current_inputs": {
+    "region-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/region-ledger.json",
+      "bytes": 2599838,
+      "sha256": "5af7bf47d62608a2d6110c1041a3870b1297614d6c33ef24e2193b30ba918c72"
+    },
+    "component-ledger.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/component-ledger.json",
+      "bytes": 727776,
+      "sha256": "7896c5c4cc67d4d4cd636fb19f4e3690984b9c7ebbcae9272b72d8fe7a9492ae"
+    },
+    "original-page-inspection.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/original-page-inspection.json",
+      "bytes": 1025865,
+      "sha256": "bb420f14f8a9d7647cf8c32699e03b3550bc53fa7395767444200d28d58d3602"
+    },
+    "continuations.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/continuations.json",
+      "bytes": 68064,
+      "sha256": "aa4d0c499e272618fefc3f346409362e3968158fa091c138c1155b64b378178d"
+    },
+    "coverage-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/coverage-report.json",
+      "bytes": 80817,
+      "sha256": "920271ddd80df04b8f275c8116befbf461bc491a56d92de683fd41b7f8d4bbdc"
+    },
+    "source-pins.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/source-pins.json",
+      "bytes": 1386533,
+      "sha256": "27176212efaae3893b3740d42bd6730a29ab31834ab634bcb9b3b9a43b2412b0"
+    },
+    "toolchain.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/toolchain.json",
+      "bytes": 4514,
+      "sha256": "a74931e28038452dab2579b4ef03e596808c99ad834c678410faf25664d08076"
+    },
+    "preservation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/preservation-report.json",
+      "bytes": 2104,
+      "sha256": "436df31d019d0ad80dbd698f949499c8b7b5eab1e2233ec982615cdbd586c907"
+    },
+    "replay-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-report.json",
+      "bytes": 3541,
+      "sha256": "7cc3a2eae4d52c4c1bcee190c7d8460922974f012eec076679b8e5567c759bf8"
+    },
+    "validation-report.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/validation-report.json",
+      "bytes": 7745,
+      "sha256": "94dc159df4eb9b12fe40b2c43ef44c00064b3530b242d5c22638aaa74be13f58"
+    },
+    "delivery-handoff.md": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery-handoff.md",
+      "bytes": 2346,
+      "sha256": "b651506450b1c95af3506ad1e847e36831177cd9a5bca305faa32192b2cfd6da"
+    },
+    "check_arrow_completeness.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/check_arrow_completeness.py",
+      "bytes": 5831,
+      "sha256": "19b35038e6e615ec0c1bfc75c1995b6a3e6149591926780123e30884f5b1b843"
+    },
+    "verify_batch.py": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/verify_batch.py",
+      "bytes": 19232,
+      "sha256": "1f0d38d01d0579931edacfed2c1b7b85fd442abeb9f699a592ed7dd9cbc27662"
+    },
+    "final-verified/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+      "bytes": 5085001,
+      "sha256": "a1e1342c0863cb7d9ef342a5b86cf98dcd39d8fe6222ecf98b3e670969e8a3a5"
+    },
+    "final-verified/identity-registry.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/identity-registry.json",
+      "bytes": 184306,
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a"
+    },
+    "replay-1/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+      "bytes": 5080159,
+      "sha256": "477774e685e477176c89056eb7f8568f4076dd3257a7ed60e4f6acc0d75157ce"
+    },
+    "replay-2/inventory.json": {
+      "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+      "bytes": 5080159,
+      "sha256": "dac6b140998d258fae468dae0063ab12d5979e6320be8ca34fb8969078499a6b"
+    }
+  },
+  "private_read_policy": "This compact projection may be read in full. Frozen manifests/indexes are internal verification inputs only; emit counts/hashes, never full artifact lists, unassigned-page records or source text. Read assigned page/region/component fields and explicitly boundary-linked IDs only.",
+  "helper_policy": "The two named product verifiers may be inspected in bounded code windows as untrusted candidate checks, never as independent source proof. Do not execute any frozen helper that could write its old directory; create independent reviewer checks/logs in a fresh owned review root. No stopped-review wrapper/helper/transcript reuse."
+}

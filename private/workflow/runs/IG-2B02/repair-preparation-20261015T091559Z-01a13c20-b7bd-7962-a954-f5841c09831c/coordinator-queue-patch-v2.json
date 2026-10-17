@@ -1,0 +1,97 @@
+{
+  "mode": "proposal_only",
+  "task": "IG-2B02",
+  "expected_queue": {
+    "path": "docs/work/queue.json",
+    "bytes": 152236,
+    "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+  },
+  "expected_task_status": "review",
+  "expected_event": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-14T21:57:09.490446+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "preserve_fields": [
+    "id",
+    "title",
+    "stage",
+    "kind",
+    "depends",
+    "executor",
+    "goal",
+    "acceptance",
+    "tests",
+    "blockers",
+    "handoff",
+    "semantic_acceptance_required",
+    "events"
+  ],
+  "task_field_updates": {
+    "write_scope": [
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/",
+      "private/workflow/packets/",
+      "private/workflow/checks/"
+    ],
+    "outputs": [
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/authored/inventory.json and authored/identity-registry.json (exact immutable snapshot copies; no identity changes)",
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/final-verified/inventory.json, identity-registry.json and coverage.json (byte-identical base snapshots with immutable old evidence references)",
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/author-specifications-final.json, component-observations.json, region-ledger-final.json and visual-inspection.json (exact three component corrections and current attribution)",
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/repair-plan.json, finding-dispositions.json, affected-component-audit.json, delta-audit.json, preservation-report.json, report-consistency-audit.json and replay-report.json",
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/scope-report-final.json, context-authored-correspondence.json, continuations.json, uncertainty.json, gaps.json, geometric-gaps.json, locator-audit.json and criteria.json (current reports with unchanged source/coverage scope)",
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json, toolchain.json, checkpoint.json, required-checks.json, delivery-manifest.json, delivery.json, delivery-handoff.md and final-seal.json",
+      "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/independent-rereview-launch.txt and rereview-input-pins.json (actual new frozen hashes; operator creates fresh reviewer later)"
+    ],
+    "context": [
+      "docs/work/EVIDENCE.md",
+      "src/wgc/sources/README.md",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md",
+      "contracts/ig/regions.schema.json",
+      "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/configuration.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/dependency-verification.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-pins.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/scope.json",
+      "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json",
+      "docs/work/repair-context/IG-2B02-R01-R02-20261015T091559Z.json"
+    ],
+    "inputs": [
+      "Official PDF private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf SHA256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e; 44 physical pages; substantive authoring only 5-8",
+      "Official provenance private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json SHA256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "Accepted IG-2B01 baseline private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json SHA256 42adf9a1598bd682917eb087e295fe899212e59dd81aed5c293e2187b9c587bb",
+      "Persisted IG-2B01 registry private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/identity-registry.json SHA256 94ac81cac947342b7de757419d9b858f45cdae2f2eae521ce94404e0e7831657; extend without changing existing key/ID bindings",
+      "Full 44-page sidecar; preserve accepted 1-4 and placeholders 9-44. Retire only placeholder memberships 5-8, preserving registry entries.",
+      "Existing page-5 context region remains exact context/zero denominator; new authored identity plus exact correspondence sidecar.",
+      "Boundary context: only pinned page-4 region; conditional predetermined maximum-two-line page-9 crop after recorded need, otherwise unresolved gap. No other content access.",
+      "Frozen IG-1A constraints: contracts/ig/README.md SHA256 c2d05b9cb20da646de21dc8b3f715799fae2006f06f322c7be800f0cb7e8db57; relevant exact coverage/review excerpt and identity/canonicalization boundaries in packet contract-boundaries.md.",
+      "Reviewed IG-2B02 repair base private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json SHA256 c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19",
+      "Independent changes_recommended review private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/review.json SHA256 15b956fa0db53afc77a9ab58b882aacd2dfb2a93226ad7847043d4326c3a714a; only IG-2B02-R01/R02 permitted",
+      "Bounded metadata repair scope private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json SHA256 50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9"
+    ],
+    "start_conditions": [
+      "IG-2A and IG-2B01 remain done; coordinator has recorded bounded review -> changes_requested using exact independent R01/R02 evidence.",
+      "NEW executor session confirms actual gpt-6.1-sol/high from own metadata or direct operator observation, verifies new claim packet/handoff and exclusive absent repair directory.",
+      "Canonical inventory/registry/source/evidence/identities/revisions/boxes/order/links/coverage/denominators remain byte-identical; only three component descriptions and derived operational reports change."
+    ],
+    "exclusions": [
+      "Archives and Git history; neighbouring repositories; global configuration.",
+      "Downstream tasks, unrelated changes, online services, commits and pushes.",
+      "Publisher content in public fixtures; automatic semantic acceptance.",
+      "No changes to src/wgc/sources, tests, contracts or frozen IG-2A/IG-2B01 artifacts; no source download. Queue structural edits are coordinator-owned; executor status updates only through workflow transitions.",
+      "No analysis of pages outside 5-8 except exact scoped continuation context. No broad adjacent-page probes, represented/excluded promotions by assertion or source-IG whole-record review by inheritance.",
+      "Original IG-2B02 delivery and independent review are immutable read-only inputs. No overwrite, evidence regeneration, ID/revision/geometry/source/coverage changes, new source analysis outside the three exact page-5 counter crops, or downstream task."
+    ]
+  },
+  "status_event_policy": "Do not directly edit status/events. Authorized coordinator applies these bounded field changes, renders/validates projections, then uses workflow transition with actual coordinator-decision evidence for review -> changes_requested.",
+  "authorization": "Not executed; operator must separately authorize coordinator setup/execution. No session or acceptance authorized by preparation.",
+  "supersedes": "coordinator-queue-patch.json; private index was not permitted by current exact-context policy.",
+  "context_policy_change_required": false,
+  "context_index": {
+    "path": "docs/work/repair-context/IG-2B02-R01-R02-20261015T091559Z.json",
+    "bytes": 1464,
+    "sha256": "8519e7867dd11f3c7c1313328e7d1c627ccc554e406a992568a3230545a01ebc"
+  }
+}

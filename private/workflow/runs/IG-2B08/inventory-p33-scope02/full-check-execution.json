@@ -1,0 +1,92 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "summary": "Required unchanged full task check: restricted-token temp access failure, then approved exact-command success; 288 tests passed in 41.09s.",
+  "attempts": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 1,
+      "sandbox_permissions": "use_default",
+      "result": {
+        "dry_run_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-bb419631d79547399304304221933276\\pytest",
+        "tests_exit": 1,
+        "plan_exit": 0,
+        "diff_exit": 0
+      },
+      "reports": [
+        {
+          "path": "private/workflow/checks/active-bb419631d79547399304304221933276/result.json",
+          "bytes": 206,
+          "sha256": "85731a8c9f7204054e80fcad04e182d2845760aa3ed47e72f68beaf08f2f0db7"
+        },
+        {
+          "path": "private/workflow/checks/active-bb419631d79547399304304221933276/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/checks/active-bb419631d79547399304304221933276/dry-run.log",
+          "bytes": 185,
+          "sha256": "d3cf8aab014c6e71dff654bb75e74745c158c2f054f74888add4680f5f4e11c5"
+        },
+        {
+          "path": "private/workflow/checks/active-bb419631d79547399304304221933276/pytest.log",
+          "bytes": 4618,
+          "sha256": "22d626e683f5bb3093b6979a8c9573bf3a32ddaab66566e5da22e1f6a18b38e6"
+        },
+        {
+          "path": "private/workflow/checks/active-bb419631d79547399304304221933276/diff-check.log",
+          "bytes": 277613,
+          "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3"
+        }
+      ]
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B08",
+      "exit_code": 0,
+      "sandbox_permissions": "require_escalated",
+      "result": {
+        "diff_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-2d596d9f085d4ec3af0ed8b3c1b3d5b4\\pytest",
+        "tests_exit": 0,
+        "plan_exit": 0,
+        "dry_run_exit": 0
+      },
+      "reports": [
+        {
+          "path": "private/workflow/checks/active-2d596d9f085d4ec3af0ed8b3c1b3d5b4/result.json",
+          "bytes": 206,
+          "sha256": "e0d8fafce1095a6d6aa9467d9ef19c22166aa13b79fe76bcaffa1d2846f689f8"
+        },
+        {
+          "path": "private/workflow/checks/active-2d596d9f085d4ec3af0ed8b3c1b3d5b4/plan.log",
+          "bytes": 60,
+          "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+        },
+        {
+          "path": "private/workflow/checks/active-2d596d9f085d4ec3af0ed8b3c1b3d5b4/dry-run.log",
+          "bytes": 185,
+          "sha256": "d3cf8aab014c6e71dff654bb75e74745c158c2f054f74888add4680f5f4e11c5"
+        },
+        {
+          "path": "private/workflow/checks/active-2d596d9f085d4ec3af0ed8b3c1b3d5b4/pytest.log",
+          "bytes": 346,
+          "sha256": "3da1fa9946200f1a8f297128f7b04193d409034bea91bb8acc1514090ecab3e6"
+        },
+        {
+          "path": "private/workflow/checks/active-2d596d9f085d4ec3af0ed8b3c1b3d5b4/diff-check.log",
+          "bytes": 5187,
+          "sha256": "bb8903600bca0a67f9fbfd18f64e33e356e7d2255a59d84585ac1282b9459dc0"
+        }
+      ]
+    }
+  ],
+  "tests_changed": false,
+  "guards_changed": false,
+  "acl_changed": false
+}

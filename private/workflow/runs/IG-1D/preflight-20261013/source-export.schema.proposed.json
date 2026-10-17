@@ -1,0 +1,3945 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:wgc:ig:source-export:1",
+  "title": "WGC deterministic source export profile 1",
+  "description": "Source descriptions and revision-scoped evidence; no executable language or semantic approval by validation.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "wgc-source-export-1"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "maxLength": 100,
+      "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/record"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "records"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "active_ref": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "const": "active"
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+        },
+        "record_type": {
+          "enum": [
+            "source",
+            "region",
+            "evidence",
+            "node",
+            "relation",
+            "gap",
+            "origin_binding",
+            "coverage",
+            "profile",
+            "run",
+            "review",
+            "snapshot",
+            "identity_registry"
+          ]
+        },
+        "aspect_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "mode",
+        "id",
+        "record_type"
+      ],
+      "additionalProperties": false
+    },
+    "historical_ref": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "const": "historical"
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+        },
+        "record_type": {
+          "enum": [
+            "source",
+            "region",
+            "evidence",
+            "node",
+            "relation",
+            "gap",
+            "origin_binding",
+            "coverage",
+            "profile",
+            "run",
+            "review",
+            "snapshot",
+            "identity_registry"
+          ]
+        },
+        "aspect_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "mode",
+        "id",
+        "record_type",
+        "revision_id"
+      ],
+      "additionalProperties": false
+    },
+    "whole_historical_ref": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "const": "historical"
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+        },
+        "record_type": {
+          "enum": [
+            "source",
+            "region",
+            "evidence",
+            "node",
+            "relation",
+            "gap",
+            "origin_binding",
+            "coverage",
+            "profile",
+            "run",
+            "review",
+            "snapshot",
+            "identity_registry"
+          ]
+        },
+        "revision_id": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "mode",
+        "id",
+        "record_type",
+        "revision_id"
+      ],
+      "additionalProperties": false
+    },
+    "ref": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/active_ref"
+        },
+        {
+          "$ref": "#/$defs/historical_ref"
+        }
+      ]
+    },
+    "content_ref": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ref"
+        },
+        {
+          "properties": {
+            "record_type": {
+              "enum": [
+                "node",
+                "evidence",
+                "relation"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "text"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind",
+            "text"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "symbol"
+            },
+            "symbol": {
+              "type": "string",
+              "minLength": 1
+            },
+            "legend_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ref"
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "kind",
+            "symbol",
+            "legend_refs"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "quantity"
+            },
+            "amount": {
+              "type": "integer"
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind",
+            "amount",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "rational"
+            },
+            "numerator": {
+              "type": "integer"
+            },
+            "denominator": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind",
+            "numerator",
+            "denominator",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "reference"
+            },
+            "target": {
+              "$ref": "#/$defs/ref"
+            }
+          },
+          "required": [
+            "kind",
+            "target"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "opaque"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1
+            },
+            "execution_limitation": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind",
+            "text",
+            "execution_limitation"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "statement": {
+      "type": "object",
+      "properties": {
+        "knowledge": {
+          "enum": [
+            "known",
+            "established_absent",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "representation": {
+          "enum": [
+            "literal",
+            "normalized",
+            "interpreted"
+          ]
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/value"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reason": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gap_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "scope_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "knowledge",
+        "representation",
+        "value",
+        "reason",
+        "gap_refs",
+        "evidence_refs",
+        "scope_refs"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "knowledge": {
+                "const": "known"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/value"
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "knowledge": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "gap_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "knowledge": {
+                "const": "not_applicable"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "knowledge": {
+                "const": "established_absent"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "aspect": {
+      "type": "object",
+      "properties": {
+        "aspect_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+        },
+        "aspect_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "facet": {
+          "enum": [
+            "transcription",
+            "condition",
+            "effect",
+            "parameter",
+            "exception",
+            "timing",
+            "scope",
+            "definition",
+            "permission",
+            "obligation",
+            "prohibition",
+            "trigger",
+            "cost",
+            "choice",
+            "calculation",
+            "transition",
+            "duration",
+            "aggregation",
+            "visibility",
+            "victory"
+          ]
+        },
+        "statement": {
+          "$ref": "#/$defs/statement"
+        },
+        "normative": {
+          "type": "boolean"
+        },
+        "execution_impact": {
+          "enum": [
+            "formal",
+            "informational",
+            "blocking"
+          ]
+        },
+        "informational_review_ref": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "aspect_id",
+        "aspect_hash",
+        "facet",
+        "statement",
+        "normative",
+        "execution_impact",
+        "informational_review_ref"
+      ],
+      "additionalProperties": false
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+        },
+        "operator": {
+          "enum": [
+            "all",
+            "any",
+            "sequence"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+          },
+          "minItems": 0
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+          },
+          "minItems": 0
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+          },
+          "minItems": 0
+        },
+        "timing": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "group_id",
+        "operator",
+        "conditions",
+        "effects",
+        "exceptions",
+        "timing"
+      ],
+      "additionalProperties": false
+    },
+    "node_description": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "state_variable"
+            },
+            "value_type": {
+              "$ref": "#/$defs/statement"
+            },
+            "unit": {
+              "$ref": "#/$defs/statement"
+            },
+            "owner": {
+              "$ref": "#/$defs/statement"
+            },
+            "bounds": {
+              "$ref": "#/$defs/statement"
+            },
+            "reset": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "value_type",
+            "unit",
+            "owner",
+            "bounds",
+            "reset"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "resource"
+            },
+            "unit": {
+              "$ref": "#/$defs/statement"
+            },
+            "owner": {
+              "$ref": "#/$defs/statement"
+            },
+            "pool_composition": {
+              "$ref": "#/$defs/statement"
+            },
+            "reset": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "unit",
+            "owner",
+            "pool_composition",
+            "reset"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "event_type"
+            },
+            "cause_filter": {
+              "$ref": "#/$defs/statement"
+            },
+            "attempt_commit_invalidation": {
+              "$ref": "#/$defs/statement"
+            },
+            "read_moment": {
+              "$ref": "#/$defs/statement"
+            },
+            "ordered_writes": {
+              "$ref": "#/$defs/statement"
+            },
+            "limits": {
+              "$ref": "#/$defs/statement"
+            },
+            "reset_window": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "cause_filter",
+            "attempt_commit_invalidation",
+            "read_moment",
+            "ordered_writes",
+            "limits",
+            "reset_window"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "history"
+            },
+            "prior_positions": {
+              "$ref": "#/$defs/statement"
+            },
+            "first_occurrence": {
+              "$ref": "#/$defs/statement"
+            },
+            "attempts": {
+              "$ref": "#/$defs/statement"
+            },
+            "counters": {
+              "$ref": "#/$defs/statement"
+            },
+            "used_participants": {
+              "$ref": "#/$defs/statement"
+            },
+            "paid_costs": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "prior_positions",
+            "first_occurrence",
+            "attempts",
+            "counters",
+            "used_participants",
+            "paid_costs"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "parameter"
+            },
+            "value_type": {
+              "$ref": "#/$defs/statement"
+            },
+            "unit": {
+              "$ref": "#/$defs/statement"
+            },
+            "domain": {
+              "$ref": "#/$defs/statement"
+            },
+            "comparison_operator": {
+              "$ref": "#/$defs/statement"
+            },
+            "temporal_bounds": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "value_type",
+            "unit",
+            "domain",
+            "comparison_operator",
+            "temporal_bounds"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "action"
+            },
+            "actor": {
+              "$ref": "#/$defs/statement"
+            },
+            "guard": {
+              "$ref": "#/$defs/statement"
+            },
+            "parameters": {
+              "$ref": "#/$defs/statement"
+            },
+            "permission": {
+              "$ref": "#/$defs/statement"
+            },
+            "obligation": {
+              "$ref": "#/$defs/statement"
+            },
+            "prohibition": {
+              "$ref": "#/$defs/statement"
+            },
+            "effects": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "actor",
+            "guard",
+            "parameters",
+            "permission",
+            "obligation",
+            "prohibition",
+            "effects"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "procedure"
+            },
+            "actor": {
+              "$ref": "#/$defs/statement"
+            },
+            "guard": {
+              "$ref": "#/$defs/statement"
+            },
+            "inputs": {
+              "$ref": "#/$defs/statement"
+            },
+            "outputs": {
+              "$ref": "#/$defs/statement"
+            },
+            "branches": {
+              "$ref": "#/$defs/statement"
+            },
+            "loops": {
+              "$ref": "#/$defs/statement"
+            },
+            "termination": {
+              "$ref": "#/$defs/statement"
+            },
+            "failure": {
+              "$ref": "#/$defs/statement"
+            },
+            "reaction_windows": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "actor",
+            "guard",
+            "inputs",
+            "outputs",
+            "branches",
+            "loops",
+            "termination",
+            "failure",
+            "reaction_windows"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "step"
+            },
+            "actor": {
+              "$ref": "#/$defs/statement"
+            },
+            "guard": {
+              "$ref": "#/$defs/statement"
+            },
+            "ordered_writes": {
+              "$ref": "#/$defs/statement"
+            },
+            "completion": {
+              "$ref": "#/$defs/statement"
+            },
+            "failure": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "actor",
+            "guard",
+            "ordered_writes",
+            "completion",
+            "failure"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "timing_window"
+            },
+            "instance_hierarchy": {
+              "$ref": "#/$defs/statement"
+            },
+            "opening": {
+              "$ref": "#/$defs/statement"
+            },
+            "closing": {
+              "$ref": "#/$defs/statement"
+            },
+            "counter_scope": {
+              "$ref": "#/$defs/statement"
+            },
+            "priority": {
+              "$ref": "#/$defs/statement"
+            },
+            "tie_breaker": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "instance_hierarchy",
+            "opening",
+            "closing",
+            "counter_scope",
+            "priority",
+            "tie_breaker"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "reaction"
+            },
+            "trigger": {
+              "$ref": "#/$defs/statement"
+            },
+            "eligible_player": {
+              "$ref": "#/$defs/statement"
+            },
+            "opening": {
+              "$ref": "#/$defs/statement"
+            },
+            "closing": {
+              "$ref": "#/$defs/statement"
+            },
+            "attempt_limit": {
+              "$ref": "#/$defs/statement"
+            },
+            "resume_replace_cancel_restart": {
+              "$ref": "#/$defs/statement"
+            },
+            "surviving_effects_costs_history": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "trigger",
+            "eligible_player",
+            "opening",
+            "closing",
+            "attempt_limit",
+            "resume_replace_cancel_restart",
+            "surviving_effects_costs_history"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "continuation"
+            },
+            "invocation_frame": {
+              "$ref": "#/$defs/statement"
+            },
+            "local_environment": {
+              "$ref": "#/$defs/statement"
+            },
+            "return_point": {
+              "$ref": "#/$defs/statement"
+            },
+            "resume_policy": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "invocation_frame",
+            "local_environment",
+            "return_point",
+            "resume_policy"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "choice"
+            },
+            "owner": {
+              "$ref": "#/$defs/statement"
+            },
+            "selection_mode": {
+              "$ref": "#/$defs/statement"
+            },
+            "selector": {
+              "$ref": "#/$defs/statement"
+            },
+            "cardinality": {
+              "$ref": "#/$defs/statement"
+            },
+            "constraints": {
+              "$ref": "#/$defs/statement"
+            },
+            "binding_id": {
+              "$ref": "#/$defs/statement"
+            },
+            "lifetime": {
+              "$ref": "#/$defs/statement"
+            },
+            "reselection_policy": {
+              "$ref": "#/$defs/statement"
+            },
+            "eligible_selected_committed_participating_affected": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "owner",
+            "selection_mode",
+            "selector",
+            "cardinality",
+            "constraints",
+            "binding_id",
+            "lifetime",
+            "reselection_policy",
+            "eligible_selected_committed_participating_affected"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "selector"
+            },
+            "set": {
+              "$ref": "#/$defs/statement"
+            },
+            "filter": {
+              "$ref": "#/$defs/statement"
+            },
+            "binding_refs": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "set",
+            "filter",
+            "binding_refs"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "cost"
+            },
+            "payer": {
+              "$ref": "#/$defs/statement"
+            },
+            "resource": {
+              "$ref": "#/$defs/statement"
+            },
+            "amount": {
+              "$ref": "#/$defs/statement"
+            },
+            "attempt_or_success": {
+              "$ref": "#/$defs/statement"
+            },
+            "payment_checkpoint": {
+              "$ref": "#/$defs/statement"
+            },
+            "pay_once_key": {
+              "$ref": "#/$defs/statement"
+            },
+            "cancellation_survival": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "payer",
+            "resource",
+            "amount",
+            "attempt_or_success",
+            "payment_checkpoint",
+            "pay_once_key",
+            "cancellation_survival"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "geometry"
+            },
+            "map": {
+              "$ref": "#/$defs/statement"
+            },
+            "sheet": {
+              "$ref": "#/$defs/statement"
+            },
+            "hex_label": {
+              "$ref": "#/$defs/statement"
+            },
+            "occupied_hexes": {
+              "$ref": "#/$defs/statement"
+            },
+            "anchor": {
+              "$ref": "#/$defs/statement"
+            },
+            "orientation": {
+              "$ref": "#/$defs/statement"
+            },
+            "relative_zones": {
+              "$ref": "#/$defs/statement"
+            },
+            "pivot_policy": {
+              "$ref": "#/$defs/statement"
+            },
+            "hex_edge_terrain": {
+              "$ref": "#/$defs/statement"
+            },
+            "elevation": {
+              "$ref": "#/$defs/statement"
+            },
+            "infrastructure": {
+              "$ref": "#/$defs/statement"
+            },
+            "off_map_zones": {
+              "$ref": "#/$defs/statement"
+            },
+            "stack_constraints": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "map",
+            "sheet",
+            "hex_label",
+            "occupied_hexes",
+            "anchor",
+            "orientation",
+            "relative_zones",
+            "pivot_policy",
+            "hex_edge_terrain",
+            "elevation",
+            "infrastructure",
+            "off_map_zones",
+            "stack_constraints"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "spatial_policy"
+            },
+            "policy_kind": {
+              "$ref": "#/$defs/statement"
+            },
+            "metric": {
+              "$ref": "#/$defs/statement"
+            },
+            "endpoints": {
+              "$ref": "#/$defs/statement"
+            },
+            "rounding": {
+              "$ref": "#/$defs/statement"
+            },
+            "admissible_nodes_edges": {
+              "$ref": "#/$defs/statement"
+            },
+            "cost": {
+              "$ref": "#/$defs/statement"
+            },
+            "exceptions": {
+              "$ref": "#/$defs/statement"
+            },
+            "path_quantifier": {
+              "$ref": "#/$defs/statement"
+            },
+            "optimality": {
+              "$ref": "#/$defs/statement"
+            },
+            "tie_selection": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "policy_kind",
+            "metric",
+            "endpoints",
+            "rounding",
+            "admissible_nodes_edges",
+            "cost",
+            "exceptions",
+            "path_quantifier",
+            "optimality",
+            "tie_selection"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "calculation"
+            },
+            "ordered_operations": {
+              "$ref": "#/$defs/statement"
+            },
+            "unit": {
+              "$ref": "#/$defs/statement"
+            },
+            "comparison_operator": {
+              "$ref": "#/$defs/statement"
+            },
+            "rounding_stage": {
+              "$ref": "#/$defs/statement"
+            },
+            "rounding_method": {
+              "$ref": "#/$defs/statement"
+            },
+            "rounding_beneficiary": {
+              "$ref": "#/$defs/statement"
+            },
+            "modifier_order": {
+              "$ref": "#/$defs/statement"
+            },
+            "stacking": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "ordered_operations",
+            "unit",
+            "comparison_operator",
+            "rounding_stage",
+            "rounding_method",
+            "rounding_beneficiary",
+            "modifier_order",
+            "stacking"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "aggregation"
+            },
+            "set": {
+              "$ref": "#/$defs/statement"
+            },
+            "filter": {
+              "$ref": "#/$defs/statement"
+            },
+            "measure": {
+              "$ref": "#/$defs/statement"
+            },
+            "operator": {
+              "$ref": "#/$defs/statement"
+            },
+            "unit": {
+              "$ref": "#/$defs/statement"
+            },
+            "modifier_order": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "set",
+            "filter",
+            "measure",
+            "operator",
+            "unit",
+            "modifier_order"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "loss_allocation"
+            },
+            "deciding_player": {
+              "$ref": "#/$defs/statement"
+            },
+            "targets": {
+              "$ref": "#/$defs/statement"
+            },
+            "proportions": {
+              "$ref": "#/$defs/statement"
+            },
+            "overflow": {
+              "$ref": "#/$defs/statement"
+            },
+            "elimination_timing": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "deciding_player",
+            "targets",
+            "proportions",
+            "overflow",
+            "elimination_timing"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "duration"
+            },
+            "start": {
+              "$ref": "#/$defs/statement"
+            },
+            "expiry": {
+              "$ref": "#/$defs/statement"
+            },
+            "checkpoint": {
+              "$ref": "#/$defs/statement"
+            },
+            "snapshot_reads": {
+              "$ref": "#/$defs/statement"
+            },
+            "refresh": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "start",
+            "expiry",
+            "checkpoint",
+            "snapshot_reads",
+            "refresh"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "randomizer"
+            },
+            "physical_symbols": {
+              "$ref": "#/$defs/statement"
+            },
+            "symbol_meaning": {
+              "$ref": "#/$defs/statement"
+            },
+            "draw_count": {
+              "$ref": "#/$defs/statement"
+            },
+            "combination": {
+              "$ref": "#/$defs/statement"
+            },
+            "independence": {
+              "$ref": "#/$defs/statement"
+            },
+            "replacement": {
+              "$ref": "#/$defs/statement"
+            },
+            "pool_multiplicities_or_instances": {
+              "$ref": "#/$defs/statement"
+            },
+            "raw_modified_result": {
+              "$ref": "#/$defs/statement"
+            },
+            "draw_identity": {
+              "$ref": "#/$defs/statement"
+            },
+            "reroll_policy": {
+              "$ref": "#/$defs/statement"
+            },
+            "shared_targets": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "physical_symbols",
+            "symbol_meaning",
+            "draw_count",
+            "combination",
+            "independence",
+            "replacement",
+            "pool_multiplicities_or_instances",
+            "raw_modified_result",
+            "draw_identity",
+            "reroll_policy",
+            "shared_targets"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "visibility"
+            },
+            "viewer": {
+              "$ref": "#/$defs/statement"
+            },
+            "state": {
+              "$ref": "#/$defs/statement"
+            },
+            "domains": {
+              "$ref": "#/$defs/statement"
+            },
+            "rejected_choices": {
+              "$ref": "#/$defs/statement"
+            },
+            "reason_codes": {
+              "$ref": "#/$defs/statement"
+            },
+            "proof_paths": {
+              "$ref": "#/$defs/statement"
+            },
+            "gaps": {
+              "$ref": "#/$defs/statement"
+            },
+            "identifiers": {
+              "$ref": "#/$defs/statement"
+            },
+            "cursor_metadata": {
+              "$ref": "#/$defs/statement"
+            },
+            "caches": {
+              "$ref": "#/$defs/statement"
+            },
+            "legal_attempts": {
+              "$ref": "#/$defs/statement"
+            },
+            "reveal_checkpoint": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "viewer",
+            "state",
+            "domains",
+            "rejected_choices",
+            "reason_codes",
+            "proof_paths",
+            "gaps",
+            "identifiers",
+            "cursor_metadata",
+            "caches",
+            "legal_attempts",
+            "reveal_checkpoint"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "outcome"
+            },
+            "original_symbols": {
+              "$ref": "#/$defs/statement"
+            },
+            "ordered_conditional_effects": {
+              "$ref": "#/$defs/statement"
+            },
+            "triggered_procedures": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "original_symbols",
+            "ordered_conditional_effects",
+            "triggered_procedures"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "victory"
+            },
+            "metric": {
+              "$ref": "#/$defs/statement"
+            },
+            "counted_set": {
+              "$ref": "#/$defs/statement"
+            },
+            "checkpoint": {
+              "$ref": "#/$defs/statement"
+            },
+            "comparison": {
+              "$ref": "#/$defs/statement"
+            },
+            "termination": {
+              "$ref": "#/$defs/statement"
+            },
+            "tie_rule": {
+              "$ref": "#/$defs/statement"
+            },
+            "control_history": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "metric",
+            "counted_set",
+            "checkpoint",
+            "comparison",
+            "termination",
+            "tie_rule",
+            "control_history"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "section"
+            },
+            "description": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "clause"
+            },
+            "description": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "concept"
+            },
+            "description": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "diagram"
+            },
+            "description": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "component"
+            },
+            "description": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "description"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "table"
+            },
+            "axes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "axis_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                  },
+                  "order": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "unit": {
+                    "$ref": "#/$defs/statement"
+                  },
+                  "boundaries": {
+                    "$ref": "#/$defs/statement"
+                  }
+                },
+                "required": [
+                  "axis_id",
+                  "order",
+                  "unit",
+                  "boundaries"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "cells": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cell_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                  },
+                  "axis_members": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                    },
+                    "minItems": 1
+                  },
+                  "coordinates": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "axis_id": {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                        },
+                        "position": {
+                          "$ref": "#/$defs/statement"
+                        }
+                      },
+                      "required": [
+                        "axis_id",
+                        "position"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 1
+                  },
+                  "value": {
+                    "$ref": "#/$defs/statement"
+                  },
+                  "merged_members": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                    },
+                    "minItems": 0
+                  }
+                },
+                "required": [
+                  "cell_id",
+                  "axis_members",
+                  "coordinates",
+                  "value",
+                  "merged_members"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "note_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                  },
+                  "cell_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                    },
+                    "minItems": 0
+                  },
+                  "axis_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+                    },
+                    "minItems": 0
+                  },
+                  "statement": {
+                    "$ref": "#/$defs/statement"
+                  }
+                },
+                "required": [
+                  "note_id",
+                  "cell_ids",
+                  "axis_ids",
+                  "statement"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0
+            },
+            "out_of_range": {
+              "$ref": "#/$defs/statement"
+            },
+            "missing_cell": {
+              "$ref": "#/$defs/statement"
+            },
+            "decorations": {
+              "$ref": "#/$defs/statement"
+            },
+            "legend": {
+              "$ref": "#/$defs/statement"
+            },
+            "participant_bindings": {
+              "$ref": "#/$defs/statement"
+            }
+          },
+          "required": [
+            "kind",
+            "axes",
+            "cells",
+            "notes",
+            "out_of_range",
+            "missing_cell",
+            "decorations",
+            "legend",
+            "participant_bindings"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "source_data": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "enum": [
+            "rulebook",
+            "errata",
+            "faq",
+            "scenario",
+            "map",
+            "counter_sheet",
+            "player_aid",
+            "other"
+          ]
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "string",
+          "minLength": 1
+        },
+        "part": {
+          "type": "string",
+          "minLength": 1
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "byte_count": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "missing",
+            "unreadable"
+          ]
+        },
+        "compatibility": {
+          "$ref": "#/$defs/statement"
+        },
+        "gap_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "role",
+        "publisher",
+        "system",
+        "edition",
+        "language",
+        "part",
+        "media_type",
+        "byte_count",
+        "sha256",
+        "availability",
+        "compatibility",
+        "gap_refs"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "available"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "byte_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "enum": [
+                  "missing",
+                  "unreadable"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "gap_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "region_data": {
+      "type": "object",
+      "properties": {
+        "source_ref": {
+          "$ref": "#/$defs/historical_ref"
+        },
+        "pdf_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "printed_label": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reading_order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "locator": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "box"
+                },
+                "coordinate_convention": {
+                  "const": "normalized-top-left"
+                },
+                "x0": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "y0": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "x1": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "y1": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "kind",
+                "coordinate_convention",
+                "x0",
+                "y0",
+                "x1",
+                "y1"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "offset"
+                },
+                "offset_convention": {
+                  "const": "unicode-codepoint-half-open"
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "end": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "text_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              },
+              "required": [
+                "kind",
+                "offset_convention",
+                "start",
+                "end",
+                "text_sha256"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "source_ref",
+        "pdf_page",
+        "printed_label",
+        "reading_order",
+        "locator"
+      ],
+      "additionalProperties": false
+    },
+    "evidence_data": {
+      "type": "object",
+      "properties": {
+        "region_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/historical_ref"
+          },
+          "minItems": 1
+        },
+        "role": {
+          "enum": [
+            "direct",
+            "context",
+            "counterevidence"
+          ]
+        },
+        "literal_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "normalized_text": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "uncertain_symbols": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "region_refs",
+        "role",
+        "literal_text",
+        "normalized_text",
+        "uncertain_symbols"
+      ],
+      "additionalProperties": false
+    },
+    "node_data": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "editorial_parent_ref": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "aspects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/aspect"
+          },
+          "minItems": 0
+        },
+        "semantic_groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/group"
+          },
+          "minItems": 0
+        },
+        "description": {
+          "$ref": "#/$defs/node_description"
+        }
+      },
+      "required": [
+        "title",
+        "editorial_parent_ref",
+        "aspects",
+        "semantic_groups",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "relation_data": {
+      "type": "object",
+      "properties": {
+        "relation_type": {
+          "enum": [
+            "mention",
+            "procedure_use",
+            "table_use",
+            "definition",
+            "condition",
+            "exception",
+            "modifies",
+            "applies_to",
+            "illustrates",
+            "precedes",
+            "continuation",
+            "reads",
+            "writes",
+            "triggers",
+            "schedules",
+            "resumes",
+            "constrains",
+            "uses_binding"
+          ]
+        },
+        "from_ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "target_status": {
+          "enum": [
+            "resolved",
+            "unresolved",
+            "ambiguous",
+            "unsupported"
+          ]
+        },
+        "target_ref": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "raw_locator": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "gap_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "applicability": {
+          "$ref": "#/$defs/statement"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "requirement": {
+          "enum": [
+            "required",
+            "conditional",
+            "informational"
+          ]
+        },
+        "requirement_group": {
+          "type": "object",
+          "properties": {
+            "group_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$(?![\\s\\S])"
+            },
+            "operator": {
+              "enum": [
+                "all",
+                "any"
+              ]
+            }
+          },
+          "required": [
+            "group_id",
+            "operator"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "relation_type",
+        "from_ref",
+        "target_status",
+        "target_ref",
+        "raw_locator",
+        "edition",
+        "candidate_refs",
+        "gap_refs",
+        "applicability",
+        "evidence_refs",
+        "requirement",
+        "requirement_group"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "target_status": {
+                "const": "resolved"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "target_ref": {
+                "$ref": "#/$defs/ref"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "target_status": {
+                "enum": [
+                  "unresolved",
+                  "ambiguous",
+                  "unsupported"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "target_ref": {
+                "type": "null"
+              },
+              "raw_locator": {
+                "type": "string",
+                "minLength": 1
+              },
+              "gap_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "gap_data": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "missing_source",
+            "unreadable",
+            "unprocessed",
+            "ambiguity",
+            "conflict",
+            "unsupported_interpretation"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affected_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "blocked_operations": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "source_verification",
+              "transcription",
+              "semantic_acceptance",
+              "formalization",
+              "execution"
+            ]
+          },
+          "minItems": 1
+        },
+        "candidate_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "kind",
+        "reason",
+        "affected_refs",
+        "blocked_operations",
+        "candidate_refs"
+      ],
+      "additionalProperties": false
+    },
+    "origin_binding_data": {
+      "type": "object",
+      "properties": {
+        "input_snapshot_id": {
+          "type": "string",
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+        },
+        "input_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "relative_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "field_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ig_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 1
+        },
+        "external_namespace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_id": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mapping_status": {
+          "enum": [
+            "exact",
+            "partial",
+            "conflict",
+            "unprocessed"
+          ]
+        }
+      },
+      "required": [
+        "input_snapshot_id",
+        "input_sha256",
+        "relative_path",
+        "field_locator",
+        "ig_refs",
+        "external_namespace",
+        "external_id",
+        "mapping_status"
+      ],
+      "additionalProperties": false
+    },
+    "coverage_data": {
+      "type": "object",
+      "properties": {
+        "inventory_ref": {
+          "$ref": "#/$defs/whole_historical_ref"
+        },
+        "region_ref": {
+          "$ref": "#/$defs/historical_ref"
+        },
+        "level": {
+          "enum": [
+            "transcription",
+            "descriptive_semantics",
+            "formal_semantics"
+          ]
+        },
+        "status": {
+          "enum": [
+            "represented",
+            "partial",
+            "unprocessed",
+            "excluded"
+          ]
+        },
+        "target_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/content_ref"
+          },
+          "minItems": 0
+        },
+        "gap_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "denominator_role": {
+          "enum": [
+            "inventory",
+            "context"
+          ]
+        },
+        "exclusion_reason": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scope_decision_ref": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/historical_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "inventory_ref",
+        "region_ref",
+        "level",
+        "status",
+        "target_refs",
+        "gap_refs",
+        "denominator_role",
+        "exclusion_reason",
+        "scope_decision_ref"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "represented"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "target_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/content_ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "partial",
+                  "unprocessed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "gap_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "excluded"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "exclusion_reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope_decision_ref": {
+                "$ref": "#/$defs/historical_ref"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "profile_data": {
+      "type": "object",
+      "properties": {
+        "system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rules_mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/statement"
+          },
+          "minItems": 0
+        },
+        "scenario": {
+          "$ref": "#/$defs/statement"
+        },
+        "map_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "counter_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "material_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/historical_ref"
+          },
+          "minItems": 0
+        },
+        "compatibility_decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/statement"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "system",
+        "edition",
+        "rules_mode",
+        "options",
+        "scenario",
+        "map_refs",
+        "counter_refs",
+        "material_refs",
+        "compatibility_decisions"
+      ],
+      "additionalProperties": false
+    },
+    "run_data": {
+      "type": "object",
+      "properties": {
+        "context_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "raw_proposal_sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "model": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reasoning": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configuration_evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "started_utc": {
+          "type": "null"
+        },
+        "ended_utc": {
+          "type": "null"
+        },
+        "measurements": {
+          "type": "object",
+          "properties": {
+            "wall_milliseconds": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "input_tokens": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "output_tokens": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "unknown_reason": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "wall_milliseconds",
+            "input_tokens",
+            "output_tokens",
+            "unknown_reason"
+          ],
+          "additionalProperties": false
+        },
+        "expectation_basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "context_manifest_sha256",
+        "raw_proposal_sha256",
+        "model",
+        "reasoning",
+        "configuration_evidence",
+        "started_utc",
+        "ended_utc",
+        "measurements",
+        "expectation_basis"
+      ],
+      "additionalProperties": false
+    },
+    "review_data": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "transcription",
+            "interpretation",
+            "source_composition",
+            "situation_outcome",
+            "technical"
+          ]
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor_role": {
+          "enum": [
+            "human_owner",
+            "human_reviewer",
+            "model",
+            "validator"
+          ]
+        },
+        "authorization": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decision": {
+          "enum": [
+            "accepted",
+            "rejected",
+            "observation"
+          ]
+        },
+        "decision_artifact": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/historical_ref"
+          },
+          "minItems": 1
+        },
+        "basis": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/historical_ref"
+          },
+          "minItems": 0
+        },
+        "basis_completeness": {
+          "enum": [
+            "complete",
+            "partial",
+            "unknown"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supersedes_review_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/historical_ref"
+          },
+          "minItems": 0
+        },
+        "coverage_boundary": {
+          "type": "object",
+          "properties": {
+            "purpose": {
+              "const": "coverage_exclusion"
+            },
+            "inventory_ref": {
+              "$ref": "#/$defs/whole_historical_ref"
+            },
+            "region_ref": {
+              "$ref": "#/$defs/historical_ref"
+            },
+            "level": {
+              "enum": [
+                "transcription",
+                "descriptive_semantics",
+                "formal_semantics"
+              ]
+            }
+          },
+          "required": [
+            "purpose",
+            "inventory_ref",
+            "region_ref",
+            "level"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "kind",
+        "actor",
+        "actor_role",
+        "authorization",
+        "decision",
+        "decision_artifact",
+        "targets",
+        "basis",
+        "basis_completeness",
+        "scope",
+        "rationale",
+        "supersedes_review_refs"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "accepted"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "actor_role": {
+                "enum": [
+                  "human_owner",
+                  "human_reviewer"
+                ]
+              },
+              "authorization": {
+                "type": "string",
+                "minLength": 1
+              },
+              "decision_artifact": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "basis_completeness": {
+                "const": "complete"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "basis": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/historical_ref"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "snapshot_data": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "draft",
+            "sealed"
+          ]
+        },
+        "selected": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 100,
+                "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+              },
+              "record_type": {
+                "enum": [
+                  "source",
+                  "region",
+                  "evidence",
+                  "node",
+                  "relation",
+                  "gap",
+                  "origin_binding",
+                  "coverage",
+                  "profile",
+                  "run",
+                  "review",
+                  "snapshot",
+                  "identity_registry"
+                ]
+              },
+              "revision_id": {
+                "type": "string",
+                "pattern": "^sha256:[0-9a-f]{64}$"
+              },
+              "content_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "record_type",
+              "revision_id",
+              "content_hash"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "profile_ref": {
+          "$ref": "#/$defs/active_ref"
+        },
+        "conflict_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          },
+          "minItems": 0
+        },
+        "assessments": {
+          "type": "object",
+          "properties": {
+            "import": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unassessed",
+                    "partial",
+                    "complete"
+                  ]
+                },
+                "basis_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  },
+                  "minItems": 0
+                }
+              },
+              "required": [
+                "status",
+                "basis_refs"
+              ],
+              "additionalProperties": false
+            },
+            "coverage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/active_ref"
+              },
+              "minItems": 0
+            },
+            "semantic_review_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/active_ref"
+              },
+              "minItems": 0
+            },
+            "executable": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unassessed",
+                    "blocked"
+                  ]
+                },
+                "scope_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/active_ref"
+                  },
+                  "minItems": 0
+                },
+                "blocker_refs": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ref"
+                  },
+                  "minItems": 0
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "status",
+                "scope_refs",
+                "blocker_refs",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "import",
+            "coverage_refs",
+            "semantic_review_refs",
+            "executable"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "state",
+        "selected",
+        "profile_ref",
+        "conflict_refs",
+        "assessments"
+      ],
+      "additionalProperties": false
+    },
+    "identity_registry_data": {
+      "type": "object",
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "origin_key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "id": {
+                "type": "string",
+                "maxLength": 100,
+                "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+              },
+              "status": {
+                "enum": [
+                  "assigned",
+                  "ambiguous"
+                ]
+              },
+              "candidate_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 100,
+                  "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+                },
+                "minItems": 0
+              },
+              "gap_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ref"
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "origin_key",
+              "id",
+              "status",
+              "candidate_ids",
+              "gap_refs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "entries"
+      ],
+      "additionalProperties": false
+    },
+    "record": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "source"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/source_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "region"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/region_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "evidence"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/evidence_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "node"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/node_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "relation"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/relation_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "gap"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/gap_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "origin_binding"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/origin_binding_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "coverage"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/coverage_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "profile"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/profile_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "run"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/run_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "review"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/review_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "snapshot"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/snapshot_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "record_type": {
+              "const": "identity_registry"
+            },
+            "schema_version": {
+              "const": "wgc-source-export-1"
+            },
+            "revision_id": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_hash": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "run_id": {
+              "type": "string",
+              "maxLength": 100,
+              "pattern": "^[a-z][a-z0-9_.-]*:[A-Za-z0-9][A-Za-z0-9_.:/-]*$(?![\\s\\S])"
+            },
+            "supersedes_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "lineage_refs": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/historical_ref"
+              },
+              "minItems": 0
+            },
+            "data": {
+              "$ref": "#/$defs/identity_registry_data"
+            }
+          },
+          "required": [
+            "id",
+            "record_type",
+            "schema_version",
+            "revision_id",
+            "content_hash",
+            "run_id",
+            "supersedes_refs",
+            "lineage_refs",
+            "data"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

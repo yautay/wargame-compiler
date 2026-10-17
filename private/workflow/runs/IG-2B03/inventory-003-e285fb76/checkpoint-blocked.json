@@ -1,0 +1,45 @@
+{
+  "role": "executor",
+  "actor": "ig2:004-IG-2B03-executor-537dd410:executor",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/004-IG-2B03-executor-537dd410/runtime-configuration.json",
+  "configuration_sha256": "5d5104f87756a8cfa584fa5b1d949565f7eed77f7efd1359333f892bb4724c70",
+  "utc": "2026-10-15T15:34:01.716253+00:00",
+  "attempt": "inventory-003-e285fb76",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/004-IG-2B03-executor-537dd410/packet.json",
+    "bytes": 4947,
+    "sha256": "c0c14777dca12c58a2f842e3eb3a1622a0be527981a6d73f8b91909767886f82"
+  },
+  "changed_files_manifest": {
+    "path": "private/workflow/runs/IG-2B03/inventory-003-e285fb76/blocked-state-manifest.json",
+    "bytes": 168540,
+    "sha256": "941909bfcace1e9b8a83c7283963d5d60e4fe9e3fa9c14ad0dd2bc1e0d9ffcb2"
+  },
+  "completed_criteria": [
+    "Observed runtime and all initial task/dependency pins verified.",
+    "135 assigned-page regions authored; final inventory root validation passed.",
+    "Original pages, all boundaries and all final evidence mosaics inspected.",
+    "71 source tests and 151 repository tests passed via approved unchanged commands.",
+    "4409 dependency artifacts byte-verified unchanged at initial verification."
+  ],
+  "unmet_criteria": [
+    "Exact context-access boundary after the unbounded search wrapper output.",
+    "Both complete independently validated evidence replays.",
+    "Final preservation/coverage/continuation/visual reports and a frozen delivery envelope."
+  ],
+  "blocker": {
+    "command": "pwsh -NoProfile -File scripts/search.ps1 -Pattern 'artifact.*scope|write_scope|configuration_sha256|def.*evidence'",
+    "purpose": "Locate workflow artifact-scope validation before freezing the handoff.",
+    "observed_result": "The wrapper searched the complete active allowlist and returned unbounded canonical inventory/reference matches outside the exact IG-2B03 packet, including earlier IG-2A artifacts. Tool output was truncated.",
+    "constraint": "Exact manifest context only; no whole historical manifests/run directories or source content outside assigned contract.",
+    "assessment": "Context-access boundary cannot be certified. This executor must not claim that no out-of-packet access occurred or deliver the result as contract-compliant.",
+    "use": "The assigned partition and final evidence were authored and root-validated before this search; returned out-of-packet material was not used for source meaning or later authoring.",
+    "containment": "Stopped the running derivation helper with Ctrl-C; exit code 1. Preserved every existing output and old artifact. No further product authoring or delivery envelope created.",
+    "resolution_owner": "IG-2 coordinator and supervisor",
+    "smallest_resolution": "Assess this access incident and preserve this attempt. If execution is authorized again, prepare a fresh bounded packet and exclusive output root for a fresh executor; constrain search output to exact allowed files. No acceptance or permission exception is inferred by this executor."
+  },
+  "next_operation": "Coordinator assesses context-access incident; this executor stops."
+}

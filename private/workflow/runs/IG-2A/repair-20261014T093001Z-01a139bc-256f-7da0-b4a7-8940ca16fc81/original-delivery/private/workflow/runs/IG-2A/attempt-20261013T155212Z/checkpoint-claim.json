@@ -1,0 +1,43 @@
+{
+  "task": "IG-2A",
+  "actor": "codex-01a135f6-cdab-7723-bd6a-9e0044d12323",
+  "attempt": "private/workflow/runs/IG-2A/attempt-20261013T155212Z",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration": {
+    "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/configuration.json",
+    "sha256": "22196578010e5d8f40c98b3db308506f6d9eaaa0d7b2f4de12a0d264b3be4343"
+  },
+  "packet": {
+    "path": "private/workflow/packets/IG-2A-8108c7c22a77477296f0af21fe898f92/manifest.json",
+    "sha256": "7e4634f1043c767cf5e63f21b2413e09119f2a618110b32c83f7612c3100bc20"
+  },
+  "input_hashes": [
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/dependency-verification.json",
+      "sha256": "5f0c87a6a534576f8777c03b8f5dd2e819466879cd3b4dc4e8321792648d83fa"
+    }
+  ],
+  "base_file_hashes": {
+    "contracts/ig/regions.schema.json": null,
+    "src/wgc/sources/inventory.py": null,
+    "tests/sources/test_inventory.py": null
+  },
+  "completed_criteria": [
+    "Refinement",
+    "Official acquisition",
+    "Dependency verification",
+    "Fresh allowlisted packet verification"
+  ],
+  "checks": [],
+  "blocker": null,
+  "next_operation": "Implement refined inventory contracts/tools/tests; preserve all prior changes."
+}

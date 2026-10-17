@@ -1,0 +1,11 @@
+{
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare-delivery.py"
+  ],
+  "exit_code": 1,
+  "error": "Raw reconstructed LF payload differs from Windows CRLF text file.",
+  "cause": "Existing workflow Path.write_text default Windows newline translation. Manifest context SHA256 correctly hashes on-disk CRLF bytes; text_bytes counts LF payload.",
+  "resolution": "Reconstruct actual writer bytes and independently verify manifest logical byte count plus actual raw SHA256. Preserve original failed audit script; no tool/schema/limit change."
+}

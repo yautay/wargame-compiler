@@ -1,0 +1,66 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B03-executor-1dcc40e4:executor",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T175019Z-9761be5b/001-IG-2B03-executor-1dcc40e4/runtime-configuration.json",
+  "configuration_sha256": "31f247cd53a3b0566218a8a72683ac30482e54c32937fa66308b68e49a741b75",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/root-final-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-a-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/root-replay-a-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-b-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/root-replay-b-verified.log",
+        "bytes": 10298,
+        "sha256": "01122ec37e8ee4747fc4592c57ac39a91f5f62340e9775cfbabc0b535268d29a"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/root-components.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-a/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/root-components-replay-a.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-b/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B03/repair-r01-f684f3e2-01/root-components-replay-b.log",
+        "bytes": 10299,
+        "sha256": "6727c3157ac38c4d0f9e4694530b0bba16411e61e436395ec6faa6c7f3e27321"
+      }
+    }
+  ],
+  "policy": "Existing two complete independent replay pairs retained and independently root-validated. No rebuilding or evidence regeneration."
+}

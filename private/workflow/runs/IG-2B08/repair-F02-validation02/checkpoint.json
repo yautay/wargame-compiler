@@ -1,0 +1,70 @@
+{
+  "task": "IG-2B08",
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-a8aafb0b:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/runtime-configuration.json",
+  "configuration_sha256": "6e1c13e8310a1dc9469b4807a1d9fb139e5b898213713dbf5ded7fb98bc3c6ad",
+  "attempt": "private/workflow/runs/IG-2B08/repair-F02-validation02",
+  "started_utc": "2026-10-17T12:58:22.786146+00:00",
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/packet.json",
+    "sha256": "56528666e5446259329518b37b96afa85433238990fe49ea04fca12f0f850312",
+    "bytes": 8085
+  },
+  "task_contract": {
+    "path": "private/workflow/orchestrator/20261017T125512Z-933976c1/001-IG-2B08-executor-a8aafb0b/task.json",
+    "sha256": "17c560fec7eb67ca566501e4a8e2af0af519db88480f2b510f08da95ea28dd8c",
+    "bytes": 21609
+  },
+  "base_file_hashes": [
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-7582f722/author-selections.json",
+      "sha256": "738f1f75bebebe17c2d9d790722f91d1816e7d4daf818bdb4b89e4381146500c",
+      "bytes": 85849
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-7582f722/author-inventory.json",
+      "sha256": "4b2d774d5732fe06943c9e6bb33da6aef39818742ff8cf5ed17ba594c129c6f5",
+      "bytes": 4398415
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-7582f722/author-registry.json",
+      "sha256": "7c1b57fd4ca00693208b0cebeafd411313fbe57a55ae1a9f5f00a2267150c91a",
+      "bytes": 184306
+    }
+  ],
+  "changed_files": [
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/final-verified/inventory.json",
+      "bytes": 5086615,
+      "sha256": "590bd3ff4a60cacd4fae519c0f03a74fb03c272fc0943753435e2275e8866c65"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-1/inventory.json",
+      "bytes": 5081773,
+      "sha256": "a3bc30a2e0b7e161780ad57c5bbe464ac7ca90050dd57f36f599d894c3febc48"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/repair-F02-validation02/replay-2/inventory.json",
+      "bytes": 5081773,
+      "sha256": "f604bc84655cd99a1240e2495bd4f5d8445657cc7b4d763170f0624b605922b4"
+    }
+  ],
+  "completed_criteria": [
+    "Fresh assigned originals and exact context inspected.",
+    "Every proposed primary boundary and detail inspected.",
+    "Final full evidence set generated serially.",
+    "Unchanged source and repository suites passed with approved exact commands after restricted-token failures."
+  ],
+  "commands": [],
+  "blocker": null,
+  "next_operation": "Reverify immutable inputs and selected contract, freeze exhaustive delivery, transition to review and stop this executor role.",
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null
+  },
+  "summary": "Final strict F02/F01 regressions, complete batch preservation/replay/index verifier, all three task-bound source CLI validations and unchanged required suites passed."
+}

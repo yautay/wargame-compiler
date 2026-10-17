@@ -1,0 +1,34 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B03-coordinator-e285fb76:coordinator",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/003-IG-2B03-coordinator-e285fb76/runtime-configuration.json",
+  "configuration_sha256": "e15c6df71416c296b989fd285797ae35d964126dfd5653c25f735be7be910565",
+  "command": [
+    "git",
+    "diff",
+    "--check"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-15T15:07:40.812017+00:00",
+  "ended_utc": "2026-10-15T15:07:42.134759+00:00",
+  "wall_seconds": 1.3280000000086147,
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/diff-check.stderr",
+      "bytes": 275819,
+      "sha256": "83f85236d07e8dd22f32d4e16f66906a225edf828862ac380a9816a56c86b1a2"
+    }
+  ],
+  "process_environment_pin": {
+    "path": "private/workflow/runs/IG-2B03/preparation-003-e285fb76/toolchain.json",
+    "sha256": "79ff143ae0e7ad3df5d4ae6830bcad6ad6fbeaaa37091f39372c2a195ca63a75"
+  }
+}

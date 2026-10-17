@@ -1,0 +1,117 @@
+{
+  "context_bytes": 93974,
+  "paths": [
+    "AGENTS.md",
+    "README.md",
+    "docs/STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/work/WORKFLOW.md",
+    "docs/skills/wgc-execute/SKILL.md",
+    "docs/work/tasks/IG-2B02.md",
+    "docs/work/EVIDENCE.md",
+    "src/wgc/sources/README.md",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/contract-boundaries.md",
+    "contracts/ig/regions.schema.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/configuration.json",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/dependency-verification.json",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-pins.json",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/scope.json",
+    "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/toolchain.json"
+  ],
+  "other_38_tasks_unchanged": true,
+  "no_claim": true,
+  "checks": [
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:18:02.356457+00:00",
+      "ended_utc": "2026-10-14T20:18:05.024152+00:00",
+      "wall_seconds": 2.667695,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/refined-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/refined-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "private/workflow/runs/IG-2B01/inventory-20261014T165724Z-01a13b57-40e6-78d2-9d17-0b3e91afba77/final-verified/inventory.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:18:32.316770+00:00",
+      "ended_utc": "2026-10-14T20:18:40.698030+00:00",
+      "wall_seconds": 8.38126,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/baseline-root-validate-corrected.stdout",
+        "bytes": 9769,
+        "sha256": "11fe5adb66b2ecb79918cff3addda3a120c8595542a223d5b93b776d5723ea3e"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/baseline-root-validate-corrected.stderr",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "render"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:19:53.552114+00:00",
+      "ended_utc": "2026-10-14T20:19:55.335893+00:00",
+      "wall_seconds": 1.783779,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/narrowed-render.stdout",
+        "bytes": 29,
+        "sha256": "39790f4d674901a126ddb9430db7cac66da1db0fbc1d8de10fc18b4794327cae"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/narrowed-render.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:19:55.345060+00:00",
+      "ended_utc": "2026-10-14T20:19:57.460283+00:00",
+      "wall_seconds": 2.115223,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/narrowed-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/preparation-20261014T201344Z-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/narrowed-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}

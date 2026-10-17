@@ -1,0 +1,408 @@
+{
+  "outcome": "PASS",
+  "actionable_findings": [],
+  "new_defect_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "prior_finding_dispositions": [
+    {
+      "id": "IG2A-R01",
+      "prior_severity": "P1",
+      "disposition": "CLOSED",
+      "closure_condition": "On a clean valid migrated baseline, change CropBox, effective crop, rotation and UserUnit independently, reseal the page/container and retain old evidence. Each must fail with a freshness/source-basis error; fresh evidence for an unchanged actual source basis must pass. Keep all four independent asymmetric pixel/rotation/UserUnit oracles passing.",
+      "reviewer_assessment": "CLOSED. Resealed CropBox, effective-crop intersection, MediaBox, rotation and UserUnit changes reject stale evidence without root; root validation rejects the changed actual-source geometry. Address swap rejects identity remapping. Replacing the evidence page-basis hash does not bypass source geometry checks. Fresh evidence and legacy reproduction baseline pass. No closure is inferred from a missing schema field.",
+      "independent_candidates": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_crop_internal.json",
+          "sha256": "73a72db46f857df61bd093343a2043fcd44a92c18b3b408fac5059dde6a3bc92",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_crop_source.json",
+          "sha256": "73a72db46f857df61bd093343a2043fcd44a92c18b3b408fac5059dde6a3bc92",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/forged_basis_crop.json",
+          "sha256": "495af94c6802b601895025cae58a1782de0d1fb5fc9f0ad4e6c81f7e5e7ab699",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_effective_crop_internal.json",
+          "sha256": "4933834544a2188d1cbf2d7e2dc90cb436137969b61f78172c0dd3c7a5146bef",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_effective_crop_source.json",
+          "sha256": "4933834544a2188d1cbf2d7e2dc90cb436137969b61f78172c0dd3c7a5146bef",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/forged_basis_effective_crop.json",
+          "sha256": "dc5df0b2453de21e96e5471ce6b1bcb6d4188651de8efcfb5acb348165fff57a",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_rotation_internal.json",
+          "sha256": "ac81b89735b56ceee74d5b7e0f093fefaa55a01fe2d79ebe64d9758a73e224d9",
+          "bytes": 11855
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_rotation_source.json",
+          "sha256": "ac81b89735b56ceee74d5b7e0f093fefaa55a01fe2d79ebe64d9758a73e224d9",
+          "bytes": 11855
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/forged_basis_rotation.json",
+          "sha256": "6090bc8927adef6676e4e0b3f2fd0041287766fd88cdfef2b41d500c6c8d3b3c",
+          "bytes": 11855
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_user_unit_internal.json",
+          "sha256": "71d659685521e65c6d221e68842ebe1b3a1bf72d85cdc51a800168efe322e764",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_user_unit_source.json",
+          "sha256": "71d659685521e65c6d221e68842ebe1b3a1bf72d85cdc51a800168efe322e764",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/forged_basis_user_unit.json",
+          "sha256": "0d6000467d82778be95cb4835b98be3edeafb4b3f603537bc2a72eab53966715",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_media_internal.json",
+          "sha256": "bcd95050df8305a06071d09d591ba37a625adc0f1ad22f2db96d467bb97ecc85",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_media_source.json",
+          "sha256": "bcd95050df8305a06071d09d591ba37a625adc0f1ad22f2db96d467bb97ecc85",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/forged_basis_media.json",
+          "sha256": "2e12fa99b4977e93a497f76236ccd896131369785c79f9b0d8e04362ebb464d3",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_address_internal.json",
+          "sha256": "47b9650f01af84408a3c80cdfcc3956f4143ae86a61bb1b980932b7bcd0d1edf",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_address_source.json",
+          "sha256": "47b9650f01af84408a3c80cdfcc3956f4143ae86a61bb1b980932b7bcd0d1edf",
+          "bytes": 11853
+        }
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+          "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+          "bytes": 65717
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/retained-reproduction-results.json",
+          "sha256": "57e2f7d03715c145c167ece5befeeff3c9f778560c27a1b0359353ff6676eacc",
+          "bytes": 15089
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/independent-pixel-oracles.json",
+          "sha256": "99dcad1650caac2a7ebd5c9733879a11d6c1c66f2d58c730ebc066276306a068",
+          "bytes": 17518
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/preservation-final.json",
+          "sha256": "b735906221a779181bc68bd0661f4c593d9de4ab4541337a2c60a5d946d0f6eb",
+          "bytes": 251323
+        }
+      ]
+    },
+    {
+      "id": "IG2A-R02",
+      "prior_severity": "P2",
+      "disposition": "CLOSED",
+      "closure_condition": "The retained false_render_dpi input must fail for inconsistent rendering metadata, while actual 72/144-DPI evidence for nonzero origins, fractional UserUnit and all rotations passes with independently calculated pixel dimensions.",
+      "reviewer_assessment": "CLOSED. False 72-DPI metadata on actual 144-DPI evidence fails the DPI/geometry prediction; one-pixel forged rounding metadata fails. Eight fractional nonzero-origin partial-crop 72/144-DPI cases at all rotations pass exact rational dimension expectations and eight independently redrawn full-image pixel oracles at zero tolerance. Eight additional exact-integer pixel-boundary renders at UserUnit 1.1 pass. Poppler ceiling is explicit; PNG dimensions agree.",
+      "independent_candidates": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/false_dpi.json",
+          "sha256": "b07aed22f733884b8910ca956044cb0d16859e73209e8367f0ee7e9a550ccda3",
+          "bytes": 11852
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/false_pixel_rounding.json",
+          "sha256": "a4df863d08d6754a0f9de177d5becf0045a72dbe830299ab2545674beb8ac601",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r0_dpi72.json",
+          "sha256": "95ee45170c21bdec65c42a779f3f8a8d451780edcb694ca5020007a5850af128",
+          "bytes": 6720
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r0_dpi144.json",
+          "sha256": "04c2d24f3767393ac801cd38813f59f73f70935c89ab36e72ea9809f49d920ac",
+          "bytes": 6725
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r90_dpi72.json",
+          "sha256": "810f1e89c3fc2e5d93185f861c24bad916c2b2daea39a4306f1b1518b2e466f8",
+          "bytes": 6727
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r90_dpi144.json",
+          "sha256": "66f5f522a2033e09b1a3f33d25badf7f1d8202d029ed2198dd44a9b2877982b5",
+          "bytes": 6732
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r180_dpi72.json",
+          "sha256": "bdc6cf1204c9fa18f00c9be4f7f0daf13af2a61d4eb1e0a717d9b28df422638c",
+          "bytes": 6734
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r180_dpi144.json",
+          "sha256": "3ebd4166c193d78c61d6cbc6067a2f7c41b1221cfe2377de6e1ce2958ae40142",
+          "bytes": 6739
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r270_dpi72.json",
+          "sha256": "c56e6cc22156f4deafff02ddfdb39c22106b8022ff97c37d58eb0e5b7bccf6e9",
+          "bytes": 6734
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/fractional_crop_r270_dpi144.json",
+          "sha256": "c6ad7bc0638c61ff2c0324d315b64c13468aefa8e245c544830ffae8801b9213",
+          "bytes": 6739
+        }
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+          "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+          "bytes": 65717
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/retained-reproduction-results.json",
+          "sha256": "57e2f7d03715c145c167ece5befeeff3c9f778560c27a1b0359353ff6676eacc",
+          "bytes": 15089
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/independent-pixel-oracles.json",
+          "sha256": "99dcad1650caac2a7ebd5c9733879a11d6c1c66f2d58c730ebc066276306a068",
+          "bytes": 17518
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/preservation-final.json",
+          "sha256": "b735906221a779181bc68bd0661f4c593d9de4ab4541337a2c60a5d946d0f6eb",
+          "bytes": 251323
+        }
+      ]
+    },
+    {
+      "id": "IG2A-R03",
+      "prior_severity": "P2",
+      "disposition": "CLOSED",
+      "closure_condition": "Cross-page evidence must be rejected even if the evidence itself is valid. Same-page current evidence must pass. Preserve unknown cover labels and embedded_unverified PageLabels without promoting metadata to visual verification.",
+      "reviewer_assessment": "CLOSED. Valid other-page evidence rejects a verified label on this page; correct same-page current evidence passes. Actual delivery labels 2/3/4 match current reviewer image observations and exact page/source/region evidence basis. Unknown cover and pages 5-44 remain unknown; embedded_unverified metadata remains unverified. Glyph and human authority claims are not authenticated by association checks.",
+      "independent_candidates": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/cross_page_label.json",
+          "sha256": "9e7309e815b8f97c5d01d000a8f28c12649def1985b72851f9ed559cdc782b8e",
+          "bytes": 11925
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/same_page_label.json",
+          "sha256": "03237f44179e6c57eb5c9ca4646a0e531a9224900156b272c9bfd060f613cd8f",
+          "bytes": 11925
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/embedded_label_not_visual_confirmation.json",
+          "sha256": "013d4a05ddd428c796b9d99f3f6dae847ca8acee05d02bc66cc335c4d2ff454d",
+          "bytes": 11876
+        }
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+          "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+          "bytes": 65717
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/retained-reproduction-results.json",
+          "sha256": "57e2f7d03715c145c167ece5befeeff3c9f778560c27a1b0359353ff6676eacc",
+          "bytes": 15089
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/independent-pixel-oracles.json",
+          "sha256": "99dcad1650caac2a7ebd5c9733879a11d6c1c66f2d58c730ebc066276306a068",
+          "bytes": 17518
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/preservation-final.json",
+          "sha256": "b735906221a779181bc68bd0661f4c593d9de4ab4541337a2c60a5d946d0f6eb",
+          "bytes": 251323
+        }
+      ]
+    },
+    {
+      "id": "IG2A-R04",
+      "prior_severity": "P1",
+      "disposition": "CLOSED",
+      "closure_condition": "Change region key, classification, uncertainty, registry scope, source and physical-page mapping separately after a valid exclusion. Old decision basis must become stale/unknown or fail and must not be reported as a current approved exclusion. Unchanged exact basis and separately authentic human evidence can retain their limited scope. The current partition-change rejection must continue to pass.",
+      "reviewer_assessment": "CLOSED within the sidecar author-scope contract. Changed author key, kind, uncertainty, registry, source identity/revision, page mapping, geometry partition, denominator role, reading order or link rejects the old boundary. Direct coverage report marks its author scope stale, source-IG freshness unknown and human authority unverified. The unchanged synthetic basis passes only those limited structural checks. Coverage-only rationale changes deliberately do not imply a current approved IG-1A whole-record exclusion. Frozen IG-1A tools/schema/README hashes remain unchanged.",
+      "independent_candidates": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/unchanged_exclusion_basis.json",
+          "sha256": "ab5d3731313e26a9f11092e2ed3d1de55e2642a22b30ae3b422f0dc5e28cc3e5",
+          "bytes": 7741
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_kind.json",
+          "sha256": "652a534baf11d320983406a1a5468640866a75877323f096cf9dd117b6ae43e6",
+          "bytes": 7736
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_uncertainty.json",
+          "sha256": "11302b5f42482d872d917aadcfb5f09d1690e8819f896576c34176698314e3f4",
+          "bytes": 7785
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_key.json",
+          "sha256": "7a2321a77e221fcb85fba1a8410172ed41394c31dbcbc5ba98871e585f70434b",
+          "bytes": 7699
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_registry.json",
+          "sha256": "ae8afaa0368d310bf522b0999cc95d59ae6fc157ac9ece8fa48f635fc08e5301",
+          "bytes": 7881
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_source_id.json",
+          "sha256": "e74718270c890ef9b9c27f5fea68fae371e127a6b682f67bc871d9015ab9c29c",
+          "bytes": 7745
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_source_revision.json",
+          "sha256": "83f3b2766b36e28acc501c08eebf910eb5847887c73ee316fbf57c734476b515",
+          "bytes": 7741
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_address.json",
+          "sha256": "d48b729c7f0abf1d814f855e81e050932a1068a43c0d4326178a84ba023e939f",
+          "bytes": 7741
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_partition.json",
+          "sha256": "909c8186e7e6ed12393ae1367e064432bfe9230b14a02f0cc288b42fca429005",
+          "bytes": 7739
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_denominator.json",
+          "sha256": "6d87e78721d6f2a1c8a89b9866ffdbd916c36f40b8aad9ee76ab74db4351224f",
+          "bytes": 7739
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_order.json",
+          "sha256": "7f92e85c47d2b192fdc081f06aba64fc9587e18586481b3e1ebd68dc5b12ad8d",
+          "bytes": 7741
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_link.json",
+          "sha256": "9dc1eab34bae9cb05273a81f9b8869469145ee8dc6773375ad17b576ee179d5c",
+          "bytes": 7951
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/coverage_only_change_not_ig1a_approval.json",
+          "sha256": "01b24ab780400cb2bd99bf3a101758133ac7434ec2a197da8a0362c4eed709cc",
+          "bytes": 7754
+        }
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+          "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+          "bytes": 65717
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/retained-reproduction-results.json",
+          "sha256": "57e2f7d03715c145c167ece5befeeff3c9f778560c27a1b0359353ff6676eacc",
+          "bytes": 15089
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/independent-pixel-oracles.json",
+          "sha256": "99dcad1650caac2a7ebd5c9733879a11d6c1c66f2d58c730ebc066276306a068",
+          "bytes": 17518
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/preservation-final.json",
+          "sha256": "b735906221a779181bc68bd0661f4c593d9de4ab4541337a2c60a5d946d0f6eb",
+          "bytes": 251323
+        }
+      ]
+    },
+    {
+      "id": "IG2A-R05",
+      "prior_severity": "P1",
+      "disposition": "CLOSED",
+      "closure_condition": "With a two-page byte-pinned PDF, consistent forged one-page counters must fail with actual missing-page/source-basis diagnostics. Swapping physical addresses under the same persisted IDs must fail. Reordering the pages array without changing physical addresses and two fresh registry replays must pass.",
+      "reviewer_assessment": "CLOSED. A two-page pinned source with consistently forged one-page claims rejects actual source-count mismatch. Swapped physical addresses under persisted identities reject remapping. Reordered page array passes; two official fresh inventories using persisted registry have identical canonical and serialized bytes and identities. Changed-PDF registry reuse refuses explicit remapping. Geometry/revision changes remain separate from UUID identity.",
+      "independent_candidates": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_address_internal.json",
+          "sha256": "47b9650f01af84408a3c80cdfcc3956f4143ae86a61bb1b980932b7bcd0d1edf",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_address_source.json",
+          "sha256": "47b9650f01af84408a3c80cdfcc3956f4143ae86a61bb1b980932b7bcd0d1edf",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/stale_exclusion_address.json",
+          "sha256": "d48b729c7f0abf1d814f855e81e050932a1068a43c0d4326178a84ba023e939f",
+          "bytes": 7741
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/reordered_pages.json",
+          "sha256": "38209ab30ed09e4754851d065bb73b560c451a8ed40065095f4a44c21065448f",
+          "bytes": 11853
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/cases/concealed_missing_actual_page.json",
+          "sha256": "07ad404db281f2367c9c6cb7292d865635b0fe14a704b9650e99aa837732bda4",
+          "bytes": 7038
+        }
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/probe-results.json",
+          "sha256": "95250fcc481c29e361a5c6a06298a8fc70f73893c246748f9996ac69cf8e36aa",
+          "bytes": 65717
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/retained-reproduction-results.json",
+          "sha256": "57e2f7d03715c145c167ece5befeeff3c9f778560c27a1b0359353ff6676eacc",
+          "bytes": 15089
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/independent-pixel-oracles.json",
+          "sha256": "99dcad1650caac2a7ebd5c9733879a11d6c1c66f2d58c730ebc066276306a068",
+          "bytes": 17518
+        },
+        {
+          "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/preservation-final.json",
+          "sha256": "b735906221a779181bc68bd0661f4c593d9de4ab4541337a2c60a5d946d0f6eb",
+          "bytes": 251323
+        }
+      ]
+    }
+  ],
+  "semantic_acceptance_granted": false
+}

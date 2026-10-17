@@ -1,0 +1,70 @@
+{
+  "role": "coordinator",
+  "actor": "operator-b04-context-recovery-20261015",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Actual builder configuration not exposed; no source acceptance or executor claim.",
+  "summary": "Bounded dependency fields and current accepted report resolution verified before fresh coordinator launch.",
+  "artifacts": [
+    {
+      "path": "scripts/dependency_context.py",
+      "sha256": "644dc80fe7f21e61d95433dcc5b9d21047e51312e24d6b919a2aba6d449528ca"
+    },
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "d86a4e9c19cbfe8f6dcb3d60afe5a3e6c278707eaeda44e53ad0a51437d04f7e"
+    },
+    {
+      "path": "tests/test_dependency_context.py",
+      "sha256": "3b6329f82ee6a80e58386148a4589195d7240bbaa4adf8758a0475abe51e11f0"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "d9450f6f061f721bc21cd85005325aac1e63903f1a9694422b7cab71281e6439"
+    },
+    {
+      "path": "docs/work/IG2-ORCHESTRATOR.md",
+      "sha256": "26331d9c3d0c2f889e4bd3155b0b2328e37cc92c37923709c6118181b723b3e2"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "8597941e3b5990a903da53ce1dd9439befe7a71baff47e6bc64bbd590e11bd1e"
+    }
+  ],
+  "checks": [
+    {
+      "command": "targeted orchestrator/dependency/search pytest b04-context-unit-04",
+      "exit_code": 0,
+      "result": "110 passed"
+    },
+    {
+      "command": "scripts/check.ps1 -Task IG-2B04",
+      "exit_code": 1,
+      "result": "212 tests passed; plan/diff zero; dry-run correctly refused planned task before refinement",
+      "component_exits": {
+        "diff_exit": 0,
+        "plan_exit": 0,
+        "dry_run_exit": 1,
+        "tests_exit": 0,
+        "basetemp": "C:\\repo\\wargame-compiler\\private\\workflow\\checks\\active-807dc1b4cbaa43afb6f5c85e65641d3d\\pytest"
+      }
+    },
+    {
+      "command": "actual B04 coordinator prepare and all five dependency CLI sections",
+      "exit_code": 0,
+      "result": "Exact source/current R01 pins; only four assigned pages/regions; runtime inherited without changing queue"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "independent_control_review": {
+    "actor": "/root/review_orchestrator",
+    "open_findings": [],
+    "actual_model": null,
+    "actual_reasoning": null
+  },
+  "readiness": "B04 remains planned. Fresh coordinator must refine, make ready through workflow and pass the active-task dry-run; no gate is bypassed.",
+  "preservation": "B03 done/accepted bytes and old incident metadata remain unchanged. New controls are not frozen B03 artifacts."
+}

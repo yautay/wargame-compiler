@@ -1,0 +1,193 @@
+{
+  "task": "IG-2B02",
+  "role": "coordinator",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "issued_utc": "2026-10-15T10:48:16.875398+00:00",
+  "status": "changes_requested",
+  "operator_authorization": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/authorization.json",
+    "bytes": 621,
+    "sha256": "2f3758a3ecb315af0f22d46ed1f7ac7fe3d6fe06676cc51294ca555770dc1a82"
+  },
+  "configuration": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/configuration.json",
+    "bytes": 977,
+    "sha256": "49cebb21bb18d42f23fe608c3ef35d85b2aba0ebdbb030cea3d69b1fa23412f1"
+  },
+  "coordinator_decision": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-decision.json",
+    "bytes": 37341,
+    "sha256": "a35100af625331cfd0bdb04863df81dfc18b0cafd7244088c1652423ddccb702"
+  },
+  "review_to_changes_requested_event": {
+    "from": "review",
+    "to": "changes_requested",
+    "utc": "2026-10-15T10:48:05.824663+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-decision.json",
+    "sha256": "a35100af625331cfd0bdb04863df81dfc18b0cafd7244088c1652423ddccb702"
+  },
+  "current_queue": {
+    "path": "docs/work/queue.json",
+    "bytes": 154256,
+    "sha256": "1e585881ef4019a9b8e3605038ad22510b36e9667b2480464f1ef16ba2b1eb5a"
+  },
+  "immutable_queue_snapshot": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/queue-changes-requested.json",
+    "bytes": 154256,
+    "sha256": "1e585881ef4019a9b8e3605038ad22510b36e9667b2480464f1ef16ba2b1eb5a"
+  },
+  "scope": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-scope.json",
+    "bytes": 24506,
+    "sha256": "50cab2e5319de2ed22d97cbdaff8e118f7adca9a88d21313854a0a80b3c7dea9"
+  },
+  "selected_patch": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/coordinator-queue-patch-v2.json",
+    "bytes": 8873,
+    "sha256": "43878efbbf1431ea50f671dcb497ca33049c225b20ff554f081c9dd1814a2913"
+  },
+  "metadata_context_index": {
+    "path": "docs/work/repair-context/IG-2B02-R01-R02-20261015T091559Z.json",
+    "bytes": 1464,
+    "sha256": "8519e7867dd11f3c7c1313328e7d1c627ccc554e406a992568a3230545a01ebc"
+  },
+  "repair_instruction": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/repair-launch.txt",
+    "bytes": 35478,
+    "sha256": "8903ed388eb549d23c988a2d5270c2758077bb4c5917b608ffa1daef49408f40"
+  },
+  "packet": {
+    "directory": "private/workflow/packets/IG-2B02-ba70cbf270d142868c66b50ef1e029cf",
+    "manifest": {
+      "path": "private/workflow/packets/IG-2B02-ba70cbf270d142868c66b50ef1e029cf/manifest.json",
+      "bytes": 6500,
+      "sha256": "d0be144df7ba951c1eb8f1f6918d73ec1cedf07755cdc59e4edf6ee251123cd4"
+    },
+    "context": {
+      "path": "private/workflow/packets/IG-2B02-ba70cbf270d142868c66b50ef1e029cf/context.txt",
+      "bytes": 99360,
+      "sha256": "fd075cc90e5896c80e86e5912eb31198590f442a81dd58c04676682d18bb4f6c"
+    },
+    "logical_utf8_bytes": 97090,
+    "physical_context_bytes": 99360,
+    "limit": 100000,
+    "complete_exact_reconstruction": true
+  },
+  "allowed_write_scope": [
+    "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/",
+    "private/workflow/packets/",
+    "private/workflow/checks/"
+  ],
+  "reserved_repair_attempt": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "reserved_attempt_absent": true,
+  "ownership_policy": "Only the NEW actual-config-confirmed executor may create reserved repair directory and claim changes_requested -> in_progress. Existing directory or writer drift requires checkpoint/escalation, never overwrite.",
+  "frozen_base_catalogue": {
+    "path": "private/workflow/runs/IG-2B02/repair-preparation-20261015T091559Z-01a13c20-b7bd-7962-a954-f5841c09831c/frozen-base-pins.json",
+    "bytes": 1164819,
+    "sha256": "328b2fed4fcd34b125c29ac3f5dd5f3036bf2c20f5f6faa1497118a22af1f692"
+  },
+  "frozen_verification_before": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/pre-setup-frozen-bases.json",
+    "bytes": 849,
+    "sha256": "01db946cb898f7ac29c66cb0ffbf652564a13fed1be3e9590e0dffef36cb1dce"
+  },
+  "frozen_verification_after": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-setup-frozen-bases.json",
+    "bytes": 861,
+    "sha256": "73813f8b60ee7dd700a36fc16a93cd54f60a1f9c18c8f6ebcbfcc828e57c1163"
+  },
+  "tool_source_pin_verification": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/tool-source-pin-verification.json",
+    "bytes": 7375,
+    "sha256": "60afbfcea584ffbe53486332310630df23a3a33366f81e710ea6ab40aaa93a29"
+  },
+  "setup_checks": {
+    "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/scope-checks.json",
+    "bytes": 7835,
+    "sha256": "b26c30d63b499ee98b359a715741aa0323e5517486ac16f369046782d4493818"
+  },
+  "post_transition_checks": [
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:48:06.810894+00:00",
+      "ended_utc": "2026-10-15T10:48:07.921864+00:00",
+      "wall_seconds": 1.125,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-transition-workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-transition-workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "dry-run",
+        "--task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:48:07.921864+00:00",
+      "ended_utc": "2026-10-15T10:48:10.074482+00:00",
+      "wall_seconds": 2.1409999999887077,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-transition-dry-run.stdout",
+        "bytes": 185,
+        "sha256": "e97875f3940c94800ba01109ff936a4031df1119f94c6977467f739a5e94a96a"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-transition-dry-run.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-15T10:48:10.082858+00:00",
+      "ended_utc": "2026-10-15T10:48:11.111931+00:00",
+      "wall_seconds": 1.0320000000065193,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-transition-diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/coordinator-setup-20261015T104356Z-01a13c20-b7bd-7962-a954-f5841c09831c/post-transition-diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    }
+  ],
+  "criteria_unchanged": [
+    "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+    "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+    "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+    "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+    "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact."
+  ],
+  "original_events_preserved": true,
+  "other_tasks_and_queue_fields_unchanged": true,
+  "prepared_instructions_unchanged": true,
+  "executor_configuration": null,
+  "executor_configuration_reason": "Future new session not created yet; its creation flags do not prove actual model/reasoning. It must confirm own runtime identity and gpt-6.1-sol/high before claim.",
+  "acceptance_granted": false,
+  "no_downstream_work": true,
+  "next_operation": "Create exactly one operator-requested new local repair session on gpt-6.1-sol/high, supply full prepared repair-launch.txt plus this actual handoff. Executor repairs bounded findings, returns review with fresh rereview handoff, and stops without launching reviewer or granting acceptance."
+}

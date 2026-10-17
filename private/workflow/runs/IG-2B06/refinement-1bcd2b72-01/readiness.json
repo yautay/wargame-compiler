@@ -1,0 +1,81 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B06-coordinator-1bcd2b72:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T164231Z-37ee310d/001-IG-2B06-coordinator-1bcd2b72/runtime-configuration.json",
+  "configuration_sha256": "fef9c66d2848492c774d7fac6b8765c3809087ab8278a205e03518dda3b776ba",
+  "format": "wgc-task-readiness-1",
+  "task": "IG-2B06",
+  "utc": "2026-10-16T16:51:13.127455+00:00",
+  "summary": "IG-2B06 refinement is complete and exact context is available. The future executor must build fresh assigned inventory evidence and obtain independent review.",
+  "criteria": [
+    "Direct dependency IG-2B05 is done; latest baseline, registry, source and report pins verified.",
+    "Original acceptance/tests preserved verbatim; no human gate lowered; all nonselected tasks preserved.",
+    "Exact assigned pages/targets/context-only boxes, fresh absent owned output, preservation/evidence/replay/report/review requirements and installed process toolchain pinned.",
+    "All declared context paths are available, permitted and below 100 KB; 71 source tests pass unchanged with approved permissions."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/checkpoint-initial.json",
+      "sha256": "0272bdffc976f157be95189ba458397528450463e52974f961229ef9d8fea84b",
+      "bytes": 4254
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/refinement-contract.json",
+      "sha256": "10ce8d9bb0de7032d2a9f00379a6527ba524427a2fdf51b174aa832818734865",
+      "bytes": 17936
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/toolchain.json",
+      "sha256": "7df99393e660ca1ceaa3acab41b8daadcfc22824e768624fd13d69333aeb2ba8",
+      "bytes": 1432
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/source-scope-observation.json",
+      "sha256": "9491db4e42540a3a9eb1e5fc452551b8b8bc3f183e5fe02cff484a84bf0e4ff2",
+      "bytes": 4653
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/refinement-edit-report.json",
+      "sha256": "c93d121c1be19e015c0044007b90c5002b60762e4d4cfb3446f63ef792235e2a",
+      "bytes": 1676
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/refined-task.json",
+      "sha256": "21d5b836eae604b3aa2fb7b99ccf60d11d3c5897c46f28a0af0b4cf07b1faf4f",
+      "bytes": 8537
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/packet-preflight.json",
+      "sha256": "54c2ca42862b7fade4701c0ccff361398296c3bbbf9986ddc1d6f4e9299775d1",
+      "bytes": 2677
+    }
+  ],
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe scripts/workflow.py validate",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/pytest-sources-01 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "execution": "Approved exact unchanged command after restricted mode-0700 temporary-directory WinError 5.",
+      "result": "71 passed in 26.51s"
+    },
+    {
+      "command": "Verify declared packet paths exist, are permitted, and fit the 100 KB limit against the live planned contract",
+      "exit_code": 0,
+      "context_bytes": 61027
+    }
+  ],
+  "product_criteria_completed": false,
+  "semantic_acceptance_granted": false,
+  "next_operation": "Transition planned to ready, run the required full check and freeze its actual result before supervisor handoff.",
+  "measurement": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed."
+  }
+}

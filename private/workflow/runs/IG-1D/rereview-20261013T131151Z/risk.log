@@ -1,0 +1,11 @@
+.........F                                                               [100%]
+================================== FAILURES ===================================
+___ test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated ___
+private\workflow\runs\IG-1D\rereview-20261013T131151Z\receipt_edge_probes.py:43: in test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated
+    assert all(not a['ids'] and a['gap_id'] for a in result['assignments']), 'A named one-child receipt cannot silently acquire a different child-kind contract'
+E   AssertionError: A named one-child receipt cannot silently acquire a different child-kind contract
+E   assert False
+E    +  where False = all(<generator object test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated.<locals>.<genexpr> at 0x0000025882A0D2F0>)
+=========================== short test summary info ===========================
+FAILED private/workflow/runs/IG-1D/rereview-20261013T131151Z/receipt_edge_probes.py::test_named_merge_receipt_changed_child_kind_is_not_silently_reallocated
+1 failed, 9 passed in 4.12s

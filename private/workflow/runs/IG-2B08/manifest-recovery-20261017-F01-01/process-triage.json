@@ -1,0 +1,20 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-manifest-F01-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable; this is not an executor claim. New execution/review requires observed gpt-6.1-sol/high startup metadata.",
+  "utc": "2026-10-17T08:34:47.029311+00:00",
+  "summary": "Approved OS inspection found no old supervisor PID 5560 or coordinator PID 17068; no supervisor lock exists.",
+  "process_ids": [
+    5560,
+    17068
+  ],
+  "observed_matching_processes": 0,
+  "inspection": "Get-CimInstance Win32_Process -Filter ProcessId=5560 OR ProcessId=17068",
+  "original_status": {
+    "path": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/status.json",
+    "sha256": "100e513641384ec4309107af46d6fab035040dbc98570e16f7873c79b0593f06",
+    "bytes": 1059
+  }
+}

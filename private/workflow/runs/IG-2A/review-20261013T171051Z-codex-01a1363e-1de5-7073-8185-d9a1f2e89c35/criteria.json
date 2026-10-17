@@ -1,0 +1,46 @@
+[
+  {
+    "criterion": "Every PDF page and region is addressable with coordinate conventions and printed-label mapping.",
+    "status": "NOT_MET",
+    "evidence": [
+      "source-audit.json",
+      "geometry-oracle.json",
+      "visual-inspection.json",
+      "p2/probe-results.json"
+    ],
+    "findings": [
+      "IG2A-R01",
+      "IG2A-R03",
+      "IG2A-R05"
+    ],
+    "assessment": "Frozen delivery independently has 44 physical pages, distinct labels and correct geometry; genuine conversion/render oracles pass. General source-address and label freshness validation remains bypassable."
+  },
+  {
+    "criterion": "Text, images, uncertainty and reading order remain separate; duplicate context does not increase coverage.",
+    "status": "NOT_MET",
+    "evidence": [
+      "sources-tests.json",
+      "project-check.json",
+      "p2/probe-results.json"
+    ],
+    "findings": [
+      "IG2A-R01",
+      "IG2A-R02"
+    ],
+    "assessment": "Text/image/uncertainty/order fields are separate; notes/continuation/order checks and duplicate/context denominator probes pass. Source/evidence rendering metadata can nevertheless become inconsistent without rejection."
+  },
+  {
+    "criterion": "Unknown or excluded areas are visible; partial/gap is never represented.",
+    "status": "NOT_MET",
+    "evidence": [
+      "source-audit.json",
+      "p2/probe-results.json",
+      "toolchain-and-contract-verification.json"
+    ],
+    "findings": [
+      "IG2A-R04",
+      "IG2A-R05"
+    ],
+    "assessment": "All frozen placeholders remain unprocessed, represented counts are zero at all three levels, partial retains gaps, missing-region area is visible and changed rectangle partitions reject old exclusions. Omitted actual pages and stale author/registry exclusion bases remain accepted."
+  }
+]

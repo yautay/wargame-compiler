@@ -1,0 +1,60 @@
+{
+  "id": "IG-2B06",
+  "title": "Inventory SPQR PDF pages 21Ã¢â‚¬â€œ24",
+  "stage": "IG-2",
+  "status": "planned",
+  "kind": "content",
+  "depends": [
+    "IG-2B05"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/ig/projects/spqr/sources/inventory/pages-21-24.json",
+    "Page-range review report and cross-boundary continuation list"
+  ],
+  "write_scope": [
+    "private/ig/projects/spqr/sources/inventory/pages-21-24.json",
+    "private/ig/projects/spqr/reviews/inventory-21-24/"
+  ],
+  "inputs": [
+    "Pinned SPQR 5E PDF physical pages 21Ã¢â‚¬â€œ24; adjacent pages only for continuation context",
+    "IG-2A locator contract"
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "private/ig/sources/spqr-5e/provenance.json"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation."
+  ],
+  "semantic_acceptance_required": false
+}

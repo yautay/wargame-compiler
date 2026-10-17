@@ -1,0 +1,21 @@
+...........F...                                                          [100%]
+================================== FAILURES ===================================
+_______ test_packages_preserve_partial_or_corrupt_tree_and_allow_cycles _______
+private\workflow\runs\IG-1D\review-20261013T122807Z\probes.py:172: in test_packages_preserve_partial_or_corrupt_tree_and_allow_cycles
+    one = publish(result, tmp_path / 'packages', operation_evidence={'review': 'synthetic'})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\export\storage.py:42: in publish
+    if _read(target/name)!=raw:raise ValueError('existing canonical package changed; preserve for diagnosis')
+       ^^^^^^^^^^^^^^^^^^
+src\wgc\export\storage.py:18: in _read
+    with open_read(path) as stream:return stream.read()
+         ^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:115: in open_read
+    raise SnapshotError('cannot verify opened source path; WinError ' + str(ctypes.get_last_error()))
+E   wgc.inputs.snapshot.SnapshotError: cannot verify opened source path; WinError 5
+=========================== short test summary info ===========================
+FAILED private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py::test_packages_preserve_partial_or_corrupt_tree_and_allow_cycles
+1 failed, 14 passed in 10.48s

@@ -1,0 +1,38 @@
+{
+  "role": "coordinator",
+  "actor": "coordinator:operator-validation-context-recovery-20261017-01",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Current coordinating model/reasoning metadata unavailable. This is not an executor/reviewer claim; a fresh observed gpt-6.1-sol/high session is required.",
+  "utc": "2026-10-17T09:42:47.905851+00:00",
+  "summary": "The full validator ran within its structural remit, but the review wrapper released an unscoped stdout tail. Fresh review is required.",
+  "format": "wgc-validation-context-assessment-1",
+  "task": "IG-2B08",
+  "operator_request": "Oceń incydent z metadanymi stron spoza kontekstu, popraw zakres odczytu walidacji i wznów recenzję naprawy F01 oraz IG-2B08 w świeżej sesji.",
+  "incident": {
+    "path": "private/workflow/runs/IG-2B08/review-4705d02f/context-incident.json",
+    "sha256": "d20abb948fcd451e9b049ad30c791af68a2c4aa9d5f0bb1f73837ca7a767bc75",
+    "bytes": 3092
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/delivery.json",
+    "sha256": "4898ab3b4ed73bc33a766fa93cfe22dd09a19f8d2919b742fdb8d9f13345384f",
+    "bytes": 1359669
+  },
+  "cause": "The wrapper printed its last 3000 output characters, including coverage rows for unassigned physical pages. File-local validation authority did not authorize releasing all of its report fields.",
+  "impact": {
+    "unassigned_coverage_metadata_released": true,
+    "source_text_released": false,
+    "extra_source_render_or_extraction": false,
+    "product_mutated": false,
+    "queue_mutated": false,
+    "completed_independent_review": false
+  },
+  "resolution": "Use the pinned task_access validate-source operation. Preserve full stdout/stderr privately for both success and failure; release only command, exit code and log pins. No raw tails or global coverage rows.",
+  "retained_validation_scope": "Full 44-page structural validation, preservation and source hash checks remain required internally. No test, acceptance criterion or source inspection is reduced.",
+  "incomplete_review_policy": "No claim/check/source inspection from the stopped review is a fresh review result. Candidate F02 is a lead for fresh assigned-page verification, not a confirmed finding.",
+  "actual_model": null,
+  "actual_reasoning": null,
+  "semantic_acceptance": false,
+  "executable_readiness": false
+}

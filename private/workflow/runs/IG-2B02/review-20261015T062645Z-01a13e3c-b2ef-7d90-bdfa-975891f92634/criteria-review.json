@@ -1,0 +1,139 @@
+{
+  "task": "IG-2B02",
+  "role": "reviewer",
+  "actor": "codex-01a13e3c-b2ef-7d90-bdfa-975891f92634",
+  "criteria": [
+    {
+      "number": 1,
+      "criterion": "Independently account for all source regions on physical pages 5-8, including headings, clauses, notes, examples, tables/legends, diagrams/components and editorial furniture, with explicit ledger and gaps.",
+      "result": "not_met",
+      "assessment": "All four originals, all 141 boundaries and all 17 diagram groups reviewed. Two component-accounting defects affect three page-5 regions: Alae visible 5 listed as 6; both Thrace lists omit small 1. No visible whole-region omission or clipping found.",
+      "findings": [
+        "IG-2B02-R01",
+        "IG-2B02-R02"
+      ],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/page-observations.json",
+          "bytes": 7541,
+          "sha256": "62bae752c075fb7b5dca7f027ae2cc19f0e08209a7cb5270170d3b48b6af56e9"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/region-review-ledger.json",
+          "bytes": 703771,
+          "sha256": "36ce9c6fe50b6ca8c19faf390180bade47e6d27f17fe4967f408d1c438d5d043"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/findings.json",
+          "bytes": 10934,
+          "sha256": "5b8ed6cbbea4855a57531b6b298c39017c84626151e2844177c07cbb5e96653a"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "criterion": "Retain full 44-page wgc-inventory-1 accounting; preserve exact accepted pages/regions/evidence 1-4 and placeholders 9-44; extend the accepted persisted registry without identity remapping.",
+      "result": "met_for_bounded_technical_review",
+      "assessment": "Full 44-page actual source geometry/counts verified; 130 authored old regions, 36 placeholders, context, old evidence/links/order and all persisted old bindings preserved. Only four placeholder memberships retired. Two absolute-destination replays byte-identical.",
+      "findings": [],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/preservation-audit.json",
+          "bytes": 280413,
+          "sha256": "805252484acbca061fcb73385136592e9c98e4bc8d7e0aaae7525c092df96781"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/replay-report.json",
+          "bytes": 59716,
+          "sha256": "2d5db40415962c52aa604ccaa9cba2a3a80a697b2fad2833eafb0d242d278c03"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "criterion": "Keep exact current source/page/region/bbox and text/PNG/crop-PDF evidence pins, reading order, uncertainty and continuations. Preserve the existing page-5 context identity/revision/evidence/link and map it to a distinct authored identity without denominator duplication.",
+      "result": "met_for_bounded_technical_review",
+      "assessment": "All 141 exact new locators independently regenerated with unchanged library; all 423 text/PNG/crop-PDF bytes exact. Rational bounds, page/source/revision/basis, offsets and zero-tolerance pixels verified. Context/authored correspondence and all 38 new links source-supported; no page-9 access.",
+      "findings": [],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/locator-audit.json",
+          "bytes": 787012,
+          "sha256": "6563595318b762d04c7ea36c4a0beb592ba0bff893f66dca21c29254fea270ea"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/continuation-audit.json",
+          "bytes": 285301,
+          "sha256": "2dd1da8324bbcdbdd50062dd4e5c2b936de08daa86754a4f13008d0ee78abe14"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/report-consistency-audit.json",
+          "bytes": 44305,
+          "sha256": "f6980f995d305cf867aa22f5d865f56fcff4e08b248d7255ad17d46848a2254e"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "criterion": "Report task/full/context denominators separately; context is zero, partial/unprocessed stays a gap, bbox/PNG does not grant representation, editorial classification does not grant exclusion or semantic acceptance.",
+      "result": "met_for_bounded_technical_review",
+      "assessment": "Counts 39/33/39/30 = 141; full 130+36+141=307; retained context zero. All new transcription partial; descriptive/formal unprocessed with explicit gaps. Exact geometric complement separately recomputed. No represented/excluded promotion or acceptance inferred.",
+      "findings": [],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/denominator-audit.json",
+          "bytes": 63236,
+          "sha256": "708e048d16c3768302142626377fd48d71c5703fc9392266f93c70755a274898"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/report-consistency-audit.json",
+          "bytes": 44305,
+          "sha256": "f6980f995d305cf867aa22f5d865f56fcff4e08b248d7255ad17d46848a2254e"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "criterion": "A separate independent reviewer compares all four assigned original pages against the complete frozen ledger and verifies unchanged prior scope, continuation bounds, correspondence, tool/source hashes and every submitted artifact.",
+      "result": "met_for_bounded_technical_review",
+      "assessment": "This distinct verified gpt-6.1-sol/high reviewer inspected every assigned original and every ledger region/component, independently verified preservation/continuations/tool/source/contract pins and every submitted artifact. Required checks passed. Findings are delivered for coordinator action, not acceptance.",
+      "findings": [],
+      "evidence": [
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/configuration-proof.json",
+          "bytes": 1131,
+          "sha256": "3adece807b5ca150d0511c05c897a6e2e2532957614e93300028f370687fa839"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/independent-byte-audit.json",
+          "bytes": 1852289,
+          "sha256": "730b4e078ff8dbdf6212f115243e79ec28aaf54cdd34997cb2a894c84049350d"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/region-review-ledger.json",
+          "bytes": 703771,
+          "sha256": "36ce9c6fe50b6ca8c19faf390180bade47e6d27f17fe4967f408d1c438d5d043"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/final-input-scope-audit.json",
+          "bytes": 159422,
+          "sha256": "c5460050c32e60810b735311e4fc759c0bca8f7ced22faa932ddd9b74fc2e56b"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/process-review.json",
+          "bytes": 310511,
+          "sha256": "5728218cb348f3a0f593e656e35732fa0f842856f1dbcfe9369358b59023cb7e"
+        }
+      ]
+    }
+  ],
+  "technical_result": "changes_recommended",
+  "unreviewed_criteria": [],
+  "unmet_criteria": [
+    1
+  ],
+  "scope_completion": "Required bounded independent review complete; product criterion 1 remains unmet.",
+  "acceptance_granted": false,
+  "semantic_decision": null,
+  "semantic_decision_null_reason": "No human semantic decision received or granted; technical review only."
+}

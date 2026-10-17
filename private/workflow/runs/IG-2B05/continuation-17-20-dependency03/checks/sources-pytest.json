@@ -1,0 +1,20 @@
+{
+  "task": "IG-2B05",
+  "actor": "ig2:001-IG-2B05-executor-008601fd:executor",
+  "role": "executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T154824Z-fae43db9/001-IG-2B05-executor-008601fd/runtime-configuration.json",
+  "configuration_sha256": "26a09ed2652b387e62c579927067a2aefafb83c4bef44b77c8f3ab2271600bed",
+  "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B05/continuation-17-20-dependency03/tests-sources -p no:cacheprovider --tb=short",
+  "exit_code": 0,
+  "execution": "approved exact unchanged command after restricted-token denial",
+  "observed_output_excerpt": "71 passed in 31.66s",
+  "prior_restricted_result": {
+    "exit_code": 1,
+    "error": "PermissionError: [WinError 5] Access is denied: continuation-17-20-dependency03/tests-sources",
+    "tests_changed": false,
+    "assertions_changed": false,
+    "acl_changes": false
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "role": "coordinator",
+  "actor": "operator-authorized-ig2-recovery-20261015-03",
+  "summary": "Detached supervisor and fresh IG-2B04 executor verified alive after launcher exit.",
+  "builder_model": null,
+  "builder_reasoning": null,
+  "supervisor_pid": 1008,
+  "executor_pid": 17728,
+  "verified_configuration": {
+    "reasoning": "high",
+    "evidence": "private/workflow/orchestrator/20261015T204557Z-7260655f/001-IG-2B04-executor-4db8b52e/runtime-configuration.json",
+    "basis": "Observed CLI startup metadata",
+    "model": "gpt-6.1-sol"
+  },
+  "run": "private/workflow/orchestrator/20261015T204557Z-7260655f",
+  "launch": "private/workflow/launches/20261015T204555Z-fe0a62d8/launch.json",
+  "preserved_abandoned_lock": "private/workflow/runs/IG-2B04/recovery-20261015-03/abandoned-orchestrator.lock",
+  "verification": "Approved Win32_Process inspection confirmed launcher PID 10952, supervisor PID 1008 and executor PID 17728; current session process.json heartbeat advancing.",
+  "completed_stage": false,
+  "semantic_acceptance_granted": false
+}

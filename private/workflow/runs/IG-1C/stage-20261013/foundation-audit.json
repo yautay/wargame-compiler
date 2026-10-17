@@ -1,0 +1,930 @@
+{
+  "artifacts": [
+    {
+      "path": "contracts/ig/README.md",
+      "sha256": "c2d05b9cb20da646de21dc8b3f715799fae2006f06f322c7be800f0cb7e8db57",
+      "task": "IG-1A",
+      "verified_path": "contracts/ig/README.md"
+    },
+    {
+      "path": "contracts/ig/source.schema.json",
+      "sha256": "8593fb5f3929f72a97657593272c9089a34faeac74ce10a2f7a925a00fddab13",
+      "task": "IG-1A",
+      "verified_path": "contracts/ig/source.schema.json"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "e7d4993802db43bca3446ca0c6bc684c04a62ecf53bb7cbb0fa2019709a1571d",
+      "task": "IG-1A",
+      "verified_path": "pyproject.toml"
+    },
+    {
+      "path": "scripts/check.ps1",
+      "sha256": "587b06670b7c42c567e95e67afe1d738681f2ad95e9fe1464b4f60cfb6425f73",
+      "task": "IG-1A",
+      "verified_path": "scripts/check.ps1"
+    },
+    {
+      "path": "src/wgc/contracts/__init__.py",
+      "sha256": "e41623d285e0a5c24494cb81a161d63ae1816c1ef9fb3f810a657a6cf5cfdf81",
+      "task": "IG-1A",
+      "verified_path": "src/wgc/contracts/__init__.py"
+    },
+    {
+      "path": "src/wgc/contracts/source.py",
+      "sha256": "14aa5fd5129ed5f6ae65937a3f646407c3f1433483aa2145b53f942ed43509b1",
+      "task": "IG-1A",
+      "verified_path": "src/wgc/contracts/source.py"
+    },
+    {
+      "path": "tests/contracts/fixtures/catalog.json",
+      "sha256": "bdb3bdc0b03eff47570085f07712596548660a45f948ce5bc0873f7396909312",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/catalog.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-anonymous-identity-conflict.json",
+      "sha256": "656c89379b355fc478d5a9faf217116f8ff994eb2e523e2bea3704f6f5061060",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-anonymous-identity-conflict.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-changed-aspect-hash.json",
+      "sha256": "2c04c31919aeb450cc48ae80e1c2f82b3713dd14c0ecfa3ff6c07e43b594c2be",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-changed-aspect-hash.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-conditional-historical-superseded.json",
+      "sha256": "cbee7ea45acdde7cb26132e4fb610c29431038681aa4c8468d76a818eb06727f",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-conditional-historical-superseded.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-conditional-historical-unselected-source.json",
+      "sha256": "b6f4d90d007d6080de98bd117581fce656b752f64daed44794d133a2a9b99e0a",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-conditional-historical-unselected-source.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-conditional-historical-unselected.json",
+      "sha256": "d266e21e556b79a5675eca4c677b32c88042520a8bb9492bea825f58a9b05a68",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-conditional-historical-unselected.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-missing-inventory-basis.json",
+      "sha256": "d103636e387e277699c13e592399421e2386c1deab8f1ad0b56456acd15da79d",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-missing-inventory-basis.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-model.json",
+      "sha256": "2f16616fb1bdc3d46e9f4de53224c6b7b81915921d6a7f2c85332ec0c6de6c7d",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-model.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-inventory.json",
+      "sha256": "948141960d8aec907c31f8b9d2be0c264d66b4ac29b6613cd8a10d77daf53baa",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-inventory.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-level.json",
+      "sha256": "9ed60dd9f2ed3f0aa7a4f331aad3405f0f76c32c29899adaf5ebf149da33fbf1",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-level.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-region.json",
+      "sha256": "8a32ea5c9930c1e8b060c04fa809d51cdc4e9a93755a0c34e305399ad15edab8",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-other-region.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-partial.json",
+      "sha256": "61a72de214b3bdf33a5d2288e46e789f8d63989dedd5bc0e7e53c3e60dc16c65",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-partial.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-stale.json",
+      "sha256": "19ea8d14a87cddbd059b2660aaa2c2fd0c39e328ef7c041039556d1442f8f9a5",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-stale.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-exclusion-unrelated.json",
+      "sha256": "6e2605d8482881447d5945afe81e88d67e5d085817c40be3f9950e98ce43a0e2",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-exclusion-unrelated.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-active-mixed.json",
+      "sha256": "5a63927ae5fedce48a271407eddf75b8c075fb6f10863e37026b536f8ab0a494",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-gap-target-active-mixed.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-active.json",
+      "sha256": "0a9f71499d7fb9098c76b9302ad37d46406353cdcde915c86002a20ac4c83f89",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-gap-target-active.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-historical-mixed.json",
+      "sha256": "6f6c1499914d1d2a81d2f3f538b344ff2c1dea522cd141334fe2b52254483414",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-gap-target-historical-mixed.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-coverage-gap-target-historical.json",
+      "sha256": "a2906a1a32b34382bb5e161048a177dc0043b6bd0d5d551f0ae04811bbbe6024",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-coverage-gap-target-historical.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-active.json",
+      "sha256": "e23234a19764662c6bd28a6570ad4c3856955a8c7f56c31199f86497a5edd90e",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-dangling-active.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-dangling-historical.json",
+      "sha256": "1875fb915556e8ef2ffbdc9bb054ee3924ca0f5a33fae8b1579d4220db0a8ef5",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-dangling-historical.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-selection.json",
+      "sha256": "fcefa6d2aa1af2e6e4d5c49f6cd33a3188ba46c50ebc4057b9c19d233ca418f2",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-duplicate-selection.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-duplicate-store.json",
+      "sha256": "932c39e4e7c47f97a64c4a9cb34e67193f6291700d385037e7bc1b3d7f0708eb",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-duplicate-store.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-exclusion-aspect-only-boundary-pin.json",
+      "sha256": "2ffa0ba34d920e31e32caa467da2e2e94aea582a144398128165653484441811",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-exclusion-aspect-only-boundary-pin.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-exclusion-aspect-only-review-basis.json",
+      "sha256": "c6e3aeadc6053985b3975982c7fc050ba73b701e86b3d38e9cd17a08437d7627",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-exclusion-aspect-only-review-basis.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-exclusion-full-inventory-changed.json",
+      "sha256": "d86e8ca5752bc879bfc91c30e2449fe1abc71676660b18e128e4b6b37600170b",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-exclusion-full-inventory-changed.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-exclusion-inventory-aspect-stale.json",
+      "sha256": "f320b1f2b7b7b7542f72dcb8b43f66c37930a66c3175e77083234a9ec00e20fb",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-exclusion-inventory-aspect-stale.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-exclusion-inventory-aspect.json",
+      "sha256": "c4f9e95146ccaa161700cc75ce294925786159dbaaabc01e821e4760cebbf12c",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-exclusion-inventory-aspect.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-gap-counted-as-coverage.json",
+      "sha256": "c105f5a777639036b3e3f0e2eeeabb5699c5d6827a10265140bde5013ca856ad",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-gap-counted-as-coverage.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-group-binding.json",
+      "sha256": "af5aa206a2a31926d11d31503c15aa7012d102dce2aa2627f82896689a63619a",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-group-binding.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-known-without-evidence.json",
+      "sha256": "bc1f5773b30fd956388dda57fa2984e5c3118a478d5faefec11be81b7f54c19f",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-known-without-evidence.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-model-approval.json",
+      "sha256": "c12bbe40d372dd408456f88846be7c7617ac187824b5972f5078e98e4110a05f",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-model-approval.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-formal.json",
+      "sha256": "81588bb151374ff44141cb85964b2d4bfd9c0d3002c71dc6b043ec0f5badcda7",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-opaque-formal.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-opaque-ready.json",
+      "sha256": "eaadb38dea99363e629505e4a8cc5041a031be75ad43b70794cf6a76443ec419",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-opaque-ready.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-origin-path.json",
+      "sha256": "e27165a475ca06951f3c7720e08424cd143013fcc3061916777f1e009eeefd82",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-origin-path.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-overlapping-coverage.json",
+      "sha256": "69b12e8c3ed06cf80f46f7fa18125dad1761bdace54cbeef72b6b144a9456b7e",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-overlapping-coverage.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-reference-type.json",
+      "sha256": "ce20da383d4f7b1074103300b5a2a3940de06b020ee6eba4a408383fb4d1b543",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-reference-type.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-required-historical-superseded.json",
+      "sha256": "5e293974a670b6c9950eb013565840e065a5f1a002ed66b40c7aafbf63df7121",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-required-historical-superseded.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-required-historical-unselected-source.json",
+      "sha256": "f76fb1e5e95485d5dd22f397cd520247814fdaa0791c72ca5c017166e9a82225",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-required-historical-unselected-source.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-required-historical-unselected.json",
+      "sha256": "cc1845c0b13f9bcd6d2d9c7c5c0ef45f55173ed5af37626d4eee8048037b8f44",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-required-historical-unselected.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-table-note.json",
+      "sha256": "3e59a7c9cc3d6ba213c5adaeaaa8869eee84b97f3c73c6b7e503fc5b30ed80a9",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-table-note.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/invalid-unknown-without-gap.json",
+      "sha256": "ee5e80d4b000bd48a518c81136bc254349e19561112987aca112db520517975b",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/invalid-unknown-without-gap.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/README.md",
+      "sha256": "82a5f403d0ce3df1fdb75d955173a09a9cb79c84680dce77663c16f914e0ad2b",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/README.md"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-aspect.json",
+      "sha256": "92ee3df90d0501e2af40528f4505d43d6ab3c88af00d4d23e3a0f176faa2a723",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-changed-aspect.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-changed-dependency.json",
+      "sha256": "9fa45d5b015851ad321a936c578c5e09122fd716b86af96ef9c12db67d3c46a7",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-changed-dependency.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-conditional-historical-selected.json",
+      "sha256": "7dec696c435998a36b63da2b0b6dec9ffec0bf723d7b68c67d133b1a0d376f9e",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-conditional-historical-selected.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-coverage-content-evidence.json",
+      "sha256": "7e495eb2e8accc703d533a71730a107f817ad378815288ac040d5bf3f232d705",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-coverage-content-evidence.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-coverage-content-history-link.json",
+      "sha256": "06163cb572d7a953f98f7ed4dc47c274bc9b7a368a65684e75e02aecdbc0926d",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-coverage-content-history-link.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-cross-section-exception.json",
+      "sha256": "6dc73a731e0e36f5dd1b8629e712cee81e2f7e9b5508d27735997a419caf19f7",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-cross-section-exception.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-edition-conflict.json",
+      "sha256": "044556aac43817f78d6356e6974412c06c9b12834282353108a3833734f658a0",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-edition-conflict.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-exact-coverage-exclusion.json",
+      "sha256": "d49ba267de3f78122fc4a50ae02d17ed8daf12bdb03062c9a6579d5e4018dc0e",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-exact-coverage-exclusion.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-exclusion-full-inventory-with-aspect.json",
+      "sha256": "bb105e0695600f8d814e97d394f73b8912cb27ecd57bf0652362e3d37752ee9e",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-exclusion-full-inventory-with-aspect.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-historical-reference.json",
+      "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-historical-reference.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-overlapping-context.json",
+      "sha256": "ee16f98d763e528896d3a4e063e4d1239149aed29c705ee5cba401688a5be77a",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-overlapping-context.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-partial-review.json",
+      "sha256": "d12c2bf2bb7654217e57c9b77da67d1d74e0b388192dd64fc4b365190eb8939d",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-partial-review.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-procedure-cycle.json",
+      "sha256": "fabc738c5423550d2a061095151a3b8a60d1e168f81a2a85f75258b011517f2b",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-procedure-cycle.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-required-historical-selected.json",
+      "sha256": "56d84227f49740843d9959ed3857e68487de16312da32630f8a555bb9a0e6b3d",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-required-historical-selected.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-source.json",
+      "sha256": "9f6d03b2372847cb4e678d5537cb51f030e2370a005ba5ffa2eb55876db9d1b2",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-source.json"
+    },
+    {
+      "path": "tests/contracts/fixtures/valid-unresolved-conditional-dependency.json",
+      "sha256": "cc8d199b4b3bb97fe4192961e85dad5a1699d206539dfba84bbef05edf5b39c8",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/fixtures/valid-unresolved-conditional-dependency.json"
+    },
+    {
+      "path": "tests/contracts/test_source.py",
+      "sha256": "83f980a41bf7f7cf6277ba67a93e1ea9d5ab03733ea078f5f2af4c5072ff0159",
+      "task": "IG-1A",
+      "verified_path": "tests/contracts/test_source.py"
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "sha256": "c29111c6bb8703615199d7d189ae42dc115a33a445a33d4c37fade9be7826eea",
+      "task": "IG-1A",
+      "verified_path": "tests/test_workflow.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/report.md",
+      "sha256": "669cd6c90666c719a453315de363fdae4ebf8dda34e1e8efe30b86a397b46fba",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/report.md"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/checks.json",
+      "sha256": "6f9c727374e455bb3decb46e14848ac1131dc40c8df363934c43529c33807629",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/checks.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/configuration.json",
+      "sha256": "20810ac1d01121a37cbadded861f81ad6c814b721cc6572245c72b320cae33b2",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/configuration.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/checkpoint-frozen.json",
+      "sha256": "876958f3ce7139308319e6a7c2f40d027cbb3af98adc3bf6f031fe745582f897",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/checkpoint-frozen.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/rereview-prompt.md",
+      "sha256": "2b49f5abd395e32806c4a7065528699f0639e6ac2687e1afb00f49f1500fbca5",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/rereview-prompt.md"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/baseline-manifest.json",
+      "sha256": "0e2a54a9f94be6f499300d5d8893574c114daa1b743972d61efe29bdb0c7d996",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/baseline-manifest.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_schema.py",
+      "sha256": "b277a8bd86dbddcd8b37b1bcc0207328afa6e9a22275a77e985700cfd4861a33",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_schema.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_fixtures.py",
+      "sha256": "44b94ea3f8b0589ece92b04fc1963e6013043e583bfed5a7a35020f6b098dd0a",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_fixtures.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_regressions.py",
+      "sha256": "dd3dcc8a989e26436692d66909d1ab2b36e6f33100d61c220d89ddb7b9ea7ac1",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_regressions.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_inventory_regressions.py",
+      "sha256": "2ee0d13c3c8260d0051e7635708715fedee871d0bda3a4db939aa5b02872caa9",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/build_inventory_regressions.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1A/attempt-review-repair-02/diff-check-final.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/runs/IG-1A/attempt-review-repair-02/diff-check-final.log"
+    },
+    {
+      "path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/result.json",
+      "sha256": "8e565bc646988e08970b8e8600aea663412687a56ed6f8b339f39ff98b6c00e2",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/result.json"
+    },
+    {
+      "path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/pytest.log",
+      "sha256": "79cb578224d9afeb0f884f0105fcc80bde221a15f066c276f3b098f6575b9c1c",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/pytest.log"
+    },
+    {
+      "path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/plan.log"
+    },
+    {
+      "path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/dry-run.log",
+      "sha256": "260c7da81a969341c9b3eb71cdcaae0026ff79325c256a7e0b2ca9be6078ec00",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/dry-run.log"
+    },
+    {
+      "path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c",
+      "task": "IG-1A",
+      "verified_path": "private/workflow/checks/active-83d5c8323e4847cbb847e31843154a05/diff-check.log"
+    },
+    {
+      "path": "contracts/ig/input.schema.json",
+      "sha256": "cc79d4824170a39105598b7ba267771b7516ae8b6fc2c1b67e6b019445bd2504",
+      "task": "IG-1B",
+      "verified_path": "contracts/ig/input.schema.json"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/ambiguities.yaml",
+      "sha256": "d11e59ee4858421ed7f25091641964f45c41625003ba9d03ef9f51cec28adb9a",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/ambiguities.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/changes.yaml",
+      "sha256": "fabf4b17ce452fa6bf1c634dca430956054f47e392b2d773e3a562b978c53053",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/changes.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/manifest.yaml",
+      "sha256": "3031a4c7ea87552d5074dc4f9bd43947dfdb4189d060ded4bbd3eb66ef2cd7f6",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/manifest.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/notes/overview.md",
+      "sha256": "32886018fc9523502a50f46523a49e8e70e92d223d360c69a64eb5644d28f80b",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/notes/overview.md"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/procedures.yaml",
+      "sha256": "651614ce6a49c436ec23a6b8bd5b64f8c77d786edd4323b2ae91c4cb6ff3eff3",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/procedures.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/relations.yaml",
+      "sha256": "1737abb4a2f8877af8964e303d325d24ee7ae17ab2a9e3edeec4f91974fecb2a",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/relations.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/01-wprowadzenie.yaml",
+      "sha256": "77709eeec903a5a8b6f80a3bdada4994254dbdf41844c947d6edd8ddf81e549c",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/01-wprowadzenie.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/02-komponenty-terminologia.yaml",
+      "sha256": "94810dd6362e28d5fde8633c6788082e8705849d58c01abc0f660f6c4cb78aae",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/02-komponenty-terminologia.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/03-sekwencja-gry.yaml",
+      "sha256": "d926613871f4bd99757e07b0b5f3df59800757afbb68576a0382a64538702688",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/03-sekwencja-gry.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/04-dowodcy.yaml",
+      "sha256": "8b0abe24168605ee682449ce75f24408075a1c50c22abfd3f50c9d3704ad77cc",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/04-dowodcy.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/05-aktywacja-rozkazy.yaml",
+      "sha256": "d7db614e3b1007b24228460be4bbd1197262b20046f82e1e205564e04f0a911b",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/05-aktywacja-rozkazy.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/06-ruch.yaml",
+      "sha256": "5f365777d87030b96e3ede3ab8b1d1c97fddfd6fc17b91c59b8daff8b2038844",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/06-ruch.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/07-ukierunkowanie-zoc.yaml",
+      "sha256": "11a8a7c2e2ef6d5bfff2fdee92e0e374418617574b5bd463619d936e1317f8e0",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/07-ukierunkowanie-zoc.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/08-walka.yaml",
+      "sha256": "7ff997bce127f0b08b9754a1739ade67fd9ae36771e5ede40bcb5832e43797a4",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/08-walka.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/09-jednostki-specjalne.yaml",
+      "sha256": "9e28d5df8720dc1dce71f687146f25fcea313df46e98f670f52cc55b579d221c",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/09-jednostki-specjalne.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/10-skutki-walki.yaml",
+      "sha256": "dceb1c9ad26a8f52e7dcfdf8d0bdb39443a16520a1d02f657fdedbd403976090",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/10-skutki-walki.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/11-wycofanie-armii.yaml",
+      "sha256": "4882c57a9010a010496d610bf2b7030b31c8087c7cd621d3b0f19ace072d44ea",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/11-wycofanie-armii.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/12-scenariusze-ksiega-2018.yaml",
+      "sha256": "869fcf8be6266607a018b8b617da030cbc03aed44c84e4ca4773e551ddbddf5a",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/rules/12-scenariusze-ksiega-2018.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/scenarios.yaml",
+      "sha256": "0287171c71593defc5675c9db3d412ae4dda0635402f459a2e5764514b4ff90c",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/scenarios.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/tables.yaml",
+      "sha256": "e0d061947276e38723e6c304887650213c8a646dac41ff8cb7bb608c023f5b49",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/tables.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/terminology.yaml",
+      "sha256": "9e86ec5abf30436afd3de805a50972cf3953fd749dcaeac7d52c3d87a4c27ffb",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/terminology.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/terms.yaml",
+      "sha256": "44d8f2b6882f549160082a2f200b74901f2099ff54cd5c12a33036296baecc85",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/kb/terms.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/wgu.yaml",
+      "sha256": "3f022a178835733ec0b085148c7fdf689430265e1b99bdeff2a4103c566de205",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/files/wgu.yaml"
+    },
+    {
+      "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/manifest.json",
+      "sha256": "67ac53869ea80ea4d84018e253a9033e48fe89823d0a9a397ab8fe41b91d33d5",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df/manifest.json"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/availability-d7d7370248aafe9fe4393c5e767264768d908a220f3ef7899de58078f57d1923.json",
+      "sha256": "d7d7370248aafe9fe4393c5e767264768d908a220f3ef7899de58078f57d1923",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/sources/availability-d7d7370248aafe9fe4393c5e767264768d908a220f3ef7899de58078f57d1923.json"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/files/provenance.json",
+      "sha256": "185ef47f755fa710273ea48fbf4ad544e9ac20a3be708d18ee548349869ec3a8",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/files/provenance.json"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/files/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/files/rulebook.pdf"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/manifest.json",
+      "sha256": "615b1ae1cbeebf894c7f8dbbb7c3f2bcb0819427a342b3fa05bc690c33b9eed8",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/manifest.json"
+    },
+    {
+      "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/source-pin.json",
+      "sha256": "3e722f7b3a30e81b40443d080c09bc28d276b23ba10568ec4dea5549af09871a",
+      "task": "IG-1B",
+      "verified_path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008/source-pin.json"
+    },
+    {
+      "path": "src/wgc/inputs/__init__.py",
+      "sha256": "5c4a97d2a37a1c082f97c9d53249ac5190b08055d36196200d52fd73fbb4628a",
+      "task": "IG-1B",
+      "verified_path": "src/wgc/inputs/__init__.py"
+    },
+    {
+      "path": "src/wgc/inputs/README.md",
+      "sha256": "13cc4125230d6d7e92b89853b95c8bb00c88fdf7efcf1fa0fc9a1b998597e642",
+      "task": "IG-1B",
+      "verified_path": "src/wgc/inputs/README.md"
+    },
+    {
+      "path": "src/wgc/inputs/snapshot.py",
+      "sha256": "6f701f14fb23a377af11ea73eba24e088c90db74acef8587d0838ed4e4eb01ed",
+      "task": "IG-1B",
+      "verified_path": "src/wgc/inputs/snapshot.py"
+    },
+    {
+      "path": "tests/inputs/test_snapshot.py",
+      "sha256": "5de3af682b07821c1c6c07ba1fc3e46e3b782a3aa848b263147c04be1ce6f358",
+      "task": "IG-1B",
+      "verified_path": "tests/inputs/test_snapshot.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/report.md",
+      "sha256": "186015c8d4f92887a46eb628a92ea7d101b2d929a074249e05f2b1af96e022a7",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/report.md"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/checkpoint-frozen.json",
+      "sha256": "3fca7e41dcb2efad1e5be10001c3b488428b33e392d864e85f85d53cef4536d2",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/checkpoint-frozen.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/configuration.json",
+      "sha256": "27a2e6040d66bee502a573d7fc14483644d63a21b68cf5f5f085195a70d01b40",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/configuration.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/operator-scope.json",
+      "sha256": "9cdb805a6aeb9c40f34dd82ae57d21d4588d8b89088f7b1cccd5ec2692787e60",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/operator-scope.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/baseline-manifest.json",
+      "sha256": "9a1997f52d2351b8594f601d8d056e40614bdf3bbac55889dca8e545dbb34d26",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/baseline-manifest.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/evidence-before.json",
+      "sha256": "1c23f20f40ea51b07eb68e49a4fc75b2d75db0d99cc1b9b0b2a539a56d7e3a72",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/evidence-before.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/preservation.json",
+      "sha256": "2ac6ea41f1906de5325a104dd7ef345971d5f8890bf8d0106d6795bf30fdb854",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/preservation.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/suite-provenance.json",
+      "sha256": "024e3b044bfbca98baf9c0a5fb2ad4d73cd92a40fdfbddb19fb951023b72e01d",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/suite-provenance.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/checks.json",
+      "sha256": "d098954de28de0e69ca79e04a2015219c726e2bc7474b0d984547a310695f08f",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/checks.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/replayed-checks.json",
+      "sha256": "7d37286dc710acb9e1c9bab2cce1f009c206993955ae61bdd2a59cbd8dfcced5",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/replayed-checks.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/input-tests.log",
+      "sha256": "d3ca5d01df20ee924c0b08ed303eb2f6b92415640694384edbbecef84cb28983",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/input-tests.log"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/project-check.log",
+      "sha256": "0b530290d8ae1659b01a0ca97bcc0fa636a68855fe8504caf325271e5f35f186",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/project-check.log"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/diff-check.log"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/review_controls.log",
+      "sha256": "3dea6e36e7a49c78f13a83dd90fc62b785bc1d0d7a2728058e9e5e763d429686",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/review_controls.log"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/native_handle_probe.log",
+      "sha256": "6fa491ecdae82836ee35741a5e7478bf98a0230ea7322d972a3c8924c348f082",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/native_handle_probe.log"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/private_audit.log",
+      "sha256": "72c4069c5254932768111e10bf842fd9d97454787a610e2878258b66871dde68",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/private_audit.log"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/run_reviewer_checks.py",
+      "sha256": "8635f3e1ce490daa76eccd9a1ab23a7d464b52fa10b8759f97a90ca27d378103",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/run_reviewer_checks.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/freeze_repair.py",
+      "sha256": "c030edf6e8a4991a1d247f124d311ee36c9b034b3deabcb4f2950e2927fde846",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/freeze_repair.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/src_wgc_inputs_snapshot.py.diff",
+      "sha256": "3c99e1336f6a534012e50c946fec34113418bf6863faee5463bdb6961a3a9613",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/src_wgc_inputs_snapshot.py.diff"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/src_wgc_inputs_README.md.diff",
+      "sha256": "36895d9fd21107e5eba725d9f3357d4508bc7cc392fa204be70bd688d75959dc",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/src_wgc_inputs_README.md.diff"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/tests_inputs_test_snapshot.py.diff",
+      "sha256": "ddab9469c36563607c5b4044713ee6df2b5715b4b3567b9b2dc47d4754b201d5",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/attempt-review-repair-01-20261012T193641Z/tests_inputs_test_snapshot.py.diff"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/review_controls.py",
+      "sha256": "9d0dcfad4d39af7d0e5989ac8f87880cfb8c3fe0b2e300c4c42e9b5fd5eee14b",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/review_controls.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/native_handle_probe.py",
+      "sha256": "010eef747c17e671eecc0767532fdc686a0318ae093c05d8e771e1f764cba51b",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/native_handle_probe.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/private_audit.py",
+      "sha256": "0ea418e4c6c328e39f7f9cabb67be062428b26a19767c9dba3695184e684dfdb",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/private_audit.py"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/review-controls.json",
+      "sha256": "5b5a4fcbf5a7dc064628827ffacffed98158f204ab2a2f75e022356b3ec919ab",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/review-controls.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/native-handle-probe.json",
+      "sha256": "e1fd1706a4dbdd964e246cd8fb062dfc3e54c3eee2b7a06224d6ef9049ffe9fc",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/native-handle-probe.json"
+    },
+    {
+      "path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/private-audit.json",
+      "sha256": "c7e1a66cde5fdc308e18278db1ab2f29e5cba88f8da568f70da8baefd03fb831",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/runs/IG-1B/repair01-probes-20261012T193641Z/private-audit.json"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/result.json",
+      "sha256": "b1e5b8417963d5ef85872c46f5075edab9914dbdf720ec87daefc3369b9dbc54",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/result.json"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/plan.log"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/dry-run.log",
+      "sha256": "2179c5b84cee0af0d5d8f011daf403bc930897bc28019e0af35821cc9eb24516",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/dry-run.log"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/pytest.log",
+      "sha256": "c0df7e53ef8a95c2868f6e43346fd2e3b00aa9a59f3f4c28f007f2503285256f",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/pytest.log"
+    },
+    {
+      "path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/diff-check.log",
+      "sha256": "755591b02c7df0a0d4ae2653c9205a8bb5edd308b6934d230b7f9dbf08efe97c",
+      "task": "IG-1B",
+      "verified_path": "private/workflow/checks/active-87f59f5ec0c147e7be00f4251bbb0d46/diff-check.log"
+    }
+  ],
+  "ig_1b_delivery_count": 66,
+  "ig_1b_independent_review_artifacts": 38,
+  "preserved_baseline_count": 34,
+  "input": {
+    "path": "private/ig/projects/spqr/inputs/sha256-0dedff0ef3588face0e2c26646d4ddea9b7aa05c5acf62d2e43ca6dd462a96df",
+    "sha256": "67ac53869ea80ea4d84018e253a9033e48fe89823d0a9a397ab8fe41b91d33d5"
+  },
+  "source": {
+    "path": "private/ig/projects/spqr/sources/sha256-86dd7a36afc645e6a82cb3b1d7f3ca22d542af7fdfb01f1a7dc8d0c136699008",
+    "sha256": "615b1ae1cbeebf894c7f8dbbb7c3f2bcb0819427a342b3fa05bc690c33b9eed8"
+  },
+  "available_game_files": 23,
+  "available_registry_files": 2,
+  "available_bytes": 5199801,
+  "missing_sources": 36,
+  "identity_to_wgu_original": "unknown",
+  "external_scope": [
+    {
+      "path": "C:/repo/wargame-utils/wgu/schemas/kb.schema.json",
+      "sha256": "0a93858ed3e0d99382ea962350e3b2994fab90b872a8b86584519b5a9e33a551",
+      "bytes": 10294
+    },
+    {
+      "path": "C:/repo/wargame-utils/wgu/kb/store.py",
+      "sha256": "b7f3a6fc94c3b2bee27ccdb6bc82db0cecd1e3b3aafcf4aa3cf85726e1ed2bbe",
+      "bytes": 3875
+    },
+    {
+      "path": "C:/repo/wargame-utils/wgu/kb/export.py",
+      "sha256": "b0735f52350abb7dfb8bd6e3f94bbe63789a0ffc2e7ae2eac040f00eede24b00",
+      "bytes": 2063
+    },
+    {
+      "path": "C:/repo/wargame-utils/wgu/kb/lint.py",
+      "sha256": "78f5b2ade91eb1f69e5ef7f389077a6aba27e4b6f633780099e3abc5911cfabf",
+      "bytes": 4029
+    }
+  ]
+}

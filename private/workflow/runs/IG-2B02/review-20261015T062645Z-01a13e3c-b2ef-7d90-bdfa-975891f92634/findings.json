@@ -1,0 +1,205 @@
+{
+  "role": "reviewer",
+  "actor": "codex-01a13e3c-b2ef-7d90-bdfa-975891f92634",
+  "recorded_utc": "2026-10-15T06:39:39.310842+00:00",
+  "technical_result": "changes_recommended",
+  "findings": [
+    {
+      "id": "IG-2B02-R01",
+      "severity": "P2",
+      "blocking_inventory_acceptance": true,
+      "category": "incorrect_grouped_component_reading",
+      "title": "Alae counter component list substitutes 6 for visible 5",
+      "artifact": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/region-ledger-final.json",
+        "bytes": 939269,
+        "sha256": "0efa9410e636c48f968dead6a9c37607668173b7185615f0bb17705792eb8020"
+      },
+      "targets": [
+        {
+          "region_id": "region:cbf6f8d6-889b-4fcb-bc54-a41a8d9052d0",
+          "key": "ig2b02:p5:alae:counter",
+          "revision": "9bb2b17d8602bc61d60944b00befd342c27b0e8403ef0f11508e4e4db335eaa7",
+          "pdf_page": 5,
+          "box": [
+            71895,
+            107954,
+            134804,
+            155935
+          ],
+          "original": {
+            "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/originals/original-05.png",
+            "bytes": 793556,
+            "sha256": "eefb0d4a13ee4ab107ca8ce9715752117e36477b7dbc3fce0f53a132f8047c8c"
+          },
+          "original_enlargement": {
+            "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/visual/original-component-006.png",
+            "bytes": 13771,
+            "sha256": "29107003eea93e2e14d07ece279aad06923ebd0ff4fc17e1c2dc922404618ef5"
+          },
+          "submitted_triple": {
+            "text": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/cbf6f8d6-889b-4fcb-bc54-a41a8d9052d0/text.txt",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "image": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/cbf6f8d6-889b-4fcb-bc54-a41a8d9052d0/image.png",
+              "bytes": 7427,
+              "sha256": "f27b040640bd026d0bf9ef8088f1f700a5286dae367822f28e4de7fbdd520d4a"
+            },
+            "crop_pdf": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/cbf6f8d6-889b-4fcb-bc54-a41a8d9052d0/crop.pdf",
+              "bytes": 380219,
+              "sha256": "455ee654f607585ce6db1922bfb67ff1720f9a78fce556540d05c4e1ad00d5e1"
+            }
+          },
+          "ledger_json_pointer": "/regions/5/components",
+          "components": [
+            "AS XIVa identifier (small glyph uncertain)",
+            "CO",
+            "J missile glyph",
+            "3",
+            "LG",
+            "6",
+            "5",
+            "Soldier illustration"
+          ]
+        }
+      ],
+      "observed": "Original lower-left gray rating is visibly 5; lower-right black rating is also 5. Frozen final ledger and author specifications list 6 followed by 5. Later component-observations.json does not correct this entry.",
+      "expected": "Explicit grouped component accounting must describe visible numbers accurately or record the exact unresolved reading; PNG/extraction presence does not validate an incorrect component description.",
+      "consequence": "Criterion 1 component accounting is inaccurate even though the complete counter graphic and correct raw evidence are preserved. This is not a PDF omission or a reason to alter raw source text.",
+      "smallest_repair_scope": "A new coordinator-authorized repair attempt correcting only Alae component descriptions and derived ledger/report claims; preserve frozen attempt, exact IDs/revisions/bboxes/raw triples/denominators unless separately justified. Refresh dependent report pins and new delivery/review evidence.",
+      "required_verification": "Independently recompare exact source counter and revised component list; confirm both bottom values 5, all other components intact, unchanged identities/evidence and affected artifact pins.",
+      "related_criterion_numbers": [
+        1
+      ]
+    },
+    {
+      "id": "IG-2B02-R02",
+      "severity": "P2",
+      "blocking_inventory_acceptance": true,
+      "category": "omitted_grouped_component",
+      "title": "Both Thrace component lists omit visible small 1",
+      "artifact": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/region-ledger-final.json",
+        "bytes": 939269,
+        "sha256": "0efa9410e636c48f968dead6a9c37607668173b7185615f0bb17705792eb8020"
+      },
+      "targets": [
+        {
+          "region_id": "region:c3d45e49-7d30-4572-92f7-7ffcb468e840",
+          "key": "ig2b02:p5:light-infantry:counter",
+          "revision": "e94036005f19209a8517d9f9c784b3b03141fdcf1134929cef084abfe0770893",
+          "pdf_page": 5,
+          "box": [
+            513071,
+            296717,
+            575981,
+            345329
+          ],
+          "original": {
+            "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/originals/original-05.png",
+            "bytes": 793556,
+            "sha256": "eefb0d4a13ee4ab107ca8ce9715752117e36477b7dbc3fce0f53a132f8047c8c"
+          },
+          "original_enlargement": {
+            "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/visual/original-component-025.png",
+            "bytes": 12069,
+            "sha256": "ce2063d765031103f26be5bcdf540809323badf68fe9bfc1b5ea40f159377816"
+          },
+          "submitted_triple": {
+            "text": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/c3d45e49-7d30-4572-92f7-7ffcb468e840/text.txt",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "image": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/c3d45e49-7d30-4572-92f7-7ffcb468e840/image.png",
+              "bytes": 6375,
+              "sha256": "dc05c0acb5971b1a81d8a353b2da1b723a7231a15ee5c59e447bfa1bdb196546"
+            },
+            "crop_pdf": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/c3d45e49-7d30-4572-92f7-7ffcb468e840/crop.pdf",
+              "bytes": 380227,
+              "sha256": "0c19e2547c9cba6d3e78c5fc92fcab2b7dde4676cc0bb7814e5dab47146a3197"
+            }
+          },
+          "ledger_json_pointer": "/regions/24/components",
+          "components": [
+            "Thrace",
+            "J missile glyph",
+            "5",
+            "LI",
+            "5",
+            "5",
+            "Soldier illustration"
+          ]
+        },
+        {
+          "region_id": "region:66a11202-3a57-4637-a1ac-308cb62e2662",
+          "key": "ig2b02:p5:javelinists:counter",
+          "revision": "7dfc5ab19034511a810e095475e9374972ce017123097dbc598a768c0acd0705",
+          "pdf_page": 5,
+          "box": [
+            513071,
+            537878,
+            575981,
+            586490
+          ],
+          "original": {
+            "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/originals/original-05.png",
+            "bytes": 793556,
+            "sha256": "eefb0d4a13ee4ab107ca8ce9715752117e36477b7dbc3fce0f53a132f8047c8c"
+          },
+          "original_enlargement": {
+            "path": "private/workflow/runs/IG-2B02/review-20261015T062645Z-01a13e3c-b2ef-7d90-bdfa-975891f92634/visual/original-component-029.png",
+            "bytes": 12069,
+            "sha256": "ce2063d765031103f26be5bcdf540809323badf68fe9bfc1b5ea40f159377816"
+          },
+          "submitted_triple": {
+            "text": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/66a11202-3a57-4637-a1ac-308cb62e2662/text.txt",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "image": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/66a11202-3a57-4637-a1ac-308cb62e2662/image.png",
+              "bytes": 6375,
+              "sha256": "dc05c0acb5971b1a81d8a353b2da1b723a7231a15ee5c59e447bfa1bdb196546"
+            },
+            "crop_pdf": {
+              "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/evidence/66a11202-3a57-4637-a1ac-308cb62e2662/crop.pdf",
+              "bytes": 380225,
+              "sha256": "6b41b62c73adb665bbf1344dc4654d3118dd87312f6f85594c4ade6a98b20724"
+            }
+          },
+          "ledger_json_pointer": "/regions/28/components",
+          "components": [
+            "Thrace",
+            "J missile glyph",
+            "5",
+            "LI",
+            "5",
+            "5",
+            "Soldier illustration"
+          ]
+        }
+      ],
+      "observed": "Both repeated Thrace counters have a separate small white 1 beneath the name, immediately left of the circular J. Neither final ledger component array nor final author specifications lists that 1. Later component observations do not supply it.",
+      "expected": "Every visible number/symbol within grouped diagrams must be explicitly accounted for without adding a duplicate denominator unit.",
+      "consequence": "Criterion 1 grouped-component completeness is unmet in two regions; unchanged region counts and preserved PNGs do not cure the omitted component description.",
+      "smallest_repair_scope": "A new authorized repair attempt adding the small 1 to both Thrace component descriptions and dependent reports, keeping the two distinct existing region identities and one denominator unit per counter; preserve all frozen bytes.",
+      "required_verification": "Review both exact physical-page-5 counters separately; confirm the new component entries and complete remaining components, unchanged raw artifacts/locators/denominators, refreshed delivery pins and independent review.",
+      "related_criterion_numbers": [
+        1
+      ]
+    }
+  ],
+  "counts": {
+    "P2": 2,
+    "affected_regions": 3
+  },
+  "limits": "Technical inventory component findings only; no gameplay legality or human semantic acceptance. Findings do not authorize queue transition or repair."
+}

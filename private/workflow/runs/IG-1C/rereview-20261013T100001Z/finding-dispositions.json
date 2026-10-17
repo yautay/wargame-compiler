@@ -1,0 +1,69 @@
+{
+  "result": "pass",
+  "parent_review": {
+    "path": "private/workflow/runs/IG-1C/review-20261013T092949Z/review.json",
+    "sha256": "333ca0ae84342bffc103045c5ad1ea1ee2dbc8f104764d2ce4db2255a8c0f48e"
+  },
+  "dispositions": [
+    {
+      "finding_id": "IG1C-R01",
+      "disposition": "closed",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "reviewed_location": {
+        "path": "src/wgc/wgu_adapter/parser.py",
+        "start": 36,
+        "end": 54
+      },
+      "basis": "Unchanged malformed bool/timestamp/int/float probes pass. Six new explicit scalar cases include invalid calendar values and binary Unicode; each returns exactly one raw-preserved error with escaped field pointer and exact line/column. Independent multi-file snapshot preserves both malformed files and all following valid/raw files. Unrelated string constructor KeyError still propagates.",
+      "independent_controls": [
+        "original-probes.log",
+        "risk-probes.log"
+      ],
+      "required_verification_complete": true
+    },
+    {
+      "finding_id": "IG1C-R02",
+      "disposition": "closed",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "reviewed_location": {
+        "path": "src/wgc/wgu_adapter/importer.py",
+        "start": 45,
+        "end": 77
+      },
+      "basis": "Embedded schema exactly equals the pinned WGU schema, independently extracted from a literal JSON AST without executing product code. All four original optional-field counterexamples pass. Fourteen new nested/file type/enum cases and three missing-manifest metadata cases produce located structural errors; missing chapter metadata uses its parent location. Valid extensions, unconstrained data and integer/string step numbering survive, while bool numbering fails. Complete actual corpus has zero errors and unchanged full field/record ledger.",
+      "independent_controls": [
+        "verification-before.json",
+        "original-probes.log",
+        "risk-probes.log",
+        "metadata-edges.log",
+        "independent-accounting.json"
+      ],
+      "required_verification_complete": true
+    },
+    {
+      "finding_id": "IG1C-R03",
+      "disposition": "closed",
+      "repair_iteration": 1,
+      "maximum": 2,
+      "reviewed_location": {
+        "path": "src/wgc/wgu_adapter/importer.py",
+        "start": 102,
+        "end": 116
+      },
+      "basis": "Original scalar-confusables probe passes unchanged. New heterogeneous null/bool/integer/empty-string/list/mapping entries retain exact values without false errors; incidental confusable IDs do not cause duplicate entity identities. Genuine entity-record errors and cross-file/nested duplicate IDs remain covered by unchanged strict probes. Full actual corpus mappings/raw bytes remain unchanged.",
+      "independent_controls": [
+        "original-probes.log",
+        "risk-probes.log",
+        "independent-accounting.json",
+        "import-compatibility.json"
+      ],
+      "required_verification_complete": true
+    }
+  ],
+  "remaining_findings": [],
+  "new_findings": [],
+  "product_repair_iterations_reviewed": 1,
+  "reviewer_product_edits": false
+}

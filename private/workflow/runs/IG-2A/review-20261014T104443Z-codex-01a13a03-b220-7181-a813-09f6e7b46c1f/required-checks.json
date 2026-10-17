@@ -1,0 +1,66 @@
+[
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/sources -q --basetemp C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f\\t -p no:cacheprovider --tb=short",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/sources",
+      "-q",
+      "--basetemp",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f\\t",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T10:49:34.724070+00:00",
+    "ended_utc": "2026-10-14T10:50:44.746011+00:00",
+    "wall_seconds": 70.03099999995902,
+    "stdout": "sources-tests.stdout",
+    "stderr": "sources-tests.stderr"
+  },
+  {
+    "command": "pwsh -NoProfile -File C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f\\check-adapter.ps1",
+    "argv": [
+      "pwsh",
+      "-NoProfile",
+      "-File",
+      "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-2A\\review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f\\check-adapter.ps1"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T10:50:44.748019+00:00",
+    "ended_utc": "2026-10-14T10:52:08.379824+00:00",
+    "wall_seconds": 83.625,
+    "stdout": "project-check.stdout",
+    "stderr": "project-check.stderr"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T10:52:08.386404+00:00",
+    "ended_utc": "2026-10-14T10:52:12.304874+00:00",
+    "wall_seconds": 3.922000000020489,
+    "stdout": "workflow-validate.stdout",
+    "stderr": "workflow-validate.stderr"
+  },
+  {
+    "command": "git diff --check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-14T10:52:12.308084+00:00",
+    "ended_utc": "2026-10-14T10:52:13.955756+00:00",
+    "wall_seconds": 1.6560000001918525,
+    "stdout": "git-diff-check.stdout",
+    "stderr": "git-diff-check.stderr"
+  }
+]

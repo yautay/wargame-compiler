@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1E",
+      "exit_code": 1,
+      "started_utc": "2026-10-13T15:24:37.561180+00:00",
+      "ended_utc": "2026-10-13T15:25:59.792550+00:00",
+      "wall_seconds": 82.23165749991313,
+      "log": "private/workflow/runs/IG-1E/completion-20261013/final-repository.log"
+    },
+    {
+      "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+      "exit_code": 0,
+      "started_utc": "2026-10-13T15:25:59.793785+00:00",
+      "ended_utc": "2026-10-13T15:26:03.489088+00:00",
+      "wall_seconds": 3.6961222998797894,
+      "log": "private/workflow/runs/IG-1E/completion-20261013/final-queue.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "started_utc": "2026-10-13T15:26:03.490080+00:00",
+      "ended_utc": "2026-10-13T15:26:05.015282+00:00",
+      "wall_seconds": 1.525595200015232,
+      "log": "private/workflow/runs/IG-1E/completion-20261013/final-diff.log"
+    }
+  ],
+  "states": {
+    "IG-1A": "done",
+    "IG-1B": "done",
+    "IG-1C": "done",
+    "IG-1D": "done",
+    "IG-1E": "done"
+  },
+  "queue_sha256": "dd40f3f50842828800ee0cd71c4fb2649bbb99f3f98420ba4a01e9fe8acd0e5d",
+  "projection_recovery": {
+    "observed_command": "scripts/workflow.py transition --task IG-1E --to done",
+    "observed_output": "ERROR: [Errno 22] Invalid argument: 'C:\\repo\\wargame-compiler\\docs\\ROADMAP.md'",
+    "individual_transition_exit_code": null,
+    "reason_individual_exit_unknown": "The shell sequence did not capture this individual exit; later commands completed. Queue was inspected before any retry.",
+    "queue_status_written_before_render_error": "done",
+    "transition_not_retried": true,
+    "recovery_command": "python -B private/workflow/runs/IG-1C/resume-20261013/render_atomic.py",
+    "recovery_and_following_validate_diff_handoff_sequence_completed": true
+  },
+  "semantic_acceptance_granted": false,
+  "publisher_source_coverage_granted": false,
+  "executable_readiness_granted": false,
+  "tokens": null,
+  "cost": null,
+  "operator_time_seconds": null
+}

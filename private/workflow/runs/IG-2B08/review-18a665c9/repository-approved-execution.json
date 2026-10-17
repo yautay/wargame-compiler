@@ -1,0 +1,39 @@
+{
+  "task": "IG-2B08",
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-18a665c9:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T125512Z-933976c1/002-IG-2B08-reviewer-18a665c9/runtime-configuration.json",
+  "configuration_sha256": "e8b64f19063ce2ad9a5eecf98b6116995e09b6ec3948ef466baeadfc5119cfc5",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "scripts/check.ps1",
+    "-Task",
+    "IG-2B08"
+  ],
+  "exit_code": 0,
+  "execution": "Approved exact unchanged command after observed Windows temp-directory WinError 5; tests and assertions unchanged.",
+  "log": {
+    "path": "private/workflow/runs/IG-2B08/review-18a665c9/repository-approved.log",
+    "sha256": "3b1082b6fb3e8b178270d0bd15f29d7b54e40379a99d95738abe5852687fae1e",
+    "bytes": 5968
+  },
+  "selected_passed_counts": [
+    "310"
+  ],
+  "utc": "2026-10-17T13:57:57.710208+00:00",
+  "selected_result": {
+    "plan_exit": 0,
+    "dry_run_exit": 0,
+    "tests_exit": 0,
+    "diff_exit": 0
+  },
+  "check_result": {
+    "path": "C:/repo/wargame-compiler/private/workflow/checks/active-a8137b3095744ad08e6a30f44cdd87b7/result.json",
+    "sha256": "f4d5c6be4048441b4f79d203a09611ca48e9e9a37e2b67b8998dbfddd34dded7",
+    "bytes": 206
+  }
+}

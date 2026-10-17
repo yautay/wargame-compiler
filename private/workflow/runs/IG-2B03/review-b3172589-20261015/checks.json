@@ -1,0 +1,94 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B03-reviewer-b3172589:reviewer",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T164901Z-046553b7/002-IG-2B03-reviewer-b3172589/runtime-configuration.json",
+  "configuration_sha256": "697d66bf79eff76acfdb4ee23403c905402111f3e4484023ba4bca3fba13a305",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-b3172589 -p no:cacheprovider --tb=short",
+      "exit_code": 0,
+      "result": "71 passed in 14.13s",
+      "permissions": "require_escalated; approved exact unchanged retry after restricted-token WinError 5"
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 0,
+      "result": "184 passed in 65.21s; plan/dry-run/tests/diff all zero",
+      "permissions": "require_escalated; approved exact unchanged retry after restricted-token WinError 5",
+      "report": "private/workflow/checks/active-75e8e322e9c141928400b310de95851c/result.json"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B scripts/workflow.py validate",
+      "exit_code": 0,
+      "result": "Validated 39 tasks, DAG, scope, context and derived views."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "Approved read-only execution: no diff errors or access failures; existing CRLF normalization warnings only.",
+      "permissions": "require_escalated after restricted-token access warnings"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-2B03/review-b3172589-20261015/verify.py",
+      "exit_code": 0,
+      "result": "All exact packet, dependency, blocked and frozen delivery hashes match; preservation/ledger/canonical replay assertions pass."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-2B03/review-b3172589-20261015/validate_detail.py",
+      "exit_code": 0,
+      "result": "Six complete root validations; 135 region and 22 component locator audits; all four independent character and exact geometric gap partitions pass."
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-final-verified.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-a-verified/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-replay-a-verified.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/replay-b-verified/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-replay-b-verified.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-components.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-a/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-components-replay-a.log"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B -m wgc.sources validate private/workflow/runs/IG-2B03/continuation-search-20261015-01/components-replay-b/inventory.json",
+      "exit_code": 0,
+      "source_structure_verification": "verified",
+      "log": "private/workflow/runs/IG-2B03/review-b3172589-20261015/root-components-replay-b.log"
+    }
+  ],
+  "environment_failures": [
+    {
+      "command": ".venv/Scripts/python.exe -B -m pytest -q tests/sources --basetemp private/workflow/checks/b03-b3172589 -p no:cacheprovider --tb=short",
+      "exit_code": 1,
+      "reason": "Restricted Windows token: WinError 5 on pytest basetemp; exact approved retry passed."
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B03",
+      "exit_code": 1,
+      "reason": "Restricted Windows token: WinError 5 on pytest basetemp; exact approved retry passed."
+    }
+  ],
+  "semantic_acceptance_granted": false
+}

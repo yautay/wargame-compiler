@@ -1,0 +1,40 @@
+{
+  "actor": "codex-01a13a03-b220-7181-a813-09f6e7b46c1f",
+  "task": "IG-2A",
+  "role": "reviewer",
+  "original_freeze": {
+    "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/final-seal.json",
+    "sha256": "b9668774fd16eaf40ffa59b86b8593810ba315a6afd3b64ded54212f32103df0",
+    "bytes": 3754
+  },
+  "original_handoff": {
+    "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/coordinator-handoff.json",
+    "sha256": "eb23ee687b63422aceb1b360442466cedd758e74cb4b2b564aa019a6b41ac7a5",
+    "bytes": 2178
+  },
+  "current_original_review": {
+    "path": "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/review.json",
+    "sha256": "31b462e6b522ed6aadf507a5bf5cda0f4d3c7f7bf8ecf2a6774ad381400512f7",
+    "bytes": 94430
+  },
+  "cause": "Reviewer count clarification updated review.json before report update raised UnicodeDecodeError due missing explicit UTF-8 on Windows. Reviewer mistakenly allowed the dependent freeze to run after this failed update, leaving the frozen original handoff with its previous review hash.",
+  "failed_command": {
+    "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/clarify_delivery_count.py",
+    "argv": [
+      ".venv/Scripts/python.exe",
+      "private/workflow/runs/IG-2A/review-20261014T104443Z-codex-01a13a03-b220-7181-a813-09f6e7b46c1f/clarify_delivery_count.py"
+    ],
+    "exit_code": 1,
+    "started_utc": "2026-10-14T11:02:45.942365+00:00",
+    "ended_utc": "2026-10-14T11:02:46.323191+00:00",
+    "wall_seconds": 0.375,
+    "stdout": "clarify-delivery-count.stdout",
+    "stderr": "clarify-delivery-count.stderr"
+  },
+  "freeze_guard_count_explanation": "273 delivery artifacts = 272 self-excluding manifest members plus the manifest itself; no operator pin mismatch.",
+  "correction": "Append-only new report-final.md, review-final.json, coordinator-handoff-final.json and final-seal-corrected.json replace the handoff metadata. Preserve all first-freeze files and its manifest/seal byte-for-byte. No product, queue, expected hashes or probe expectations changed.",
+  "technical_outcome_unchanged": "PASS",
+  "reviewer_implementation_error": true,
+  "source_or_product_error": false,
+  "recorded_utc": "2026-10-14T11:04:04.529462+00:00"
+}

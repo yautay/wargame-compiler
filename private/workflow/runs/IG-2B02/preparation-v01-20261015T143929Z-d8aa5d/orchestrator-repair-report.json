@@ -1,0 +1,57 @@
+{
+  "format": "wgc-orchestrator-v01-repair-report-1",
+  "created_utc": "2026-10-15T14:44:48.546975+00:00",
+  "builder_actual_model": null,
+  "builder_actual_reasoning": null,
+  "builder_configuration_evidence": "Not exposed as trusted builder-session metadata; no Sol/high executor claim made by this coordinator.",
+  "changes": [
+    "Fresh exact-review repair authorization before executor selection",
+    "Absent new owned V01 validation-only attempt; prior repairs immutable",
+    "Approved unchanged test execution under workspace-write/on-request CLI",
+    "Pinned bundled Python and native dependency paths inherited without installation/global change",
+    "Old artifact bytes and ordered manifest enforced after all outcomes and across restarts"
+  ],
+  "artifacts": [
+    {
+      "path": "scripts/orchestrate_ig2.py",
+      "sha256": "efa2bbf34a09730b4628927ae9e7b5bd7e43fbe1688b4d4f86f9565d02d54c2b"
+    },
+    {
+      "path": "tests/test_orchestrator.py",
+      "sha256": "966aa634676348f53a74c9c53e596bff1bad11c83a632302161d05f84dc59820"
+    },
+    {
+      "path": "docs/work/IG2-ORCHESTRATOR.md",
+      "sha256": "f3bcd55928ab3b079725a53883db08981fc332f7cf8c02df096f1a07b3e0553d"
+    }
+  ],
+  "source_validation": {
+    "tests_passed": 71,
+    "exit_code": 0,
+    "evidence": "private/workflow/checks/v01-permitted-host-02/sources-result.json"
+  },
+  "repository_validation": {
+    "tests_passed": 151,
+    "all_four_exits_zero": true,
+    "evidence": "private/workflow/checks/active-58d93a0513f54b4da07271d184861a6c/result.json"
+  },
+  "independent_review": {
+    "actor": "/root/review_orchestrator",
+    "status": "No open findings in final narrow review; all 4375 original artifacts verified",
+    "actual_model": null,
+    "actual_reasoning": null,
+    "requested_model": "gpt-6.1-sol",
+    "requested_reasoning": "high",
+    "no_product_acceptance": true
+  },
+  "packet_bytes_before": 97090,
+  "packet_bytes_after": 74992,
+  "active_run": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/status.json",
+  "observed_executor_configuration": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "scope": "private/workflow/runs/IG-2B02/preparation-v01-20261015T143929Z-d8aa5d/scope.json",
+  "limits": {
+    "sessions": 48,
+    "total_seconds": 28800
+  },
+  "remaining_gate": "Fresh executor validation evidence and independent review before IG-2B02 acceptance; no semantic acceptance fabricated."
+}

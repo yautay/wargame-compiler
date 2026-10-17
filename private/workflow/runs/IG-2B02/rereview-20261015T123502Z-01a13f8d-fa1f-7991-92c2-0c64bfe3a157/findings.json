@@ -1,0 +1,157 @@
+{
+  "task": "IG-2B02",
+  "role": "reviewer",
+  "actor": "codex-01a13f8d-fa1f-7991-92c2-0c64bfe3a157",
+  "recorded_utc": "2026-10-15T12:47:13.651065+00:00",
+  "technical_result": "changes_recommended",
+  "findings": [
+    {
+      "id": "IG-2B02-R03",
+      "severity": "P2",
+      "blocking_clean_technical_acceptance": true,
+      "category": "incorrect_current_report_target_pointer",
+      "title": "Resolve author-specification pointers by key rather than ledger position",
+      "artifacts": [
+        {
+          "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/affected-component-audit.json",
+          "bytes": 26947,
+          "sha256": "8a675928ee542f78413a05ae114848f6559a87508d4ba13508900472f5c7e678"
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/finding-dispositions.json",
+          "bytes": 31793,
+          "sha256": "89a8509f7ca2cacb0b828b403ec49a86e6618893579f5978f74502a134c05245"
+        }
+      ],
+      "locations": [
+        {
+          "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/affected-component-audit.json",
+          "lines": [
+            185,
+            391,
+            597
+          ]
+        },
+        {
+          "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/finding-dispositions.json",
+          "lines": [
+            194,
+            429,
+            635
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "key": "ig2b02:p5:alae:counter",
+          "region_id": "region:cbf6f8d6-889b-4fcb-bc54-a41a8d9052d0",
+          "revision": "9bb2b17d8602bc61d60944b00befd342c27b0e8403ef0f11508e4e4db335eaa7",
+          "finding_id": "IG-2B02-R01",
+          "declared_pointer": "/specifications/5/components",
+          "resolves_to_key": "ig2b02:p6:printed-label",
+          "resolves_to_components": [
+            "Printed page label 6"
+          ],
+          "expected_pointer": "/specifications/18/components",
+          "expected_components": [
+            "AS XIVa identifier (small glyph uncertain)",
+            "CO",
+            "J missile glyph",
+            "3",
+            "LG",
+            "5",
+            "5",
+            "Soldier illustration"
+          ],
+          "affected_audit_location": "/targets/0/current_changes/0",
+          "disposition_location": "/findings/0/targets/0/current_changes/0"
+        },
+        {
+          "key": "ig2b02:p5:light-infantry:counter",
+          "region_id": "region:c3d45e49-7d30-4572-92f7-7ffcb468e840",
+          "revision": "e94036005f19209a8517d9f9c784b3b03141fdcf1134929cef084abfe0770893",
+          "finding_id": "IG-2B02-R02",
+          "declared_pointer": "/specifications/24/components",
+          "resolves_to_key": "ig2b02:p5:phalanx:text-a",
+          "resolves_to_components": [
+            "Phalanx inline bold heading",
+            "Opening prose"
+          ],
+          "expected_pointer": "/specifications/37/components",
+          "expected_components": [
+            "Thrace",
+            "1",
+            "J missile glyph",
+            "5",
+            "LI",
+            "5",
+            "5",
+            "Soldier illustration"
+          ],
+          "affected_audit_location": "/targets/1/current_changes/0",
+          "disposition_location": "/findings/1/targets/0/current_changes/0"
+        },
+        {
+          "key": "ig2b02:p5:javelinists:counter",
+          "region_id": "region:66a11202-3a57-4637-a1ac-308cb62e2662",
+          "revision": "7dfc5ab19034511a810e095475e9374972ce017123097dbc598a768c0acd0705",
+          "finding_id": "IG-2B02-R02",
+          "declared_pointer": "/specifications/28/components",
+          "resolves_to_key": "ig2b02:p5:legion-infantry:counter",
+          "resolves_to_components": [
+            "I c",
+            "PR",
+            "J missile glyph",
+            "3",
+            "LG",
+            "8",
+            "5",
+            "Legionary and shield illustration"
+          ],
+          "expected_pointer": "/specifications/41/components",
+          "expected_components": [
+            "Thrace",
+            "1",
+            "J missile glyph",
+            "5",
+            "LI",
+            "5",
+            "5",
+            "Soldier illustration"
+          ],
+          "affected_audit_location": "/targets/2/current_changes/0",
+          "disposition_location": "/findings/1/targets/1/current_changes/0"
+        }
+      ],
+      "observed": "The three current author-specification references use ledger indices 5/24/28, but specifications are ordered differently: the targets are at indices 18/37/41. The wrong references resolve to a page-6 printed label, Phalanx opening prose and Legion Infantry counter. Each error is repeated in finding-dispositions, producing six wrong bindings.",
+      "consequence": "Current R01/R02 repair evidence points to unrelated groups and contradicts the successful report-consistency claim. A consumer following these references cannot verify the declared corrected specification. Hash validity, source correctness and deterministic replay do not establish reference-target correctness.",
+      "root_cause": {
+        "artifact": {
+          "path": "private/workflow/runs/IG-2B02/repair-r01-r02-20261015T091559Z-reserved-by-01a13c20-b7bd-7962-a954-f5841c09831c/audit-and-report.py",
+          "bytes": 20784,
+          "sha256": "ca3b4b346585b01be44ec8480d47095135f8fb2e4e2c4633d218c3f140cd1111"
+        },
+        "line": 99,
+        "description": "Generator constructs specification pointer with i from enumeration of ledger regions rather than the specification index for the exact key."
+      },
+      "required_change": "In a new coordinator-authorized bounded attempt, derive the specification array index from each exact target key; update both reports, dependent report claims and pins/envelope/seal. Preserve frozen attempts and all correct component/canonical/raw evidence bytes.",
+      "required_verification": "Resolve all 24 current_changes bindings to the intended target component arrays; all must match each enclosing after array and intended key. In particular verify specification indices 18/37/41 and refresh all dependent hashes. Recheck R01 and both separate R02 identities. Obtain fresh independent review of the changed report evidence.",
+      "related_criteria": [
+        5
+      ],
+      "source_component_correctness": "R01 and R02 source component corrections are correct; this finding concerns current operational report traceability only."
+    }
+  ],
+  "counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 1,
+    "P3": 0,
+    "wrong_pointer_occurrences": 6
+  },
+  "original_findings": {
+    "R01": "source_component_resolved",
+    "R02": "both_distinct_source_components_resolved"
+  },
+  "semantic_acceptance_granted": false
+}

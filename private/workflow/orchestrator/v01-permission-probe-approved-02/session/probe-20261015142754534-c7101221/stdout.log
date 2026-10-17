@@ -1,0 +1,292 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\repo\wargame-compiler
+configfile: pyproject.toml
+collected 71 items
+
+tests\sources\test_inventory.py EEEEEEEE..............EEEEEEEEEEEEEEEE.  [ 54%]
+tests\sources\test_review_repairs.py EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE    [100%]
+
+=================================== ERRORS ====================================
+__________ ERROR at setup of test_independent_page_count_and_replay ___________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_multicolumn_table_note_cross_page_and_edit ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__________________ ERROR at setup of test_missing_page_fails __________________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_missing_regions_visible_as_page_area_gap _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______________ ERROR at setup of test_duplicate_region_rejected _______________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_overlapping_inventory_rejected_context_not_counted __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_____ ERROR at setup of test_partial_never_represented_and_gaps_rejected ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_exclusion_needs_exact_partition_boundary_and_human_claim _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+________ ERROR at setup of test_registry_does_not_remap_changed_source ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+___________ ERROR at setup of test_revision_and_registry_tampering ____________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____ ERROR at setup of test_evidence_exact_text_render_pins_and_tampering _____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__________ ERROR at setup of test_region_crop_excludes_other_column ___________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+___ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[0-expected0] ___
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[90-expected1] ___
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[180-expected2] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_pdf_crop_rotation_userunit_evidence[270-expected3] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______________ ERROR at setup of test_stale_evidence_rejected ________________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______________ ERROR at setup of test_order_and_link_fail_closed ______________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____________ ERROR at setup of test_independent_count_disagreement ____________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__________ ERROR at setup of test_source_mutation_during_inspection ___________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_schema_rejects_floats_and_unknown_fields _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_cli_two_page_evidence_and_immutable_output ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_____ ERROR at setup of test_embedded_label_does_not_verify_printed_label _____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_duplicate_context_geometry_never_inflates_denominator _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-crop_box] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-effective_crop_box] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-rotation] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[False-user_unit] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-crop_box] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-effective_crop_box] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-rotation] __
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_page_geometry_change_stales_evidence[True-user_unit] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_resealing_geometry_and_evidence_basis_cannot_forge_source _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_________ ERROR at setup of test_dpi_must_match_actual_physical_crop __________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+__ ERROR at setup of test_printed_label_requires_same_current_physical_page ___
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+________ ERROR at setup of test_exclusion_pins_whole_author_scope[key] ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[kind] ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____ ERROR at setup of test_exclusion_pins_whole_author_scope[uncertainty] ____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_____ ERROR at setup of test_exclusion_pins_whole_author_scope[registry] ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_exclusion_pins_whole_author_scope[source] _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[page] ________
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+______ ERROR at setup of test_exclusion_pins_whole_author_scope[context] ______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[order] _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_______ ERROR at setup of test_exclusion_pins_whole_author_scope[links] _______
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_all_coverage_fields_are_outside_scope_hash_to_avoid_cycles _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_consistent_false_page_count_fails_against_actual_pdf _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_physical_addresses_cannot_move_under_persisted_identities _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+____ ERROR at setup of test_reordering_array_keeps_addresses_and_identity _____
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-0] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-90] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-180] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[72-270] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-0] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-90] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-180] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+_ ERROR at setup of test_fractional_units_origins_rotations_and_rounding_oracle[144-270] _
+tests\sources\test_inventory.py:15: in source
+    from reportlab.pdfgen.canvas import Canvas
+E   ModuleNotFoundError: No module named 'reportlab'
+=========================== short test summary info ===========================
+ERROR tests/sources/test_inventory.py::test_independent_page_count_and_replay
+ERROR tests/sources/test_inventory.py::test_multicolumn_table_note_cross_page_and_edit
+ERROR tests/sources/test_inventory.py::test_missing_page_fails - ModuleNotFou...
+ERROR tests/sources/test_inventory.py::test_missing_regions_visible_as_page_area_gap
+ERROR tests/sources/test_inventory.py::test_duplicate_region_rejected - Modul...
+ERROR tests/sources/test_inventory.py::test_overlapping_inventory_rejected_context_not_counted
+ERROR tests/sources/test_inventory.py::test_partial_never_represented_and_gaps_rejected
+ERROR tests/sources/test_inventory.py::test_exclusion_needs_exact_partition_boundary_and_human_claim
+ERROR tests/sources/test_inventory.py::test_registry_does_not_remap_changed_source
+ERROR tests/sources/test_inventory.py::test_revision_and_registry_tampering
+ERROR tests/sources/test_inventory.py::test_evidence_exact_text_render_pins_and_tampering
+ERROR tests/sources/test_inventory.py::test_region_crop_excludes_other_column
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[0-expected0]
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[90-expected1]
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[180-expected2]
+ERROR tests/sources/test_inventory.py::test_pdf_crop_rotation_userunit_evidence[270-expected3]
+ERROR tests/sources/test_inventory.py::test_stale_evidence_rejected - ModuleN...
+ERROR tests/sources/test_inventory.py::test_order_and_link_fail_closed - Modu...
+ERROR tests/sources/test_inventory.py::test_independent_count_disagreement - ...
+ERROR tests/sources/test_inventory.py::test_source_mutation_during_inspection
+ERROR tests/sources/test_inventory.py::test_schema_rejects_floats_and_unknown_fields
+ERROR tests/sources/test_inventory.py::test_cli_two_page_evidence_and_immutable_output
+ERROR tests/sources/test_inventory.py::test_embedded_label_does_not_verify_printed_label
+ERROR tests/sources/test_inventory.py::test_duplicate_context_geometry_never_inflates_denominator
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-effective_crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-rotation]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[False-user_unit]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-effective_crop_box]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-rotation]
+ERROR tests/sources/test_review_repairs.py::test_page_geometry_change_stales_evidence[True-user_unit]
+ERROR tests/sources/test_review_repairs.py::test_resealing_geometry_and_evidence_basis_cannot_forge_source
+ERROR tests/sources/test_review_repairs.py::test_dpi_must_match_actual_physical_crop
+ERROR tests/sources/test_review_repairs.py::test_printed_label_requires_same_current_physical_page
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[key]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[kind]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[uncertainty]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[registry]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[source]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[page]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[context]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[order]
+ERROR tests/sources/test_review_repairs.py::test_exclusion_pins_whole_author_scope[links]
+ERROR tests/sources/test_review_repairs.py::test_all_coverage_fields_are_outside_scope_hash_to_avoid_cycles
+ERROR tests/sources/test_review_repairs.py::test_consistent_false_page_count_fails_against_actual_pdf
+ERROR tests/sources/test_review_repairs.py::test_physical_addresses_cannot_move_under_persisted_identities
+ERROR tests/sources/test_review_repairs.py::test_reordering_array_keeps_addresses_and_identity
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-0]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-90]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-180]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[72-270]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-0]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-90]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-180]
+ERROR tests/sources/test_review_repairs.py::test_fractional_units_origins_rotations_and_rounding_oracle[144-270]
+======================== 15 passed, 56 errors in 1.10s ========================

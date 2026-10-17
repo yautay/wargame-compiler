@@ -1,0 +1,188 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B06-executor-f2379326:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/runtime-configuration.json",
+  "configuration_sha256": "4437a6976a5c570360ae8c0a4ea2cc832965e78d29aacdd9adcb96047c461825",
+  "task": "IG-2B06",
+  "summary": "Machine-checked complete accepted baseline and blocked-attempt preservation across both independent replays and final output.",
+  "final_inventory": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+    "bytes": 2367836,
+    "sha256": "054845760f948f6110ecf0815bc66a85f9acf231196474de8a1ab305142f83d9"
+  },
+  "final_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "input_packet": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/packet.json",
+    "bytes": 7992,
+    "sha256": "56deb7f7edc010974152ca949664cc5606c2dc7212be772b5d32be59fa5c6c88"
+  },
+  "selected_task": {
+    "path": "private/workflow/orchestrator/20261016T182116Z-202cea4c/001-IG-2B06-executor-f2379326/task.json",
+    "bytes": 9944,
+    "sha256": "c65290b9050558293fe39ebaf166c698095a3af1ed7a17df72c6a3fadda19e48"
+  },
+  "refinement_contract": {
+    "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json",
+    "bytes": 18176,
+    "sha256": "7a2371a47de970cc8959be74a4386fea66970d4fd6087e5f88eaddc870ce11f3"
+  },
+  "authored_input": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/inventory.json",
+    "bytes": 2159004,
+    "sha256": "698f05b0a4305d8e9aa5c2fb18c013cb5fc68c4dfd8df8f424e3ca2393cea82d"
+  },
+  "authored_registry": {
+    "path": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/authored/identity-registry.json",
+    "bytes": 85021,
+    "sha256": "2cb5a171abc03ce8ed748f0f74ccecb6fc1b149ea8a2dd3109074d2641846218"
+  },
+  "checks": {
+    "replay-a": {
+      "source_metadata_equal": true,
+      "all_44_page_records_equal": true,
+      "all_nonassigned_regions_equal_in_original_relative_order": true,
+      "all_original_links_equal_prefix": true,
+      "all_original_evidence_equal_prefix": true,
+      "all_original_registry_bindings_retained": true,
+      "exactly_four_placeholder_memberships_removed": true,
+      "retired_placeholder_registry_entries_retained": true,
+      "nonassigned_reading_order_equal": true,
+      "authored_regions_links_order_registry_equal": true
+    },
+    "replay-b": {
+      "source_metadata_equal": true,
+      "all_44_page_records_equal": true,
+      "all_nonassigned_regions_equal_in_original_relative_order": true,
+      "all_original_links_equal_prefix": true,
+      "all_original_evidence_equal_prefix": true,
+      "all_original_registry_bindings_retained": true,
+      "exactly_four_placeholder_memberships_removed": true,
+      "retired_placeholder_registry_entries_retained": true,
+      "nonassigned_reading_order_equal": true,
+      "authored_regions_links_order_registry_equal": true
+    },
+    "final-verified": {
+      "source_metadata_equal": true,
+      "all_44_page_records_equal": true,
+      "all_nonassigned_regions_equal_in_original_relative_order": true,
+      "all_original_links_equal_prefix": true,
+      "all_original_evidence_equal_prefix": true,
+      "all_original_registry_bindings_retained": true,
+      "exactly_four_placeholder_memberships_removed": true,
+      "retired_placeholder_registry_entries_retained": true,
+      "nonassigned_reading_order_equal": true,
+      "authored_regions_links_order_registry_equal": true
+    }
+  },
+  "baseline_inventory": {
+    "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/inventory.json",
+    "sha256": "704b7beb63a0fef40948596971d561daeed5f637eb29bc670e3878cf9ea22dd2",
+    "bytes": 2719674
+  },
+  "baseline_registry": {
+    "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/identity-registry.json",
+    "sha256": "df042168e5728bb2ef641b99cd7dc0329f7dacc643b60ea8f92bd517db675b04",
+    "bytes": 101167
+  },
+  "nonassigned_region_count": 642,
+  "original_link_count": 126,
+  "original_evidence_count": 622,
+  "original_registry_count": 710,
+  "retired_placeholder_ids": [
+    "region:200878de-e5c2-45d8-92ef-b988825fb482",
+    "region:7e53aff3-0c89-48dd-a0a0-ca99b678efd2",
+    "region:a8abb86a-4575-4444-8d7e-55cdb6202400",
+    "region:e5820069-9600-4811-8871-5f4c1752846d"
+  ],
+  "blocked_attempt_artifacts_rehashed": 117,
+  "baseline_evidence_files_rehashed": 1866,
+  "input_pins_rechecked_after_generation": [
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/inventory.json",
+      "sha256": "704b7beb63a0fef40948596971d561daeed5f637eb29bc670e3878cf9ea22dd2",
+      "bytes": 2719674
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/identity-registry.json",
+      "sha256": "df042168e5728bb2ef641b99cd7dc0329f7dacc643b60ea8f92bd517db675b04",
+      "bytes": 101167
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/region-ledger.json",
+      "sha256": "3c9d7ac854dfd5f917e6c3a94df269b81f1fa22ed566d95f5af273a7f223a3b8",
+      "bytes": 636580
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/continuations.json",
+      "sha256": "1c6d12a86de6ed87d43c4802361d179b4fec9d4782954d73a38fece72c026d4e",
+      "bytes": 161736
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/coverage-report.json",
+      "sha256": "ef6f49176bdb9884a16d63c2f7b86dcb9f9ca88dcd7edd9fb412d878e6db3840",
+      "bytes": 157316
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/source-pins.json",
+      "sha256": "2fdd4f534be78b8c6dafa576e6a803f23c956626cdb43e7f6aba5f7fe9923e8c",
+      "bytes": 126750
+    },
+    {
+      "path": "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/toolchain.json",
+      "sha256": "11336abd99b5bc99b1392f0679f77af33e8878d1bc477c5a2d620c9db1eb0dfc",
+      "bytes": 125360
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b",
+      "bytes": 2905
+    },
+    {
+      "path": ".venv/Scripts/python.exe",
+      "sha256": "6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2",
+      "bytes": 276944
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/inventory-21-24-01/authored-corrected/inventory.json",
+      "sha256": "a83c2d037d668df16732f2ede196bdae634334be97b01aed26453214327d7152",
+      "bytes": 2821925
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/inventory-21-24-01/authored-corrected/identity-registry.json",
+      "sha256": "f6b995413cc6d7bf35b6ebc682c598d796a936f8221c20c6269992dd1ca29826",
+      "bytes": 113057
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/inventory-21-24-01/authored-corrected/regions.json",
+      "sha256": "cc4171f15eaeff22c3f70078f06f7cbeb1f629988f6a7a8a3d27a0c44fafe962",
+      "bytes": 78965
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/preserve-manifest.json",
+      "sha256": "bf605ea31206b0c01b0cbba69a41f0c3afafe67fdc48129f10bfc1d035c08eeb",
+      "bytes": 24669
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/assessment.json",
+      "sha256": "c57ef8d2efa176a74cd5f78ea56e41e0b813c7fd5668f686b249e1bca379e275",
+      "bytes": 3129
+    },
+    {
+      "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json",
+      "sha256": "7a2371a47de970cc8959be74a4386fea66970d4fd6087e5f88eaddc870ce11f3",
+      "bytes": 18176
+    }
+  ],
+  "all_passed": true
+}

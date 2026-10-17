@@ -1,0 +1,38 @@
+{
+  "format": "wgc-coordinator-blocker-1",
+  "task": "IG-2B04",
+  "role": "coordinator",
+  "actor": "ig2:003-IG-2B04-coordinator-ebfb9526:coordinator",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T175019Z-9761be5b/003-IG-2B04-coordinator-ebfb9526/runtime-configuration.json",
+  "configuration_sha256": "a4298d4aea80a93d2841dcbbde64ac1321b81b90bcae635820345bd070b6a3ad",
+  "outcome": "blocked",
+  "utc": "2026-10-15T18:11:19.856447+00:00",
+  "summary": "Coordinator context-access incident before refinement; supervisor assessment required.",
+  "blocker": {
+    "fact": "An initial Python selection printed the full IG-2B03 task record including its event list, then decoded and printed the whole accepted closure done.json. The combined tool output was truncated. This exceeded the instructed bounded dependency-field reads and prohibition on whole event histories.",
+    "exact_dependency_record": "IG-2B03 in docs/work/queue.json",
+    "exact_closure": "private/workflow/runs/IG-2B03/closure-002-IG-2B03-reviewer-cabf2418/done.json",
+    "impact": "This coordinator session cannot claim compliance with its context-access gate. No refined contract or readiness claim was produced.",
+    "smallest_resolution": "Supervisor assesses this context incident and, if continuation is authorized, provides a fresh scoped coordinator session with bounded dependency-field selections.",
+    "owner": "operator/supervisor"
+  },
+  "observations": {
+    "runtime_confirmed": true,
+    "packet_file_and_control_hashes_verified": true,
+    "queue_hash_matched_packet_before_any_write": true,
+    "dependency_done_event_hash_verified": true,
+    "source_pages_accessed": [],
+    "queue_product_source_or_control_files_written": [],
+    "only_session_write": "private/workflow/runs/IG-2B04/coordinator-ebfb9526-context-block/blocked.json"
+  },
+  "criteria": [],
+  "artifacts": [],
+  "checks": [],
+  "validation_status": "Not run: stopped at context-access gate before structural edits or product work. No green-check claims.",
+  "readiness_granted": false,
+  "semantic_acceptance_granted": false,
+  "next_action": "Supervisor assessment; this role stops without launching another process.",
+  "immutability": "New append-only incident evidence; no prior artifacts overwritten."
+}

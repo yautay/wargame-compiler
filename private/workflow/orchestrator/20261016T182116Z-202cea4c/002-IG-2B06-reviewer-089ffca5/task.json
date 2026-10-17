@@ -1,0 +1,154 @@
+{
+  "id": "IG-2B06",
+  "title": "Inventory SPQR PDF pages 21-24",
+  "stage": "IG-2",
+  "status": "review",
+  "kind": "content",
+  "depends": [
+    "IG-2B05"
+  ],
+  "executor": {
+    "model": "GPT-6.1 Sol",
+    "model_id": "gpt-6.1-sol",
+    "reasoning": "high"
+  },
+  "goal": "Build a lasting independent source inventory for this exact four-page range, without deriving its denominator from KB headings.",
+  "outputs": [
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/inventory.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/final-verified/identity-registry.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/region-ledger.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/continuations.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/coverage-report.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/source-pins.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/toolchain.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/original-page-inspection.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/preservation-report.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/replay-report.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/validation-report.json",
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/delivery-handoff.md"
+  ],
+  "write_scope": [
+    "private/workflow/runs/IG-2B06/continuation-21-24-serial02/",
+    "private/workflow/runs/IG-2B06/review-continuation-serial02/",
+    "private/workflow/checks/"
+  ],
+  "inputs": [
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/inventory.json (SHA-256 704b7beb63a0fef40948596971d561daeed5f637eb29bc670e3878cf9ea22dd2)",
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/final-verified/identity-registry.json (SHA-256 df042168e5728bb2ef641b99cd7dc0329f7dacc643b60ea8f92bd517db675b04)",
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/region-ledger.json (SHA-256 3c9d7ac854dfd5f917e6c3a94df269b81f1fa22ed566d95f5af273a7f223a3b8)",
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/continuations.json (SHA-256 1c6d12a86de6ed87d43c4802361d179b4fec9d4782954d73a38fece72c026d4e)",
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/coverage-report.json (SHA-256 ef6f49176bdb9884a16d63c2f7b86dcb9f9ca88dcd7edd9fb412d878e6db3840)",
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/source-pins.json (SHA-256 2fdd4f534be78b8c6dafa576e6a803f23c956626cdb43e7f6aba5f7fe9923e8c)",
+    "private/workflow/runs/IG-2B05/continuation-17-20-dependency03/toolchain.json (SHA-256 11336abd99b5bc99b1392f0679f77af33e8878d1bc477c5a2d620c9db1eb0dfc)",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf (SHA-256 e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e)",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json (SHA-256 90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b)",
+    ".venv/Scripts/python.exe (SHA-256 6285074735b3738a051bccbe944679268cf9b988832b4cfd1090752eb082f7e2)",
+    "Exact refinement contract: private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json (SHA-256 7a2371a47de970cc8959be74a4386fea66970d4fd6087e5f88eaddc870ce11f3); physical pages 21-24 assigned, adjacent context only as boxed there."
+  ],
+  "context": [
+    "docs/IG-WGU-ARCHITECTURE.md",
+    "docs/IG-DATA-MODEL.md",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+    "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json",
+    "private/workflow/runs/IG-2B06/refinement-1bcd2b72-01/toolchain.json",
+    "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/scope.json",
+    "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/assessment.json"
+  ],
+  "acceptance": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Preserve the complete accepted 44-page sidecar, companion registry and all nonassigned records, links and evidence; retire only the four assigned placeholders without deleting registry entries, and machine-check preservation.",
+    "Deliver the complete fresh final-verified inventory/registry and all reports pinned in the refinement contract, including original-page inspection, component accounting, two independent complete evidence replays and separate full/task/context denominators.",
+    "A fresh independent reviewer inspects every assigned original page, all proposed regions/components and continuation boundaries against the frozen ledger/evidence and verifies preservation, fresh locators and replay comparisons; no human semantic acceptance or gameplay readiness is inferred."
+  ],
+  "tests": [
+    "Validate coverage and locators; visual source review of every assigned page.",
+    "Check boundary references and context-only regions do not inflate denominator.",
+    "Execute all exact validation commands in the hash-pinned refinement contract with the installed process-local toolchain; preserve actual command/exit/log evidence and keep assertions unchanged.",
+    "Assert complete nonassigned preservation, retained identity-registry bindings/retired keys, exact assigned placeholder retirement, full/task/context denominator separation, fresh evidence for every assigned region and two independent replay equivalence checks with explicit path-dependent differences."
+  ],
+  "start_conditions": [
+    "All dependencies are done; input revisions and assigned file scope are pinned.",
+    "Actual executor configuration and ownership are recorded; unresolved refinement prevents start.",
+    "Fresh absent executor root and checkpoint; verified latest accepted baseline/registry/source/report pins and observed gpt-6.1-sol/high; comply with the hash-pinned refinement contract and exact source context scope.",
+    "Read the new continuation scope/assessment first. The prior interrupted attempt is frozen and unaccepted; original source inspection and checks must be fresh.",
+    "Generate source evidence serially without multiprocessing or process pools; both complete independent replays and original assertions remain required."
+  ],
+  "exclusions": [
+    "Archives and Git history; neighbouring repositories; global configuration.",
+    "Downstream tasks, unrelated changes, online services, commits and pushes.",
+    "Publisher content in public fixtures; automatic semantic acceptance."
+  ],
+  "blockers": [
+    "A required contract is ambiguous, input changed, or owned files have another writer: checkpoint and escalate to coordinator.",
+    "After two unchanged retries or two repair cycles, record blocked with the smallest resolution needed."
+  ],
+  "handoff": [
+    "Freeze deliverable paths/SHA-256, input packet hash, exact criteria met/unmet, test commands/exits and independent review request.",
+    "Record actual model/reasoning evidence, UTC/wall time, observed tokens or null, defects, unresolved decisions and next operation.",
+    "Freeze all final inventory, registry, evidence, reports and meaningful validation logs in their original order; request fresh independent whole-batch review. Coordinator readiness never grants acceptance."
+  ],
+  "semantic_acceptance_required": false,
+  "refinement_contract": {
+    "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/refinement-contract.json",
+    "sha256": "7a2371a47de970cc8959be74a4386fea66970d4fd6087e5f88eaddc870ce11f3",
+    "bytes": 18176
+  },
+  "source_scope": {
+    "source": {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+      "bytes": 3965827
+    },
+    "assigned_physical_pages": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "target_ids": [
+      "region:7e53aff3-0c89-48dd-a0a0-ca99b678efd2",
+      "region:e5820069-9600-4811-8871-5f4c1752846d",
+      "region:a8abb86a-4575-4444-8d7e-55cdb6202400",
+      "region:200878de-e5c2-45d8-92ef-b988825fb482"
+    ],
+    "context_only_regions": [
+      {
+        "pdf_page": 20,
+        "box": [
+          500000,
+          730000,
+          940000,
+          930000
+        ],
+        "purpose": "Incoming 7.24 lead-in at the lower right; preserve accepted baseline records."
+      },
+      {
+        "pdf_page": 25,
+        "box": [
+          60000,
+          60000,
+          940000,
+          410000
+        ],
+        "purpose": "Outgoing 8.4 procedure/sequence continuation at the upper page; do not inventory page 25."
+      }
+    ]
+  },
+  "continuation_authorization": {
+    "scope": {
+      "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/scope.json",
+      "sha256": "cd83aae30cb411c2fd4a9ce9122cf6e8f37f6ec12638a8c06bb5a70a83f0debd",
+      "bytes": 5689
+    },
+    "evidence": {
+      "path": "private/workflow/runs/IG-2B06/interruption-recovery-20261016-01/authorization.json",
+      "sha256": "fce61c5fc8bbcebf1d7e6a0495ac35a10ab8adcb1939717515d8b23e3679dea6",
+      "bytes": 2581
+    },
+    "attempt": "private/workflow/runs/IG-2B06/continuation-21-24-serial02/",
+    "blocked_evidence": "private/workflow/runs/IG-2B06/inventory-21-24-01/blocked.json",
+    "blocked_sha256": "61b2d1c430695cfa06a42890f9bd6b9666487ce8304e7b7a466bb4ddd762a45b"
+  }
+}

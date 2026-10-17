@@ -1,0 +1,38 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-42d4c4e0:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T083744Z-8935d3b4/001-IG-2B08-executor-42d4c4e0/runtime-configuration.json",
+  "configuration_sha256": "8fe2d32465346ef58ac7c4308399eeb2123ef6d2c6be9039a9c9ee5df160375a",
+  "summary": "All three inventories passed unchanged CLI validation with actual repository/source access and matching companion registries.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/final-verified-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-1-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/repair-F01-manifest02/replay-2-cli-validation.log",
+        "bytes": 11220,
+        "sha256": "0f5eddd0deeb9e5fad243832d6ec2a26c6d9a15704f2f37b7121909479427a94"
+      }
+    }
+  ]
+}

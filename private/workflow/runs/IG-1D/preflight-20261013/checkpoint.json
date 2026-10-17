@@ -1,0 +1,32 @@
+{
+  "task": "IG-1D",
+  "actor": "ig1-stage-executor-20261013",
+  "started_utc": "2026-10-13T10:37:07.760701+00:00",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "Direct current-conversation operator UI observation retained with same-session continuity: sol 6.1 high; no setting change requested/observed.",
+  "input_packet": {
+    "path": "private/workflow/packets/IG-1D-ea5ff0b9356d4e50940ea9f33cb3f65c/manifest.json",
+    "sha256": "61cfb68c00897a8099a43e840313ae742f62027c75f036296235971da6631953"
+  },
+  "base_product_files": [],
+  "protected_IG_1C_delivery": {
+    "path": "private/workflow/runs/IG-1C/repair-01-20261013/delivery.json",
+    "sha256": "5392446d5e9d2112b048d4b74030b6a8790fd1848d2de1df4812590decedd7ad"
+  },
+  "profile_approval": {
+    "path": "private/workflow/runs/IG-1D/preflight-20261013/operator-profile-approval.json",
+    "sha256": "201756c3941b21d8d2a73a23fbc77cc8aa8c5555bba793acacc7261319d0e512"
+  },
+  "write_scope": [
+    "src/wgc/wgu_adapter/identity.py",
+    "src/wgc/wgu_adapter/references.py",
+    "src/wgc/export/",
+    "tests/wgu_adapter/",
+    "tests/export/",
+    "private/ig/projects/spqr/records/"
+  ],
+  "next_operation": "Implement persisted identities/lineage, exact reference diagnostics and deterministic structural export; new synthetic tests and private full export; independent reviewer gate before acceptance.",
+  "tokens": null,
+  "cost": null
+}

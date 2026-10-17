@@ -1,0 +1,54 @@
+{
+  "role": "coordinator",
+  "actor": "codex-01a135f6-cdab-7723-bd6a-9e0044d12323",
+  "task": "IG-2A",
+  "input_pins": [
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+      "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e"
+    },
+    {
+      "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/provenance.json",
+      "sha256": "90ca669ff57bd499975fbf29353175caff5ee583cb0f4be588f37cf21d57959b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2A/attempt-20261013T155212Z/dependency-verification.json",
+      "sha256": "5f0c87a6a534576f8777c03b8f5dd2e819466879cd3b4dc4e8321792648d83fa"
+    }
+  ],
+  "source_revision": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+  "physical_page_count": 44,
+  "real_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "allowed_write_scope": [
+    "src/wgc/sources/",
+    "tests/sources/",
+    "contracts/ig/regions.schema.json",
+    "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/",
+    "private/ig/projects/spqr/sources/inventory/ig2a-20261013T155212Z/",
+    "private/workflow/runs/IG-2A/attempt-20261013T155212Z/"
+  ],
+  "contracts": {
+    "version": "wgc-inventory-1",
+    "identity": "Persisted UUID registry keyed by explicit author page/region keys, bound to exact source revision; no geometry/content-derived region identity or auto-rematch on source change.",
+    "geometry": "PDF native bottom-left points and UserUnit to unrotated effective CropBox top-left integer millionths; MediaBox intersection; explicit clockwise display rotation. Serialized native box coordinates are integer micro-points; UserUnit is a rational.",
+    "reading_order": "Explicit region IDs and continuation/note links, never inferred from extraction ordering.",
+    "evidence": "Separate UTF-8 text and crop PNG files with paths, bytes, SHA256, extraction/render settings and exact region revision/bbox/source pins.",
+    "coverage": "Disjoint inventory boxes; context excluded from denominator; duplicate IDs/keys and overlapping inventory rejected. Three representation levels; partial/unprocessed never represented; approved exclusion boundary required. Per-page uncovered area remains an explicit gap.",
+    "structural_seed": "All physical pages receive an unprocessed full-page placeholder; no substantive classification or source-meaning coverage granted. IG-2B replaces placeholders in its bounded outputs.",
+    "validation": "Missing page; multi-column explicit ordering; table notes; cross-page links; duplicate/overlap; CropBox/MediaBox/UserUnit/rotations; revision and artifact tamper; path escapes; source mutation; replay; independent page count."
+  },
+  "dependencies": "All IG-1A through IG-1E done evidence and delivery files rehashed; no regeneration.",
+  "downstream_implications": "Measured 44 pages supports existing 11 four-page partitions numerically. Each future IG-2B packet must pin this fresh acquisition and IG-2A contract; no downstream state or content changed.",
+  "measurement": {
+    "started_utc": "2026-10-13T15:52:12.187Z",
+    "tokens": null,
+    "cost": null,
+    "operator_seconds": null
+  },
+  "unresolved": "Independent technical review and all substantive page inventory remain pending; WGU-original identity unknown."
+}

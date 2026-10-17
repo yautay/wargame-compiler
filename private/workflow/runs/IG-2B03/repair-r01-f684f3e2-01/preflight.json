@@ -1,0 +1,42 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B03-executor-1dcc40e4:executor",
+  "task": "IG-2B03",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T175019Z-9761be5b/001-IG-2B03-executor-1dcc40e4/runtime-configuration.json",
+  "configuration_sha256": "31f247cd53a3b0566218a8a72683ac30482e54c32937fa66308b68e49a741b75",
+  "format": "wgc-repair-preflight-1",
+  "started_utc": "2026-10-15T17:52:49.951250+00:00",
+  "packet": {
+    "path": "private/workflow/orchestrator/20261015T175019Z-9761be5b/001-IG-2B03-executor-1dcc40e4/packet.json",
+    "bytes": 5825,
+    "sha256": "c24984e24207e0b43209520f713c74852ceb522e177e530db2b2c66349c82870"
+  },
+  "repair_scope": {
+    "path": "private/workflow/runs/IG-2B03/preparation-r01-f684f3e2/repair-scope.json",
+    "bytes": 15863,
+    "sha256": "ae2d23453084f0a82eb3ee80ce22a18e142a72d1ffd24747451d563f5022031c"
+  },
+  "immutable_delivery": {
+    "path": "private/workflow/runs/IG-2B03/continuation-search-20261015-01/delivery.json",
+    "bytes": 511514,
+    "sha256": "963e1a87724b0dd8c234c55253bfb2d00097f45d5d9c8d8d726f1c71302436ba"
+  },
+  "counts": {
+    "delivery_artifacts": 2334,
+    "blocked_artifacts": 666,
+    "accepted_dependency_artifacts": 4409
+  },
+  "all_hashes_verified": true,
+  "tool_versions": {
+    "pypdf": "6.10.0",
+    "pdfplumber": "0.11.9",
+    "Pillow": "12.3.0",
+    "pytest": "9.1.1"
+  },
+  "pythonpath_and_poppler_resolution_match_pin": true,
+  "environment_note": "Sandbox adds PATH prefixes; resolved Poppler executables match pinned hashes. Complete inherited PYTHONPATH retained.",
+  "context_access_deviation": "An initial direct read of the current review JSON included its artifact list and produced truncated output. Subsequent JSON reads use bounded selected fields. No transcript, derivation helper, archive or out-of-scope source page was read.",
+  "ownership": "Fresh absent repair directory exclusively created; current repair authorization supersedes old write scope."
+}

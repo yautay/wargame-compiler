@@ -1,0 +1,569 @@
+{
+  "task": "IG-2B02",
+  "status": "review",
+  "actor": "codex-01a13c20-b7bd-7962-a954-f5841c09831c",
+  "session_id": "01a13c20-b7bd-7962-a954-f5841c09831c",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/configuration.json",
+    "bytes": 816,
+    "sha256": "1bac6a9afb2b89fedb45fc8e49485ed6625b017de0ac24b7c7d2be7fa317d1e3"
+  },
+  "configuration_reobservation": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authorized-review-preflight.json",
+    "bytes": 1943,
+    "sha256": "3e01cce8306f439c16c8f9b41017834953e197ef18c03931262c33f7b4812477"
+  },
+  "operator_authorization": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/operator-retry-authorization.json",
+    "bytes": 1090,
+    "sha256": "7a08556c082ed479befe2358b78136f9565f123ee1d7586ee9033169c9a256e9"
+  },
+  "delivery_manifest": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-manifest.json",
+    "bytes": 801187,
+    "sha256": "593fbe0c8af8166b241382df47513e20e05851ae65ab30c03f9c46834732796b"
+  },
+  "original_frozen_delivery": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery.json",
+    "bytes": 809657,
+    "sha256": "77aacb3a37f957b917dced04b148c5f05de3c23740a71a68d90c068d81602ba5"
+  },
+  "authoritative_transition_delivery": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "bytes": 811893,
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "original_handoff": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-handoff.md",
+    "bytes": 7595,
+    "sha256": "0d50411075b62e064e57af0462adf6c0430926a873e3c2912b3a07ab6a86876c"
+  },
+  "final_review_handoff": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-handoff-final.md",
+    "bytes": 4055,
+    "sha256": "fc5b99afa1a5b50fcc89b3571295c4cd3e0679b1450442a729cf822e06465c92"
+  },
+  "criteria": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/criteria.json",
+    "bytes": 3352,
+    "sha256": "2093d10f46b29d987b59b8039d4929466d626ecd68c2baa158f9c3f55993a5f4"
+  },
+  "inventory": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/inventory.json",
+    "bytes": 942151,
+    "sha256": "5e2c85c83e9682d484492a2c765d0f958d37c2ca0d5e63986f05ec40a3e1f96b"
+  },
+  "registry": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/identity-registry.json",
+    "bytes": 37379,
+    "sha256": "cf6d44fd993587a8731af253b2522885d028873ff3e7b4deb2acb2cd5cdfa9e0"
+  },
+  "complete_region_ledger": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/region-ledger-final.json",
+    "bytes": 939269,
+    "sha256": "0efa9410e636c48f968dead6a9c37607668173b7185615f0bb17705792eb8020"
+  },
+  "checkpoint": {
+    "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/checkpoint-final-review.json",
+    "bytes": 1065644,
+    "sha256": "7a88ea312de71248e3ba0cdcb32fe6fb08a72d6d871fc6b279160b1f1d0d1fc1"
+  },
+  "all_original_frozen_artifacts_verified": true,
+  "all_approved_envelope_artifacts_verified": true,
+  "frozen_files_overwritten": false,
+  "review_event": {
+    "from": "in_progress",
+    "to": "review",
+    "utc": "2026-10-14T21:57:09.490446+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+    "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+  },
+  "queue_mutation_verification": "Exact pre-retry queue bytes reconstructed from current queue by reverting only this authorized review status/event; hash/byte count match.",
+  "queue_observation": {
+    "path": "docs/work/queue.json",
+    "bytes": 152236,
+    "sha256": "72352ea64b48d64e6565d6db1dcc0af848ecf5c922929dfba86beca6c4fe311a"
+  },
+  "approved_retry_count": 1,
+  "successful_retry_exit_code": 0,
+  "approved_artifact_count": 2895,
+  "postfreeze_recovery_and_epilogue_artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authorized-review-preflight-run.command.json",
+      "bytes": 947,
+      "sha256": "8806514f5f27322ae829898938548b02988c9c3913e8b4e81b9075e8a0a72353"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authorized-review-preflight-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authorized-review-preflight-run.stdout",
+      "bytes": 101,
+      "sha256": "f3cfdcb3095a6ff800c75adb18091e6ed83cd61ec78d3c8e246a68d0c993bc24"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authorized-review-preflight.json",
+      "bytes": 1943,
+      "sha256": "3e01cce8306f439c16c8f9b41017834953e197ef18c03931262c33f7b4812477"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authorized-review-preflight.py",
+      "bytes": 3160,
+      "sha256": "44be0a6c26e5e3a914e35fd63eee0acb7cc1102bc98b143e01f8e0d9e190b29f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/checkpoint-final-review.json",
+      "bytes": 1065644,
+      "sha256": "7a88ea312de71248e3ba0cdcb32fe6fb08a72d6d871fc6b279160b1f1d0d1fc1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/checkpoint-review-transition-failed.json",
+      "bytes": 1048721,
+      "sha256": "808fa4d90d65b2a948ed0b1026108da2c78b13382b191dce5216c010f9af5c5e"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-manifest.json",
+      "bytes": 801187,
+      "sha256": "593fbe0c8af8166b241382df47513e20e05851ae65ab30c03f9c46834732796b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery-transition-envelope.json",
+      "bytes": 811893,
+      "sha256": "c02077ee51ff4dc773385942de23fe0f1428ddf7cc038b45a8464e78056c5a19"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/delivery.json",
+      "bytes": 809657,
+      "sha256": "77aacb3a37f957b917dced04b148c5f05de3c23740a71a68d90c068d81602ba5"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/escalation-workflow-validate.command.json",
+      "bytes": 839,
+      "sha256": "39790eae0f2f0c1d18fd35f93639ee3c51f2f2f3e14a1481578abb8cb751d43b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/escalation-workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/escalation-workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/freeze-run.command.json",
+      "bytes": 883,
+      "sha256": "85a4a7b671db091a9b516adc3dbd082067eb56b7fa0aedf64d6e84eb9aeccb94"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/freeze-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/freeze-run.stdout",
+      "bytes": 129,
+      "sha256": "4026b2a1c7b91c712df02bcd1a3ccea4befe20e6a9608a883de10c66e12ab56f"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/operator-retry-authorization.json",
+      "bytes": 1090,
+      "sha256": "7a08556c082ed479befe2358b78136f9565f123ee1d7586ee9033169c9a256e9"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/prepare-transition-recovery.py",
+      "bytes": 6609,
+      "sha256": "2355e288da963fa46fead280c8d67573244db409f4adc9a7bdf9d3817d9f2fc8"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/recovery-preparation.command.json",
+      "bytes": 924,
+      "sha256": "cc49599a470d3df6b099a0972888b2ecc2acc9a47abd68299d5756ce6294c818"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/recovery-preparation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/recovery-preparation.stdout",
+      "bytes": 273,
+      "sha256": "b4a98bf46dd002bc33a527f09917b13199459f45399f9dcc5394f3931e60d845"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-handoff-final.md",
+      "bytes": 4055,
+      "sha256": "fc5b99afa1a5b50fcc89b3571295c4cd3e0679b1450442a729cf822e06465c92"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-diff-check.command.json",
+      "bytes": 761,
+      "sha256": "ae6a41313dbf219f7b55e03a74588c6e8a4f7ccdcec8c8957160dbfeb2f4c76b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-diff-check.stderr",
+      "bytes": 5143,
+      "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-diff-check.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-workflow-validate.command.json",
+      "bytes": 831,
+      "sha256": "99e280965c16c06c3669e713064a26bf3f163729bf700119f38868c1a3af66d0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-workflow-validate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-workflow-validate.stdout",
+      "bytes": 60,
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition-authorized.command.json",
+      "bytes": 1065,
+      "sha256": "fda3126ca084239b298da39907c64a8a8cce6aa5b3a20c36d98d257fb3338e81"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition-authorized.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition-authorized.stdout",
+      "bytes": 19,
+      "sha256": "a9ddda2590a66f072e5c6965fa12933332c6e6e9d027c70587fe0f9c120befc0"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition-diagnosis.json",
+      "bytes": 3081,
+      "sha256": "c966072fcbecba9a8c71789692c85fe21a8aabf16c04926a5ae6fbee0613f8c5"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition.command.json",
+      "bytes": 1018,
+      "sha256": "bfc776c3fd10b3a30130bf39d68446997576a9427f93f5f26145cf2784ab2c6c"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition.stderr",
+      "bytes": 35,
+      "sha256": "e678a4f89d11b61e1f223cc30ea2a25acf5768d54abd7289839efb36310e40bb"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-transition.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/seal-authorized-review.py",
+      "bytes": 9794,
+      "sha256": "923d99824e7cdc5ddc0101f3ab5b13e4554bb1a4b8bcdc9ecfb0cd2fd6b0fb78"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-handoff.md",
+      "bytes": 1806,
+      "sha256": "1ce621f2a771440008fb3c474fc7847df7982bb88a635cf57f6690988985032b"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-preflight.json",
+      "bytes": 626,
+      "sha256": "423b8c76274470fece495ab49b49608e3a74fa15d1b9b5471edf65969e8c94ed"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-proposal.json",
+      "bytes": 3485,
+      "sha256": "64ef4cdc4e74b6e49863619c51fd13de415c3a81f55e8afc9e7376c452fe10de"
+    },
+    {
+      "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/transition-recovery-seal.json",
+      "bytes": 3088,
+      "sha256": "db920298712dbf38cbe35b9c784bfbfdad96fc0458dcc3ef88adabb88b9fc9a8"
+    }
+  ],
+  "required_checks": [
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "wgc.sources",
+        "validate",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-verified/inventory.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:01:52.024144+00:00",
+      "ended_utc": "2026-10-14T21:02:03.708892+00:00",
+      "wall_seconds": 11.687000000001717,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-root-validate.stdout",
+        "bytes": 9997,
+        "sha256": "540ce34824e50e283143471b4dbfda722d42393955a504ccc9c848830cc437ea"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-root-validate.stderr",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": [
+        "C:/Users/yauta/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.EXE",
+        "-NoProfile",
+        "-File",
+        "scripts/check.ps1",
+        "-Task",
+        "IG-2B02"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:02:03.718758+00:00",
+      "ended_utc": "2026-10-14T21:02:36.667132+00:00",
+      "wall_seconds": 32.93699999999808,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/repository-check.stdout",
+        "bytes": 5715,
+        "sha256": "6e42b8a4a6c80ded485337edb1ef468adbddda07f7ccac03ff3898cee6ec4a3c"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/repository-check.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:02:36.668052+00:00",
+      "ended_utc": "2026-10-14T21:02:37.823539+00:00",
+      "wall_seconds": 1.1559999999990396,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:02:37.825847+00:00",
+      "ended_utc": "2026-10-14T21:02:39.113617+00:00",
+      "wall_seconds": 1.2819999999992433,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/final-diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    },
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/sources",
+        "--basetemp",
+        "C:/repo/wargame-compiler/private/workflow/checks/b02-src-01a13c20",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:53:46.554035+00:00",
+      "ended_utc": "2026-10-14T20:54:11.700822+00:00",
+      "wall_seconds": 25.15599999999904,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-tests.stdout",
+        "bytes": 102,
+        "sha256": "1f54c1e2b674dbc12840a266705826aff8c6224751b13d75c327938798392ea5"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/source-tests.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/author.py",
+        "replay-one",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored/identity-registry.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:48:17.638739+00:00",
+      "ended_utc": "2026-10-14T20:48:20.463257+00:00",
+      "wall_seconds": 2.812000000001717,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-one.stdout",
+        "bytes": 44,
+        "sha256": "d2cd5402de55c95631bcb7460da0f05b103e08c00499ca117bf92f13677ce526"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-one.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/author.py",
+        "replay-two",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/authored/identity-registry.json"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T20:48:20.610260+00:00",
+      "ended_utc": "2026-10-14T20:48:23.482598+00:00",
+      "wall_seconds": 2.875,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-two.stdout",
+        "bytes": 44,
+        "sha256": "d2cd5402de55c95631bcb7460da0f05b103e08c00499ca117bf92f13677ce526"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/replay-two.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/finalize.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:00:09.173292+00:00",
+      "ended_utc": "2026-10-14T21:00:25.644087+00:00",
+      "wall_seconds": 16.468999999997322,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/finalize-run.stdout",
+        "bytes": 69,
+        "sha256": "d125a0dc3ea5cf13432b9d9c33aa8612c01ba526d3a9befe34ac85c00cc1303e"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/finalize-run.stderr",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    },
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/audit.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:00:27.587707+00:00",
+      "ended_utc": "2026-10-14T21:01:26.087510+00:00",
+      "wall_seconds": 58.5,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/audit-run.stdout",
+        "bytes": 7690,
+        "sha256": "047c7a73ccd6df2b4033105f9d9de471582552c6c312efdf2097f64ae45e53f2"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/audit-run.stderr",
+        "bytes": 72,
+        "sha256": "4d90d7e4dd6fb0b182ed2a194cf3956fc3bac96178e4aa4e542c9bd97558abfc"
+      }
+    }
+  ],
+  "post_transition_checks": [
+    {
+      "command": [
+        "C:/repo/wargame-compiler/.venv/Scripts/python.exe",
+        "-B",
+        "scripts/workflow.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:58:49.270941+00:00",
+      "ended_utc": "2026-10-14T21:58:50.518538+00:00",
+      "wall_seconds": 1.25,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-workflow-validate.stdout",
+        "bytes": 60,
+        "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-workflow-validate.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-14T21:58:50.649392+00:00",
+      "ended_utc": "2026-10-14T21:58:51.713043+00:00",
+      "wall_seconds": 1.0620000000017171,
+      "stdout": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-diff-check.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "private/workflow/runs/IG-2B02/inventory-20261014T201344Z-reserved-by-01a13c09-ed4d-7ab2-b967-5e6db69e78b8/review-status-diff-check.stderr",
+        "bytes": 5143,
+        "sha256": "9e142369a0694d7b6281c8103081f96e321dd421ed389bd20b7bae7abf2e91f1"
+      }
+    }
+  ],
+  "measurement": {
+    "started_utc": "2026-10-14T20:39:57.987627+00:00",
+    "ended_utc": "2026-10-14T21:59:18.890667+00:00",
+    "elapsed_wall_seconds": 4760.90304,
+    "basis": "Preclaim preflight start to final seal construction. Elapsed wall time includes waiting for operator recovery authorization; active/operator time was not independently measured.",
+    "input_tokens": null,
+    "output_tokens": null,
+    "monetary_cost": null,
+    "operator_seconds": null,
+    "unknown_reason": "Not exposed/measured."
+  },
+  "independent_reviewer": null,
+  "independent_review": "Pending fresh separate session/identity comparing original assigned pages, complete ledger and all exact delivery hashes.",
+  "acceptance_granted": false,
+  "semantic_acceptance_granted": false,
+  "whole_record_source_IG_review": "not established",
+  "executable_readiness": "unverified",
+  "downstream_work_started": false,
+  "self_exclusion_policy": "Final seal excludes itself. This invocation writes no subsequent mutable artifacts in the attempt. Exact final seal bytes/hash are returned to the operator.",
+  "stop": "Review reached; executor stops. No acceptance/done, downstream task or new session."
+}

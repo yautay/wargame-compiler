@@ -1,0 +1,122 @@
+{
+  "role": "coordinator",
+  "actor": "ig2:001-IG-2B04-coordinator-f870c628:coordinator",
+  "task": "IG-2B04",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T200250Z-56a048a1/001-IG-2B04-coordinator-f870c628/runtime-configuration.json",
+  "configuration_sha256": "b3a8ee701b424bf7acaf754d661c5f02c56509509559794ec3069fd3431ee313",
+  "utc": "2026-10-15T20:09:06.604843+00:00",
+  "format": "wgc-ready-evidence-1",
+  "summary": "IG-2B04 fully refined and ready for a fresh executor claim; no product execution or semantic acceptance is claimed.",
+  "criteria": [
+    "Account for every page region: clauses, headings, notes, examples, diagrams, tables/legends and editorial exclusions.",
+    "Keep exact evidence locators, uncertain readings and cross-page continuations; no silent omission.",
+    "Independent review compares the assigned pages against the complete region ledger.",
+    "Preserve the complete pinned 44-page inventory, every nonassigned record/link/evidence and all persisted registry bindings; replace only assigned placeholders and retain retired registry entries.",
+    "Freeze fresh original-page inspection and every assigned region evidence artifact, two complete independent replays, full/task/context denominators, preservation and reference audits, and independent review of the frozen complete delivery.",
+    "Use the exact execution-contract input pins and output layout, including the current repaired ledger/continuations and final-verified inventory plus companion registry; retain unresolved boundaries outside the authorized pages."
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-f870c628-01/execution-contract.json",
+      "sha256": "820f9fdf7424579aaa207b1b38e30cb8e230f9ff515ff2e678c24de8903e4fe7",
+      "bytes": 9818
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-f870c628-01/input-verification.json",
+      "sha256": "77c166781c1c2315b01eecf6ce213878ecd4139a023ed9f5ea80850c70e96830",
+      "bytes": 10118
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-f870c628-01/refinement.json",
+      "sha256": "49e667c946147d3bed9c0cc3df493d342a3de1fb7f4738a8d83fc263a7fb7a5f",
+      "bytes": 2912
+    },
+    {
+      "path": "private/workflow/runs/IG-2B04/coordinator-f870c628-01/source-tests.json",
+      "sha256": "f458396f34c0ff2c9241208a510c2ce2dcb63af8d151defb1719f4dffdd9073d",
+      "bytes": 1272
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-inventory-contract.md",
+      "sha256": "bee3974102374b651accac72994f6cf1f872f1fb6238d93538889daafe0ad64a",
+      "bytes": 2541
+    }
+  ],
+  "checks": [
+    {
+      "command": "workflow.validate(refined_queue, repository_root)",
+      "exit_code": 0
+    },
+    {
+      "command": "Exact executable packet/tool-context availability and size preflight",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B04/coordinator-f870c628-01/pytest-sources -p no:cacheprovider --tb=short",
+      "exit_code": 0
+    }
+  ],
+  "readiness": {
+    "dependencies_done": true,
+    "refinement_complete": true,
+    "exact_context_available": true,
+    "product_attempt_absent": true,
+    "source_inspection_inherited": false,
+    "semantic_acceptance_granted": false
+  },
+  "next_operation": "Supervisor may launch only a fresh IG-2B04 executor with observed gpt-6.1-sol/high; claim, inspect assigned originals and implement the frozen contract.",
+  "packet_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "bb0a3c1940261890d03a6fd55ebb4481dd67bd1a5fddca7b63c87f3f1098d8a1",
+      "bytes": 1213
+    },
+    {
+      "path": "README.md",
+      "sha256": "2f3150766cf7e97a79b5f90296ca54e9860eaac4224961e4fbc4e04cabe22149",
+      "bytes": 2001
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "19718819ea55488f703137fa68b19421c6f2632e2cc36952637e2dcbea2f8bb1",
+      "bytes": 1135
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "sha256": "126fa4ea34bf96afa23f9fc145dc9e75a2360c1d3ddabed8070c4fec679c2395",
+      "bytes": 1533
+    },
+    {
+      "path": "docs/work/WORKFLOW.md",
+      "sha256": "05712da520559538b2772211931ad63f590dfa9431d2871fcd52bd208b9abb0d",
+      "bytes": 8159
+    },
+    {
+      "path": "docs/skills/wgc-execute/SKILL.md",
+      "sha256": "002122a97341aad5a3563c13c2d9f13fcdb45bf6aa50b52db8121ac8c0840105",
+      "bytes": 963
+    },
+    {
+      "path": "docs/IG-WGU-ARCHITECTURE.md",
+      "sha256": "9b4f31180f2db450ae772b3e12a5b12e5bbf0339570305f48b2625c9d78ab54d",
+      "bytes": 9131
+    },
+    {
+      "path": "docs/IG-DATA-MODEL.md",
+      "sha256": "6a7e0d1335cce12a9e2d906ca655faad53393bf432e89483919b794a5051b69e",
+      "bytes": 7786
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-context-access-02.md",
+      "sha256": "15a7221bb024bf05a77f0078bd86e83d0c35064d6bbef9da8e472aebf1b18951",
+      "bytes": 773
+    },
+    {
+      "path": "docs/work/repair-context/IG-2B04-inventory-contract.md",
+      "sha256": "bee3974102374b651accac72994f6cf1f872f1fb6238d93538889daafe0ad64a",
+      "bytes": 2541
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B08-executor-ea0eff4d:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/001-IG-2B08-executor-ea0eff4d/runtime-configuration.json",
+  "configuration_sha256": "91c91c99f5e1dcfbbe51c3fb6c5f7f8550d273ad07df5dc2e4d15608f0c2aa21",
+  "summary": "All three exact CLI source-backed validations passed.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:41:47.646651+00:00",
+      "ended_utc": "2026-10-17T07:41:59.819422+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/final-verified-cli-validation.log",
+        "bytes": 11222,
+        "sha256": "e385472588eb0a0855c950f56a49289b43a2a8a36a1078b354ec290d22f06db0"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:41:59.827778+00:00",
+      "ended_utc": "2026-10-17T07:42:13.751003+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-1-cli-validation.log",
+        "bytes": 11222,
+        "sha256": "e385472588eb0a0855c950f56a49289b43a2a8a36a1078b354ec290d22f06db0"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2/inventory.json",
+      "exit_code": 0,
+      "started_utc": "2026-10-17T07:42:13.761676+00:00",
+      "ended_utc": "2026-10-17T07:42:28.939533+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/inventory-p33-scope02/replay-2-cli-validation.log",
+        "bytes": 11222,
+        "sha256": "e385472588eb0a0855c950f56a49289b43a2a8a36a1078b354ec290d22f06db0"
+      },
+      "root_source_access": true
+    }
+  ]
+}

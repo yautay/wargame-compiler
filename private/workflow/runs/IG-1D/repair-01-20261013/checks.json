@@ -1,0 +1,69 @@
+[
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe -m pytest tests/wgu_adapter tests/export private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py -q -p no:cacheprovider --basetemp private/workflow/checks/dr5 --tb=short",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/wgu_adapter",
+      "tests/export",
+      "private/workflow/runs/IG-1D/review-20261013T122807Z/probes.py",
+      "private/workflow/runs/IG-1D/review-20261013T122807Z/lineage_probes.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "private/workflow/checks/dr5",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T13:12:15.068790+00:00",
+    "ended_utc": "2026-10-13T13:12:23.821185+00:00",
+    "wall_seconds": 8.75,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\explicit.log"
+  },
+  {
+    "command": "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe scripts/workflow.py validate",
+    "argv": [
+      "C:\\repo\\wargame-compiler\\.venv\\Scripts\\python.exe",
+      "scripts/workflow.py",
+      "validate"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T13:12:23.821185+00:00",
+    "ended_utc": "2026-10-13T13:12:24.268566+00:00",
+    "wall_seconds": 0.4529999999795109,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\queue.log"
+  },
+  {
+    "command": "git diff --check",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-13T13:12:24.268566+00:00",
+    "ended_utc": "2026-10-13T13:12:25.650212+00:00",
+    "wall_seconds": 1.375,
+    "log": "C:\\repo\\wargame-compiler\\private\\workflow\\runs\\IG-1D\\repair-01-20261013\\diff.log"
+  },
+  {
+    "command": ".venv/Scripts/python.exe private/workflow/runs/IG-1D/repair-01-20261013/full_audit.py (normally reviewed native escalation)",
+    "exit_code": 0,
+    "report": {
+      "path": "private/workflow/runs/IG-1D/repair-01-20261013/full-export-accounting-final.json",
+      "sha256": "b1cc378954c8fc930e2bd7dc5638a23805177820a083a5966b3f99f512f07ba1"
+    }
+  },
+  {
+    "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-1D",
+    "exit_code": 0,
+    "tests_passed": 102,
+    "reported_seconds": 40.84,
+    "result": {
+      "path": "private/workflow/checks/active-39a4fb89432a4b458fb71adf87ce534f/result.json",
+      "sha256": "884e447ceeff2127133c5d2744b25072adaa1da7d86a06842ddabe3286281e5d"
+    }
+  }
+]

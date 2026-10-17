@@ -1,0 +1,44 @@
+{
+  "failed_setup_attempts": [
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verify.py before",
+      "exit_code": 1,
+      "started_utc": null,
+      "ended_utc": null,
+      "wall_seconds": null,
+      "recorded_utc": "2026-10-13T14:39:54.112882+00:00",
+      "failure": "AssertionError at verify.py:59: executor oracle identity normalization missed review_actor -> executor_actor key rename.",
+      "scope": "Review-helper setup only; all earlier byte verification assertions passed. No product assertion changed.",
+      "resolution": "Diff inspection established only operational actor key/value changed. Corrected verifier normalizes both, preserving all byte/target/assertion checks.",
+      "original_verifier_sha256": "c7928c977c88d30c01edce963a451d199f15483fffd23fc02c70c2a640c6888b"
+    },
+    {
+      "command": ".venv/Scripts/python.exe -B private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verify-corrected.py before",
+      "exit_code": 1,
+      "started_utc": null,
+      "ended_utc": null,
+      "wall_seconds": null,
+      "recorded_utc": "2026-10-13T14:40:52.272525+00:00",
+      "failure": "StopIteration at line 63: new delivery lists its own packages/ copy, not the earlier official canonical path.",
+      "scope": "Review setup mapping; all earlier delivery/preservation assertions passed.",
+      "resolution": "Locate the exact package via delivery artifacts and verify all four hashes and exact bytes against the audit target. Keep all original accounting assertions and target unchanged.",
+      "failed_verifier_sha256": "c96cc3139596d60c81bf0961cea08e962684f9bf162a1fadfdb896dd82cf3f92"
+    }
+  ],
+  "required_product_checks": "All passing in checks.json; failed attempts are not relabeled or included as passing required checks.",
+  "successful_verifier": {
+    "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verify-final.py",
+    "sha256": "43c4b824e57f33675801bc48f739b410d669b42e3c05dd4593f037c5c7cb633f",
+    "bytes": 5450
+  },
+  "before": {
+    "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verification-before.json",
+    "sha256": "a7e6a13b9008338415c1c6e9f487c7668502a1df2558ac4cc8a6f71912036e4e",
+    "bytes": 294925
+  },
+  "after": {
+    "path": "private/workflow/runs/IG-1D/replacement-rereview-20261013T143653Z/verification-after.json",
+    "sha256": "8d4ca3e6a3f4f559a3fd1340e9000876dbe698ea37f770ffa9574c4a00d6654b",
+    "bytes": 294924
+  }
+}

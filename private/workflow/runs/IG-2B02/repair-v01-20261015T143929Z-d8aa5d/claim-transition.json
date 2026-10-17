@@ -1,0 +1,32 @@
+{
+  "role": "executor",
+  "actor": "ig2:001-IG-2B02-executor-91db01b5:executor",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261015T144301Z-98bff5f8/001-IG-2B02-executor-91db01b5/runtime-configuration.json",
+  "configuration_sha256": "c49e364a90b586a813224c5acf0bac6bfc33b86cb5a4bf280ca95f0f826c05b5",
+  "task": "IG-2B02",
+  "summary": "Observed successful executor claim through workflow transition.",
+  "command": [
+    ".venv/Scripts/python.exe",
+    "-B",
+    "scripts/workflow.py",
+    "transition",
+    "--task",
+    "IG-2B02",
+    "--to",
+    "in_progress",
+    "--evidence",
+    "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/claim.json"
+  ],
+  "exit_code": 0,
+  "stdout": "IG-2B02 -> in_progress\n",
+  "event": {
+    "from": "changes_requested",
+    "to": "in_progress",
+    "utc": "2026-10-15T14:45:00.499662+00:00",
+    "evidence": "private/workflow/runs/IG-2B02/repair-v01-20261015T143929Z-d8aa5d/claim.json",
+    "sha256": "1e81eb57ffadafb4cc18f042460e8a572b3fd40ff767dd9c45b6702a863da0a1"
+  },
+  "ownership_verified": true
+}

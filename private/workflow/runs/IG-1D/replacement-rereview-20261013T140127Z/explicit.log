@@ -1,0 +1,45 @@
+.................................................F...................... [ 77%]
+.................F...                                                    [100%]
+================================== FAILURES ===================================
+_______________________________ test_multi_file _______________________________
+tests\wgu_adapter\test_repair_contract.py:36: in test_multi_file
+    result=import_snapshot(root)
+           ^^^^^^^^^^^^^^^^^^^^^
+src\wgc\wgu_adapter\importer.py:224: in import_snapshot
+    manifest=verify_snapshot(directory)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:347: in verify_snapshot
+    return _verify_snapshot(directory)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:297: in _verify_snapshot
+    manifest = read_structured(directory / 'manifest.json', require_canonical=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:243: in read_structured
+    with open_read(path) as stream:
+         ^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:115: in open_read
+    raise SnapshotError('cannot verify opened source path; WinError ' + str(ctypes.get_last_error()))
+E   wgc.inputs.snapshot.SnapshotError: cannot verify opened source path; WinError 5
+___________ test_package_bytes_and_operational_timestamps_separated ___________
+tests\export\test_source.py:127: in test_package_bytes_and_operational_timestamps_separated
+    first=publish(result,tmp_path/'exports',operation_evidence={'model':None})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\export\storage.py:42: in publish
+    if _read(target/name)!=raw:raise ValueError('existing canonical package changed; preserve for diagnosis')
+       ^^^^^^^^^^^^^^^^^^
+src\wgc\export\storage.py:18: in _read
+    with open_read(path) as stream:return stream.read()
+         ^^^^^^^^^^^^^^^
+C:\Users\yauta\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+src\wgc\inputs\snapshot.py:115: in open_read
+    raise SnapshotError('cannot verify opened source path; WinError ' + str(ctypes.get_last_error()))
+E   wgc.inputs.snapshot.SnapshotError: cannot verify opened source path; WinError 5
+=========================== short test summary info ===========================
+FAILED tests/wgu_adapter/test_repair_contract.py::test_multi_file - wgc.input...
+FAILED tests/export/test_source.py::test_package_bytes_and_operational_timestamps_separated
+2 failed, 91 passed in 15.90s

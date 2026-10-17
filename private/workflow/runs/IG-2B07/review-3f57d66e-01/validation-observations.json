@@ -1,0 +1,111 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:003-IG-2B07-reviewer-3f57d66e:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261016T195516Z-332903f5/003-IG-2B07-reviewer-3f57d66e/runtime-configuration.json",
+  "configuration_sha256": "c0e94d206603c35ac751704a43bfb9068437671d980d746109f8879e48a71391",
+  "checks": [
+    {
+      "name": "Complete frozen delivery and input integrity after review",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-3f57d66e-01/check_frozen.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/frozen-reverification.json",
+        "sha256": "eed0a4c93d250430613b1f6bfda2685b6412d8d931ec2d55867ae3ef98709dbb",
+        "bytes": 1069658
+      }
+    },
+    {
+      "name": "Independent original source rendering",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-3f57d66e-01/verify_source.py originals",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/originals-verification.json",
+        "sha256": "29b2920ad265ae36ca4ce89f958e50311d0770937fc41653ead06398a7f7f3b4",
+        "bytes": 4699
+      }
+    },
+    {
+      "name": "Independent complete serial source replay 1",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-3f57d66e-01/verify_source.py replay-1",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/replay-1-verification.json",
+        "sha256": "72a839fbb5240d8d73036e3df6b6f4acabc9540d49ea6ff185859bada451041c",
+        "bytes": 287612
+      }
+    },
+    {
+      "name": "Independent complete serial source replay 2",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-3f57d66e-01/verify_source.py replay-2",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/replay-2-verification.json",
+        "sha256": "5ada29e2727baeb0dd98c586659fb784c3da3aa70b8558c4f0778db121e86375",
+        "bytes": 287612
+      }
+    },
+    {
+      "name": "Complete ledger and normalized frozen replay consistency",
+      "command": ".venv/Scripts/python.exe private/workflow/runs/IG-2B07/review-3f57d66e-01/check_structure.py",
+      "exit_code": 0,
+      "report": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/structure-verification.json",
+        "sha256": "c4ff3c9bf7d6162514d90c72e058c21acc257181d8c55b9f402c8b1df35e262b",
+        "bytes": 1031
+      }
+    },
+    {
+      "name": "Source inventory validator",
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private/workflow/runs/IG-2B07/inventory-25-28-01/final-verified/inventory.json",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/source-validation.log",
+        "sha256": "2a71352d37211a85ffe1ba284a3a405c79c929604a855b0ef09cea842d36ac3e",
+        "bytes": 10915
+      },
+      "result": "source_structure_verification verified; 849 inventory regions, 91 context regions; semantics and executable readiness remain unverified"
+    },
+    {
+      "name": "Unchanged source test suite",
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/review-3f57d66e-01/pytest-sources -p no:cacheprovider --tb=short",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "71 passed in 14.28s",
+      "basetemp_reason": "Reviewer-owned directory preserves frozen executor artifacts."
+    },
+    {
+      "name": "Required complete repository checks",
+      "command": "pwsh -NoProfile -File scripts/check.ps1 -Task IG-2B07",
+      "execution": "approved_require_escalated",
+      "exit_code": 0,
+      "observed_summary": "274 passed in 33.30s; plan, dry run, tests and diff exits zero.",
+      "result": {
+        "path": "private/workflow/checks/active-b726db904e8b4813b5f6ababfc5c5959/result.json",
+        "sha256": "08c5ca5e46504310ae7e47c3e4215b22d5018cffcff4efc30f9d298e0b1285fe",
+        "bytes": 206
+      }
+    },
+    {
+      "name": "Required whitespace check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "log": {
+        "path": "private/workflow/runs/IG-2B07/review-3f57d66e-01/diff-check.log",
+        "sha256": "bff9f49fafe829c8ae6a2f7b4c952d77540811e8c312cb3272f7f6aff2aa78f3",
+        "bytes": 277613
+      }
+    }
+  ],
+  "diagnostic_attempts": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q tests/sources --basetemp private/workflow/runs/IG-2B07/review-3f57d66e-01/pytest-sources -p no:cacheprovider --tb=short",
+      "execution": "restricted",
+      "exit_code": 1,
+      "observed_error": "PermissionError [WinError 5]: Access is denied to reviewer-owned pytest-sources basetemp during pytest session finish.",
+      "resolution": "Exact unchanged command approved using require_escalated; 71 tests passed. No assertion, ACL, library or test edits."
+    }
+  ],
+  "reviewer_product_mutations": false
+}

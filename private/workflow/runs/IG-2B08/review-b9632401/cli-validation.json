@@ -1,0 +1,47 @@
+{
+  "role": "reviewer",
+  "actor": "ig2:002-IG-2B08-reviewer-b9632401:reviewer",
+  "model": "gpt-6.1-sol",
+  "reasoning": "high",
+  "configuration_evidence": "private/workflow/orchestrator/20261017T071640Z-9e122b0d/002-IG-2B08-reviewer-b9632401/runtime-configuration.json",
+  "configuration_sha256": "8352778a725af1eb4e8e98e236dd53fef1283888842cc9e22069fb1edbb7f75e",
+  "summary": "Independent unchanged final and both replay CLI validation commands with actual repository/source access.",
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private\\workflow\\runs\\IG-2B08\\inventory-p33-scope02\\final-verified\\inventory.json",
+      "exit_code": 2,
+      "started_utc": "2026-10-17T07:55:26.508784+00:00",
+      "ended_utc": "2026-10-17T07:55:26.821732+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-b9632401/final-verified-cli-validation.log",
+        "bytes": 145,
+        "sha256": "45defea89194679d855f96dd41f64ff4513a876ed830051b1bddf0c3bae57016"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private\\workflow\\runs\\IG-2B08\\inventory-p33-scope02\\replay-1\\inventory.json",
+      "exit_code": 2,
+      "started_utc": "2026-10-17T07:55:26.850944+00:00",
+      "ended_utc": "2026-10-17T07:55:27.183189+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-b9632401/replay-1-cli-validation.log",
+        "bytes": 145,
+        "sha256": "45defea89194679d855f96dd41f64ff4513a876ed830051b1bddf0c3bae57016"
+      },
+      "root_source_access": true
+    },
+    {
+      "command": ".venv/Scripts/python.exe -m wgc.sources validate private\\workflow\\runs\\IG-2B08\\inventory-p33-scope02\\replay-2\\inventory.json",
+      "exit_code": 2,
+      "started_utc": "2026-10-17T07:55:27.185939+00:00",
+      "ended_utc": "2026-10-17T07:55:27.986568+00:00",
+      "log": {
+        "path": "private/workflow/runs/IG-2B08/review-b9632401/replay-2-cli-validation.log",
+        "bytes": 145,
+        "sha256": "45defea89194679d855f96dd41f64ff4513a876ed830051b1bddf0c3bae57016"
+      },
+      "root_source_access": true
+    }
+  ]
+}

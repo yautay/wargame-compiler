@@ -1,0 +1,12 @@
+.................................................F.....................  [100%]
+================================== FAILURES ===================================
+___________ test_printed_label_requires_same_current_physical_page ____________
+tests\sources\test_review_repairs.py:45: in test_printed_label_requires_same_current_physical_page
+    validate(reseal(doc),source[0])  # Association only; this does not verify the glyph.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\wgc\sources\inventory.py:242: in validate
+    raise ValueError('printed label evidence belongs to another physical page')
+E   ValueError: printed label evidence belongs to another physical page
+=========================== short test summary info ===========================
+FAILED tests/sources/test_review_repairs.py::test_printed_label_requires_same_current_physical_page
+1 failed, 70 passed in 95.00s (0:01:35)

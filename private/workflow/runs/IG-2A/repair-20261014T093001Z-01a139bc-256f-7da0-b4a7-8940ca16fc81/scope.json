@@ -1,0 +1,30 @@
+{
+  "task": "IG-2A",
+  "findings": [
+    "IG2A-R01",
+    "IG2A-R02",
+    "IG2A-R03",
+    "IG2A-R04",
+    "IG2A-R05"
+  ],
+  "product_write_scope": [
+    "src/wgc/sources/",
+    "tests/sources/",
+    "contracts/ig/regions.schema.json"
+  ],
+  "evidence_write_scope": "private/workflow/runs/IG-2A/repair-20261014T093001Z-01a139bc-256f-7da0-b4a7-8940ca16fc81/",
+  "source_read_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "all_page_access": "Structure/count/geometry only",
+  "source_pdf": {
+    "path": "private/ig/sources/spqr-5e-official/revision-20261013T155212Z/rulebook.pdf",
+    "sha256": "e5b65958ca04261058147966b10e1ab2785061fc50060390f8a4ce0e34c6d69e",
+    "bytes": 3965827
+  },
+  "excluded": "IG-2B, frozen workflow tools and prior runs, source PDF, IG-1A contract, acceptance/done, external APIs, agents, Git history",
+  "repair_plan": "Pin evidence page basis; verify actual source count/geometry; bind physical-page author keys; cross-check DPI with Poppler ceiling dimensions; bind label to same page; hash coverage-independent exact author/registry/page/partition scope."
+}
