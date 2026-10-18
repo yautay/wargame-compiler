@@ -33,3 +33,7 @@ pwsh -NoProfile -File scripts/check.ps1
 The packet command prepares local context; it does not start a model or change task
 state. Checks validate planning and workflow, not the unimplemented game's correctness.
 Archive integrity is an explicit separate command, never part of routine checks.
+
+To restore the IG-2 checkpoint on another Windows computer, follow
+[IG-2 environment restore and resume](docs/work/IG2-RESTORE.md). Run its input audit
+and model-free preflight before starting the supervisor with a local host binding.

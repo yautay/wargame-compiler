@@ -1005,6 +1005,36 @@ def test_fresh_exact_authorization_unblocks_executor(tmp_path):
     assert o.verify_repair_authorization(tmp_path, t) == scope
 
 
+@pytest.mark.parametrize('size', ['actual', 0, -1, True, '123'])
+def test_rich_delivery_pin_preserves_identity_and_checks_byte_metadata(tmp_path, size):
+    t, scope = repair_inputs(tmp_path)
+    delivery = tmp_path / scope['immutable_delivery']['path']
+    scope['immutable_delivery']['bytes'] = delivery.stat().st_size if size == 'actual' else size
+    pin = t['repair_authorization']['scope']
+    o.dump(tmp_path / pin['path'], scope)
+    pin['sha256'] = o.w.digest(tmp_path / pin['path'])
+    if size == 'actual':
+        assert o.verify_repair_authorization(tmp_path, t) == scope
+        assert o.validation_repair_baseline(tmp_path, t) == o.w.read_json(delivery)['artifacts']
+    else:
+        with pytest.raises(ValueError, match='immutable delivery'):
+            o.verify_repair_authorization(tmp_path, t)
+        with pytest.raises(ValueError, match='original delivery'):
+            o.validation_repair_baseline(tmp_path, t)
+
+
+@pytest.mark.parametrize('field', ['path', 'sha256'])
+def test_byte_metadata_never_authorizes_a_different_delivery(tmp_path, field):
+    t, scope = repair_inputs(tmp_path)
+    scope['immutable_delivery']['bytes'] = (tmp_path / scope['immutable_delivery']['path']).stat().st_size
+    scope['immutable_delivery'][field] = 'different'
+    pin = t['repair_authorization']['scope']
+    o.dump(tmp_path / pin['path'], scope)
+    pin['sha256'] = o.w.digest(tmp_path / pin['path'])
+    with pytest.raises(ValueError, match='immutable delivery'):
+        o.verify_repair_authorization(tmp_path, t)
+
+
 def test_used_repair_directory_cannot_be_reused(tmp_path):
     t, _ = repair_inputs(tmp_path)
     (tmp_path / t['repair_authorization']['attempt']).mkdir()

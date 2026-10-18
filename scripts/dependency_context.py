@@ -9,6 +9,7 @@ import re
 import sys
 
 import workflow as w
+import host_runtime
 import context_guard as guard
 
 FORMAT = 'wgc-dependency-view-1'
@@ -190,7 +191,13 @@ def read_view(root, manifest, sha256, task, dependency, section):
     if dep['status'] != 'done' or event_pin(dep['events'][-1]) != view['summary']['done']:
         raise ValueError('Live dependency authority changed; prepare a new packet')
     checked(root, view['summary']['done'])
-    return bounded({'task': task, 'dependency': dependency, 'section': section, 'data': view[section]})
+    data = copy.deepcopy(view[section])
+    if section == 'toolchain':
+        host = host_runtime.bound(root)
+        if host is not None:
+            data['current_host_runtime'] = {k: host[k] for k in
+                ('python', 'python_version', 'libraries', 'process_pythonpath', 'tools')}
+    return bounded({'task': task, 'dependency': dependency, 'section': section, 'data': data})
 
 
 def main():

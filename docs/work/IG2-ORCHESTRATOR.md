@@ -1,5 +1,10 @@
 # Automatic IG-2 orchestration
 
+For a clone on another Windows computer, follow [IG-2 restore](IG2-RESTORE.md).
+Use an explicit `--host-runtime` binding to preserve historical toolchains while
+running with this checkout's verified local tools. Run the resume audit and preflight
+before launching a model.
+
 The operator requested automatic executor and reviewer launches for IG-2 on
 2026-10-15. This explicitly authorizes this local supervisor to launch fresh Codex
 CLI processes sequentially. It does not authorize unrelated external services,
@@ -144,8 +149,9 @@ before launch and checks preservation after every outcome, including blocked.
 An unchanged blocked coordinator preserves its diagnostic instead of losing it to
 a missing-authorization error.
 
-Both the model process and supervisor checks inherit process-local dependency paths
-from the task's pinned `toolchain.json`: `process_pythonpath` includes repo `src` and
+Without an explicit host binding, both the model process and supervisor checks
+inherit process-local dependency paths from the task's pinned `toolchain.json`:
+`process_pythonpath` includes repo `src` and
 the bundled Python `Lib/site-packages` (including existing `reportlab`), while
 `process_path_prefix` supplies Poppler. No package installation or persistent config
 change is needed. A src-only PYTHONPATH is insufficient for the unchanged source suite.
@@ -156,6 +162,12 @@ one listed directory must be available. An unavailable single pinned directory o
 entirely unavailable list still stops preparation. Invalid element types and empty
 or separator-containing elements are rejected before launching a model. The inherited
 PATH tail and source toolchain bytes are preserved; only the child environment changes.
+
+For a restored Windows checkout, `--host-runtime` selects a separately observed local
+record instead. Its root, exact Python library versions, Poppler version and executable
+hashes are verified, and PATH shadowing of a pinned tool is rejected. The original
+toolchain remains byte-identical. A bound runtime is inherited by detached launches,
+model processes and supervisor validation; it is not an alternative task/status authority.
 
 Each stable finding ID has at most two changes_requested cycles from the
 authoritative event chain. The supervisor hash-verifies prior review evidence and

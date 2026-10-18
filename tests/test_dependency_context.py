@@ -35,6 +35,23 @@ def test_dependency_ceiling_counts_unicode_json_escapes():
         d.bounded(value)
 
 
+def test_current_host_toolchain_is_typed_and_keeps_frozen_dependency_metadata(context, monkeypatch):
+    root, q, task = context
+    view = d.build(root, q, task)
+    rel = 'session/dependency-view.json'
+    dump(root / rel, view)
+    original = (root / rel).read_bytes()
+    host = {'python': {'path': 'new host python'}, 'python_version': [3, 12, 14],
+            'libraries': {'pytest': '9.1.1'}, 'process_pythonpath': ['new host src', 'new libraries'],
+            'tools': {'rg': {'path': 'new host rg'}}, 'not_projected': 'HOST_EXTRA_SENTINEL'}
+    monkeypatch.setattr(d.host_runtime, 'bound', lambda *a: host)
+    result = d.read_view(root, rel, d.w.digest(root / rel), task['id'], 'IG-2B03', 'toolchain')
+    assert result['data']['process_pythonpath'] == 'synthetic runtime'
+    assert result['data']['current_host_runtime']['process_pythonpath'] == host['process_pythonpath']
+    assert 'HOST_EXTRA_SENTINEL' not in json.dumps(result)
+    assert (root / rel).read_bytes() == original
+
+
 @pytest.fixture
 def context(tmp_path):
     def pin(rel, body):

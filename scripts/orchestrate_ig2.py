@@ -19,6 +19,7 @@ import workflow as w
 import search_task as task_search
 import dependency_context as dep_context
 import context_guard
+import host_runtime
 
 STAGE = 'IG-2'
 MODEL = 'gpt-6.1-sol'
@@ -199,6 +200,17 @@ def configuration_binding(root, session, evidence):
         raise ValueError('Evidence is not bound to this observed session configuration')
 
 
+def delivery_pin_matches(root, actual, expected):
+    """Compare identity fields; optional byte metadata must describe the same file."""
+    if not isinstance(actual, dict) or any(actual.get(k) != expected[k] for k in ('path', 'sha256')):
+        return False
+    if 'bytes' in actual:
+        size = actual['bytes']
+        if type(size) is not int or size < 0 or w.safe_path(root, expected['path']).stat().st_size != size:
+            return False
+    return True
+
+
 def verify_repair_authorization(root, task, require_absent=True):
     if not repair_authorized(task):
         raise ValueError('Current findings need a fresh coordinator repair scope')
@@ -224,7 +236,8 @@ def verify_repair_authorization(root, task, require_absent=True):
     if set(scope['finding_ids']) != set(ids) or len(scope['finding_ids']) != len(ids):
         raise ValueError('Repair scope does not account for the current independent findings')
     event, _ = latest_delivery(root, task)
-    if scope.get('immutable_delivery') != {'path': event['evidence'], 'sha256': event['sha256']}:
+    if not delivery_pin_matches(root, scope.get('immutable_delivery'),
+                                {'path': event['evidence'], 'sha256': event['sha256']}):
         raise ValueError('Repair scope does not pin the current immutable delivery')
     if all(f.get('category') == 'required_validation_environment_failure' for f in review.get('findings', [])):
         if scope.get('mode') != 'validation_only':
@@ -305,7 +318,11 @@ def continuation_preservation(root, task, require_absent=False):
     # Event references contain path/hash only; preservation rows may additionally
     # carry byte counts. Require every specified field without rejecting richer
     # records for the same exact immutable bytes.
-    if any(not any(all(stored.get(k) == v for k, v in pin.items()) for stored in preserved)
+    preserved_by_path = {}
+    for stored in preserved:
+        preserved_by_path.setdefault(stored['path'], []).append(stored)
+    if any(not any(all(stored.get(k) == v for k, v in pin.items())
+                   for stored in preserved_by_path.get(pin['path'], []))
            for pin in blocked_artifacts + [blocked_pin]):
         raise ValueError('Continuation omitted blocked-event evidence')
     verify_artifacts(root, {'artifacts': preserved})
@@ -373,6 +390,11 @@ def validation_environment(root, task, ripgrep=None):
     """Reuse the pinned installed runtime; never install or mutate libraries/configuration."""
     env = os.environ.copy()
     env.update(PYTHONDONTWRITEBYTECODE='1', GIT_OPTIONAL_LOCKS='0')
+    host = host_runtime.bound(root)
+    if host is not None:
+        if ripgrep is not None and any(ripgrep[k] != host['tools']['rg'][k] for k in ('path', 'sha256')):
+            raise ValueError('Ripgrep differs from the bound host runtime')
+        return host_runtime.environment(host, env)
     if ripgrep is None and (env.get('WGC_RIPGREP_PATH') or env.get('WGC_RIPGREP_SHA256')):
         ripgrep = task_search.ripgrep_binding()
     if ripgrep is not None:
@@ -406,7 +428,13 @@ def launch_environment(root, task, session, cli=None):
     """Carry the installed pinned runtime into a planned coordinator, before refinement."""
     view = w.read_json(session / 'dependency-view.json')
     effective = task
-    if not any(Path(p).name == 'toolchain.json' for p in task.get('context', [])):
+    host = host_runtime.bound(root)
+    if host is not None:
+        if cli is not None and str(Path(cli).resolve()) != host['tools']['codex']['path']:
+            raise ValueError('Selected Codex differs from the bound host runtime')
+        host_runtime.verify_cli(host['tools']['codex']['path'])
+        dump(session / 'host-runtime.json', host)
+    if host is None and not any(Path(p).name == 'toolchain.json' for p in task.get('context', [])):
         refs = {p['path']: p for dep in view.get('dependencies', {}).values()
                 if (p := dep.get('inventory', {}).get('reports', {}).get('toolchain.json'))}
         if len(refs) == 1:
@@ -448,7 +476,7 @@ def validation_repair_baseline(root, task):
         raise ValueError('Validation lineage does not match the latest repair review')
     previous = next(e for e in reversed(task['events'][:changes]) if e['to'] == 'review')
     pin = {'path': previous['evidence'], 'sha256': previous['sha256']}
-    if scope.get('immutable_delivery') != pin:
+    if not delivery_pin_matches(root, scope.get('immutable_delivery'), pin):
         raise ValueError('Validation lineage changed its original delivery')
     verify_artifacts(root, {'artifacts': [pin]})
     return w.read_json(w.safe_path(root, pin['path']))['artifacts']
@@ -520,6 +548,8 @@ def prepare(root, q, task, role, session):
                 'docs/skills/' + {'executor': 'wgc-execute', 'reviewer': 'wgc-review',
                                   'coordinator': 'wgc-queue'}[role] + '/SKILL.md']
     controls += task.get('tool_context', INVENTORY_TOOL_CONTEXT if re.fullmatch(r'IG-2B\d{2}', task['id']) else [])
+    if host_runtime.bound(root) is not None:
+        controls += ['scripts/host_runtime.py', 'docs/work/IG2-RESTORE.md', host_runtime.REQUIREMENTS]
     controls = list(dict.fromkeys(controls))
     control_pins = []
     for rel in controls:
@@ -802,12 +832,17 @@ For a validation-only repair read repair-scope.json, claim a fresh attempt and p
 ALL old delivery artifacts byte-for-byte. Run the required checks with approved
 permissions, freeze new validation evidence, and create a NEW delivery envelope with
 the unchanged old artifact list plus new reports. Do not overwrite the old delivery.
-Use the installed dependencies in the pinned toolchain.json: process_pythonpath
-includes BOTH repo/src and the bundled Python Lib/site-packages (reportlab lives
-there); process_path_prefix supplies Poppler. These are process-local settings,
-already inherited from the supervisor. Do not replace PYTHONPATH with repo/src only,
+The complete effective runtime is already inherited from the supervisor. When
+WGC_HOST_RUNTIME is bound, use the typed dependency_context.py toolchain section's
+current_host_runtime fields; old toolchain.json paths describe the original host.
+Otherwise use process_pythonpath and process_path_prefix from the pinned toolchain.
+Keep BOTH repo/src and the installed dependency directories, including reportlab.
+These are process-local settings. Do not replace PYTHONPATH with repo/src only,
 install missing packages, or change global settings. Preserve the complete original
 artifact list in its original order as the PREFIX of a validation-only new delivery.
+On a new host, rebase old checkout/runtime paths ONLY in newly copied, explicitly
+allowed helpers under the fresh owned attempt. Use this checkout and the current
+host runtime; never execute an unrebased frozen helper or edit old toolchain evidence.
 For an initial continuation_authorization, FIRST read its exact scope and assessment.
 The old blocked attempt is immutable and remains unaccepted. Named drafts are candidate
 inputs only: do not inherit prior inspection claims, completed status or green checks.
@@ -1277,6 +1312,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['plan', 'run', 'start'])
     parser.add_argument('--codex', default='codex')
+    parser.add_argument('--host-runtime', default=os.environ.get('WGC_HOST_RUNTIME'))
     parser.add_argument('--max-sessions', type=int, default=48)
     parser.add_argument('--session-seconds', type=int, default=3600)
     parser.add_argument('--total-seconds', type=int, default=28800)
@@ -1284,6 +1320,11 @@ def main():
     if min(args.max_sessions, args.session_seconds, args.total_seconds) < 1:
         parser.error('Budgets must be positive')
     root = w.ROOT
+    host = host_runtime.bind(root, args.host_runtime) if args.host_runtime else host_runtime.bound(root)
+    if host is not None:
+        if args.codex != 'codex' and str(Path(shutil.which(args.codex) or args.codex).resolve()) != host['tools']['codex']['path']:
+            raise ValueError('Codex override differs from the bound host runtime')
+        args.codex = host['tools']['codex']['path']
     q = w.read_json(root / w.QUEUE)
     w.validate(q, root)
     task, role = select(q)

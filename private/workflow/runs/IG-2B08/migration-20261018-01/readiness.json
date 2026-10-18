@@ -1,0 +1,117 @@
+{
+  "format": "wgc-ig2-windows-migration-readiness-1",
+  "task": "IG-2B08",
+  "utc": "2026-10-18T07:13:47.611136+00:00",
+  "model": null,
+  "reasoning": null,
+  "configuration_evidence": "Coordinator model/reasoning not exposed; no model session launched by this preparation.",
+  "queue_sha256": "becfc7e86635d2e0149bcb1e83932d05b0cb47bf2a7028ccb7454c385927a3a5",
+  "queue_unchanged": true,
+  "original_missing_reports_added": 32,
+  "original_report_index_hashes_verified": 32,
+  "project_tests_passed": 342,
+  "source_tests_passed": 71,
+  "resume_audit": {
+    "format": "wgc-ig2-resume-audit-1",
+    "task": "IG-2B08",
+    "status": "changes_requested",
+    "queue_sha256": "becfc7e86635d2e0149bcb1e83932d05b0cb47bf2a7028ccb7454c385927a3a5",
+    "required_files": 27716,
+    "hashed_pins": 27685,
+    "missing_files": [],
+    "changed_files": [],
+    "not_in_git": [],
+    "portable_inputs_complete": true,
+    "models_launched": 0,
+    "preflight": {
+      "task": "IG-2B08",
+      "role": "executor",
+      "session": "private/workflow/checks/migration-preflight-19444c10367b40e7adf8a5c1510272b2",
+      "queue_unchanged": true,
+      "models_launched": 0
+    }
+  },
+  "preflight_wall_seconds": 293.84,
+  "validation_scope": "Measured on the source Windows host, with synthetic relocation and stale-binding regression tests. No second physical Windows computer was available.",
+  "source_or_semantic_acceptance_granted": false,
+  "instructions": "docs/work/IG2-RESTORE.md",
+  "checks": [
+    {
+      "command": "scripts/check.ps1 -Task IG-2B08 in explicit restored host environment",
+      "exit_code": 0
+    },
+    {
+      "command": "pytest tests/sources with unchanged suite in explicit restored host environment",
+      "exit_code": 0
+    },
+    {
+      "command": "ig2_resume_check.py --task IG-2B08 --host-runtime <local binding> --preflight",
+      "exit_code": 0
+    },
+    {
+      "command": "git -c core.longpaths=true diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": "git -c core.longpaths=true diff --cached --check",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/observed-source-host.json",
+      "sha256": "99f459405042bfb58a8cad509638ec4ca08a1b150c7bf169867b8f4e655873ad",
+      "bytes": 2892
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/required-reports.json",
+      "sha256": "1c70387e3649aa402bd3f610905bde61f75cf8226a23dcb90f06ff6c3b21d67e",
+      "bytes": 7158
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/resume-audit.json",
+      "sha256": "94e55a44580370be91c7b70c946a1eea0e5fc7c140188d3b4fa3fc93210b0ce8",
+      "bytes": 596
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/dry-run.log",
+      "sha256": "b4700704f7fc361b02bca2c63cc9b543180f2bf9a80bbaafdc5dface07d33df3",
+      "bytes": 185
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/full-check.log",
+      "sha256": "e36401b002228bb4db3e6dc46728904ccf971853eb1df95519ac7a4365c28548",
+      "bytes": 771
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/git-cached-diff-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/git-diff-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/plan.log",
+      "sha256": "19ea16b93167c3e5a49bd4ff78879840839ad84d1b20ae7914cbd570f9505d41",
+      "bytes": 60
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/pytest.log",
+      "sha256": "b46cd3f42e4444a3a47b30ac32abe4ae5338dd4eeae250ba3bc5b263905c41be",
+      "bytes": 427
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/result.json",
+      "sha256": "83f484adc0a9aaf6f80ae8861ee807fa0dc85eac04db9bea25635a815b063074",
+      "bytes": 206
+    },
+    {
+      "path": "private/workflow/runs/IG-2B08/migration-20261018-01/validation/sources-pytest.log",
+      "sha256": "9f864400c0c8c0f22b29a5124146581809231d7d121d7e01b3d6c92aea682d0e",
+      "bytes": 102
+    }
+  ]
+}

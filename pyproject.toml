@@ -2,7 +2,7 @@
 [tool.pytest.ini_options]
 # Explicit current suite also works before unrelated historical deletions are committed.
 # Product contract tests are included at frozen delivery, before acceptance.
-testpaths = ["tests/test_workflow.py", "tests/test_archive_tool.py", "tests/test_orchestrator.py", "tests/test_task_search.py", "tests/test_dependency_context.py", "tests/test_task_access.py", "tests/contracts"]
+testpaths = ["tests/test_workflow.py", "tests/test_archive_tool.py", "tests/test_orchestrator.py", "tests/test_task_search.py", "tests/test_dependency_context.py", "tests/test_task_access.py", "tests/test_host_runtime.py", "tests/test_ig2_resume_check.py", "tests/contracts"]
 pythonpath = ["src"]
 norecursedirs = ["archive", "private", ".git", ".venv", ".glu", ".agents"]
 addopts = "--import-mode=importlib --strict-markers"
